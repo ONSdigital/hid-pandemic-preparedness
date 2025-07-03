@@ -83,7 +83,14 @@ ONS Digital Services guidance and standards references the [GOV.UK Technology Co
 | sustainability-5 | Switch off non-production environments outside working hours | [Managing your spending in the cloud \- GOV.UK](https://www.gov.uk/guidance/managing-your-spending-in-the-cloud#:~:text=switch%20off%20non%2Dproduction%20environments%20outside%20working%20hours)                                                               |
 | sustainability-6 | Only run test environments during active testing             | [Managing your spending in the cloud \- GOV.UK](https://www.gov.uk/guidance/managing-your-spending-in-the-cloud#:~:text=only%20run%20test%20environments%20during%20active%20testing)                                                                             |
 
-## Video
+## Content
+
+| Id        | Requirement                                                                        | Ref                                    |
+| --------- | ---------------------------------------------------------------------------------- | -------------------------------------- |
+| content-1 | The application must provide a method for a "non-technical" user to upload content | ADP00041 alpha scoping exercise output |
+| content-2 | There is no requirement for a custom content review process within the CMS         | ADP00041 alpha scoping exercise output |
+
+### Video
 
 The requirements below are based on the YouTube recommended settings to ensure maximum compatibity. These requirements also closely match the settings required when [managing videos as assets using a CMS such as Contentful](https://www.contentful.com/blog/integrate-video-with-contentful/). Following these requirements will ensure video content can be served either as assets from the CMS or via a video service such as YouTube or Vimeo.
 
@@ -103,3 +110,11 @@ Certain requirements around video size, resolution and colour depth have been ch
 | video-10 | Video bitrate should be 8 Mbps for Standard Frame Rate (24, 25, 30fps) videos       | [YouTube recommended upload encoding settings - YouTube Help](https://support.google.com/youtube/answer/1722171?sjid=2700970926183044655-EU)                                                                                                                                                                                                                                                                    |
 | video-11 | Video bitrate should be 8 Mbps for High Frame Rate (48, 50, 60fps) videos           | [YouTube recommended upload encoding settings - YouTube Help](https://support.google.com/youtube/answer/1722171?sjid=2700970926183044655-EU)                                                                                                                                                                                                                                                                    |
 | video-12 | Video color space should be BT.709                                                  | [YouTube recommended upload encoding settings - YouTube Help](https://support.google.com/youtube/answer/1722171?sjid=2700970926183044655-EU)                                                                                                                                                                                                                                                                    |
+
+## Users
+
+| Id      | Requirement                                                                        | Ref                                    |
+| ------- | ---------------------------------------------------------------------------------- | -------------------------------------- |
+| users-1 | There is no requirement for user assessment or completion tracking against content | ADP00041 alpha scoping exercise output |
+| users-2 | User accounts or logins must not be required to use the site                       | ADP00041 alpha scoping exercise output |
+| users-3 | There is no requirement for a non-admin user to upload data                        | ADP00041 alpha scoping exercise output |
