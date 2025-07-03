@@ -1,4 +1,4 @@
-# Development workflow
+# Contributing
 
 In order to comply with ONS Digital Services guidance and standards, and to follow general best practice, please follow the principles below when interacting with this project.
 
