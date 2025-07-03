@@ -103,7 +103,7 @@ Certain requirements around video size, resolution and colour depth have been ch
 | security-11 | Don't allow arbitrary queries against your data                                                                        | [Reduce the impact of compromise \- NCSC.GOV.UK](https://www.ncsc.gov.uk/collection/cyber-security-design-principles/reducing-the-impact-of-compromise#:~:text=5.7%20Don%27t%20allow%20arbitrary%20queries%20against%20your%20data)                                                                      |
 | security-12 | The platform should have strong cybersecurity measures, including secure HTTPS encryption and regular security updates | Pandemic Preparedness Toolkit Project Platform Requirements                                                                                                                                                                                                                                              |
 
-### Sustainability
+## Sustainability
 
 | Id               | Requirement                                                  | Ref                                                                                                                                                                                                                                                               |
 | :--------------- | :----------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
