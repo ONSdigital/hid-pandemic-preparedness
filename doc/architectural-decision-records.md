@@ -25,9 +25,18 @@ A headless CMS was chosen in place of a traditional CMS for the following reason
 
 ## ADR-2: Deploy as a static site
 
-## ADR-3: Use the Next.js web framework
+## ADR-3: Use the Next.js web framework v15.x
 
-## ADR-4: Use node.js version v22.X
+[ADR-2](#adr-2-deploy-as-a-static-site) requires that the application is deployed as a static site. Many web frameworks can be used to develop static sites, with [Astro](https://astro.build/), [Gatsby](https://www.gatsbyjs.com/), [Hugo](https://gohugo.io/) and [Next.js](https://nextjs.org/) being evaluated. Next.js was chosen for the following reasons:
+
+- It can be configured to use Static Site Generation (SSG), Server-Side Rendering (SSR) or Incremental Static Regeneration (ISR). This means if the requirement for a static site changes (e.g. due to content requirement changes) Next.js can still be used
+-
+
+At the time of project initiation, [next.js v15.3.4](https://github.com/vercel/next.js/releases/tag/v15.3.4) is the latest LTS version available. Using this version ensures the applications maintainability and sustainability.
+
+The minor version of this node version will be incremented during development as and when new versions are available. See the [package.json](../package.json) file for the current version used.
+
+## ADR-4: Use node.js version v22.x
 
 Node.js is required for the Next.js framework. At the time of project initiation, [node.js v22.17.0](https://nodejs.org/download/release/v22.17.0/) is the latest LTS version available. Using this version ensures the applications maintainability and sustainability.
 
