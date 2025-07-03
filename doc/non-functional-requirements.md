@@ -14,6 +14,16 @@ ONS Digital Services guidance and standards references the [GOV.UK Technology Co
 | accessibility-2 | The app must work on the most commonly used assistive technologies                             | [Making your service accessible: an introduction \- Service Manual \- GOV.UK](https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction#:~:text=work%20on%20the%20most%20commonly%20used%20assistive%20technologies%20%2D%20including%20screen%20magnifiers%2C%20screen%20readers%20and%20speech%20recognition%20tools)                         |
 | accessibility-3 | The app must have an accessibility statement that explains how accessible the service is       | [Making your service accessible: an introduction \- Service Manual \- GOV.UK](https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction#:~:text=have%20an%20accessibility%20statement%20that%20explains%20how%20accessible%20the%20service%20is%20%2D%20you%20need%20to%20publish%20this%20when%20the%20service%20moves%20into%20public%20beta) |
 
+## Availability
+
+The UK Office for National Statistics (ONS) is collaborating with NSOs and Delivery Partners within Argentina, Malawi, and Nepal to co-develop the application. The application therefore must be available across multiple regions worldwide.
+
+| Id             | Requirement                                                                                                | Ref                                                         |
+| :------------- | :--------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- |
+| availability-1 | The application must be available across Africa, Asia, Europe and South America regions                    | Pandemic Preparedness Toolkit Project Platform Requirements |
+| availability-2 | The application must be discoverable across Africa, Asia, Europe and South America regions                 | Pandemic Preparedness Toolkit Project Platform Requirements |
+| availability-3 | The application must provide downloadable content to aid use where an internet connection is not available | Pandemic Preparedness Toolkit Project Platform Requirements |
+
 ## Compatibility
 
 | Id              | Requirement                                                                                                   | Ref                                                         |
@@ -69,13 +79,20 @@ Certain requirements around video size, resolution and colour depth have been ch
 | development-14 | Use the CSV on the Web (CSVW) standard to add metadata to describe the contents and structure of comma-separated values (CSV) data files | [Using metadata to describe CSV data \- GOV.UK](https://www.gov.uk/government/publications/recommended-open-standards-for-government/using-metadata-to-describe-csv-data)                                                                                 |
 | development-15 | Use the REST API style when transferring data across application layers                                                                  | [API technical and data standards \- GOV.UK](https://www.gov.uk/guidance/gds-api-technical-and-data-standards)                                                                                                                                            |
 
+## Internationalization
+
+| Id                     | Requirement                                                                    | Ref                                                         |
+| :--------------------- | :----------------------------------------------------------------------------- | :---------------------------------------------------------- |
+| internationalization-1 | The application must be able to provide content in English, French and Spanish | Pandemic Preparedness Toolkit Project Platform Requirements |
+
 ## Performance and reliability
 
 | Id            | Requirement                                                                                                     | Ref                                                                                                                                                |
 | :------------ | :-------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | performance-1 | The application should have fast load times and be able to handle high traffic without performance degradation. | Pandemic Preparedness Toolkit Project Platform Requirements                                                                                        |
-| performance-2 | Maximise uptime and speed of response                                                                           | [Operate a reliable service \- Service Standard \- GOV.UK](https://www.gov.uk/service-manual/service-standard/point-14-operate-a-reliable-service) |
-| performance-3 | Appropriate monitoring should be in place                                                                       | [Operate a reliable service \- Service Standard \- GOV.UK](https://www.gov.uk/service-manual/service-standard/point-14-operate-a-reliable-service) |
+| performance-2 | The application must provide a good user experience in low-bandwith environments                                | Pandemic Preparedness Toolkit Project Platform Requirements                                                                                        |
+| performance-3 | Maximise uptime and speed of response                                                                           | [Operate a reliable service \- Service Standard \- GOV.UK](https://www.gov.uk/service-manual/service-standard/point-14-operate-a-reliable-service) |
+| performance-4 | Appropriate monitoring should be in place                                                                       | [Operate a reliable service \- Service Standard \- GOV.UK](https://www.gov.uk/service-manual/service-standard/point-14-operate-a-reliable-service) |
 
 ## Privacy
 
