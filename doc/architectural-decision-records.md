@@ -2,9 +2,16 @@
 
 This page lists the Architectural Decision Records (ADRs) that have defined the architecture and implementation of the application. The table below provides a high-level list of the application ADRs and their related non-functional requirements (NFRs). Further discussion is given in each section, including references to related NFRs.
 
-| Id    | Title              | Related NFRs                |
-| ----- | ------------------ | --------------------------- |
-| ADR-1 | Use a headless CMS | content-1, users-1, users-2 |
+| Id    | Title                         | Related NFRs                       |
+| ----- | ----------------------------- | ---------------------------------- |
+| ADR-1 | Use a headless CMS            | content-1, users-1, users-2        |
+| ADR-2 | Deploy as a static site       |                                    |
+| ADR-3 | Use the Next.js web framework |                                    |
+| ADR-4 | Use node.js version v22.X     | security-2, security-6, security-9 |
+| ADR-5 | Use typescript                |                                    |
+| ADR-6 | Deploy as a static site       |                                    |
+| ADR-7 | Deploy as a static site       |                                    |
+| ADR-8 | Deploy as a static site       |                                    |
 
 ## ADR-1: Use a headless CMS
 
@@ -19,5 +26,11 @@ A headless CMS was chosen in place of a traditional CMS for the following reason
 ## ADR-2: Deploy as a static site
 
 ## ADR-3: Use the Next.js web framework
+
+## ADR-4: Use node.js version v22.X
+
+Node.js is required for the Next.js framework. At the time of project initiation, [node.js v22.17.0](https://nodejs.org/download/release/v22.17.0/) is the latest LTS version available. Using this version ensures the applications maintainability and sustainability.
+
+The minor version of this node version will be incremented during development as and when new versions are available. See the [.nvmrc](../.nvmrc) file for the current version used.
 
 ## ADR-4: Use typescript
