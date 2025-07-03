@@ -1,18 +1,3 @@
-<style>
-  table {
-      width: 100%
-  }
-  table th:first-of-type {
-      width: 13%;
-  }
-  table th:nth-of-type(2) {
-      width: 57%;
-  }
-  table th:nth-of-type(3) {
-      width: 30%;
-  }
-</style>
-
 # Non-functional requirements
 
 This page lists the non-functional requirements the application is designed to meet.
