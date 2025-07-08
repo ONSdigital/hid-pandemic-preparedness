@@ -62,7 +62,7 @@ The application needs to be available across multiple regions worldwide \[availa
 
 ## ADR-8: Use the Next.js web framework v15.x
 
-[ADR-2](#adr-2-deploy-as-a-static-site) requires that the application is deployed as a static site. Many web frameworks can be used to develop static sites, with [Astro](https://astro.build/), [Gatsby](https://www.gatsbyjs.com/), [Hugo](https://gohugo.io/) and [Next.js](https://nextjs.org/) being evaluated. Next.js was chosen for the following reasons:
+[ADR-6](#adr-6-deploy-as-a-static-site) requires that the application is deployed as a static site. Many web frameworks can be used to develop static sites, with [Astro](https://astro.build/), [Gatsby](https://www.gatsbyjs.com/), [Hugo](https://gohugo.io/) and [Next.js](https://nextjs.org/) being evaluated. Next.js was chosen for the following reasons:
 
 - It can be configured to use Static Site Generation (SSG), Server-Side Rendering (SSR) or Incremental Static Regeneration (ISR). This means if the requirement for a static site changes (e.g. due to content requirement changes) Next.js can still be used
 - It can be easily integrated with Storybook, which will speed up the development process
