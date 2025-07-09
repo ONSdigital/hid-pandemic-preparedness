@@ -24,4 +24,14 @@ To install dependencies and configure the IaC for first use, follow the instruct
 
    `$ tfenv use $(cat .terraform-version)`
 
-The project is now ready for development or to use for deployments.
+5. If you haven't already done so, [create access keys linked to your aws account](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-key-self-managed.html)
+
+6. Using the aws cli, configure your aws profile using the access keys associated with your account.
+
+   `$ aws configure`
+
+The IaC is now ready for development or to use for deployments.
+
+## Provisioning resources
+
+To provision resources on aws, run either `terraform plan`, `terraform apply` or `terraform destroy` in the `/iac` directory. See the [terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create) for more details.
