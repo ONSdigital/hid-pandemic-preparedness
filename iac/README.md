@@ -14,7 +14,7 @@ To install dependencies and configure the IaC for first use, follow the instruct
 1. Open a terminal in the `/iac` directory
 2. Install dependencies using `brew`
 
-   `$ brew upgrade && brew install awscli tfenv`
+   `$ brew install awscli tfenv`
 
 3. Install the terraform version defined in the `.terraform-version` file using `tfenv`
 

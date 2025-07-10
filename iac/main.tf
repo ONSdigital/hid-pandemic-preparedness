@@ -6,6 +6,12 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "hid-ppt-tf-state"
+    key    = "terraform.tfstate"
+    region = "eu-west-2"
+  }
+
   required_version = "~> 1.12.2"
 }
 
