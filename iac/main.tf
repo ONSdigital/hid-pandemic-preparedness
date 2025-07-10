@@ -7,9 +7,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "hid-ppt-tf-state"
+    bucket = join("-", [var.bucket_name_prefix, "tf-state"])
     key    = "terraform.tfstate"
-    region = "eu-west-2"
+    region = var.region
   }
 
   required_version = "~> 1.12.2"
@@ -17,7 +17,7 @@ terraform {
 
 
 resource "aws_s3_bucket" "storybook_dev" {
-  bucket        = "hid-ppt-storybook-dev"
+  bucket        = join("-", [var.bucket_name_prefix, "storybook-dev"])
   force_destroy = true
 }
 
