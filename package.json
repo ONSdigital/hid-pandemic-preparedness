@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook-dev": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-dev/ --delete --acl public-read"
   },
   "dependencies": {
     "next": "15.3.5",

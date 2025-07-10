@@ -4,10 +4,12 @@ This is the Infrastructure-as-Code (IaC) for the Pandemic Preparedness Tool proj
 
 ## Requirements and initial setup
 
-This project has the following dependencies:
+This IaC has the following dependencies:
 
 - [aws cli](https://aws.amazon.com/cli/)
 - [tfenv](https://github.com/tfutils/tfenv)
+
+You will also need a IAM user for the project AWS account with the relevant permissions.
 
 To install dependencies and configure the IaC for first use, follow the instructions below:
 
