@@ -50,9 +50,9 @@ npm i --include-dev
 
 The project is now ready for development or to use for deployments.
 
-## Getting Started
+## Development server
 
-First, run the Next.js development server:
+To run the Next.js development server:
 
 ```bash
 npm run dev
@@ -60,19 +60,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Next, run the Storybook development server:
-
-```bash
-npm run storybook
-```
-
-Open [http://localhost:6006](http://localhost:6006) with your browser to see the result.
-
 ## Storybook
 
 This project uses [Storybook](https://storybook.js.org/) to build UI components and pages in isolation.
 
-To run Storybook locally:
+To run Storybook development server:
 
 ```bash
 npm run storybook
