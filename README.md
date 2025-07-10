@@ -62,8 +62,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Storybook
 
-This project uses [Storybook](https://storybook.js.org/) to build UI components and pages in isolation.
-
 To run Storybook development server:
 
 ```bash
