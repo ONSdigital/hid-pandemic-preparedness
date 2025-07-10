@@ -7,9 +7,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket = join("-", [var.bucket_name_prefix, "tf-state"])
+    bucket = "hid-ppt-tf-state"
     key    = "terraform.tfstate"
-    region = var.region
+    region = "eu-west-2"
   }
 
   required_version = "~> 1.12.2"
