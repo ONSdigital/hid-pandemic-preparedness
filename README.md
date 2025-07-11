@@ -92,6 +92,10 @@ npm run lint
 
 This project uses GitHub Actions workflows for Continuous Integration and Continuous Deployment (CI/CD). Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
 
-### Pull request and push CI
+### Pull request and push integration
 
 [This workflow](./.github/workflows/main-pr-push-ci.yml) is configured to audit dependencies, linting and automatically build code changes on every push or pull request targeting the main branch.
+
+### Push deployment
+
+[This workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy Storybook on every push targeting the main branch. Once deployed successfully Storybook will be available at http://hid-ppt-storybook-main.s3-website.eu-west-2.amazonaws.com.
