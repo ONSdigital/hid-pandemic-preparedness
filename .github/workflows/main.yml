@@ -1,0 +1,17 @@
+name: "Merge to main CI"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: nvm use $(cat .nvmrc)
+      - run: npm audit
+      
