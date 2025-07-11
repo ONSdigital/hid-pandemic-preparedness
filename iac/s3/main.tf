@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "aws_s3_bucket" {
 }
 
 resource "aws_s3_bucket_ownership_controls" "aws_s3_bucket_ownership_controls" {
-  count = var.configure_for_site_hosting ? 1 : 0
+  count  = var.configure_for_site_hosting ? 1 : 0
   bucket = aws_s3_bucket.aws_s3_bucket.id
 
   rule {
@@ -13,7 +13,7 @@ resource "aws_s3_bucket_ownership_controls" "aws_s3_bucket_ownership_controls" {
 }
 
 resource "aws_s3_bucket_public_access_block" "aws_s3_bucket_public_access_block" {
-  count = var.configure_for_site_hosting ? 1 : 0
+  count  = var.configure_for_site_hosting ? 1 : 0
   bucket = aws_s3_bucket.aws_s3_bucket.id
 
   block_public_acls       = false
@@ -23,10 +23,10 @@ resource "aws_s3_bucket_public_access_block" "aws_s3_bucket_public_access_block"
 }
 
 resource "aws_s3_bucket_acl" "aws_s3_bucket_acl" {
-  count = var.configure_for_site_hosting ? 1 : 0
+  count  = var.configure_for_site_hosting ? 1 : 0
   bucket = aws_s3_bucket.aws_s3_bucket.id
 
-  acl    = "public-read"
+  acl = "public-read"
 
   depends_on = [
     aws_s3_bucket_ownership_controls.aws_s3_bucket_ownership_controls,
@@ -36,7 +36,7 @@ resource "aws_s3_bucket_acl" "aws_s3_bucket_acl" {
 
 
 resource "aws_s3_bucket_website_configuration" "aws_s3_bucket_website_configuration" {
-  count = var.configure_for_site_hosting ? 1 : 0
+  count  = var.configure_for_site_hosting ? 1 : 0
   bucket = aws_s3_bucket.aws_s3_bucket.id
 
   index_document {
