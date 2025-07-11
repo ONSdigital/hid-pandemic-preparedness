@@ -1,4 +1,4 @@
-name: "Pull request and merge CI"
+name: "Pull request and push CI"
 
 on:
   push:

@@ -92,6 +92,6 @@ npm run lint
 
 This project uses GitHub Actions workflows for Continuous Integration and Continuous Deployment (CI/CD). Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
 
-### Pull request and merge CI
+### Pull request and push CI
 
-[This workflow](./.github/workflows/main-pr-merge-ci.yml) is configured to audit dependencies, linting and automatically build code changes on every push or pull request targeting the main branch.
+[This workflow](./.github/workflows/main-pr-push-ci.yml) is configured to audit dependencies, linting and automatically build code changes on every push or pull request targeting the main branch.
