@@ -15,47 +15,51 @@ terraform {
   required_version = "~> 1.12.2"
 }
 
-
-resource "aws_s3_bucket" "storybook_dev" {
-  bucket        = join("-", [var.bucket_name_prefix, "storybook-dev"])
-  force_destroy = true
+# Create bucket for storybook dev site hosting
+module "storybook_dev" {
+  source                     = "./s3"
+  bucket_name                = "${var.bucket_name_prefix}-storybook-dev"
+  configure_for_site_hosting = true
+  force_destroy              = true
 }
 
-resource "aws_s3_bucket_ownership_controls" "storybook_dev_ownership_controls" {
-  bucket = aws_s3_bucket.storybook_dev.id
-  rule {
-    object_ownership = "BucketOwnerPreferred"
+# Create bucket for storybook main site hosting
+module "storybook_main" {
+  source                     = "./s3"
+  bucket_name                = "${var.bucket_name_prefix}-storybook-main"
+  configure_for_site_hosting = true
+  force_destroy              = true
+}
+
+
+# Create iam user for automated deployments via github actions
+resource "aws_iam_user" "aws_iam_user" {
+  name = "github-actions"
+}
+
+data "aws_iam_policy_document" "aws_iam_policy_document" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:PutObject",
+      "s3:GetObject",
+      "s3:DeleteObject",
+      "s3:ListBucket"
+    ]
+    resources = [
+      "arn:aws:s3:::${module.storybook_main.id}",
+      "arn:aws:s3:::${module.storybook_main.id}/*"
+    ]
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "storybook_dev_public_access_block" {
-  bucket = aws_s3_bucket.storybook_dev.id
-
-  block_public_acls       = false
-  block_public_policy     = false
-  ignore_public_acls      = false
-  restrict_public_buckets = false
+resource "aws_iam_policy" "aws_iam_policy" {
+  name        = "github-actions-s3-access"
+  description = "Allow S3 access to specific bucket"
+  policy      = data.aws_iam_policy_document.aws_iam_policy_document.json
 }
 
-resource "aws_s3_bucket_acl" "storybook_dev_acl" {
-  depends_on = [
-    aws_s3_bucket_ownership_controls.storybook_dev_ownership_controls,
-    aws_s3_bucket_public_access_block.storybook_dev_public_access_block,
-  ]
-
-  bucket = aws_s3_bucket.storybook_dev.id
-  acl    = "public-read"
-}
-
-
-resource "aws_s3_bucket_website_configuration" "storybook_dev_website_configuration" {
-  bucket = aws_s3_bucket.storybook_dev.id
-
-  index_document {
-    suffix = "index.html"
-  }
-
-  error_document {
-    key = "404.html"
-  }
+resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment" {
+  user       = aws_iam_user.aws_iam_user.name
+  policy_arn = aws_iam_policy.aws_iam_policy.arn
 }
