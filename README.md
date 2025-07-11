@@ -90,11 +90,7 @@ npm run lint
 
 ## CI/CD workflows
 
-This project uses the following GitHub Actions workflows:
-
-- [Pull request and merge CI](./.github/workflows/main-pr-merge-ci.yml)
-
-Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
+This project uses GitHub Actions workflows for Continuous Integration and Continuous Deployment (CI/CD). Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
 
 ### Pull request and merge CI
 
