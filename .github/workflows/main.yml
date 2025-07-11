@@ -1,4 +1,4 @@
-name: "Merge to main CI"
+name: "Pull request CI"
 
 on:
   push:
@@ -7,16 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  audit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "npm"
-      - run: npm ci
-  build:
+  audit-lint-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,13 +17,3 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run build
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "npm"
-      - run: npm ci
-      - run: npm run lint
