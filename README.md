@@ -77,3 +77,25 @@ npm run deploy-storybook-dev
 ```
 
 Once this has built and deployed successfully Storybook will be available at http://hid-ppt-storybook-dev.s3-website.eu-west-2.amazonaws.com.
+
+## Linting and code formatting
+
+This project uses [ESLint](https://eslint.org/) for code static analysis and linting.
+
+To run ESLint locally:
+
+```bash
+npm run lint
+```
+
+## CI/CD workflows
+
+This project uses the following GitHub Actions workflows:
+
+- [Pull request and merge CI](./.github/workflows/main-pr-merge-ci.yml)
+
+Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
+
+### Pull request and merge CI
+
+[This workflow](./.github/workflows/main-pr-merge-ci.yml) is configured to audit dependencies, linting and automatically build code changes on every push or pull request targeting the main branch.
