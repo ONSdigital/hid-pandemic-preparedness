@@ -3,16 +3,24 @@ name: "Pull request and push integration (app)"
 on:
   push:
     branches: ["main"]
-    paths-ignore:
-      - "/.github/**"
-      - "/doc/**"
-      - "/iac/**"
+    paths:
+      - "/.storybook/**"
+      - "/public/**"
+      - "/src/**"
+      - "*.js"
+      - "*.json"
+      - "*.mjs"
+      - "*.ts"
   pull_request:
     branches: ["main"]
-    paths-ignore:
-      - "/.github/**"
-      - "/doc/**"
-      - "/iac/**"
+    paths:
+      - "/.storybook/**"
+      - "/public/**"
+      - "/src/**"
+      - "*.js"
+      - "*.json"
+      - "*.mjs"
+      - "*.ts"
 
 jobs:
   audit-lint-build:
