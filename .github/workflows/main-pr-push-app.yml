@@ -1,10 +1,18 @@
-name: "Pull request and push integration"
+name: "Pull request and push integration (app)"
 
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - "/.github/**"
+      - "/doc/**"
+      - "/iac/**"
   pull_request:
     branches: ["main"]
+    paths-ignore:
+      - "/.github/**"
+      - "/doc/**"
+      - "/iac/**"
 
 jobs:
   audit-lint-build:
