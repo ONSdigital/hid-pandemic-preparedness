@@ -15,26 +15,43 @@ terraform {
   required_version = "~> 1.12.2"
 }
 
-# Create bucket for storybook dev site hosting
-module "storybook_dev" {
+# Create bucket for storybook dev
+module "storybook_dev_s3" {
   source                     = "./s3"
   bucket_name                = "${var.bucket_name_prefix}-storybook-dev"
-  configure_for_site_hosting = true
+  configure_for_site_hosting = false
   force_destroy              = true
 }
 
-# Create bucket for storybook main site hosting
-module "storybook_main" {
+# Set up cloudfront distribution for storybook dev
+module "storybook_dev_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.storybook_dev_s3.id
+  bucket_regional_domain_name = module.storybook_dev_s3.bucket_regional_domain_name
+  distribution_enabled        = true
+}
+
+# Create bucket for storybook main
+module "storybook_main_s3" {
   source                     = "./s3"
   bucket_name                = "${var.bucket_name_prefix}-storybook-main"
-  configure_for_site_hosting = true
+  configure_for_site_hosting = false
   force_destroy              = true
+}
+
+# Set up cloudfront distribution for storybook main
+module "storybook_main_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.storybook_main_s3.id
+  bucket_regional_domain_name = module.storybook_main_s3.bucket_regional_domain_name
+  distribution_enabled        = true
 }
 
 
 # Create iam user for automated deployments via github actions
 resource "aws_iam_user" "aws_iam_user" {
-  name = "github-actions"
+  name          = "github-actions"
+  force_destroy = true
 }
 
 data "aws_iam_policy_document" "aws_iam_policy_document" {
@@ -49,8 +66,8 @@ data "aws_iam_policy_document" "aws_iam_policy_document" {
       "s3:ListBucket"
     ]
     resources = [
-      "arn:aws:s3:::${module.storybook_main.id}",
-      "arn:aws:s3:::${module.storybook_main.id}/*"
+      "arn:aws:s3:::${module.storybook_main_s3.id}",
+      "arn:aws:s3:::${module.storybook_main_s3.id}/*"
     ]
   }
 }

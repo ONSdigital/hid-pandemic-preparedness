@@ -9,8 +9,8 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "deploy-storybook-dev": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-dev/ --delete --acl public-read",
-    "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete --acl public-read"
+    "deploy-storybook-dev": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-dev/ --delete",
+    "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete"
   },
   "dependencies": {
     "next": "15.3.5",
