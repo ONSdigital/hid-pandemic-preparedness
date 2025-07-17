@@ -67,6 +67,8 @@ The application needs to be available across multiple regions worldwide \[availa
 
 ## ADR-8: Use Storybook for UI development
 
+The choice of Storybook for the project's design system was made to ensure that components can be built and tested in isolation; this ensures UI modularity (which promotes a clean, maintainable code-base) and Quality Assurance. Developing our component library using Storybook allows us to make use of its accessibility tools \[accessibility-1\] and serves as documentation that can be easily shared across the team, which will ensure design alignment.
+
 ## ADR-9: Use node.js version v22.x
 
 Node.js is required for the Astro.js framework. At the time of project initiation, [node.js v22.17.0](https://nodejs.org/download/release/v22.17.0/) is the latest LTS version available. Using this version ensures the applications maintainability and sustainability.
@@ -74,6 +76,8 @@ Node.js is required for the Astro.js framework. At the time of project initiatio
 The minor version of this node version will be incremented during development as and when new versions are available. See the [.nvmrc](../.nvmrc) file for the current version used.
 
 ## ADR-10: Use typescript
+
+In order to make the long-term maintenance of the project reliable and efficient, TypeScript was chosen for its static typing, which will help catch errors early and improves overall code readability.
 
 ## ADR-11: Use the Astro.js web framework v5.11.1
 
