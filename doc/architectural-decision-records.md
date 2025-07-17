@@ -14,7 +14,7 @@ This page lists the Architectural Decision Records (ADRs) that have defined the 
 | [ADR-8](#adr-8-use-storybook-for-ui-development)                                           | Use Storybook for UI development                                           |                                                                                                                             |
 | [ADR-9](#adr-9-use-nodejs-version-v22x)                                                    | Use node.js version v22.X                                                  | security-2, security-6, security-9                                                                                          |
 | [ADR-10](#adr-10-use-typescript)                                                           | Use typescript                                                             |                                                                                                                             |
-| [ADR-11](#adr-11-use-the-nextjs-web-framework-v15x)                                        | Use the Next.js web framework                                              |                                                                                                                             |
+| [ADR-11](#adr-11-use-the-astrojs-web-framework-v5.11.1)                                    | Use the Astro.js web framework                                             |                                                                                                                             |
 
 ## ADR-1: Manage project source code as public repository on ONSdigital organisation
 
@@ -69,19 +69,21 @@ The application needs to be available across multiple regions worldwide \[availa
 
 ## ADR-9: Use node.js version v22.x
 
-Node.js is required for the Next.js framework. At the time of project initiation, [node.js v22.17.0](https://nodejs.org/download/release/v22.17.0/) is the latest LTS version available. Using this version ensures the applications maintainability and sustainability.
+Node.js is required for the Astro.js framework. At the time of project initiation, [node.js v22.17.0](https://nodejs.org/download/release/v22.17.0/) is the latest LTS version available. Using this version ensures the applications maintainability and sustainability.
 
 The minor version of this node version will be incremented during development as and when new versions are available. See the [.nvmrc](../.nvmrc) file for the current version used.
 
 ## ADR-10: Use typescript
 
-## ADR-11: Use the Next.js web framework v15.x
+## ADR-11: Use the Astro.js web framework v5.11.1
 
-[ADR-7](#adr-6-deploy-as-a-static-site) requires that the application is deployed as a static site. Many web frameworks can be used to develop static sites, with [Astro](https://astro.build/), [Gatsby](https://www.gatsbyjs.com/), [Hugo](https://gohugo.io/) and [Next.js](https://nextjs.org/) being evaluated. Next.js was chosen for the following reasons:
+[ADR-7](#adr-6-deploy-as-a-static-site) requires that the application is deployed as a static site. Many web frameworks can be used to develop static sites, with [Astro](https://astro.build/), [Gatsby](https://www.gatsbyjs.com/), [Hugo](https://gohugo.io/) and [Next.js](https://nextjs.org/) being evaluated. Astro was chosen for the following reasons:
 
-- It can be configured to use Static Site Generation (SSG), Server-Side Rendering (SSR) or Incremental Static Regeneration (ISR). This means if the requirement for a static site changes (e.g. due to content requirement changes) Next.js can still be used
-- It can be easily integrated with Storybook, which will speed up the development process
+- It is optimised for Static Site Generation (SSG), which prioritises Server-Side Rendering (SSR)
+- It is well suited for a content-heavy application that has minimal dynamic content
+- It sends zero JavaScript on render unless specified, which means it has improved load times and reduced band-width [performance-1] [performance-2]
+- It is framework agnostic, which means that components can be built using React and integrated within Storybook
 
-At the time of project initiation, [next.js v15.3.4](https://github.com/vercel/next.js/releases/tag/v15.3.4) is the latest LTS version available. Using this version ensures the applications maintainability and sustainability.
+At the time of project initiation, [Astro.js v5.11.1](https://github.com/withastro/astro/releases/tag/astro%405.11.1) is the latest stable version available.
 
-The minor version of this node version will be incremented during development as and when new versions are available. See the [package.json](../package.json) file for the current version used.
+The minor version of this Astro.js version will be incremented during development as and when new versions are available. See the [package.json](../package.json) file for the current version used.
