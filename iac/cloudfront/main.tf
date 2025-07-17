@@ -16,7 +16,8 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
     origin_id                = local.s3_origin_id
   }
 
-  enabled = var.distribution_enabled
+  enabled             = var.distribution_enabled
+  default_root_object = "index.html"
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -37,7 +38,7 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
     max_ttl                = 86400
   }
 
-  price_class = "PriceClass_200"
+  price_class = "PriceClass_100"
 
   restrictions {
     geo_restriction {

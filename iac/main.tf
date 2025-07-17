@@ -31,6 +31,37 @@ module "storybook_dev_cloudfront" {
   distribution_enabled        = true
 }
 
+# Attach new policy to bucket to allow cloudfront to access
+data "aws_iam_policy_document" "aws_iam_policy_document_storybook_dev" {
+  statement {
+    sid    = "AllowCloudFrontServicePrincipal"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:GetObject"
+    ]
+    resources = [
+      "arn:aws:s3:::${module.storybook_dev_s3.id}/*"
+    ]
+
+    condition {
+      test     = "ArnLike"
+      variable = "aws:SourceArn"
+      values   = [module.storybook_dev_cloudfront.arn]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "aws_s3_bucket_policy_storybook_dev_allow_cloudfront" {
+  bucket = module.storybook_dev_s3.id
+  policy = data.aws_iam_policy_document.aws_iam_policy_document_storybook_dev.json
+}
+
 # Create bucket for storybook main
 module "storybook_main_s3" {
   source                     = "./s3"
