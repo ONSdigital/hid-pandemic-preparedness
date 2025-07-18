@@ -94,8 +94,10 @@ This project uses GitHub Actions workflows for Continuous Integration and Contin
 
 ### Pull request and push integration
 
-[This workflow](./.github/workflows/main-pr-push-ci.yml) is configured to audit dependencies, linting and automatically build code changes on every push or pull request targeting the main branch.
+The [main-pr-push-app.yml workflow](./.github/workflows/main-pr-push-app.yml) is configured to audit dependencies, linting and automatically build code changes related to the project application code on every push or pull request targeting the main branch.
+
+The [main-pr-push-iac.yml workflow](./.github/workflows/main-pr-push-iac.yml) is configured to validate and check the format of code changes related to the project Infrastructure as Code (IaC) on every push or pull request targeting the main branch.
 
 ### Push deployment
 
-[This workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy Storybook on every push targeting the main branch. Once deployed successfully Storybook will be available at at an address defined by the AWS Cloudfront distribution.
+The [main-push-cd.yml workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy Storybook on every push targeting the main branch. Once deployed successfully Storybook will be available at at an address defined by the AWS Cloudfront distribution.
