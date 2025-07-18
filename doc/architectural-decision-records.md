@@ -81,7 +81,7 @@ In order to make the long-term maintenance of the project reliable and efficient
 
 ## ADR-11: Use the Astro.js web framework v5.11.1
 
-[ADR-7](#adr-6-deploy-as-a-static-site) requires that the application is deployed as a static site. Many web frameworks can be used to develop static sites, with [Astro](https://astro.build/), [Gatsby](https://www.gatsbyjs.com/), [Hugo](https://gohugo.io/) and [Next.js](https://nextjs.org/) being evaluated. Astro was chosen for the following reasons:
+[ADR-7](#adr-7-deploy-as-a-static-site) requires that the application is deployed as a static site. Many web frameworks can be used to develop static sites, with [Astro](https://astro.build/), [Gatsby](https://www.gatsbyjs.com/), [Hugo](https://gohugo.io/) and [Next.js](https://nextjs.org/) being evaluated. Astro was chosen for the following reasons:
 
 - It is optimised for Static Site Generation (SSG), which prioritises Server-Side Rendering (SSR)
 - It is well suited for a content-heavy application that has minimal dynamic content
