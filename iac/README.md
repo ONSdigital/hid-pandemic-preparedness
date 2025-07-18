@@ -37,3 +37,14 @@ The IaC is now ready for development or to use for deployments.
 ## Provisioning resources
 
 To provision resources on aws, run either `terraform plan`, `terraform apply` or `terraform destroy` in the `/iac` directory. See the [terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create) for more details.
+
+This infrastructure is configured to do the following:
+
+- Create S3 buckets for Storybook deployment
+- Create Cloudfront distributions to serve storybook deployments
+- Create an IAM user and a policy to allow Github actions workflows to build and sync Storybook files to an S3 bucket
+
+The infrastructure creates the IAM user, but does not create the access key and secret access key necessary for Github actions to authenticate with AWS as part of the workflow. Once the infrastructure has created the IAM user, this step must be done manually. To do this follow the steps below:
+
+- [Create access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) for the github actions IAM user
+- Add these keys as [secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-secrets-in-github-actions). The access key should be stored as `AWS_ACCESS_KEY` and the secret key should be stored as `AWS_SECRET_ACCESS_KEY`

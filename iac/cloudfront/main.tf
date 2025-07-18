@@ -51,3 +51,34 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
     cloudfront_default_certificate = true
   }
 }
+
+# Attach new policy to bucket to allow cloudfront to access
+data "aws_iam_policy_document" "aws_iam_policy_document" {
+  statement {
+    sid    = "AllowCloudFrontServicePrincipal"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:GetObject"
+    ]
+    resources = [
+      "arn:aws:s3:::${var.bucket_name}/*"
+    ]
+
+    condition {
+      test     = "ArnLike"
+      variable = "aws:SourceArn"
+      values   = [aws_cloudfront_distribution.aws_cloudfront_distribution.arn]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "aws_s3_bucket_policy" {
+  bucket = var.bucket_name
+  policy = data.aws_iam_policy_document.aws_iam_policy_document.json
+}

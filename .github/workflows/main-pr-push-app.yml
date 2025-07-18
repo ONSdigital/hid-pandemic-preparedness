@@ -4,9 +4,9 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "/.storybook/**"
-      - "/public/**"
-      - "/src/**"
+      - ".storybook/**"
+      - "public/**"
+      - "src/**"
       - "*.js"
       - "*.json"
       - "*.mjs"
@@ -14,9 +14,9 @@ on:
   pull_request:
     branches: ["main"]
     paths:
-      - "/.storybook/**"
-      - "/public/**"
-      - "/src/**"
+      - ".storybook/**"
+      - "public/**"
+      - "src/**"
       - "*.js"
       - "*.json"
       - "*.mjs"

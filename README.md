@@ -98,4 +98,4 @@ This project uses GitHub Actions workflows for Continuous Integration and Contin
 
 ### Push deployment
 
-[This workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy Storybook on every push targeting the main branch. Once deployed successfully Storybook will be available at http://hid-ppt-storybook-main.s3-website.eu-west-2.amazonaws.com.
+[This workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy Storybook on every push targeting the main branch. Once deployed successfully Storybook will be available at at an address defined by the AWS Cloudfront distribution.
