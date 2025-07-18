@@ -25,5 +25,6 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ steps.tf_version.outputs.tf_version }}
+      - run: terraform init
       - run: terraform validate -no-color
       - run: terraform fmt -check
