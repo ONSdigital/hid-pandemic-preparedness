@@ -1,41 +1,22 @@
 {
-  "name": "hid-pandemic-preparedness",
-  "version": "0.1.0",
-  "private": true,
+  "name": "lunar-limit",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "deploy-storybook-dev": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-dev/ --delete --acl public-read",
-    "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete --acl public-read"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "next": "15.3.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.11.1",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^4.0.1",
-    "@eslint/eslintrc": "^3",
-    "@storybook/addon-a11y": "^9.0.15",
-    "@storybook/addon-docs": "^9.0.15",
-    "@storybook/addon-onboarding": "^9.0.15",
-    "@storybook/addon-vitest": "^9.0.15",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.5",
-    "eslint-plugin-storybook": "^9.0.15",
-    "storybook": "^9.0.15",
-    "typescript": "^5",
-    "@storybook/nextjs-vite": "^9.0.15",
-    "vitest": "^3.2.4",
-    "@vitest/browser": "^3.2.4",
-    "playwright": "^1.53.2",
-    "@vitest/coverage-v8": "^3.2.4"
+    "@storybook/react-vite": "^9.0.17",
+    "storybook": "^9.0.17"
   }
 }
