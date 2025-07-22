@@ -1,14 +1,17 @@
 {
-  "name": "lunar-limit",
+  "name": "hid-pandemic-preparedness",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook-dev": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-dev/ --delete",
+    "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
