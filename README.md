@@ -101,3 +101,11 @@ The [main-pr-push-iac.yml workflow](./.github/workflows/main-pr-push-iac.yml) is
 ### Push deployment
 
 The [main-push-cd.yml workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy Storybook on every push targeting the main branch. Once deployed successfully Storybook will be available at at an address defined by the AWS Cloudfront distribution.
+
+## Styling
+
+The styling of the project is laid out such that:
+
+- [Inverted Triangle CSS (ITCSS)](https://www.freecodecamp.org/news/managing-large-s-css-projects-using-the-inverted-triangle-architecture-3c03e4b1e6df/) principles are followed
+- Global and element styles are loaded on every page
+- Component-level styles are loaded and scoped to their respective components
