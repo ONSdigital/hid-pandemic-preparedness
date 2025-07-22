@@ -4,11 +4,11 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "/iac/**"
+      - "iac/**"
   pull_request:
     branches: ["main"]
     paths:
-      - "/iac/**"
+      - "iac/**"
 
 jobs:
   format:
@@ -25,5 +25,6 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ steps.tf_version.outputs.tf_version }}
+      - run: terraform init -backend=false -no-color
       - run: terraform validate -no-color
       - run: terraform fmt -check

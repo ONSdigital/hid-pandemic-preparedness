@@ -4,7 +4,6 @@ resource "aws_s3_bucket" "aws_s3_bucket" {
 }
 
 resource "aws_s3_bucket_ownership_controls" "aws_s3_bucket_ownership_controls" {
-  count  = var.configure_for_site_hosting ? 1 : 0
   bucket = aws_s3_bucket.aws_s3_bucket.id
 
   rule {
