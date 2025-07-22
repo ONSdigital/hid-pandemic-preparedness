@@ -1,2 +1,4 @@
 /* Import every HTML element we are using on website */
-@import url("heading.css");
+@use "anchor";
+@use "body";
+@use "heading";
