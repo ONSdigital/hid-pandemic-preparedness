@@ -1,10 +1,10 @@
 import { defineCollection, z } from "astro:content";
-import { file } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 // https://docs.astro.build/en/guides/content-collections/
 
 const index = defineCollection({
-  loader: file("content/index.json", { parser: (text) => JSON.parse(text) }),
+  loader: glob({ pattern: "index.json", base: "./src/content/homepage/" }),
   schema: z.object({
     name: z.string(),
     created_at: z.coerce.date(),
