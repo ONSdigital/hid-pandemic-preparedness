@@ -14,9 +14,7 @@
     "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.11.1",
-    "tailwindcss": "^4.1.11"
+    "astro": "^5.11.1"
   },
   "devDependencies": {
     "@storybook/react-vite": "^9.0.17",
