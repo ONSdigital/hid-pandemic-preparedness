@@ -17,3 +17,4 @@ The project document Pandemic Preparedness Toolkit: Toolkit Outline and Structur
 - 44,311 words in total including headings, captions etc
 - 5 images
 - An estimated 25 tables of data
+- 1.6 MB file size
