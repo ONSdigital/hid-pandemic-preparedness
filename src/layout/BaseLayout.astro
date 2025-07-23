@@ -3,17 +3,18 @@ import BottomNav from "../components/navigation/Footer/Footer.astro";
 import Header from "../components/navigation/Header/Header.astro";
 import "../styles/index.scss";
 ---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Data Analysis</title>
-	</head>
-	<body>
-		<Header/>
-		<slot />
-		<BottomNav/>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Data Analysis</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <BottomNav />
+  </body>
 </html>
