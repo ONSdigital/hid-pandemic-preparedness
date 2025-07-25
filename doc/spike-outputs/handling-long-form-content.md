@@ -92,6 +92,12 @@ These are best case scenarios that assume a perfect network with no latency. To 
 
 It is assumed that the weight of html, css and js assets would be static across pages. Depending on the content type, the content and deferred asset weights could be flexed to meet the overal total page weight requirement.
 
+### An individual page should not contain more than 20,000 words of content
+
+Using the [representative html file](#a-representative-html-file) and the [recommended maximum page weight](#aim-for-a-maximum-page-weight-of-335mb) leads to a maximum of 20,000 words of content on an individual page.
+
+It is important to note that this value is purely given to ensure an individual page weight does not exceed recommendations. It does not take in to account whether this length of content provides a good experenience to the user in terms of accessibility or readability.
+
 ### Minify html, css and Javascript
 
 The time between FCP and DOMContentLoaded includes the loading of css styling and Javascript. [Minifying](https://sustainablewebdesign.org/guidelines/3-2-minify-your-html-css-and-javascript/) removes whitespace from css and js source code which does affect human readability but has no affect on machine readability. This will reduce the file size of these assets which in turn will reduce loading times.
