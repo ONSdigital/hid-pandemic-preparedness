@@ -109,3 +109,11 @@ The styling of the project is laid out such that:
 - [Inverted Triangle CSS (ITCSS)](https://www.freecodecamp.org/news/managing-large-s-css-projects-using-the-inverted-triangle-architecture-3c03e4b1e6df/) principles are followed
 - Global and element styles are loaded on every page
 - Component-level styles are loaded and scoped to their respective components
+
+## Linting
+
+-https://github.com/withastro/prettier-plugin-astro -https://prettier.io/docs/
+-npx prettier . --write
+-https://www.npmjs.com/package/eslint-config-prettier turns off all rules that ESLint might interfer with Prettier
+-https://www.npmjs.com/package/eslint-plugin-astro
+
