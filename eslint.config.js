@@ -42,8 +42,8 @@ export default [
       },
     },
     rules: {
-      "astro/no-conflict-set-directives": "error",
-      "astro/no-unused-define-vars-in-style": "error",
+      "astro/no-conflict-set-directives": "error", // Ensure no scoping conflicts within Astro files through `set:` directives
+      "astro/no-unused-define-vars-in-style": "error", // Ensure variables defined in Astro frontmatter are used in style tags
     },
   },
   {
