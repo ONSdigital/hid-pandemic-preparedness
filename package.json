@@ -11,7 +11,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook-dev": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-dev/ --delete",
-    "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete"
+    "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete",
+    "deploy-app-dev": "npm run build && aws s3 sync dist/ s3://hid-ppt-app-dev/ --delete",
+    "deploy-app-main": "npm run build && aws s3 sync dist/ s3://hid-ppt-app-main/ --delete"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

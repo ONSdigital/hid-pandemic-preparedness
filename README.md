@@ -60,6 +60,14 @@ npm run dev
 
 Open [http://localhost:4321](http://localhost:4321) with your browser to see the result.
 
+To deploy your local app to a shared location:
+
+```bash
+npm run deploy-app-dev
+```
+
+Once this has built and deployed successfully the Astro.js application will be available at http://hid-ppt-app-dev.s3-website.eu-west-2.amazonaws.com.
+
 ## Storybook
 
 To run Storybook development server:
@@ -100,4 +108,4 @@ The [main-pr-push-iac.yml workflow](./.github/workflows/main-pr-push-iac.yml) is
 
 ### Push deployment
 
-The [main-push-cd.yml workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy Storybook on every push targeting the main branch. Once deployed successfully Storybook will be available at at an address defined by the AWS Cloudfront distribution.
+The [main-push-cd.yml workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy the Astro application and Storybook on every push that targets the main branch. Once deployed successfully, the Astro application and Storybook will be available at an address defined by the AWS Cloudfront distribution.

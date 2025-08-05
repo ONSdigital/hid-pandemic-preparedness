@@ -47,6 +47,38 @@ module "storybook_main_cloudfront" {
   distribution_enabled        = true
 }
 
+# Create bucket for app dev
+module "app_dev_s3" {
+  source                     = "./s3"
+  bucket_name                = "${var.bucket_name_prefix}-app-dev"
+  configure_for_site_hosting = true
+  force_destroy              = true
+}
+
+# Set up cloudfront distribution for app dev
+module "app_dev_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.app_dev_s3.id
+  bucket_regional_domain_name = module.app_dev_s3.bucket_regional_domain_name
+  distribution_enabled        = true
+}
+
+# Create bucket for app main
+module "app_main_s3" {
+  source                     = "./s3"
+  bucket_name                = "${var.bucket_name_prefix}-app-main"
+  configure_for_site_hosting = true
+  force_destroy              = true
+}
+
+# Set up cloudfront distribution for app main
+module "app_main_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.app_main_s3.id
+  bucket_regional_domain_name = module.app_main_s3.bucket_regional_domain_name
+  distribution_enabled        = true
+}
+
 # Create iam user for automated deployments via github actions
 resource "aws_iam_user" "aws_iam_user" {
   name          = "github-actions"
@@ -66,7 +98,9 @@ data "aws_iam_policy_document" "aws_iam_policy_document" {
     ]
     resources = [
       "arn:aws:s3:::${module.storybook_main_s3.id}",
-      "arn:aws:s3:::${module.storybook_main_s3.id}/*"
+      "arn:aws:s3:::${module.storybook_main_s3.id}/*",
+      "arn:aws:s3:::${module.app_main_s3.id}",
+      "arn:aws:s3:::${module.app_main_s3.id}/*"
     ]
   }
 }
