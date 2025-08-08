@@ -78,16 +78,6 @@ npm run deploy-storybook-dev
 
 Once this has built and deployed successfully Storybook will be available at http://hid-ppt-storybook-dev.s3-website.eu-west-2.amazonaws.com.
 
-## Linting and code formatting
-
-This project uses [ESLint](https://eslint.org/) for code static analysis and linting.
-
-To run ESLint locally:
-
-```bash
-npm run lint
-```
-
 ## CI/CD workflows
 
 This project uses GitHub Actions workflows for Continuous Integration and Continuous Deployment (CI/CD). Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
@@ -110,10 +100,54 @@ The styling of the project is laid out such that:
 - Global and element styles are loaded on every page
 - Component-level styles are loaded and scoped to their respective components
 
-## Linting
+## Linting and code formatting
 
--https://github.com/withastro/prettier-plugin-astro -https://prettier.io/docs/
--npx prettier . --write
--https://www.npmjs.com/package/eslint-config-prettier turns off all rules that ESLint might interfer with Prettier
--https://www.npmjs.com/package/eslint-plugin-astro
+This project makes use of [Prettier](https://prettier.io) and [ESLint](https://eslint.org/) to apply linting and code-formatting rules respectively. Prettier automatically formats the codebase to ensure uniform style, while ESLint enforces coding standards specified by rules in `eslint.config.js`
+
+In order to make sure these two tools work harmoniously together, without styling rules from ESLint interferring with those applied through Prettier, the [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier) plugin was used. 
+
+To ensure that both Prettier and ESLint recognise and handle Astro-specific files, the [prettier-plugin-astro](https://github.com/withastro/prettier-plugin-astro) and community maintained [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro) plugins were used (the latter of which also outlines the reccomended `eslint.config.js` as part of its documentation)
+
+Linting and code formatting is included as part of the Github Actions Workflow of this project. In this way, linting and formatting across the project is automatically checked on every PR
+
+To run all the linting and code formatting (Prettier and ESLint together):
+
+```bash
+npm run lint
+```
+
+To run Prettier locally:
+
+```bash
+npm run lint:prettier
+```
+To run ESLint locally:
+
+```bash
+npm run lint:eslint
+```
+
+If using VSCode, you may wish to use the following `.vscode/setting.json` configuration to aid Linting and Formatting.
+
+```
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+This will do the following:
+- Automatically formats your code using the default formatter on save
+- Sets Prettier as the default code formatter
+- Automatically organizes imports on save
+- Ensures Prettier target files with the `.astro` extension
+- Sets Prettier as the default formatter for `.astro` files
+
 
