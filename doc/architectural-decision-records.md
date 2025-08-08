@@ -91,3 +91,7 @@ In order to make the long-term maintenance of the project reliable and efficient
 At the time of project initiation, [Astro.js v5.11.1](https://github.com/withastro/astro/releases/tag/astro%405.11.1) is the latest stable version available.
 
 The minor version of this Astro.js version will be incremented during development as and when new versions are available. See the [package.json](../package.json) file for the current version used.
+
+## ADR-12: Use Prettier and ESLint for linting and code-formatting
+
+[Prettier](https://prettier.io) and [ESLint](https://eslint.org/) were adopted as tools within our project for linting and code-formatting respectively. Maintaining a clean and consistent codebase aids in future-proofing the project, which these tools will ensure. Prettier is an opinionated linter that focuses on enforcing consistent style. ESLint is a configurable code-formatter, which enforces best-practices and catches potential errors early. These tools were chosen since they are widely adopted, well-supported and together will cover all bases. See the [eslint.config.js](../eslint.config.js) file for the configuration and rules in use.
