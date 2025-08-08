@@ -1,0 +1,30 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.spacing-2xs {
+  @include responsive-token("padding", $spacing-responsive-map, "spacing-2xs");
+}
+
+.spacing-xs {
+  @include responsive-token("padding", $spacing-responsive-map, "spacing-xs");
+}
+
+.spacing-sm {
+  @include responsive-token("padding", $spacing-responsive-map, "spacing-sm");
+}
+
+.spacing-md {
+  @include responsive-token("padding", $spacing-responsive-map, "spacing-md");
+}
+
+.spacing-lg {
+  @include responsive-token("padding", $spacing-responsive-map, "spacing-lg");
+}
+
+.spacing-xl {
+  @include responsive-token("padding", $spacing-responsive-map, "spacing-xl");
+}
+
+.spacing-2xl {
+  @include responsive-token("padding", $spacing-responsive-map, "spacing-2xl");
+}

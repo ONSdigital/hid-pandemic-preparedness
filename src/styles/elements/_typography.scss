@@ -1,0 +1,34 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.heading-xl {
+  @include responsive-token(
+    "font-size",
+    $font-sizes-responsive-map,
+    "heading-xl"
+  );
+}
+
+.heading-l {
+  @include responsive-token(
+    "font-size",
+    $font-sizes-responsive-map,
+    "heading-l"
+  );
+}
+
+.heading-m {
+  @include responsive-token(
+    "font-size",
+    $font-sizes-responsive-map,
+    "heading-m"
+  );
+}
+
+.heading-s {
+  @include responsive-token(
+    "font-size",
+    $font-sizes-responsive-map,
+    "heading-s"
+  );
+}
