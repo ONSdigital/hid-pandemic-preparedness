@@ -14,7 +14,8 @@ This page lists the Architectural Decision Records (ADRs) that have defined the 
 | [ADR-8](#adr-8-use-storybook-for-ui-development)                                           | Use Storybook for UI development                                           |                                                                                                                             |
 | [ADR-9](#adr-9-use-nodejs-version-v22x)                                                    | Use node.js version v22.X                                                  | security-2, security-6, security-9                                                                                          |
 | [ADR-10](#adr-10-use-typescript)                                                           | Use typescript                                                             |                                                                                                                             |
-| [ADR-11](#adr-11-use-the-astrojs-web-framework-v5.11.1)                                    | Use the Astro.js web framework                                             |                                                                                                                             |
+| [ADR-11](#adr-11-use-the-astrojs-web-framework-v5.11.1)                                    | Use the Astro.js web framework                                             | performance-1, performance-2                                                                                                |
+| [ADR-12](#adr-12-use-prettier-and-eslint-for-linting-and-code-formatting)                  | Use Prettier and ESLint for linting and code-formatting                    |                                                                                                                             |
 
 ## ADR-1: Manage project source code as public repository on ONSdigital organisation
 
@@ -98,4 +99,4 @@ The minor version of this Astro.js version will be incremented during developmen
 
 In order to make sure these two tools work harmoniously together, without styling rules from ESLint interferring with those applied through Prettier, the [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier) plugin is used.
 
-To ensure that both Prettier and ESLint recognise and handle Astro-specific files, the [prettier-plugin-astro](https://github.com/withastro/prettier-plugin-astro) and community maintained [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro) plugins were used (the latter of which also outlines the reccomended `eslint.config.js` as part of its documentation)
+To ensure that both Prettier and ESLint recognise and handle Astro-specific files, the [prettier-plugin-astro](https://github.com/withastro/prettier-plugin-astro) and community maintained [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro) plugins were used (the latter of which also outlines the reccomended `eslint.config.js` as part of its documentation).

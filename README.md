@@ -102,7 +102,7 @@ The styling of the project is laid out such that:
 
 ## Linting and code formatting
 
-This project makes use of [Prettier](https://prettier.io) and [ESLint](https://eslint.org/) to apply linting and code-formatting rules respectively. Prettier automatically formats the codebase to ensure uniform style, while ESLint enforces coding standards specified by rules in `eslint.config.js`
+This project makes use of [Prettier](https://prettier.io) and [ESLint](https://eslint.org/) to apply linting and code-formatting rules respectively. Prettier automatically formats the codebase to ensure uniform style, while ESLint enforces coding standards specified by rules in `eslint.config.js`.
 
 To run all the linting and code formatting (Prettier and ESLint together):
 
@@ -143,5 +143,3 @@ This will do the following:
 - Automatically organizes imports on save
 - Ensures Prettier target files with the `.astro` extension
 - Sets Prettier as the default formatter for `.astro` files
-
-
