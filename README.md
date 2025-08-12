@@ -104,8 +104,6 @@ The styling of the project is laid out such that:
 
 This project makes use of [Prettier](https://prettier.io) and [ESLint](https://eslint.org/) to apply linting and code-formatting rules respectively. Prettier automatically formats the codebase to ensure uniform style, while ESLint enforces coding standards specified by rules in `eslint.config.js`
 
-Linting and code formatting is included as part of the Github Actions Workflow of this project. In this way, linting and formatting across the project is automatically checked on every PR
-
 To run all the linting and code formatting (Prettier and ESLint together):
 
 ```bash
