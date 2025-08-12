@@ -104,10 +104,6 @@ The styling of the project is laid out such that:
 
 This project makes use of [Prettier](https://prettier.io) and [ESLint](https://eslint.org/) to apply linting and code-formatting rules respectively. Prettier automatically formats the codebase to ensure uniform style, while ESLint enforces coding standards specified by rules in `eslint.config.js`
 
-In order to make sure these two tools work harmoniously together, without styling rules from ESLint interferring with those applied through Prettier, the [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier) plugin was used. 
-
-To ensure that both Prettier and ESLint recognise and handle Astro-specific files, the [prettier-plugin-astro](https://github.com/withastro/prettier-plugin-astro) and community maintained [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro) plugins were used (the latter of which also outlines the reccomended `eslint.config.js` as part of its documentation)
-
 Linting and code formatting is included as part of the Github Actions Workflow of this project. In this way, linting and formatting across the project is automatically checked on every PR
 
 To run all the linting and code formatting (Prettier and ESLint together):
@@ -127,7 +123,7 @@ To run ESLint locally:
 npm run lint:eslint
 ```
 
-If using VSCode, you may wish to use the following `.vscode/setting.json` configuration to aid Linting and Formatting.
+If using VSCode, you may wish to use the following `.vscode/setting.json` configuration to aid linting and formatting.
 
 ```
 {
