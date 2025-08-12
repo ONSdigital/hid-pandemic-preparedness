@@ -66,7 +66,7 @@ To deploy your local app to a shared location:
 npm run deploy-app-dev
 ```
 
-Once this has built and deployed successfully the Astro.js application will be available at http://hid-ppt-app-dev.s3-website.eu-west-2.amazonaws.com.
+Once this has built and deployed successfully, the Astro.js application will be available at an address defined by the AWS Cloudfront distribution.
 
 ## Storybook
 
@@ -84,7 +84,7 @@ To deploy your local storybook to a shared location:
 npm run deploy-storybook-dev
 ```
 
-Once this has built and deployed successfully Storybook will be available at http://hid-ppt-storybook-dev.s3-website.eu-west-2.amazonaws.com.
+Once this has built and deployed successfully, Storybook will be available at an address defined by the AWS Cloudfront distribution.
 
 ## Linting and code formatting
 
