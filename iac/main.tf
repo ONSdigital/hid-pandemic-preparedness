@@ -29,6 +29,7 @@ module "storybook_dev_cloudfront" {
   bucket_name                 = module.storybook_dev_s3.id
   bucket_regional_domain_name = module.storybook_dev_s3.bucket_regional_domain_name
   distribution_enabled        = true
+  distribution_name           = "Dev storybook"
 }
 
 # Create bucket for storybook main
@@ -45,6 +46,7 @@ module "storybook_main_cloudfront" {
   bucket_name                 = module.storybook_main_s3.id
   bucket_regional_domain_name = module.storybook_main_s3.bucket_regional_domain_name
   distribution_enabled        = true
+  distribution_name           = "Main storybook"
 }
 
 # Create bucket for app dev
@@ -61,6 +63,7 @@ module "app_dev_cloudfront" {
   bucket_name                 = module.app_dev_s3.id
   bucket_regional_domain_name = module.app_dev_s3.bucket_regional_domain_name
   distribution_enabled        = true
+  distribution_name           = "Dev app"
 }
 
 # Create bucket for app main
@@ -77,6 +80,7 @@ module "app_main_cloudfront" {
   bucket_name                 = module.app_main_s3.id
   bucket_regional_domain_name = module.app_main_s3.bucket_regional_domain_name
   distribution_enabled        = true
+  distribution_name           = "Main app"
 }
 
 # Create iam user for automated deployments via github actions

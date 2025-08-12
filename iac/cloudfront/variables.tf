@@ -12,3 +12,8 @@ variable "distribution_enabled" {
   description = "Whether the distribution is enabled to accept end user requests for content."
   type        = bool
 }
+
+variable "distribution_name" {
+  description = "The name of the distribution to show on the AWS console."
+  type        = string
+}
