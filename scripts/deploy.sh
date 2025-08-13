@@ -17,7 +17,7 @@ INVALIDATION_BATCH_SIZE=1000
 echo "Deploying local folder '$LOCAL_FOLDER' to S3 bucket '$BUCKET_NAME'..."
 
 # Sync the local folder contents to the s3 bucket
-SYNC_OUTPUT=$(aws s3 sync "$LOCAL_FOLDER" "s3://$BUCKET_NAME" --delete --output text --dryrun)
+SYNC_OUTPUT=$(aws s3 sync "$LOCAL_FOLDER" "s3://$BUCKET_NAME" --delete --output text)
 
 # Extract any updated files from the sync output
 UPDATED_FILES=$(grep -o "s3://${BUCKET_NAME}[^ ]*" <<< $SYNC_OUTPUT)
