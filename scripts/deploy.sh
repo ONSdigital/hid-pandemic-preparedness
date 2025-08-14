@@ -8,7 +8,7 @@
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo "Required input arguments not set"
     echo "Usage: $0 <local-folder> <s3-bucket-name>"
-    return
+    exit 1
 fi
 
 LOCAL_FOLDER="$1"
@@ -57,4 +57,3 @@ DISTRIBUTION_DOMAIN_NAME=$(aws cloudfront list-distributions \
     --output text)
 
 echo "Deployment and invalidation complete. Updated site is available at https://${DISTRIBUTION_DOMAIN_NAME}."
-return
