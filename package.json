@@ -17,6 +17,7 @@
     "deploy-storybook-main": "npm run build-storybook && aws s3 sync storybook-static/ s3://hid-ppt-storybook-main/ --delete"
   },
   "dependencies": {
+    "@storyblok/astro": "^7.2.3",
     "astro": "^5.11.1"
   },
   "devDependencies": {
