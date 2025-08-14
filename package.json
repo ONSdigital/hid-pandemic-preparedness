@@ -13,10 +13,10 @@
     "lint:prettier": "npx prettier . --check",
     "lint:eslint": "npx eslint \"src/**/*.{js,ts,tsx,astro}\"",
     "lint": "npm run lint:prettier && npm run lint:eslint",
-    "deploy-storybook-dev": "npm run build-storybook && source ./scripts/deploy.sh storybook-static/ hid-ppt-storybook-dev",
-    "deploy-storybook-main": "npm run build-storybook && source ./scripts/deploy.sh storybook-static/ hid-ppt-storybook-main",
-    "deploy-app-dev": "npm run build && source ./scripts/deploy.sh dist/ hid-ppt-app-dev",
-    "deploy-app-main": "npm run build && source ./scripts/deploy.sh dist/ hid-ppt-app-main"
+    "deploy-storybook-dev": "npm run build-storybook && bash ./scripts/deploy.sh storybook-static/ hid-ppt-storybook-dev",
+    "deploy-storybook-main": "npm run build-storybook && bash ./scripts/deploy.sh storybook-static/ hid-ppt-storybook-main",
+    "deploy-app-dev": "npm run build && bash ./scripts/deploy.sh dist/ hid-ppt-app-dev",
+    "deploy-app-main": "npm run build && bash ./scripts/deploy.sh dist/ hid-ppt-app-main"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
