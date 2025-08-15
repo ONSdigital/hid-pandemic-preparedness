@@ -20,4 +20,6 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run deploy-app-main
+        shell: bash
       - run: npm run deploy-storybook-main
+        shell: bash
