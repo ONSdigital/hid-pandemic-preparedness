@@ -161,3 +161,14 @@ This will do the following:
 - Automatically organizes imports on save
 - Ensures Prettier target files with the `.astro` extension
 - Sets Prettier as the default formatter for `.astro` files
+
+## Testing
+[Vitest](https://vitest.dev/) is used as the testing suite for this project. Vitest is a suitable choice since Astro.js already uses vite under the hood for its build process. 
+
+To write tests for a component (e.g., `Component.tsx`), create a corresponding test file named `Component.test.tsx` or `Component.spec.tsx` in the same directory. Vitest will automatically detect and run these test files.
+
+To run all the tests using vitest:
+
+```bash
+npm run test
+

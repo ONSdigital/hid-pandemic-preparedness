@@ -1,10 +1,10 @@
-export default function StylingTestComponent() {
+export default function StylingDemo() {
   return (
     <>
       <h1 className="heading-xl">Heading-xl example</h1>
       <h1 className="heading-l">Heading-l example</h1>
       <h1 className="heading-m">Heading-m example</h1>
-      <h1 className="heading-s">Heading-xl example</h1>
+      <h1 className="heading-s">Heading-s example</h1>
       <div
         className="spacing-2xs"
         style={{ background: "green", width: "50%" }}
