@@ -102,7 +102,7 @@ This project uses GitHub Actions workflows for Continuous Integration and Contin
 
 ### Pull request and push integration
 
-The [main-pr-push-app.yml workflow](./.github/workflows/main-pr-push-app.yml) is configured to audit dependencies, linting and automatically build code changes related to the project application code on every push or pull request targeting the main branch.
+The [main-pr-push-app.yml workflow](./.github/workflows/main-pr-push-app.yml) is configured to audit dependencies, run linting, run tests and automatically build code changes related to the project application code on every push or pull request targeting the main branch.
 
 The [main-pr-push-iac.yml workflow](./.github/workflows/main-pr-push-iac.yml) is configured to validate and check the format of code changes related to the project Infrastructure as Code (IaC) on every push or pull request targeting the main branch.
 
