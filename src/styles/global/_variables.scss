@@ -20,6 +20,11 @@ $font-sizes-responsive-map: (
     "tablet": $font-size-2,
     "desktop": $font-size-3,
   ),
+  "body": (
+    "mobile": $font-size-1,
+    "tablet": $font-size-1,
+    "desktop": $font-size-2,
+  ),
 );
 
 $spacing-responsive-map: (

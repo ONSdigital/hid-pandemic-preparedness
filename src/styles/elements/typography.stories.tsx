@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import "./_typography.scss";
 
 const meta = {
   title: "Elements/Typography",
@@ -11,10 +10,21 @@ type Story = StoryObj<typeof meta>;
 export const Typography = {
   render: () => (
     <div>
-      <h1 className="heading-xl">Heading-xl example</h1>
-      <h1 className="heading-l">Heading-l example</h1>
-      <h1 className="heading-m">Heading-m example</h1>
-      <h1 className="heading-s">Heading-xl example</h1>
+      <h1 className="heading-l">Typography</h1>
+      <p className="body">
+        All interface elements consist of the following typographic styles.
+      </p>
+      <p className="body">
+        Note: Rem values are based on a root font size of 16px.
+      </p>
+      <h1 className="heading-xl">heading-xl</h1>
+      <hr />
+      <h1 className="heading-l">heading-l</h1>
+      <hr />
+      <h1 className="heading-m">heading-m</h1>
+      <hr />
+      <h1 className="heading-s">heading-s</h1>
+      <hr />
     </div>
   ),
 } satisfies Story;

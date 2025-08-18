@@ -2,6 +2,8 @@
 @use "../global/mixins" as *;
 
 .heading-xl {
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -10,6 +12,8 @@
 }
 
 .heading-l {
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -18,6 +22,8 @@
 }
 
 .heading-m {
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -26,9 +32,17 @@
 }
 
 .heading-s {
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
     "heading-s"
   );
+}
+
+.body {
+  font-weight: 400;
+  line-height: 22px;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
 }
