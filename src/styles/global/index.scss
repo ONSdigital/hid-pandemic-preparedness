@@ -3,3 +3,14 @@
 @use "mixins";
 @use "tokens";
 @use "variables";
+
+:root {
+  --surface-default: #{variables.$surface-default};
+  --surface-inverse: #{variables.$surface-inverse};
+  --surface-subtle: #{variables.$surface-subtle};
+  --surface-subtle-alt: #{variables.$surface-subtle-alt};
+
+  --text-default: #{variables.$text-default};
+  --text-inverse: #{variables.$text-inverse};
+  --text-accent: #{variables.$text-accent};
+}

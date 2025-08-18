@@ -64,3 +64,14 @@ $spacing-responsive-map: (
     "desktop": $spacing-11,
   ),
 );
+
+// Text colors
+$text-default: $color-primary-900;
+$text-inverse: $color-grey-100;
+$text-accent: $color-primary-500;
+
+// Surface colors
+$surface-default: $color-grey-100;
+$surface-inverse: $color-grey-700;
+$surface-subtle: $color-grey-200;
+$surface-subtle-alt: $color-grey-300;

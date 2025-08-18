@@ -8,6 +8,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Typeface = {
+  name: "Typeface",
   render: () => (
     <div>
       <h1 className="heading-l">Typeface</h1>
@@ -16,6 +17,7 @@ export const Typeface = {
 } satisfies Story;
 
 export const TypeScale = {
+  name: "Type scale",
   render: () => (
     <div>
       <h1 className="heading-l">Type scale</h1>
@@ -24,6 +26,7 @@ export const TypeScale = {
 } satisfies Story;
 
 export const Headings = {
+  name: "Headings",
   render: () => (
     <div>
       <h1 className="heading-l">Headings</h1>
@@ -46,6 +49,7 @@ export const Headings = {
 } satisfies Story;
 
 export const Paragraphs = {
+  name: "Paragraphs",
   render: () => (
     <div>
       <h1 className="heading-l">Paragraphs</h1>
@@ -54,6 +58,7 @@ export const Paragraphs = {
 } satisfies Story;
 
 export const Links = {
+  name: "Links",
   render: () => (
     <div>
       <h1 className="heading-l">Links</h1>
@@ -62,6 +67,7 @@ export const Links = {
 } satisfies Story;
 
 export const Lists = {
+  name: "Lists",
   render: () => (
     <div>
       <h1 className="heading-l">Lists</h1>
@@ -70,6 +76,7 @@ export const Lists = {
 } satisfies Story;
 
 export const FontOverrideClasses = {
+  name: "Font override classes",
   render: () => (
     <div>
       <h1 className="heading-l">Font override classes</h1>
