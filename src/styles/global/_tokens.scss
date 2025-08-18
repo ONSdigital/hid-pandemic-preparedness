@@ -56,7 +56,13 @@ $color-brown: #b58840;
 $color-light-green: #85994b;
 $color-turquoise: #28a197;
 
-// Fonts
+// Font families
+$font-family--open-sans: "Open Sans Variable", sans-serif;
+
+//Font weights
+$font-weight-1: 400;
+
+// Font sizes
 $font-size-0: 0.75rem;
 $font-size-1: 1rem;
 $font-size-2: 1.25rem;
@@ -85,3 +91,12 @@ $spacing-12: 9.2rem;
 // Corner radius
 $corner-radius-default: $spacing-3;
 $corner-radius-large: $spacing-12;
+
+// Gradients
+$background-gradient-1:
+  radial-gradient(
+    53.18% 54.81% at 93.85% 7.89%,
+    rgba(40, 161, 151, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  ),
+  radial-gradient(97.51% 101.96% at 39.76% 16.4%, #27402d 0%, #223017 100%);

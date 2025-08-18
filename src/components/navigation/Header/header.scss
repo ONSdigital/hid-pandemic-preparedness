@@ -1,0 +1,13 @@
+@use "../../../styles/global/tokens" as tokens;
+
+.header-container {
+  background: tokens.$background-gradient-1;
+  min-height: 10em;
+  padding: tokens.$spacing-11 0;
+  color: tokens.$color-grey-100;
+}
+
+.header-content {
+  padding-left: tokens.$spacing-12;
+  max-width: 800px;
+}
