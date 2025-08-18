@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import "./_spacing.scss";
 
 const meta = {
-  title: "Elements/Spacing",
+  title: "Styles/Page structure",
 } satisfies Meta;
 
 export default meta;
