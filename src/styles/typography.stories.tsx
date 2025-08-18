@@ -7,10 +7,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Typography = {
+export const Typeface = {
   render: () => (
     <div>
-      <h1 className="heading-l">Typography</h1>
+      <h1 className="heading-l">Typeface</h1>
+    </div>
+  ),
+} satisfies Story;
+
+export const TypeScale = {
+  render: () => (
+    <div>
+      <h1 className="heading-l">Type scale</h1>
+    </div>
+  ),
+} satisfies Story;
+
+export const Headings = {
+  render: () => (
+    <div>
+      <h1 className="heading-l">Headings</h1>
       <p className="body">
         All interface elements consist of the following typographic styles.
       </p>
@@ -25,6 +41,38 @@ export const Typography = {
       <hr />
       <h1 className="heading-s">heading-s</h1>
       <hr />
+    </div>
+  ),
+} satisfies Story;
+
+export const Paragraphs = {
+  render: () => (
+    <div>
+      <h1 className="heading-l">Paragraphs</h1>
+    </div>
+  ),
+} satisfies Story;
+
+export const Links = {
+  render: () => (
+    <div>
+      <h1 className="heading-l">Links</h1>
+    </div>
+  ),
+} satisfies Story;
+
+export const Lists = {
+  render: () => (
+    <div>
+      <h1 className="heading-l">Lists</h1>
+    </div>
+  ),
+} satisfies Story;
+
+export const FontOverrideClasses = {
+  render: () => (
+    <div>
+      <h1 className="heading-l">Font override classes</h1>
     </div>
   ),
 } satisfies Story;
