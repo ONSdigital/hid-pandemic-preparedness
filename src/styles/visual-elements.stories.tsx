@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -19,9 +20,22 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
 }) => {
   const backgroundColorValue = `var(${backgroundColorVar})`;
   const textColorValue = inverseText ? "var(--color-text-inverse)" : undefined;
+  const ref = useRef(null);
+  const [resolvedColorHex, setResolvedColorHex] = useState("");
+
+  // Evaluates the actual hex value of the input `backgroundColorVar` once rendered so we can
+  // display it in the component
+  useEffect(() => {
+    if (ref.current && backgroundColorVar) {
+      const styles = getComputedStyle(ref.current);
+      const value = styles.getPropertyValue(backgroundColorVar).trim();
+      setResolvedColorHex(value);
+    }
+  }, [backgroundColorVar]);
 
   return (
-    <p
+    <div
+      ref={ref}
       style={{
         backgroundColor: backgroundColorValue,
         border: "solid",
@@ -29,20 +43,28 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
         borderRadius: "var(--corner-radius-default)",
         borderWidth: "1px",
         color: textColorValue,
-        padding: "2px",
-        paddingLeft: "8px",
+        display: "flex",
+        marginTop: "var(--spacing-2)",
+        padding: "var(--spacing-1)",
+        paddingLeft: "var(--spacing-3)",
+        paddingRight: "var(--spacing-3)",
       }}
     >
-      <code>{backgroundColorVar}</code>
-    </p>
+      <div style={{ marginRight: "auto" }}>
+        <code>{backgroundColorVar}</code>
+      </div>
+      <div>
+        <code>{resolvedColorHex}</code>
+      </div>
+    </div>
   );
 };
 
-export const Colour = {
-  name: "Colour",
+export const Colours = {
+  name: "Colours",
   render: () => (
     <div>
-      <h1 className="heading-l">Colour</h1>
+      <h1 className="heading-l">Colours</h1>
       <h2 className="heading-s">Text</h2>
       <ColorSwatch backgroundColorVar="--color-text-default" inverseText />
       <ColorSwatch backgroundColorVar="--color-text-inverse" />
