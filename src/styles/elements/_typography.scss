@@ -1,6 +1,19 @@
 @use "../global/variables" as *;
 @use "../global/mixins" as *;
 
+.body {
+  font-weight: 400;
+  line-height: 22px;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 400;
+  line-height: 22px;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
+
 .heading-xl {
   font-weight: 400;
   line-height: normal;
@@ -39,10 +52,4 @@
     $font-sizes-responsive-map,
     "heading-s"
   );
-}
-
-.body {
-  font-weight: 400;
-  line-height: 22px;
-  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
 }
