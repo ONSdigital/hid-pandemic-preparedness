@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import type { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -14,7 +15,7 @@ interface ColorSwatchProps {
 }
 
 // React component to show colours
-const ColorSwatch: React.FC<ColorSwatchProps> = ({
+const ColorSwatch: FC<ColorSwatchProps> = ({
   backgroundColorVar,
   inverseText = false,
 }) => {
@@ -27,7 +28,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   // display it in the component
   useEffect(() => {
     if (ref.current && backgroundColorVar) {
-      const styles = getComputedStyle(ref.current);
+      const styles = getComputedStyle(ref.current); // eslint-disable-line no-undef
       const value = styles.getPropertyValue(backgroundColorVar).trim();
       setResolvedColorHex(value);
     }
