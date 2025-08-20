@@ -12,6 +12,12 @@ export const Typeface = {
   render: () => (
     <div>
       <h1 className="heading-l">Typeface</h1>
+      <p>The default font used for all content is Open Sans.</p>
+      <h2 className="heading-m">Code formatting</h2>
+      <p>
+        The font used for all source code content is Courier New, e.g.{" "}
+        <code className="inline">Here is an inline code snippet</code>.
+      </p>
     </div>
   ),
 } satisfies Story;

@@ -1,5 +1,6 @@
-@use "../global/variables" as *;
 @use "../global/mixins" as *;
+@use "../global/tokens" as *;
+@use "../global/variables" as *;
 
 .body {
   font-weight: 400;

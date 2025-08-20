@@ -66,18 +66,18 @@ export const Colours = {
   render: () => (
     <div>
       <h1 className="heading-l">Colours</h1>
-      <h2 className="heading-s">Text</h2>
+      <h2 className="heading-m">Text</h2>
       <ColorSwatch backgroundColorVar="--color-text-default" inverseText />
       <ColorSwatch backgroundColorVar="--color-text-inverse" />
       <ColorSwatch backgroundColorVar="--color-text-accent" inverseText />
       <hr />
-      <h2 className="heading-s">Surface</h2>
+      <h2 className="heading-m">Surface</h2>
       <ColorSwatch backgroundColorVar="--color-surface-default" />
       <ColorSwatch backgroundColorVar="--color-surface-subtle" />
       <ColorSwatch backgroundColorVar="--color-surface-subtle-alt" />
       <ColorSwatch backgroundColorVar="--color-surface-inverse" inverseText />
       <hr />
-      <h2 className="heading-s">Brand</h2>
+      <h2 className="heading-m">Brand</h2>
       <ColorSwatch
         backgroundColorVar="--color-brand-primary-default"
         inverseText
