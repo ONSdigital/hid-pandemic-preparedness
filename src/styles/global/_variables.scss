@@ -1,4 +1,5 @@
 @use "tokens" as *;
+
 $font-sizes-responsive-map: (
   "heading-xl": (
     "mobile": $font-size-6,
@@ -19,6 +20,11 @@ $font-sizes-responsive-map: (
     "mobile": $font-size-2,
     "tablet": $font-size-2,
     "desktop": $font-size-3,
+  ),
+  "body": (
+    "mobile": $font-size-1,
+    "tablet": $font-size-1,
+    "desktop": $font-size-2,
   ),
 );
 
@@ -59,3 +65,22 @@ $spacing-responsive-map: (
     "desktop": $spacing-11,
   ),
 );
+
+// Brand colors
+$color-brand-primary-default: $color-primary-500;
+$color-brand-secondary-default: $color-secondary-500;
+
+// Surface colors
+$color-surface-default: $color-grey-100;
+$color-surface-inverse: $color-grey-700;
+$color-surface-subtle: $color-grey-200;
+$color-surface-subtle-alt: $color-grey-300;
+
+// Text colors
+$color-text-default: $color-primary-900;
+$color-text-inverse: $color-grey-100;
+$color-text-accent: $color-primary-500;
+
+// Corner radius
+$corner-radius-default: $spacing-3;
+$corner-radius-large: $spacing-12;
