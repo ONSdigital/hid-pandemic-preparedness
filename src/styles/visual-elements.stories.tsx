@@ -61,7 +61,7 @@ const ColorSwatch: FC<ColorSwatchProps> = ({
   );
 };
 
-export const Colours = {
+export const ColoursStory = {
   name: "Colours",
   render: () => (
     <div>
@@ -88,7 +88,7 @@ export const Colours = {
   ),
 } satisfies Story;
 
-export const Images = {
+export const ImagesStory = {
   name: "Images",
   render: () => (
     <div>

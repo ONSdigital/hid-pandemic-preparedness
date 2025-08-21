@@ -7,7 +7,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const PageTemplate = {
+export const PageTemplateStory = {
   name: "Page template",
   render: () => (
     <div>
@@ -16,7 +16,7 @@ export const PageTemplate = {
   ),
 } satisfies Story;
 
-export const Layout = {
+export const LayoutStory = {
   name: "Layout",
   render: () => (
     <div>
@@ -25,7 +25,7 @@ export const Layout = {
   ),
 } satisfies Story;
 
-export const Spacing = {
+export const SpacingStory = {
   name: "Spacing",
   render: () => (
     <div>
@@ -34,7 +34,7 @@ export const Spacing = {
   ),
 } satisfies Story;
 
-export const SectionBreak = {
+export const SectionBreakStory = {
   name: "Section break",
   render: () => (
     <div>
