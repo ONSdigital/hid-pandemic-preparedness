@@ -63,7 +63,7 @@ export const Paragraphs = {
   ),
 } satisfies Story;
 
-export const Links = {
+export const LinksStory = {
   name: "Links",
   render: () => (
     <div>
@@ -72,7 +72,7 @@ export const Links = {
   ),
 } satisfies Story;
 
-export const Lists = {
+export const ListsStory = {
   name: "Lists",
   render: () => (
     <div>
@@ -81,7 +81,7 @@ export const Lists = {
   ),
 } satisfies Story;
 
-export const FontOverrideClasses = {
+export const FontOverrideClassesStory = {
   name: "Font override classes",
   render: () => (
     <div>

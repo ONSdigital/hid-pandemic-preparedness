@@ -1,0 +1,28 @@
+@use "../../styles/global/variables" as *;
+
+footer {
+  background-color: $color-surface-inverse;
+  color: $color-text-inverse;
+  display: flex;
+  font-family: "Open sans";
+  gap: $spacing-md;
+  justify-content: center;
+  padding: $spacing-2xl;
+}
+
+.footer-column {
+  width: 400px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding-top: $spacing-xs;
+}
+
+a {
+  color: $color-text-inverse;
+}
