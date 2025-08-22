@@ -15,7 +15,7 @@ const footerData: FooterProps = {
   columnLeft: {
     title: "What We Do",
     links: [
-      { href: "#", label: "About Us", disabled: true },
+      { href: "#", label: "About Us" },
       { href: "#", label: "Contact Us" },
       { href: "#", label: "Get Involved" },
       { href: "#", label: "Privacy Policy" },
