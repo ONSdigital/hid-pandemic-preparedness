@@ -1,5 +1,8 @@
 import type { FC } from "react";
 
-export const Button: FC = () => {
-  return <button></button>;
+import "./Button.scss";
+import type { ButtonProps } from "./Button.interface";
+
+export const Button: FC<ButtonProps> = () => {
+  return <button className="button button--primary">Lick me!</button>;
 };

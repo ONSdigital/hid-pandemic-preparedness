@@ -11,5 +11,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ButtonStory = {
+  args: {
+    disabled: false,
+    selected: false,
+  },
+
   name: "Button",
 } satisfies Story;

@@ -70,6 +70,13 @@ $spacing-responsive-map: (
 $color-brand-primary-default: $color-primary-500;
 $color-brand-secondary-default: $color-secondary-500;
 
+// Button colors
+$color-button-primary-active: $color-secondary-600;
+$color-button-primary-default: $color-brand-secondary-default;
+$color-button-primary-hover: $color-secondary-700;
+$color-button-primary-focus: $color-secondary-700;
+$color-button-primary-selected: $color-secondary-600;
+
 // Surface colors
 $color-surface-default: $color-grey-100;
 $color-surface-inverse: $color-grey-700;
@@ -77,7 +84,7 @@ $color-surface-subtle: $color-grey-200;
 $color-surface-subtle-alt: $color-grey-300;
 
 // Text colors
-$color-text-default: $color-primary-900;
+$color-text-default: $color-grey-900;
 $color-text-inverse: $color-grey-100;
 $color-text-accent: $color-primary-500;
 

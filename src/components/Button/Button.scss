@@ -1,0 +1,32 @@
+@use "../../styles/global/mixins" as *;
+@use "../../styles/global/variables" as *;
+
+.button {
+  border-radius: $corner-radius-default;
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+  font-weight: 600;
+  gap: $spacing-xs;
+  line-height: 22px;
+  padding: $spacing-xs;
+  text-align: center;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
+
+.button--primary {
+  background-color: $color-button-primary-default;
+  color: $color-text-default;
+
+  &:active {
+    background-color: $color-button-primary-active;
+  }
+
+  &:focus {
+    background-color: $color-button-primary-focus;
+  }
+
+  &:hover {
+    background-color: $color-button-primary-hover;
+  }
+}
