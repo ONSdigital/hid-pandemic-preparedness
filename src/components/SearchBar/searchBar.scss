@@ -1,0 +1,38 @@
+@use "../../styles/global/tokens" as *;
+@use "../../styles/global/mixins" as *;
+@use "../../styles/global/variables" as *;
+
+.search-bar__form {
+  display: flex;
+}
+
+.search-bar__input {
+  border: none;
+  outline: none;
+  padding: $spacing-3 $spacing-4;
+  border-radius: $corner-radius-default 0 0 $corner-radius-default;
+  width: 100%;
+
+  &::placeholder {
+    color: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  @include responsive-token(
+    "font-size",
+    $font-sizes-responsive-map,
+    "heading-s"
+  );
+}
+
+.search-bar__button {
+  border: none;
+  outline: none;
+  padding: $spacing-3 $spacing-4;
+  border-radius: 0 $corner-radius-default $corner-radius-default 0;
+  // TODO - change the color
+  background-color: $color-orange;
+  cursor: pointer;
+}

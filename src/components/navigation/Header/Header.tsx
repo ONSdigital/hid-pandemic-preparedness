@@ -1,4 +1,5 @@
 import "./header.scss";
+import SearchBar from "../../SearchBar/SearchBar";
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
           Empowering global National Statistics Offices with the skills and
           evidence to shape effective pandemic response policy.
         </p>
+        <SearchBar />
       </div>
     </div>
   );

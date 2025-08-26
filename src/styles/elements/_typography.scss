@@ -5,6 +5,7 @@
 .heading-xl {
   font-family: $font-family--open-sans;
   font-weight: $font-weight-1;
+  color: $color-grey-100;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -15,6 +16,7 @@
 .heading-l {
   font-family: $font-family--open-sans;
   font-weight: $font-weight-1;
+  color: $color-grey-100;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -25,6 +27,7 @@
 .heading-m {
   font-family: $font-family--open-sans;
   font-weight: $font-weight-1;
+  color: $color-grey-100;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -35,6 +38,7 @@
 .heading-s {
   font-family: $font-family--open-sans;
   font-weight: $font-weight-1;
+  color: $color-grey-100;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
