@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 import type { FooterProps } from "./Footer.interface";
-import "./footer.scss";
+import "./Footer.scss";
 import type { MenuData } from "../../types/MenuData";
 
 // React component for a footer column
