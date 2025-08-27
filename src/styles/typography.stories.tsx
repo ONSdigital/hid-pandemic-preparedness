@@ -59,6 +59,7 @@ export const Paragraphs = {
   render: () => (
     <div>
       <h1 className="heading-l">Paragraphs</h1>
+      <p className="body">The default paragraph font size is 1.25rem (20px).</p>
     </div>
   ),
 } satisfies Story;
