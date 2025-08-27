@@ -22,7 +22,7 @@ const ButtonChildrenTextOnly: FC = () => (
 const ButtonChildrenIconLeft: FC = () => (
   <>
     <div>
-      <RiMailLine className="button__label__icon" />
+      <RiMailLine className="button__label-icon" />
     </div>
     <div>Button</div>
   </>
@@ -31,11 +31,11 @@ const ButtonChildrenIconLeft: FC = () => (
 const ButtonChildrenIconLeftAndRight: FC = () => (
   <>
     <div>
-      <RiMailLine className="button__label__icon" />
+      <RiMailLine className="button__label-icon" />
     </div>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className="button__label__icon" />
+      <RiArrowRightLine className="button__label-icon" />
     </div>
   </>
 );
@@ -44,7 +44,7 @@ const ButtonChildrenIconRight: FC = () => (
   <>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className="button__label__icon" />
+      <RiArrowRightLine className="button__label-icon" />
     </div>
   </>
 );
