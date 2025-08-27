@@ -8,6 +8,27 @@ import { Button } from "./Button";
 const meta = {
   component: Button,
   title: "Components/Button",
+  argTypes: {
+    ariaLabel: {
+      table: {
+        disable: true,
+      },
+    },
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+    disabled: {
+      control: { type: "boolean" },
+    },
+    type: {},
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -29,6 +50,7 @@ export const PrimaryButtonStory = {
   args: {
     ariaLabel: "Search",
     children: ButtonChildren,
+    disabled: false,
     type: "button",
     variant: "primary",
   },
@@ -39,6 +61,7 @@ export const PrimaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
     children: ButtonChildren,
+    disabled: false,
     type: "button",
     variant: "primary-inverse",
   },
@@ -52,6 +75,7 @@ export const SecondaryButtonStory = {
   args: {
     ariaLabel: "Search",
     children: ButtonChildren,
+    disabled: false,
     type: "button",
     variant: "secondary",
   },
@@ -63,8 +87,12 @@ export const SecondaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
     children: ButtonChildren,
+    disabled: false,
     type: "button",
     variant: "secondary-inverse",
   },
   name: "Secondary inverse",
+  globals: {
+    backgrounds: { value: "dark" },
+  },
 } satisfies Story;
