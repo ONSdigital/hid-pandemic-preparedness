@@ -1,18 +1,20 @@
+import type { FC } from "react";
+
+import type { HeaderProps } from "./Header.interface";
 import "./header.scss";
 import SearchBar from "../SearchBar/SearchBar";
 
-export default function Header() {
+const Header: FC<HeaderProps> = ({ subheading, heading, description }) => {
   return (
-    <div className="header-container">
+    <header>
       <div className="header-content">
-        <p className="heading-s">Home</p>
-        <h1 className="heading-l">Resilience Through Data</h1>
-        <p className="heading-s">
-          Empowering global National Statistics Offices with the skills and
-          evidence to shape effective pandemic response policy.
-        </p>
+        <h2 className="heading-s">{subheading}</h2>
+        <h1 className="heading-l">{heading}</h1>
+        <p className="heading-s">{description}</p>
         <SearchBar />
       </div>
-    </div>
+    </header>
   );
-}
+};
+
+export default Header;
