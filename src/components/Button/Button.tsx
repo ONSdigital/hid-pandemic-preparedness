@@ -8,7 +8,7 @@ export const Button: FC<ButtonProps> = (props) => {
   const classes = `button button--${props.variant}`.trim();
 
   const onClick = () => {
-    console.log("clicked!");
+    console.log("clicked!"); // eslint-disable-line no-undef
   };
 
   return (
