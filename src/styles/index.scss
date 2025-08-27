@@ -1,2 +1,10 @@
 @use "global/index" as global;
 @use "elements/index" as elements;
+
+* {
+  font-family: "Open sans", sans-serif;
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+  font-style: normal;
+}

@@ -1,11 +1,23 @@
-@use "../global/variables" as *;
 @use "../global/mixins" as *;
 @use "../global/tokens" as *;
+@use "../global/variables" as *;
+
+.body {
+  font-weight: 400;
+  line-height: 22px;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 400;
+  line-height: 22px;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
 
 .heading-xl {
-  font-family: $font-family--open-sans;
-  font-weight: $font-weight-1;
-  color: $color-grey-100;
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -14,9 +26,8 @@
 }
 
 .heading-l {
-  font-family: $font-family--open-sans;
-  font-weight: $font-weight-1;
-  color: $color-grey-100;
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -25,9 +36,8 @@
 }
 
 .heading-m {
-  font-family: $font-family--open-sans;
-  font-weight: $font-weight-1;
-  color: $color-grey-100;
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
@@ -36,9 +46,8 @@
 }
 
 .heading-s {
-  font-family: $font-family--open-sans;
-  font-weight: $font-weight-1;
-  color: $color-grey-100;
+  font-weight: 400;
+  line-height: normal;
   @include responsive-token(
     "font-size",
     $font-sizes-responsive-map,
