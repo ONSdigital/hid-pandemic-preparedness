@@ -1,17 +1,31 @@
 @use "../../styles/global/mixins" as *;
+@use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
 
 .button {
+  align-items: center;
+  border: none;
   border-radius: $corner-radius-default;
-  font-feature-settings:
-    "liga" off,
-    "clig" off;
-  font-weight: 600;
-  gap: $spacing-xs;
+  display: flex;
+  justify-content: center;
   line-height: 22px;
-  padding: $spacing-xs;
-  text-align: center;
+  padding: $spacing-2xs $spacing-sm;
   @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
+
+.button__label {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-2xs;
+  vertical-align: middle;
+}
+
+.button__label__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button--primary {
@@ -24,9 +38,64 @@
 
   &:focus {
     background-color: $color-button-primary-focus;
+    box-shadow: 0 0 0 $button-border-width-default $color-state-focus;
   }
 
   &:hover {
     background-color: $color-button-primary-hover;
   }
 }
+
+.button--primary-inverse {
+  background-color: $color-button-primary-inverse-default;
+  color: $color-text-default;
+
+  &:active {
+    background-color: $color-button-primary-inverse-active;
+  }
+
+  &:focus {
+    background-color: $color-button-primary-inverse-focus;
+    box-shadow: 0 0 0 $button-border-width-default $color-state-focus;
+  }
+
+  &:hover {
+    background-color: $color-button-primary-inverse-hover;
+  }
+}
+
+// .button--secondary {
+//   background-color: $color-button-secondary-default;
+//   color: $color-text-default;
+
+//   &:active {
+//     background-color: $color-button-primary-active;
+//   }
+
+//   &:focus {
+//     background-color: $color-button-primary-focus;
+//     box-shadow: 0 0 0 $button-border-width-default $color-text-default;
+//   }
+
+//   &:hover {
+//     background-color: $color-button-primary-hover;
+//   }
+// }
+
+// .button--secondary-inverse {
+//   background-color: $color-button-primary-default;
+//   color: $color-text-default;
+
+//   &:active {
+//     background-color: $color-button-primary-active;
+//   }
+
+//   &:focus {
+//     background-color: $color-button-primary-focus;
+//     box-shadow: 0 0 0 $button-border-width-default $color-text-default;
+//   }
+
+//   &:hover {
+//     background-color: $color-button-primary-hover;
+//   }
+// }

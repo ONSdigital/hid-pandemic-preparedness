@@ -77,6 +77,12 @@ $color-button-primary-hover: $color-secondary-700;
 $color-button-primary-focus: $color-secondary-700;
 $color-button-primary-selected: $color-secondary-600;
 
+$color-button-primary-inverse-active: $color-secondary-200;
+$color-button-primary-inverse-default: $color-secondary-100;
+$color-button-primary-inverse-hover: $color-secondary-200;
+$color-button-primary-inverse-focus: $color-secondary-200;
+$color-button-primary-inverse-selected: $color-secondary-200;
+
 // Surface colors
 $color-surface-default: $color-grey-100;
 $color-surface-inverse: $color-grey-700;
@@ -95,4 +101,9 @@ $corner-radius-large: $spacing-12;
 // Spacing
 $spacing-2xl: $spacing-11;
 $spacing-md: $spacing-5;
+$spacing-sm: $spacing-4;
 $spacing-xs: $spacing-3;
+$spacing-2xs: $spacing-2;
+
+// Button sizing
+$button-border-width-default: $spacing-1;

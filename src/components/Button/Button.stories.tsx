@@ -1,4 +1,7 @@
+import type { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { RiArrowRightLine, RiMailLine } from "@remixicon/react";
 
 import { Button } from "./Button";
 
@@ -10,11 +13,58 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ButtonStory = {
+const ButtonChildren: FC = () => (
+  <>
+    <div>
+      <RiMailLine className="button__label__icon" />
+    </div>
+    <div>Button</div>
+    <div>
+      <RiArrowRightLine className="button__label__icon" />
+    </div>
+  </>
+);
+
+export const PrimaryButtonStory = {
   args: {
-    disabled: false,
-    selected: false,
+    ariaLabel: "Search",
+    children: ButtonChildren,
+    type: "button",
+    variant: "primary",
+  },
+  name: "Primary",
+} satisfies Story;
+
+export const PrimaryInverseButtonStory = {
+  args: {
+    ariaLabel: "Search",
+    children: ButtonChildren,
+    type: "button",
+    variant: "primary-inverse",
+  },
+  name: "Primary inverse",
+  globals: {
+    backgrounds: { value: "dark" },
+  },
+} satisfies Story;
+
+export const SecondaryButtonStory = {
+  args: {
+    ariaLabel: "Search",
+    children: ButtonChildren,
+    type: "button",
+    variant: "secondary",
   },
 
-  name: "Button",
+  name: "Secondary",
+} satisfies Story;
+
+export const SecondaryInverseButtonStory = {
+  args: {
+    ariaLabel: "Search",
+    children: ButtonChildren,
+    type: "button",
+    variant: "secondary-inverse",
+  },
+  name: "Secondary inverse",
 } satisfies Story;
