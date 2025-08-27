@@ -5,36 +5,30 @@ import { RiArrowRightLine, RiMailLine } from "@remixicon/react";
 
 import { Button } from "./Button";
 
-const meta = {
-  component: Button,
-  title: "Components/Button",
-  argTypes: {
-    ariaLabel: {
-      table: {
-        disable: true,
-      },
-    },
-    children: {
-      table: {
-        disable: true,
-      },
-    },
-    disabled: {
-      control: { type: "boolean" },
-    },
-    type: {},
-    variant: {
-      table: {
-        disable: true,
-      },
-    },
-  },
-} satisfies Meta<typeof Button>;
+// Defines some options for button children so we can show how different button content is rendered
+interface ButtonChildrenOptions {
+  TextOnly: FC;
+  IconLeft: FC;
+  IconLeftAndRight: FC;
+  IconRight: FC;
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const ButtonChildrenTextOnly: FC = () => (
+  <>
+    <div>Button</div>
+  </>
+);
 
-const ButtonChildren: FC = () => (
+const ButtonChildrenIconLeft: FC = () => (
+  <>
+    <div>
+      <RiMailLine className="button__label__icon" />
+    </div>
+    <div>Button</div>
+  </>
+);
+
+const ButtonChildrenIconLeftAndRight: FC = () => (
   <>
     <div>
       <RiMailLine className="button__label__icon" />
@@ -46,11 +40,65 @@ const ButtonChildren: FC = () => (
   </>
 );
 
+const ButtonChildrenIconRight: FC = () => (
+  <>
+    <div>Button</div>
+    <div>
+      <RiArrowRightLine className="button__label__icon" />
+    </div>
+  </>
+);
+
+// Define your children options
+const childrenOptions: ButtonChildrenOptions = {
+  TextOnly: ButtonChildrenTextOnly,
+  IconLeft: ButtonChildrenIconLeft,
+  IconLeftAndRight: ButtonChildrenIconLeftAndRight,
+  IconRight: ButtonChildrenIconRight,
+};
+
+const meta = {
+  component: Button,
+  title: "Components/Button",
+  argTypes: {
+    ariaLabel: {
+      table: {
+        disable: true,
+      },
+    },
+    children: {
+      control: { type: "select" },
+      name: "Button content",
+      options: Object.keys(childrenOptions),
+      mapping: childrenOptions,
+    },
+    disabled: {
+      control: { type: "boolean" },
+      name: "Disabled",
+    },
+    selected: {
+      name: "Selected",
+    },
+    type: {
+      name: "Type",
+    },
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
 export const PrimaryButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: ButtonChildren,
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
+    selected: false,
     type: "button",
     variant: "primary",
   },
@@ -60,8 +108,9 @@ export const PrimaryButtonStory = {
 export const PrimaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: ButtonChildren,
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
+    selected: false,
     type: "button",
     variant: "primary-inverse",
   },
@@ -74,8 +123,9 @@ export const PrimaryInverseButtonStory = {
 export const SecondaryButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: ButtonChildren,
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
+    selected: false,
     type: "button",
     variant: "secondary",
   },
@@ -86,8 +136,9 @@ export const SecondaryButtonStory = {
 export const SecondaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: ButtonChildren,
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
+    selected: false,
     type: "button",
     variant: "secondary-inverse",
   },
