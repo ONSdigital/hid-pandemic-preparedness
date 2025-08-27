@@ -64,38 +64,44 @@
   }
 }
 
-// .button--secondary {
-//   background-color: $color-button-secondary-default;
-//   color: $color-text-default;
+.button--secondary {
+  background-color: $color-button-secondary-default;
+  border-color: $color-button-secondary-border;
+  border-style: solid;
+  border-width: $button-border-width-default;
+  color: $color-text-default;
 
-//   &:active {
-//     background-color: $color-button-primary-active;
-//   }
+  &:active {
+    background-color: $color-button-secondary-active;
+  }
 
-//   &:focus {
-//     background-color: $color-button-primary-focus;
-//     box-shadow: 0 0 0 $button-border-width-default $color-text-default;
-//   }
+  &:focus {
+    background-color: $color-button-secondary-focus;
+    box-shadow: 0 0 0 $button-border-width-default $color-state-focus;
+  }
 
-//   &:hover {
-//     background-color: $color-button-primary-hover;
-//   }
-// }
+  &:hover {
+    background-color: $color-button-secondary-hover;
+  }
+}
 
-// .button--secondary-inverse {
-//   background-color: $color-button-primary-default;
-//   color: $color-text-default;
+.button--secondary-inverse {
+  background-color: $color-button-secondary-inverse-default;
+  border-color: $color-button-secondary-inverse-border;
+  border-style: solid;
+  border-width: $button-border-width-default;
+  color: $color-text-inverse;
 
-//   &:active {
-//     background-color: $color-button-primary-active;
-//   }
+  &:active {
+    background-color: $color-button-secondary-inverse-active;
+  }
 
-//   &:focus {
-//     background-color: $color-button-primary-focus;
-//     box-shadow: 0 0 0 $button-border-width-default $color-text-default;
-//   }
+  &:focus {
+    background-color: $color-button-secondary-inverse-focus;
+    box-shadow: 0 0 0 $button-border-width-default $color-state-focus;
+  }
 
-//   &:hover {
-//     background-color: $color-button-primary-hover;
-//   }
-// }
+  &:hover {
+    background-color: $color-button-secondary-inverse-hover;
+  }
+}
