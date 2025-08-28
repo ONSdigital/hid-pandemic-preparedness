@@ -34,7 +34,7 @@ export const Link: FC<LinkProps> = (props) => {
   }
 
   return (
-    <a className={classes} href={props.href}>
+    <a className={classes} href={props.href} target={props.target}>
       <Label />
     </a>
   );
