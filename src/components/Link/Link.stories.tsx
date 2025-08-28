@@ -28,15 +28,16 @@ const meta = {
         disable: true,
       },
     },
+    buttonVariant: {
+      table: {
+        disable: true,
+      },
+    },
     href: {
       control: { type: "select" },
       name: "Link href",
       options: Object.keys(hrefOptions),
       mapping: hrefOptions,
-    },
-    disabled: {
-      control: { type: "boolean" },
-      name: "Disabled",
     },
     target: {
       table: {
@@ -49,10 +50,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LinkStory = {
-  name: "Link",
+export const LinkNormalStory = {
+  name: "Rendered normally",
   args: {
-    disabled: false,
+    asButton: false,
+    href: hrefOptions.EmptyLink,
+    label: "My link",
+  },
+} satisfies Story;
+
+export const LinkAsButtonStory = {
+  name: "Rendered as a button",
+  args: {
+    asButton: true,
+    buttonVariant: "primary",
     href: hrefOptions.EmptyLink,
     label: "My link",
   },

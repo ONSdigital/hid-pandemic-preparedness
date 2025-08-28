@@ -1,15 +1,17 @@
+@use "../../styles/global/mixins" as *;
 @use "../../styles/global/variables" as *;
 
 .link {
-  color: $color-text-default;
-  font-weight: 600;
-  text-decoration: none;
   align-items: center;
-  justify-content: center;
+  color: $color-text-default;
   display: flex;
   flex-direction: row;
+  font-weight: 600;
   gap: $spacing-2xs;
+  justify-content: center;
+  text-decoration: none;
   vertical-align: middle;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
 
   &:active {
     color: $color-text-link-hover;
@@ -41,18 +43,6 @@
 }
 
 .link__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  > .ri {
-    flex-shrink: 0;
-    width: $icon-link-icon-size;
-    height: $icon-link-icon-size;
-  }
-}
-
-.button__label-icon {
   display: flex;
   align-items: center;
   justify-content: center;

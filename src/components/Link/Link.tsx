@@ -1,10 +1,19 @@
 import type { FC } from "react";
 import { RiArrowRightLine, RiShareBoxFill } from "@remixicon/react";
 
-import "./Link.scss";
+import "../Button/Button.scss";
 import type { LinkProps } from "./Link.interface";
 
 export const Link: FC<LinkProps> = (props) => {
+  // Set css class based on whether we are rendering as a button or not
+  let classes = "";
+
+  if (props.asButton) {
+    classes = `button button--${props.buttonVariant}`.trim();
+  } else {
+    classes = "link";
+  }
+
   // Just render the label text by default
   let Label: FC = () => <>{props.label}</>;
 
@@ -25,7 +34,7 @@ export const Link: FC<LinkProps> = (props) => {
   }
 
   return (
-    <a className="link" href={props.href}>
+    <a className={classes} href={props.href}>
       <Label />
     </a>
   );

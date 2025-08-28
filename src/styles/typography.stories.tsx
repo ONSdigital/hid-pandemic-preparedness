@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { RiArrowRightLine, RiShareBoxFill } from "@remixicon/react";
 
 const meta = {
   title: "Styles/Typography",
