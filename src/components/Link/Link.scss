@@ -1,0 +1,59 @@
+@use "../../styles/global/variables" as *;
+
+.link {
+  color: $color-text-default;
+  font-weight: 600;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-2xs;
+  vertical-align: middle;
+
+  &:active {
+    color: $color-text-link-hover;
+  }
+
+  &:hover {
+    color: $color-text-link-hover;
+  }
+
+  &:visited {
+    color: $color-text-link-hover;
+  }
+}
+
+.link--inverse {
+  color: $color-text-inverse;
+
+  &:active {
+    color: $color-text-inverse;
+  }
+
+  &:hover {
+    color: $color-text-inverse;
+  }
+
+  &:visited {
+    color: $color-text-inverse;
+  }
+}
+
+.link__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > .ri {
+    flex-shrink: 0;
+    width: $icon-link-icon-size;
+    height: $icon-link-icon-size;
+  }
+}
+
+.button__label-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { RiArrowRightLine, RiShareBoxFill } from "@remixicon/react";
 
 const meta = {
   title: "Styles/Typography",
@@ -60,15 +61,6 @@ export const Paragraphs = {
     <div>
       <h1 className="heading-l">Paragraphs</h1>
       <p className="body">The default paragraph font size is 1.25rem (20px).</p>
-    </div>
-  ),
-} satisfies Story;
-
-export const LinksStory = {
-  name: "Links",
-  render: () => (
-    <div>
-      <h1 className="heading-l">Links</h1>
     </div>
   ),
 } satisfies Story;
