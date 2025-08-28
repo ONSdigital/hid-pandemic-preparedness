@@ -1,4 +1,5 @@
 import "./searchBar.scss";
+import { Button } from "../Button/Button";
 
 function SearchBar() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -15,16 +16,14 @@ function SearchBar() {
         type="search"
         name="search"
         className="search-bar__input"
-        placeholder="Search Resources..."
+        placeholder="Search all learning resources"
         aria-label="Search"
       />
       <button
-        type="submit"
-        className="search-bar__button"
         aria-label="Submit search"
-      >
-        <h4>TODO</h4>
-      </button>
+        className="search-bar__button"
+        type="submit"
+      ></button>
     </form>
   );
 }

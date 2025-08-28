@@ -1,28 +1,27 @@
 @use "../../styles/global/variables" as *;
 
-footer {
+.footer {
   background-color: $color-surface-inverse;
   color: $color-text-inverse;
   display: flex;
-  font-family: "Open sans";
   gap: $spacing-md;
   justify-content: center;
   padding: $spacing-2xl;
 }
 
-.footer-column {
+.footer__footer-column {
   width: 400px;
 }
 
-ul {
+.footer__list {
   list-style: none;
   padding-left: 0;
 }
 
-li {
+.footer__item {
   padding-top: $spacing-xs;
 }
 
-a {
+.footer__link {
   color: $color-text-inverse;
 }

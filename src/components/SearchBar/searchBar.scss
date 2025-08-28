@@ -7,10 +7,11 @@
 }
 
 .search-bar__input {
+  color: $color-text-secondary;
   border: none;
   outline: none;
   padding: $spacing-3 $spacing-4;
-  border-radius: $corner-radius-default 0 0 $corner-radius-default;
+  border-radius: $corner-radius-medium 0 0 $corner-radius-medium;
   width: 100%;
 
   &::placeholder {
@@ -20,19 +21,5 @@
     font-weight: inherit;
   }
 
-  @include responsive-token(
-    "font-size",
-    $font-sizes-responsive-map,
-    "heading-s"
-  );
-}
-
-.search-bar__button {
-  border: none;
-  outline: none;
-  padding: $spacing-3 $spacing-4;
-  border-radius: 0 $corner-radius-default $corner-radius-default 0;
-  // TODO - change the color
-  background-color: $color-orange;
-  cursor: pointer;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
 }

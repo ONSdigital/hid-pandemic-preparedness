@@ -15,7 +15,7 @@ const headerData: HeaderProps = {
   subheading: "Home",
   heading: "Resilience Through Data",
   description:
-    "Empowering global National Statistics Offices with the skills and evidence to shape effective pandemic response policy.",
+    "Empowering National Statistical Offices with the skills and tools to support evidence based response to infectious disease outbreaks.",
 };
 
 export const HeaderStory = {

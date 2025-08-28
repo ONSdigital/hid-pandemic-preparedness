@@ -4,23 +4,20 @@ which represent core design decisions that represent our brand*/
 // Colours
 $color-primary-100: #dae8f0;
 $color-primary-200: #abcee2;
-$color-primary-300: #76b2d9;
-$color-primary-400: #3d94d5;
+$color-primary-300: #8eaf7f;
+$color-primary-400: #5a7c4a;
 $color-primary-500: #324028;
-$color-primary-600: #0f4c89;
+$color-primary-600: #3f4a37;
 $color-primary-700: #1e2a15;
-$color-primary-800: #000d1d;
-$color-primary-900: #000000;
 
-$color-secondary-100: #f0dadd;
-$color-secondary-200: #e2abb0;
+$color-secondary-100: #f8f5f1;
+$color-secondary-200: #f0e6d8;
 $color-secondary-300: #d9767d;
 $color-secondary-400: #d53d42;
-$color-secondary-500: #db6504;
-$color-secondary-600: #89130f;
-$color-secondary-700: #560a05;
-$color-secondary-800: #1d0300;
-$color-secondary-900: #000000;
+$color-secondary-500: #f59342;
+$color-secondary-600: #ca7937;
+$color-secondary-700: #cd9b73;
+$color-secondary-800: #1e2a15;
 
 $color-grey-100: #ffffff;
 $color-grey-200: #eeeeee;
@@ -90,9 +87,9 @@ $spacing-12: 9.2rem;
 
 // Gradients
 $background-gradient-1:
-  radial-gradient(
-    53.18% 54.81% at 93.85% 7.89%,
-    rgba(40, 161, 151, 0.5) 0%,
-    rgba(255, 255, 255, 0) 100%
+  linear-gradient(
+    226deg,
+    rgba(17, 140, 123, 0.4) -6.18%,
+    rgba(255, 255, 255, 0) 45.1%
   ),
-  radial-gradient(97.51% 101.96% at 39.76% 16.4%, #27402d 0%, #223017 100%);
+  linear-gradient(135deg, #48553f 1.59%, #324028 99.06%);

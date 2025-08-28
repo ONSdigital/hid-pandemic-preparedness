@@ -76,16 +76,50 @@ $color-surface-inverse: $color-grey-700;
 $color-surface-subtle: $color-grey-200;
 $color-surface-subtle-alt: $color-grey-300;
 
+// Button colors
+$color-button-primary-active: $color-secondary-600;
+$color-button-primary-default: $color-brand-secondary-default;
+$color-button-primary-hover: $color-secondary-700;
+$color-button-primary-focus: $color-secondary-700;
+$color-button-primary-selected: $color-secondary-600;
+
+$color-button-primary-inverse-active: $color-secondary-200;
+$color-button-primary-inverse-default: $color-secondary-100;
+$color-button-primary-inverse-hover: $color-secondary-200;
+$color-button-primary-inverse-focus: $color-secondary-200;
+$color-button-primary-inverse-selected: $color-secondary-200;
+
+$color-button-secondary-active: $color-surface-default;
+$color-button-secondary-border: $color-primary-300;
+$color-button-secondary-default: $color-surface-default;
+$color-button-secondary-hover: $color-surface-default;
+$color-button-secondary-focus: $color-surface-default;
+$color-button-secondary-selected: $color-surface-default;
+
+$color-button-secondary-inverse-active: $color-surface-inverse;
+$color-button-secondary-inverse-border: $color-brand-primary-default;
+$color-button-secondary-inverse-default: $color-surface-inverse;
+$color-button-secondary-inverse-hover: $color-surface-inverse;
+$color-button-secondary-inverse-focus: $color-surface-inverse;
+$color-button-secondary-inverse-selected: $color-surface-inverse;
+
 // Text colors
-$color-text-default: $color-primary-900;
+$color-text-default: $color-grey-900;
 $color-text-inverse: $color-grey-100;
 $color-text-accent: $color-primary-500;
+$color-text-secondary: $color-grey-600;
 
 // Corner radius
+$corner-radius-medium: $spacing-2;
 $corner-radius-default: $spacing-3;
 $corner-radius-large: $spacing-12;
 
 // Spacing
 $spacing-2xl: $spacing-11;
 $spacing-md: $spacing-5;
+$spacing-sm: $spacing-4;
 $spacing-xs: $spacing-3;
+$spacing-2xs: $spacing-2;
+
+// Button sizing
+$button-border-width-default: $spacing-1;

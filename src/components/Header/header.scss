@@ -1,17 +1,26 @@
 @use "../../styles/global/tokens" as *;
 @use "../../styles/global/mixins" as *;
+@use "../../styles/global/variables" as *;
 
 header {
   background: $background-gradient-1;
-  min-height: 10em;
-  padding: $spacing-11 0;
+  min-height: 640px;
+  color: $color-text-inverse;
 }
 
 .header-content {
-  max-width: 800px;
-  padding: 0 $spacing-3;
+  max-width: 871px;
+  padding: $spacing-6 $spacing-3;
+
+  * {
+    padding-bottom: $spacing-6;
+  }
+
+  .heading-xl {
+    font-weight: 300;
+  }
 
   @include respond-to(tablet) {
-    padding-left: $spacing-12;
+    padding: $spacing-7 0 0 $spacing-12;
   }
 }
