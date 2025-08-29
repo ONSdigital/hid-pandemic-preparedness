@@ -106,7 +106,7 @@
   }
 }
 
-.search-bar__button {
+.button--search-bar {
   @extend .button--primary;
   border: none;
   border-radius: 0 $corner-radius-default $corner-radius-default 0;

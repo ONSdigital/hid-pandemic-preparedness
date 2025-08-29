@@ -1,8 +1,11 @@
 import "./searchBar.scss";
 import { Button } from "../Button/Button";
+import { RiSearchLine } from "@remixicon/react";
+import type { SearchBarProps } from "./SearchBar.interface";
+import type { FC, FormEvent } from "react";
 
-function SearchBar() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+const SearchBar: FC<SearchBarProps> = ({ placeholder, ariaLabel }) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -16,16 +19,14 @@ function SearchBar() {
         type="search"
         name="search"
         className="search-bar__input"
-        placeholder="Search all learning resources"
-        aria-label="Search"
+        placeholder={placeholder}
+        aria-label={ariaLabel}
       />
-      <button
-        aria-label="Submit search"
-        className="search-bar__button"
-        type="submit"
-      ></button>
+      <Button ariaLabel="Submit search" type="submit" variant="search-bar">
+        <RiSearchLine className="button__label-icon" />
+      </Button>
     </form>
   );
-}
+};
 
 export default SearchBar;

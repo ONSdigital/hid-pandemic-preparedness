@@ -13,11 +13,7 @@ interface ButtonChildrenOptions {
   IconRight: FC;
 }
 
-const ButtonChildrenTextOnly: FC = () => (
-  <>
-    <div>Button</div>
-  </>
-);
+const ButtonChildrenTextOnly: FC = () => <div>Button</div>;
 
 const ButtonChildrenIconLeft: FC = () => (
   <>
@@ -70,7 +66,6 @@ const meta = {
       control: { type: "select" },
       name: "Button content",
       options: Object.keys(childrenOptions),
-      mapping: childrenOptions,
     },
     disabled: {
       control: { type: "boolean" },
@@ -93,27 +88,40 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const renderWithChildren = (args: any) => {
+  // Get the component type from childrenOptions using the string key
+  const ChildComponent =
+    childrenOptions[args.children as keyof ButtonChildrenOptions];
+  return (
+    <Button {...args}>
+      <ChildComponent />
+    </Button>
+  );
+};
+
 export const PrimaryButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: childrenOptions.IconLeftAndRight,
+    children: "IconLeftAndRight",
     disabled: false,
     selected: false,
     type: "button",
     variant: "primary",
   },
+  render: renderWithChildren,
   name: "Primary",
 } satisfies Story;
 
 export const PrimaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: childrenOptions.IconLeftAndRight,
+    children: "IconLeftAndRight",
     disabled: false,
     selected: false,
     type: "button",
     variant: "primary-inverse",
   },
+  render: renderWithChildren,
   name: "Primary inverse",
   globals: {
     backgrounds: { value: "dark" },
@@ -123,25 +131,26 @@ export const PrimaryInverseButtonStory = {
 export const SecondaryButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: childrenOptions.IconLeftAndRight,
+    children: "IconLeftAndRight",
     disabled: false,
     selected: false,
     type: "button",
     variant: "secondary",
   },
-
+  render: renderWithChildren,
   name: "Secondary",
 } satisfies Story;
 
 export const SecondaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: childrenOptions.IconLeftAndRight,
+    children: "IconLeftAndRight",
     disabled: false,
     selected: false,
     type: "button",
     variant: "secondary-inverse",
   },
+  render: renderWithChildren,
   name: "Secondary inverse",
   globals: {
     backgrounds: { value: "dark" },

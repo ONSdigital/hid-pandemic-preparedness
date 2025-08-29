@@ -11,7 +11,7 @@ const Header: FC<HeaderProps> = ({ subheading, heading, description }) => {
         <h2 className="body">{subheading}</h2>
         <h1 className="heading-xl">{heading}</h1>
         <p className="heading-s">{description}</p>
-        <SearchBar />
+        <SearchBar placeholder="TODO" ariaLabel="search" />
       </div>
     </header>
   );

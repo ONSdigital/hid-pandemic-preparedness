@@ -1,17 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SearchBar from "./SearchBar";
-import { fn } from "storybook/test";
+import type { SearchBarProps } from "./SearchBar.interface";
 
 const meta = {
-  title: "Components/SearchBar",
   component: SearchBar,
-  args: { onClick: fn() },
+  title: "Components/SearchBar",
 } satisfies Meta<typeof SearchBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  name: "Default",
-  render: () => <SearchBar />,
+const searchBarData: SearchBarProps = {
+  placeholder: "Search all resources",
+  ariaLabel: "search",
 };
+
+export const HeaderStory = {
+  name: "Search Bar",
+  args: searchBarData,
+} satisfies Story;
