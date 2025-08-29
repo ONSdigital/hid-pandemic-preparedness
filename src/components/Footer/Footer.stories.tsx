@@ -6,6 +6,9 @@ import type { FooterProps } from "./Footer.interface";
 const meta = {
   component: Footer,
   title: "Components/Footer",
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta<typeof Footer>;
 
 export default meta;

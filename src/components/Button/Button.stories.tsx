@@ -60,6 +60,9 @@ const childrenOptions: ButtonChildrenOptions = {
 const meta = {
   component: Button,
   title: "Components/Button",
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     ariaLabel: {
       table: {
