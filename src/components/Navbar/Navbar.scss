@@ -1,0 +1,40 @@
+@use "../../styles/global/mixins" as *;
+@use "../../styles/global/tokens" as *;
+@use "../../styles/global/variables" as *;
+
+$navbar-spacing-responsive-map: (
+  "height": (
+    "mobile": $spacing-md,
+    "tablet": $spacing-xl,
+    "desktop": $spacing-xl,
+  ),
+  "padding-left": (
+    "mobile": $spacing-3,
+    "tablet": $spacing-12,
+    "desktop": $spacing-12,
+  ),
+  "padding-right": (
+    "mobile": $spacing-3,
+    "tablet": $spacing-12,
+    "desktop": $spacing-12,
+  ),
+);
+
+.navbar {
+  background: $color-brand-primary-default;
+  @include responsive-token("height", $navbar-spacing-responsive-map, "height");
+  @include responsive-token(
+    "padding-left",
+    $navbar-spacing-responsive-map,
+    "padding-left"
+  );
+  @include responsive-token(
+    "padding-right",
+    $navbar-spacing-responsive-map,
+    "padding-right"
+  );
+}
+
+.navbar-brand {
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
