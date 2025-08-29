@@ -53,7 +53,13 @@ $color-brown: #b58840;
 $color-light-green: #85994b;
 $color-turquoise: #28a197;
 
-// Fonts
+// Font families
+$font-family--open-sans: "Open Sans Variable", sans-serif;
+
+//Font weights
+$font-weight-1: 400;
+
+// Font sizes
 $font-size-0: 0.75rem;
 $font-size-1: 1rem;
 $font-size-2: 1.25rem;
@@ -78,3 +84,12 @@ $spacing-9: 4rem;
 $spacing-10: 5rem;
 $spacing-11: 6.5rem;
 $spacing-12: 9.2rem;
+
+// Gradients
+$background-gradient-1:
+  linear-gradient(
+    226deg,
+    rgba(17, 140, 123, 0.4) -6.18%,
+    rgba(255, 255, 255, 0) 45.1%
+  ),
+  linear-gradient(135deg, #48553f 1.59%, #324028 99.06%);

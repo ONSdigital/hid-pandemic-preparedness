@@ -1,10 +1,15 @@
-import type { ComponentType } from "react";
+import type { ReactNode } from "react";
 
 export interface ButtonProps {
   ariaLabel: string;
-  children: ComponentType;
+  children: ReactNode;
   disabled?: boolean;
   selected?: boolean;
   type: "button" | "submit" | "reset";
-  variant: "primary" | "primary-inverse" | "secondary" | "secondary-inverse";
+  variant:
+    | "primary"
+    | "primary-inverse"
+    | "secondary"
+    | "secondary-inverse"
+    | "search-bar";
 }

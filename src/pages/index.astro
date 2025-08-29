@@ -7,15 +7,10 @@ const homepageData = indexCollection[0].data;
 ---
 
 <BaseLayout>
-  <main class="mx-auto max-w-screen-lg mb-24">
-    <h1 class="text-4xl text-blue-700 font-bold mt-24">
+  <main>
+    <h1>
       {homepageData.content.hero.headline}
     </h1>
-    <p class="mt-2.5 text-gray-600">{homepageData.content.hero.subheadline}</p>
-    <img
-      src="/img/hero.jpg"
-      alt="Stars in the sky"
-      class="mt-4 rounded-lg shadow-sm"
-    />
+    <p>{homepageData.content.hero.subheadline}</p>
   </main>
 </BaseLayout>
