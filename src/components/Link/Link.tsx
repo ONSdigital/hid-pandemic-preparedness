@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { RiArrowRightLine, RiShareBoxFill } from "@remixicon/react";
 
 import "../Button/Button.scss";
+import "./Link.scss";
 import type { LinkProps } from "./Link.interface";
 
 export const Link: FC<LinkProps> = (props) => {
