@@ -1,9 +1,13 @@
 import type { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import styles from "./Button.module.scss";
+
 import { RiArrowRightLine, RiMailLine } from "@remixicon/react";
 
 import { Button } from "./Button";
+
+const { "button__label-icon": buttonLabel } = styles;
 
 // Defines some options for button children so we can show how different button content is rendered
 interface ButtonChildrenOptions {
@@ -22,7 +26,7 @@ const ButtonChildrenTextOnly: FC = () => (
 const ButtonChildrenIconLeft: FC = () => (
   <>
     <div>
-      <RiMailLine className="button__label-icon" />
+      <RiMailLine className={buttonLabel} />
     </div>
     <div>Button</div>
   </>
@@ -31,11 +35,11 @@ const ButtonChildrenIconLeft: FC = () => (
 const ButtonChildrenIconLeftAndRight: FC = () => (
   <>
     <div>
-      <RiMailLine className="button__label-icon" />
+      <RiMailLine className={buttonLabel} />
     </div>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className="button__label-icon" />
+      <RiArrowRightLine className={buttonLabel} />
     </div>
   </>
 );
@@ -44,7 +48,7 @@ const ButtonChildrenIconRight: FC = () => (
   <>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className="button__label-icon" />
+      <RiArrowRightLine className={buttonLabel} />
     </div>
   </>
 );
