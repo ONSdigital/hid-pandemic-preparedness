@@ -1,0 +1,49 @@
+@use "../../styles/global/tokens" as *;
+
+.accordion__container {
+}
+
+.accordion__button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  min-width: 400px;
+  padding: $spacing-4 0;
+  user-select: none;
+}
+
+.accordion__content {
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.accordion__divider {
+  background-color: $color-grey-500;
+  height: 1px;
+}
+
+.next-button {
+  align-items: center;
+  border: none;
+  border-radius: $corner-radius-default;
+  display: flex;
+  justify-content: center;
+  line-height: 22px;
+  padding: $spacing-2xs $spacing-sm;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
+
+.next-button--primary {
+  @extend %button-primary;
+}
+
+.next-button__label {
+  @extend %button-label;
+}
+
+.next-button__label-icon {
+  @extend %button-label-icon;
+}

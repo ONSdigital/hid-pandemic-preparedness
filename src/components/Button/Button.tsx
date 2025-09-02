@@ -11,7 +11,7 @@ export const Button: FC<ButtonProps> = (props) => {
   const classes = [button, variantClass].filter(Boolean).join(" ");
 
   const onClick = () => {
-    console.log("clicked!"); // eslint-disable-line no-undef
+    console.log("clicked!");
   };
 
   return (
