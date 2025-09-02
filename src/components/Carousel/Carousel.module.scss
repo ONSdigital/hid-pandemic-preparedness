@@ -1,0 +1,28 @@
+.carouselContainer {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.carouselInner {
+  display: flex;
+  align-items: center;
+}
+
+.carouselCards {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.justifySpaceBetween {
+  justify-content: space-between;
+}
+
+.justifyFlexStart {
+  justify-content: flex-start;
+}
+
+.cardWrapper {
+  box-sizing: border-box;
+  padding: 0 5px;
+}
