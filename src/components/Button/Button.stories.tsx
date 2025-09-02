@@ -1,50 +1,50 @@
-import type { FC } from "react";
+import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
-import styles from "./Button.module.scss";
 
 import { RiArrowRightLine, RiMailLine } from "@remixicon/react";
 
 import { Button } from "./Button";
 
-const { "button__label-icon": buttonLabel } = styles;
-
 // Defines some options for button children so we can show how different button content is rendered
 interface ButtonChildrenOptions {
-  TextOnly: FC;
-  IconLeft: FC;
-  IconLeftAndRight: FC;
-  IconRight: FC;
+  TextOnly: ReactNode;
+  IconLeft: ReactNode;
+  IconLeftAndRight: ReactNode;
+  IconRight: ReactNode;
 }
 
-const ButtonChildrenTextOnly: FC = () => <div>Button</div>;
+const ButtonChildrenTextOnly: ReactNode = (
+  <>
+    <div>Button</div>
+  </>
+);
 
-const ButtonChildrenIconLeft: FC = () => (
+const ButtonChildrenIconLeft: ReactNode = (
   <>
     <div>
-      <RiMailLine className={buttonLabel} />
+      <RiMailLine className="button__label-icon" />
     </div>
     <div>Button</div>
   </>
 );
 
-const ButtonChildrenIconLeftAndRight: FC = () => (
+const ButtonChildrenIconLeftAndRight: ReactNode = (
   <>
     <div>
-      <RiMailLine className={buttonLabel} />
+      <RiMailLine className="button__label-icon" />
     </div>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={buttonLabel} />
+      <RiArrowRightLine className="button__label-icon" />
     </div>
   </>
 );
 
-const ButtonChildrenIconRight: FC = () => (
+const ButtonChildrenIconRight: ReactNode = (
   <>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={buttonLabel} />
+      <RiArrowRightLine className="button__label-icon" />
     </div>
   </>
 );
@@ -70,6 +70,7 @@ const meta = {
       control: { type: "select" },
       name: "Button content",
       options: Object.keys(childrenOptions),
+      mapping: childrenOptions,
     },
     disabled: {
       control: { type: "boolean" },
@@ -92,40 +93,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const renderWithChildren = (args: any) => {
-  // Get the component type from childrenOptions using the string key
-  const ChildComponent =
-    childrenOptions[args.children as keyof ButtonChildrenOptions];
-  return (
-    <Button {...args}>
-      <ChildComponent />
-    </Button>
-  );
-};
-
 export const PrimaryButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: "IconLeftAndRight",
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
     selected: false,
     type: "button",
     variant: "primary",
   },
-  render: renderWithChildren,
   name: "Primary",
 } satisfies Story;
 
 export const PrimaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: "IconLeftAndRight",
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
     selected: false,
     type: "button",
     variant: "primary-inverse",
   },
-  render: renderWithChildren,
   name: "Primary inverse",
   globals: {
     backgrounds: { value: "dark" },
@@ -135,26 +123,25 @@ export const PrimaryInverseButtonStory = {
 export const SecondaryButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: "IconLeftAndRight",
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
     selected: false,
     type: "button",
     variant: "secondary",
   },
-  render: renderWithChildren,
+
   name: "Secondary",
 } satisfies Story;
 
 export const SecondaryInverseButtonStory = {
   args: {
     ariaLabel: "Search",
-    children: "IconLeftAndRight",
+    children: childrenOptions.IconLeftAndRight,
     disabled: false,
     selected: false,
     type: "button",
     variant: "secondary-inverse",
   },
-  render: renderWithChildren,
   name: "Secondary inverse",
   globals: {
     backgrounds: { value: "dark" },

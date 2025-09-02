@@ -1,14 +1,11 @@
 import type { FC } from "react";
 
-import styles from "./Button.module.scss";
+import "./Button.scss";
 import type { ButtonProps } from "./Button.interface";
-
-const { button } = styles;
 
 export const Button: FC<ButtonProps> = (props) => {
   // Combine base class and variant class
-  const variantClass = styles[`arrow-button--${props.variant}`];
-  const classes = [button, variantClass].filter(Boolean).join(" ");
+  const classes = `button button--${props.variant}`.trim();
 
   const onClick = () => {
     console.log("clicked!");
@@ -22,9 +19,7 @@ export const Button: FC<ButtonProps> = (props) => {
       onClick={onClick}
       type={props.type}
     >
-      <div className={styles.button__label}>
-        <props.children />
-      </div>
+      <div className="button__label">{props.children}</div>
     </button>
   );
 };

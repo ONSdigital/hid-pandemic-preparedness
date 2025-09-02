@@ -5,11 +5,9 @@ import { RiArrowUpSLine, RiArrowDownSLine } from "@remixicon/react";
 
 import styles from "./Accordion.module.scss";
 
-import { Button } from "../Button/Button";
+const { accordion__button, accordion__content } = styles;
 
-const { accordion__button, accordion__content, next_button } = styles;
-
-const nextButton = true;
+// const nextButton = true;
 
 const Accordion: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,11 +37,11 @@ const Accordion: FC = () => {
             officiis at perspiciatis dicta? Sapiente soluta aliquam similique et
             amet quaerat doloribus.
           </div>
-          {nextButton && (
+          {/* {nextButton && (
             <Button ariaLabel="Next chapter" type="button" variant="primary">
               <p>hi</p>
             </Button>
-          )}
+          )} */}
         </>
       )}
     </div>

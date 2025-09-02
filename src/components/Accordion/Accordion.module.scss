@@ -1,4 +1,6 @@
+@use "../../styles/global/mixins" as *;
 @use "../../styles/global/tokens" as *;
+@use "../../styles/global/variables" as *;
 
 .accordion__container {
 }
@@ -34,16 +36,4 @@
   line-height: 22px;
   padding: $spacing-2xs $spacing-sm;
   @include responsive-token("font-size", $font-sizes-responsive-map, "body");
-}
-
-.next-button--primary {
-  @extend %button-primary;
-}
-
-.next-button__label {
-  @extend %button-label;
-}
-
-.next-button__label-icon {
-  @extend %button-label-icon;
 }
