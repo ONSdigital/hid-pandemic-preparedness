@@ -2,10 +2,8 @@
 @use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
 
-.accordion__container {
-}
-
 .accordion__button {
+  all: unset; //Remove default button styles
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -15,25 +13,12 @@
   user-select: none;
 }
 
-.accordion__content {
-  border-top: none;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
 .accordion__divider {
   background-color: $color-grey-500;
   height: 1px;
 }
 
-.next-button {
-  align-items: center;
-  border: none;
-  border-radius: $corner-radius-default;
-  display: flex;
-  justify-content: center;
-  line-height: 22px;
-  padding: $spacing-2xs $spacing-sm;
-  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+.accordion__content > button {
+  margin-left: auto;
+  margin-top: $spacing-6;
 }

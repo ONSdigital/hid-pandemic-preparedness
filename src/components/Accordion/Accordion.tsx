@@ -1,50 +1,67 @@
 import type { FC } from "react";
-import { useState } from "react";
+import { useId, useState } from "react";
 
-import { RiArrowUpSLine, RiArrowDownSLine } from "@remixicon/react";
+import {
+  RiArrowUpSLine,
+  RiArrowDownSLine,
+  RiArrowRightLine,
+} from "@remixicon/react";
 
 import styles from "./Accordion.module.scss";
 
+import type { AccordionProps } from "./Accordion.interface";
+import { Button } from "../Button/Button";
+
 const { accordion__button, accordion__content } = styles;
 
-// const nextButton = true;
-
-const Accordion: FC = () => {
+const Accordion: FC<AccordionProps> = ({ title, body, nextButton = true }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleOpen = () => setIsOpen((val) => !val);
 
+  const id = useId(); //Generate unique ID
+  const buttonId = `accordion-button-${id}`;
+  const panelId = `accordion-panel-${id}`;
+
   return (
-    <div>
+    <>
       <div className={styles.accordion__divider} />
-      <div onClick={toggleOpen} className={accordion__button}>
-        <h1>TITLE GOES HERE</h1>
-        {isOpen == true ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
-      </div>
+      <button
+        id={buttonId}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        aria-label={`${isOpen ? "Collapse" : "Expand"} ${title} section`}
+        className={accordion__button}
+        onClick={toggleOpen}
+        type="button"
+      >
+        <h1 className="heading-m" id={`${buttonId}-label`}>
+          {title}
+        </h1>
+        {isOpen == true ? (
+          <RiArrowUpSLine aria-hidden="true" />
+        ) : (
+          <RiArrowDownSLine aria-hidden="true" />
+        )}
+      </button>
       {isOpen && (
-        <>
-          <div className={accordion__content}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, cum
-            quas facilis sint commodi fuga. Nam culpa recusandae itaque tempore
-            labore veritatis enim id porro magni ducimus aut atque earum quam
-            animi doloribus placeat ullam neque, repudiandae reprehenderit iste
-            fugit delectus distinctio! Tenetur sapiente corrupti dignissimos
-            doloribus! Quibusdam sint voluptatum cumque consequuntur eaque,
-            laborum repellendus ratione est commodi? Quidem, ut nisi esse
-            assumenda, nihil iure laborum quaerat, eos sint ad ducimus
-            veritatis. Aut tenetur tempora praesentium labore, cupiditate eius
-            impedit, quod neque error consectetur sapiente nobis voluptates ea,
-            officiis at perspiciatis dicta? Sapiente soluta aliquam similique et
-            amet quaerat doloribus.
-          </div>
-          {/* {nextButton && (
+        <div
+          aria-labelledby={`${buttonId}-label`}
+          className={accordion__content}
+          id={panelId}
+          role="region"
+        >
+          <p className="body">{body}</p>
+          {nextButton && (
             <Button ariaLabel="Next chapter" type="button" variant="primary">
-              <p>hi</p>
+              <div>Next Chapter</div>
+              <div>
+                <RiArrowRightLine className="button__label-icon" />
+              </div>
             </Button>
-          )} */}
-        </>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
