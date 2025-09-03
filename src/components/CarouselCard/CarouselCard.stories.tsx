@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { RiRecordCircleLine } from "@remixicon/react";
+
 import CarouselCard from "./CarouselCard";
 import type { CarouselCardProps } from "./CarouselCard.interface";
-
-const CarouselCardSvg: ReactNode = <div>ICON</div>;
 
 const meta = {
   argTypes: {
@@ -21,9 +21,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const CarouselCardIcon: ReactNode = <RiRecordCircleLine />;
+
 const carouselCardData: CarouselCardProps = {
   body: "A rumour report logs unverified claims or info in circulation.",
-  children: CarouselCardSvg,
+  children: CarouselCardIcon,
   title: "Rumour report",
 };
 
