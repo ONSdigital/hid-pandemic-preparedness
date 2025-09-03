@@ -18,11 +18,11 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const isLastPage = currentPage === totalPages - 1;
 
   const handlePrev = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 0));
+    setCurrentPage((val) => Math.max(val - 1, 0));
   };
 
   const handleNext = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
+    setCurrentPage((val) => Math.min(val + 1, totalPages - 1));
   };
 
   return (
