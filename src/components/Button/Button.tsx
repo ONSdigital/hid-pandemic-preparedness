@@ -3,12 +3,11 @@ import type { FC } from "react";
 import styles from "./Button.module.scss";
 import type { ButtonProps } from "./Button.interface";
 
-const { button } = styles;
-
 export const Button: FC<ButtonProps> = (props) => {
   // Combine base class and variant class
-  const variantClass = styles[`arrow-button--${props.variant}`];
-  const classes = [button, variantClass].filter(Boolean).join(" ");
+  const buttonClass = styles["button"];
+  const variantClass = styles[`button--${props.variant}`];
+  const classes = [buttonClass, variantClass].filter(Boolean).join(" ");
 
   const onClick = () => {
     console.log("clicked!"); // eslint-disable-line no-undef

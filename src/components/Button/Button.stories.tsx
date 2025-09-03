@@ -7,8 +7,6 @@ import { RiArrowRightLine, RiMailLine } from "@remixicon/react";
 
 import { Button } from "./Button";
 
-const { "button__label-icon": buttonLabel } = styles;
-
 // Defines some options for button children so we can show how different button content is rendered
 interface ButtonChildrenOptions {
   TextOnly: FC;
@@ -26,7 +24,7 @@ const ButtonChildrenTextOnly: FC = () => (
 const ButtonChildrenIconLeft: FC = () => (
   <>
     <div>
-      <RiMailLine className={buttonLabel} />
+      <RiMailLine className={styles["button__label-icon"]} />
     </div>
     <div>Button</div>
   </>
@@ -35,11 +33,11 @@ const ButtonChildrenIconLeft: FC = () => (
 const ButtonChildrenIconLeftAndRight: FC = () => (
   <>
     <div>
-      <RiMailLine className={buttonLabel} />
+      <RiMailLine className={styles["button__label-icon"]} />
     </div>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={buttonLabel} />
+      <RiArrowRightLine className={styles["button__label-icon"]} />
     </div>
   </>
 );
@@ -48,7 +46,7 @@ const ButtonChildrenIconRight: FC = () => (
   <>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={buttonLabel} />
+      <RiArrowRightLine className={styles["button__label-icon"]} />
     </div>
   </>
 );
