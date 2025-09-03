@@ -8,6 +8,7 @@ import type { LinkProps } from "./Link.interface";
 export const Link: FC<LinkProps> = (props) => {
   // Set css class based on whether we are rendering as a button or not
   let classes = "";
+  let Icon = null;
 
   if (props.asButton) {
     classes = `button button--${props.buttonVariant}`.trim();
@@ -15,28 +16,18 @@ export const Link: FC<LinkProps> = (props) => {
     classes = "link";
   }
 
-  // Just render the label text by default
-  let Label: FC = () => <>{props.label}</>;
-
   if (props.href.startsWith("http")) {
     // If href starts with http, render as an external link to include icon
-    Label = () => (
-      <>
-        {props.label} <RiShareBoxFill className="link__icon" />
-      </>
-    );
+    Icon = <RiShareBoxFill className="link__icon" />;
   } else if (props.href.startsWith("/")) {
     // If href starts with /, this is an internal navigation link so render with right arrow icon
-    Label = () => (
-      <>
-        {props.label} <RiArrowRightLine className="link__icon" />
-      </>
-    );
+    Icon = <RiArrowRightLine className="link__icon" />;
   }
 
   return (
     <a className={classes} href={props.href} target={props.target}>
-      <Label />
+      {/* Renders the label and an icon if not null */}
+      {props.label} {Icon && Icon}
     </a>
   );
 };
