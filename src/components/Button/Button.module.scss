@@ -1,0 +1,38 @@
+@use "../../styles/elements/buttons" as *;
+@use "../../styles/global/mixins" as *;
+@use "../../styles/global/variables" as *;
+
+.button {
+  align-items: center;
+  border: none;
+  border-radius: $corner-radius-default;
+  display: flex;
+  justify-content: center;
+  line-height: 22px;
+  padding: $spacing-2xs $spacing-sm;
+  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+}
+
+.button__label {
+  @extend %button-label;
+}
+
+.button__label-icon {
+  @extend %button-label-icon;
+}
+
+.button--primary {
+  @extend %button-primary;
+}
+
+.button--primary-inverse {
+  @extend %button-primary-inverse;
+}
+
+.button--secondary {
+  @extend %button-secondary;
+}
+
+.button--secondary-inverse {
+  @extend %button-secondary-inverse;
+}

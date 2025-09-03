@@ -1,0 +1,87 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+@use "../global/tokens" as *;
+
+@mixin button-states($active-color, $focus-color, $focus-shadow, $hover-color) {
+  &:active {
+    background-color: $active-color;
+  }
+
+  &:focus {
+    background-color: $focus-color;
+    box-shadow: 0 0 0 $button-border-width-default $focus-shadow;
+  }
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+%button-primary {
+  background-color: $color-button-primary-default;
+  color: $color-text-default;
+
+  @include button-states(
+    $color-button-primary-active,
+    $color-button-primary-focus,
+    $color-state-focus,
+    $color-button-primary-hover
+  );
+}
+
+%button-primary-inverse {
+  background-color: $color-button-primary-inverse-default;
+  color: $color-text-default;
+
+  @include button-states(
+    $color-button-primary-inverse-active,
+    $color-button-primary-inverse-focus,
+    $color-state-focus,
+    $color-button-primary-inverse-hover
+  );
+}
+
+%button-secondary {
+  background-color: $color-button-secondary-default;
+  border-color: $color-button-secondary-border;
+  border-style: solid;
+  border-width: $button-border-width-default;
+  color: $color-text-default;
+
+  @include button-states(
+    $color-button-secondary-active,
+    $color-button-secondary-focus,
+    $color-state-focus,
+    $color-button-secondary-hover
+  );
+}
+
+%button-secondary-inverse {
+  background-color: $color-button-secondary-inverse-default;
+  border-color: $color-button-secondary-inverse-border;
+  border-style: solid;
+  border-width: $button-border-width-default;
+  color: $color-text-inverse;
+
+  @include button-states(
+    $color-button-secondary-inverse-active,
+    $color-button-secondary-inverse-focus,
+    $color-state-focus,
+    $color-button-secondary-inverse-hover
+  );
+}
+
+%button-label {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-2xs;
+  vertical-align: middle;
+}
+
+%button-label-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
