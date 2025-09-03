@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { RiArrowRightSLine } from "@remixicon/react";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
 
 import styles from "./ArrowButton.module.scss";
 import type { ArrowButtonProps } from "./ArrowButton.interface";
@@ -23,7 +23,11 @@ export const ArrowButton: FC<ArrowButtonProps> = (props) => {
       type={props.type}
     >
       <div className={styles["button__label"]}>
-        <RiArrowRightSLine className={styles["button__label-icon"]} />
+        {props.direction == "right" ? (
+          <RiArrowRightSLine className={styles["button__label-icon"]} />
+        ) : (
+          <RiArrowLeftSLine className={styles["button__label-icon"]} />
+        )}
       </div>
     </button>
   );
