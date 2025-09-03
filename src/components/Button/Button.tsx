@@ -10,7 +10,7 @@ export const Button: FC<ButtonProps> = (props) => {
   const classes = [buttonClass, variantClass].filter(Boolean).join(" ");
 
   const onClick = () => {
-    console.log("clicked!"); // eslint-disable-line no-undef
+    console.log("clicked!");
   };
 
   return (
@@ -21,9 +21,7 @@ export const Button: FC<ButtonProps> = (props) => {
       onClick={onClick}
       type={props.type}
     >
-      <div className={styles.button__label}>
-        <props.children />
-      </div>
+      <div className={styles["button__label"]}>{props.children}</div>
     </button>
   );
 };

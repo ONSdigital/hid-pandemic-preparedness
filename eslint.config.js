@@ -3,6 +3,7 @@ import js from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import astroParser from "astro-eslint-parser";
 import eslintPluginAstro from "eslint-plugin-astro";
+import globals from "globals";
 
 export default [
   // Base JS/TS recommended rules
@@ -10,6 +11,10 @@ export default [
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
       parser: tsParser,
       parserOptions: {
         ecmaVersion: "latest",
@@ -20,6 +25,7 @@ export default [
     },
     rules: {
       "no-undef": "error", // catch undefined variables
+      "no-console": "off",
     },
   },
 
