@@ -1,8 +1,9 @@
-import "./searchBar.scss";
-import { Button } from "../Button/Button";
-import { RiSearchLine } from "@remixicon/react";
-import type { SearchBarProps } from "./SearchBar.interface";
 import type { FC, FormEvent } from "react";
+import { RiSearchLine } from "@remixicon/react";
+
+import "./SearchBar.scss";
+import type { SearchBarProps } from "./SearchBar.interface";
+import { Button } from "../Button/Button";
 
 const SearchBar: FC<SearchBarProps> = ({ placeholder, ariaLabel }) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {

@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 import type { HeaderProps } from "./Header.interface";
-import "./header.scss";
+import "./Header.scss";
 import SearchBar from "../SearchBar/SearchBar";
 
 const Header: FC<HeaderProps> = ({ subheading, heading, description }) => {
