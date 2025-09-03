@@ -123,3 +123,16 @@ $spacing-2xs: $spacing-2;
 
 // Button sizing
 $button-border-width-default: $spacing-1;
+
+// Gradients
+$brand-gradient-1:
+  linear-gradient(
+    226deg,
+    rgba($color-emerald-green, 0.4) -6.18%,
+    rgba($color-grey-100, 0) 45.1%
+  ),
+  linear-gradient(
+    135deg,
+    $color-dark-olive-green 1.59%,
+    $color-primary-500 99.06%
+  );

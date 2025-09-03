@@ -37,21 +37,23 @@ $color-state-link-hover: #1d70b8;
 $color-state-link-visited: #1d70b8;
 $color-state-link-active: #1d70b8;
 
-$color-red: #d4351c;
-$color-yellow: #ffdd00;
-$color-green: #00703c;
 $color-blue: #1d70b8;
-$color-dark-blue: #003078;
-$color-light-blue: #5694ca;
-$color-purple: #4c2c92;
-$color-light-purple: #6f72af;
 $color-bright-purple: #912b88;
-$color-pink: #d53880;
-$color-light-pink: #f499be;
-$color-orange: #f47738;
 $color-brown: #b58840;
+$color-dark-blue: #003078;
+$color-dark-olive-green: #48553f;
+$color-emerald-green: #118c7b;
+$color-green: #00703c;
+$color-light-blue: #5694ca;
 $color-light-green: #85994b;
+$color-light-pink: #f499be;
+$color-light-purple: #6f72af;
+$color-orange: #f47738;
+$color-pink: #d53880;
+$color-purple: #4c2c92;
+$color-red: #d4351c;
 $color-turquoise: #28a197;
+$color-yellow: #ffdd00;
 
 // Font families
 $font-family--open-sans: "Open Sans Variable", sans-serif;
@@ -84,12 +86,3 @@ $spacing-9: 4rem;
 $spacing-10: 5rem;
 $spacing-11: 6.5rem;
 $spacing-12: 9.2rem;
-
-// Gradients
-$background-gradient-1:
-  linear-gradient(
-    226deg,
-    rgba(17, 140, 123, 0.4) -6.18%,
-    rgba(255, 255, 255, 0) 45.1%
-  ),
-  linear-gradient(135deg, #48553f 1.59%, #324028 99.06%);
