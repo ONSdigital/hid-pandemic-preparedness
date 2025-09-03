@@ -6,12 +6,14 @@ import "./Link.scss";
 import type { LinkProps } from "./Link.interface";
 
 export const Link: FC<LinkProps> = (props) => {
-  // Set css class based on whether we are rendering as a button or not
   let classes = "";
   let Icon = null;
 
+  // Set css class based on whether we are rendering as a button or inverse
   if (props.asButton) {
     classes = `button button--${props.buttonVariant}`.trim();
+  } else if (props.textInverse) {
+    classes = "link link--inverse";
   } else {
     classes = "link";
   }

@@ -7,4 +7,5 @@ export interface LinkProps extends LinkData {
     | "primary-inverse"
     | "secondary"
     | "secondary-inverse";
+  textInverse?: boolean;
 }

@@ -44,6 +44,11 @@ const meta = {
         disable: true,
       },
     },
+    textInverse: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Meta<typeof Link>;
 
@@ -56,6 +61,20 @@ export const LinkNormalStory = {
     asButton: false,
     href: hrefOptions.EmptyLink,
     label: "My link",
+    textInverse: false,
+  },
+} satisfies Story;
+
+export const LinkNormalInverseStory = {
+  name: "Rendered normally inverse",
+  args: {
+    asButton: false,
+    href: hrefOptions.EmptyLink,
+    label: "My link",
+    textInverse: true,
+  },
+  globals: {
+    backgrounds: { value: "dark" },
   },
 } satisfies Story;
 
@@ -66,5 +85,6 @@ export const LinkAsButtonStory = {
     buttonVariant: "primary",
     href: hrefOptions.EmptyLink,
     label: "My link",
+    textInverse: false,
   },
 } satisfies Story;
