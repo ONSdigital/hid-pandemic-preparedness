@@ -2,6 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ArrowButton } from "./ArrowButton";
 
+const directionOptions = {
+  Left: "left",
+  Right: "right",
+};
+
 const meta = {
   component: ArrowButton,
   title: "Components/ArrowButton",
@@ -11,11 +16,18 @@ const meta = {
         disable: true,
       },
     },
+    direction: {
+      control: { type: "select" },
+      options: Object.values(directionOptions),
+    },
     variant: {
       table: {
         disable: true,
       },
     },
+  },
+  parameters: {
+    layout: "centered",
   },
 } satisfies Meta<typeof ArrowButton>;
 
@@ -26,6 +38,7 @@ export const PrimaryArrowButtonStory = {
   args: {
     ariaLabel: "Arrow",
     disabled: false,
+    direction: "right",
     selected: false,
     type: "button",
     variant: "primary",
@@ -37,6 +50,7 @@ export const PrimaryInverseArrowButtonStory = {
   args: {
     ariaLabel: "Arrow",
     disabled: false,
+    direction: "right",
     selected: false,
     type: "button",
     variant: "primary-inverse",

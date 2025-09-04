@@ -1,15 +1,16 @@
 import type { FC } from "react";
-import { RiArrowRightSLine } from "@remixicon/react";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
+import clsx from "clsx";
 
 import styles from "./ArrowButton.module.scss";
 import type { ArrowButtonProps } from "./ArrowButton.interface";
 
-const { button, button__label, "button__label-icon": buttonLabel } = styles;
-
 export const ArrowButton: FC<ArrowButtonProps> = (props) => {
   // Combine base class and variant class
-  const variantClass = styles[`arrow-button--${props.variant}`];
-  const classes = [button, variantClass].filter(Boolean).join(" ");
+  const classes = clsx(
+    styles["button"],
+    styles[`arrow-button--${props.variant}`],
+  );
 
   return (
     <button
@@ -19,8 +20,12 @@ export const ArrowButton: FC<ArrowButtonProps> = (props) => {
       onClick={props.onClick}
       type={props.type}
     >
-      <div className={button__label}>
-        <RiArrowRightSLine className={buttonLabel} />
+      <div className={styles["button__label"]}>
+        {props.direction == "right" ? (
+          <RiArrowRightSLine className={styles["button__label-icon"]} />
+        ) : (
+          <RiArrowLeftSLine className={styles["button__label-icon"]} />
+        )}
       </div>
     </button>
   );

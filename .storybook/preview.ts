@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
 import "../src/styles/index.scss";
+import "@fontsource-variable/open-sans";
 
 const preview: Preview = {
   parameters: {
@@ -9,7 +10,6 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    layout: "centered",
   },
 };
 

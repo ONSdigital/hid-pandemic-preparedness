@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 export interface CarouselCardProps {
   body: string;
-  children: ReactNode;
+  iconComponent: ReactNode;
+  linkComponent: ReactNode;
   title: string;
 }

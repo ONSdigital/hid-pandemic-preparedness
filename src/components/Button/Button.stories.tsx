@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import styles from "./Button.module.scss";
@@ -7,48 +7,46 @@ import { RiArrowRightLine, RiMailLine } from "@remixicon/react";
 
 import { Button } from "./Button";
 
-const { "button__label-icon": buttonLabel } = styles;
-
 // Defines some options for button children so we can show how different button content is rendered
 interface ButtonChildrenOptions {
-  TextOnly: FC;
-  IconLeft: FC;
-  IconLeftAndRight: FC;
-  IconRight: FC;
+  TextOnly: ReactNode;
+  IconLeft: ReactNode;
+  IconLeftAndRight: ReactNode;
+  IconRight: ReactNode;
 }
 
-const ButtonChildrenTextOnly: FC = () => (
+const ButtonChildrenTextOnly: ReactNode = (
   <>
     <div>Button</div>
   </>
 );
 
-const ButtonChildrenIconLeft: FC = () => (
+const ButtonChildrenIconLeft: ReactNode = (
   <>
     <div>
-      <RiMailLine className={buttonLabel} />
+      <RiMailLine className={styles["button__label-icon"]} />
     </div>
     <div>Button</div>
   </>
 );
 
-const ButtonChildrenIconLeftAndRight: FC = () => (
+const ButtonChildrenIconLeftAndRight: ReactNode = (
   <>
     <div>
-      <RiMailLine className={buttonLabel} />
+      <RiMailLine className={styles["button__label-icon"]} />
     </div>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={buttonLabel} />
+      <RiArrowRightLine className={styles["button__label-icon"]} />
     </div>
   </>
 );
 
-const ButtonChildrenIconRight: FC = () => (
+const ButtonChildrenIconRight: ReactNode = (
   <>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={buttonLabel} />
+      <RiArrowRightLine className={styles["button__label-icon"]} />
     </div>
   </>
 );
@@ -64,6 +62,9 @@ const childrenOptions: ButtonChildrenOptions = {
 const meta = {
   component: Button,
   title: "Components/Button",
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     ariaLabel: {
       table: {

@@ -28,7 +28,7 @@ const ColorSwatch: FC<ColorSwatchProps> = ({
   // display it in the component
   useEffect(() => {
     if (ref.current && backgroundColorVar) {
-      const styles = getComputedStyle(ref.current); // eslint-disable-line no-undef
+      const styles = getComputedStyle(ref.current);
       const value = styles.getPropertyValue(backgroundColorVar).trim();
       setResolvedColorHex(value);
     }
