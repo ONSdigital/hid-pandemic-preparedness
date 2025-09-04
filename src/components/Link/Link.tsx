@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { RiArrowRightLine, RiShareBoxFill } from "@remixicon/react";
+import clsx from "clsx";
 
 import buttonStyles from "../Button/Button.module.scss";
 import linkStyles from "./Link.module.scss";
@@ -12,11 +13,12 @@ export const Link: FC<LinkProps> = (props) => {
   // Set css class based on whether we are rendering as a button or inverse
   if (props.asButton) {
     // Combine base class and variant class
-    const buttonClass = buttonStyles["button"];
-    const variantClass = buttonStyles[`button--${props.buttonVariant}`];
-    classes = [buttonClass, variantClass].filter(Boolean).join(" ");
+    classes = clsx(
+      buttonStyles["button"],
+      buttonStyles[`button--${props.buttonVariant}`],
+    );
   } else if (props.textInverse) {
-    classes = `${linkStyles["link"]} ${linkStyles["link--inverse"]}`;
+    classes = clsx(linkStyles["link"], linkStyles["link--inverse"]);
   } else {
     classes = linkStyles["link"];
   }
