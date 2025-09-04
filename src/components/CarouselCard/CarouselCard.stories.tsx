@@ -1,18 +1,39 @@
 import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RiRecordCircleLine } from "@remixicon/react";
+import {
+  RiQuestionLine,
+  RiRecordCircleLine,
+  RiRhythmFill,
+} from "@remixicon/react";
 
 import CarouselCard from "./CarouselCard";
 import type { CarouselCardProps } from "./CarouselCard.interface";
 import { Link } from "../Link/Link";
 
+interface CarouselCardIconOptions {
+  RumourReport: ReactNode;
+  SampleSizeCalculator: ReactNode;
+  QuestionBank: ReactNode;
+}
+
+const RumourReportIcon: ReactNode = <RiRecordCircleLine />;
+const SampleSizeCalculatorIcon: ReactNode = <RiRhythmFill />;
+const QuestionBankIcon: ReactNode = <RiQuestionLine />;
+
+const iconOptions: CarouselCardIconOptions = {
+  RumourReport: RumourReportIcon,
+  SampleSizeCalculator: SampleSizeCalculatorIcon,
+  QuestionBank: QuestionBankIcon,
+};
+
 const meta = {
   argTypes: {
     iconComponent: {
-      table: {
-        disable: true,
-      },
+      control: { type: "select" },
+      name: "Icon",
+      options: Object.keys(iconOptions),
+      mapping: iconOptions,
     },
     linkComponent: {
       table: {
@@ -30,14 +51,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const carouselCardIconComponent: ReactNode = <RiRecordCircleLine />;
 const carouselLinkComponent: ReactNode = (
   <Link href="/internal" label="Try now" />
 );
 
 const carouselCardData: CarouselCardProps = {
   body: "A rumour report logs unverified claims or info in circulation.",
-  iconComponent: carouselCardIconComponent,
+  iconComponent: iconOptions.RumourReport,
   linkComponent: carouselLinkComponent,
   title: "Rumour report",
 };
