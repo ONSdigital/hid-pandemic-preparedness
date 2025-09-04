@@ -3,63 +3,68 @@ import type { CarouselProps } from "./Carousel.interface";
 
 import styles from "./Carousel.module.scss";
 import { ArrowButton } from "../ArrowButton/ArrowButton";
+import CarouselCard from "../CarouselCard/CarouselCard";
+import type { CarouselCardProps } from "../CarouselCard/CarouselCard.interface";
 
-const Carousel: React.FC<CarouselProps> = ({ children }) => {
-  const cardsPerPage = 3;
-  const totalCards = children.length;
+function getVisibleCards(
+  cardsList: CarouselCardProps[],
+  leftMostCardIndex: number,
+  cardsPerPage: number,
+) {
+  const total = cardsList.length;
+  const visibleCards = [];
+  for (let i = 0; i < cardsPerPage; i++) {
+    visibleCards.push(cardsList[(leftMostCardIndex + i) % total]);
+  }
+  return visibleCards;
+}
 
-  const totalPages = Math.ceil(totalCards / cardsPerPage);
-  const [currentPage, setCurrentPage] = useState(0);
+const Carousel: React.FC<CarouselProps> = (props) => {
+  const totalCards = props.carouselCardsData.length;
+  const cardsPerPage = props.cardsPerPage;
 
-  const startIndex = currentPage * cardsPerPage;
-  const endIndex = startIndex + cardsPerPage;
+  const [leftMostCardIndex, setLeftMostCardIndex] = useState(0);
 
-  const visibleCards = children.slice(startIndex, endIndex);
-  const isLastPage = currentPage === totalPages - 1;
+  const cardsDisplayed = getVisibleCards(
+    props.carouselCardsData,
+    leftMostCardIndex,
+    cardsPerPage,
+  );
 
-  const handlePrev = () => {
-    setCurrentPage((val) => Math.max(val - 1, 0));
+  const increasePageNumber = () => {
+    setLeftMostCardIndex((val) => (val + 1) % totalCards); //Cycle back to first card
   };
 
-  const handleNext = () => {
-    setCurrentPage((val) => Math.min(val + 1, totalPages - 1));
+  const decreasePageNumber = () => {
+    setLeftMostCardIndex((val) => (val - 1 + totalCards) % totalCards); // Cycle back to last card
   };
 
   return (
-    <div className={styles.carouselContainer}>
-      <div className={styles.carouselInner}>
-        <ArrowButton
-          ariaLabel="Previous"
-          disabled={currentPage === 0}
-          onClick={handlePrev}
-          type="button"
-          variant="primary"
-        />
+    <div className={styles["carousel"]}>
+      <ArrowButton
+        ariaLabel="Previous"
+        direction="left"
+        onClick={decreasePageNumber}
+        type="button"
+        variant="primary"
+      />
 
-        <div
-          className={`${styles.carouselCards} ${
-            isLastPage ? styles.justifyFlexStart : styles.justifySpaceBetween
-          }`}
-        >
-          {visibleCards.map((child, idx) => (
-            <div
-              key={startIndex + idx}
-              className={styles.cardWrapper}
-              style={{ flex: `0 0 ${100 / cardsPerPage}%` }}
-            >
-              {child}
-            </div>
-          ))}
-        </div>
-
-        <ArrowButton
-          ariaLabel="Next"
-          disabled={currentPage === totalPages - 1}
-          onClick={handleNext}
-          type="button"
-          variant="primary"
-        />
+      <div className={styles["carousel__cards"]}>
+        {cardsDisplayed.map((cardData, idx) => (
+          //Key must be unique from one render to the next
+          <div key={(leftMostCardIndex + idx) % totalCards}>
+            <CarouselCard {...cardData} />
+          </div>
+        ))}
       </div>
+
+      <ArrowButton
+        ariaLabel="Next"
+        direction="right"
+        onClick={increasePageNumber}
+        type="button"
+        variant="primary"
+      />
     </div>
   );
 };

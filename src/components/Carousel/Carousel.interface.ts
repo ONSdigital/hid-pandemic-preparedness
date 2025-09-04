@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
+import type { CarouselCardProps } from "../CarouselCard/CarouselCard.interface";
 
 export interface CarouselProps {
-  children: ReactNode[];
+  cardsPerPage: number;
+  carouselCardsData: CarouselCardProps[];
 }

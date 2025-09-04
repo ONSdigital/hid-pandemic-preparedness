@@ -1,28 +1,12 @@
-.carouselContainer {
-  width: 100%;
-  max-width: 1000px;
-}
+@use "../../styles/global/tokens" as *;
 
-.carouselInner {
+.carousel {
   display: flex;
   align-items: center;
 }
 
-.carouselCards {
+.carousel__cards {
   display: flex;
-  flex-grow: 1;
-  margin: 0 10px;
-}
-
-.justifySpaceBetween {
-  justify-content: space-between;
-}
-
-.justifyFlexStart {
-  justify-content: flex-start;
-}
-
-.cardWrapper {
-  box-sizing: border-box;
-  padding: 0 5px;
+  gap: $spacing-5;
+  margin: 0 $spacing-7;
 }
