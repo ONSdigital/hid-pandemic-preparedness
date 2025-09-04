@@ -1,0 +1,142 @@
+[
+  {
+    "label": "About",
+    "children": [
+      {
+        "href": "#",
+        "label": "Mission and goals"
+      },
+      {
+        "href": "#",
+        "label": "Global partners"
+      },
+      {
+        "href": "#",
+        "label": "FAQs"
+      },
+      {
+        "href": "#",
+        "label": "How to get involved"
+      }
+    ]
+  },
+  {
+    "label": "Learning resources",
+    "children": [
+      {
+        "label": "Data collection",
+        "children": [
+          {
+            "href": "#",
+            "label": "Sampling"
+          },
+          {
+            "href": "#",
+            "label": "Survey design"
+          },
+          {
+            "href": "#",
+            "label": "Data collection mode"
+          },
+          {
+            "href": "#",
+            "label": "Administrative data"
+          }
+        ]
+      },
+      {
+        "label": "Data analysis",
+        "children": [
+          {
+            "href": "#",
+            "label": "Data preparation"
+          },
+          {
+            "href": "#",
+            "label": "Reproducible analytical pipelines"
+          },
+          {
+            "href": "#",
+            "label": "Epidemiological analysis"
+          }
+        ]
+      },
+      {
+        "label": "Data governance",
+        "children": [
+          {
+            "href": "#",
+            "label": "Implementation legislation"
+          },
+          {
+            "href": "#",
+            "label": "Data protection and user privacy"
+          }
+        ]
+      },
+      {
+        "label": "Outputs and reporting",
+        "children": [
+          {
+            "href": "#",
+            "label": "Data visualisation"
+          },
+          {
+            "href": "#",
+            "label": "Written and verbal communication"
+          }
+        ]
+      },
+      {
+        "label": "Stakeholder engagement",
+        "children": [
+          {
+            "href": "#",
+            "label": "Stakeholder mapping"
+          },
+          {
+            "href": "#",
+            "label": "Leadership"
+          },
+          {
+            "href": "#",
+            "label": "Public acceptability"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "href": "#",
+    "label": "Case studies"
+  },
+  {
+    "label": "Tools",
+    "children": [
+      {
+        "href": "#",
+        "label": "Sample size calculator"
+      },
+      {
+        "href": "#",
+        "label": "Question bank"
+      },
+      {
+        "href": "#",
+        "label": "Modelling dashboard"
+      },
+      {
+        "href": "#",
+        "label": "Rumour report"
+      },
+      {
+        "href": "#",
+        "label": "Contrast checker"
+      }
+    ]
+  },
+  {
+    "href": "#",
+    "label": "Contact"
+  }
+]
