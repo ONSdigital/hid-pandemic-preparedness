@@ -5,27 +5,40 @@ import { RiRecordCircleLine } from "@remixicon/react";
 
 import CarouselCard from "./CarouselCard";
 import type { CarouselCardProps } from "./CarouselCard.interface";
+import { Link } from "../Link/Link";
 
 const meta = {
   argTypes: {
-    children: {
+    iconComponent: {
+      table: {
+        disable: true,
+      },
+    },
+    linkComponent: {
       table: {
         disable: true,
       },
     },
   },
   component: CarouselCard,
+  parameters: {
+    layout: "centered",
+  },
   title: "Components/CarouselCard",
 } satisfies Meta<typeof CarouselCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const CarouselCardIcon: ReactNode = <RiRecordCircleLine />;
+const carouselCardIconComponent: ReactNode = <RiRecordCircleLine />;
+const carouselLinkComponent: ReactNode = (
+  <Link href="/internal" label="Try now" />
+);
 
 const carouselCardData: CarouselCardProps = {
   body: "A rumour report logs unverified claims or info in circulation.",
-  children: CarouselCardIcon,
+  iconComponent: carouselCardIconComponent,
+  linkComponent: carouselLinkComponent,
   title: "Rumour report",
 };
 
