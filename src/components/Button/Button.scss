@@ -17,16 +17,16 @@
 
 .button__label {
   align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: row;
   gap: $spacing-2xs;
+  justify-content: center;
   vertical-align: middle;
 }
 
 .button__label-icon {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
@@ -106,4 +106,13 @@
   &:hover {
     background-color: $color-button-secondary-inverse-hover;
   }
+}
+
+.button--search-bar {
+  @extend .button--primary;
+  border: none;
+  border-radius: 0 $corner-radius-default $corner-radius-default 0;
+  cursor: pointer;
+  outline: none;
+  padding: $spacing-3 $spacing-4;
 }
