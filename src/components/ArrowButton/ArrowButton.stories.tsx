@@ -26,6 +26,9 @@ const meta = {
       },
     },
   },
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta<typeof ArrowButton>;
 
 export default meta;

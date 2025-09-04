@@ -1,5 +1,6 @@
 @use "../../styles/elements/buttons" as *;
 @use "../../styles/global/mixins" as *;
+@use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
 
 .button {
@@ -7,9 +8,11 @@
   border: none;
   border-radius: $corner-radius-default;
   display: flex;
+  gap: $spacing-2xs;
   justify-content: center;
   line-height: 22px;
   padding: $spacing-2xs $spacing-sm;
+  text-decoration: none;
   @include responsive-token("font-size", $font-sizes-responsive-map, "body");
 }
 
@@ -35,4 +38,13 @@
 
 .button--secondary-inverse {
   @extend %button-secondary-inverse;
+}
+
+.button--search-bar {
+  @extend .button--primary;
+  border: none;
+  border-radius: 0 $corner-radius-default $corner-radius-default 0;
+  cursor: pointer;
+  outline: none;
+  padding: $spacing-3 $spacing-4;
 }

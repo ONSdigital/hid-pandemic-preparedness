@@ -1,13 +1,12 @@
 import type { FC } from "react";
+import clsx from "clsx";
 
 import styles from "./Button.module.scss";
 import type { ButtonProps } from "./Button.interface";
 
 export const Button: FC<ButtonProps> = (props) => {
   // Combine base class and variant class
-  const buttonClass = styles["button"];
-  const variantClass = styles[`button--${props.variant}`];
-  const classes = [buttonClass, variantClass].filter(Boolean).join(" ");
+  const classes = clsx(styles["button"], styles[`button--${props.variant}`]);
 
   const onClick = () => {
     console.log("clicked!");

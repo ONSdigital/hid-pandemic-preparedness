@@ -4,24 +4,16 @@ import type { FooterProps } from "./Footer.interface";
 import styles from "./Footer.module.scss";
 import type { MenuData } from "../../types/MenuData";
 
-const {
-  footer,
-  "footer__footer-column": footerColumn,
-  footer__list,
-  footer__item,
-  footer__link,
-} = styles;
-
 // React component for a footer column
 const FooterColumn: FC<MenuData> = ({ title, links }) => {
   return (
-    <div className={footerColumn}>
+    <div className={styles["footer__footer-column"]}>
       <h1 className="heading-s">{title}</h1>
       {links && links.length > 0 && (
-        <ul className={footer__list}>
+        <ul className={styles["footer__list"]}>
           {links.map((link) => (
-            <li className={footer__item} key={link.href}>
-              <a className={footer__link} href={link.href}>
+            <li className={styles["footer__item"]} key={link.href}>
+              <a className={styles["footer__link"]} href={link.href}>
                 {link.label}
               </a>
             </li>
@@ -39,7 +31,7 @@ export const Footer: FC<FooterProps> = ({
   columnRight,
 }) => {
   return (
-    <footer className={footer}>
+    <footer className={styles["footer"]}>
       <FooterColumn {...columnLeft} />
       <FooterColumn {...columnMid} />
       <FooterColumn {...columnRight} />
