@@ -1,5 +1,8 @@
+import type { ReactNode } from "react";
+
 export interface HeaderProps {
-  subheading: string;
-  heading: string;
+  children: ReactNode;
   description: string;
+  heading: string;
+  subheading: string;
 }
