@@ -1,13 +1,13 @@
 import type { FC } from "react";
 
-import "./Navbar.scss";
+import styles from "./Navbar.module.scss";
 import type { NavbarProps } from "./Navbar.interface";
 
 export const Navbar: FC<NavbarProps> = (props) => {
   return (
-    <nav className="navbar">
+    <nav className={styles["navbar"]}>
       <div>
-        <a className="navbar__brand" href="#">
+        <a className={styles["navbar__brand"]} href="#">
           Brand
         </a>
       </div>
