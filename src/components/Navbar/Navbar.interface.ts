@@ -1,5 +1,5 @@
-import type { MenuData } from "../../types/MenuData";
+import type { NavItem } from "../../types/NavItem";
 
 export interface NavbarProps {
-  menuItems: MenuData[];
+  navItems: NavItem[];
 }

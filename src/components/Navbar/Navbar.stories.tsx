@@ -1,13 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import menuItems from "../../content/menuItems.json";
 import { Navbar } from "./Navbar";
 import type { NavbarProps } from "./Navbar.interface";
+import type { NavItem } from "../../types/NavItem";
 
 const meta = {
   component: Navbar,
   title: "Components/Navbar",
   argTypes: {
-    menuItems: {
+    navItems: {
       table: {
         disable: true,
       },
@@ -22,13 +24,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const navbarData: NavbarProps = {
-  menuItems: [
-    { title: "About" },
-    { title: "Learning resources" },
-    { title: "Case studies" },
-    { title: "Tools" },
-    { title: "Contact" },
-  ],
+  navItems: menuItems as NavItem[],
 };
 export const NavbarStory = {
   name: "Navbar",
