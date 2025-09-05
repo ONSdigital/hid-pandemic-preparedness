@@ -7,7 +7,7 @@
 // Exposing sass variables to css for use with storybook
 :root {
   --color-brand-primary-default: #{variables.$color-brand-primary-default};
-  --color-brand-secondary-default: #{variables.$color-brand-secondary-default};
+  --color-brand-secondary-default: #{tokens.$color-brand-secondary-default};
 
   --color-surface-default: #{variables.$color-surface-default};
   --color-surface-inverse: #{variables.$color-surface-inverse};

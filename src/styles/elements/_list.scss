@@ -1,12 +1,8 @@
 @use "../global/variables" as *;
 
-@mixin link-states($active-color, $focus-color, $focus-shadow, $hover-color) {
-  &:active {
-    background-color: $active-color;
-  }
-
+@mixin link-states($focus-shadow, $hover-color) {
   &:focus {
-    box-shadow: 0 0 0 1px $color-brand-secondary-default;
+    box-shadow: 0 0 0 1px $focus-shadow;
   }
 
   &:hover {
