@@ -67,7 +67,7 @@ $spacing-responsive-map: (
 );
 
 // Brand colors
-$color-brand-primary-default: $color-primary-500;
+$color-brand-primary-default: $color-brand-primary-default;
 $color-brand-secondary-default: $color-secondary-500;
 
 // Surface colors
@@ -90,7 +90,7 @@ $color-button-primary-inverse-focus: $color-secondary-200;
 $color-button-primary-inverse-selected: $color-secondary-200;
 
 $color-button-secondary-active: $color-surface-default;
-$color-button-secondary-border: $color-primary-300;
+$color-button-secondary-border: $color-brand-primary-300;
 $color-button-secondary-default: $color-surface-default;
 $color-button-secondary-hover: $color-surface-default;
 $color-button-secondary-focus: $color-surface-default;
@@ -106,7 +106,7 @@ $color-button-secondary-inverse-selected: $color-surface-inverse;
 // Text colors
 $color-text-default: $color-grey-900;
 $color-text-inverse: $color-grey-100;
-$color-text-accent: $color-primary-500;
+$color-text-accent: $color-brand-primary-default;
 $color-text-link-hover: $color-state-link-hover;
 $color-text-secondary: $color-grey-600;
 
@@ -139,5 +139,5 @@ $brand-gradient-1:
   linear-gradient(
     135deg,
     $color-dark-olive-green 1.59%,
-    $color-primary-500 99.06%
+    $color-brand-primary-default 99.06%
   );
