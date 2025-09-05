@@ -1,24 +1,7 @@
 [
   {
     "label": "About",
-    "children": [
-      {
-        "href": "#",
-        "label": "Mission and goals"
-      },
-      {
-        "href": "#",
-        "label": "Global partners"
-      },
-      {
-        "href": "#",
-        "label": "FAQs"
-      },
-      {
-        "href": "#",
-        "label": "How to get involved"
-      }
-    ]
+    "href": "#"
   },
   {
     "label": "Learning resources",
@@ -112,28 +95,7 @@
   },
   {
     "label": "Tools",
-    "children": [
-      {
-        "href": "#",
-        "label": "Sample size calculator"
-      },
-      {
-        "href": "#",
-        "label": "Question bank"
-      },
-      {
-        "href": "#",
-        "label": "Modelling dashboard"
-      },
-      {
-        "href": "#",
-        "label": "Rumour report"
-      },
-      {
-        "href": "#",
-        "label": "Contrast checker"
-      }
-    ]
+    "href": "#"
   },
   {
     "href": "#",

@@ -40,7 +40,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
     <nav className={styles["navbar"]}>
       <div>
         <a className={styles["navbar-brand"]} href="#">
-          Brand
+          {props.brandComponent}
         </a>
       </div>
       <ul className={styles["navbar-nav"]}>
