@@ -24,7 +24,7 @@
   @include button-states(
     $color-button-primary-active,
     $color-button-primary-focus,
-    $color-state-focus,
+    $color-other-orange,
     $color-button-primary-hover
   );
 }
@@ -36,7 +36,7 @@
   @include button-states(
     $color-button-primary-inverse-active,
     $color-button-primary-inverse-focus,
-    $color-state-focus,
+    $color-other-orange,
     $color-button-primary-inverse-hover
   );
 }
@@ -51,7 +51,7 @@
   @include button-states(
     $color-button-secondary-active,
     $color-button-secondary-focus,
-    $color-state-focus,
+    $color-other-orange,
     $color-button-secondary-hover
   );
 }
@@ -66,7 +66,7 @@
   @include button-states(
     $color-button-secondary-inverse-active,
     $color-button-secondary-inverse-focus,
-    $color-state-focus,
+    $color-other-orange,
     $color-button-secondary-inverse-hover
   );
 }
