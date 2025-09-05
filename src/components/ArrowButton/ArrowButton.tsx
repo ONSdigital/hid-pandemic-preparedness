@@ -13,7 +13,7 @@ export const ArrowButton: FC<ArrowButtonProps> = (props) => {
   );
 
   const onClick = () => {
-    console.log("clicked!"); // eslint-disable-line no-undef
+    console.log("clicked!");
   };
 
   return (

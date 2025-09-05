@@ -1,8 +1,3 @@
-import type { LinkData } from "../../types/LinkData";
+import type { NavItem } from "../../types/NavItem";
 
-export interface ListItemProps extends LinkData {}
-
-export interface MenuListProps {
-  items: ListItemProps[];
-  hasDivider?: boolean;
-}
+export interface MenuListProps extends NavItem {}

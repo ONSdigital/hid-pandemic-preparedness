@@ -1,38 +1,21 @@
 import type { FC } from "react";
-import styles from "./MenuList.module.scss";
-import type { ListItemProps, MenuListProps } from "./MenuList.interface";
-
-const dummyItems = [
-  { href: "/page1", label: "Page 1" },
-  { href: "/page2", label: "Page 2" },
-  { href: "/page3", label: "Page 3" },
-  { href: "/page4", label: "Page 4" },
-  { href: "/page5", label: "Page 5" },
-];
-
-export const MenuListItem: FC<ListItemProps> = (props) => {
-  return (
-    <li className={styles["list-item__container"]}>
-      <a href={props.href}>{props.label}</a>
-    </li>
-  );
-};
+import type { MenuListProps } from "./MenuList.interface";
 
 export const MenuList: FC<MenuListProps> = (props) => {
-  const lastMenuItemIndex = props.items.length - 1;
-
   return (
-    <ul className={styles["list"]}>
-      {props.items.map((item, index) => {
-        return (
-          <div key={item.href} className={styles["list-item-wrapper"]}>
-            <MenuListItem {...item} />
-            {props.hasDivider && index !== lastMenuItemIndex && (
-              <div className={styles["list-item__divider"]} />
-            )}
-          </div>
-        );
-      })}
-    </ul>
+    <div>
+      <h2>{props.label}</h2>
+      {props.children && (
+        <ul>
+          {props.children.map((child, index, arr) => (
+            <li key={child.href}>
+              <a href={child.href}>{child.label}</a>
+              {/* Include divider except on last item */}
+              {index !== arr.length - 1 && <hr />}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };

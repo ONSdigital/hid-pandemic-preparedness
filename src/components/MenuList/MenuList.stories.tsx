@@ -1,28 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import type { NavItem } from "../../types/NavItem";
+import menuItems from "../../content/menuItems.json";
 import { MenuList } from "./MenuList";
-
-const exampleMenuListData = [
-  { href: "/page1", label: "Example menu list item 1" },
-  { href: "/page2", label: "Example menu list item 1" },
-  { href: "/page3", label: "Example menu list item 1" },
-  { href: "/page4", label: "Example menu list item 1" },
-  {
-    href: "/page5",
-    label: "Example menu list item — this one is extra long content",
-  },
-];
 
 const meta = {
   argTypes: {
-    items: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+    href: {
+      table: {
+        disable: true,
+      },
+    },
+    label: {
       table: {
         disable: true,
       },
     },
   },
   component: MenuList,
-  title: "Components/Menu-List",
+  title: "Components/Menu list",
   parameters: {
     layout: "centered",
   },
@@ -32,9 +33,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const MenuListStory = {
-  name: "Default Menu List",
-  args: {
-    items: exampleMenuListData,
-    hasDivider: true,
-  },
+  // Loads second element out of `menuItems.json` which contains valid nav menu data
+  name: "Menu list",
+  args: menuItems[1] as NavItem,
 } satisfies Story;

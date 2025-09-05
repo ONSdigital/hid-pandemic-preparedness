@@ -1,5 +1,6 @@
 @use "../../styles/elements/list" as *;
 @use "../../styles/global/tokens" as *;
+@use "../../styles/global/variables" as *;
 
 .list-item {
   padding-top: $spacing-3;
@@ -7,10 +8,7 @@
   overflow-wrap: break-word;
   user-select: none;
 
-  @include link-states(
-    $color-brand-secondary-default,
-    $color-brand-primary-200
-  );
+  @include link-states($color-brand-secondary-default, $color-primary-200);
 }
 
 .list-item__container {
@@ -24,7 +22,7 @@
 }
 
 .list-item__divider {
-  background-color: $color-brand-secondary-400;
+  background-color: $color-secondary-400;
   height: 1px;
   margin-top: $spacing-2;
 }
