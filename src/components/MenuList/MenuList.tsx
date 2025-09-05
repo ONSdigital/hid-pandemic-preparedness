@@ -1,6 +1,6 @@
 import type { FC } from "react";
-import styles from "./ListItem.module.scss";
-import type { ListItemProps, MenuListProps } from "./ListItem.interface";
+import styles from "./MenuList.module.scss";
+import type { ListItemProps, MenuListProps } from "./MenuList.interface";
 
 const dummyItems = [
   { href: "/page1", label: "Page 1" },

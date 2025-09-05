@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { MenuList } from "./ListItem";
+import { MenuList } from "./MenuList";
 
 const exampleMenuListData = [
   { href: "/page1", label: "Example menu list item 1" },
