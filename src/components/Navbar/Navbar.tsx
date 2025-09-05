@@ -4,6 +4,7 @@ import {
   RiArrowDropDownLine,
   RiArrowDropUpLine,
   RiGlobalLine,
+  RiMenuLine,
   RiSearchLine,
 } from "@remixicon/react";
 
@@ -24,7 +25,7 @@ const NavbarItem: FC<NavItem> = (props) => {
 
   return (
     <li className={styles["nav-item"]}>
-      <a className={styles["nav-link"]} href="#" onClick={toggleOpen}>
+      <a className={styles["nav-link"]} href={void 0} onClick={toggleOpen}>
         {props.label}{" "}
         {props.children &&
           (isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />)}
@@ -49,12 +50,18 @@ export const Navbar: FC<NavbarProps> = (props) => {
       </ul>
       <div>
         <a className={styles["navbar-locale"]} href="#">
-          <RiGlobalLine /> Language
+          <RiGlobalLine />{" "}
+          <span className={styles["navbar-locale__descriptor"]}>Language</span>
         </a>
       </div>
       <div>
         <a className={styles["navbar-search"]} href="#">
           <RiSearchLine />
+        </a>
+      </div>
+      <div>
+        <a className={styles["navbar-hamburger"]} href="#">
+          <RiMenuLine />
         </a>
       </div>
     </nav>
