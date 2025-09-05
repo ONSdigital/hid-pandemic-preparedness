@@ -10,7 +10,7 @@ import {
 
 import type { NavItem } from "../../types/NavItem";
 import styles from "./Navbar.module.scss";
-import type { NavbarProps } from "./Navbar.interface";
+import type { BrandProps, NavbarProps } from "./Navbar.interface";
 
 // eslint-disable-next-line no-unused-vars
 const MegaMenu: FC<NavItem[]> = (props) => {
@@ -32,6 +32,20 @@ const NavbarItem: FC<NavItem> = (props) => {
       </a>
       {props.children && isOpen && <MegaMenu {...props.children} />}
     </li>
+  );
+};
+
+// Brand component inputted as separate component to `Navbar` via props so we can load different
+// src paths depending on whether we are rendering on Storybook or Astro page. This will
+// probably be updated once we figure out how to properly get Storybook to load svgs as components
+// automatically
+export const Brand: FC<BrandProps> = (props) => {
+  return (
+    <img
+      src={props.src}
+      height="40px"
+      alt="The Analysis for Action brand logo."
+    />
   );
 };
 
