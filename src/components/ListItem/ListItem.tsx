@@ -1,14 +1,38 @@
 import type { FC } from "react";
 import styles from "./ListItem.module.scss";
-import type { ListItemProps } from "./ListItem.interface";
+import type { ListItemProps, MenuListProps } from "./ListItem.interface";
 
-const ListItem: FC<ListItemProps> = (props) => {
+const dummyItems = [
+  { href: "/page1", label: "Page 1" },
+  { href: "/page2", label: "Page 2" },
+  { href: "/page3", label: "Page 3" },
+  { href: "/page4", label: "Page 4" },
+  { href: "/page5", label: "Page 5" },
+];
+
+export const MenuListItem: FC<ListItemProps> = (props) => {
   return (
-    <div className={styles["list-item"]}>
-      <li className={styles["list-item__container"]}>{props.children}</li>
-      {props.hasLine && <div className={styles["list-item__divider"]} />}
-    </div>
+    <li className={styles["list-item__container"]}>
+      <a href={props.href}>{props.label}</a>
+    </li>
   );
 };
 
-export default ListItem;
+export const MenuList: FC<MenuListProps> = (props) => {
+  const lastMenuItemIndex = props.items.length - 1;
+
+  return (
+    <ul className={styles["list"]}>
+      {props.items.map((item, index) => {
+        return (
+          <div key={item.href} className={styles["list-item-wrapper"]}>
+            <MenuListItem {...item} />
+            {props.hasDivider && index !== lastMenuItemIndex && (
+              <div className={styles["list-item__divider"]} />
+            )}
+          </div>
+        );
+      })}
+    </ul>
+  );
+};

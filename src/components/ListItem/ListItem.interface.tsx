@@ -1,6 +1,8 @@
-import type { ReactNode } from "react";
+import type { LinkData } from "../../types/LinkData";
 
-export interface ListItemProps {
-  children: ReactNode;
-  hasLine?: boolean;
+export interface ListItemProps extends LinkData {}
+
+export interface MenuListProps {
+  items: ListItemProps[];
+  hasDivider?: boolean;
 }

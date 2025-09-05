@@ -3,6 +3,8 @@
 
 .list-item {
   padding-top: $spacing-3;
+  max-width: 198px;
+  overflow-wrap: break-word;
   user-select: none;
 
   @include link-states(

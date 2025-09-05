@@ -1,50 +1,40 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import ListItem from "./ListItem";
-import type { ReactNode } from "react";
+import { MenuList } from "./ListItem";
+
+const exampleMenuListData = [
+  { href: "/page1", label: "Example menu list item 1" },
+  { href: "/page2", label: "Example menu list item 1" },
+  { href: "/page3", label: "Example menu list item 1" },
+  { href: "/page4", label: "Example menu list item 1" },
+  {
+    href: "/page5",
+    label: "Example menu list item — this one is extra long content",
+  },
+];
 
 const meta = {
-  component: ListItem,
-  title: "Components/List-Item",
   argTypes: {
-    children: {
+    items: {
       table: {
         disable: true,
       },
     },
   },
-
+  component: MenuList,
+  title: "Components/Menu-List",
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof ListItem>;
+} satisfies Meta<typeof MenuList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const listItemSingularTextComponent: ReactNode = (
-  <p className="body">This is a list item</p>
-);
-
-const listItemDoubleTextComponent: ReactNode = (
-  <>
-    <p className="body">This is a list item</p>
-    <p className="body">This is another list item</p>
-  </>
-);
-
-export const singularListContentStory = {
-  name: "List item",
+export const MenuListStory = {
+  name: "Default Menu List",
   args: {
-    children: listItemSingularTextComponent,
-    hasLine: true,
-  },
-} satisfies Story;
-
-export const multipleListContentStory = {
-  name: "List item - double text",
-  args: {
-    children: listItemDoubleTextComponent,
-    hasLine: true,
+    items: exampleMenuListData,
+    hasDivider: true,
   },
 } satisfies Story;
