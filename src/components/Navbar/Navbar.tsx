@@ -42,8 +42,8 @@ const NavbarItem: FC<NavItem> = (props) => {
 export const Brand: FC<BrandProps> = (props) => {
   return (
     <img
+      className={styles["navbar-brand__image"]}
       src={props.src}
-      height="40px"
       alt="The Analysis for Action brand logo."
     />
   );

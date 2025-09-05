@@ -2,7 +2,7 @@
 @use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
 
-$navbar-spacing-responsive-map: (
+$navbar-responsive-map: (
   "height": (
     "mobile": $spacing-md,
     "tablet": $spacing-xl,
@@ -29,21 +29,36 @@ $navbar-spacing-responsive-map: (
   justify-content: space-between;
   position: relative;
   width: 100%;
-  @include responsive-token("height", $navbar-spacing-responsive-map, "height");
+  @include responsive-token("height", $navbar-responsive-map, "height");
   @include responsive-token(
     "padding-left",
-    $navbar-spacing-responsive-map,
+    $navbar-responsive-map,
     "padding-left"
   );
   @include responsive-token(
     "padding-right",
-    $navbar-spacing-responsive-map,
+    $navbar-responsive-map,
     "padding-right"
   );
 }
 
+$navbar-brand-responsive-map: (
+  "height": (
+    "mobile": $height-brand-mobile,
+    "tablet": $height-brand-desktop,
+    "desktop": $height-brand-desktop,
+  ),
+);
+
 .navbar-brand {
-  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__image {
+    @include responsive-token("height", $navbar-brand-responsive-map, "height");
+  }
 }
 
 .navbar-nav {
@@ -128,6 +143,10 @@ $navbar-spacing-responsive-map: (
   padding: $spacing-2;
   text-decoration: none;
   vertical-align: middle;
+
+  @media (max-width: 720px) {
+    height: $height-brand-mobile;
+  }
 }
 
 .mega-menu {
