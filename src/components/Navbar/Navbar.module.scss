@@ -1,24 +1,7 @@
+@use "../../styles/global/breakpoints" as *;
 @use "../../styles/global/mixins" as *;
 @use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
-
-$navbar-responsive-map: (
-  "height": (
-    "mobile": $spacing-md,
-    "tablet": $spacing-xl,
-    "desktop": $spacing-xl,
-  ),
-  "padding-left": (
-    "mobile": $spacing-3,
-    "tablet": $spacing-12,
-    "desktop": $spacing-12,
-  ),
-  "padding-right": (
-    "mobile": $spacing-3,
-    "tablet": $spacing-12,
-    "desktop": $spacing-12,
-  ),
-);
 
 .navbar {
   align-items: center;
@@ -26,29 +9,19 @@ $navbar-responsive-map: (
   color: $color-text-inverse;
   display: flex;
   flex-wrap: wrap;
+  height: $height-10;
   justify-content: space-between;
+  padding-left: $spacing-12;
+  padding-right: $spacing-12;
   position: relative;
   width: 100%;
-  @include responsive-token("height", $navbar-responsive-map, "height");
-  @include responsive-token(
-    "padding-left",
-    $navbar-responsive-map,
-    "padding-left"
-  );
-  @include responsive-token(
-    "padding-right",
-    $navbar-responsive-map,
-    "padding-right"
-  );
+  // Mobile
+  @media (width < $breakpoint-tablet) {
+    height: $height-5;
+    padding-left: $spacing-3;
+    padding-right: $spacing-3;
+  }
 }
-
-$navbar-brand-responsive-map: (
-  "height": (
-    "mobile": $height-brand-mobile,
-    "tablet": $height-brand-desktop,
-    "desktop": $height-brand-desktop,
-  ),
-);
 
 .navbar-brand {
   align-items: center;
@@ -57,7 +30,11 @@ $navbar-brand-responsive-map: (
   justify-content: space-between;
 
   &__image {
-    @include responsive-token("height", $navbar-brand-responsive-map, "height");
+    height: $height-brand-desktop;
+    // Mobile
+    @media (width < $breakpoint-tablet) {
+      height: $height-brand-mobile;
+    }
   }
 }
 
@@ -76,6 +53,11 @@ $navbar-brand-responsive-map: (
   gap: $spacing-2;
   padding: $spacing-2;
   list-style: none;
+
+  // Mobile
+  @media (width < $breakpoint-tablet) {
+    display: none;
+  }
 }
 
 .nav-link {
@@ -114,8 +96,8 @@ $navbar-brand-responsive-map: (
   vertical-align: middle;
 
   &__descriptor {
-    display: flex;
-    @media (max-width: 720px) {
+    // Mobile
+    @media (width < $breakpoint-tablet) {
       display: none;
     }
   }
@@ -131,6 +113,10 @@ $navbar-brand-responsive-map: (
   padding: $spacing-2;
   text-decoration: none;
   vertical-align: middle;
+  // Mobile
+  @media (width < $breakpoint-tablet) {
+    display: none;
+  }
 }
 
 .navbar-hamburger {
@@ -143,9 +129,9 @@ $navbar-brand-responsive-map: (
   padding: $spacing-2;
   text-decoration: none;
   vertical-align: middle;
-
-  @media (max-width: 720px) {
-    height: $height-brand-mobile;
+  // Mobile
+  @media (width < $breakpoint-tablet) {
+    display: flex;
   }
 }
 
@@ -155,16 +141,4 @@ $navbar-brand-responsive-map: (
   position: absolute;
   top: 100%;
   width: 100%;
-}
-
-// Mobile styles
-@media (max-width: 720px) {
-  .nav-item,
-  .navbar-search {
-    display: none !important; // hide on mobile
-  }
-
-  .navbar-hamburger {
-    display: flex !important; // show on mobile
-  }
 }
