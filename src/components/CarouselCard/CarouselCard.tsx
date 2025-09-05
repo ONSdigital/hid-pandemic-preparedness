@@ -2,6 +2,7 @@ import type { FC } from "react";
 
 import styles from "./CarouselCard.module.scss";
 import type { CarouselCardProps } from "./CarouselCard.interface";
+import { Link } from "../Link/Link";
 
 const CarouselCard: FC<CarouselCardProps> = (props) => {
   return (
@@ -14,7 +15,7 @@ const CarouselCard: FC<CarouselCardProps> = (props) => {
         <div className={styles["card__divider"]} />
       </div>
       <p className="body">{props.body}</p>
-      {props.linkComponent}
+      <Link href={props.linkHref} label="Try now" />
     </div>
   );
 };

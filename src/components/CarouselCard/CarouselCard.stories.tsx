@@ -9,7 +9,6 @@ import {
 
 import CarouselCard from "./CarouselCard";
 import type { CarouselCardProps } from "./CarouselCard.interface";
-import { Link } from "../Link/Link";
 
 interface CarouselCardIconOptions {
   RumourReport: ReactNode;
@@ -35,7 +34,7 @@ const meta = {
       options: Object.keys(iconOptions),
       mapping: iconOptions,
     },
-    linkComponent: {
+    linkHref: {
       table: {
         disable: true,
       },
@@ -45,20 +44,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  title: "Components/CarouselCard",
+  title: "Components/Carousel Card",
 } satisfies Meta<typeof CarouselCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const carouselLinkComponent: ReactNode = (
-  <Link href="/internal" label="Try now" />
-);
-
 const carouselCardData: CarouselCardProps = {
   body: "A rumour report logs unverified claims or info in circulation.",
   iconComponent: iconOptions.RumourReport,
-  linkComponent: carouselLinkComponent,
+  linkHref: "/internal",
   title: "Rumour report",
 };
 
