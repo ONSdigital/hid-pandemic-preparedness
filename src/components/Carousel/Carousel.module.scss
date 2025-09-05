@@ -1,0 +1,12 @@
+@use "../../styles/global/tokens" as *;
+
+.carousel {
+  display: flex;
+  align-items: center;
+}
+
+.carousel__cards {
+  display: flex;
+  gap: $spacing-5;
+  margin: 0 $spacing-7;
+}

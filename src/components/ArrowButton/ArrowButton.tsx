@@ -12,16 +12,12 @@ export const ArrowButton: FC<ArrowButtonProps> = (props) => {
     styles[`arrow-button--${props.variant}`],
   );
 
-  const onClick = () => {
-    console.log("clicked!"); // eslint-disable-line no-undef
-  };
-
   return (
     <button
       className={classes}
       aria-label={props.ariaLabel}
       disabled={props.disabled}
-      onClick={onClick}
+      onClick={props.onClick}
       type={props.type}
     >
       <div className={styles["button__label"]}>
