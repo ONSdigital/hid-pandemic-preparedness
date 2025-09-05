@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import { useState } from "react";
 import type { CarouselProps } from "./Carousel.interface";
 
@@ -14,12 +15,12 @@ function getVisibleCards(
   const total = cardsList.length;
   const visibleCards = [];
   for (let i = 0; i < cardsPerPage; i++) {
-    visibleCards.push(cardsList[(leftMostCardIndex + i) % total]);
+    visibleCards.push(cardsList[(leftMostCardIndex + i) % total]); // Modulo is used to loop back to first index
   }
   return visibleCards;
 }
 
-const Carousel: React.FC<CarouselProps> = (props) => {
+const Carousel: FC<CarouselProps> = (props) => {
   const totalCards = props.carouselCardsData.length;
   const cardsPerPage = props.cardsPerPage;
 

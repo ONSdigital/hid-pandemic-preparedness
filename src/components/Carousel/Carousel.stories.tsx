@@ -35,7 +35,7 @@ const carouselCardIconComponent: ReactNode = <RiRhythmFill />;
 const carouselCardsListData: CarouselCardProps[] = Array.from(
   { length: numberOfCards },
   (_, index) => ({
-    body: "blah blah blah",
+    body: `Example body text for ${index}`,
     title: `Example title ${index}`,
     iconComponent: carouselCardIconComponent,
     linkComponent: carouselLinkComponent,
