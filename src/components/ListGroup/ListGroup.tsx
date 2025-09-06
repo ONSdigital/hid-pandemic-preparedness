@@ -3,7 +3,7 @@ import type { FC } from "react";
 
 import type {
   ListGroupChecksProps,
-  ListGroupProps,
+  ListGroupLinksProps,
 } from "./ListGroup.interface";
 import styles from "./ListGroup.module.scss";
 
@@ -34,7 +34,7 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
 };
 
 // Use when rendering a list of links
-export const ListGroupLinks: FC<ListGroupProps> = (props) => {
+export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
   // Set title and action styles based on inverse prop
   let itemActionStyle = "list-group-item-action";
   let titleStyle = "list-group-title";

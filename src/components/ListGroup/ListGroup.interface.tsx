@@ -7,7 +7,7 @@ export interface ListGroupChecksProps {
   inverse?: boolean;
 }
 
-export interface ListGroupProps {
+export interface ListGroupLinksProps {
   title?: string;
   href?: string;
   children?: NavItem[];
