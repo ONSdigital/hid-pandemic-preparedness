@@ -16,7 +16,7 @@ const meta = {
         disable: true,
       },
     },
-    title: {
+    inverse: {
       table: {
         disable: true,
       },
@@ -34,12 +34,27 @@ type Story = StoryObj<typeof meta>;
 
 // Loads second element out of `menuItems.json` which contains valid nav menu data
 const listGroupProps: ListGroupProps = {
-  // title: menuItems[1].label,
-  title: "fuck off",
+  title: menuItems[1].label,
   children: menuItems[1].children,
+  inverse: false,
 };
 
 export const ListGroupLinksStory = {
   name: "Links",
-  args: listGroupProps,
+  args: {
+    title: menuItems[1].label,
+    children: menuItems[1].children,
+  },
+} satisfies Story;
+
+export const ListGroupLinksInverseStory = {
+  name: "Links inverse",
+  args: {
+    title: menuItems[1].label,
+    children: menuItems[1].children,
+    inverse: true,
+  },
+  globals: {
+    backgrounds: { value: "dark" },
+  },
 } satisfies Story;

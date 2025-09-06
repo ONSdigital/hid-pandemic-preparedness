@@ -26,16 +26,32 @@
   text-align: inherit;
   width: 100%;
 
-  &:hover,
-  &:focus {
-    z-index: 1; // Place hover/focus items above their siblings for proper border styling
-    text-decoration: none;
+  &:active {
+    box-shadow: 0 0 0 $button-border-width-default $color-state-focus;
+  }
+
+  &:hover {
     background-color: $color-primary-200;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 $button-border-width-default $color-state-focus;
+  }
+
+  &--inverse {
+    @extend .list-group-item-action;
+    color: $color-text-inverse;
   }
 }
 
 .list-group-title {
   color: $color-text-accent;
+  font-size: $font-size-2;
   font-weight: 700;
   padding-bottom: $spacing-3;
+
+  &--inverse {
+    @extend .list-group-title;
+    color: $color-text-inverse;
+  }
 }

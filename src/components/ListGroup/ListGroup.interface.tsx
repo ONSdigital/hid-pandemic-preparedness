@@ -4,4 +4,5 @@ export interface ListGroupProps {
   title?: string;
   href?: string;
   children?: NavItem[];
+  inverse?: boolean;
 }

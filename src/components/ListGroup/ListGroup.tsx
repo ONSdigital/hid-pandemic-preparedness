@@ -4,12 +4,20 @@ import type { FC } from "react";
 import type { ListGroupProps } from "./ListGroup.interface";
 import styles from "./ListGroup.module.scss";
 
+// Use when rendering a list of links
 export const ListGroupLinks: FC<ListGroupProps> = (props) => {
+  // Set title and action styles based on inverse prop
+  let itemActionStyle = "list-group-item-action";
+  let titleStyle = "list-group-title";
+
+  if (props.inverse) {
+    itemActionStyle = `${itemActionStyle}--inverse`;
+    titleStyle = `${titleStyle}--inverse`;
+  }
+
   return (
     <div className={styles["list-group"]}>
-      {props.title && (
-        <h2 className={styles["list-group-title"]}>{props.title}</h2>
-      )}
+      {props.title && <h2 className={styles[titleStyle]}>{props.title}</h2>}
       {props.children && (
         <>
           {props.children.map((child, index, arr) => (
@@ -17,7 +25,7 @@ export const ListGroupLinks: FC<ListGroupProps> = (props) => {
               <a
                 className={clsx(
                   styles["list-group-item"],
-                  styles["list-group-item-action"],
+                  styles[itemActionStyle],
                 )}
                 href={child.href}
               >
