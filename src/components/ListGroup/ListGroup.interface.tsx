@@ -1,4 +1,11 @@
+import type { FilterItem } from "../../types/FilterItem";
 import type { NavItem } from "../../types/NavItem";
+
+export interface ListGroupChecksProps {
+  title?: string;
+  checkItems: FilterItem[];
+  inverse?: boolean;
+}
 
 export interface ListGroupProps {
   title?: string;

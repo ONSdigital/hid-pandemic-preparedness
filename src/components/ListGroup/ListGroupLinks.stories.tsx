@@ -36,24 +36,16 @@ type Story = StoryObj<typeof meta>;
 const listGroupProps: ListGroupProps = {
   title: menuItems[1].label,
   children: menuItems[1].children,
-  inverse: false,
 };
 
 export const ListGroupLinksStory = {
   name: "Links",
-  args: {
-    title: menuItems[1].label,
-    children: menuItems[1].children,
-  },
+  args: listGroupProps,
 } satisfies Story;
 
 export const ListGroupLinksInverseStory = {
   name: "Links inverse",
-  args: {
-    title: menuItems[1].label,
-    children: menuItems[1].children,
-    inverse: true,
-  },
+  args: { ...listGroupProps, inverse: true },
   globals: {
     backgrounds: { value: "dark" },
   },
