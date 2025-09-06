@@ -1,0 +1,11 @@
+@use "../global/variables" as *;
+
+@mixin link-states($focus-shadow, $hover-color) {
+  &:focus {
+    box-shadow: 0 0 0 1px $focus-shadow;
+  }
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
