@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import type { NavItem } from "../../types/NavItem";
 import menuItems from "../../content/menuItems.json";
-import { ListGroupLinks } from "./MenuList";
-import type { ListGroupProps } from "./MenuList.interface";
+import { ListGroupLinks } from "./ListGroup";
+import type { ListGroupProps } from "./ListGroup.interface";
 
 const meta = {
   argTypes: {

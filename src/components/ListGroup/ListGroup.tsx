@@ -1,32 +1,8 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import type { ListGroupProps, MenuListProps } from "./MenuList.interface";
-import styles from "./MenuList.module.scss";
-
-export const MenuList: FC<MenuListProps> = (props) => {
-  return (
-    <div>
-      <h2 className={clsx("body", styles["menu-list__label"])}>
-        {props.label}
-      </h2>
-      {props.children && (
-        <ul>
-          {props.children.map((child, index, arr) => (
-            <>
-              <li className={styles["menu-list__item"]} key={child.href}>
-                <span className="body">{child.label}</span>
-              </li>
-              {index !== arr.length - 1 && (
-                <div className={styles["menu-list__divider"]} />
-              )}
-            </>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-};
+import type { ListGroupProps } from "./ListGroup.interface";
+import styles from "./ListGroup.module.scss";
 
 export const ListGroupLinks: FC<ListGroupProps> = (props) => {
   return (
