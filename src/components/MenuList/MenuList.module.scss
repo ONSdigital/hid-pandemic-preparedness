@@ -2,6 +2,44 @@
 @use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
 
+.list-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-group-divider {
+  background-color: $color-secondary-400;
+  height: 1px;
+}
+
+.list-group-item {
+  display: block;
+  padding-bottom: $spacing-2;
+  padding-top: $spacing-2;
+  position: relative;
+  text-decoration: none;
+}
+
+.list-group-item-action {
+  color: $color-text-accent;
+  cursor: pointer;
+  text-align: inherit;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    z-index: 1; // Place hover/focus items above their siblings for proper border styling
+    text-decoration: none;
+    background-color: $color-primary-200;
+  }
+}
+
+.list-group-title {
+  color: $color-text-accent;
+  font-weight: 700;
+  padding-bottom: $spacing-3;
+}
+
 .menu-list {
   display: flex;
   flex-direction: column;
@@ -20,15 +58,17 @@
   color: $color-text-accent;
   font-size: $font-size-0;
   font-weight: 400;
+  height: $height-7;
   line-height: 27px;
-
-  color: inherit;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: $spacing-1;
   font: inherit;
   list-style: none;
+  vertical-align: middle;
+
+  @include link-states($color-brand-secondary-default, $color-primary-200);
 }
 
 .menu-list__divider {

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import type { MenuListProps } from "./MenuList.interface";
+import type { ListGroupProps, MenuListProps } from "./MenuList.interface";
 import styles from "./MenuList.module.scss";
 
 export const MenuList: FC<MenuListProps> = (props) => {
@@ -13,18 +13,46 @@ export const MenuList: FC<MenuListProps> = (props) => {
       {props.children && (
         <ul>
           {props.children.map((child, index, arr) => (
-            <li
-              className={clsx("body", styles["menu-list__item"])}
-              key={child.href}
-            >
-              <a href={child.href}>{child.label}</a>
-              {/* Include divider except on last item */}
+            <>
+              <li className={styles["menu-list__item"]} key={child.href}>
+                <span className="body">{child.label}</span>
+              </li>
               {index !== arr.length - 1 && (
                 <div className={styles["menu-list__divider"]} />
               )}
-            </li>
+            </>
           ))}
         </ul>
+      )}
+    </div>
+  );
+};
+
+export const ListGroupLinks: FC<ListGroupProps> = (props) => {
+  return (
+    <div className={styles["list-group"]}>
+      {props.title && (
+        <h2 className={styles["list-group-title"]}>{props.title}</h2>
+      )}
+      {props.children && (
+        <>
+          {props.children.map((child, index, arr) => (
+            <>
+              <a
+                className={clsx(
+                  styles["list-group-item"],
+                  styles["list-group-item-action"],
+                )}
+                href={child.href}
+              >
+                {child.label}
+              </a>
+              {index !== arr.length - 1 && (
+                <div className={styles["list-group-divider"]} />
+              )}
+            </>
+          ))}
+        </>
       )}
     </div>
   );

@@ -32,8 +32,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const MenuListStory = {
-  // Loads second element out of `menuItems.json` which contains valid nav menu data
-  name: "Menu list",
-  args: menuItems[1] as NavItem,
-} satisfies Story;
+// export const MenuListStory = {
+//   // Loads second element out of `menuItems.json` which contains valid nav menu data
+//   name: "Menu list",
+//   args: menuItems[1] as NavItem,
+// } satisfies Story;
