@@ -10,23 +10,14 @@
 // We are using our own custom vars in some places here but we should replace these with
 // overriding bootstrap vars once I figure out how to do this
 
-.btn {
-  @include button-size(
-    $padding-y: $spacing-2xs,
-    $padding-x: $spacing-sm,
-    $font-size: $font-size-base,
-    $border-radius: $corner-radius-default
-  );
-}
-
-.btn-primary {
-  @include button-variant(
-    $background: $color-button-primary-default,
-    $border: $color-button-primary-default,
-    $hover-background: $color-button-primary-hover,
-    $active-background: $color-button-primary-active
-  );
-}
+// .btn-primary {
+//   @include button-variant(
+//     $background: $color-button-primary-default,
+//     $border: $color-button-primary-default,
+//     $hover-background: $color-button-primary-hover,
+//     $active-background: $color-button-primary-active
+//   );
+// }
 
 .btn-primary-inverse {
   @include button-variant(

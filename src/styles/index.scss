@@ -1,10 +1,34 @@
-@use "global/index" as global;
-@use "elements/index" as elements;
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "./bootstrap-5.3.8/scss/functions";
 
-* {
-  font-feature-settings:
-    "liga" off,
-    "clig" off;
-  font-style: normal;
-  font-weight: 400;
-}
+// 2. Include any default variable overrides here
+@import "./global/overrides/theme";
+@import "./global/overrides/buttons";
+@import "./global/overrides/typography";
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "./bootstrap-5.3.8/scss/variables";
+@import "./bootstrap-5.3.8/scss/variables-dark";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "./bootstrap-5.3.8/scss/maps";
+@import "./bootstrap-5.3.8/scss/mixins";
+@import "./bootstrap-5.3.8/scss/root";
+
+// 6. Include any other optional stylesheet partials as desired; list below is not inclusive of all available stylesheets
+@import "./bootstrap-5.3.8/scss/utilities";
+@import "./bootstrap-5.3.8/scss/reboot";
+@import "./bootstrap-5.3.8/scss/type";
+@import "./bootstrap-5.3.8/scss/images";
+@import "./bootstrap-5.3.8/scss/containers";
+@import "./bootstrap-5.3.8/scss/grid";
+@import "./bootstrap-5.3.8/scss/helpers";
+@import "./bootstrap-5.3.8/scss/buttons";
+// ...
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "./bootstrap-5.3.8/scss/utilities/api";
+
+// 8. Add additional custom code here
