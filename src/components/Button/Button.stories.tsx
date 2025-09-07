@@ -24,7 +24,7 @@ const ButtonChildrenTextOnly: ReactNode = (
 const ButtonChildrenIconLeft: ReactNode = (
   <>
     <div>
-      <RiMailLine className={styles["button__label-icon"]} />
+      <RiMailLine className={styles["btn-label-icon"]} />
     </div>
     <div>Button</div>
   </>
@@ -33,11 +33,11 @@ const ButtonChildrenIconLeft: ReactNode = (
 const ButtonChildrenIconLeftAndRight: ReactNode = (
   <>
     <div>
-      <RiMailLine className={styles["button__label-icon"]} />
+      <RiMailLine className={styles["btn-label-icon"]} />
     </div>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={styles["button__label-icon"]} />
+      <RiArrowRightLine className={styles["btn-label-icon"]} />
     </div>
   </>
 );
@@ -46,7 +46,7 @@ const ButtonChildrenIconRight: ReactNode = (
   <>
     <div>Button</div>
     <div>
-      <RiArrowRightLine className={styles["button__label-icon"]} />
+      <RiArrowRightLine className={styles["btn-label-icon"]} />
     </div>
   </>
 );

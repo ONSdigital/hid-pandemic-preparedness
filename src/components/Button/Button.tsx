@@ -6,7 +6,7 @@ import type { ButtonProps } from "./Button.interface";
 
 export const Button: FC<ButtonProps> = (props) => {
   // Combine base class and variant class
-  const classes = clsx(styles["button"], styles[`button--${props.variant}`]);
+  const classes = clsx(styles["btn"], styles[`btn-${props.variant}`]);
 
   const onClick = () => {
     console.log("clicked!");
@@ -20,7 +20,7 @@ export const Button: FC<ButtonProps> = (props) => {
       onClick={onClick}
       type={props.type}
     >
-      <div className={styles["button__label"]}>{props.children}</div>
+      <div className={styles["btn-label"]}>{props.children}</div>
     </button>
   );
 };

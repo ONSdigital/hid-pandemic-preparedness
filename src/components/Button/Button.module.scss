@@ -1,50 +1,71 @@
-@use "../../styles/elements/buttons" as *;
-@use "../../styles/global/mixins" as *;
-@use "../../styles/global/tokens" as *;
+// @use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
 
-.button {
+@import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/variables";
+@import "../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../styles/bootstrap-5.3.8/scss/buttons";
+
+// See https://getbootstrap.com/docs/5.3/components/buttons/#sass-mixins
+// We are using our own custom vars in some places here but we should replace these with
+// overriding bootstrap vars once I figure out how to do this
+
+.btn {
+  @include button-size(
+    $padding-y: $spacing-2xs,
+    $padding-x: $spacing-sm,
+    $font-size: $font-size-base,
+    $border-radius: $corner-radius-default
+  );
+}
+
+.btn-primary {
+  @include button-variant(
+    $background: $color-button-primary-default,
+    $border: $color-button-primary-default,
+    $hover-background: $color-button-primary-hover,
+    $active-background: $color-button-primary-active
+  );
+}
+
+.btn-primary-inverse {
+  @include button-variant(
+    $background: $color-button-primary-inverse-default,
+    $border: $color-button-primary-inverse-default,
+    $hover-background: $color-button-primary-inverse-hover,
+    $active-background: $color-button-primary-inverse-active
+  );
+}
+
+.btn-secondary {
+  @include button-variant(
+    $background: $color-button-secondary-default,
+    $border: $color-button-secondary-default,
+    $hover-background: $color-button-secondary-hover,
+    $active-background: $color-button-secondary-active
+  );
+}
+
+.btn-secondary-inverse {
+  @include button-variant(
+    $background: $color-button-secondary-inverse-default,
+    $border: $color-button-secondary-inverse-default,
+    $hover-background: $color-button-secondary-inverse-hover,
+    $active-background: $color-button-secondary-inverse-active
+  );
+}
+
+.btn-label {
   align-items: center;
-  border: none;
-  border-radius: $corner-radius-default;
   display: flex;
+  flex-direction: row;
   gap: $spacing-2xs;
   justify-content: center;
-  line-height: 22px;
-  padding: $spacing-2xs $spacing-sm;
-  text-decoration: none;
-  @include responsive-token("font-size", $font-sizes-responsive-map, "body");
+  vertical-align: middle;
 }
 
-.button__label {
-  @extend %button-label;
-}
-
-.button__label-icon {
-  @extend %button-label-icon;
-}
-
-.button--primary {
-  @extend %button-primary;
-}
-
-.button--primary-inverse {
-  @extend %button-primary-inverse;
-}
-
-.button--secondary {
-  @extend %button-secondary;
-}
-
-.button--secondary-inverse {
-  @extend %button-secondary-inverse;
-}
-
-.button--search-bar {
-  @extend .button--primary;
-  border: none;
-  border-radius: 0 $corner-radius-default $corner-radius-default 0;
-  cursor: pointer;
-  outline: none;
-  padding: $spacing-3 $spacing-4;
+.btn-label-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
