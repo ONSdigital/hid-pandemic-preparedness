@@ -1,4 +1,5 @@
 @use "../../styles/elements/list" as *;
+@use "../../styles/elements/form-check" as *;
 @use "../../styles/global/tokens" as *;
 @use "../../styles/global/variables" as *;
 
@@ -15,6 +16,8 @@
 .list-group-item {
   display: block;
   padding-bottom: $spacing-2;
+  padding-left: $spacing-1;
+  padding-right: $spacing-1;
   padding-top: $spacing-2;
   position: relative;
   text-decoration: none;
@@ -49,9 +52,19 @@
   font-size: $font-size-2;
   font-weight: 700;
   padding-bottom: $spacing-3;
+  padding-left: $spacing-1;
+  padding-right: $spacing-1;
 
   &--inverse {
     @extend .list-group-title;
     color: $color-text-inverse;
   }
+}
+
+.form-check {
+  @extend %form-check;
+}
+
+.form-check-label {
+  @extend %form-check-label;
 }

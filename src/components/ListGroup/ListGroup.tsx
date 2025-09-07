@@ -10,11 +10,9 @@ import styles from "./ListGroup.module.scss";
 // Use when rendering a list of checkboxes
 export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
   // Set title and action styles based on inverse prop
-  let itemActionStyle = "list-group-item-action";
   let titleStyle = "list-group-title";
 
   if (props.inverse) {
-    itemActionStyle = `${itemActionStyle}--inverse`;
     titleStyle = `${titleStyle}--inverse`;
   }
 
@@ -22,12 +20,17 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
     <div className={styles["list-group"]}>
       {props.title && <h2 className={styles[titleStyle]}>{props.title}</h2>}
       {props.checkItems.map((item, index, arr) => (
-        <div className="form-check ms-2" key={index}>
-          <label className="form-check-label">
-            <input className="form-check-input" type="checkbox" />
-            {item.label}
-          </label>
-        </div>
+        <>
+          <div className={styles["list-group-item"]} key={index}>
+            <label className="form-check-label">
+              <input className="form-check-input" type="checkbox" />
+              {item.label}
+            </label>
+          </div>
+          {index !== arr.length - 1 && (
+            <div className={styles["list-group-divider"]} />
+          )}
+        </>
       ))}
     </div>
   );
