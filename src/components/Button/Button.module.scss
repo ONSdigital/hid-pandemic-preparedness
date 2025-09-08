@@ -16,15 +16,3 @@
   display: flex;
   justify-content: center;
 }
-
-.btn-arrow {
-  @include button-size(
-    $padding-y: map-get($spacers, 1),
-    $padding-x: map-get($spacers, 1),
-    $font-size: $btn-font-size,
-    $border-radius: 50%
-  );
-  border: none;
-  height: 50px;
-  width: 50px;
-}
