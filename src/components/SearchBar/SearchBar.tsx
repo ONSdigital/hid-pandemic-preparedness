@@ -1,9 +1,8 @@
+import clsx from "clsx";
 import type { FC, FormEvent } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
-import styles from "./SearchBar.module.scss";
 import type { SearchBarProps } from "./SearchBar.interface";
-import { Button } from "../Button/Button";
 
 const SearchBar: FC<SearchBarProps> = ({ placeholder, ariaLabel }) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -15,21 +14,23 @@ const SearchBar: FC<SearchBarProps> = ({ placeholder, ariaLabel }) => {
   };
 
   return (
-    <form
-      className={styles["search-bar__form"]}
-      role="search"
-      onSubmit={handleSubmit}
-    >
-      <input
-        type="search"
-        name="search"
-        className={styles["search-bar__input"]}
-        placeholder={placeholder}
-        aria-label={ariaLabel}
-      />
-      <Button ariaLabel="Submit search" type="submit" variant="search-bar">
-        <RiSearchLine className={styles["button__label-icon"]} />
-      </Button>
+    <form role="search" onSubmit={handleSubmit}>
+      <div className={clsx("input-group", "mb-3")}>
+        <input
+          type="search"
+          className={clsx("form-control")}
+          placeholder={placeholder}
+          aria-label={ariaLabel}
+          aria-describedby="search-button"
+        />
+        <button
+          className={clsx("btn", "btn-primary")}
+          type="button"
+          id="search-button"
+        >
+          <RiSearchLine />
+        </button>
+      </div>
     </form>
   );
 };
