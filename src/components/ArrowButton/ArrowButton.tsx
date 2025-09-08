@@ -18,13 +18,7 @@ export const ArrowButton: FC<ArrowButtonProps> = (props) => {
       onClick={onClick}
       type={props.type}
     >
-      <div className={styles["button__label"]}>
-        {props.direction == "right" ? (
-          <RiArrowRightSLine className={styles["button__label-icon"]} />
-        ) : (
-          <RiArrowLeftSLine className={styles["button__label-icon"]} />
-        )}
-      </div>
+      {props.direction == "left" ? <RiArrowLeftSLine /> : <RiArrowRightSLine />}
     </button>
   );
 };
