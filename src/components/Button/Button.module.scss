@@ -1,56 +1,12 @@
-// @use "../../styles/global/tokens" as *;
-@use "../../styles/global/variables" as *;
-
 @import "../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../styles/bootstrap-5.3.8/scss/variables";
 @import "../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../styles/bootstrap-5.3.8/scss/buttons";
-
-// See https://getbootstrap.com/docs/5.3/components/buttons/#sass-mixins
-// We are using our own custom vars in some places here but we should replace these with
-// overriding bootstrap vars once I figure out how to do this
-
-// .btn-primary {
-//   @include button-variant(
-//     $background: $color-button-primary-default,
-//     $border: $color-button-primary-default,
-//     $hover-background: $color-button-primary-hover,
-//     $active-background: $color-button-primary-active
-//   );
-// }
-
-.btn-primary-inverse {
-  @include button-variant(
-    $background: $color-button-primary-inverse-default,
-    $border: $color-button-primary-inverse-default,
-    $hover-background: $color-button-primary-inverse-hover,
-    $active-background: $color-button-primary-inverse-active
-  );
-}
-
-.btn-secondary {
-  @include button-variant(
-    $background: $color-button-secondary-default,
-    $border: $color-button-secondary-default,
-    $hover-background: $color-button-secondary-hover,
-    $active-background: $color-button-secondary-active
-  );
-}
-
-.btn-secondary-inverse {
-  @include button-variant(
-    $background: $color-button-secondary-inverse-default,
-    $border: $color-button-secondary-inverse-default,
-    $hover-background: $color-button-secondary-inverse-hover,
-    $active-background: $color-button-secondary-inverse-active
-  );
-}
+@import "../../styles/bootstrap-5.3.8/scss/variables";
 
 .btn-label {
   align-items: center;
   display: flex;
   flex-direction: row;
-  gap: $spacing-2xs;
+  gap: map-get($spacers, 2);
   justify-content: center;
   vertical-align: middle;
 }
@@ -59,4 +15,16 @@
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.btn-arrow {
+  @include button-size(
+    $padding-y: map-get($spacers, 1),
+    $padding-x: map-get($spacers, 1),
+    $font-size: $btn-font-size,
+    $border-radius: 50%
+  );
+  border: none;
+  height: 50px;
+  width: 50px;
 }

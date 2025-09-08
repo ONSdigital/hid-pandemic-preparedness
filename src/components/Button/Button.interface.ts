@@ -13,3 +13,12 @@ export interface ButtonProps {
     | "secondary-inverse"
     | "search-bar";
 }
+
+export interface ButtonArrowProps {
+  ariaLabel: string;
+  disabled?: boolean;
+  direction: "left" | "right";
+  selected?: boolean;
+  type: "button" | "submit" | "reset";
+  variant: "primary" | "secondary";
+}
