@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ButtonArrow } from "./Button";
+import { ArrowButton } from "./ArrowButton";
 
 const directionOptions = {
   Left: "left",
@@ -8,8 +8,8 @@ const directionOptions = {
 };
 
 const meta = {
-  component: ButtonArrow,
-  title: "Components/Button",
+  component: ArrowButton,
+  title: "Components/Arrow Button",
   argTypes: {
     ariaLabel: {
       table: {
@@ -29,7 +29,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof ButtonArrow>;
+} satisfies Meta<typeof ArrowButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -43,10 +43,10 @@ export const PrimaryArrowButtonStory = {
     type: "button",
     variant: "primary",
   },
-  name: "Arrow Primary",
+  name: "Primary",
 } satisfies Story;
 
-export const PrimaryInverseArrowButtonStory = {
+export const SecondaryArrowButtonStory = {
   args: {
     ariaLabel: "Arrow",
     disabled: false,
@@ -55,5 +55,5 @@ export const PrimaryInverseArrowButtonStory = {
     type: "button",
     variant: "secondary",
   },
-  name: "Arrow Secondary",
+  name: "Secondary",
 } satisfies Story;
