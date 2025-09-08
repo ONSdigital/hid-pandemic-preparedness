@@ -43,10 +43,10 @@ export const ListGroupLinksStory = {
   args: ListGroupLinksProps,
 } satisfies Story;
 
-export const ListGroupLinksInverseStory = {
-  name: "Links inverse",
-  args: { ...ListGroupLinksProps, inverse: true },
-  globals: {
-    backgrounds: { value: "dark" },
-  },
-} satisfies Story;
+// export const ListGroupLinksInverseStory = {
+//   name: "Links inverse",
+//   args: { ...ListGroupLinksProps, inverse: true },
+//   globals: {
+//     backgrounds: { value: "dark" },
+//   },
+// } satisfies Story;
