@@ -4,5 +4,5 @@ export interface ArrowButtonProps {
   direction: "left" | "right";
   selected?: boolean;
   type: "button" | "submit" | "reset";
-  variant: "primary" | "primary-inverse";
+  variant: "primary" | "secondary";
 }

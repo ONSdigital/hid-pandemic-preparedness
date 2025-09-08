@@ -9,7 +9,7 @@ const directionOptions = {
 
 const meta = {
   component: ArrowButton,
-  title: "Components/ArrowButton",
+  title: "Components/Arrow Button",
   argTypes: {
     ariaLabel: {
       table: {
@@ -46,17 +46,14 @@ export const PrimaryArrowButtonStory = {
   name: "Primary",
 } satisfies Story;
 
-export const PrimaryInverseArrowButtonStory = {
+export const SecondaryArrowButtonStory = {
   args: {
     ariaLabel: "Arrow",
     disabled: false,
     direction: "right",
     selected: false,
     type: "button",
-    variant: "primary-inverse",
+    variant: "secondary",
   },
-  name: "Primary inverse",
-  globals: {
-    backgrounds: { value: "dark" },
-  },
+  name: "Secondary",
 } satisfies Story;

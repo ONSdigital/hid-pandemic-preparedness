@@ -110,21 +110,6 @@ export const PrimaryButtonStory = {
   name: "Primary",
 } satisfies Story;
 
-export const PrimaryInverseButtonStory = {
-  args: {
-    ariaLabel: "Search",
-    children: childrenOptions.IconLeftAndRight,
-    disabled: false,
-    selected: false,
-    type: "button",
-    variant: "primary-inverse",
-  },
-  name: "Primary inverse",
-  globals: {
-    backgrounds: { value: "dark" },
-  },
-} satisfies Story;
-
 export const SecondaryButtonStory = {
   args: {
     ariaLabel: "Search",
@@ -136,19 +121,4 @@ export const SecondaryButtonStory = {
   },
 
   name: "Secondary",
-} satisfies Story;
-
-export const SecondaryInverseButtonStory = {
-  args: {
-    ariaLabel: "Search",
-    children: childrenOptions.IconLeftAndRight,
-    disabled: false,
-    selected: false,
-    type: "button",
-    variant: "secondary-inverse",
-  },
-  name: "Secondary inverse",
-  globals: {
-    backgrounds: { value: "dark" },
-  },
 } satisfies Story;

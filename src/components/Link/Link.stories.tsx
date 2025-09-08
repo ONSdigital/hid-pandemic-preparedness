@@ -59,6 +59,7 @@ export const LinkNormalStory = {
   name: "Rendered normally",
   args: {
     asButton: false,
+    disabled: false,
     href: hrefOptions.EmptyLink,
     label: "My link",
     textInverse: false,
@@ -69,6 +70,7 @@ export const LinkNormalInverseStory = {
   name: "Rendered normally inverse",
   args: {
     asButton: false,
+    disabled: false,
     href: hrefOptions.EmptyLink,
     label: "My link",
     textInverse: true,
@@ -82,6 +84,7 @@ export const LinkAsButtonStory = {
   name: "Rendered as a button",
   args: {
     asButton: true,
+    disabled: false,
     buttonVariant: "primary",
     href: hrefOptions.EmptyLink,
     label: "My link",
