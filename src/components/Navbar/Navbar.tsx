@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { FC } from "react";
 import { useState } from "react";
 import {
@@ -42,19 +43,19 @@ const NavbarItem: FC<NavItem> = (props) => {
 export const Brand: FC<BrandProps> = (props) => {
   return (
     <img
-      className={styles["navbar-brand__image"]}
       src={props.src}
       alt="The Analysis for Action brand logo."
+      height="64"
     />
   );
 };
 
 export const Navbar: FC<NavbarProps> = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className={clsx("navbar", "bg-secondary", "navbar-expand-lg")}>
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          Navbar
+          {props.brandComponent}
         </a>
         <button
           className="navbar-toggler"
