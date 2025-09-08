@@ -33,3 +33,6 @@ storybook-static
 
 # IDE
 .vscode/
+
+# bootstrap dependencies
+src/styles/bootstrap-5.3.8/node_modules

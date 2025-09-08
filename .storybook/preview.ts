@@ -1,6 +1,8 @@
 import type { Preview } from "@storybook/react-vite";
-import "../src/styles/index.scss";
 import "@fontsource-variable/open-sans";
+
+import "../src/styles/index.scss";
+import "../src/styles/bootstrap-5.3.8/dist/js/bootstrap.bundle.js";
 
 const preview: Preview = {
   parameters: {
