@@ -6,6 +6,10 @@ import eslintPluginAstro from "eslint-plugin-astro";
 import globals from "globals";
 
 export default [
+  {
+    ignores: ["src/styles/bootstrap-5.3.8/**"], // Ignore all files in this folder
+  },
+
   // Base JS/TS recommended rules
   js.configs.recommended,
   {
