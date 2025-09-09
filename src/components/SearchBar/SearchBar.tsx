@@ -24,7 +24,7 @@ const SearchBar: FC<SearchBarProps> = ({ placeholder, ariaLabel }) => {
           aria-describedby="search-button"
         />
         <button
-          className={clsx("btn", "btn-primary")}
+          className={clsx("btn", "btn-secondary")}
           type="button"
           id="search-button"
         >

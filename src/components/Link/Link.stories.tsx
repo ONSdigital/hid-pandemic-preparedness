@@ -85,7 +85,7 @@ export const LinkAsButtonStory = {
   args: {
     asButton: true,
     disabled: false,
-    buttonVariant: "primary",
+    buttonVariant: "secondary",
     href: hrefOptions.EmptyLink,
     label: "My link",
     textInverse: false,
