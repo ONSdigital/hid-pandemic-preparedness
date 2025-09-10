@@ -53,5 +53,5 @@ const accordionProps: AccordionProps = {
 
 export const AccordionStory = {
   args: accordionProps,
-  name: "Primary",
+  name: "Accordion",
 } satisfies Story;
