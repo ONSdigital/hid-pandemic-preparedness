@@ -1,10 +1,8 @@
-import type { ReactNode } from "react";
-
 import type { LinkData } from "../../types/LinkData";
 
 export interface CardIconProps {
   id: string;
-  icon: ReactNode;
+  icon: "calculator" | "dashboard" | "questionbank" | "report";
   title: string;
   subTitle: string;
   link: LinkData;
