@@ -18,10 +18,16 @@ export const CardStat: FC<CardStatProps> = (props) => {
     >
       <div className={clsx("card-body")}>
         <h3 className={clsx("heading-m", "text-primary")}>{props.title}</h3>
-        <p className={clsx("card-text", "border-bottom", "py-4")}>
+        <p
+          className={clsx("card-text", "border-black", "border-bottom", "py-4")}
+        >
           {props.subTitle}{" "}
           <a
-            className={clsx("link-underline", "link-underline-opacity-0")}
+            className={clsx(
+              styles["card-stat-ref-link"],
+              "link-underline",
+              "link-underline-opacity-0",
+            )}
             href={props.link.href}
           >
             ({props.link.label})
