@@ -33,6 +33,11 @@ const meta = {
         disable: true,
       },
     },
+    className: {
+      table: {
+        disable: true,
+      },
+    },
     href: {
       control: { type: "select" },
       name: "Link href",

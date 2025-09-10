@@ -40,6 +40,11 @@ export const Link: FC<LinkProps> = (props) => {
     Icon = <RiArrowRightLine />;
   }
 
+  // Add any additional classes passed via props.className
+  if (props.className) {
+    classes.push(props.className);
+  }
+
   // Add handling of disabled prop
   // https://getbootstrap.com/docs/5.3/components/buttons/#link-functionality-caveat
 
