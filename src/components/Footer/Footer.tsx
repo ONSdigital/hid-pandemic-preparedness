@@ -42,8 +42,10 @@ export const Footer: FC<FooterProps> = (props) => {
         <div className={clsx("row d-none d-md-flex")}>
           {props.columns.map((column, index) => (
             <div className="col-md-3" key={`col-${index}`}>
-              <h5>{column.title}</h5>
-              <p>Content for column {index}.</p>
+              <h4 className={clsx("heading-s", "border-bottom", "py-2")}>
+                {column.title}
+              </h4>
+              <p>Content for column g {index}.</p>
             </div>
           ))}
         </div>
@@ -78,7 +80,7 @@ export const Footer: FC<FooterProps> = (props) => {
                       aria-expanded="false"
                       aria-controls={`flush-collapse${index}`}
                     >
-                      {column.title}
+                      <h4 className={clsx("heading-s")}>{column.title}</h4>
                     </button>
                   </h2>
                   <div
