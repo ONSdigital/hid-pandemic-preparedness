@@ -50,6 +50,7 @@ export const Headings = {
       <hr />
       <h1 className="heading-s">heading-s</h1>
       <hr />
+      <h1 className="heading-xs">heading-xs</h1>
     </div>
   ),
 } satisfies Story;
