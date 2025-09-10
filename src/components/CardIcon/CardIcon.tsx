@@ -11,11 +11,14 @@ import type { CardIconProps } from "./CardIcon.interface";
 import styles from "../CardIcon/CardIcon.module.scss";
 import { Link } from "../Link/Link";
 
+// Set size of icon here using icon component props
+const iconSize: string = "2.375rem";
+
 const iconMap: Record<string, ReactNode> = {
-  calculator: <RiRhythmFill size={"2.375rem"} />,
-  dashboard: <RiDashboardLine size={"2.375rem"} />,
-  questionbank: <RiQuestionLine size={"2.375rem"} />,
-  report: <RiFocusLine size={"2.375rem"} />,
+  calculator: <RiRhythmFill size={iconSize} />,
+  dashboard: <RiDashboardLine size={iconSize} />,
+  questionbank: <RiQuestionLine size={iconSize} />,
+  report: <RiFocusLine size={iconSize} />,
 };
 
 export const CardIcon: FC<CardIconProps> = (props) => {

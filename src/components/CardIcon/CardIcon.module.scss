@@ -8,7 +8,7 @@
   width: 18rem;
 
   @media (min-width: map-get($grid-breakpoints, sm)) {
-    width: 22.5rem; // md and up
+    width: 22.5rem;
   }
 
   .icon-box {
