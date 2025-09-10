@@ -30,9 +30,12 @@
 @import "./bootstrap-5.3.8/scss/buttons";
 @import "./bootstrap-5.3.8/scss/forms";
 @import "./bootstrap-5.3.8/scss/list-group";
+@import "./bootstrap-5.3.8/scss/accordion";
+@import "./bootstrap-5.3.8/scss/transitions";
 // ...
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "./bootstrap-5.3.8/scss/utilities/api";
 
 // 8. Add additional custom code here
+@import "./elements/typography";

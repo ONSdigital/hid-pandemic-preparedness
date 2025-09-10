@@ -1,13 +1,13 @@
-import type { FC } from "react";
-import clsx from "clsx";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
+import clsx from "clsx";
+import type { FC } from "react";
 
-import styles from "./ArrowButton.module.scss";
 import type { ArrowButtonProps } from "./ArrowButton.interface";
+import styles from "./ArrowButton.module.scss";
 
 export const ArrowButton: FC<ArrowButtonProps> = (props) => {
   const onClick = () => {
-    console.log("clicked!"); // eslint-disable-line no-undef
+    console.log("clicked!");
   };
 
   return (

@@ -7,7 +7,7 @@ const meta = {
   component: Footer,
   title: "Components/Footer",
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof Footer>;
 
@@ -15,35 +15,46 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const footerData: FooterProps = {
-  columnLeft: {
-    title: "What We Do",
-    links: [
-      { href: "#", label: "About Us" },
-      { href: "#", label: "Contact Us" },
-      { href: "#", label: "Get Involved" },
-      { href: "#", label: "Privacy Policy" },
-    ],
-  },
-  columnMid: {
-    title: "Resources",
-    links: [
-      { href: "#", label: "Outputs and Reporting" },
-      { href: "#", label: "Data Collection" },
-      { href: "#", label: "Data Analysis" },
-      { href: "#", label: "Stakeholder Engagement" },
-      { href: "#", label: "Data Governance" },
-    ],
-  },
-  columnRight: {
-    title: "Tools",
-    links: [
-      { href: "#", label: "Outputs and Reporting" },
-      { href: "#", label: "Data Collection" },
-      { href: "#", label: "Data Analysis" },
-      { href: "#", label: "Stakeholder Engagement" },
-      { href: "#", label: "Data Governance" },
-    ],
-  },
+  columns: [
+    {
+      title: "What We Do",
+      links: [
+        { href: "#", label: "About Us" },
+        { href: "#", label: "Contact Us" },
+        { href: "#", label: "Get Involved" },
+        { href: "#", label: "Privacy Policy" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { href: "#", label: "Outputs and Reporting" },
+        { href: "#", label: "Data Collection" },
+        { href: "#", label: "Data Analysis" },
+        { href: "#", label: "Stakeholder Engagement" },
+        { href: "#", label: "Data Governance" },
+      ],
+    },
+    {
+      title: "Tools",
+      links: [
+        { href: "#", label: "Outputs and Reporting" },
+        { href: "#", label: "Data Collection" },
+        { href: "#", label: "Data Analysis" },
+        { href: "#", label: "Stakeholder Engagement" },
+        { href: "#", label: "Data Governance" },
+      ],
+    },
+    {
+      title: "Tools",
+      links: [
+        { href: "#", label: "Contact" },
+        { href: "#", label: "Select country" },
+        { href: "#", label: "Github" },
+        { href: "#", label: "Privacy policy" },
+      ],
+    },
+  ],
 };
 
 export const FooterStory = {

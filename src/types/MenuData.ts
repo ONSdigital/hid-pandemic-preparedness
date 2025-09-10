@@ -1,6 +1,6 @@
 import type { LinkData } from "./LinkData";
 
 export interface MenuData {
-  title: string;
+  title?: string;
   links?: LinkData[];
 }
