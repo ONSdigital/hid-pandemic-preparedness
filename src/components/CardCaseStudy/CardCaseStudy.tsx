@@ -27,7 +27,9 @@ export const CardCaseStudy: FC<CardCaseStudyProps> = (props) => {
         >
           {props.title}
         </h4>
-        <p className={clsx("card-text", "py-4")}>{props.subTitle}</p>
+        <p className={clsx("card-text", "py-4", "d-sm-none", "d-md-block")}>
+          {props.subTitle}
+        </p>
         <ul className={clsx("list-group", "list-group-flush")}>
           <li className={clsx("list-group-item", "border", "border-0", "pb-4")}>
             <Link
@@ -36,7 +38,16 @@ export const CardCaseStudy: FC<CardCaseStudyProps> = (props) => {
               label={"View"}
             />
           </li>
-          <li className={clsx("list-group-item", "border", "border-0", "pt-4")}>
+          <li
+            className={clsx(
+              "list-group-item",
+              "border",
+              "border-0",
+              "pt-4",
+              "d-sm-none",
+              "d-md-block",
+            )}
+          >
             <Link
               className={clsx("card-link")}
               asButton={true}

@@ -16,6 +16,11 @@ const meta = {
         disable: true,
       },
     },
+    image: {
+      table: {
+        disable: true,
+      },
+    },
     link: {
       table: {
         disable: true,
