@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { v4 as uuidv4 } from "uuid";
 
 import { Accordion } from "./Accordion";
-import type { AccordionProps } from "./Accordon.interface";
+import type { AccordionProps } from "./Accordion.interface";
 
 const meta = {
   component: Accordion,

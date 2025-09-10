@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
-import type { AccordionProps } from "./Accordon.interface";
+import type { AccordionProps } from "./Accordion.interface";
 
 export const Accordion: FC<AccordionProps> = (props) => {
   const accordionId = props.id;
