@@ -101,13 +101,13 @@ $form-check-label-color: $color-text-accent;
 // $form-check-input-bg: $input-bg !default;
 // $form-check-input-border: var(--#{$prefix}border-width) solid
 //   var(--#{$prefix}border-color) !default;
-// $form-check-input-border-radius: 0.25em !default;
+$form-check-input-border-radius: 0;
 // $form-check-radio-border-radius: 50% !default;
 // $form-check-input-focus-border: $input-focus-border-color !default;
 // $form-check-input-focus-box-shadow: $focus-ring-box-shadow !default;
 
-$form-check-input-checked-color: $color-brand-primary-400;
-// $form-check-input-checked-bg-color: $form-check-input-bg;
+$form-check-input-checked-color: $color-brand-primary-500;
+$form-check-input-checked-bg-color: $color-brand-primary-100;
 $form-check-input-checked-border-color: $color-brand-primary-400;
 // $form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>") !default;
 // $form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>") !default;

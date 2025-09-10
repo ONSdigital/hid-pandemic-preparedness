@@ -20,7 +20,9 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
 
   return (
     <div>
-      {props.title && <p className={clsx("fw-bold")}>{props.title}</p>}
+      {props.title && (
+        <p className={clsx("text-primary", "fw-bold")}>{props.title}</p>
+      )}
       <ul className={clsx("list-group", "list-group-flush")}>
         {props.checkItems.map((item) => (
           <li className={clsx("list-group-item")}>
@@ -54,7 +56,9 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
   }
   return (
     <div>
-      {props.title && <p className={clsx("fw-bold")}>{props.title}</p>}
+      {props.title && (
+        <p className={clsx("text-primary", "fw-bold")}>{props.title}</p>
+      )}
       <div className={clsx("list-group", "list-group-flush")}>
         {props.children && (
           <>
