@@ -6,7 +6,16 @@ import styles from "./CardStat.module.scss";
 
 export const CardStat: FC<CardStatProps> = (props) => {
   return (
-    <div className={clsx("card", styles["card-stat"], "py-4")}>
+    <div
+      className={clsx(
+        "card",
+        styles["card-stat"],
+        "border",
+        "border-0",
+        "shadow",
+        "py-4",
+      )}
+    >
       <div className={clsx("card-body")}>
         <h3 className={clsx("heading-m", "text-primary")}>{props.title}</h3>
         <p className={clsx("card-text", "border-bottom", "py-4")}>

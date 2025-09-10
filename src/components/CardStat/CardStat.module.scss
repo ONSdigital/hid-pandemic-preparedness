@@ -3,17 +3,19 @@
 @import "../../styles/bootstrap-5.3.8/scss/functions";
 @import "../../styles/bootstrap-5.3.8/scss/variables";
 
-// Sets width based on viewport size
+// Sets width based on viewport size and background dots
 .card-stat {
+  $dot-color: $color-brand-primary-200;
+  $encoded-dot-color: unquote(str-replace(#{$dot-color}, "#", "%23"));
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='#{$encoded-dot-color}'><circle cx='1' cy='1' r='1'/></svg>");
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 10px 10px;
   width: 18rem;
 
   @media (min-width: map-get($grid-breakpoints, sm)) {
     width: 20.25rem;
-  }
-
-  .icon-box {
-    background-color: $color-brand-secondary-300;
-    height: 6rem;
-    width: 6rem;
   }
 }
