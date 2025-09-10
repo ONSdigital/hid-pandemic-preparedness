@@ -1,6 +1,7 @@
 @use "../../styles/global/tokens" as *;
 
 @import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/mixins";
 @import "../../styles/bootstrap-5.3.8/scss/variables";
 
 // Sets width based on viewport size and background dots
@@ -15,7 +16,7 @@
   background-size: 10px 10px;
   width: 18rem;
 
-  @media (min-width: map-get($grid-breakpoints, sm)) {
+  @include media-breakpoint-up(md) {
     width: 20.25rem;
   }
 }
