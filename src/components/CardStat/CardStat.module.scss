@@ -1,0 +1,19 @@
+@use "../../styles/global/tokens" as *;
+
+@import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/variables";
+
+// Sets width based on viewport size
+.card-stat {
+  width: 18rem;
+
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    width: 20.25rem;
+  }
+
+  .icon-box {
+    background-color: $color-brand-secondary-300;
+    height: 6rem;
+    width: 6rem;
+  }
+}
