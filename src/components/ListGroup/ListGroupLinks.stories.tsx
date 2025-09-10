@@ -33,20 +33,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Loads second element out of `menuItems.json` which contains valid nav menu data
-const ListGroupLinksProps: ListGroupLinksProps = {
+const listGroupLinksProps: ListGroupLinksProps = {
   title: menuItems[1].label,
   children: menuItems[1].children && menuItems[1].children[0].children,
 };
 
 export const ListGroupLinksStory = {
   name: "Links",
-  args: ListGroupLinksProps,
+  args: listGroupLinksProps,
 } satisfies Story;
-
-// export const ListGroupLinksInverseStory = {
-//   name: "Links inverse",
-//   args: { ...ListGroupLinksProps, inverse: true },
-//   globals: {
-//     backgrounds: { value: "dark" },
-//   },
-// } satisfies Story;

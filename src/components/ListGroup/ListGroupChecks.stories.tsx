@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import menuItems from "../../content/menuItems.json";
 import { ListGroupChecks } from "./ListGroup";
 import type { ListGroupChecksProps } from "./ListGroup.interface";
 
