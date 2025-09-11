@@ -48,7 +48,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const CardToolProps: CardToolProps = {
+const cardToolProps: CardToolProps = {
   id: uuidv4(),
   icon: "dashboard",
   title: "Rumour report",
@@ -60,6 +60,6 @@ const CardToolProps: CardToolProps = {
 };
 
 export const CardToolStory = {
-  args: CardToolProps,
+  args: cardToolProps,
   name: "CardTool",
 } satisfies Story;
