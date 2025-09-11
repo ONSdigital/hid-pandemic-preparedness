@@ -1,6 +1,6 @@
 import type { LinkData } from "../../types/LinkData";
 
-export interface CardIconProps {
+export interface CardToolProps {
   id: string;
   icon: "calculator" | "dashboard" | "questionbank" | "report";
   title: string;

@@ -7,8 +7,8 @@ import {
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 
-import type { CardIconProps } from "./CardIcon.interface";
-import styles from "../CardIcon/CardIcon.module.scss";
+import type { CardToolProps } from "./CardTool.interface";
+import styles from "../CardTool/CardTool.module.scss";
 import { Link } from "../Link/Link";
 
 // Set size of icon here using icon component props
@@ -21,7 +21,7 @@ const iconMap: Record<string, ReactNode> = {
   report: <RiFocusLine size={iconSize} />,
 };
 
-export const CardIcon: FC<CardIconProps> = (props) => {
+export const CardTool: FC<CardToolProps> = (props) => {
   return (
     <div className={clsx("card", styles["card-icon"], "shadow", "py-4")}>
       <div className={clsx("card-body", "text-center")}>
