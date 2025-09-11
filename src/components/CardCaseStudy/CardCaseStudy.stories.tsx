@@ -6,7 +6,7 @@ import type { CardCaseStudyProps } from "./CardCaseStudy.interface";
 
 const meta = {
   component: CardCaseStudy,
-  title: "Components/CardCaseStudy",
+  title: "Components/Cards/CardCaseStudy",
   parameters: {
     layout: "centered",
   },

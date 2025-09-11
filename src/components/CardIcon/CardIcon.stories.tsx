@@ -21,7 +21,7 @@ const iconOptions: IconOptions = {
 
 const meta = {
   component: CardIcon,
-  title: "Components/CardIcon",
+  title: "Components/Cards/CardIcon",
   parameters: {
     layout: "centered",
   },

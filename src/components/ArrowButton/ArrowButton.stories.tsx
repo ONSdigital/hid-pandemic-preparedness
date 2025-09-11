@@ -9,7 +9,7 @@ const directionOptions = {
 
 const meta = {
   component: ArrowButton,
-  title: "Components/Arrow Button",
+  title: "Components/Buttons/ArrowButton",
   argTypes: {
     ariaLabel: {
       table: {

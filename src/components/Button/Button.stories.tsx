@@ -61,7 +61,7 @@ const childrenOptions: ButtonChildrenOptions = {
 
 const meta = {
   component: Button,
-  title: "Components/Button",
+  title: "Components/Buttons/Button",
   parameters: {
     layout: "centered",
   },

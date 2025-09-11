@@ -6,7 +6,7 @@ import type { CardStatProps } from "./CardStat.interface";
 
 const meta = {
   component: CardStat,
-  title: "Components/CardStat",
+  title: "Components/Cards/CardStat",
   parameters: {
     layout: "centered",
   },
