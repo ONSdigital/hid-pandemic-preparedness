@@ -23,7 +23,7 @@ const iconMap: Record<string, ReactNode> = {
 
 export const CardTool: FC<CardToolProps> = (props) => {
   return (
-    <div className={clsx("card", styles["card-icon"], "shadow", "py-4")}>
+    <div className={clsx("card", styles["card-tool"], "shadow", "py-4")}>
       <div className={clsx("card-body", "text-center")}>
         <div
           className={clsx(

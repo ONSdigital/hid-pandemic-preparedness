@@ -1,39 +1,59 @@
-import {
-  RiDashboardLine,
-  RiFocusLine,
-  RiQuestionLine,
-  RiRhythmFill,
-} from "@remixicon/react";
+import { RiTimerLine } from "@remixicon/react";
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 
 import type { CardUnitProps } from "./CardUnit.interface";
-import styles from "../CardTool/CardTool.module.scss";
-import { Link } from "../Link/Link";
+import styles from "../CardUnit/CardUnit.module.scss";
+import { Tag } from "../Tag/Tag";
+
+// Set size of icon here using icon component props
+const iconSize: string = "1.5rem";
 
 export const CardUnit: FC<CardUnitProps> = (props) => {
   return (
-    <div className={clsx("card", styles["card-icon"], "shadow", "py-4")}>
-      <div className={clsx("card-body", "text-center")}>
+    <div className={clsx("card", styles["card-unit"], "shadow", "p-2")}>
+      <div className={clsx("card-body")}>
+        <p className={clsx("card-title", "w-75")}>{props.link.label}</p>
+        <p className={clsx("card-text", "w-75")}>{props.subTitle}</p>
+      </div>
+      <div
+        className={clsx(
+          "card-body",
+          "border-top",
+          "border-bottom",
+          "d-inline-flex",
+          "justify-content-start",
+          "align-items-center",
+          "py-3",
+          "gap-2",
+        )}
+      >
+        {props.tags.map((item) => (
+          <Tag {...item} />
+        ))}
+      </div>
+      <div
+        className={clsx(
+          "card-body",
+          "d-inline-flex",
+          "justify-content-start",
+          "align-items-center",
+          "py-3",
+          "gap-2",
+        )}
+      >
         <div
           className={clsx(
-            styles["icon-box"],
+            styles["time-box"],
             "rounded",
             "d-flex",
             "align-items-center",
             "justify-content-center",
-            "mx-auto",
           )}
         >
-          {iconMap[props.icon]}
+          <RiTimerLine size={iconSize} />
         </div>
-        <h4
-          className={clsx("card-title", "py-3", "heading-s", "border-bottom")}
-        >
-          {props.title}
-        </h4>
-        <p className={clsx("card-text")}>{props.subTitle}</p>
-        <Link href={props.link.href} label={props.link.label} />
+        {props.readingTime}
       </div>
     </div>
   );

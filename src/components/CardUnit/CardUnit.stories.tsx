@@ -4,21 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 import { CardUnit } from "./CardUnit";
 import type { CardUnitProps } from "./CardUnit.interface";
 
-// Defines some options for icons so we can show how different icons are rendered
-// interface IconOptions {
-//   Calculator: string;
-//   Dashboard: string;
-//   QuestionBank: string;
-//   Report: string;
-// }
-
-// const iconOptions: IconOptions = {
-//   Calculator: "calculator",
-//   Dashboard: "dashboard",
-//   QuestionBank: "questionbank",
-//   Report: "report",
-// };
-
 const meta = {
   component: CardUnit,
   title: "Components/Cards/CardUnit",
@@ -32,6 +17,11 @@ const meta = {
       },
     },
     link: {
+      table: {
+        disable: true,
+      },
+    },
+    tags: {
       table: {
         disable: true,
       },
@@ -51,11 +41,13 @@ const cardUnitProps: CardUnitProps = {
   subTitle: "Using 7-1-7 to Strengthen Uganda’s Health Security.",
   tags: [
     {
+      id: uuidv4(),
       title: "Theme",
       type: "secondary",
     },
     {
-      title: "Leve",
+      id: uuidv4(),
+      title: "Level",
       type: "primary",
     },
   ],
