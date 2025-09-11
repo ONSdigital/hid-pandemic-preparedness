@@ -37,13 +37,18 @@ export const References: FC<ReferencesProps> = (props) => {
     <div className={clsx("w-100", styles["references-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
         <div
-          className={clsx("accordion", "accordion-flush")}
+          className={clsx(
+            "accordion",
+            "accordion-flush",
+            "border-bottom",
+            "border-light",
+          )}
           id={accordionId}
           // Theme set to dark here to quickly make button icon visible against dark background.
           // May be better in future to override this to a custom colour.
           data-bs-theme="dark"
         >
-          <div className={clsx("accordion-item", "border-bottom")}>
+          <div className={clsx("accordion-item", "border", "border-0")}>
             <h2 className={clsx("accordion-header")}>
               <button
                 className={clsx(
@@ -63,7 +68,7 @@ export const References: FC<ReferencesProps> = (props) => {
             </h2>
             <div
               id={accordionItemId}
-              className={clsx("accordion-collapse", "collapse", "show")}
+              className={clsx("accordion-collapse", "collapse")}
               data-bs-parent={`#${accordionId}`}
             >
               <div className={clsx("accordion-body")}>
