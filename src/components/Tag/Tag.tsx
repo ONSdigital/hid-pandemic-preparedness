@@ -11,9 +11,8 @@ export const Tag: FC<TagProps> = (props) => {
         "badge",
         "rounded-pill",
         styles[`tag-${props.type}`],
-        "fs-6",
-        "px-2",
-        "py-1",
+        "px-3",
+        "py-2",
       )}
     >
       {props.title}
