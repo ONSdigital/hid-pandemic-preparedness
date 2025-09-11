@@ -44,7 +44,7 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
       <div className={clsx("list-group", "list-group-flush")}>
         {props.children && (
           <>
-            {props.children.map((child, index) => (
+            {props.children.map((child) => (
               <>
                 <a
                   className={clsx(
@@ -53,7 +53,7 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
                     child.disabled && "disabled",
                   )}
                   href={child.href}
-                  key={`listGroupItemAction${index}`}
+                  key={child.id}
                 >
                   {child.label}
                 </a>

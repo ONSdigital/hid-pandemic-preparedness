@@ -5,7 +5,6 @@ import { ListGroupLinks } from "../ListGroup/ListGroup";
 import type { MegaMenuProps } from "./MegaMenu.interface";
 import styles from "./MegaMenu.module.scss";
 
-// React component for the footer
 export const MegaMenu: FC<MegaMenuProps> = (props) => {
   return (
     <div className={clsx(styles["mega-menu"], "w-100", "py-4")}>
