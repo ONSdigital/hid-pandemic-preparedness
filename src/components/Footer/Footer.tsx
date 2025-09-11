@@ -46,13 +46,7 @@ export const Footer: FC<FooterProps> = (props) => {
 
   return (
     <footer
-      className={clsx(
-        "w-100",
-        "bg-primary",
-        "bg-gradient",
-        "text-light",
-        "py-4",
-      )}
+      className={clsx("w-100", styles["footer-bg"], "text-light", "py-4")}
     >
       <div className={clsx("container-xl")}>
         <div className={clsx("row", "row-cols-1", "row-cols-lg-4")}>

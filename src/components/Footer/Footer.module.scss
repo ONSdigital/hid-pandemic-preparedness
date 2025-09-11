@@ -1,4 +1,8 @@
-@use "../../styles/global/tokens" as *;
+@use "../../styles/global/variables" as *;
+
+.footer-bg {
+  background: $gradient-brand-primary;
+}
 
 // Sets height so links align irrespective of whether there is a title above or not
 .col-title-block {

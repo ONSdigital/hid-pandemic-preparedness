@@ -5,7 +5,7 @@ import type { HeaderProps } from "./Header.interface";
 
 const meta = {
   component: Header,
-  title: "Components/Header",
+  title: "Organisms/Home/Header",
 } satisfies Meta<typeof Header>;
 
 export default meta;
