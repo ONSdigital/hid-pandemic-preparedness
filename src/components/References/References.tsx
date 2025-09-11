@@ -36,7 +36,13 @@ export const References: FC<ReferencesProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["references-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
-        <div className={clsx("accordion", "accordion-flush")} id={accordionId}>
+        <div
+          className={clsx("accordion", "accordion-flush")}
+          id={accordionId}
+          // Theme set to dark here to quickly make button icon visible against dark background.
+          // May be better in future to override this to a custom colour.
+          data-bs-theme="dark"
+        >
           <div className={clsx("accordion-item", "border-bottom")}>
             <h2 className={clsx("accordion-header")}>
               <button

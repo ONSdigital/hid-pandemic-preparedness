@@ -67,6 +67,9 @@ export const Footer: FC<FooterProps> = (props) => {
           <div
             className={clsx("accordion", "accordion-flush", "d-sm-none")}
             id={accordionId}
+            // Theme set to dark here to quickly make button icon visible against dark background.
+            // May be better in future to override this to a custom colour.
+            data-bs-theme="dark"
           >
             {props.columns.slice(0, 3).map((col) => (
               <div className={clsx("accordion-item")}>
