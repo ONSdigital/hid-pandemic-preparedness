@@ -4,7 +4,7 @@
 
 // scss-docs-start list-group-variables
 $list-group-color: $color-text-accent;
-// $list-group-bg:                     var(--#{$prefix}body-bg) !default;
+$list-group-bg: transparent;
 $list-group-border-color: $color-brand-primary-200;
 // $list-group-border-width:           var(--#{$prefix}border-width) !default;
 // $list-group-border-radius:          var(--#{$prefix}border-radius) !default;

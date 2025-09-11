@@ -1,87 +1,108 @@
 [
   {
+    "id": "ec8069f6-2577-4560-bd28-17b29bcbe4fb",
     "label": "About",
     "href": "#"
   },
   {
+    "id": "096834f9-d7cc-4a03-9cec-d031c1f34f95",
     "label": "Learning resources",
     "children": [
       {
+        "id": "7d7eee52-4ea9-4895-aa98-4a5013282345",
         "label": "Data collection",
         "children": [
           {
+            "id": "feb62d46-968b-48d9-b6bc-05170114f93a",
             "href": "#",
             "label": "Sampling"
           },
           {
+            "id": "d76bf8f4-65aa-4410-b68d-ea440a06b11e",
             "href": "#",
             "label": "Survey design"
           },
           {
+            "id": "d6f6a531-3d0c-4ba0-8ab7-3ab03b316873",
             "href": "#",
             "label": "Data collection mode"
           },
           {
+            "id": "291c8dff-5b99-4547-95f2-99276e0b327e",
             "href": "#",
             "label": "Administrative data"
           }
         ]
       },
       {
+        "id": "0e06dc91-717e-4795-8266-82b272aa7d3d",
         "label": "Data analysis",
         "children": [
           {
+            "id": "c5f47117-7a4a-4922-b9e0-5366eb2880b5",
             "href": "#",
             "label": "Data preparation"
           },
           {
+            "id": "8301cab7-0746-4d1d-a6fc-308e8d82fa6e",
             "href": "#",
             "label": "Reproducible analytical pipelines"
           },
           {
+            "id": "640cfaac-274a-4daf-ac68-896ba5993cbe",
             "href": "#",
             "label": "Epidemiological analysis"
           }
         ]
       },
       {
+        "id": "bbadf773-c0ff-40ac-8d7e-6bed210fcb95",
         "label": "Data governance",
         "children": [
           {
+            "id": "602f41b1-ed9b-477b-a474-506c3f4e172b",
             "href": "#",
             "label": "Implementation legislation"
           },
           {
+            "id": "",
             "href": "#",
             "label": "Data protection and user privacy"
           }
         ]
       },
       {
+        "id": "c0f6f262-2639-4cce-adf9-fe18a5f5197d",
         "label": "Outputs and reporting",
         "children": [
           {
+            "id": "10159407-3b0b-4150-afce-51acd257d2d9",
             "href": "#",
             "label": "Data visualisation"
           },
           {
+            "id": "a5de1c01-b824-4974-b67f-3ede9dd4e4c5",
             "href": "#",
             "label": "Written and verbal communication"
           }
         ]
       },
       {
+        "id": "5ed1f7c3-08a3-48ac-b877-802b23b80cb7",
         "label": "Stakeholder engagement",
         "children": [
           {
+            "id": "d5cfab3c-b782-42f5-9711-c577a2035469",
             "href": "#",
             "label": "Stakeholder mapping"
           },
           {
+            "id": "f704a010-ebcb-4d4c-913e-5b70af9bf013",
             "href": "#",
             "label": "Leadership"
           },
           {
+            "id": "b7714bdf-dc00-4715-b21c-70caa3d5ab85",
             "href": "#",
             "label": "Public acceptability"
           }
@@ -90,14 +111,17 @@
     ]
   },
   {
+    "id": "a9b937e8-9dc4-424e-bd2f-5e418f6cd335",
     "href": "#",
     "label": "Case studies"
   },
   {
+    "id": "c322665a-1f8a-473f-bce4-9aa375416f26",
     "label": "Tools",
     "href": "#"
   },
   {
+    "id": "76c3066a-4194-4040-aa37-2935dfac10cc",
     "href": "#",
     "label": "Contact"
   }
