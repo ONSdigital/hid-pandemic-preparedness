@@ -1,4 +1,14 @@
+@use "../../styles/global/tokens" as *;
+
 // Sets height so links align irrespective of whether there is a title above or not
 .col-title-block {
   height: 2.5rem;
+}
+
+.button-bg {
+  background-color: transparent;
+
+  &:not(.collapsed) {
+    background-color: transparent;
+  }
 }
