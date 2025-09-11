@@ -5,6 +5,10 @@ export interface FooterColumnLinksProps {
   links: LinkData[];
 }
 
+export interface FooterColumnTitleBlockProps {
+  title?: string;
+}
+
 export interface FooterProps {
   columns: MenuData[];
 }

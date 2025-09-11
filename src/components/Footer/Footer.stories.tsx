@@ -10,6 +10,13 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  argTypes: {
+    columns: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof Footer>;
 
 export default meta;
