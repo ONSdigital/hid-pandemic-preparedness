@@ -1,5 +1,12 @@
+import type { LinkData } from "../../../types/LinkData";
+
+export interface BreadcrumbProps {
+  items: LinkData[];
+}
+
 export interface HeaderProps {
-  subheading: string;
+  breadcrumbs: BreadcrumbProps;
   heading: string;
+  subheading: string;
   description: string;
 }

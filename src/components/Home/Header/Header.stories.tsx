@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { v4 as uuidv4 } from "uuid";
 
-import Header from "./Header";
+import { Header } from "./Header";
 import type { HeaderProps } from "./Header.interface";
 
 const meta = {
@@ -11,7 +12,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const headerData: HeaderProps = {
+const headerProps: HeaderProps = {
+  breadcrumbs: {
+    items: [
+      {
+        href: "/",
+        label: "Home",
+        id: uuidv4(),
+      },
+    ],
+  },
   subheading: "Home",
   heading: "Resilience Through Data",
   description:
@@ -20,5 +30,5 @@ const headerData: HeaderProps = {
 
 export const HeaderStory = {
   name: "Header",
-  args: headerData,
+  args: headerProps,
 } satisfies Story;
