@@ -1,0 +1,18 @@
+@use "../../styles/global/variables" as *;
+
+.footer-bg {
+  background: $gradient-brand-primary-2;
+}
+
+// Sets height so links align irrespective of whether there is a title above or not
+.col-title-block {
+  height: 2.5rem;
+}
+
+.button-bg {
+  background-color: transparent;
+
+  &:not(.collapsed) {
+    background-color: transparent;
+  }
+}
