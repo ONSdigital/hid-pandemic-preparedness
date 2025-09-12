@@ -11,14 +11,14 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
         <li
           key={id}
           className={clsx(
+            "pt-3",
+            "pb-3",
+            "ps-3",
             styles["chapter-list__list-group-item"],
             id === props.activeId && styles["active"],
           )}
         >
-          <a
-            className={clsx("link-underline-opacity-0, text-decoration-none")}
-            href={`/${id}`}
-          >
+          <a className={clsx("text-decoration-none")} href={`/${id}`}>
             {title}
           </a>
         </li>

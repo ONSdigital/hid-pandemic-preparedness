@@ -19,32 +19,6 @@ $color-brand-secondary-500: #f59342;
 $color-brand-secondary-600: #cd9b73;
 $color-brand-secondary-700: #28a197;
 
-// Text
-$color-text-default: $color-brand-primary-700;
-$color-text-accent: $color-brand-primary-500;
-
-// Surface colors
-$color-surface-default: #ffffff;
-$color-surface-subtle: $color-brand-secondary-100;
-
-// Colours
-$color-primary-100: #dae8f0;
-$color-primary-200: #abcee2;
-$color-primary-300: #8eaf7f;
-$color-primary-400: #5a7c4a;
-$color-primary-500: #324028;
-$color-primary-600: #3f4a37;
-$color-primary-700: #1e2a15;
-
-$color-secondary-100: #f8f5f1;
-$color-secondary-200: #f0e6d8;
-$color-secondary-300: #d9767d;
-$color-secondary-400: #d53d42;
-$color-secondary-500: #f59342;
-$color-secondary-600: #ca7937;
-$color-secondary-700: #cd9b73;
-$color-secondary-800: #1e2a15;
-
 $color-grey-100: #ffffff;
 $color-grey-200: #eeeeee;
 $color-grey-300: #d7d7d7;
@@ -55,60 +29,20 @@ $color-grey-700: #1a1a1a;
 $color-grey-800: #000000;
 $color-grey-900: #000000;
 
-$color-state-focus: #ffdd00;
-$color-state-success: #00703c;
-$color-state-error: #d4351c;
-$color-state-link: #1d70b8;
-$color-state-link-hover: #1d70b8;
-$color-state-link-visited: #1d70b8;
-$color-state-link-active: #1d70b8;
-
-$color-blue: #1d70b8;
-$color-bright-purple: #912b88;
-$color-brown: #b58840;
-$color-dark-blue: #003078;
+// $color-blue: #1d70b8;
+// $color-bright-purple: #912b88;
+// $color-brown: #b58840;
+// $color-dark-blue: #003078;
 $color-dark-olive-green: #48553f;
 $color-emerald-green: #118c7b;
-$color-green: #00703c;
-$color-light-blue: #5694ca;
-$color-light-green: #85994b;
-$color-light-pink: #f499be;
-$color-light-purple: #6f72af;
-$color-orange: #f47738;
-$color-pink: #d53880;
-$color-purple: #4c2c92;
-$color-red: #d4351c;
-$color-turquoise: #28a197;
-$color-yellow: #ffdd00;
-
-// Font families
-$font-family--open-sans: "Open Sans Variable", sans-serif;
-
-//Font weights
-$font-weight-1: 400;
-
-// Font sizes
-$font-size-0: 0.75rem;
-$font-size-1: 1rem;
-$font-size-2: 1.25rem;
-$font-size-3: 1.5rem;
-$font-size-4: 2rem;
-$font-size-5: 2.25rem;
-$font-size-6: 3rem;
-$font-size-7: 4rem;
-$font-size-8: 6rem;
-
-// Spacing
-$spacing-0: 0rem;
-$spacing-1: 0.25rem;
-$spacing-2: 0.5rem;
-$spacing-3: 1rem;
-$spacing-4: 1.5rem;
-$spacing-5: 2rem;
-$spacing-6: 2.5rem;
-$spacing-7: 3rem;
-$spacing-8: 3.5rem;
-$spacing-9: 4rem;
-$spacing-10: 5rem;
-$spacing-11: 6.5rem;
-$spacing-12: 9.2rem;
+// $color-green: #00703c;
+// $color-light-blue: #5694ca;
+// $color-light-green: #85994b;
+// $color-light-pink: #f499be;
+// $color-light-purple: #6f72af;
+// $color-orange: #f47738;
+// $color-pink: #d53880;
+// $color-purple: #4c2c92;
+// $color-red: #d4351c;
+// $color-turquoise: #28a197;
+// $color-yellow: #ffdd00;
