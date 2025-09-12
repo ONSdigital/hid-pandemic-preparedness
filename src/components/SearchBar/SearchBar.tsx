@@ -4,7 +4,7 @@ import { RiSearchLine } from "@remixicon/react";
 
 import type { SearchBarProps } from "./SearchBar.interface";
 
-const SearchBar: FC<SearchBarProps> = ({ placeholder, ariaLabel }) => {
+const SearchBar: FC<SearchBarProps> = (props) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -19,8 +19,8 @@ const SearchBar: FC<SearchBarProps> = ({ placeholder, ariaLabel }) => {
         <input
           type="search"
           className={clsx("form-control")}
-          placeholder={placeholder}
-          aria-label={ariaLabel}
+          placeholder={props.placeholder}
+          aria-label={props.placeholder}
           aria-describedby="search-button"
         />
         <button
