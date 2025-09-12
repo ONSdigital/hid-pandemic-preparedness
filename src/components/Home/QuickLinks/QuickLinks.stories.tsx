@@ -13,7 +13,7 @@ const meta = {
     layout: "fullscreen",
   },
   argTypes: {
-    columns: {
+    navItems: {
       table: {
         disable: true,
       },
