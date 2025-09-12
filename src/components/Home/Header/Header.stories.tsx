@@ -7,6 +7,13 @@ import type { HeaderProps } from "./Header.interface";
 const meta = {
   component: Header,
   title: "Organisms/Home/Header",
+  argTypes: {
+    breadcrumbs: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof Header>;
 
 export default meta;
