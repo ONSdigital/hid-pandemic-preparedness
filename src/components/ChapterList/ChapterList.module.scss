@@ -1,0 +1,22 @@
+@use "../../styles/global/tokens" as *;
+@use "../../styles/global/variables" as *;
+
+.chapter-list__list-group {
+  align-items: center;
+  color: $color-brand-primary-500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.chapter-list__list-group-item {
+  border-left: 3px solid $color-text-secondary;
+  list-style-type: none;
+  padding: $spacing-3 0 $spacing-3 $spacing-3;
+}
+
+.active {
+  border-left: 3px solid $color-brand-secondary-500;
+  font-weight: bold;
+}
