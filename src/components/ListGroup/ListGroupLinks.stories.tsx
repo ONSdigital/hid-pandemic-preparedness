@@ -16,11 +16,6 @@ const meta = {
         disable: true,
       },
     },
-    inverse: {
-      table: {
-        disable: true,
-      },
-    },
   },
   component: ListGroupLinks,
   title: "Components/List group",
@@ -36,6 +31,7 @@ type Story = StoryObj<typeof meta>;
 const listGroupLinksProps: ListGroupLinksProps = {
   title: menuItems[1].label,
   children: menuItems[1].children && menuItems[1].children[0].children,
+  inverse: false,
 };
 
 export const ListGroupLinksStory = {
