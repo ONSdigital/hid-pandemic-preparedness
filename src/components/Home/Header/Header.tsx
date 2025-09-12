@@ -4,7 +4,6 @@ import type { FC } from "react";
 import type { BreadcrumbProps, HeaderProps } from "./Header.interface";
 import styles from "./Header.module.scss";
 import SearchBar from "../../SearchBar/SearchBar";
-import type { arrayOutputType } from "astro:schema";
 
 const Breadcrumb: FC<BreadcrumbProps> = (props) => {
   return (
@@ -31,9 +30,26 @@ const Breadcrumb: FC<BreadcrumbProps> = (props) => {
 export const Header: FC<HeaderProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["header-bg"])}>
-      <div className={clsx("container-lg")}>
-        <div className={clsx("row", "text-light")}>
-          <Breadcrumb {...props.breadcrumbs} />
+      <div className={clsx("container-lg", "py-4", "text-light")}>
+        <div className={clsx("row")}>
+          <div className={clsx("col-lg-9")}>
+            <Breadcrumb {...props.breadcrumbs} />
+          </div>
+        </div>
+        <div className={clsx("row")}>
+          <div className={clsx("col-lg-9")}>
+            <h1 className={clsx("heading-xl")}>{props.title}</h1>
+          </div>
+        </div>
+        <div className={clsx("row", "py-lg-4")}>
+          <div className={clsx("col-lg-9")}>
+            <h4 className={clsx("heading-s")}>{props.subTitle}</h4>
+          </div>
+        </div>
+        <div className={clsx("row", "py-2", "py-lg-4")}>
+          <div className={clsx("col-lg-8")}>
+            <SearchBar placeholder="Search learning resources" />
+          </div>
         </div>
       </div>
     </div>

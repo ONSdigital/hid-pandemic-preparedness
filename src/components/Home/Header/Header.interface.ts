@@ -6,7 +6,6 @@ export interface BreadcrumbProps {
 
 export interface HeaderProps {
   breadcrumbs: BreadcrumbProps;
-  heading: string;
-  subheading: string;
-  description: string;
+  title: string;
+  subTitle: string;
 }
