@@ -14,6 +14,11 @@ const meta = {
         disable: true,
       },
     },
+    partnerItems: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Meta<typeof ImpactAndPartners>;
 
