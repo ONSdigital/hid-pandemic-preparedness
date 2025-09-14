@@ -1,0 +1,20 @@
+@use "../../../styles/global/tokens" as *;
+@use "../../../styles/global/variables" as *;
+
+@import "../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../styles/bootstrap-5.3.8/scss/variables";
+
+.text-color {
+  color: $color-text-accent;
+}
+
+.impact-bg {
+  color: $color-text-accent;
+  background: $color-brand-primary-200;
+}
+
+.icon-badge-size {
+  height: 6rem;
+  width: 6rem;
+}
