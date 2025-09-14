@@ -1,3 +1,4 @@
+import type { ImageData } from "../../../types/ImageData";
 import type { LinkData } from "../../../types/LinkData";
 
 export interface ImpactData {
@@ -9,7 +10,7 @@ export interface ImpactData {
 
 export interface PartnerData {
   id: string;
-  imgSrcPath: string;
+  img: ImageData;
   link: LinkData;
 }
 
