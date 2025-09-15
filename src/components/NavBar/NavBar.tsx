@@ -1,10 +1,15 @@
+import {
+  RiArrowDownLine,
+  RiCloseLine,
+  RiGlobalLine,
+  RiMenuLine,
+} from "@remixicon/react";
 import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
 
 import type { NavBarProps, NavItem } from "./Navbar.interface";
 import { MegaMenu } from "../MegaMenu/MegaMenu";
-import { Icon } from "../Icon/Icon";
 import {
   NavBarSearch,
   NavBarLanguageSelector,
@@ -78,7 +83,7 @@ const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
                   >
                     {item.label}
                     <span className={styles["navbar-chevron"]}>
-                      <Icon name="chevron-down" />
+                      <RiArrowDownLine />
                     </span>
                   </button>
                 ) : (
@@ -110,7 +115,7 @@ const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
               className={styles["mobile-language-toggle"]}
               onClick={handleLanguageToggle}
             >
-              <Icon name="globe" />
+              <RiGlobalLine />
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -119,7 +124,7 @@ const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
               className={styles["mobile-menu-toggle"]}
               onClick={toggleMobileMenu}
             >
-              <Icon name={isMobileMenuOpen ? "close" : "hamburger"} />
+              {isMobileMenuOpen ? <RiCloseLine /> : <RiMenuLine />}
             </button>
           </div>
         </div>
