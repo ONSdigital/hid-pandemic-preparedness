@@ -5,13 +5,10 @@ import type { FC, ReactNode } from "react";
 import type { ImpactAndPartnersProps } from "./ImpactAndPartners.interface";
 import styles from "./ImpactAndPartners.module.scss";
 
-// Set size of icon here using icon component props
-const iconSize: string = "2.375rem";
-
 const impactIconMap: Record<string, ReactNode> = {
-  experts: <RiUserStarLine size={iconSize} />,
-  countries: <RiGlobeLine size={iconSize} />,
-  users: <RiUserSmileLine size={iconSize} />,
+  experts: <RiUserStarLine className={styles["icon-size"]} />,
+  countries: <RiGlobeLine className={styles["icon-size"]} />,
+  users: <RiUserSmileLine className={styles["icon-size"]} />,
 };
 
 export const ImpactAndPartners: FC<ImpactAndPartnersProps> = (props) => {

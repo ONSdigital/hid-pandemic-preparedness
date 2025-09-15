@@ -1,10 +1,6 @@
 @use "../../../styles/global/tokens" as *;
 @use "../../../styles/global/variables" as *;
 
-@import "../../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../styles/bootstrap-5.3.8/scss/variables";
-
 .text-color {
   color: $color-text-accent;
 }
@@ -17,4 +13,9 @@
 .icon-badge-size {
   height: 6rem;
   width: 6rem;
+}
+
+.icon-size {
+  height: 2.375rem;
+  width: 2.375rem;
 }
