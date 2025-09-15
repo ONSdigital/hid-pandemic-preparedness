@@ -1,41 +1,50 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Link } from "../Link/Link";
 import type { CardCaseStudyProps } from "../CardCaseStudy/CardCaseStudy.interface";
+import styles from "./CardCaseStudySmall.module.scss";
 
 export const CardCaseStudySmall: FC<CardCaseStudyProps> = (props) => {
   return (
-    <div className={clsx("card", "bg-transparent", "border", "border-0")}>
-      <div className={clsx("row", "g-0")}>
-        <div className={clsx("col-sm-4")}>
+    <div
+      className={clsx(
+        "card",
+        styles["card-case-study-small"],
+        "bg-transparent",
+        "border-0",
+      )}
+    >
+      <div
+        className={clsx(
+          "row",
+          "row-cols-1",
+          "row-cols-lg-2",
+          "gx-0",
+          "gx-lg-5",
+        )}
+      >
+        <div className="col">
           <img
             src={props.image.srcPath}
-            className={clsx("img-fluid", "rounded")}
+            className={clsx("card-img", styles["card-case-study-small__image"])}
             alt={props.image.altText}
           />
         </div>
-        <div className="col-sm-8">
-          <div className="card-body">
+        <div className="col">
+          <div className={clsx("card-body", "p-0")}>
             <h4
               className={clsx(
+                styles["card-case-study-small__title"],
                 "card-title",
                 "heading-s",
-                "pb-4",
-                "border-bottom",
+                "mt-3",
+                "mt-lg-0",
               )}
             >
               {props.title}
             </h4>
-            <p className={clsx("card-text", "d-none", "d-sm-flex")}>
+            <p className={clsx("card-text", "body-regular", "mt-4")}>
               {props.subTitle}
-            </p>
-            <p className={clsx("card-text")}>
-              <Link
-                className={clsx("card-link")}
-                href={props.link.href}
-                label={"View"}
-              />
             </p>
           </div>
         </div>

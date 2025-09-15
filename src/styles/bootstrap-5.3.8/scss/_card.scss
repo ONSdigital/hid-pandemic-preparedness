@@ -75,8 +75,8 @@
 }
 
 .card-title {
-  margin-bottom: var(--#{$prefix}card-title-spacer-y);
   color: var(--#{$prefix}card-title-color);
+  margin-bottom: var(--#{$prefix}card-title-spacer-y);
 }
 
 .card-subtitle {
