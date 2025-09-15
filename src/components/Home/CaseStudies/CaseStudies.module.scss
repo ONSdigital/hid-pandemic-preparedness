@@ -5,6 +5,7 @@
 
 .case-studies__container {
   background-color: $color-brand-secondary-100;
+  padding: 2rem;
   @include media-breakpoint-up(md) {
     padding: 7rem;
   }

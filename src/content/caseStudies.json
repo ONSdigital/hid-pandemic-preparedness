@@ -1,7 +1,7 @@
 {
   "title": "Case Studies",
   "mainCard": {
-    "id": "organism1",
+    "id": "card-main-1",
     "image": {
       "id": "image-main-1",
       "altText": "A group of medical professionals chatting and smiling.",
@@ -16,7 +16,7 @@
   },
   "smallCards": [
     {
-      "id": "1",
+      "id": "card-small-1",
       "image": {
         "id": "image-small-1",
         "altText": "A group of medical professionals chatting and smiling.",
@@ -30,7 +30,7 @@
       "title": "Using administrative data during COVID-19"
     },
     {
-      "id": "2",
+      "id": "card-small-2",
       "image": {
         "id": "image-small-2",
         "altText": "A group of medical professionals chatting and smiling.",
@@ -44,7 +44,7 @@
       "title": "Using administrative data during COVID-19"
     },
     {
-      "id": "3",
+      "id": "card-small-3",
       "image": {
         "id": "image-small-3",
         "altText": "A group of medical professionals chatting and smiling.",
@@ -58,7 +58,7 @@
       "title": "Using administrative data during COVID-19"
     },
     {
-      "id": "4",
+      "id": "card-small-4",
       "image": {
         "id": "image-small-4",
         "altText": "A group of medical professionals chatting and smiling.",

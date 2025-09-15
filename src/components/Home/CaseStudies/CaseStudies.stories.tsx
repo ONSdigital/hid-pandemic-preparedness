@@ -5,7 +5,7 @@ import caseStudiesData from "../../../content/caseStudies.json";
 
 const meta = {
   component: CaseStudies,
-  title: "Organisms/CaseStudies",
+  title: "Organisms/Home/CaseStudies",
   parameters: {
     layout: "centered",
   },
