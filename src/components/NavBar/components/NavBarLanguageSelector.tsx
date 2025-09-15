@@ -9,7 +9,7 @@ import styles from "../NavBar.module.scss";
 interface NavBarLanguageSelectorProps {
   languages: Language[];
   selectedLanguage: Language;
-  onLanguageSelect?: (language: Language) => void;
+  onLanguageSelect?: (language: Language) => void; // eslint-disable-line no-unused-vars
   onToggle?: () => void;
 }
 

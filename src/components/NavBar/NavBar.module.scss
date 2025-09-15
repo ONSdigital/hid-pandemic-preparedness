@@ -1,9 +1,12 @@
 @use "../../styles/global/tokens" as *;
-@use "../../styles/global/mixins" as *;
 @use "../../styles/global/variables" as *;
 
+@import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../styles/bootstrap-5.3.8/scss/variables";
+
 .navbar {
-  background: $brand-gradient-1;
+  background-color: $color-brand-primary-500;
   color: $color-text-inverse;
   position: sticky;
   top: 0;
@@ -36,7 +39,7 @@
   width: auto;
   max-width: 200px; // Prevent logo from being too wide
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     height: 28px; // Slightly smaller on mobile
     max-width: 150px;
   }
@@ -51,7 +54,7 @@
   justify-content: center;
 
   &--desktop {
-    @media (max-width: 768px) {
+    @include media-breakpoint-down(md) {
       display: none;
     }
   }
@@ -69,10 +72,10 @@
   background: transparent;
   border: none;
   color: $color-text-inverse;
-  font-size: $font-size-1;
+  // font-size: $font-size-1;
   text-decoration: none;
   cursor: pointer;
-  border-radius: $corner-radius-medium;
+  // border-radius: $corner-radius-medium;
   transition: background-color 0.2s ease;
   position: relative;
 
@@ -87,7 +90,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background-color: $color-secondary-500;
+      background-color: $color-brand-secondary-500;
     }
   }
 
@@ -100,7 +103,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background-color: $color-secondary-500;
+      background-color: $color-brand-secondary-500;
     }
   }
 }
@@ -129,7 +132,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     display: none;
   }
 }
@@ -150,10 +153,10 @@
   width: 100%;
   padding: $spacing-2 $spacing-3;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: $corner-radius-medium;
+  // border-radius: $corner-radius-medium;
   background: rgba(255, 255, 255, 0.1);
   color: $color-text-inverse;
-  font-size: $font-size-0;
+  // font-size: $font-size-0;
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.7);
@@ -177,7 +180,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: $corner-radius-medium;
+  // border-radius: $corner-radius-medium;
   transition: background-color 0.2s ease;
 
   &:hover {
@@ -193,7 +196,7 @@
 .language-selector {
   position: relative;
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     display: none;
   }
 }
@@ -207,7 +210,7 @@
   border: none;
   color: $color-text-inverse;
   cursor: pointer;
-  border-radius: $corner-radius-medium;
+  // border-radius: $corner-radius-medium;
   transition: background-color 0.2s ease;
 
   &:hover {
@@ -221,7 +224,7 @@
 }
 
 .language-text {
-  font-size: $font-size-1;
+  // font-size: $font-size-1;
   margin-left: $spacing-1;
 }
 
@@ -236,7 +239,7 @@
   top: 100%;
   right: 0;
   background: $color-surface-default;
-  border-radius: $corner-radius-medium;
+  // border-radius: $corner-radius-medium;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   min-width: 200px;
   z-index: 1001;
@@ -244,7 +247,7 @@
   margin-top: $spacing-1;
 
   // Hide desktop language dropdown on mobile
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     display: none;
   }
 }
@@ -299,7 +302,7 @@
   color: $color-text-inverse;
   cursor: pointer;
   padding: $spacing-2;
-  border-radius: $corner-radius-medium;
+  // border-radius: $corner-radius-medium;
   transition: background-color 0.2s ease;
   min-width: 44px; // Consistent button size
   min-height: 44px; // Consistent button size
@@ -308,7 +311,7 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,7 +326,7 @@
   color: $color-text-inverse;
   cursor: pointer;
   padding: $spacing-2;
-  border-radius: $corner-radius-medium;
+  // border-radius: $corner-radius-medium;
   transition: background-color 0.2s ease;
   min-width: 44px; // Consistent button size
   min-height: 44px; // Consistent button size
@@ -332,7 +335,7 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -345,11 +348,11 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: $brand-gradient-1;
+  background-color: $color-brand-primary-500;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 999;
 
-  @media (min-width: 769px) {
+  @include media-breakpoint-down(md) {
     display: none;
   }
 }
@@ -377,7 +380,7 @@
   background: transparent;
   border: none;
   color: $color-text-inverse;
-  font-size: $font-size-1;
+  // font-size: $font-size-1;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -397,7 +400,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background-color: $color-secondary-500;
+      background-color: $color-brand-secondary-500;
     }
   }
 }
@@ -418,11 +421,11 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: $brand-gradient-1;
+  background-color: $color-brand-primary-500;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 999;
 
-  @media (min-width: 769px) {
+  @include media-breakpoint-down(md) {
     display: none;
   }
 }
@@ -467,7 +470,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background-color: $color-secondary-500;
+      background-color: $color-brand-secondary-500;
     }
   }
 }
@@ -478,7 +481,7 @@
 }
 
 .desktop-mega-menu {
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     display: none;
   }
 }

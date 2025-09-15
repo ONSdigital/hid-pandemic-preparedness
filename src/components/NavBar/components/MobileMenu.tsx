@@ -11,7 +11,7 @@ interface MobileMenuProps {
   isOpen: boolean;
   items: NavItem[];
   selectedItem: NavItem | null;
-  onNavItemClick: (item: NavItem) => void;
+  onNavItemClick: (item: NavItem) => void; // eslint-disable-line no-unused-vars
 }
 
 export const MobileMenu: FC<MobileMenuProps> = ({

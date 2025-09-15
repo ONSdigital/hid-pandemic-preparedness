@@ -1,5 +1,5 @@
 import {
-  RiArrowDownLine,
+  RiArrowDownSLine,
   RiCloseLine,
   RiGlobalLine,
   RiMenuLine,
@@ -76,6 +76,7 @@ const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
                   <button
                     type="button"
                     className={clsx(
+                      "gap-1",
                       styles["navbar-link"],
                       selectedItem?.id === item.id &&
                         styles["navbar-link--active"],
@@ -84,7 +85,7 @@ const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
                   >
                     {item.label}
                     <span className={styles["navbar-chevron"]}>
-                      <RiArrowDownLine />
+                      <RiArrowDownSLine />
                     </span>
                   </button>
                 ) : (

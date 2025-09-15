@@ -7,7 +7,7 @@ import styles from "../NavBar.module.scss";
 
 interface NavBarSearchProps {
   searchQuery: string;
-  onSearchChange: (query: string) => void;
+  onSearchChange: (query: string) => void; // eslint-disable-line no-unused-vars
   placeholder?: string;
 }
 

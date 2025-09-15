@@ -1,11 +1,11 @@
+import { RiSearchLine } from "@remixicon/react";
 import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
-import { Icon } from "../../Icon/Icon";
 
 interface DesktopSearchProps {
   searchQuery: string;
-  onSearchChange: (query: string) => void;
+  onSearchChange: (query: string) => void; // eslint-disable-line no-unused-vars
   placeholder?: string;
 }
 
@@ -57,7 +57,7 @@ export const DesktopSearch: FC<DesktopSearchProps> = ({
         )}
         onClick={toggleSearch}
       >
-        <Icon name="search" />
+        <RiSearchLine />
       </button>
     </div>
   );

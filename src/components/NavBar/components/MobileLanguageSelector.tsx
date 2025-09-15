@@ -7,7 +7,7 @@ interface MobileLanguageSelectorProps {
   isOpen: boolean;
   languages: Language[];
   selectedLanguage: Language;
-  onLanguageSelect?: (language: Language) => void;
+  onLanguageSelect?: (language: Language) => void; // eslint-disable-line no-unused-vars
 }
 
 export const MobileLanguageSelector: FC<MobileLanguageSelectorProps> = ({
