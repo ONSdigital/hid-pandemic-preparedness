@@ -4,36 +4,20 @@
 @import "../../../styles/bootstrap-5.3.8/scss/mixins";
 @import "../../../styles/bootstrap-5.3.8/scss/variables";
 
-.impact-and-text-bg {
+.image-and-text-bg {
   background: $color-brand-primary-200;
   overflow: hidden;
-  position: relative;
-
-  // Background image aligned right
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0; // align right
-  //   width: 40%; // adjust width as needed
-  //   height: 100%;
-  //   // Image
-  //   background-image: url("/example-images/home-header-world-of-data.png");
-  //   background-repeat: no-repeat;
-  //   background-position: right center;
-  //   background-size: cover;
-  //   z-index: 0;
-  // }
-
-  // // Hide image on small screens
-  // @include media-breakpoint-down(md) {
-  //   &::before {
-  //     display: none;
-  //   }
-  // }
 }
 
-.impact-and-text-container {
-  position: relative;
-  z-index: 1;
+.image-and-text-img {
+  margin-bottom: -1rem;
+  margin-left: -6rem;
+  margin-right: 2rem;
+  margin-top: -2rem;
+
+  // Adjust margins on small screens to fit image
+  @include media-breakpoint-down(md) {
+    margin-bottom: 0rem;
+    margin-left: -1rem;
+  }
 }
