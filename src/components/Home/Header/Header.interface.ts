@@ -1,8 +1,4 @@
-import type { LinkData } from "../../../types/LinkData";
-
-export interface BreadcrumbProps {
-  items: LinkData[];
-}
+import type { BreadcrumbProps } from "../../Molecules/Breadcrumb/Breadcrumb.interface";
 
 export interface HeaderProps {
   breadcrumbs: BreadcrumbProps;
