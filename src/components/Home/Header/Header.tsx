@@ -55,7 +55,7 @@ export const Header: FC<HeaderProps> = (props) => {
         </div>
         <div className={clsx("row", "py-2", "py-lg-4")}>
           <div className={clsx("col-md-8")}>
-            <SearchBar placeholder="Search learning resources" />
+            <SearchBar placeholder={props.searchPlaceholderText} />
           </div>
         </div>
       </div>
