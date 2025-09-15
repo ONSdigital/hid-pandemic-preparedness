@@ -1,8 +1,9 @@
+import { RiGlobalLine } from "@remixicon/react";
 import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
-import { Icon } from "../../Icon/Icon";
-import type { Language } from "../NavBar.interface";
+
+import type { Language } from "../Navbar.interface";
 import styles from "../NavBar.module.scss";
 
 interface NavBarLanguageSelectorProps {
@@ -36,7 +37,7 @@ export const NavBarLanguageSelector: FC<NavBarLanguageSelectorProps> = ({
         onClick={toggleLanguageDropdown}
       >
         <span className={styles["language-icon"]}>
-          <Icon name="globe" />
+          <RiGlobalLine />
         </span>
         <span className={styles["language-text"]}>Language</span>
       </button>

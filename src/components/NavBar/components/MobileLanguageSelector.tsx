@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import clsx from "clsx";
-import type { Language } from "../NavBar.interface";
+import type { Language } from "../Navbar.interface";
 import styles from "../NavBar.module.scss";
 
 interface MobileLanguageSelectorProps {
@@ -21,9 +21,7 @@ export const MobileLanguageSelector: FC<MobileLanguageSelectorProps> = ({
   return (
     <div className={styles["mobile-language-overlay"]}>
       <div className={styles["mobile-language-selector"]}>
-        <div className={styles["mobile-language-header"]}>
-          Select language
-        </div>
+        <div className={styles["mobile-language-header"]}>Select language</div>
         {languages.map((language) => (
           <button
             key={language.id}
@@ -31,13 +29,13 @@ export const MobileLanguageSelector: FC<MobileLanguageSelectorProps> = ({
             className={clsx(
               styles["mobile-language-option"],
               selectedLanguage.id === language.id &&
-                styles["mobile-language-option--selected"]
+                styles["mobile-language-option--selected"],
             )}
             onClick={() => onLanguageSelect?.(language)}
           >
             <span className={styles["mobile-language-flag"]}>
-              <img 
-                src={`/flags/${language.id === 'en' ? 'gb' : language.id}.svg`}
+              <img
+                src={`/flags/${language.id === "en" ? "gb" : language.id}.svg`}
                 alt={`${language.label} flag`}
                 className={styles["flag-icon"]}
               />

@@ -1,7 +1,8 @@
+import { RiSearchLine } from "@remixicon/react";
 import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
-import { Icon } from "../../Icon/Icon";
+
 import styles from "../NavBar.module.scss";
 
 interface NavBarSearchProps {
@@ -58,7 +59,7 @@ export const NavBarSearch: FC<NavBarSearchProps> = ({
         )}
         onClick={toggleSearch}
       >
-        <Icon name="search" />
+        <RiSearchLine />
       </button>
     </div>
   );

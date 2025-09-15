@@ -1,9 +1,10 @@
+import { RiArrowDownLine } from "@remixicon/react";
 import type { FC } from "react";
 import clsx from "clsx";
-import { Icon } from "../../Icon/Icon";
+
 import { MegaMenu } from "../../MegaMenu/MegaMenu";
 import SearchBar from "../../SearchBar/SearchBar";
-import type { NavItem } from "../NavBar.interface";
+import type { NavItem } from "../Navbar.interface";
 import styles from "../NavBar.module.scss";
 
 interface MobileMenuProps {
@@ -49,7 +50,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                   >
                     {item.label}
                     <span className={styles["mobile-nav-chevron"]}>
-                      <Icon name="chevron-down" />
+                      <RiArrowDownLine />
                     </span>
                   </button>
 
