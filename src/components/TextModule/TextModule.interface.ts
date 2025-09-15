@@ -1,4 +1,4 @@
 export interface TextModuleProps {
-  content: string;
+  htmlContent: string;
   className?: string;
 }
