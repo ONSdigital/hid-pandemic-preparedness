@@ -1,0 +1,23 @@
+@use "../../../styles/global/tokens" as *;
+
+@import "../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../styles/bootstrap-5.3.8/scss/variables";
+
+.image-and-text-bg {
+  background: $color-brand-primary-200;
+  overflow: hidden;
+}
+
+.image-and-text-img {
+  margin-bottom: -1rem;
+  margin-left: -6rem;
+  margin-right: 2rem;
+  margin-top: -2rem;
+
+  // Adjust margins on small screens to fit image
+  @include media-breakpoint-down(md) {
+    margin-bottom: 0rem;
+    margin-left: -1rem;
+  }
+}

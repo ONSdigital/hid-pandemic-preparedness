@@ -8,4 +8,5 @@ export interface HeaderProps {
   breadcrumbs: BreadcrumbProps;
   title: string;
   subTitle: string;
+  searchPlaceholderText: string;
 }
