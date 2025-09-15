@@ -1,0 +1,75 @@
+{
+  "title": "Case Studies",
+  "mainCard": {
+    "id": "organism1",
+    "image": {
+      "id": "image-main-1",
+      "altText": "A group of medical professionals chatting and smiling.",
+      "srcPath": "./example-images/group-of-medical-professionals.jpg"
+    },
+    "link": {
+      "href": "/",
+      "label": "View all case studies"
+    },
+    "subTitle": "Strengthening data-driven health strategies through close collaboration.",
+    "title": "Working with the Ministry of Health"
+  },
+  "smallCards": [
+    {
+      "id": "1",
+      "image": {
+        "id": "image-small-1",
+        "altText": "A group of medical professionals chatting and smiling.",
+        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+      },
+      "link": {
+        "href": "/",
+        "label": "View all case studies"
+      },
+      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "title": "Using administrative data during COVID-19"
+    },
+    {
+      "id": "2",
+      "image": {
+        "id": "image-small-2",
+        "altText": "A group of medical professionals chatting and smiling.",
+        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+      },
+      "link": {
+        "href": "/",
+        "label": "View all case studies"
+      },
+      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "title": "Using administrative data during COVID-19"
+    },
+    {
+      "id": "3",
+      "image": {
+        "id": "image-small-3",
+        "altText": "A group of medical professionals chatting and smiling.",
+        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+      },
+      "link": {
+        "href": "/",
+        "label": "View all case studies"
+      },
+      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "title": "Using administrative data during COVID-19"
+    },
+    {
+      "id": "4",
+      "image": {
+        "id": "image-small-4",
+        "altText": "A group of medical professionals chatting and smiling.",
+        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+      },
+      "link": {
+        "href": "/",
+        "label": "View all case studies"
+      },
+      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "title": "Using administrative data during COVID-19"
+    }
+  ]
+}

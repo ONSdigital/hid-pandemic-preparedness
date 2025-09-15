@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { CaseStudies } from "./CaseStudies";
+import caseStudiesData from "../../../content/caseStudies.json";
 
 const meta = {
   component: CaseStudies,
@@ -15,4 +17,5 @@ type Story = StoryObj<typeof meta>;
 
 export const CaseStudiesStory = {
   name: "CaseStudies",
+  args: caseStudiesData,
 } satisfies Story;
