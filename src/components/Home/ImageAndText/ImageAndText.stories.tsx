@@ -8,6 +8,11 @@ const meta = {
   component: ImageAndText,
   title: "Organisms/Home/ImageAndText",
   argTypes: {
+    image: {
+      table: {
+        disable: true,
+      },
+    },
     link: {
       table: {
         disable: true,
