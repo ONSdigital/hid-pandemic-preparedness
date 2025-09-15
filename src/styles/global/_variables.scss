@@ -11,7 +11,7 @@ $color-surface-subtle: $color-brand-secondary-100;
 $color-surface-subtle-alt: $color-grey-300;
 
 // Gradients
-$gradient-brand-primary:
+$gradient-brand-primary-1:
   linear-gradient(
     226deg,
     rgba($color-emerald-green, 0.4) -6.18%,
@@ -22,3 +22,10 @@ $gradient-brand-primary:
     $color-dark-olive-green 1.59%,
     $color-brand-primary-500 99.06%
   );
+
+$gradient-brand-primary-2: linear-gradient(
+  93deg,
+  $color-brand-primary-400 -18.86%,
+  $color-brand-primary-600 15.96%,
+  $color-brand-primary-500 100%
+);

@@ -5,6 +5,7 @@ import type {
   ListGroupChecksProps,
   ListGroupLinksProps,
 } from "./ListGroup.interface";
+import styles from "./ListGroup.module.scss";
 
 // Use when rendering a list of checkboxes
 export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
@@ -36,10 +37,16 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
 
 // Use when rendering a list of links
 export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
+  let textColour: string = "text-primary";
+  // Set text colour based on inverse prop
+  if (props.inverse) {
+    textColour = "text-light";
+  }
+
   return (
     <div>
       {props.title && (
-        <p className={clsx("text-primary", "fw-bold")}>{props.title}</p>
+        <p className={clsx(textColour, "fw-bold")}>{props.title}</p>
       )}
       <div className={clsx("list-group", "list-group-flush")}>
         {props.children && (
@@ -50,6 +57,8 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
                   className={clsx(
                     "list-group-item",
                     "list-group-item-action",
+                    styles["list-group-item-action-bg"],
+                    textColour,
                     child.disabled && "disabled",
                   )}
                   href={child.href}
