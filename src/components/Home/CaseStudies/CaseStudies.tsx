@@ -6,6 +6,7 @@ import { CardCaseStudy } from "../../CardCaseStudy/CardCaseStudy";
 import { CardCaseStudySmall } from "../../CardCaseStudySmall/CardCaseStudySmall";
 
 import styles from "./CaseStudies.module.scss";
+import { Link } from "../../Link/Link";
 
 export const CaseStudies: FC<CaseStudiesProps> = (props) => {
   return (
@@ -22,6 +23,19 @@ export const CaseStudies: FC<CaseStudiesProps> = (props) => {
             {props.smallCards.map((card) => (
               <CardCaseStudySmall key={card.id} {...card} />
             ))}
+          </div>
+          <div className={clsx("d-lg-none")}>
+            <Link
+              className={clsx(
+                styles["card-case-study__link"],
+                "card-link",
+                "mt-5",
+              )}
+              asButton={true}
+              buttonVariant={"secondary"}
+              href={props.mainCard.link.href}
+              label={props.mainCard.link.label}
+            />
           </div>
         </div>
       </div>

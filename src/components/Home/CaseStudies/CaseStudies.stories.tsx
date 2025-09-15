@@ -4,12 +4,23 @@ import { CaseStudies } from "./CaseStudies";
 import caseStudiesData from "../../../content/caseStudies.json";
 
 const meta = {
+  argTypes: {
+    mainCard: {
+      table: {
+        disable: true,
+      },
+    },
+    smallCards: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   component: CaseStudies,
   title: "Organisms/Home/CaseStudies",
   parameters: {
     layout: "centered",
   },
-  argTypes: {},
 } satisfies Meta<typeof CaseStudies>;
 
 export default meta;
