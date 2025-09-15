@@ -5,6 +5,11 @@
   line-height: 115%;
   font-size: 5.625rem;
   font-weight: $font-weight-light;
+
+  @include media-breakpoint-down(md) {
+    line-height: 120%;
+    font-size: 3.75rem;
+  }
 }
 
 .heading-l {
@@ -25,11 +30,17 @@
   @extend .h4;
   line-height: 115%;
   font-size: 1.5rem;
+  font-weight: $font-weight-light;
+
+  @include media-breakpoint-down(md) {
+    line-height: 150%;
+    font-size: 1rem;
+  }
 }
 
 .heading-xs {
   @extend .h5;
   line-height: 115%;
-  font-size: $font-size-base;
+  font-size: 1.25;
   font-weight: $font-weight-bold;
 }

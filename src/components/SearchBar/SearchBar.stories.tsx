@@ -13,12 +13,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const searchBarData: SearchBarProps = {
+const searchBarProps: SearchBarProps = {
   placeholder: "Search all resources",
-  ariaLabel: "search",
 };
 
 export const HeaderStory = {
   name: "Search Bar",
-  args: searchBarData,
+  args: searchBarProps,
 } satisfies Story;
