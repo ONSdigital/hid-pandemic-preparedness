@@ -7,6 +7,13 @@ import type { ImageAndTextProps } from "./ImageAndText.interface";
 const meta = {
   component: ImageAndText,
   title: "Organisms/Home/ImageAndText",
+  argTypes: {
+    link: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof ImageAndText>;
 
 export default meta;
