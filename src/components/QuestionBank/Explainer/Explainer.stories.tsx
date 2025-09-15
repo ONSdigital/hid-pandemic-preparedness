@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DOMPurify from "dompurify";
 
-import markdownContent from "../../content/text-module-content.md?raw";
-import { parseMarkdown } from "../../helpers/parseMarkdown";
-import { TextModule } from "./TextModule";
-import type { TextModuleProps } from "./TextModule.interface";
+import markdownContent from "../../../content/QuestionBank/explainer.md?raw";
+import { parseMarkdown } from "../../../helpers/parseMarkdown";
+import { Explainer } from "./Explainer";
+import type { ExplainerProps } from "./Explainer.interface";
 
 const meta = {
-  component: TextModule,
-  title: "Components/TextModule",
+  component: Explainer,
+  title: "Organisms/QuestionBank/Explainer",
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   argTypes: {
     className: {
@@ -24,7 +24,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TextModule>;
+} satisfies Meta<typeof Explainer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -32,14 +32,12 @@ type Story = StoryObj<typeof meta>;
 // Use helper to parse and sanitize markdown to html
 const htmlContent = await parseMarkdown(markdownContent);
 
-const textModuleProps: TextModuleProps = {
+const explainerProps: ExplainerProps = {
   // Sanitizing using dompurify here as this is running client side
   htmlContent: DOMPurify.sanitize(htmlContent),
-  // Adding classname here just for storybook integration
-  className: "container-lg",
 };
 
-export const TextModuleStory = {
-  name: "Text Module",
-  args: textModuleProps,
+export const ExplainerStory = {
+  name: "Explainer",
+  args: explainerProps,
 } satisfies Story;
