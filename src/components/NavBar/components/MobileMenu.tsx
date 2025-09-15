@@ -2,9 +2,9 @@ import { RiArrowDownLine } from "@remixicon/react";
 import type { FC } from "react";
 import clsx from "clsx";
 
+import type { NavItem } from "../../../types/NavItem";
 import { MegaMenu } from "../../MegaMenu/MegaMenu";
 import SearchBar from "../../SearchBar/SearchBar";
-import type { NavItem } from "../Navbar.interface";
 import styles from "../NavBar.module.scss";
 
 interface MobileMenuProps {
@@ -27,10 +27,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
       <div className={styles["mobile-menu-content"]}>
         {/* Mobile Search */}
         <div className={styles["mobile-search"]}>
-          <SearchBar
-            placeholder="Search learning resources"
-            ariaLabel="Search learning resources"
-          />
+          <SearchBar placeholder="Search learning resources" />
         </div>
 
         {/* Mobile Navigation Items */}

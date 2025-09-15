@@ -8,7 +8,8 @@ import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
 
-import type { NavBarProps, NavItem } from "./Navbar.interface";
+import type { NavItem } from "../../types/NavItem";
+import type { NavBarProps } from "./Navbar.interface";
 import { MegaMenu } from "../MegaMenu/MegaMenu";
 import {
   NavBarSearch,
@@ -56,7 +57,7 @@ const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
           {/* Logo */}
           <div className={styles["navbar-logo"]}>
             <img
-              src="/logo.png"
+              src="./analysis-for-action-logo.png"
               alt="Analysis for Action"
               className={styles["logo-image"]}
             />
