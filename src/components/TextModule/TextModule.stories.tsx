@@ -29,7 +29,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Use helper to parse and sanitize markdown to html
+// Use helper to parse markdown to html
 const htmlContent = await parseMarkdown(markdownContent);
 
 const textModuleProps: TextModuleProps = {
