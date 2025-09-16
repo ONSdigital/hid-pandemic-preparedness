@@ -1,0 +1,73 @@
+{
+  "attribution": "– World Health Organisation",
+  "attributionLink": {
+    "href": "https://www.who.int/",
+    "label": "1"
+  },
+  "buttonLink": {
+    "href": "/",
+    "label": "Learning resources",
+    "disabled": false
+  },
+  "quote": "‘Invest in preparedness now to create fully functional capacities at the national, regional and global level’",
+  "title": "Preparedness saves lives",
+  "subTitle": "The Statistics",
+  "statisticCards": [
+    {
+      "id": "stat-card-1",
+      "title": "14.8 million+",
+      "subTitle": "deaths from all respiratory disease 1980-2021.",
+      "link": {
+        "href": "/",
+        "label": "2"
+      },
+      "image": {
+        "id": "stat-card-image-1",
+        "altText": "Stakced column chart showing deaths from all respiratory disease 1980-2021.",
+        "srcPath": "./example-images/bubble-plot.png"
+      }
+    },
+    {
+      "id": "stat-card-2",
+      "title": "7 million+",
+      "subTitle": "deaths from COVID-19 as of August 2025.",
+      "link": {
+        "href": "/",
+        "label": "4"
+      },
+      "image": {
+        "id": "stat-card-image-2",
+        "altText": "Bar chart showing deaths from COVID-19 as of August 2025.",
+        "srcPath": "./example-images/bubble-plot.png"
+      }
+    },
+    {
+      "id": "stat-card-3",
+      "title": "88 million+",
+      "subTitle": "people pushed into extreme poverty due to COVID-19.",
+      "link": {
+        "href": "/",
+        "label": "3"
+      },
+      "image": {
+        "id": "stat-card-image-3",
+        "altText": "Line chart showing people pushed into extreme poverty due to COVID-19.",
+        "srcPath": "./example-images/bubble-plot.png"
+      }
+    },
+    {
+      "id": "stat-card-4",
+      "title": "34 pathogens",
+      "subTitle": "identified as diseases with pandemic potential.",
+      "link": {
+        "href": "/",
+        "label": "5"
+      },
+      "image": {
+        "id": "stat-card-image-4",
+        "altText": "Bubble plot showing pathogens identified as diseases with pandemic potential.",
+        "srcPath": "./example-images/bubble-plot.png"
+      }
+    }
+  ]
+}
