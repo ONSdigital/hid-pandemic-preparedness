@@ -7,16 +7,26 @@ import { Header } from "../components/Home/Header/Header";
 import impactAndPartnersData from "../content/Home/impactAndPartners.json";
 import { ImpactAndPartners } from "../components/Home/ImpactAndPartners/ImpactAndPartners";
 import type { ImpactAndPartnersProps } from "../components/Home/ImpactAndPartners/ImpactAndPartners.interface";
-// import quickLinksData from "../content/Home/";
-// import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
+import navBarData from "../content/base/navBarData.json";
+import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
+import type { QuickLinksProps } from "../components/Home/QuickLinks/QuickLinks.interface";
+import type { NavItem } from "../types/NavItem";
 
 const indexCollection = await getCollection("index");
 const homepageData = indexCollection[0].data;
+
+// Ref learning resources data from `navBarData` for rendering as quick links
+const quickLinksData: QuickLinksProps = {
+  title: navBarData.items[1].label,
+  navItems: navBarData.items[1].children as NavItem[],
+};
 ---
 
 <BaseLayout>
   <main>
     <Header {...headerData} />
+    <QuickLinks {...quickLinksData} />
+    <!-- Props type required here to stop typescript error -->
     <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
   </main>
 </BaseLayout>
