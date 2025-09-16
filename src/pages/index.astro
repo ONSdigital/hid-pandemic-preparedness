@@ -2,15 +2,21 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layout/BaseLayout.astro";
 
+import headerData from "../content/Home/header.json";
+import { Header } from "../components/Home/Header/Header";
+import impactAndPartnersData from "../content/Home/impactAndPartners.json";
+import { ImpactAndPartners } from "../components/Home/ImpactAndPartners/ImpactAndPartners";
+import type { ImpactAndPartnersProps } from "../components/Home/ImpactAndPartners/ImpactAndPartners.interface";
+// import quickLinksData from "../content/Home/";
+// import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
+
 const indexCollection = await getCollection("index");
 const homepageData = indexCollection[0].data;
 ---
 
 <BaseLayout>
   <main>
-    <h1>
-      {homepageData.content.hero.headline}
-    </h1>
-    <p>{homepageData.content.hero.subheadline}</p>
+    <Header {...headerData} />
+    <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
   </main>
 </BaseLayout>
