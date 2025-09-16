@@ -1,31 +1,10 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import type { BreadcrumbProps, HeaderProps } from "./Header.interface";
-import styles from "./Header.module.scss";
+import { Breadcrumb } from "../../Molecules/Breadcrumb/Breadcrumb";
 import SearchBar from "../../SearchBar/SearchBar";
-
-const Breadcrumb: FC<BreadcrumbProps> = (props) => {
-  return (
-    <nav aria-label="breadcrumb">
-      <ol className={clsx("breadcrumb")}>
-        {props.items.map((item, index, arr) => (
-          <li
-            className={clsx(
-              "breadcrumb-item",
-              index === arr.length - 1 && "active",
-            )}
-            key={item.id}
-          >
-            <a className={clsx("link-light")} href={item.href}>
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-};
+import type { HeaderProps } from "./Header.interface";
+import styles from "./Header.module.scss";
 
 export const Header: FC<HeaderProps> = (props) => {
   return (

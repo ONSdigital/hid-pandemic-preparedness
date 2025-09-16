@@ -1,0 +1,178 @@
+@use "../../../styles/global/tokens" as *;
+@use "../../../styles/global/variables" as *;
+
+@import "../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../styles/bootstrap-5.3.8/scss/variables";
+
+.carousel {
+  width: 100%;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  position: relative;
+}
+
+.carousel-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: $spacing-4;
+  transition: transform 0.3s ease;
+  align-items: stretch;
+
+  @include media-breakpoint-down(md) {
+    touch-action: pan-x;
+    user-select: none;
+  }
+}
+
+.carousel-item {
+  flex: 0 0 calc(33.333% - #{$spacing-3});
+  min-width: 0;
+  display: flex;
+
+  > * {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include media-breakpoint-down(md) {
+    flex: 0 0 100%;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    flex: 0 0 calc(50% - #{$spacing-2});
+  }
+}
+
+// Navigation buttons
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background-color: $color-brand-secondary-500;
+  color: black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover:not(&--disabled) {
+    background-color: $color-brand-secondary-600;
+    transform: scale(1.05);
+  }
+
+  &:active:not(&--disabled) {
+    transform: scale(0.95);
+  }
+
+  &--disabled {
+    background-color: $color-grey-300;
+    color: $color-grey-500;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.carousel-nav--prev {
+  // Additional styles for previous button if needed
+}
+
+.carousel-nav--next {
+  // Additional styles for next button if needed
+}
+
+// Pagination dots
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-2;
+  margin-top: $spacing-4;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: $color-brand-secondary-600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $color-brand-secondary-700;
+  }
+
+  &--active {
+    background-color: $color-brand-primary-500;
+
+    &:hover {
+      background-color: $color-brand-primary-600;
+    }
+  }
+}
+
+.mobile-tap-zone-left,
+.mobile-tap-zone-right {
+  display: none;
+
+  @include media-breakpoint-down(md) {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+    z-index: 10;
+    cursor: pointer;
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+.mobile-tap-zone-left {
+  left: 0;
+}
+
+.mobile-tap-zone-right {
+  right: 0;
+}
+
+@include media-breakpoint-down(md) {
+  .carousel-container {
+    gap: $spacing-3;
+  }
+
+  .carousel-track {
+    gap: $spacing-3;
+  }
+
+  .carousel-pagination {
+    margin-top: $spacing-3;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
