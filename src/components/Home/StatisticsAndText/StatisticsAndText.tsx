@@ -19,11 +19,20 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
               styles["statistics-and-text__content-container"],
             )}
           >
-            <h3 className={clsx("heading-l")}>{props.title}</h3>
+            <h1
+              className={clsx(
+                "body-bold",
+                "text-uppercase",
+                styles["statistics-and-text__subtitle"],
+              )}
+            >
+              {props.subTitle}
+            </h1>
+            <h2 className={clsx("heading-l")}>{props.title}</h2>
             <p className={clsx("fst-italic", "heading-s", "mt-4")}>
               {props.quote}
             </p>
-            <p className={clsx("body-regular")}>
+            <p className={clsx("body-regular", "mt-2")}>
               {props.attribution}{" "}
               <a
                 className={clsx(
