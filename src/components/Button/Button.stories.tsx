@@ -81,6 +81,10 @@ const meta = {
       control: { type: "boolean" },
       name: "Disabled",
     },
+    onClick: {
+      control: { type: "boolean" },
+      name: "Disabled",
+    },
     selected: {
       name: "Selected",
     },
