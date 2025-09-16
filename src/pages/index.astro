@@ -13,6 +13,10 @@ import type { QuickLinksProps } from "../components/Home/QuickLinks/QuickLinks.i
 import type { NavItem } from "../types/NavItem";
 import imageAndTextData from "../content/Home/imageAndText.json";
 import { ImageAndText } from "../components/Home/ImageAndText/ImageAndText";
+import statisticsAndTextData from "../content/Home/statisticAndText.json";
+import { StatisticsAndText } from "../components/Home/StatisticsAndText/StatisticsAndText";
+import caseStudiesData from "../content/Home/caseStudies.json";
+import { CaseStudies } from "../components/Home/CaseStudies/CaseStudies";
 
 const indexCollection = await getCollection("index");
 const homepageData = indexCollection[0].data;
@@ -29,6 +33,8 @@ const quickLinksData: QuickLinksProps = {
     <Header {...headerData} />
     <QuickLinks {...quickLinksData} />
     <ImageAndText {...imageAndTextData} />
+    <StatisticsAndText {...statisticsAndTextData} />
+    <CaseStudies {...caseStudiesData} />
     <!-- Props type required here to stop typescript error -->
     <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
   </main>
