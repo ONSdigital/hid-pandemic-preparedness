@@ -1,0 +1,117 @@
+{
+  "columns": [
+    {
+      "id": "2fe73218-1cfe-4443-98af-838c01f98488",
+      "title": "What We Do",
+      "links": [
+        {
+          "id": "7d52abb3-9044-4c35-9456-147ee61601c7",
+          "href": "#",
+          "label": "About Us"
+        },
+        {
+          "id": "1fd3b45c-be66-41b3-86be-9cc2cd84e888",
+          "href": "#",
+          "label": "Contact Us"
+        },
+        {
+          "id": "0e450db5-f304-4cbd-bbfb-fafbe01d3968",
+          "href": "#",
+          "label": "Get Involved"
+        },
+        {
+          "id": "9358bbcb-df27-4176-a3ef-777bb9e36a88",
+          "href": "#",
+          "label": "Privacy Policy"
+        }
+      ]
+    },
+    {
+      "id": "b63351df-b066-43ec-8599-cc16f3ec831e",
+      "title": "Resources",
+      "links": [
+        {
+          "id": "ef762617-e02e-4214-9ce5-d9a623b8e705",
+          "href": "#",
+          "label": "Outputs and Reporting"
+        },
+        {
+          "id": "a45a2288-a7f0-48e9-9e96-5b0a5987a9aa",
+          "href": "#",
+          "label": "Data Collection"
+        },
+        {
+          "id": "953c3b99-b1b9-4483-b394-01fe31e6b219",
+          "href": "#",
+          "label": "Data Analysis"
+        },
+        {
+          "id": "d99ab375-a876-406a-9fe6-d4140bc97cb8",
+          "href": "#",
+          "label": "Stakeholder Engagement"
+        },
+        {
+          "id": "f273d7b2-4df4-4d51-a8c0-d603eb111194",
+          "href": "#",
+          "label": "Data Governance"
+        }
+      ]
+    },
+    {
+      "id": "82eba87e-f1bc-4593-8b95-0a7865dd2bfe",
+      "title": "Tools",
+      "links": [
+        {
+          "id": "7b51e977-728d-4acb-a464-3a3ecd8a1ff6",
+          "href": "#",
+          "label": "Outputs and Reporting"
+        },
+        {
+          "id": "33227987-6de8-4bd2-9b70-3528575ed920",
+          "href": "#",
+          "label": "Data Collection"
+        },
+        {
+          "id": "59dddd38-baa1-4689-a32a-1ca932fa5498",
+          "href": "#",
+          "label": "Data Analysis"
+        },
+        {
+          "id": "f5429d19-31ed-4ed1-acad-e3cf7ee47f5b",
+          "href": "#",
+          "label": "Stakeholder Engagement"
+        },
+        {
+          "id": "8ef32704-9ea4-473d-a41c-5b0bf6937358",
+          "href": "#",
+          "label": "Data Governance"
+        }
+      ]
+    },
+    {
+      "id": "eebdc754-1cbd-4fb8-bd32-1d082037ca88",
+      "links": [
+        {
+          "id": "927d7448-04e2-4efd-9b72-65df44db46c9",
+          "href": "#",
+          "label": "Contact"
+        },
+        {
+          "id": "bdbf54a3-c458-48b1-9ae4-45bc37ace53b",
+          "href": "#",
+          "label": "Select country"
+        },
+        {
+          "id": "bf457db7-c930-48cb-9d4c-b7b9e9862f13",
+          "href": "#",
+          "label": "Github"
+        },
+        {
+          "id": "e916543b-60a2-46a1-811b-d0168ec3cb28",
+          "href": "#",
+          "label": "Privacy policy"
+        }
+      ]
+    }
+  ]
+}
