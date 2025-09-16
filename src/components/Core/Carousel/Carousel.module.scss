@@ -1,6 +1,10 @@
 @use "../../../styles/global/tokens" as *;
 @use "../../../styles/global/variables" as *;
 
+@import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../styles/bootstrap-5.3.8/scss/variables";
+
 .carousel {
   width: 100%;
 }
@@ -24,7 +28,7 @@
   transition: transform 0.3s ease;
   align-items: stretch;
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-up(md) {
     touch-action: pan-x;
     user-select: none;
   }
@@ -41,11 +45,11 @@
     flex-direction: column;
   }
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-up(md) {
     flex: 0 0 100%;
   }
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @include media-breakpoint-between(md, l) {
     flex: 0 0 calc(50% - #{$spacing-2});
   }
 }
@@ -84,7 +88,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-up(md) {
     display: none;
   }
 }
@@ -131,7 +135,7 @@
 .mobile-tap-zone-right {
   display: none;
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-up(md) {
     display: block;
     position: absolute;
     top: 0;
@@ -154,7 +158,7 @@
   right: 0;
 }
 
-@media (max-width: 768px) {
+@include media-breakpoint-up(md) {
   .carousel-container {
     gap: $spacing-3;
   }
