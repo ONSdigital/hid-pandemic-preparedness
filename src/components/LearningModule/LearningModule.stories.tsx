@@ -26,6 +26,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const learningModuleData: LearningModuleProps = {
+  githubLinkHref: "https://github.com/",
   learningOutcomesList: [
     "Understand",
     "Identify",
@@ -36,6 +37,7 @@ const learningModuleData: LearningModuleProps = {
   ],
   learningOutcomesTitle: "Learning outcomes:",
   readingTime: "Set aside 5-10 minutes",
+  startLinkHref: "/",
   tags: [
     {
       id: "1",

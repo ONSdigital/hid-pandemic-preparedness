@@ -1,10 +1,12 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
+import { RiTimerLine } from "@remixicon/react";
+
 import styles from "./LearningModule.module.scss";
 import type { LearningModuleProps } from "./LearningModule.interface";
 import { Tag } from "../Tag/Tag";
-import { RiTimerLine } from "@remixicon/react";
+import { Link } from "../Link/Link";
 
 // Set size of icon here using icon component props
 const iconSize: string = "1.5rem";
@@ -22,12 +24,16 @@ export const LearningModule: FC<LearningModuleProps> = (props) => {
     >
       <div
         className={clsx(
-          "align-items-center",
           "d-flex",
+          "flex-column",
+          "flex-md-row",
+          "align-items-start",
+          "align-items-md-center",
           "justify-content-between",
+          "gap-3",
         )}
       >
-        <div className="d-flex gap-2">
+        <div className="d-flex flex-wrap gap-2">
           {props.tags.map((tag) => (
             <Tag key={tag.id} {...tag} />
           ))}
@@ -48,20 +54,43 @@ export const LearningModule: FC<LearningModuleProps> = (props) => {
           <span>{props.readingTime}</span>
         </div>
       </div>
-      <h1 className={(clsx("mb-3"), "heading-m")}>{props.title}</h1>
-      <div>
-        <span className={clsx("body-regular")}>{props.textRegular}</span>
-        <span className={clsx("body-bold")}>{props.textBold}</span>
+      <h1 className={clsx("heading-m")}>{props.title}</h1>
+      <div className={clsx("body-regular")}>
+        <span>{props.textRegular}</span>
+        <span className={clsx("fw-bold")}>{props.textBold}</span>
       </div>
       <div>
-        <h1 className={clsx("mb-3", "heading-s")}>
-          {props.learningOutcomesTitle}
-        </h1>
-        <ul className="ps-3">
+        <h1 className={clsx("heading-s")}>{props.learningOutcomesTitle}</h1>
+        <ul>
           {props.learningOutcomesList.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
+      </div>
+      <div
+        className={clsx(
+          "d-flex",
+          "flex-column",
+          "flex-lg-row",
+          "justify-content-end",
+          "gap-3",
+        )}
+      >
+        <Link
+          asButton={true}
+          aria-label="Open GitHub"
+          buttonVariant="primary"
+          href={props.githubLinkHref}
+          label="Open Github"
+        />
+
+        <Link
+          asButton={true}
+          aria-label="Start"
+          buttonVariant="secondary"
+          href={props.startLinkHref}
+          label="Start"
+        />
       </div>
     </div>
   );
