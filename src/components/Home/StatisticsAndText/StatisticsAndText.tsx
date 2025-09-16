@@ -21,7 +21,8 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
           >
             <h1
               className={clsx(
-                "body-bold",
+                "body-regular",
+                "fw-bold",
                 "text-uppercase",
                 styles["statistics-and-text__subtitle"],
               )}
