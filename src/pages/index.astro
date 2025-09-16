@@ -1,25 +1,26 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layout/BaseLayout.astro";
 
-import headerData from "../content/Home/header.json";
-import { Header } from "../components/Home/Header/Header";
-import impactAndPartnersData from "../content/Home/impactAndPartners.json";
-import { ImpactAndPartners } from "../components/Home/ImpactAndPartners/ImpactAndPartners";
+// Interfaces
 import type { ImpactAndPartnersProps } from "../components/Home/ImpactAndPartners/ImpactAndPartners.interface";
-import navBarData from "../content/base/navBarData.json";
-import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
-import type { QuickLinksProps } from "../components/Home/QuickLinks/QuickLinks.interface";
 import type { NavItem } from "../types/NavItem";
-import imageAndTextData from "../content/Home/imageAndText.json";
-import { ImageAndText } from "../components/Home/ImageAndText/ImageAndText";
-import statisticsAndTextData from "../content/Home/statisticAndText.json";
-import { StatisticsAndText } from "../components/Home/StatisticsAndText/StatisticsAndText";
-import caseStudiesData from "../content/Home/caseStudies.json";
-import { CaseStudies } from "../components/Home/CaseStudies/CaseStudies";
+import type { QuickLinksProps } from "../components/Home/QuickLinks/QuickLinks.interface";
 
-const indexCollection = await getCollection("index");
-const homepageData = indexCollection[0].data;
+// Components
+import { CaseStudies } from "../components/Home/CaseStudies/CaseStudies";
+import { Header } from "../components/Home/Header/Header";
+import { ImageAndText } from "../components/Home/ImageAndText/ImageAndText";
+import { ImpactAndPartners } from "../components/Home/ImpactAndPartners/ImpactAndPartners";
+import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
+import { StatisticsAndText } from "../components/Home/StatisticsAndText/StatisticsAndText";
+
+// Content
+import caseStudiesData from "../content/Home/caseStudies.json";
+import headerData from "../content/Home/header.json";
+import imageAndTextData from "../content/Home/imageAndText.json";
+import impactAndPartnersData from "../content/Home/impactAndPartners.json";
+import navBarData from "../content/base/navBarData.json";
+import statisticsAndTextData from "../content/Home/statisticsAndText.json";
 
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {
