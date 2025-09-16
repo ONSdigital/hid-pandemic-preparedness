@@ -4,7 +4,7 @@
     "href": "https://www.who.int/",
     "label": "1"
   },
-  "link": {
+  "buttonLink": {
     "href": "/",
     "label": "Learning resources",
     "disabled": false

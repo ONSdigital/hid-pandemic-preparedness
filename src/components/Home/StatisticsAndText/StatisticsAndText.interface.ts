@@ -4,7 +4,7 @@ import type { CardStatProps } from "../../CardStat/CardStat.interface";
 export interface StatisticsAndTextProps {
   attribution: string;
   attributionLink: LinkData;
-  link: LinkData;
+  buttonLink: LinkData;
   quote: string;
   subTitle: string;
   statisticCards: CardStatProps[];

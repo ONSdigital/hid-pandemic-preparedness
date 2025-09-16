@@ -49,7 +49,7 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
               asButton={true}
               buttonVariant="secondary"
               className={clsx("mt-5")}
-              {...props.link}
+              {...props.buttonLink}
             />
           </div>
           <div className="col">
