@@ -28,7 +28,7 @@
   transition: transform 0.3s ease;
   align-items: stretch;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-down(md) {
     touch-action: pan-x;
     user-select: none;
   }
@@ -45,11 +45,11 @@
     flex-direction: column;
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-down(md) {
     flex: 0 0 100%;
   }
 
-  @include media-breakpoint-between(md, l) {
+  @media (min-width: 769px) and (max-width: 1024px) {
     flex: 0 0 calc(50% - #{$spacing-2});
   }
 }
@@ -88,7 +88,7 @@
     }
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-down(md) {
     display: none;
   }
 }
@@ -135,7 +135,7 @@
 .mobile-tap-zone-right {
   display: none;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-down(md) {
     display: block;
     position: absolute;
     top: 0;
@@ -158,7 +158,7 @@
   right: 0;
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-down(md) {
   .carousel-container {
     gap: $spacing-3;
   }
