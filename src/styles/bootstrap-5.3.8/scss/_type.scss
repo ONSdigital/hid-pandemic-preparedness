@@ -25,6 +25,10 @@
   @extend h6;
 }
 
+.p{
+  @extend p;
+}
+
 
 .lead {
   @include font-size($lead-font-size);

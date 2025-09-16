@@ -12,51 +12,37 @@ export const CardCaseStudy: FC<CardCaseStudyProps> = (props) => {
         "card",
         styles["card-case-study"],
         "bg-transparent",
-        "border",
         "border-0",
       )}
     >
       <img
-        src={props.image.srcPath}
-        className={clsx("card-img-top", "rounded-bottom")}
         alt={props.image.altText}
+        className={clsx("card-img", styles["card-case-study__image"])}
+        src={props.image.srcPath}
       />
-      <div className={clsx("card-body", "px-0")}>
+      <div className={clsx("card-body", "p-0")}>
         <h4
-          className={clsx("card-title", "heading-s", "py-4", "border-bottom")}
+          className={clsx(
+            styles["card-case-study__title"],
+            "card-title",
+            "heading-s",
+            "mt-4",
+          )}
         >
           {props.title}
         </h4>
-        <p className={clsx("d-none", "d-sm-block", "card-text", "py-4")}>
+        <p className={clsx("card-text", "body-regular", "mt-3")}>
           {props.subTitle}
         </p>
-        <ul className={clsx("list-group", "list-group-flush")}>
-          <li className={clsx("list-group-item", "border", "border-0", "pb-4")}>
-            <Link
-              className={clsx("card-link")}
-              href={props.link.href}
-              label={"View"}
-            />
-          </li>
-          <li
-            className={clsx(
-              "d-none",
-              "d-sm-block",
-              "list-group-item",
-              "border",
-              "border-0",
-              "pt-4",
-            )}
-          >
-            <Link
-              className={clsx("card-link")}
-              asButton={true}
-              buttonVariant={"secondary"}
-              href={props.link.href}
-              label={props.link.label}
-            />
-          </li>
-        </ul>
+        <div className={clsx("d-none", "d-lg-block")}>
+          <Link
+            className={clsx(styles["card-case-study__link"], "card-link")}
+            asButton={true}
+            buttonVariant={"secondary"}
+            href={props.link.href}
+            label={props.link.label}
+          />
+        </div>
       </div>
     </div>
   );
