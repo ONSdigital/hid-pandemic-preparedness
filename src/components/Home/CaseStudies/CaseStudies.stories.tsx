@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { CaseStudies } from "./CaseStudies";
-import caseStudiesData from "../../../content/caseStudies.json";
+import caseStudiesData from "../../../content/Home/caseStudies.json";
 
 const meta = {
   argTypes: {
