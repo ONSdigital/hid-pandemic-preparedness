@@ -28,13 +28,15 @@
 
 .heading-s {
   @extend .h4;
-  line-height: 115%;
   font-size: 1.5rem;
   font-weight: $font-weight-light;
+  line-height: 115%;
+  margin: 0;
+  padding: 0;
 
   @include media-breakpoint-down(md) {
     line-height: 150%;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -43,4 +45,13 @@
   line-height: 115%;
   font-size: 1.25;
   font-weight: $font-weight-bold;
+}
+
+.body-regular {
+  @extend .p;
+  line-height: 115%;
+  font-size: 1rem;
+  font-weight: $font-weight-light;
+  margin: 0;
+  padding: 0;
 }
