@@ -1,4 +1,10 @@
 ---
+import { Footer } from "../components/Footer/Footer";
+import footerData from "../content/base/footerData.json";
+
+import { NavBar } from "../components/NavBar/NavBar";
+import navBarData from "../content/base/navBarData.json";
+
 import "../styles/index.scss";
 import "@fontsource-variable/open-sans";
 ---
@@ -12,6 +18,10 @@ import "@fontsource-variable/open-sans";
     <title>Data Analysis</title>
   </head>
   <body>
+    <header>
+      <NavBar {...navBarData} />
+    </header>
     <slot />
+    <Footer {...footerData} />
   </body>
 </html>
