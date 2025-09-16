@@ -61,7 +61,7 @@ export const NavBar: FC<NavBarProps> = ({
           {/* Logo */}
           <div className={styles["navbar-logo"]}>
             <img
-              src="./analysis-for-action-logo.png"
+              src="./images/logos/analysis-for-action-logo.png"
               alt="Analysis for Action"
               className={styles["logo-image"]}
             />
