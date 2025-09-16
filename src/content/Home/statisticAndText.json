@@ -1,5 +1,16 @@
 {
   "title": "Preparedness saves lives",
+  "quote": "‘Invest in preparedness now to create fully functional capacities at the national, regional and global level’",
+  "attribution": "– World Health Organisation",
+  "attributionLink": {
+    "href": "https://www.who.int/",
+    "label": "1"
+  },
+  "link": {
+    "href": "/",
+    "label": "Learning resources",
+    "disabled": false
+  },
   "statisticCards": [
     {
       "id": "stat-card-1",

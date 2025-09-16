@@ -1,0 +1,17 @@
+@use "../../../styles/global/tokens" as *;
+
+@import "../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../styles/bootstrap-5.3.8/scss/variables";
+
+.statistics-and-text-bg {
+  background-color: $color-brand-secondary-100;
+}
+
+.statistics-and-text__content-container {
+  max-width: 26rem;
+}
+
+.statistics-and-text__ref-link {
+  color: $blue;
+}
