@@ -11,11 +11,13 @@ const iconSize: string = "1.5rem";
 
 export const CardUnit: FC<CardUnitProps> = (props) => {
   return (
-    <div className={clsx("card", styles["card-unit"], "shadow", "p-2")}>
+    <div className={clsx("card", styles["card-width"], "shadow", "p-2")}>
       <div className={clsx("card-body", "w-75")}>
-        <a className={clsx("card-title", "fw-bold")} href={props.link.href}>
-          {props.link.label}
-        </a>
+        <div className={clsx("card-title", styles["title-height"])}>
+          <a className={clsx("fw-bold")} href={props.link.href}>
+            {props.link.label}
+          </a>
+        </div>
         <p className={clsx("card-text")}>{props.subTitle}</p>
       </div>
       <div
