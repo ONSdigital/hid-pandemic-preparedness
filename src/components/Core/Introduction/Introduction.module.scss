@@ -1,0 +1,5 @@
+@use "../../../styles/global/tokens" as *;
+
+.border-color {
+  border-color: $color-brand-secondary-200 !important;
+}
