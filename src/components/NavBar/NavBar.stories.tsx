@@ -1,203 +1,35 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import navBarData from "../../content/base/navBarData.json";
 import NavBar from "./NavBar";
 import type { NavBarProps } from "./Navbar.interface";
 
 const meta = {
   component: NavBar,
   title: "Components/NavBar",
+  argTypes: {
+    items: {
+      table: {
+        disable: true,
+      },
+    },
+    languages: {
+      table: {
+        disable: true,
+      },
+    },
+    selectedLanguage: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof NavBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const navBarData: NavBarProps = {
-  items: [
-    {
-      id: "about",
-      label: "About",
-      href: "/about",
-    },
-    {
-      id: "learning-resources",
-      label: "Learning resources",
-      children: [
-        {
-          id: "data-collection",
-          label: "Data collection",
-          children: [
-            {
-              id: "sampling",
-              label: "Sampling",
-              href: "/learning-resources/data-collection/sampling",
-            },
-            {
-              id: "survey-design",
-              label: "Survey design",
-              href: "/learning-resources/data-collection/survey-design",
-            },
-            {
-              id: "data-collection-mode",
-              label: "Data collection mode",
-              href: "/learning-resources/data-collection/mode",
-            },
-            {
-              id: "administrative-data",
-              label: "Administrative data",
-              href: "/learning-resources/data-collection/administrative-data",
-            },
-          ],
-        },
-        {
-          id: "data-analysis",
-          label: "Data analysis",
-          children: [
-            {
-              id: "data-preparation",
-              label: "Data preparation",
-              href: "/learning-resources/data-analysis/preparation",
-            },
-            {
-              id: "reproducible-analytical-pipelines",
-              label: "Reproducible analytical pipelines",
-              href: "/learning-resources/data-analysis/reproducible-pipelines",
-            },
-            {
-              id: "epidemiological-analysis",
-              label: "Epidemiological analysis",
-              href: "/learning-resources/data-analysis/epidemiological",
-            },
-          ],
-        },
-        {
-          id: "data-governance",
-          label: "Data governance",
-          children: [
-            {
-              id: "implementation-legislation",
-              label: "Implementation legislation",
-              href: "/learning-resources/data-governance/legislation",
-            },
-            {
-              id: "data-protection-privacy",
-              label: "Data protection and user privacy",
-              href: "/learning-resources/data-governance/protection-privacy",
-            },
-          ],
-        },
-        {
-          id: "outputs-reporting",
-          label: "Outputs and reporting",
-          children: [
-            {
-              id: "data-visualisation",
-              label: "Data visualisation",
-              href: "/learning-resources/outputs-reporting/visualisation",
-            },
-            {
-              id: "written-verbal-communication",
-              label: "Written and verbal communication",
-              href: "/learning-resources/outputs-reporting/communication",
-            },
-          ],
-        },
-        {
-          id: "stakeholder-engagement",
-          label: "Stakeholder engagement",
-          children: [
-            {
-              id: "stakeholder-mapping",
-              label: "Stakeholder mapping",
-              href: "/learning-resources/stakeholder-engagement/mapping",
-            },
-            {
-              id: "leadership",
-              label: "Leadership",
-              href: "/learning-resources/stakeholder-engagement/leadership",
-            },
-            {
-              id: "public-acceptability",
-              label: "Public acceptability",
-              href: "/learning-resources/stakeholder-engagement/public-acceptability",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "case-studies",
-      label: "Case studies",
-      href: "/case-studies",
-    },
-    {
-      id: "tools",
-      label: "Tools",
-      children: [
-        {
-          id: "analysis-tools",
-          label: "Analysis tools",
-          children: [
-            {
-              id: "statistical-software",
-              label: "Statistical software",
-              href: "/tools/analysis/statistical-software",
-            },
-            {
-              id: "data-visualization-tools",
-              label: "Data visualization tools",
-              href: "/tools/analysis/visualization",
-            },
-          ],
-        },
-        {
-          id: "data-collection-tools",
-          label: "Data collection tools",
-          children: [
-            {
-              id: "survey-platforms",
-              label: "Survey platforms",
-              href: "/tools/collection/survey-platforms",
-            },
-            {
-              id: "mobile-data-collection",
-              label: "Mobile data collection",
-              href: "/tools/collection/mobile",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "contact",
-      label: "Contact",
-      href: "/contact",
-    },
-  ],
-  languages: [
-    {
-      id: "en",
-      label: "English (British)",
-      href: "/en",
-    },
-    {
-      id: "fr",
-      label: "French",
-      href: "/fr",
-    },
-    {
-      id: "es",
-      label: "Spanish",
-      href: "/es",
-    },
-  ],
-  selectedLanguage: {
-    id: "en",
-    label: "English (British)",
-    href: "/en",
-  },
-};
-
 export const NavBarStory = {
   name: "NavBar",
-  args: navBarData,
+  args: navBarData as NavBarProps,
 } satisfies Story;
