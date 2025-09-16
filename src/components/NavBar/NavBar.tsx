@@ -9,7 +9,7 @@ import { useState } from "react";
 import clsx from "clsx";
 
 import type { NavItem } from "../../types/NavItem";
-import type { NavBarProps } from "./Navbar.interface";
+import type { NavBarProps } from "./NavBar.interface";
 import { MegaMenu } from "../MegaMenu/MegaMenu";
 import {
   NavBarSearch,
@@ -19,7 +19,11 @@ import {
 } from "./components";
 import styles from "./NavBar.module.scss";
 
-const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
+export const NavBar: FC<NavBarProps> = ({
+  items,
+  languages,
+  selectedLanguage,
+}) => {
   const [selectedItem, setSelectedItem] = useState<NavItem | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
@@ -156,5 +160,3 @@ const NavBar: FC<NavBarProps> = ({ items, languages, selectedLanguage }) => {
     </nav>
   );
 };
-
-export default NavBar;
