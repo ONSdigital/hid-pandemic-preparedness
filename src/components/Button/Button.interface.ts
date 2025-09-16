@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 
 export interface ButtonProps {
   ariaLabel: string;
@@ -12,4 +12,5 @@ export interface ButtonProps {
     | "secondary"
     | "secondary-inverse"
     | "search-bar";
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
