@@ -5,17 +5,21 @@
 @import "../../styles/bootstrap-5.3.8/scss/variables";
 
 // Sets width based on viewport size
-.card-unit {
+.card-width {
   border-color: $color-brand-secondary-200;
   width: 18rem;
 
   @include media-breakpoint-up(md) {
     width: 22.5rem;
   }
+}
 
-  .time-box {
-    background-color: $color-brand-secondary-100;
-    height: 3.125rem;
-    width: 3.125rem;
-  }
+.time-box {
+  background-color: $color-brand-secondary-100;
+  height: 3.125rem;
+  width: 3.125rem;
+}
+
+.title-height {
+  height: 3rem;
 }
