@@ -12,7 +12,7 @@ const FooterColumnLinks: FC<FooterColumnLinksProps> = (props) => {
   return (
     <>
       {props.links?.map((link) => (
-        <p>
+        <p key={link.id}>
           <a
             className={clsx(
               "fw-light",
