@@ -1,11 +1,11 @@
 @use "../../styles/global/tokens" as *;
 
-.learning-module__container {
+.learning-module-card__container {
   background-color: $color-grey-100;
   border: 1px solid $color-brand-secondary-300;
   border-radius: 1rem;
 }
 
-.learning-module__time-box {
+.learning-module-card__time-box {
   background-color: $color-brand-secondary-100;
 }

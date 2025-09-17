@@ -3,8 +3,8 @@ import DOMPurify from "dompurify";
 
 import markdownContent from "../../content/learning-module-content.md?raw";
 import { parseMarkdown } from "../../helpers/parseMarkdown";
-import { LearningModule } from "./LearningModule";
-import type { LearningModuleProps } from "./LearningModule.interface";
+import { LearningModuleCard } from "./LearningModuleCard";
+import type { LearningModuleCardProps } from "./LearningModuleCard.interface";
 
 const meta = {
   argTypes: {
@@ -24,12 +24,12 @@ const meta = {
       },
     },
   },
-  component: LearningModule,
+  component: LearningModuleCard,
   parameters: {
     layout: "centered",
   },
-  title: "Components/LearningModule",
-} satisfies Meta<typeof LearningModule>;
+  title: "Components/LearningModuleCard",
+} satisfies Meta<typeof LearningModuleCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 // Use helper to parse markdown to html
 const htmlContent = await parseMarkdown(markdownContent);
 
-const learningModuleData: LearningModuleProps = {
+const learningModuleCardData: LearningModuleCardProps = {
   githubLinkHref: "https://github.com/",
   // Sanitizing using dompurify here as this is running client side
   htmlContent: DOMPurify.sanitize(htmlContent),
@@ -58,7 +58,7 @@ const learningModuleData: LearningModuleProps = {
   title: "Overview",
 };
 
-export const LearningModuleStory = {
-  args: learningModuleData,
-  name: "LearningModule",
+export const LearningModuleCardStory = {
+  args: learningModuleCardData,
+  name: "LearningModuleCard",
 } satisfies Story;
