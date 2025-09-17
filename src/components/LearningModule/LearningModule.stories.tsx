@@ -1,10 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import DOMPurify from "dompurify";
+
+import markdownContent from "../../content/learning-module-content.md?raw";
+import { parseMarkdown } from "../../helpers/parseMarkdown";
 import { LearningModule } from "./LearningModule";
 import type { LearningModuleProps } from "./LearningModule.interface";
 
 const meta = {
   argTypes: {
-    learningOutcomesList: {
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+    htmlContent: {
       table: {
         disable: true,
       },
@@ -25,17 +34,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Use helper to parse markdown to html
+const htmlContent = await parseMarkdown(markdownContent);
+
 const learningModuleData: LearningModuleProps = {
   githubLinkHref: "https://github.com/",
-  learningOutcomesList: [
-    "Understand",
-    "Identify",
-    "Understand",
-    "Apply",
-    "Analyse",
-    "Present",
-  ],
-  learningOutcomesTitle: "Learning outcomes:",
+  // Sanitizing using dompurify here as this is running client side
+  htmlContent: DOMPurify.sanitize(htmlContent),
   readingTime: "Set aside 5-10 minutes",
   startLinkHref: "/",
   tags: [
@@ -50,10 +55,6 @@ const learningModuleData: LearningModuleProps = {
       type: "gray",
     },
   ],
-  textBold:
-    "The guidance introduces key concepts, methods, and tools used globally, with examples drawn from the UK’s Office for National Statistics (ONS).",
-  textRegular:
-    "This guidance introduces the principles and practices of mortality analysis. It is designed for professionals working in public health, statistics, policy, or research who need to interpret mortality trends and use them to inform decisions. ",
   title: "Overview",
 };
 

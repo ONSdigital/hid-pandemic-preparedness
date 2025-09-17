@@ -1,13 +1,10 @@
 import type { TagData } from "../../types/TagData";
+import type { TextModuleProps } from "../TextModule/TextModule.interface";
 
-export interface LearningModuleProps {
+export interface LearningModuleProps extends TextModuleProps {
   githubLinkHref: string;
-  learningOutcomesList: string[];
-  learningOutcomesTitle: string;
   startLinkHref: string;
   readingTime: string;
   tags: TagData[];
-  textBold: string;
-  textRegular: string;
   title: string;
 }
