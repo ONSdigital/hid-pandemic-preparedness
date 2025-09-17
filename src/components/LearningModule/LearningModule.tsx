@@ -6,6 +6,7 @@ import { RiTimerLine } from "@remixicon/react";
 import styles from "./LearningModule.module.scss";
 import type { LearningModuleProps } from "./LearningModule.interface";
 import { Tag } from "../Tag/Tag";
+import { TextModule } from "../TextModule/TextModule";
 import { Link } from "../Link/Link";
 
 // Set size of icon here using icon component props
@@ -55,18 +56,7 @@ export const LearningModule: FC<LearningModuleProps> = (props) => {
         </div>
       </div>
       <h1 className={clsx("heading-m")}>{props.title}</h1>
-      <div className={clsx("body-regular")}>
-        <span>{props.textRegular}</span>
-        <span className={clsx("fw-bold")}>{props.textBold}</span>
-      </div>
-      <div>
-        <h1 className={clsx("heading-s")}>{props.learningOutcomesTitle}</h1>
-        <ul>
-          {props.learningOutcomesList.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      <TextModule {...props} />
       <div
         className={clsx(
           "d-flex",
