@@ -1,0 +1,12 @@
+@use "../../../styles/global/tokens" as *;
+@use "../../../styles/global/variables" as *;
+
+.border-color {
+  // background-color: $color-surface-subtle;
+  border-color: $color-brand-secondary-200 !important;
+}
+
+.question-bg {
+  background-color: $color-surface-subtle;
+  border-color: $color-brand-secondary-200 !important;
+}
