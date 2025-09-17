@@ -1,0 +1,27 @@
+{
+  "title": "Epidemiological Analysis",
+  "breadcrumbs": {
+    "items": [
+      {
+        "href": "/",
+        "label": "Home",
+        "id": "0c6dd168-38da-4a09-b62c-971490cb80b4"
+      },
+      {
+        "href": "/",
+        "label": "Learning Resources",
+        "id": "ff2c92ba-35db-4c63-91fb-1c7f5075c15b"
+      },
+      {
+        "href": "/",
+        "label": "Data Analysis",
+        "id": "a8aead7c-4748-4c37-961d-caa64ff6558b"
+      },
+      {
+        "href": "/",
+        "label": "Epidemiological Analysis",
+        "id": "819cf680-7200-4bb0-9cc6-364b86f7bff1"
+      }
+    ]
+  }
+}
