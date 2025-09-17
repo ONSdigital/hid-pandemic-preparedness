@@ -8,6 +8,16 @@ import type { LearningModuleProps } from "./LearningModule.interface";
 
 const meta = {
   argTypes: {
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+    htmlContent: {
+      table: {
+        disable: true,
+      },
+    },
     tags: {
       table: {
         disable: true,
