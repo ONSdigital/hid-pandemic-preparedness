@@ -15,7 +15,7 @@ const meta = {
   component: QuestionBlock,
   title: "Organisms/QuestionBank/QuestionBlock",
   parameters: {
-    layout: "fullscreen",
+    layout: "centered",
   },
   argTypes: {
     id: {
