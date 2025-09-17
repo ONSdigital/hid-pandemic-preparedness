@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import referenceData from "../../content/references.json";
+import referenceData from "../../content/Home/references.json";
 import { References } from "./References";
 import type { ReferencesProps } from "./References.interface";
 
@@ -22,11 +22,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const referencesProps: ReferencesProps = {
-  references: referenceData,
-};
-
 export const ReferencesStory = {
   name: "References",
-  args: referencesProps,
+  args: referenceData,
 } satisfies Story;
