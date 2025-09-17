@@ -45,7 +45,7 @@ export const LearningModuleNav: FC<LearningModuleNavProps> = (props) => {
             </div>
 
             {/* Desktop view: there is no accordian */}
-            <div className={clsx("d-none", "d-lg-block")}>
+            <div className={clsx("d-none", "d-lg-block", "mb-3")}>
               <h1 className={clsx("heading-xs", "fw-bold")}>{headingText}</h1>
               <ChapterList {...props} />
             </div>
