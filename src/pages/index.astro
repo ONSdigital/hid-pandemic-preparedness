@@ -44,6 +44,6 @@ const quickLinksData: QuickLinksProps = {
     <CaseStudies {...caseStudiesData} />
     <!-- Props type required here to stop typescript error -->
     <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
-    <References {...referencesData} />
+    <References {...referencesData} client:load />
   </main>
 </BaseLayout>
