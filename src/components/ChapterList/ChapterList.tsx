@@ -16,6 +16,7 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
             "ps-3",
             styles["chapter-list__list-group-item"],
             id === props.activeId && styles["active"],
+            id === props.activeId && "fw-bold",
           )}
         >
           <a className={clsx("text-decoration-none")} href={`/${id}`}>
