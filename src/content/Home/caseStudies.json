@@ -5,7 +5,7 @@
     "image": {
       "id": "image-main-1",
       "altText": "A group of medical professionals chatting and smiling.",
-      "srcPath": "./example-images/group-of-medical-professionals.jpg"
+      "srcPath": "./images/group-of-medical-professionals.jpg"
     },
     "link": {
       "href": "/",
@@ -20,7 +20,7 @@
       "image": {
         "id": "image-small-1",
         "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+        "srcPath": "./images/group-of-medical-professionals.jpg"
       },
       "link": {
         "href": "/",
@@ -34,7 +34,7 @@
       "image": {
         "id": "image-small-2",
         "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+        "srcPath": "./images/group-of-medical-professionals.jpg"
       },
       "link": {
         "href": "/",
@@ -48,7 +48,7 @@
       "image": {
         "id": "image-small-3",
         "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+        "srcPath": "./images/group-of-medical-professionals.jpg"
       },
       "link": {
         "href": "/",
@@ -62,7 +62,7 @@
       "image": {
         "id": "image-small-4",
         "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./example-images/group-of-medical-professionals.jpg"
+        "srcPath": "./images/group-of-medical-professionals.jpg"
       },
       "link": {
         "href": "/",

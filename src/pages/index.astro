@@ -1,16 +1,49 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layout/BaseLayout.astro";
 
-const indexCollection = await getCollection("index");
-const homepageData = indexCollection[0].data;
+// Interfaces
+import type { CarouselProps } from "../components/Core/Carousel/Carousel.interface";
+import type { ImpactAndPartnersProps } from "../components/Home/ImpactAndPartners/ImpactAndPartners.interface";
+import type { NavItem } from "../types/NavItem";
+import type { QuickLinksProps } from "../components/Home/QuickLinks/QuickLinks.interface";
+
+// Components
+import { Carousel } from "../components/Core/Carousel/Carousel";
+import { CaseStudies } from "../components/Home/CaseStudies/CaseStudies";
+import { Header } from "../components/Home/Header/Header";
+import { ImageAndText } from "../components/Home/ImageAndText/ImageAndText";
+import { ImpactAndPartners } from "../components/Home/ImpactAndPartners/ImpactAndPartners";
+import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
+import { StatisticsAndText } from "../components/Home/StatisticsAndText/StatisticsAndText";
+import { References } from "../components/References/References";
+
+// Content
+import carouselData from "../content/Home/carousel.json";
+import caseStudiesData from "../content/Home/caseStudies.json";
+import headerData from "../content/Home/header.json";
+import imageAndTextData from "../content/Home/imageAndText.json";
+import impactAndPartnersData from "../content/Home/impactAndPartners.json";
+import navBarData from "../content/base/navBarData.json";
+import statisticsAndTextData from "../content/Home/statisticsAndText.json";
+import referencesData from "../content/Home/references.json";
+
+// Ref learning resources data from `navBarData` for rendering as quick links
+const quickLinksData: QuickLinksProps = {
+  title: navBarData.items[1].label,
+  navItems: navBarData.items[1].children as NavItem[],
+};
 ---
 
 <BaseLayout>
   <main>
-    <h1>
-      {homepageData.content.hero.headline}
-    </h1>
-    <p>{homepageData.content.hero.subheadline}</p>
+    <Header {...headerData} />
+    <QuickLinks {...quickLinksData} />
+    <ImageAndText {...imageAndTextData} />
+    <StatisticsAndText {...statisticsAndTextData} />
+    <Carousel {...carouselData as CarouselProps} client:load />
+    <CaseStudies {...caseStudiesData} />
+    <!-- Props type required here to stop typescript error -->
+    <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
+    <References {...referencesData} client:load />
   </main>
 </BaseLayout>
