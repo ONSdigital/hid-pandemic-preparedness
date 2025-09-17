@@ -5,7 +5,7 @@ import {
   RiMenuLine,
 } from "@remixicon/react";
 import type { FC } from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 
 import type { NavItem } from "../../types/NavItem";
@@ -28,6 +28,62 @@ export const NavBar: FC<NavBarProps> = ({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [hoveredItem, setHoveredItem] = useState<NavItem | null>(null);
+  const [indicatorStyle, setIndicatorStyle] = useState<{
+    left: number;
+    width: number;
+    visible: boolean;
+  }>({ left: 0, width: 0, visible: false });
+
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const findActiveNavItem = (): NavItem | null => {
+    const currentPath = window.location.pathname;
+
+    for (const item of items) {
+      if (item.href && item.href !== "#" && currentPath === item.href) {
+        return item;
+      }
+
+      if (item.children) {
+        const hasActiveChild = checkChildrenForPath(item.children, currentPath);
+        if (hasActiveChild) {
+          return item;
+        }
+      }
+    }
+
+    for (const item of items) {
+      if (item.children) {
+        const pathSegment = currentPath.split("/")[1];
+        const normalizedLabel = item.label.toLowerCase().replace(/\s+/g, "-");
+        if (pathSegment === normalizedLabel) {
+          return item;
+        }
+      }
+    }
+
+    return null;
+  };
+
+  const checkChildrenForPath = (children: NavItem[], path: string): boolean => {
+    for (const child of children) {
+      if (child.href && child.href !== "#" && path === child.href) {
+        return true;
+      }
+      if (child.children && checkChildrenForPath(child.children, path)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    const activeItem = findActiveNavItem();
+    if (activeItem && !selectedItem) {
+      setSelectedItem(activeItem);
+    }
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -38,6 +94,22 @@ export const NavBar: FC<NavBarProps> = ({
   const handleLanguageToggle = () => {
     setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
     setIsMobileMenuOpen(false);
+  };
+
+  const updateIndicator = (element: HTMLElement | null, visible: boolean) => {
+    if (!element || !navRef.current) {
+      setIndicatorStyle({ left: 0, width: 0, visible: false });
+      return;
+    }
+
+    const navRect = navRef.current.getBoundingClientRect();
+    const elementRect = element.getBoundingClientRect();
+
+    setIndicatorStyle({
+      left: elementRect.left - navRect.left,
+      width: elementRect.width,
+      visible,
+    });
   };
 
   const handleNavItemClick = (item: NavItem) => {
@@ -53,15 +125,36 @@ export const NavBar: FC<NavBarProps> = ({
     }
   };
 
+  const handleNavItemHover = (
+    item: NavItem | null,
+    element: HTMLElement | null,
+  ) => {
+    setHoveredItem(item);
+    updateIndicator(element, !!item);
+  };
+
+  useEffect(() => {
+    if (selectedItem && navRef.current) {
+      const activeElement = navRef.current.querySelector(
+        `[data-item-id="${selectedItem.id}"]`,
+      ) as HTMLElement;
+      if (activeElement && !hoveredItem) {
+        updateIndicator(activeElement, true);
+      }
+    } else if (!hoveredItem) {
+      setIndicatorStyle({ left: 0, width: 0, visible: false });
+    }
+  }, [selectedItem, hoveredItem]);
+
   return (
     <nav className={styles.navbar}>
       {/* Main Navigation Bar */}
-      <div className={styles["navbar-container"]}>
+      <div className={styles["navbar-container"]} ref={navRef}>
         <div className={styles["navbar-content"]}>
           {/* Logo */}
           <div className={styles["navbar-logo"]}>
             <img
-              src="./images/logos/analysis-for-action-logo.png"
+              src="./images/logos/analysis-for-action-logo-2.svg"
               alt="Analysis for Action"
               className={styles["logo-image"]}
             />
@@ -75,7 +168,13 @@ export const NavBar: FC<NavBarProps> = ({
             )}
           >
             {items.map((item) => (
-              <div key={item.id} className={styles["navbar-item"]}>
+              <div
+                key={item.id}
+                className={styles["navbar-item"]}
+                data-item-id={item.id}
+                onMouseEnter={(e) => handleNavItemHover(item, e.currentTarget)}
+                onMouseLeave={() => handleNavItemHover(null, null)}
+              >
                 {item.children ? (
                   <button
                     type="button"
@@ -100,6 +199,18 @@ export const NavBar: FC<NavBarProps> = ({
               </div>
             ))}
           </div>
+
+          {/* Orange indicator bar */}
+          <div
+            className={clsx(
+              styles["navbar-indicator"],
+              indicatorStyle.visible && styles["navbar-indicator--visible"],
+            )}
+            style={{
+              left: `${indicatorStyle.left}px`,
+              width: `${indicatorStyle.width}px`,
+            }}
+          />
 
           {/* Right Section */}
           <div className={styles["navbar-actions"]}>
