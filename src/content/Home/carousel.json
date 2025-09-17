@@ -1,0 +1,67 @@
+{
+  "type": "CardTool",
+  "items": [
+    {
+      "id": "c41cca78-3b5a-42ea-991b-1781e92326de",
+      "icon": "calculator",
+      "title": "Sample size calculator",
+      "subTitle": "Estimates required sample size for a study or survey.",
+      "link": {
+        "href": "/tools/sample-size-calculator",
+        "label": "Try now"
+      }
+    },
+    {
+      "id": "349848e1-2969-4f58-bd64-e825a4b96b0b",
+      "icon": "questionbank",
+      "title": "Question bank",
+      "subTitle": "Curated library of ready-to-use, evidence-backed questions.",
+      "link": {
+        "href": "/tools/question-bank",
+        "label": "Try now"
+      }
+    },
+    {
+      "id": "9bc2b57b-46c4-4c7f-a8e4-913a2e205ff9",
+      "icon": "dashboard",
+      "title": "Modelling dashboard",
+      "subTitle": "An infectious disease modelling dashboard.",
+      "link": {
+        "href": "/tools/modelling-dashboard",
+        "label": "Try now"
+      }
+    },
+    {
+      "id": "4b10519f-f0f1-47ed-a6a5-864c0899b0f6",
+      "icon": "report",
+      "title": "Survey analysis tool",
+      "subTitle": "Analyze survey data with automated insights and visualizations.",
+      "link": {
+        "href": "/tools/survey-analysis",
+        "label": "Try now"
+      }
+    },
+    {
+      "id": "ea589255-7589-480a-8cfc-14971a046d29",
+      "icon": "calculator",
+      "title": "Risk assessment calculator",
+      "subTitle": "Calculate risk scores for various health scenarios.",
+      "link": {
+        "href": "/tools/risk-calculator",
+        "label": "Try now"
+      }
+    },
+    {
+      "id": "de6914da-9f2e-4b8c-8b4d-04d2f0fe5e07",
+      "icon": "dashboard",
+      "title": "Data visualization tool",
+      "subTitle": "Create interactive charts and graphs from your data.",
+      "link": {
+        "href": "/tools/data-visualization",
+        "label": "Try now"
+      }
+    }
+  ],
+  "itemsPerView": 3,
+  "showNavigation": true
+}
