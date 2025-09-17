@@ -66,7 +66,7 @@ export const Footer: FC<FooterProps> = (props) => {
             data-bs-theme="dark"
           >
             {props.columns.slice(0, 3).map((col) => (
-              <div className={clsx("accordion-item")}>
+              <div className={clsx("accordion-item")} key={col.id}>
                 <h4 className={clsx("accordion-header")}>
                   <button
                     className={clsx(
