@@ -1,4 +1,13 @@
 ---
+// Components
+import { Footer } from "../components/Footer/Footer";
+import { NavBar } from "../components/NavBar/NavBar";
+
+// Content
+import footerData from "../content/base/footerData.json";
+import navBarData from "../content/base/navBarData.json";
+
+// Css and fonts
 import "../styles/index.scss";
 import "@fontsource-variable/open-sans";
 ---
@@ -9,9 +18,17 @@ import "@fontsource-variable/open-sans";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <script>
+      // Astro bundles and processes this automatically
+      import "../styles/bootstrap-5.3.8/dist/js/bootstrap.js";
+    </script>
     <title>Data Analysis</title>
   </head>
   <body>
+    <header>
+      <NavBar {...navBarData} client:load />
+    </header>
     <slot />
+    <Footer {...footerData} client:load />
   </body>
 </html>
