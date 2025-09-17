@@ -23,7 +23,7 @@ export const QuestionBlock: FC<QuestionBlockProps> = (props) => {
         ))}
       </div>
       <hr />
-      <div className={clsx("d-flex")}>
+      <div className={clsx("d-flex", "py-4")}>
         <h5 className={clsx("heading-xs")}>{props.title}</h5>
       </div>
       <div className={clsx("d-flex", "flex-column", "gap-2")}>
