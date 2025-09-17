@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { v4 as uuidv4 } from "uuid";
 
 import footerData from "../../content/base/footerData.json";
 import { Footer } from "./Footer";
