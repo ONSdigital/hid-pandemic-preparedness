@@ -15,6 +15,7 @@ import { ImageAndText } from "../components/Home/ImageAndText/ImageAndText";
 import { ImpactAndPartners } from "../components/Home/ImpactAndPartners/ImpactAndPartners";
 import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
 import { StatisticsAndText } from "../components/Home/StatisticsAndText/StatisticsAndText";
+import { References } from "../components/References/References";
 
 // Content
 import carouselData from "../content/Home/carousel.json";
@@ -24,6 +25,8 @@ import imageAndTextData from "../content/Home/imageAndText.json";
 import impactAndPartnersData from "../content/Home/impactAndPartners.json";
 import navBarData from "../content/base/navBarData.json";
 import statisticsAndTextData from "../content/Home/statisticsAndText.json";
+import referencesData from "../content/references.json";
+import type { ReferencesProps } from "../components/References/References.interface";
 
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {
@@ -42,5 +45,6 @@ const quickLinksData: QuickLinksProps = {
     <CaseStudies {...caseStudiesData} />
     <!-- Props type required here to stop typescript error -->
     <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
+    <References {...referencesData} />
   </main>
 </BaseLayout>
