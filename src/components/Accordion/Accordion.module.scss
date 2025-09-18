@@ -1,0 +1,20 @@
+@use "../../styles/global/tokens" as *;
+
+.accordion-button-primary {
+  background-color: $color-brand-primary-500;
+  color: $color-grey-100;
+
+  &.collapsed {
+    background-color: $color-brand-primary-500;
+    color: $color-grey-100;
+  }
+
+  &:not(.collapsed) {
+    background-color: $color-brand-primary-500;
+    color: $color-grey-100;
+  }
+
+  &::after {
+    filter: brightness(0) invert(1);
+  }
+}

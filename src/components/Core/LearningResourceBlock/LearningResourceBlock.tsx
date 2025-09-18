@@ -19,10 +19,10 @@ export const LearningResourceBlock: FC<LearningResourceBlockProps> = (
     })),
   };
   return (
-    <div
-      className={clsx("w-100", styles["learning-resource-block__container"])}
-    >
-      <Accordion {...accordionProps} />
+    <div className={clsx(styles["learning-resource-block__container"])}>
+      <div className={clsx("p-5")}>
+        <Accordion {...accordionProps} variant="primary" />
+      </div>
     </div>
   );
 };
