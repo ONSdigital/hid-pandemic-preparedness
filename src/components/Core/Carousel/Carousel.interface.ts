@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import type { CardToolProps } from "../../CardTool/CardTool.interface";
-import type { CardUnitProps } from "../../CardUnit/CardUnit.interface";
+
+import type { CardToolProps } from "@components/CardTool/CardTool.interface";
+import type { CardUnitProps } from "@components/CardUnit/CardUnit.interface";
 
 export type CarouselItemType = "CardTool" | "CardUnit" | "ReactNode";
 

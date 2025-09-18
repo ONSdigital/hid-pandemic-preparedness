@@ -1,10 +1,11 @@
-import type { FC } from "react";
 import clsx from "clsx";
+import type { FC } from "react";
 
-import styles from "./LearningModule.module.scss";
-import { LearningModuleNav } from "../../LearningModuleNav/LearningModuleNav";
-import { LearningModuleCard } from "../../LearningModuleCard/LearningModuleCard";
+import { LearningModuleNav } from "@components/LearningModuleNav/LearningModuleNav";
+import { LearningModuleCard } from "@components/LearningModuleCard/LearningModuleCard";
+
 import type { LearningModuleProps } from "./LearningModule.interface";
+import styles from "./LearningModule.module.scss";
 
 export const LearningModule: FC<LearningModuleProps> = (props) => {
   return (
@@ -19,12 +20,7 @@ export const LearningModule: FC<LearningModuleProps> = (props) => {
       )}
     >
       <div
-        className={clsx(
-          "d-flex",
-          "flex-column",
-          "flex-lg-row",
-          styles["container-lg"],
-        )}
+        className={clsx("container-lg", "d-flex", "flex-column", "flex-lg-row")}
       >
         <LearningModuleNav {...props.navProps} />
 
