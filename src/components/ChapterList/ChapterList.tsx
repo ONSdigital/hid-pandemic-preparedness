@@ -6,16 +6,19 @@ import type { ChapterListProps } from "./ChapterList.interface";
 
 export const ChapterList: FC<ChapterListProps> = (props) => {
   return (
-    <ul className={clsx("heading-s", "m-0", "p-0")}>
+    <ul className={clsx("m-0", "p-0")}>
       {props.chapters.map(({ id, title }) => (
         <li
           key={id}
           className={clsx(
+            "heading-s",
+            "m-0",
             "pt-3",
             "pb-3",
             "ps-3",
             styles["chapter-list__list-group-item"],
             id === props.activeId && styles["active"],
+            id === props.activeId && "fw-bold",
           )}
         >
           <a className={clsx("text-decoration-none")} href={`/${id}`}>

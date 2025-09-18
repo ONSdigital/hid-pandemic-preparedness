@@ -1,0 +1,12 @@
+@import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../styles/bootstrap-5.3.8/scss/variables";
+
+.icon-and-text-link__label {
+  color: $blue;
+}
+
+.icon-and-text-link__icon-size {
+  height: 1.5rem;
+  width: 1.5rem;
+}
