@@ -71,12 +71,21 @@ module "app_dev_s3" {
 }
 
 # Set up cloudfront distribution for app dev
+# Function association is enabled to enable astro static site folder based navigation
 module "app_dev_cloudfront" {
   source                      = "./cloudfront"
   bucket_name                 = module.app_dev_s3.id
   bucket_regional_domain_name = module.app_dev_s3.bucket_regional_domain_name
   distribution_enabled        = true
   distribution_name           = "Dev app"
+  function_association = [
+    {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
+    }
+  ]
+  # function_association_event_type = "viewer-request"
+  # function_association_function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
 }
 
 # Create bucket for app main
@@ -88,12 +97,17 @@ module "app_main_s3" {
 }
 
 # Set up cloudfront distribution for app main
+# Function association is enabled to enable astro static site folder based navigation
 module "app_main_cloudfront" {
   source                      = "./cloudfront"
   bucket_name                 = module.app_main_s3.id
   bucket_regional_domain_name = module.app_main_s3.bucket_regional_domain_name
   distribution_enabled        = true
   distribution_name           = "Main app"
+  function_association = [{
+    event_type   = "viewer-request"
+    function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
+  }]
 }
 
 # Create iam user for automated deployments via github actions

@@ -23,3 +23,24 @@ variable "distribution_name" {
   description = "The name of the distribution to show on the AWS console."
   type        = string
 }
+
+variable "function_association" {
+  description = "With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations. You can associate a single function per event type."
+  type = list(object({
+    event_type   = string
+    function_arn = string
+  }))
+  default = []
+}
+
+
+# variable "function_association_event_type" {
+#   description = "Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`."
+#   type        = bool
+# }
+
+# variable "function_association_function_arn" {
+#   description = "ARN of the CloudFront function to be triggered per event."
+#   type        = string
+#   default     = null
+# }

@@ -1,7 +1,6 @@
 /*
 Appends index.html to request uri so astro static site folder structure can be used for navigation
 */
-
 function handler(event) {
   var request = event.request;
   var uri = request.uri;
