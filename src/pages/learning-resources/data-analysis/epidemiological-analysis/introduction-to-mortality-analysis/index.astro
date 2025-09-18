@@ -2,13 +2,15 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
-// import type { UnitBlockProps } from "@components/Core/UnitBlock/UnitBlock.interface";
+import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
 
 // Components
+import { Carousel } from "@components/Core/Carousel/Carousel";
 import { Header } from "@components/Core/Header/Header";
 // import { UnitBlock } from "@components/Core/UnitBlock/UnitBlock";
 
 // Content
+import carouselData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/carousel.json";
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
 // import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
 ---
@@ -16,6 +18,6 @@ import headerData from "@content/learning-resources/data-analysis/epidemiologica
 <BaseLayout title={headerData.title}>
   <main>
     <Header {...headerData} />
-    <!-- <UnitBlock {...unitBlockData as UnitBlockProps} /> -->
+    <Carousel {...carouselData as CarouselProps} />
   </main>
 </BaseLayout>

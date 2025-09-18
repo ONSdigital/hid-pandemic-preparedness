@@ -1,4 +1,5 @@
 {
+  "type": "CardUnit",
   "title": "More Resources",
   "subtitle": "Recommended under the theme Mortality Analysis",
   "items": [
@@ -69,5 +70,6 @@
   "callToAction": {
     "label": "All learning resources",
     "href": "/"
-  }
+  },
+  "showNavigation": false
 }
