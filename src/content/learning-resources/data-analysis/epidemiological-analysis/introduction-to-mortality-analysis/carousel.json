@@ -1,0 +1,73 @@
+{
+  "title": "More Resources",
+  "subtitle": "Recommended under the theme Mortality Analysis",
+  "items": [
+    {
+      "id": "3d6f1e5e-420c-4eb1-b3bc-ff625d5663d0",
+      "link": {
+        "href": "/",
+        "label": "Data Visualisation for Public Health"
+      },
+      "subTitle": "Implementing real-time surveillance and response tools.",
+      "readingTime": "3 min",
+      "tags": [
+        {
+          "id": "9a869f8d-df19-43e3-82f3-bd7712f56141",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "c0d42aa0-4f5c-4b94-b25b-548bc9d84ae5",
+          "title": "Beginner",
+          "type": "gray"
+        }
+      ]
+    },
+    {
+      "id": "a67268d8-4a62-47f7-a952-aa46a5409f0c",
+      "link": {
+        "href": "/",
+        "label": "Data Visualisation & Statistics Globally"
+      },
+      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "readingTime": "5 min",
+      "tags": [
+        {
+          "id": "9a869f8d-df19-43e3-82f3-bd7712f56141",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "c0d42aa0-4f5c-4b94-b25b-548bc9d84ae5",
+          "title": "Beginner",
+          "type": "gray"
+        }
+      ]
+    },
+    {
+      "id": "b2cc99cf-e15f-4714-a2ce-b62e3de9d0d8",
+      "link": {
+        "href": "/",
+        "label": "Operational Planning and Priority-Setting"
+      },
+      "subTitle": "Coordinating efforts with global partners to support Nepal’s public health response.",
+      "readingTime": "9 min",
+      "tags": [
+        {
+          "id": "9a869f8d-df19-43e3-82f3-bd7712f56141",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "c0d42aa0-4f5c-4b94-b25b-548bc9d84ae5",
+          "title": "Beginner",
+          "type": "gray"
+        }
+      ]
+    }
+  ],
+  "callToAction": {
+    "label": "All learning resources",
+    "href": "/"
+  }
+}
