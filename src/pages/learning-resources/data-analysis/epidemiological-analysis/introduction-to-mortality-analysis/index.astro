@@ -1,23 +1,48 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import sanitizeHtml from "sanitize-html";
 
 // Interfaces
 import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
+import type { LearningModuleProps } from "@components/Core/LearningModule/LearningModule.interface";
 
 // Components
 import { Carousel } from "@components/Core/Carousel/Carousel";
 import { Header } from "@components/Core/Header/Header";
-// import { UnitBlock } from "@components/Core/UnitBlock/UnitBlock";
+import { LearningModule } from "@components/Core/LearningModule/LearningModule";
+
+// Helpers
+import { parseMarkdown } from "@helpers/parseMarkdown";
 
 // Content
 import carouselData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/carousel.json";
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
-// import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
+import learningModuleData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/learningModule.json";
+import overviewMarkdown from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/overview.md?raw";
+
+// Update learning module data to include markdown content as html
+const htmlContent = await parseMarkdown(overviewMarkdown);
+learningModuleData.cardProps.htmlContent = sanitizeHtml(htmlContent);
+
+// Building content for learning module
+// const learningModuleProps: LearningModuleProps = {
+//   cardProps: {
+//     // Sanitizing using dompurify here as this is running client side
+//     htmlContent: DOMPurify.sanitize(htmlContent),
+//     ...learningModuleCardData,
+//     tags: learningModuleCardData.tags as TagData[],
+//   },
+//   navProps: {
+//     chapters: chaptersData,
+//     activeId: "chapter1",
+//   },
+// };
 ---
 
 <BaseLayout title={headerData.title}>
   <main>
     <Header {...headerData} />
+    <LearningModule {...learningModuleData as LearningModuleProps} />
     <Carousel {...carouselData as CarouselProps} />
   </main>
 </BaseLayout>
