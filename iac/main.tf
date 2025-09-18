@@ -84,8 +84,6 @@ module "app_dev_cloudfront" {
       function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
     }
   ]
-  # function_association_event_type = "viewer-request"
-  # function_association_function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
 }
 
 # Create bucket for app main

@@ -32,15 +32,3 @@ variable "function_association" {
   }))
   default = []
 }
-
-
-# variable "function_association_event_type" {
-#   description = "Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`."
-#   type        = bool
-# }
-
-# variable "function_association_function_arn" {
-#   description = "ARN of the CloudFront function to be triggered per event."
-#   type        = string
-#   default     = null
-# }
