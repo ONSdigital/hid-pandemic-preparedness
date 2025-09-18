@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Interfaces
+
+// Components
+import { Header } from "@components/Core/Header/Header";
+
+// Content
+import headerData from "@content/tools/question-bank/guide/header.json";
+---
+
+<BaseLayout title={headerData.title}>
+  <main>
+    <Header {...headerData} />
+  </main>
+</BaseLayout>
