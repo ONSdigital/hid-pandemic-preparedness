@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { v4 as uuidv4 } from "uuid";
 
+import type { CardToolProps } from "@components/CardTool/CardTool.interface";
+import type { CardUnitProps } from "@components/CardUnit/CardUnit.interface";
+
 import { Carousel } from "./Carousel";
-import type { CardToolProps } from "../../CardTool/CardTool.interface";
-import type { CardUnitProps } from "../../CardUnit/CardUnit.interface";
 
 const meta = {
   component: Carousel,

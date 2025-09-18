@@ -2,11 +2,12 @@ import clsx from "clsx";
 import type { FC } from "react";
 import React, { useState, useRef } from "react";
 
-import { Button } from "../../Button/Button";
-import { CardTool } from "../../CardTool/CardTool";
-import type { CardToolProps } from "../../CardTool/CardTool.interface";
-import { CardUnit } from "../../CardUnit/CardUnit";
-import type { CardUnitProps } from "../../CardUnit/CardUnit.interface";
+import { Button } from "@components/Button/Button";
+import { CardTool } from "@components/CardTool/CardTool";
+import type { CardToolProps } from "@components/CardTool/CardTool.interface";
+import { CardUnit } from "@components/CardUnit/CardUnit";
+import type { CardUnitProps } from "@components/CardUnit/CardUnit.interface";
+
 import type { CarouselProps } from "./Carousel.interface";
 import styles from "./Carousel.module.scss";
 
