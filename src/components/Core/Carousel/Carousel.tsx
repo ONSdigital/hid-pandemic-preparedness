@@ -129,170 +129,171 @@ export const Carousel: FC<CarouselProps> = ({
   };
 
   return (
-    <div className={clsx(styles.carousel, className)}>
-      {title && (
-        <h2
-          className={clsx(
-            "d-flex",
-            "justify-content-center",
-            "heading-m",
-            "mb-4",
-            styles["carousel-title"],
-          )}
-        >
-          {title}
-        </h2>
-      )}
-      {subtitle && (
-        <p
-          className={clsx(
-            "d-flex",
-            "justify-content-center",
-            "text-center",
-            "mb-4",
-            styles["carousel-subtitle"],
-          )}
-        >
-          {subtitle}
-        </p>
-      )}
-      <div className={styles["carousel-container"]}>
-        {/* Navigation - Previous */}
-        {showNavigation && (
-          <button
-            type="button"
+    <div className={clsx(styles["carousel"], "py-4", className)}>
+      <div className={clsx("container-lg")}>
+        {title && (
+          <h3
             className={clsx(
-              styles["carousel-nav"],
-              styles["carousel-nav--prev"],
-              !canGoPrevious && styles["carousel-nav--disabled"],
+              "d-flex",
+              "justify-content-center",
+              "heading-m",
+              "text-primary",
+              "mb-4",
             )}
-            onClick={handlePrevious}
-            disabled={!canGoPrevious}
-            aria-label="Previous items"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 18L9 12L15 6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+            {title}
+          </h3>
         )}
-
-        {/* Carousel Content */}
-        <div className={styles["carousel-content"]}>
-          {/* Mobile tap zones */}
-          <div
-            className={styles["mobile-tap-zone-left"]}
-            onClick={handleLeftTap}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            aria-label="Previous item"
-          />
-          <div
-            className={styles["mobile-tap-zone-right"]}
-            onClick={handleRightTap}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            aria-label="Next item"
-          />
-
-          <div
-            className={styles["carousel-track"]}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {getCurrentItems().map((item, index) => (
-              <div
-                key={`carousel-item-${currentIndex}-${index}`}
-                className={styles["carousel-item"]}
-              >
-                {renderItem(item, index)}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Navigation - Next */}
-        {showNavigation && (
-          <button
-            type="button"
+        {subtitle && (
+          <p
             className={clsx(
-              styles["carousel-nav"],
-              styles["carousel-nav--next"],
-              !canGoNext && styles["carousel-nav--disabled"],
+              "d-flex",
+              "justify-content-center",
+              "text-center",
+              "mb-4",
             )}
-            onClick={handleNext}
-            disabled={!canGoNext}
-            aria-label="Next items"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 18L15 12L9 6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+            {subtitle}
+          </p>
         )}
-      </div>
-
-      {/* Pagination Dots */}
-      {showNavigation && items.length > itemsPerView && (
-        <div className={styles["carousel-pagination"]}>
-          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+        <div className={clsx(styles["carousel-container"])}>
+          {/* Navigation - Previous */}
+          {showNavigation && (
             <button
-              key={index}
               type="button"
               className={clsx(
-                styles["carousel-dot"],
-                index === currentIndex && styles["carousel-dot--active"],
+                styles["carousel-nav"],
+                styles["carousel-nav--prev"],
+                !canGoPrevious && styles["carousel-nav--disabled"],
               )}
-              onClick={() => setCurrentIndex(index)}
-              aria-label={`Go to item ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
-      {callToAction && (
-        <div
-          className={clsx(
-            "d-flex",
-            "justify-content-center",
-            "mt-4",
-            styles["carousel-call-to-action"],
+              onClick={handlePrevious}
+              disabled={!canGoPrevious}
+              aria-label="Previous items"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
           )}
-        >
-          <Button
-            ariaLabel={callToAction.label}
-            type="button"
-            variant="secondary"
-            onClick={() => (window.location.href = callToAction.href)}
-          >
-            {callToAction.label}
-          </Button>
+
+          {/* Carousel Content */}
+          <div className={styles["carousel-content"]}>
+            {/* Mobile tap zones */}
+            <div
+              className={styles["mobile-tap-zone-left"]}
+              onClick={handleLeftTap}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              aria-label="Previous item"
+            />
+            <div
+              className={styles["mobile-tap-zone-right"]}
+              onClick={handleRightTap}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              aria-label="Next item"
+            />
+
+            <div
+              className={styles["carousel-track"]}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {getCurrentItems().map((item, index) => (
+                <div
+                  key={`carousel-item-${currentIndex}-${index}`}
+                  className={styles["carousel-item"]}
+                >
+                  {renderItem(item, index)}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation - Next */}
+          {showNavigation && (
+            <button
+              type="button"
+              className={clsx(
+                styles["carousel-nav"],
+                styles["carousel-nav--next"],
+                !canGoNext && styles["carousel-nav--disabled"],
+              )}
+              onClick={handleNext}
+              disabled={!canGoNext}
+              aria-label="Next items"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
         </div>
-      )}
+
+        {/* Pagination Dots */}
+        {showNavigation && items.length > itemsPerView && (
+          <div className={styles["carousel-pagination"]}>
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={clsx(
+                  styles["carousel-dot"],
+                  index === currentIndex && styles["carousel-dot--active"],
+                )}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to item ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+        {callToAction && (
+          <div
+            className={clsx(
+              "d-flex",
+              "justify-content-center",
+              "mt-4",
+              styles["carousel-call-to-action"],
+            )}
+          >
+            <Button
+              ariaLabel={callToAction.label}
+              type="button"
+              variant="secondary"
+              onClick={() => (window.location.href = callToAction.href)}
+            >
+              {callToAction.label}
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
