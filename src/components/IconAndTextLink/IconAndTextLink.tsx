@@ -25,7 +25,7 @@ export const IconAndTextLink: FC<IconAndTextLinkInterface> = (props) => {
     <div className={clsx("d-flex", "align-items-center", "gap-1")}>
       {linkIconMap[props.icon]}
       <a
-        className={clsx(styles["icon-and-text-link__label"])}
+        className={clsx("body-small", styles["icon-and-text-link__label"])}
         href={props.href}
         target={props.target}
         aria-disabled={props.disabled}
