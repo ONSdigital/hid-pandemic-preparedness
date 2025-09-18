@@ -15,7 +15,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
-      "@types/*": ["src/types/*"]
+      // Calling this alias `localTypes` here to avoid namespace clashing with `@types`
+      "@localTypes/*": ["src/types/*"]
     },
     "plugins": [
       {
