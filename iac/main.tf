@@ -15,6 +15,15 @@ terraform {
   required_version = "~> 1.12.2"
 }
 
+# Create cloudfront function required for astro app deployments
+resource "aws_cloudfront_function" "aws_cloudfront_function" {
+  name    = "append-request"
+  runtime = "cloudfront-js-2.0"
+  comment = "Appends index.html to request uri so astro static site folder structure can be used for navigation"
+  publish = true
+  code    = file("${path.module}/appendRequest.js")
+}
+
 # Create bucket for storybook dev
 module "storybook_dev_s3" {
   source                     = "./s3"
