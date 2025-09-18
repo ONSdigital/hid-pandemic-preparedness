@@ -1,0 +1,47 @@
+{
+  "title": "All units within Epidemiological Analysis",
+  "units": [
+    {
+      "id": "8c726a8f-3084-4660-bd45-71a92108ea3e",
+      "link": {
+        "href": "/",
+        "label": "Introduction to Mortality Analysis"
+      },
+      "subTitle": "Introduction to principles and practices of mortality analysis.",
+      "tags": [
+        {
+          "id": "8d867bee-4514-4832-aa8d-343bd71d4c20",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "b5c38640-29f0-4f34-b956-578d942e9513",
+          "title": "Beginner",
+          "type": "primary"
+        }
+      ],
+      "readingTime": "3 min"
+    },
+    {
+      "id": "313d84a0-6cb4-42f4-a5dc-ba66312a0003",
+      "link": {
+        "href": "/",
+        "label": "Mortality Analysis"
+      },
+      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "tags": [
+        {
+          "id": "c6e5189e-3b95-4a30-9c1c-5057c730895e",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "cc7e839c-897d-450f-b128-db2f4b43b05b",
+          "title": "Beginner",
+          "type": "primary"
+        }
+      ],
+      "readingTime": "3 min"
+    }
+  ]
+}

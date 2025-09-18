@@ -25,31 +25,25 @@ export const LearningModuleNav: FC<LearningModuleNavProps> = (props) => {
   };
   return (
     <div className="w-100">
-      <div
-        className={clsx(
-          "container-lg",
-          styles["learning-module-nav__container"],
-        )}
-      >
-        <div className={clsx("d-flex", "flex-column", "gap-5")}>
-          <div className={clsx("d-flex", "flex-column", "gap-3")}>
-            <IconAndTextLink href="/" icon="github" label="Open GITHUB" />
-            <IconAndTextLink href="/" icon="pdf" label="Download PDF" />
-            <IconAndTextLink href="/" icon="feedback" label="Feedback" />
-            <IconAndTextLink href="/" icon="share" label="Share" />
-          </div>
-          <div className={clsx("d-flex", "flex-column", "gap-3")}>
-            {/*  Mobile view: chapterList inside accordian */}
-            <div className={clsx("d-block", "d-lg-none")}>
-              <Accordion {...accordionProps} />
-            </div>
+      <div className={clsx(styles["learning-module-nav__container"])}>
+        <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
+          <IconAndTextLink href="/" icon="github" label="Open GITHUB" />
+          <IconAndTextLink href="/" icon="pdf" label="Download PDF" />
+          <IconAndTextLink href="/" icon="feedback" label="Feedback" />
+          <IconAndTextLink href="/" icon="share" label="Share" />
+        </div>
 
-            {/* Desktop view: there is no accordian */}
-            <div className={clsx("d-none", "d-lg-block", "mb-3")}>
-              <h1 className={clsx("heading-xs", "fw-bold")}>{headingText}</h1>
-              <ChapterList {...props} />
-            </div>
-          </div>
+        {/*  Mobile view: chapterList inside accordian */}
+        <div className={clsx("d-block", "d-lg-none")}>
+          <Accordion {...accordionProps} />
+        </div>
+
+        {/* Desktop view: there is no accordian */}
+        <div className={clsx("d-lg-block", "d-none")}>
+          <h1 className={clsx("heading-xs", "fw-bold", "mb-3")}>
+            {headingText}
+          </h1>
+          <ChapterList {...props} />
         </div>
       </div>
     </div>

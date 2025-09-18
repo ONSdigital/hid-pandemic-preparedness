@@ -1,31 +1,31 @@
 ---
-import BaseLayout from "../layout/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
-import type { CarouselProps } from "../components/Core/Carousel/Carousel.interface";
-import type { ImpactAndPartnersProps } from "../components/Home/ImpactAndPartners/ImpactAndPartners.interface";
+import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
+import type { ImpactAndPartnersProps } from "@components/Home/ImpactAndPartners/ImpactAndPartners.interface";
 import type { NavItem } from "../types/NavItem";
-import type { QuickLinksProps } from "../components/Home/QuickLinks/QuickLinks.interface";
+import type { QuickLinksProps } from "@components/Home/QuickLinks/QuickLinks.interface";
 
 // Components
-import { Carousel } from "../components/Core/Carousel/Carousel";
-import { CaseStudies } from "../components/Home/CaseStudies/CaseStudies";
-import { Header } from "../components/Home/Header/Header";
-import { ImageAndText } from "../components/Home/ImageAndText/ImageAndText";
-import { ImpactAndPartners } from "../components/Home/ImpactAndPartners/ImpactAndPartners";
-import { QuickLinks } from "../components/Home/QuickLinks/QuickLinks";
-import { StatisticsAndText } from "../components/Home/StatisticsAndText/StatisticsAndText";
-import { References } from "../components/References/References";
+import { Carousel } from "@components/Core/Carousel/Carousel";
+import { CaseStudies } from "@components/Home/CaseStudies/CaseStudies";
+import { Header } from "@components/Home/Header/Header";
+import { ImageAndText } from "@components/Home/ImageAndText/ImageAndText";
+import { ImpactAndPartners } from "@components/Home/ImpactAndPartners/ImpactAndPartners";
+import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
+import { StatisticsAndText } from "@components/Home/StatisticsAndText/StatisticsAndText";
+import { References } from "@components/References/References";
 
 // Content
-import carouselData from "../content/Home/carousel.json";
-import caseStudiesData from "../content/Home/caseStudies.json";
-import headerData from "../content/Home/header.json";
-import imageAndTextData from "../content/Home/imageAndText.json";
-import impactAndPartnersData from "../content/Home/impactAndPartners.json";
-import navBarData from "../content/base/navBarData.json";
-import statisticsAndTextData from "../content/Home/statisticsAndText.json";
-import referencesData from "../content/Home/references.json";
+import carouselData from "@content/Home/carousel.json";
+import caseStudiesData from "@content/Home/caseStudies.json";
+import headerData from "@content/Home/header.json";
+import imageAndTextData from "@content/Home/imageAndText.json";
+import impactAndPartnersData from "@content/Home/impactAndPartners.json";
+import navBarData from "@content/base/navBarData.json";
+import statisticsAndTextData from "@content/Home/statisticsAndText.json";
+import referencesData from "@content/Home/references.json";
 
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {

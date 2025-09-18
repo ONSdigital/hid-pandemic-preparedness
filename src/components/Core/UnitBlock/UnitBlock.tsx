@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { CardUnit } from "../../CardUnit/CardUnit";
+import { CardUnit } from "@components/CardUnit/CardUnit";
 import type { UnitBlockProps } from "./UnitBlock.interface";
 import styles from "./UnitBlock.module.scss";
 
