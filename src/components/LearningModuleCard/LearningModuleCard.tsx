@@ -16,6 +16,9 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
   return (
     <div
       className={clsx(
+        "mx-1",
+        "mt-5",
+        "m-lg-0",
         "p-5",
         "d-flex",
         "flex-column",
