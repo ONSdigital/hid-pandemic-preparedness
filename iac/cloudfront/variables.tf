@@ -8,6 +8,12 @@ variable "bucket_regional_domain_name" {
   type        = string
 }
 
+variable "default_root_object" {
+  description = "Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL"
+  type        = string
+  default     = null
+}
+
 variable "distribution_enabled" {
   description = "Whether the distribution is enabled to accept end user requests for content."
   type        = bool
@@ -16,4 +22,13 @@ variable "distribution_enabled" {
 variable "distribution_name" {
   description = "The name of the distribution to show on the AWS console."
   type        = string
+}
+
+variable "function_association" {
+  description = "With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations. You can associate a single function per event type."
+  type = list(object({
+    event_type   = string
+    function_arn = string
+  }))
+  default = []
 }

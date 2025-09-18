@@ -1,15 +1,21 @@
 ---
 // Components
-import { Footer } from "../components/Footer/Footer";
-import { NavBar } from "../components/NavBar/NavBar";
+import { Footer } from "@components/Footer/Footer";
+import { NavBar } from "@components/NavBar/NavBar";
 
 // Content
-import footerData from "../content/base/footerData.json";
-import navBarData from "../content/base/navBarData.json";
+import strings from "@content/base/strings.json";
+import footerData from "@content/base/footerData.json";
+import navBarData from "@content/base/navBarData.json";
 
 // Css and fonts
-import "../styles/index.scss";
+import "@styles/index.scss";
 import "@fontsource-variable/open-sans";
+
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,9 +26,9 @@ import "@fontsource-variable/open-sans";
     <meta name="generator" content={Astro.generator} />
     <script>
       // Astro bundles and processes this automatically
-      import "../styles/bootstrap-5.3.8/dist/js/bootstrap.js";
+      import "@styles/bootstrap-5.3.8/dist/js/bootstrap.js";
     </script>
-    <title>Data Analysis</title>
+    <title>{title ? `${strings.title} | ${title}` : strings.title}</title>
   </head>
   <body>
     <header>
