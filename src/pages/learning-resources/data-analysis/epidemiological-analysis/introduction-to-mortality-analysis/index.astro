@@ -23,20 +23,6 @@ import overviewMarkdown from "@content/learning-resources/data-analysis/epidemio
 // Update learning module data to include markdown content as html
 const htmlContent = await parseMarkdown(overviewMarkdown);
 learningModuleData.cardProps.htmlContent = sanitizeHtml(htmlContent);
-
-// Building content for learning module
-// const learningModuleProps: LearningModuleProps = {
-//   cardProps: {
-//     // Sanitizing using dompurify here as this is running client side
-//     htmlContent: DOMPurify.sanitize(htmlContent),
-//     ...learningModuleCardData,
-//     tags: learningModuleCardData.tags as TagData[],
-//   },
-//   navProps: {
-//     chapters: chaptersData,
-//     activeId: "chapter1",
-//   },
-// };
 ---
 
 <BaseLayout title={headerData.title}>
