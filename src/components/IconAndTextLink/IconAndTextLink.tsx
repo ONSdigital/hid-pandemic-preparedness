@@ -22,10 +22,10 @@ const linkIconMap: Record<string, ReactNode> = {
 
 export const IconAndTextLink: FC<IconAndTextLinkInterface> = (props) => {
   return (
-    <div className={clsx("d-flex", "align-items-center", "gap-1")}>
+    <div className={clsx("d-flex", "align-items-center", "gap-2")}>
       {linkIconMap[props.icon]}
       <a
-        className={clsx("body-small", styles["icon-and-text-link__label"])}
+        className={clsx(styles["icon-and-text-link__label"])}
         href={props.href}
         target={props.target}
         aria-disabled={props.disabled}
