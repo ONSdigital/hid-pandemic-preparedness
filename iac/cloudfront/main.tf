@@ -18,7 +18,7 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
 
   enabled             = var.distribution_enabled
   comment             = var.distribution_name
-  default_root_object = "index.html"
+  default_root_object = var.default_root_object
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]

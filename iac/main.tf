@@ -24,12 +24,14 @@ module "storybook_dev_s3" {
 }
 
 # Set up cloudfront distribution for storybook dev
+# Default root object required for storybook as deployed as SPA
 module "storybook_dev_cloudfront" {
   source                      = "./cloudfront"
   bucket_name                 = module.storybook_dev_s3.id
   bucket_regional_domain_name = module.storybook_dev_s3.bucket_regional_domain_name
   distribution_enabled        = true
   distribution_name           = "Dev storybook"
+  default_root_object         = "index.html"
 }
 
 # Create bucket for storybook main
@@ -41,12 +43,14 @@ module "storybook_main_s3" {
 }
 
 # Set up cloudfront distribution for storybook main
+# Default root object required for storybook as deployed as SPA
 module "storybook_main_cloudfront" {
   source                      = "./cloudfront"
   bucket_name                 = module.storybook_main_s3.id
   bucket_regional_domain_name = module.storybook_main_s3.bucket_regional_domain_name
   distribution_enabled        = true
   distribution_name           = "Main storybook"
+  default_root_object         = "index.html"
 }
 
 # Create bucket for app dev
