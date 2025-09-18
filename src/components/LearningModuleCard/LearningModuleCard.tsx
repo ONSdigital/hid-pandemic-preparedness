@@ -3,8 +3,8 @@ import clsx from "clsx";
 
 import { RiTimerLine } from "@remixicon/react";
 
-import styles from "./LearningModule.module.scss";
-import type { LearningModuleProps } from "./LearningModule.interface";
+import styles from "./LearningModuleCard.module.scss";
+import type { LearningModuleCardProps } from "./LearningModuleCard.interface";
 import { Tag } from "../Tag/Tag";
 import { TextModule } from "../TextModule/TextModule";
 import { Link } from "../Link/Link";
@@ -12,15 +12,18 @@ import { Link } from "../Link/Link";
 // Set size of icon here using icon component props
 const iconSize: string = "1.5rem";
 
-export const LearningModule: FC<LearningModuleProps> = (props) => {
+export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
   return (
     <div
       className={clsx(
+        "mx-1",
+        "mt-5",
+        "m-lg-0",
         "p-5",
         "d-flex",
         "flex-column",
         "gap-4",
-        styles["learning-module__container"],
+        styles["learning-module-card__container"],
       )}
     >
       <div
@@ -48,7 +51,9 @@ export const LearningModule: FC<LearningModuleProps> = (props) => {
             "rounded",
           )}
         >
-          <div className={clsx(styles["learning-module__time-box"], "p-2")}>
+          <div
+            className={clsx(styles["learning-module-card__time-box"], "p-2")}
+          >
             <RiTimerLine size={iconSize} />
           </div>
 

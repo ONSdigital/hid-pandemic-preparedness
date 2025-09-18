@@ -1,0 +1,18 @@
+{
+  "githubLinkHref": "https://github.com/",
+  "readingTime": "Set aside 5-10 minutes",
+  "startLinkHref": "/",
+  "tags": [
+    {
+      "id": "1",
+      "title": "Reports",
+      "type": "secondary"
+    },
+    {
+      "id": "2",
+      "title": "Begginner",
+      "type": "gray"
+    }
+  ],
+  "title": "Overview"
+}

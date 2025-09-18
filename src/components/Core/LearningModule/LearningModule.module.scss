@@ -1,0 +1,6 @@
+@use "../../../styles/global/tokens" as *;
+
+.learning-module__container {
+  background: $color-brand-secondary-100;
+  max-width: 90rem;
+}
