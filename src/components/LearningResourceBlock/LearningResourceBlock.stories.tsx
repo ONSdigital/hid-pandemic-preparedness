@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 import DOMPurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
 
-import { parseMarkdown } from "../../../helpers/parseMarkdown";
+import { parseMarkdown } from "../../helpers/parseMarkdown";
 import learningResourceMd1 from "@content/learning-resources/introduction/sections/1.md?raw";
-import learningResourceMd2 from "../../../content/learning-resources/introduction/sections/2.md?raw";
+import learningResourceMd2 from "@content/learning-resources/introduction/sections/2.md?raw";
 import { LearningResourceBlock } from "./LearningResourceBlock";
 import type { LearningResourceBlockProps } from "./LearningResourceBlock.interface";
 
 const meta = {
   component: LearningResourceBlock,
-  title: "Organisms/Core/LearningResourceBlock",
+  title: "Components/LearningResourceBlock",
   argTypes: {},
 } satisfies Meta<typeof LearningResourceBlock>;
 

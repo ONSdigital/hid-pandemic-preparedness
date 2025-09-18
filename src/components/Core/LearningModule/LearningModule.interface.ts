@@ -1,5 +1,5 @@
-import type { LearningModuleCardProps } from "../LearningModuleCard/LearningModuleCard.interface";
-import type { LearningModuleNavProps } from "../LearningModuleNav/LearningModuleNav.interface";
+import type { LearningModuleCardProps } from "@components/LearningModuleCard/LearningModuleCard.interface";
+import type { LearningModuleNavProps } from "@components/LearningModuleNav/LearningModuleNav.interface";
 
 export interface LearningModuleProps {
   cardProps: LearningModuleCardProps;

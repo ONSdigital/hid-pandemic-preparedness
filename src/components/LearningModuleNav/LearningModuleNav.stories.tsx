@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { LearningModuleNav } from "./LearningModuleNav";
-import chaptersData from "../../content/chapters.json";
+import chaptersData from "@content/chapters.json";
 
 const meta = {
   argTypes: {
