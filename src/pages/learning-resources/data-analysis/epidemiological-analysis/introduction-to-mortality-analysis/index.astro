@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Interfaces
+// import type { UnitBlockProps } from "@components/Core/UnitBlock/UnitBlock.interface";
+
+// Components
+import { Header } from "@components/Core/Header/Header";
+// import { UnitBlock } from "@components/Core/UnitBlock/UnitBlock";
+
+// Content
+import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
+// import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
+---
+
+<BaseLayout>
+  <main>
+    <Header {...headerData} />
+    <!-- <UnitBlock {...unitBlockData as UnitBlockProps} /> -->
+  </main>
+</BaseLayout>
