@@ -13,7 +13,7 @@ import headerData from "@content/learning-resources/data-analysis/epidemiologica
 import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
 ---
 
-<BaseLayout>
+<BaseLayout title={headerData.title}>
   <main>
     <Header {...headerData} />
     <UnitBlock {...unitBlockData as UnitBlockProps} />
