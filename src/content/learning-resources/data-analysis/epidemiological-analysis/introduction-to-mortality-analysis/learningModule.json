@@ -21,10 +21,6 @@
   "navProps": {
     "chapters": [
       {
-        "id": "0",
-        "title": "Start"
-      },
-      {
         "id": "1",
         "title": "Introduction to Mortality Analysis"
       },
@@ -41,6 +37,6 @@
         "title": "Grouping and Analysing Mortality Data"
       }
     ],
-    "activeId": "0"
+    "parentUrl": ""
   }
 }
