@@ -31,6 +31,10 @@ export function getStaticPaths() {
 
 const { chapter } = Astro.params;
 
+const totalChapters = 4;
+const currentChapter = parseInt(chapter, 10);
+const nextChapter = currentChapter + 1;
+
 // Trim leading slash from current route so we can use to filter returned collections
 const currentRoute: string = Astro.url.pathname.replace(/^\//, "");
 
@@ -57,6 +61,21 @@ const learningSections = await createLearningSections(
   contentData[0].body ?? "",
 );
 
+// Create link data
+let linkData = {
+  label: "Next chapter",
+  href: `${Astro.url.pathname.slice(0, -1)}${nextChapter}`,
+};
+
+if (currentChapter === totalChapters) {
+  // We have reached the end of the unit so display a different message and set link to the
+  // overview page
+  linkData = {
+    label: "End learning",
+    href: `${Astro.url.pathname.slice(0, -2)}`,
+  };
+}
+
 // Load the data for the learning module per chapter
 const learningResourceData: LearningResourceProps = {
   learningModuleNav: {
@@ -67,6 +86,7 @@ const learningResourceData: LearningResourceProps = {
   learningResource: {
     learningSections: learningSections,
   },
+  link: linkData,
 };
 ---
 

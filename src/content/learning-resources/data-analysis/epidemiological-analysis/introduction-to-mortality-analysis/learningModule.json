@@ -21,26 +21,26 @@
   "navProps": {
     "chapters": [
       {
-        "id": "chapter1",
+        "id": "0",
         "title": "Start"
       },
       {
-        "id": "chapter2",
+        "id": "1",
         "title": "Introduction to Mortality Analysis"
       },
       {
-        "id": "chapter3",
+        "id": "2",
         "title": "Data Quality, Completeness and Data Cleaning"
       },
       {
-        "id": "chapter4",
+        "id": "3",
         "title": "Key Concepts"
       },
       {
-        "id": "chapter5",
+        "id": "4",
         "title": "Grouping and Analysing Mortality Data"
       }
     ],
-    "activeId": "chapter1"
+    "activeId": "0"
   }
 }
