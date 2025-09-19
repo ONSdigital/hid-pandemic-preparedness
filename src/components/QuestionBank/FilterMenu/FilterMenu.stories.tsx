@@ -7,17 +7,21 @@ import ageQ2MdContent from "@content/QuestionBank/questions/age/2.md?raw";
 import ageQ3MdContent from "@content/QuestionBank/questions/age/3.md?raw";
 import ageQ4MdContent from "@content/QuestionBank/questions/age/4.md?raw";
 import ageQ5MdContent from "@content/QuestionBank/questions/age/5.md?raw";
+
 import ethnicityQ1MdContent from "@content/QuestionBank/questions/ethnicity/1.md?raw";
 import ethnicityQ2MdContent from "@content/QuestionBank/questions/ethnicity/2.md?raw";
+
 import travelQ1MdContent from "@content/QuestionBank/questions/travel/1.md?raw";
 import travelQ2MdContent from "@content/QuestionBank/questions/travel/2.md?raw";
+
+import explainerMdContent from "@content/QuestionBank/explainer.md?raw";
 
 import { parseMarkdown } from "@src/helpers/parseMarkdown";
 import { FilterMenu } from "@components/QuestionBank/FilterMenu/FilterMenu";
 import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
-import listGroupCheckData from "@content/listGroupCheckData.json";
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
 import type { TagData } from "@src/types/TagData";
+import type { ExplainerProps } from "../Explainer/Explainer.interface";
 
 const meta = {
   component: FilterMenu,
@@ -31,18 +35,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-async function createQuestionBlock(
+function createQuestionBlock(
+  id: string,
   title: string,
-  tags: Omit<TagData, "id">[],
-  markdownContents: string[],
-): Promise<QuestionBlockProps> {
-  const htmlContents = await Promise.all(markdownContents.map(parseMarkdown));
-
+  tags: TagData[],
+  htmlContents: string[],
+) {
   return {
-    id: uuidv4(),
+    id,
     title,
     tags: tags.map((tag) => ({
-      id: uuidv4(),
+      id: tag.id,
       title: tag.title,
       type: tag.type,
     })),
@@ -52,33 +55,68 @@ async function createQuestionBlock(
     })),
   };
 }
-const ageQuestionBlock = await createQuestionBlock(
-  "Demographic information",
-  [{ title: "Age", type: "secondary" }],
+
+const ageQ1HtmlContent = await parseMarkdown(ageQ1MdContent);
+const ageQ2HtmlContent = await parseMarkdown(ageQ2MdContent);
+const ageQ3HtmlContent = await parseMarkdown(ageQ3MdContent);
+const ageQ4HtmlContent = await parseMarkdown(ageQ4MdContent);
+const ageQ5HtmlContent = await parseMarkdown(ageQ5MdContent);
+
+const ethnicityQ1HtmlContent = await parseMarkdown(ethnicityQ1MdContent);
+const ethnicityQ2HtmlContent = await parseMarkdown(ethnicityQ2MdContent);
+
+const travelQ1HtmlContent = await parseMarkdown(travelQ1MdContent);
+const travelQ2HtmlContent = await parseMarkdown(travelQ2MdContent);
+
+// Checkbox and QuestionBlock must have common ID and label
+const themeLabel1 = "Demographic Information";
+const themeId1 = uuidv4();
+const themeLabel2 = "Travel";
+const themeId2 = uuidv4();
+
+// Construct props for ListGroupCheck component
+const listGroupCheckData = {
+  title: "Theme",
+  checkItems: [
+    { label: themeLabel1, id: themeId1 },
+    { label: themeLabel2, id: themeId2 },
+  ],
+  inverse: false,
+};
+
+// Construct props for QuestionBlock component
+const ageQuestionBlock = createQuestionBlock(
+  themeId1,
+  "Age",
+  [{ id: themeId1, title: themeLabel1, type: "secondary" }],
   [
-    ageQ1MdContent,
-    ageQ2MdContent,
-    ageQ3MdContent,
-    ageQ4MdContent,
-    ageQ5MdContent,
+    ageQ1HtmlContent,
+    ageQ2HtmlContent,
+    ageQ3HtmlContent,
+    ageQ4HtmlContent,
+    ageQ5HtmlContent,
   ],
 );
 
-const ethnicityQuestionBlock = await createQuestionBlock(
-  "Demographic information",
-  [{ title: "Ethnicity", type: "secondary" }],
-  [ethnicityQ1MdContent, ethnicityQ2MdContent],
+const ethnicityQuestionBlock = createQuestionBlock(
+  themeId1,
+  "Ethnicity",
+
+  [{ id: themeId1, title: themeLabel1, type: "secondary" }],
+  [ethnicityQ1HtmlContent, ethnicityQ2HtmlContent],
 );
 
-const travelQuestionBlock = await createQuestionBlock(
-  "Travel",
+const travelQuestionBlock = createQuestionBlock(
+  themeId2,
+  "Frequency and purpose of travel (business, leisure, family)",
   [
     {
-      title: "Frequency and purpose of travel (business, leisure, family)",
+      id: themeId2,
+      title: themeLabel2,
       type: "secondary",
     },
   ],
-  [travelQ1MdContent, travelQ2MdContent],
+  [travelQ1HtmlContent, travelQ2HtmlContent],
 );
 
 const questionBlockList: QuestionBlockProps[] = [
@@ -87,7 +125,16 @@ const questionBlockList: QuestionBlockProps[] = [
   travelQuestionBlock,
 ];
 
+// Construct props for Explainer component
+const htmlContent = await parseMarkdown(explainerMdContent);
+
+const explainerProps: ExplainerProps = {
+  htmlContent: DOMPurify.sanitize(htmlContent),
+};
+
+// Bring all the props together for FilterMenu component
 const filterMenuProps: FilterMenuProps = {
+  explainerProps: explainerProps,
   listGroupChecksProps: listGroupCheckData,
   questionBlockListProps: questionBlockList,
 };

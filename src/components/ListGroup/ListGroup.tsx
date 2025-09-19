@@ -21,8 +21,9 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
               <input
                 className={clsx("form-check-input")}
                 type="checkbox"
-                value=""
                 id={item.id}
+                onChange={props.onChange}
+                checked={props.selectedIds?.includes(item.id) ?? false}
               />
               <label className={clsx("form-check-label")} htmlFor={item.id}>
                 {item.label}

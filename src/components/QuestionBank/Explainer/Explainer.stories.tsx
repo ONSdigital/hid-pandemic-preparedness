@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DOMPurify from "dompurify";
 
-import markdownContent from "../../../content/QuestionBank/explainer.md?raw";
-import { parseMarkdown } from "../../../helpers/parseMarkdown";
+import markdownContent from "@content/QuestionBank/explainer.md?raw";
+import { parseMarkdown } from "@src/helpers/parseMarkdown";
 import { Explainer } from "./Explainer";
 import type { ExplainerProps } from "./Explainer.interface";
 
