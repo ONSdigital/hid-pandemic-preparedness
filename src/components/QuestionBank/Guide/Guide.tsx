@@ -10,7 +10,7 @@ import styles from "./Guide.module.scss";
 // Renders input `htmlContent` using the `TextModule` component
 export const Guide: FC<GuideProps> = (props) => {
   return (
-    <div className={clsx("w-100", styles["guide-bg"])}>
+    <div className={clsx("w-100", styles["guide-bg"], "py-4")}>
       <div className={clsx("container-lg")}>
         <div className={clsx("row", "py-4")}>
           <div className={clsx("d-flex", "align-items-start", "flex-column")}>

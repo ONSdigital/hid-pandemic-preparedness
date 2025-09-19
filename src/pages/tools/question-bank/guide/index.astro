@@ -1,17 +1,33 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import sanitizeHtml from "sanitize-html";
 
 // Interfaces
+import type { GuideProps } from "@components/QuestionBank/Guide/Guide.interface";
 
 // Components
 import { Header } from "@components/Core/Header/Header";
+import { Guide } from "@components/QuestionBank/Guide/Guide";
+
+// Helpers
+import { parseMarkdown } from "@helpers/parseMarkdown";
 
 // Content
 import headerData from "@content/tools/question-bank/guide/header.json";
+import guideData from "@content/tools/question-bank/guide/guide.json";
+import guideTopMarkdown from "@content/tools/question-bank/guide/top-content.md?raw";
+import guideBottomMarkdown from "@content/tools/question-bank/guide/bottom-content.md?raw";
+
+// Update guide data to include markdown content as html
+const topHtmlContent = await parseMarkdown(guideTopMarkdown);
+const bottomHtmlContent = await parseMarkdown(guideBottomMarkdown);
+guideData.topContent.htmlContent = sanitizeHtml(topHtmlContent);
+guideData.bottomContent.htmlContent = sanitizeHtml(bottomHtmlContent);
 ---
 
 <BaseLayout title={headerData.title}>
   <main>
     <Header {...headerData} />
+    <Guide {...guideData as GuideProps} />
   </main>
 </BaseLayout>
