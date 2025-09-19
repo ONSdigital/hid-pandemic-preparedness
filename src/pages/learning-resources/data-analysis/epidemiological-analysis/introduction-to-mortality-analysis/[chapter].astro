@@ -1,12 +1,25 @@
 ---
+import { getCollection } from "astro:content";
+import { promises as fs } from "fs";
+import path from "path";
+
 import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Interfaces
+import type { IntroductionProps } from "@/src/components/Core/Introduction/Introduction.interface";
+import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
 
 // Components
 import { Header } from "@components/Core/Header/Header";
+import { LearningResource } from "@components/Core/LearningResource/LearningResource";
 import { References } from "@components/References/References";
+
+// Helpers
+import { createLearningSections } from "@helpers/createLearningSections";
 
 // Content
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
+import learningModuleData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/learningModule.json";
 import referencesData from "@content/Home/references.json";
 
 // Set content based on different pages
@@ -15,18 +28,54 @@ export function getStaticPaths() {
     { params: { chapter: "1" } },
     { params: { chapter: "2" } },
     { params: { chapter: "3" } },
+    { params: { chapter: "4" } },
   ];
 }
 
 const { chapter } = Astro.params;
+
+// Trim leading slash from current route so we can use to filter returned collections
+const currentRoute: string = Astro.url.pathname.replace(/^\//, "");
+
+// Get introduction data
+const introductionData = await getCollection(
+  "learningResourcesIntroduction",
+  ({ id }) => {
+    return id === `${currentRoute}/introduction`;
+  },
+);
+
+// Get markdown content
+const contentData = await getCollection(
+  "learningResourcesContent",
+  ({ id }) => {
+    return id === `${currentRoute}/content`;
+  },
+);
+
+console.log(contentData);
+
+// Parse the content data and split up into sections
+const learningSections = await createLearningSections(contentData[0].body);
+console.log(introductionData[0].data);
+
+// Load the data for the learning module per chapter
+const learningResourceData: LearningResourceProps = {
+  learningModuleNav: {
+    chapters: learningModuleData.navProps.chapters,
+    activeId: `chapter${chapter}`,
+  },
+  introduction: introductionData[0].data,
+  learningResource: {
+    learningSections: learningSections,
+  },
+};
 ---
 
 <BaseLayout title={headerData.title}>
   <main>
     <Header {...headerData} />
-    <div class="container-lg">
-      <p>Chapter {chapter}!</p>
-    </div>
-    <References {...referencesData} client:visible />
+    <LearningResource {...learningResourceData} />
+    <References {...referencesData} />
   </main>
 </BaseLayout>

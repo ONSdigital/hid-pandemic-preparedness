@@ -13,7 +13,7 @@ export const LearningResource: FC<LearningResourceProps> = (props) => {
       <div className={clsx("container-lg", "py-4", "p-lg-5")}>
         <div className={clsx("row")}>
           <div className={clsx("col", "col-lg-auto", "mb-4", "mb-lg-0")}>
-            <LearningModuleNav {...props.learningModule} />
+            <LearningModuleNav {...props.learningModuleNav} />
           </div>
           <div
             className={clsx("col", "d-flex", "flex-column", "gap-4", "w-100")}

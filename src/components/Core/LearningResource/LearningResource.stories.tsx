@@ -68,7 +68,7 @@ const learningResourceBlockProps: LearningResourceBlockProps = {
 };
 
 const learningResourcesProps: LearningResourceProps = {
-  learningModule: {
+  learningModuleNav: {
     chapters: chaptersData,
     activeId: "chapter1",
   },
