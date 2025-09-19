@@ -14,7 +14,7 @@ import type { LearningResourceBlockProps } from "../../LearningResourceBlock/Lea
 const meta = {
   argTypes: {
     introduction: { table: { disable: true } },
-    learningModule: { table: { disable: true } },
+    learningModuleNav: { table: { disable: true } },
     learningResource: { table: { disable: true } },
   },
   component: LearningResource,
