@@ -53,8 +53,9 @@ const contentData = await getCollection(
 console.log(contentData);
 
 // Parse the content data and split up into sections
-const learningSections = await createLearningSections(contentData[0].body);
-console.log(introductionData[0].data);
+const learningSections = await createLearningSections(
+  contentData[0].body ?? "",
+);
 
 // Load the data for the learning module per chapter
 const learningResourceData: LearningResourceProps = {
