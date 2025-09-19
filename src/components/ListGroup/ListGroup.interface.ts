@@ -6,7 +6,7 @@ export interface ListGroupChecksProps {
   title?: string;
   checkItems: FilterItem[];
   inverse?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: ChangeEvent<HTMLInputElement>;
   selectedIds?: string[];
 }
 

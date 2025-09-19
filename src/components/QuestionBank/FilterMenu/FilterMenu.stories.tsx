@@ -29,7 +29,11 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  argTypes: {},
+  argTypes: {
+    explainerProps: { table: { disable: true } },
+    listGroupChecksProps: { table: { disable: true } },
+    questionBlockListProps: { table: { disable: true } },
+  },
 } satisfies Meta<typeof FilterMenu>;
 
 export default meta;
