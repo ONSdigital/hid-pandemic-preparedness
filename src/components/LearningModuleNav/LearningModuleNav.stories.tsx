@@ -29,7 +29,7 @@ export const LearningModuleNavStory = {
   args: {
     chapters: chaptersData,
     activeChapterId: "chapter1",
-    parentUrl: "https://ons.gov.uk",
+    parentUrl: "https://ons.gov.uk/",
   },
   name: "LearningModuleNav",
 } satisfies Story;
