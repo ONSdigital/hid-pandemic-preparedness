@@ -1,0 +1,71 @@
+{
+  "title": "Key Concepts",
+  "subTitle": "This section explains the key ideas behind how mortality statistics are created, understood, and used. Each part focuses on a specific topic, using clear definitions, official standards, and real-world examples. Where helpful, tools like R and Python code, Excel templates, and sample data are included to support practical learning and hands-on experience.",
+  "sections": [
+    {
+      "id": "7d1719b1-8835-424c-8f5b-724f768cd82f",
+      "href": "section1",
+      "label": "Death Registrations vs Death Occurrences"
+    },
+    {
+      "id": "9f733a65-b2d2-4014-9128-90c6d70c6b83",
+      "href": "section2",
+      "label": "Leading Cause of Death"
+    },
+    {
+      "id": "ec2ca02f-d292-4687-854a-b712c695b1f2",
+      "href": "section3",
+      "label": "Childhood Mortality"
+    },
+    {
+      "id": "a43b43d8-43eb-47e5-ad77-6db71732473c",
+      "href": "section4",
+      "label": "Overview"
+    },
+    {
+      "id": "27566065-cd5a-4eff-b53f-292f558a46d2",
+      "href": "section5",
+      "label": "Crude Mortality Rates"
+    },
+    {
+      "id": "79d8936a-5471-484f-a2e7-606fb32bda1b",
+      "href": "section6",
+      "label": "Age-Specific Mortality Rate"
+    },
+    {
+      "id": "7bdef7b8-8da2-4bc1-8322-82a75b14f9e5",
+      "href": "section7",
+      "label": "Perinatal Mortality Rate"
+    },
+    {
+      "id": "54b3938e-b9bf-4ef1-94de-c15cd57d46e9",
+      "href": "section8",
+      "label": "Years of Life Lost (YLL)"
+    },
+    {
+      "id": "26d6b8d2-659d-40df-8d86-4924572f7403",
+      "href": "section9",
+      "label": "Mean Age at Death"
+    },
+    {
+      "id": "0d049526-95d9-4b20-b279-c4c35002d538",
+      "href": "section10",
+      "label": "Crude Rate of Years of Life Lost"
+    },
+    {
+      "id": "73c200c8-d2f2-4741-9ad5-8efabd25f89f",
+      "href": "section11",
+      "label": "Potential Years of Life Lost (PYLL)"
+    },
+    {
+      "id": "0b77eabf-ba13-454a-8dfa-09d87422255c",
+      "href": "section12",
+      "label": "Life Expectancy Methods"
+    },
+    {
+      "id": "b4f8944e-8855-4dce-8529-474199d7bbe8",
+      "href": "section13",
+      "label": "Life Expectancy Methods"
+    }
+  ]
+}

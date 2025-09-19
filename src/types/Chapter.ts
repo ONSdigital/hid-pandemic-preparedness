@@ -1,4 +1,4 @@
-export type Chapter = {
-  id: string;
+export interface Chapter {
   title: string;
-};
+  id?: string;
+}

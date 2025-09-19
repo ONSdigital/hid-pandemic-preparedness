@@ -2,7 +2,7 @@
   "cardProps": {
     "githubLinkHref": "https://github.com/",
     "readingTime": "Set aside 5-10 minutes",
-    "startLinkHref": "/",
+    "startLinkHref": "/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/1",
     "tags": [
       {
         "id": "8d1063b6-6f7d-4341-9cdc-3b438029a34d",
@@ -21,26 +21,22 @@
   "navProps": {
     "chapters": [
       {
-        "id": "chapter1",
-        "title": "Start"
-      },
-      {
-        "id": "chapter2",
+        "id": "1",
         "title": "Introduction to Mortality Analysis"
       },
       {
-        "id": "chapter3",
+        "id": "2",
         "title": "Data Quality, Completeness and Data Cleaning"
       },
       {
-        "id": "chapter4",
+        "id": "3",
         "title": "Key Concepts"
       },
       {
-        "id": "chapter5",
+        "id": "4",
         "title": "Grouping and Analysing Mortality Data"
       }
     ],
-    "activeId": "chapter1"
+    "parentUrl": ""
   }
 }

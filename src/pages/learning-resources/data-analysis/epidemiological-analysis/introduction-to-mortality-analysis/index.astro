@@ -20,9 +20,11 @@ import headerData from "@content/learning-resources/data-analysis/epidemiologica
 import learningModuleData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/learningModule.json";
 import overviewMarkdown from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/overview.md?raw";
 
-// Update learning module data to include markdown content as html
+// Update learning module data to include markdown content as html and parentUrl prop for chapter
+// list
 const htmlContent = await parseMarkdown(overviewMarkdown);
 learningModuleData.cardProps.htmlContent = sanitizeHtml(htmlContent);
+learningModuleData.navProps.parentUrl = Astro.url.pathname;
 ---
 
 <BaseLayout title={headerData.title}>
