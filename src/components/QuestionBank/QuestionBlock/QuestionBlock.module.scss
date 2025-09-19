@@ -1,7 +1,7 @@
 @use "../../../styles/global/tokens" as *;
 @use "../../../styles/global/variables" as *;
 
-.border-color {
+.question-block__container {
   background-color: $color-grey-100;
   border-color: $color-brand-secondary-200 !important;
 }
