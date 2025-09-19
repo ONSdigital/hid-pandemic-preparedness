@@ -1,0 +1,10 @@
+@use "../../../styles/global/tokens" as *;
+@use "../../../styles/global/variables" as *;
+
+.guide-bg {
+  background-color: $color-surface-subtle;
+}
+
+.container-border-color {
+  border-color: $color-brand-secondary-200 !important;
+}
