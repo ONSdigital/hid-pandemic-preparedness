@@ -1,4 +1,3 @@
-import { promises as fs } from "fs";
 import { v4 as uuidv4 } from "uuid";
 
 import type { LearningResourceData } from "@src/types/learningResourceData";
@@ -7,16 +6,14 @@ import { parseMarkdown } from "./parseMarkdown";
 
 // Takes input markdown filepath
 export async function createLearningSections(
-  markdownFilepath: string,
+  markdownContent: string,
 ): Promise<LearningResourceData[]> {
-  const content = await fs.readFile(markdownFilepath, "utf-8");
-
   // Regex to split by top-level headings (# Heading)
   // The split will keep the heading lines as separate entries.
   const splitRegex = /^(# .*)$/gm;
 
   // Split content by headings, keeping the headings
-  const parts = content.split(splitRegex).filter(Boolean);
+  const parts = markdownContent.split(splitRegex).filter(Boolean);
 
   const learningSections: LearningResourceData[] = [];
 
