@@ -1,5 +1,58 @@
 {
   "title": "Key Concepts",
   "subTitle": "This section explains the key ideas behind how mortality statistics are created, understood, and used. Each part focuses on a specific topic, using clear definitions, official standards, and real-world examples. Where helpful, tools like R and Python code, Excel templates, and sample data are included to support practical learning and hands-on experience.",
-  "chapters": []
+  "sections": [
+    {
+      "href": "section1",
+      "label": "Death Registrations vs Death Occurrences"
+    },
+    {
+      "href": "section2",
+      "label": "Leading Cause of Death"
+    },
+    {
+      "href": "section3",
+      "label": "Childhood Mortality"
+    },
+    {
+      "href": "section4",
+      "label": "Overview"
+    },
+    {
+      "href": "section5",
+      "label": "Crude Mortality Rates"
+    },
+    {
+      "href": "section6",
+      "label": "Age-Specific Mortality Rate"
+    },
+    {
+      "href": "section7",
+      "label": "Perinatal Mortality Rate"
+    },
+    {
+      "href": "section8",
+      "label": "Years of Life Lost (YLL)"
+    },
+    {
+      "href": "section9",
+      "label": "Mean Age at Death"
+    },
+    {
+      "href": "section10",
+      "label": "Crude Rate of Years of Life Lost"
+    },
+    {
+      "href": "section11",
+      "label": "Potential Years of Life Lost (PYLL)"
+    },
+    {
+      "href": "section12",
+      "label": "Life Expectancy Methods"
+    },
+    {
+      "href": "section13",
+      "label": "Life Expectancy Methods"
+    }
+  ]
 }
