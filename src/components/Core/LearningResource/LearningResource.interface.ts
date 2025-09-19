@@ -3,7 +3,7 @@ import type { LearningResourceBlockProps } from "../../LearningResourceBlock/Lea
 import type { IntroductionProps } from "../Introduction/Introduction.interface";
 
 export interface LearningResourceProps {
-  learningModuleNavProps: LearningModuleNavProps;
-  introductionProps: IntroductionProps;
-  learningResourceBlockProps: LearningResourceBlockProps;
+  learningModule: LearningModuleNavProps;
+  introduction: IntroductionProps;
+  learningResource: LearningResourceBlockProps;
 }

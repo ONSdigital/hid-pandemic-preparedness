@@ -13,9 +13,9 @@ import type { LearningResourceBlockProps } from "../../LearningResourceBlock/Lea
 
 const meta = {
   argTypes: {
-    introductionProps: { table: { disable: true } },
-    learningModuleNavProps: { table: { disable: true } },
-    learningResourceBlockProps: { table: { disable: true } },
+    introduction: { table: { disable: true } },
+    learningModule: { table: { disable: true } },
+    learningResource: { table: { disable: true } },
   },
   component: LearningResource,
   parameters: {
@@ -68,12 +68,12 @@ const learningResourceBlockProps: LearningResourceBlockProps = {
 };
 
 const learningResourcesProps: LearningResourceProps = {
-  learningModuleNavProps: {
+  learningModule: {
     chapters: chaptersData,
     activeId: "chapter1",
   },
-  introductionProps: introductionProps,
-  learningResourceBlockProps: learningResourceBlockProps,
+  introduction: introductionProps,
+  learningResource: learningResourceBlockProps,
 };
 
 export const LearningResourceStory = {
