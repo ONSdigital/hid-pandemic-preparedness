@@ -22,7 +22,7 @@ export const LearningResource: FC<LearningResourceProps> = (props) => {
           >
             <Introduction {...props.introduction} />
             <LearningResourceBlock {...props.learningResource} />
-            <div>
+            <div className={clsx("d-flex", "justify-content-center")}>
               <Link {...props.link} asButton={true} buttonVariant="secondary" />
             </div>
           </div>
