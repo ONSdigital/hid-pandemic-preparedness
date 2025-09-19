@@ -1,0 +1,14 @@
+{
+  "topTitle": "Getting started",
+  "topContent": {
+    "htmlContent": ""
+  },
+  "bottomTitle": "About the question bank",
+  "bottomContent": {
+    "htmlContent": "DOMPurify.sanitize(bottomHtmlContent)"
+  },
+  "bottomLink": {
+    "href": "/tools/question-bank/",
+    "label": "Back to question bank"
+  }
+}
