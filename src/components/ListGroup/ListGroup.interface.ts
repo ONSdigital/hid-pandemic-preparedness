@@ -6,7 +6,7 @@ export interface ListGroupChecksProps {
   title?: string;
   checkItems: FilterItem[];
   inverse?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void; // eslint-disable-line no-unused-vars
   selectedIds?: string[];
 }
 
