@@ -3,14 +3,17 @@
   "subTitle": "This section outlines the principles and practices that underpin the reliability of mortality data. It explains how data quality is maintained, how completeness is assessed, and how data is cleaned to ensure it is suitable for statistical use. These processes are essential for producing accurate, timely, and meaningful mortality statistics.",
   "sections": [
     {
+      "id": "5151c98b-b854-450e-9e7b-59f6b9809b1f",
       "href": "section1",
       "label": "Data Quality"
     },
     {
+      "id": "11c5e408-9382-4c2c-95e1-d7ea79d8348f",
       "href": "section2",
       "label": "Assessing Completeness"
     },
     {
+      "id": "3a501e61-14ee-4dfe-9a56-c1b66b0bacc4",
       "href": "section3",
       "label": "Data Cleaning"
     }
