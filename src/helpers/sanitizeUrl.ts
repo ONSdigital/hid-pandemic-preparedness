@@ -1,5 +1,5 @@
 // Takes an input `baseUrl` and optional `path` to always construct a valid url with a trailing slash
-export function constructUrl(baseUrl: string, path?: string): string {
+export function sanitizeUrl(baseUrl: string, path?: string): string {
   // Remove any trailing slashes before building
   baseUrl = baseUrl.replace(/\/$/, "");
 

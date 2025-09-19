@@ -1,6 +1,8 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
+import { sanitizeUrl } from "@helpers/sanitizeUrl";
+
 import styles from "./ChapterList.module.scss";
 import type { ChapterListProps } from "./ChapterList.interface";
 
@@ -15,6 +17,7 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
     "ps-3",
     styles["chapter-list__list-group-item"],
   );
+  const parentUrl = sanitizeUrl(props.parentUrl);
 
   return (
     <ul className={clsx("m-0", "p-0")}>
@@ -26,7 +29,7 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
           !props.activeChapterId && "fw-bold",
         )}
       >
-        <a className={clsx("text-decoration-none")} href={props.parentUrl}>
+        <a className={clsx("text-decoration-none")} href={parentUrl}>
           {startStr}
         </a>
       </li>
@@ -43,7 +46,7 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
         >
           <a
             className={clsx("text-decoration-none")}
-            href={`${props.parentUrl}${id}`}
+            href={sanitizeUrl(parentUrl, id)}
           >
             {title}
           </a>

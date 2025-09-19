@@ -1,16 +1,18 @@
-import { describe, it, expect, test } from "vitest";
+import { describe, expect, test } from "vitest";
 
-import { constructUrl } from "./constructUrl";
+import { sanitizeUrl } from "./sanitizeUrl";
 
+// Test when `sanitizeUrl` is called with single `baseUrl` argument
 describe.each([
   { baseUrl: "https://ons.gov.uk", expected: "https://ons.gov.uk/" },
   { baseUrl: "https://ons.gov.uk/", expected: "https://ons.gov.uk/" },
-])("describe object constructUrl($baseUrl)", ({ baseUrl, expected }) => {
+])("describe object sanitizeUrl($baseUrl)", ({ baseUrl, expected }) => {
   test(`returns ${expected}`, () => {
-    expect(constructUrl(baseUrl)).toBe(expected);
+    expect(sanitizeUrl(baseUrl)).toBe(expected);
   });
 });
 
+// Test when `sanitizeUrl` is called with `baseUrl` and `path` arguments
 describe.each([
   {
     baseUrl: "https://ons.gov.uk",
@@ -52,8 +54,8 @@ describe.each([
     path: "/path/",
     expected: "https://ons.gov.uk/path/",
   },
-])("describe object constructUrl($baseUrl)", ({ baseUrl, path, expected }) => {
+])("describe object sanitizeUrl($baseUrl)", ({ baseUrl, path, expected }) => {
   test(`returns ${expected}`, () => {
-    expect(constructUrl(baseUrl, path)).toBe(expected);
+    expect(sanitizeUrl(baseUrl, path)).toBe(expected);
   });
 });

@@ -13,6 +13,7 @@ import { References } from "@components/References/References";
 
 // Helpers
 import { createLearningSections } from "@helpers/createLearningSections";
+import { sanitizeUrl } from "@helpers/sanitizeUrl";
 
 // Content
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
@@ -36,16 +37,17 @@ const currentChapter = parseInt(chapter, 10);
 const nextChapter = currentChapter + 1;
 
 const currentRoute: string = Astro.url.pathname;
+console.log(currentRoute);
 // Trim leading slash from current route so we can use to filter returned collections
 const filterUrl: string = currentRoute.replace(/^\//, "");
 // Remove trailing chapter number to form `parentUrl`
-const parentUrl: string = currentRoute.replace(/\d+$/, "");
-
+const parentUrl: string = sanitizeUrl(currentRoute.replace(/\d+\/$/, ""));
+console.log(filterUrl);
 // Get introduction data
 const introductionData = await getCollection(
   "learningResourcesIntroduction",
   ({ id }) => {
-    return id === `${filterUrl}/introduction`;
+    return id === `${filterUrl}introduction`;
   },
 );
 
@@ -53,7 +55,7 @@ const introductionData = await getCollection(
 const contentData = await getCollection(
   "learningResourcesContent",
   ({ id }) => {
-    return id === `${filterUrl}/content`;
+    return id === `${filterUrl}content`;
   },
 );
 
@@ -67,7 +69,7 @@ const learningSections = await createLearningSections(
 // Create link data
 let linkData = {
   label: "Next chapter",
-  href: `${parentUrl}${nextChapter}`,
+  href: sanitizeUrl(parentUrl, nextChapter.toString()),
 };
 
 if (currentChapter === totalChapters) {
