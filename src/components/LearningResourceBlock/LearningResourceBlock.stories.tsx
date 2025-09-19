@@ -5,8 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import { parseMarkdown } from "../../helpers/parseMarkdown";
 import learningResourceMd1 from "@content/learning-resources/introduction/sections/1.md?raw";
 import learningResourceMd2 from "@content/learning-resources/introduction/sections/2.md?raw";
-import { LearningResourceBlock } from "./LearningResourceBlock";
-import type { LearningResourceBlockProps } from "./LearningResourceBlock.interface";
+import { LearningResourceBlock } from "@components/LearningResourceBlock/LearningResourceBlock";
+import type { LearningResourceBlockProps } from "@components/LearningResourceBlock/LearningResourceBlock.interface";
 
 const meta = {
   component: LearningResourceBlock,

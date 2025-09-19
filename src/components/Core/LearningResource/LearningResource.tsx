@@ -5,7 +5,7 @@ import styles from "./LearningResource.module.scss";
 import { LearningModuleNav } from "@components/LearningModuleNav/LearningModuleNav";
 import { Introduction } from "@components/Core/Introduction/Introduction";
 import { LearningResourceBlock } from "@components/LearningResourceBlock/LearningResourceBlock";
-import type { LearningResourceProps } from "./LearningResource.interface";
+import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
 
 export const LearningResource: FC<LearningResourceProps> = (props) => {
   return (

@@ -5,11 +5,11 @@ import { v4 as uuidv4 } from "uuid";
 import { parseMarkdown } from "../../../helpers/parseMarkdown";
 import learningResourceMd1 from "@content/learning-resources/introduction/sections/1.md?raw";
 import learningResourceMd2 from "@content/learning-resources/introduction/sections/2.md?raw";
-import { LearningResource } from "./LearningResource";
+import { LearningResource } from "@components/Core/LearningResource/LearningResource";
 import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
 import chaptersData from "@content/chapters.json";
 import type { IntroductionProps } from "@components/Core/Introduction/Introduction.interface";
-import type { LearningResourceBlockProps } from "../../LearningResourceBlock/LearningResourceBlock.interface";
+import type { LearningResourceBlockProps } from "@components/LearningResourceBlock/LearningResourceBlock.interface";
 
 const meta = {
   argTypes: {
