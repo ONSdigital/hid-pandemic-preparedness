@@ -4,19 +4,20 @@ import {
   RiGlobalLine,
   RiMenuLine,
 } from "@remixicon/react";
+import clsx from "clsx";
 import type { FC } from "react";
 import { useState, useRef, useEffect } from "react";
-import clsx from "clsx";
 
-import type { NavItem } from "../../types/NavItem";
-import type { NavBarProps } from "./NavBar.interface";
-import { MegaMenu } from "../MegaMenu/MegaMenu";
+import type { NavItem } from "@localTypes/NavItem";
+import { MegaMenu } from "@components/MegaMenu/MegaMenu";
+
 import {
   NavBarSearch,
   NavBarLanguageSelector,
   MobileMenu,
   MobileLanguageSelector,
 } from "./components";
+import type { NavBarProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 
 export const NavBar: FC<NavBarProps> = ({
@@ -153,11 +154,13 @@ export const NavBar: FC<NavBarProps> = ({
         <div className={styles["navbar-content"]}>
           {/* Logo */}
           <div className={styles["navbar-logo"]}>
-            <img
-              src="/images/logos/analysis-for-action-logo-2.svg"
-              alt="Analysis for Action"
-              className={styles["logo-image"]}
-            />
+            <a href="/">
+              <img
+                src="/images/logos/analysis-for-action-logo-2.svg"
+                alt="Analysis for Action"
+                className={styles["logo-image"]}
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}

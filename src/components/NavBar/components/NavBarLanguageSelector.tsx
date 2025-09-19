@@ -3,8 +3,8 @@ import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
 
-import type { Language } from "../Navbar.interface";
-import styles from "../NavBar.module.scss";
+import type { Language } from "@components/NavBar/NavBar.interface";
+import styles from "@components/NavBar/NavBar.module.scss";
 
 interface NavBarLanguageSelectorProps {
   languages: Language[];

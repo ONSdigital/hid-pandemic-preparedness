@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
 
-import styles from "../NavBar.module.scss";
+import styles from "@components/NavBar/NavBar.module.scss";
 
 interface NavBarSearchProps {
   searchQuery: string;
