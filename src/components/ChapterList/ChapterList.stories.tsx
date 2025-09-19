@@ -37,7 +37,7 @@ export const ChapterListStory = {
   args: {
     chapters: chaptersData,
     activeChapterId: "chapter1",
-    parentUrl: "https://ons.gov.uk",
+    parentUrl: "https://ons.gov.uk/",
   },
   name: "ChapterList",
 } satisfies Story;

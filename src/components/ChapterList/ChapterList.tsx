@@ -43,7 +43,7 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
         >
           <a
             className={clsx("text-decoration-none")}
-            href={`${props.parentUrl}/${id}`}
+            href={`${props.parentUrl}${id}`}
           >
             {title}
           </a>
