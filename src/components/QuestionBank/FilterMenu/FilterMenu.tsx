@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useState, type FC } from "react";
+import { useState, type ChangeEvent, type FC } from "react";
 
 import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
@@ -10,7 +10,7 @@ import { Explainer } from "../Explainer/Explainer";
 export const FilterMenu: FC<FilterMenuProps> = (props) => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-  const onCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = event.target;
 
     setSelectedIds((currentSelection) => {

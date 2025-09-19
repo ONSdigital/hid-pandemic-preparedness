@@ -29,7 +29,7 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
                   type="checkbox"
                   id={item.id}
                   onChange={props.onChange}
-                  checked={!!isSelected} // convert to boolean explicitly
+                  checked={isSelected}
                 />
                 <label className={clsx("form-check-label")} htmlFor={item.id}>
                   {item.label}
