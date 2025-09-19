@@ -1,17 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import chaptersData from "@content/chapters.json";
+
 import { ChapterList } from "./ChapterList";
-import chaptersData from "../../content/chapters.json";
 
 const meta = {
   argTypes: {
-    activeId: {
+    activeChapterId: {
       control: {
         type: "select",
       },
-      options: chaptersData.map((chapter) => chapter.id),
+      options: [null, ...chaptersData.map((chapter) => chapter.id)],
     },
     chapters: {
+      table: {
+        disable: true,
+      },
+    },
+    parentUrl: {
       table: {
         disable: true,
       },
@@ -30,7 +36,8 @@ type Story = StoryObj<typeof meta>;
 export const ChapterListStory = {
   args: {
     chapters: chaptersData,
-    activeId: "chapter1",
+    activeChapterId: "chapter1",
+    parentUrl: "https://ons.gov.uk",
   },
   name: "ChapterList",
 } satisfies Story;
