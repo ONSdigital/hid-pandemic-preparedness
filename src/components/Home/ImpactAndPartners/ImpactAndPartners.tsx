@@ -13,10 +13,12 @@ const impactIconMap: Record<string, ReactNode> = {
 
 export const ImpactAndPartners: FC<ImpactAndPartnersProps> = (props) => {
   return (
-    <div className={clsx("text-center", styles["text-color"])}>
+    <>
       {/* Impact */}
       <div className={clsx("w-100", styles["impact-bg"], "py-4")}>
-        <div className={clsx("container-xl")}>
+        <div
+          className={clsx("container-lg", "text-center", styles["text-color"])}
+        >
           <div className={clsx("row", "py-4")}>
             <h3 className={clsx("heading-m")}>{props.impactTitle}</h3>
           </div>
@@ -60,7 +62,9 @@ export const ImpactAndPartners: FC<ImpactAndPartnersProps> = (props) => {
       </div>
       {/* Partners */}
       <div className={clsx("w-100", "py-4")}>
-        <div className={clsx("container-xl")}>
+        <div
+          className={clsx("container-lg", "text-center", styles["text-color"])}
+        >
           <div className={clsx("row")}>
             <h3 className={clsx("heading-m")}>{props.partnersTitle}</h3>
           </div>
@@ -85,6 +89,6 @@ export const ImpactAndPartners: FC<ImpactAndPartnersProps> = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
