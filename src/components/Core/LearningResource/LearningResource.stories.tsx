@@ -71,7 +71,8 @@ const learningResourceBlockProps: LearningResourceBlockProps = {
 const learningResourcesProps: LearningResourceProps = {
   learningModuleNav: {
     chapters: chaptersData,
-    activeId: "chapter1",
+    activeChapterId: "chapter1",
+    parentUrl: "https://ons.gov.uk/",
   },
   introduction: introductionProps,
   learningResource: learningResourceBlockProps,
