@@ -33,7 +33,7 @@ export const Introduction: FC<IntroductionProps> = (props) => {
         <ul className={clsx("ps-5")}>
           {props.sections.map((section) => (
             <li key={section.id}>
-              <a href={section.href}>{section.label}</a>
+              <a href={`#${section.href}`}>{section.label}</a>
             </li>
           ))}
         </ul>
