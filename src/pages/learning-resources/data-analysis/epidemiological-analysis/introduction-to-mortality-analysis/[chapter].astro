@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Components
+import { Header } from "@components/Core/Header/Header";
+import { References } from "@components/References/References";
+
+// Content
+import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
+import referencesData from "@content/Home/references.json";
+
+// Set content based on different pages
+export function getStaticPaths() {
+  return [
+    { params: { chapter: "1" } },
+    { params: { chapter: "2" } },
+    { params: { chapter: "3" } },
+  ];
+}
+
+const { chapter } = Astro.params;
+---
+
+<BaseLayout title={headerData.title}>
+  <main>
+    <Header {...headerData} />
+    <div class="container-lg">
+      <p>Chapter {chapter}!</p>
+    </div>
+    <References {...referencesData} client:visible />
+  </main>
+</BaseLayout>
