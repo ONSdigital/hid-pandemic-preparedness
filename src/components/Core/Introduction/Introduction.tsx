@@ -11,10 +11,12 @@ export const Introduction: FC<IntroductionProps> = (props) => {
     <div
       className={clsx(
         "container",
+        "px-2",
         "py-4",
+        "p-lg-4",
         "border",
-        "rounded",
-        styles["border-color"],
+        "rounded-4",
+        styles["introduction__container"],
       )}
     >
       <div className={clsx("row")}>
