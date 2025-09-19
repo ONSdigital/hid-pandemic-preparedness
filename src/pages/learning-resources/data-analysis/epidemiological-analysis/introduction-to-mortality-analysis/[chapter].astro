@@ -32,17 +32,18 @@ export function getStaticPaths() {
 
 const { chapter } = Astro.params;
 
+// Should do this dynamically based on the content structure really but it will do for now
 const totalChapters = 4;
 const currentChapter = parseInt(chapter, 10);
 const nextChapter = currentChapter + 1;
 
 const currentRoute: string = Astro.url.pathname;
-console.log(currentRoute);
+
 // Trim leading slash from current route so we can use to filter returned collections
 const filterUrl: string = currentRoute.replace(/^\//, "");
 // Remove trailing chapter number to form `parentUrl`
 const parentUrl: string = sanitizeUrl(currentRoute.replace(/\d+\/$/, ""));
-console.log(filterUrl);
+
 // Get introduction data
 const introductionData = await getCollection(
   "learningResourcesIntroduction",
@@ -58,8 +59,6 @@ const contentData = await getCollection(
     return id === `${filterUrl}content`;
   },
 );
-
-console.log(contentData);
 
 // Parse the content data and split up into sections
 const learningSections = await createLearningSections(
@@ -80,10 +79,6 @@ if (currentChapter === totalChapters) {
     href: parentUrl,
   };
 }
-
-console.log(learningModuleData.navProps.chapters);
-console.log(parentUrl);
-console.log(chapter);
 
 // Load the data for the learning module per chapter
 const learningResourceData: LearningResourceProps = {
