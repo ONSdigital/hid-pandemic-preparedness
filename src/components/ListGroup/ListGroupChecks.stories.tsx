@@ -53,14 +53,3 @@ export const ListGroupChecksStory = {
   name: "Checkboxes",
   args: listGroupChecksProps,
 } satisfies Story;
-
-// export const ListGroupChecksInverseStory = {
-//   name: "Checkboxes inverse",
-//   args: {
-//     ...listGroupChecksProps,
-//     inverse: true,
-//   },
-//   globals: {
-//     backgrounds: { value: "dark" },
-//   },
-// } satisfies Story;
