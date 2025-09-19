@@ -9,4 +9,5 @@ export interface LinkProps extends LinkData {
     | "secondary-inverse";
   textInverse?: boolean;
   className?: string;
+  goBack?: boolean;
 }

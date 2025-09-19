@@ -1,5 +1,9 @@
 import type { FC } from "react";
-import { RiArrowRightLine, RiShareBoxFill } from "@remixicon/react";
+import {
+  RiArrowGoBackLine,
+  RiArrowRightLine,
+  RiShareBoxFill,
+} from "@remixicon/react";
 import clsx from "clsx";
 
 import type { LinkProps } from "./Link.interface";
@@ -36,8 +40,14 @@ export const Link: FC<LinkProps> = (props) => {
     // If href starts with http, render as an external link to include icon
     Icon = <RiShareBoxFill />;
   } else if (props.href.startsWith("/")) {
-    // If href starts with /, this is an internal navigation link so render with right arrow icon
-    Icon = <RiArrowRightLine />;
+    // If href starts with /, this is an internal navigation link
+    if (props.goBack) {
+      // If goBack, render a back icon
+      Icon = <RiArrowGoBackLine />;
+    } else {
+      // Render with right arrow icon
+      Icon = <RiArrowRightLine />;
+    }
   }
 
   // Add any additional classes passed via props.className
