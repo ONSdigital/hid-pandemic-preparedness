@@ -3,10 +3,10 @@ import type { FC } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./LearningResourceBlock.module.scss";
-import type { LearningResourceBlockProps } from "./LearningResourceBlock.interface";
+import type { LearningResourceBlockProps } from "@components/LearningResourceBlock/LearningResourceBlock.interface";
 import { TextModule } from "@components/TextModule/TextModule";
 import { Accordion } from "@components/Accordion/Accordion";
-import type { AccordionProps } from "../Accordion/Accordion.interface";
+import type { AccordionProps } from "@components/Accordion/Accordion.interface";
 
 export const LearningResourceBlock: FC<LearningResourceBlockProps> = (
   props,
