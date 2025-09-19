@@ -16,6 +16,7 @@ const meta = {
     introduction: { table: { disable: true } },
     learningModuleNav: { table: { disable: true } },
     learningResource: { table: { disable: true } },
+    link: { table: { disable: true } },
   },
   component: LearningResource,
   parameters: {
@@ -74,6 +75,10 @@ const learningResourcesProps: LearningResourceProps = {
   },
   introduction: introductionProps,
   learningResource: learningResourceBlockProps,
+  link: {
+    href: "/",
+    label: "Next chapter",
+  },
 };
 
 export const LearningResourceStory = {

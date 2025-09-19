@@ -1,11 +1,13 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
-import styles from "./LearningResource.module.scss";
-import { LearningModuleNav } from "@components/LearningModuleNav/LearningModuleNav";
 import { Introduction } from "@components/Core/Introduction/Introduction";
-import { LearningResourceBlock } from "@components/LearningResourceBlock/LearningResourceBlock";
 import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
+import { LearningModuleNav } from "@components/LearningModuleNav/LearningModuleNav";
+import { LearningResourceBlock } from "@components/LearningResourceBlock/LearningResourceBlock";
+import { Link } from "@components/Link/Link";
+
+import styles from "./LearningResource.module.scss";
 
 export const LearningResource: FC<LearningResourceProps> = (props) => {
   return (
@@ -20,6 +22,9 @@ export const LearningResource: FC<LearningResourceProps> = (props) => {
           >
             <Introduction {...props.introduction} />
             <LearningResourceBlock {...props.learningResource} />
+            <div>
+              <Link {...props.link} asButton={true} buttonVariant="secondary" />
+            </div>
           </div>
         </div>
       </div>
