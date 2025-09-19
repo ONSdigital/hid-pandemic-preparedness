@@ -30,8 +30,11 @@ export const Accordion: FC<AccordionProps> = (props) => {
           </h2>
           <div
             id={item.id}
-            className={clsx("accordion-collapse", "collapse")}
-            data-bs-parent={`#${accordionId}`}
+            className={clsx(
+              "accordion-collapse",
+              "collapse",
+              props.expandAll && "show",
+            )}
           >
             <div className="accordion-body">{item.bodyContent}</div>
           </div>

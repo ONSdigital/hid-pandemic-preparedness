@@ -10,8 +10,17 @@ import type { LearningResourceBlockProps } from "./LearningResourceBlock.interfa
 
 const meta = {
   component: LearningResourceBlock,
+  parameters: {
+    layout: "centered",
+  },
   title: "Components/LearningResourceBlock",
-  argTypes: {},
+  argTypes: {
+    learningSections: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof LearningResourceBlock>;
 
 export default meta;
@@ -21,7 +30,7 @@ const htmlContent1 = await parseMarkdown(learningResourceMd1);
 const htmlcontent2 = await parseMarkdown(learningResourceMd2);
 
 const learningResourceBlockProps: LearningResourceBlockProps = {
-  learningResources: [
+  learningSections: [
     {
       id: uuidv4(),
       title: "Definition of Mortality Analysis",

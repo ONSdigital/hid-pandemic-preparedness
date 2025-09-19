@@ -6,21 +6,25 @@ import styles from "./LearningResourceBlock.module.scss";
 import type { LearningResourceBlockProps } from "./LearningResourceBlock.interface";
 import { TextModule } from "@components/TextModule/TextModule";
 import { Accordion } from "@components/Accordion/Accordion";
+import type { AccordionProps } from "../Accordion/Accordion.interface";
 
 export const LearningResourceBlock: FC<LearningResourceBlockProps> = (
   props,
 ) => {
-  const accordionProps = {
+  const accordionProps: AccordionProps = {
     id: uuidv4(),
-    items: props.learningResources.map((resource) => ({
-      id: resource.id,
-      headerTitle: resource.title,
-      bodyContent: <TextModule htmlContent={resource.htmlContent} />,
+    items: props.learningSections.map((section) => ({
+      id: section.id,
+      headerTitle: section.title,
+      bodyContent: <TextModule htmlContent={section.htmlContent} />,
     })),
+    expandAll: true,
   };
   return (
-    <div className={clsx(styles["learning-resource-block__container"])}>
-      <div className={clsx("px-2", "py-4", "p-lg-5")}>
+    <div
+      className={clsx("w-100", styles["learning-resource-block__container"])}
+    >
+      <div className={clsx("px-2", "py-4", "p-lg-4")}>
         <Accordion {...accordionProps} variant="primary" />
       </div>
     </div>

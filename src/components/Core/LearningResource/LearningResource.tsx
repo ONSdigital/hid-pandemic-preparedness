@@ -11,12 +11,12 @@ export const LearningResource: FC<LearningResourceProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["learning-resource__container"])}>
       <div className={clsx("container-lg", "py-4", "p-lg-5")}>
-        <div className={clsx("row", "row-cols-1", "row-cols-lg-2")}>
-          <div className="col">
+        <div className={clsx("row")}>
+          <div className={clsx("col", "col-lg-auto", "mb-4", "mb-lg-0")}>
             <LearningModuleNav {...props.learningModuleNavProps} />
           </div>
           <div
-            className={clsx("col", "d-flex", "flex-column", "gy-4", "gy-lg-0")}
+            className={clsx("col", "d-flex", "flex-column", "gap-4", "w-100")}
           >
             <Introduction {...props.introductionProps} />
             <LearningResourceBlock {...props.learningResourceBlockProps} />

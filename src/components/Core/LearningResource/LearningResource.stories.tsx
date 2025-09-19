@@ -12,7 +12,11 @@ import type { IntroductionProps } from "@components/Core/Introduction/Introducti
 import type { LearningResourceBlockProps } from "../../LearningResourceBlock/LearningResourceBlock.interface";
 
 const meta = {
-  argTypes: {},
+  argTypes: {
+    introductionProps: { table: { disable: true } },
+    learningModuleNavProps: { table: { disable: true } },
+    learningResourceBlockProps: { table: { disable: true } },
+  },
   component: LearningResource,
   parameters: {
     layout: "centered",
@@ -23,6 +27,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Introduction chapters should link to corresponding LearningResourceBlock(s)
+const sharedId1 = uuidv4();
+const sharedId2 = uuidv4();
+
 const introductionProps: IntroductionProps = {
   title: "Introduction",
   subTitle:
@@ -31,22 +39,12 @@ const introductionProps: IntroductionProps = {
     {
       id: uuidv4(),
       label: "Definition and Importance of Mortality Analysis",
-      href: "/",
+      href: `#${sharedId1}`,
     },
     {
       id: uuidv4(),
       label: "Relevance and Coverage",
-      href: "/",
-    },
-    {
-      id: uuidv4(),
-      label: "Uses of Mortality Analysis",
-      href: "/",
-    },
-    {
-      id: uuidv4(),
-      label: "Example Users",
-      href: "/",
+      href: `#${sharedId2}`,
     },
   ],
 };
@@ -55,14 +53,14 @@ const htmlContent1 = await parseMarkdown(learningResourceMd1);
 const htmlcontent2 = await parseMarkdown(learningResourceMd2);
 
 const learningResourceBlockProps: LearningResourceBlockProps = {
-  learningResources: [
+  learningSections: [
     {
-      id: uuidv4(),
+      id: sharedId1,
       title: "Definition of Mortality Analysis",
       htmlContent: DOMPurify.sanitize(htmlContent1),
     },
     {
-      id: uuidv4(),
+      id: sharedId2,
       title: "Relevance and Coverage",
       htmlContent: DOMPurify.sanitize(htmlcontent2),
     },

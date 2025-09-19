@@ -10,7 +10,10 @@ import { parseMarkdown } from "../../../helpers/parseMarkdown";
 import type { TagData } from "../../../types/TagData";
 
 const meta = {
-  argTypes: {},
+  argTypes: {
+    cardProps: { table: { disable: true } },
+    navProps: { table: { disable: true } },
+  },
   component: LearningModule,
   parameters: {
     layout: "centered",
