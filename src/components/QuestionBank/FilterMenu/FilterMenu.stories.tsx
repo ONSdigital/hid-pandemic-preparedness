@@ -30,9 +30,9 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    explainerProps: { table: { disable: true } },
-    listGroupChecksProps: { table: { disable: true } },
-    questionBlockListProps: { table: { disable: true } },
+    explainer: { table: { disable: true } },
+    filterMenu: { table: { disable: true } },
+    questionBlocks: { table: { disable: true } },
   },
 } satisfies Meta<typeof FilterMenu>;
 
@@ -79,7 +79,7 @@ const themeLabel2 = "Travel";
 const themeId2 = uuidv4();
 
 // Construct props for ListGroupCheck component
-const listGroupCheckData = {
+const filterMenuData = {
   title: "Theme",
   checkItems: [
     { label: themeLabel1, id: themeId1 },
@@ -123,7 +123,7 @@ const travelQuestionBlock = createQuestionBlock(
   [travelQ1HtmlContent, travelQ2HtmlContent],
 );
 
-const questionBlockList: QuestionBlockProps[] = [
+const questionBlocksData: QuestionBlockProps[] = [
   ageQuestionBlock,
   ethnicityQuestionBlock,
   travelQuestionBlock,
@@ -132,15 +132,15 @@ const questionBlockList: QuestionBlockProps[] = [
 // Construct props for Explainer component
 const htmlContent = await parseMarkdown(explainerMdContent);
 
-const explainerProps: ExplainerProps = {
+const explainerData: ExplainerProps = {
   htmlContent: DOMPurify.sanitize(htmlContent),
 };
 
 // Bring all the props together for FilterMenu component
 const filterMenuProps: FilterMenuProps = {
-  explainerProps: explainerProps,
-  listGroupChecksProps: listGroupCheckData,
-  questionBlockListProps: questionBlockList,
+  explainer: explainerData,
+  filterMenu: filterMenuData,
+  questionBlocks: questionBlocksData,
 };
 
 export const FilterMenuStory = {
