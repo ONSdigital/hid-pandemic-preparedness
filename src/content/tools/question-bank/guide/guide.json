@@ -9,7 +9,7 @@
   },
   "bottomTitle": "About the question bank",
   "bottomContent": {
-    "htmlContent": "DOMPurify.sanitize(bottomHtmlContent)"
+    "htmlContent": ""
   },
   "bottomLink": {
     "href": "/tools/question-bank/",
