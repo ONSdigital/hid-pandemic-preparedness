@@ -18,7 +18,7 @@ export const QuestionBlock: FC<QuestionBlockProps> = (props) => {
     >
       <div className={clsx("d-inline-flex", "pt-4", "pb-2")}>
         {props.tags.map((tag) => (
-          <Tag {...tag} />
+          <Tag {...tag} key={tag.id} />
         ))}
       </div>
       <hr />

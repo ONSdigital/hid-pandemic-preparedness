@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
+import _ from "lodash";
 import sanitizeHtml from "sanitize-html";
+import util from "util";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 
@@ -31,23 +33,40 @@ const explainerData = await getCollection("toolsExplainer", ({ id }) => {
   return id === `${filterUrl}explainer`;
 });
 
-console.log(explainerData);
-
 // Get content markdown
 const contentData = await getCollection("toolsContent", ({ id }) => {
   return id === `${filterUrl}content`;
 });
 
-console.log(contentData);
+console.log(
+  util.inspect(contentData, {
+    showHidden: false,
+    depth: null,
+    colors: true,
+  }),
+);
+
+console.log(
+  util.inspect(questionBlocksData, {
+    showHidden: false,
+    depth: null,
+    colors: true,
+  }),
+);
+
+// Get the unique tags from the question block data to build filter
+const uniqueTags = _.uniqBy(
+  questionBlocksData.flatMap((item) => item.tags),
+  "id",
+);
 
 const filterMenuData = {
   title: "Theme",
-  checkItems: [
-    { label: "Fucking", id: "1" },
-    { label: "Cunts", id: "2" },
-  ],
+  checkItems: uniqueTags.map((tag) => ({ label: tag.title, id: tag.id })),
   inverse: false,
 };
+
+console.log(filterMenuData);
 
 const filterableQuestionsData: FilterableQuestionsProps = {
   explainer: {
