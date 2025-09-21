@@ -17,12 +17,12 @@ const learningResourcesIntroduction = defineCollection({
   }),
 });
 
-const toolsContent = defineCollection({
-  loader: glob({
-    pattern: "tools/**/content.md",
-    base: "./src/content/",
-  }),
-});
+// const toolsContent = defineCollection({
+//   loader: glob({
+//     pattern: "tools/**/content.md",
+//     base: "./src/content/",
+//   }),
+// });
 
 const toolsExplainer = defineCollection({
   loader: glob({
@@ -34,6 +34,6 @@ const toolsExplainer = defineCollection({
 export const collections = {
   learningResourcesContent,
   learningResourcesIntroduction,
-  toolsContent,
+  // toolsContent,
   toolsExplainer,
 };
