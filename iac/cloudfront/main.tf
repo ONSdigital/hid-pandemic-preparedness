@@ -50,9 +50,12 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
   price_class = var.price_class
 
   restrictions {
-    geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["GB"]
+    dynamic "geo_restriction" {
+      for_each = var.geo_restriction
+      content {
+        restriction_type = geo_restriction.value.restriction_type
+        locations        = geo_restriction.value.locations
+      }
     }
   }
 

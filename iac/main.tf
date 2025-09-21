@@ -41,7 +41,6 @@ module "storybook_dev_cloudfront" {
   distribution_enabled        = true
   distribution_name           = "Dev storybook"
   default_root_object         = "index.html"
-  price_class                 = "PriceClass_100"
 }
 
 # Create bucket for storybook main
@@ -61,7 +60,6 @@ module "storybook_main_cloudfront" {
   distribution_enabled        = true
   distribution_name           = "Main storybook"
   default_root_object         = "index.html"
-  price_class                 = "PriceClass_100"
 }
 
 # Create bucket for app dev
@@ -86,7 +84,6 @@ module "app_dev_cloudfront" {
       function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
     }
   ]
-  price_class = "PriceClass_100"
 }
 
 # Create bucket for app main
@@ -111,6 +108,10 @@ module "app_main_cloudfront" {
     function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
   }]
   price_class = "PriceClass_All"
+  geo_restriction = [{
+    restriction_type = "none"
+    locations        = []
+  }]
 }
 
 # Create iam user for automated deployments via github actions
