@@ -1,7 +1,8 @@
 #!/bin/bash
 # set -e
 
-# Script uses `aws s3 sync` to sync built app files to an s3 bucket, and aws cloudfront
+# Script uses `aws s3 sync` to sync built app files to an s3 bucket. If the
+# `ENABLE_INVALIDATIONS` var is set to `true`, it also creates aws cloudfront
 # invalidations to clear the cloudfront cache for changed files.
 # Run like this e.g `source ./scripts/deploy.sh storybook-static/ hid-ppt-storybook-dev`
 
@@ -14,6 +15,7 @@ fi
 LOCAL_FOLDER="$1"
 BUCKET_NAME="$2"
 BUCKET_ORIGIN="${BUCKET_NAME}.s3.eu-west-2.amazonaws.com"
+ENABLE_INVALIDATIONS="false"
 MAX_INVALIDATION_BATCH_SIZE=3000
 
 echo "Deploying local folder '$LOCAL_FOLDER' to S3 bucket '$BUCKET_NAME'..."
@@ -26,29 +28,34 @@ UPDATED_FILES=$(grep -o "s3://${BUCKET_NAME}[^ ]*" <<< $SYNC_OUTPUT)
 
 # If any files have been updated, create the invalidation to refresh the cloudfront cache see
 # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html
-if [ -n "$UPDATED_FILES" ]; then
-    INVALIDATION_PATHS=$(sed "s|s3://${BUCKET_NAME}||g" <<< $UPDATED_FILES)
-    INVALIDATION_PATHS_ARRAY=(`echo ${INVALIDATION_PATHS}`)
+if [ "$ENABLE_INVALIDATIONS" = "true" ]; then
+    echo "Checking whether CloudFront invalidations are needed as ENABLE_INVALIDATIONS is set to "${ENABLE_INVALIDATIONS}""
+    if [ -n "$UPDATED_FILES" ]; then
+        INVALIDATION_PATHS=$(sed "s|s3://${BUCKET_NAME}||g" <<< $UPDATED_FILES)
+        INVALIDATION_PATHS_ARRAY=(`echo ${INVALIDATION_PATHS}`)
 
-    TOTAL=${#INVALIDATION_PATHS_ARRAY[@]}
-    echo "Creating invalidation(s) for $TOTAL updated files..."
+        TOTAL=${#INVALIDATION_PATHS_ARRAY[@]}
+        echo "Creating invalidation(s) for $TOTAL updated files..."
 
-    # Find the cloudfront distribution id for this deployment based on the bucket url
-    DISTRIBUTION_ID=$(aws cloudfront list-distributions \
-        --query "DistributionList.Items[?Origins.Items[0].DomainName=='$BUCKET_ORIGIN'].Id" \
-        --output text)
+        # Find the cloudfront distribution id for this deployment based on the bucket url
+        DISTRIBUTION_ID=$(aws cloudfront list-distributions \
+            --query "DistributionList.Items[?Origins.Items[0].DomainName=='$BUCKET_ORIGIN'].Id" \
+            --output text)
 
-    # CloudFront invalidation supports max `MAX_INVALIDATION_BATCH_SIZE` file paths per request see
-    # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationLimits.html
-    # Split CHANGED_PATHS into batches of `MAX_INVALIDATION_BATCH_SIZE` if needed
-    for (( i=0;  i < ${#INVALIDATION_PATHS_ARRAY[@]};  i += $MAX_INVALIDATION_BATCH_SIZE ))
-    do
-        # Create invalidations for each batch
-        BATCH=( "${INVALIDATION_PATHS_ARRAY[@]:$i:$MAX_INVALIDATION_BATCH_SIZE}" )
-        aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "${BATCH[@]}" --output text
-    done
+        # CloudFront invalidation supports max `MAX_INVALIDATION_BATCH_SIZE` file paths per request see
+        # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationLimits.html
+        # Split CHANGED_PATHS into batches of `MAX_INVALIDATION_BATCH_SIZE` if needed
+        for (( i=0;  i < ${#INVALIDATION_PATHS_ARRAY[@]};  i += $MAX_INVALIDATION_BATCH_SIZE ))
+        do
+            # Create invalidations for each batch
+            BATCH=( "${INVALIDATION_PATHS_ARRAY[@]:$i:$MAX_INVALIDATION_BATCH_SIZE}" )
+            aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "${BATCH[@]}" --output text
+        done
+    else
+    echo "No changes detected. Skipping CloudFront invalidation."
+    fi
 else
-  echo "No changes detected. Skipping CloudFront invalidation."
+    echo "Skipping CloudFront invalidation as ENABLE_INVALIDATIONS is set to "${ENABLE_INVALIDATIONS}""
 fi
 
 # Get the distribution domain name
