@@ -10,11 +10,10 @@ export const QuestionBlock: FC<QuestionBlockProps> = (props) => {
   return (
     <div
       className={clsx(
-        "container",
         "p-4",
         "border",
         "rounded",
-        styles["border-color"],
+        styles["question-block__container"],
       )}
     >
       <div className={clsx("d-inline-flex", "pt-4", "pb-2")}>
