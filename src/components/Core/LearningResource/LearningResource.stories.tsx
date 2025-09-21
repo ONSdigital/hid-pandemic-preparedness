@@ -13,9 +13,10 @@ import type { LearningResourceBlockProps } from "@components/LearningResourceBlo
 
 const meta = {
   argTypes: {
-    introductionProps: { table: { disable: true } },
-    learningModuleNavProps: { table: { disable: true } },
-    learningResourceBlockProps: { table: { disable: true } },
+    introduction: { table: { disable: true } },
+    learningModuleNav: { table: { disable: true } },
+    learningResource: { table: { disable: true } },
+    link: { table: { disable: true } },
   },
   component: LearningResource,
   parameters: {
@@ -28,23 +29,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Introduction chapters should link to corresponding LearningResourceBlock(s)
-const sharedId1 = uuidv4();
-const sharedId2 = uuidv4();
+const sharedId1 = "section1";
+const sharedId2 = "section2";
 
 const introductionProps: IntroductionProps = {
   title: "Introduction",
   subTitle:
     "This section introduces mortality analysis, explaining what it is, why it matters, and who uses it. It outlines the scope, relevance, and practical applications of mortality data in health and policy work.",
-  chapters: [
+  sections: [
     {
       id: uuidv4(),
       label: "Definition and Importance of Mortality Analysis",
-      href: `#${sharedId1}`,
+      href: sharedId1,
     },
     {
       id: uuidv4(),
       label: "Relevance and Coverage",
-      href: `#${sharedId2}`,
+      href: sharedId2,
     },
   ],
 };
@@ -68,12 +69,17 @@ const learningResourceBlockProps: LearningResourceBlockProps = {
 };
 
 const learningResourcesProps: LearningResourceProps = {
-  learningModuleNavProps: {
+  learningModuleNav: {
     chapters: chaptersData,
-    activeId: "chapter1",
+    activeChapterId: "chapter1",
+    parentUrl: "https://ons.gov.uk/",
   },
-  introductionProps: introductionProps,
-  learningResourceBlockProps: learningResourceBlockProps,
+  introduction: introductionProps,
+  learningResource: learningResourceBlockProps,
+  link: {
+    href: "/",
+    label: "Next chapter",
+  },
 };
 
 export const LearningResourceStory = {

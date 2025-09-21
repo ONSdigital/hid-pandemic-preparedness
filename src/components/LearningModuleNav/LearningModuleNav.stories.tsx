@@ -1,17 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { LearningModuleNav } from "./LearningModuleNav";
 import chaptersData from "@content/chapters.json";
+
+import { LearningModuleNav } from "./LearningModuleNav";
 
 const meta = {
   argTypes: {
-    activeId: {
+    activeChapterId: {
       control: {
         type: "select",
       },
-      options: chaptersData.map((chapter) => chapter.id),
+      options: [null, ...chaptersData.map((chapter) => chapter.id)],
     },
     chapters: { table: { disable: true } },
+    parentUrl: { table: { disable: true } },
   },
   component: LearningModuleNav,
   parameters: {
@@ -26,7 +28,8 @@ type Story = StoryObj<typeof meta>;
 export const LearningModuleNavStory = {
   args: {
     chapters: chaptersData,
-    activeId: "chapter1",
+    activeChapterId: "chapter1",
+    parentUrl: "https://ons.gov.uk/",
   },
   name: "LearningModuleNav",
 } satisfies Story;

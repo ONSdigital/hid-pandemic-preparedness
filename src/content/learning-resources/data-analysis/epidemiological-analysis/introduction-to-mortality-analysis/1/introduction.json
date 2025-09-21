@@ -1,0 +1,26 @@
+{
+  "title": "Introduction to Mortality Analysis",
+  "subTitle": "This section introduces mortality analysis, explaining what it is, why it matters, and who uses it. It outlines the scope, relevance, and practical applications of mortality data in health and policy work.",
+  "sections": [
+    {
+      "id": "c0a52365-deba-46b9-ab31-c272c8cef4c0",
+      "href": "section1",
+      "label": "Definition of Importance of Mortality Analysis"
+    },
+    {
+      "id": "4b517777-d4c3-4e25-baa9-092ece92abf8",
+      "href": "section2",
+      "label": "Relevance and Coverage"
+    },
+    {
+      "id": "17ace5ab-5a46-483b-8c76-87c0f82b7ece",
+      "href": "section3",
+      "label": "Uses of Mortality Analysis"
+    },
+    {
+      "id": "9cd34627-edbb-4548-9280-0d7ef8ec73cc",
+      "href": "section4",
+      "label": "Example Users"
+    }
+  ]
+}
