@@ -41,6 +41,7 @@ module "storybook_dev_cloudfront" {
   distribution_enabled        = true
   distribution_name           = "Dev storybook"
   default_root_object         = "index.html"
+  price_class                 = "PriceClass_100"
 }
 
 # Create bucket for storybook main
@@ -60,6 +61,7 @@ module "storybook_main_cloudfront" {
   distribution_enabled        = true
   distribution_name           = "Main storybook"
   default_root_object         = "index.html"
+  price_class                 = "PriceClass_100"
 }
 
 # Create bucket for app dev
@@ -84,6 +86,7 @@ module "app_dev_cloudfront" {
       function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
     }
   ]
+  price_class = "PriceClass_100"
 }
 
 # Create bucket for app main
@@ -96,6 +99,7 @@ module "app_main_s3" {
 
 # Set up cloudfront distribution for app main
 # Function association is enabled to enable astro static site folder based navigation
+# Price class and restrictions are set to ensure worldwide availability
 module "app_main_cloudfront" {
   source                      = "./cloudfront"
   bucket_name                 = module.app_main_s3.id
@@ -106,6 +110,7 @@ module "app_main_cloudfront" {
     event_type   = "viewer-request"
     function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
   }]
+  price_class = "PriceClass_All"
 }
 
 # Create iam user for automated deployments via github actions

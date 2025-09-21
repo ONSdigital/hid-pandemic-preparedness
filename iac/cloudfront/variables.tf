@@ -32,3 +32,8 @@ variable "function_association" {
   }))
   default = []
 }
+
+variable "price_class" {
+  description = "Price class for this distribution. See https://aws.amazon.com/cloudfront/features/?icmpid=docs_console_unmapped#Global_Edge_Network"
+  type        = string
+}
