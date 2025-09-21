@@ -9,6 +9,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 // Interfaces
 import type { FilterMenuProps as FilterableQuestionsProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
+import type { TagData } from "@localTypes/TagData";
 
 // Components
 import { Header } from "@components/Core/Header/Header";
@@ -16,12 +17,20 @@ import { FilterMenu as FilterableQuestions } from "@components/QuestionBank/Filt
 import { References } from "@components/References/References";
 
 // Helpers
+import { createQuestionBlock } from "@helpers/createQuestionBlock";
 import { parseMarkdown } from "@helpers/parseMarkdown";
 
 // Content
 import headerData from "@content/tools/question-bank/header.json";
 import questionBlocksData from "@content/tools/question-bank/questionBlocks.json";
 import referencesData from "@content/Home/references.json";
+
+import ageMarkdown from "@content/tools/question-bank/age.md?raw";
+import ethnicityMarkdown from "@content/tools/question-bank/ethnicity.md?raw";
+import frequencyAndPurposeOfTravelMarkdown from "@content/tools/question-bank/frequency-and-purpose-of-travel.md?raw";
+import sexGenderMarkdown from "@content/tools/question-bank/sex-gender.md?raw";
+import travelAndRegulationsMarkdown from "@content/tools/question-bank/travel-and-regulations.md?raw";
+import type { QuestionData } from "@/src/types/QuestionData";
 
 const currentRoute: string = Astro.url.pathname;
 
@@ -38,22 +47,6 @@ const contentData = await getCollection("toolsContent", ({ id }) => {
   return id === `${filterUrl}content`;
 });
 
-console.log(
-  util.inspect(contentData, {
-    showHidden: false,
-    depth: null,
-    colors: true,
-  }),
-);
-
-console.log(
-  util.inspect(questionBlocksData, {
-    showHidden: false,
-    depth: null,
-    colors: true,
-  }),
-);
-
 // Get the unique tags from the question block data to build filter
 const uniqueTags = _.uniqBy(
   questionBlocksData.flatMap((item) => item.tags),
@@ -66,19 +59,38 @@ const filterMenuData = {
   inverse: false,
 };
 
-console.log(filterMenuData);
+// Build the questions blocks using `questionBlocksData` and found content
+const questionBlock1 = await createQuestionBlock(ageMarkdown);
+const questionBlock2 = await createQuestionBlock(ethnicityMarkdown);
+const questionBlock3 = await createQuestionBlock(
+  frequencyAndPurposeOfTravelMarkdown,
+);
+const questionBlock4 = await createQuestionBlock(sexGenderMarkdown);
+const questionBlock5 = await createQuestionBlock(travelAndRegulationsMarkdown);
+
+// Update the tags ooh god this is awful
+questionBlock1.tags = questionBlocksData[0].tags as TagData[];
+questionBlock2.tags = questionBlocksData[1].tags as TagData[];
+questionBlock3.tags = questionBlocksData[2].tags as TagData[];
+questionBlock4.tags = questionBlocksData[3].tags as TagData[];
+questionBlock5.tags = questionBlocksData[4].tags as TagData[];
+
+const qbd: QuestionBlockProps[] = [];
+
+// Build the questionBlocksData
+qbd.push(questionBlock1);
+qbd.push(questionBlock2);
+qbd.push(questionBlock3);
+qbd.push(questionBlock4);
+qbd.push(questionBlock5);
 
 const filterableQuestionsData: FilterableQuestionsProps = {
   explainer: {
     htmlContent: explainerData[0].rendered?.html ?? "",
   },
   filterMenu: filterMenuData,
-  questionBlocks: questionBlocksData as QuestionBlockProps[],
+  questionBlocks: qbd as QuestionBlockProps[],
 };
-
-//   explainer: ExplainerProps;
-//   filterMenu: ListGroupChecksProps;
-//   questionBlocks: QuestionBlockProps[];
 ---
 
 <BaseLayout title={headerData.title}>
