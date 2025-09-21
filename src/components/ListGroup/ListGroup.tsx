@@ -15,21 +15,29 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
         <p className={clsx("text-primary", "fw-bold")}>{props.title}</p>
       )}
       <ul className={clsx("list-group", "list-group-flush")}>
-        {props.checkItems.map((item, index) => (
-          <li className={clsx("list-group-item")} key={`listGroupItem${index}`}>
-            <div className={clsx("form-check")}>
-              <input
-                className={clsx("form-check-input")}
-                type="checkbox"
-                value=""
-                id={item.id}
-              />
-              <label className={clsx("form-check-label")} htmlFor={item.id}>
-                {item.label}
-              </label>
-            </div>
-          </li>
-        ))}
+        {props.checkItems.map((item, index) => {
+          const isSelected =
+            props.selectedIds && props.selectedIds.includes(item.id);
+          return (
+            <li
+              className={clsx("list-group-item")}
+              key={`listGroupItem${index}`}
+            >
+              <div className={clsx("form-check")}>
+                <input
+                  className={clsx("form-check-input")}
+                  type="checkbox"
+                  id={item.id}
+                  onChange={props.onChange}
+                  checked={isSelected}
+                />
+                <label className={clsx("form-check-label")} htmlFor={item.id}>
+                  {item.label}
+                </label>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

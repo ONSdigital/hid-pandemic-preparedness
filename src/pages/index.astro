@@ -40,10 +40,10 @@ const quickLinksData: QuickLinksProps = {
     <QuickLinks {...quickLinksData} />
     <ImageAndText {...imageAndTextData} />
     <StatisticsAndText {...statisticsAndTextData} />
-    <Carousel {...carouselData as CarouselProps} client:load />
+    <Carousel {...carouselData as CarouselProps} client:visible />
     <CaseStudies {...caseStudiesData} />
     <!-- Props type required here to stop typescript error -->
     <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
-    <References {...referencesData} client:load />
+    <References {...referencesData} client:visible />
   </main>
 </BaseLayout>

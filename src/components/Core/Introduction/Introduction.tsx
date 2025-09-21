@@ -11,10 +11,12 @@ export const Introduction: FC<IntroductionProps> = (props) => {
     <div
       className={clsx(
         "container",
+        "px-2",
         "py-4",
+        "p-lg-4",
         "border",
-        "rounded",
-        styles["border-color"],
+        "rounded-4",
+        styles["introduction__container"],
       )}
     >
       <div className={clsx("row")}>
@@ -29,9 +31,9 @@ export const Introduction: FC<IntroductionProps> = (props) => {
       </div>
       <div className={clsx("row")}>
         <ul className={clsx("ps-5")}>
-          {props.chapters.map((chapter) => (
-            <li key={chapter.id}>
-              <a href={chapter.href}>{chapter.label}</a>
+          {props.sections.map((section) => (
+            <li key={section.id}>
+              <a href={`#${section.href}`}>{section.label}</a>
             </li>
           ))}
         </ul>

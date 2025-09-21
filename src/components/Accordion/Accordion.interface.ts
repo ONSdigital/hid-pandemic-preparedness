@@ -9,4 +9,6 @@ export interface AccordionItem {
 export interface AccordionProps {
   id: string;
   items: AccordionItem[];
+  expandAll?: boolean;
+  variant?: "primary";
 }

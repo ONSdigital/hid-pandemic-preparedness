@@ -8,7 +8,7 @@ const meta = {
   component: Introduction,
   title: "Organisms/Core/Introduction",
   argTypes: {
-    chapters: {
+    sections: {
       table: {
         disable: true,
       },
@@ -23,7 +23,7 @@ const introductionProps: IntroductionProps = {
   title: "Introduction",
   subTitle:
     "This section introduces mortality analysis, explaining what it is, why it matters, and who uses it. It outlines the scope, relevance, and practical applications of mortality data in health and policy work.",
-  chapters: [
+  sections: [
     {
       id: uuidv4(),
       label: "Definition and Importance of Mortality Analysis",

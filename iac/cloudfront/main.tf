@@ -33,10 +33,11 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
       }
     }
 
+    # Setting a default cache TTL of 30 seconds
     viewer_protocol_policy = "allow-all"
     min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+    default_ttl            = 30
+    max_ttl                = 30
 
     dynamic "function_association" {
       for_each = var.function_association
@@ -47,12 +48,15 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
     }
   }
 
-  price_class = "PriceClass_100"
+  price_class = var.price_class
 
   restrictions {
-    geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["GB"]
+    dynamic "geo_restriction" {
+      for_each = var.geo_restriction
+      content {
+        restriction_type = geo_restriction.value.restriction_type
+        locations        = geo_restriction.value.locations
+      }
     }
   }
 

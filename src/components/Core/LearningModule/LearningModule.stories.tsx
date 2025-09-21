@@ -1,16 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DOMPurify from "dompurify";
 
-import chaptersData from "../../../content/chapters.json";
-import learningModuleCardData from "../../../content/learningModuleCard.json";
-import markdownContent from "../../../content/learning-module-content.md?raw";
+import chaptersData from "@content/chapters.json";
+import learningModuleCardData from "@content/learningModuleCard.json";
+import markdownContent from "@content/learning-module-content.md?raw";
 import { LearningModule } from "./LearningModule";
 import type { LearningModuleProps } from "./LearningModule.interface";
 import { parseMarkdown } from "../../../helpers/parseMarkdown";
 import type { TagData } from "../../../types/TagData";
 
 const meta = {
-  argTypes: {},
+  argTypes: {
+    cardProps: { table: { disable: true } },
+    navProps: { table: { disable: true } },
+  },
   component: LearningModule,
   parameters: {
     layout: "centered",

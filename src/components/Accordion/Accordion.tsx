@@ -2,6 +2,7 @@ import type { FC } from "react";
 import clsx from "clsx";
 
 import type { AccordionProps } from "./Accordion.interface";
+import styles from "./Accordion.module.scss";
 
 export const Accordion: FC<AccordionProps> = (props) => {
   const accordionId = props.id;
@@ -12,7 +13,12 @@ export const Accordion: FC<AccordionProps> = (props) => {
         <div className={clsx("accordion-item", "border-bottom")} key={item.id}>
           <h2 className={clsx("accordion-header", "heading-s")}>
             <button
-              className={clsx("accordion-button", "collapsed")}
+              className={clsx(
+                "accordion-button",
+                "collapsed",
+                props.variant === "primary" &&
+                  styles["accordion-button-primary"],
+              )}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target={`#${item.id}`}
@@ -24,8 +30,11 @@ export const Accordion: FC<AccordionProps> = (props) => {
           </h2>
           <div
             id={item.id}
-            className={clsx("accordion-collapse", "collapse")}
-            data-bs-parent={`#${accordionId}`}
+            className={clsx(
+              "accordion-collapse",
+              "collapse",
+              props.expandAll && "show",
+            )}
           >
             <div className="accordion-body">{item.bodyContent}</div>
           </div>

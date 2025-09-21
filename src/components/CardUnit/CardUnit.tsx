@@ -33,7 +33,7 @@ export const CardUnit: FC<CardUnitProps> = (props) => {
         )}
       >
         {props.tags.map((item) => (
-          <Tag {...item} />
+          <Tag {...item} key={item.id} />
         ))}
       </div>
       <div

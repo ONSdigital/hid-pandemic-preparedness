@@ -1,0 +1,104 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Interfaces
+import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
+
+// Components
+import { Header } from "@components/Core/Header/Header";
+import { LearningResource } from "@components/Core/LearningResource/LearningResource";
+import { References } from "@components/References/References";
+
+// Helpers
+import { createLearningSections } from "@helpers/createLearningSections";
+import { sanitizeUrl } from "@helpers/sanitizeUrl";
+
+// Content
+import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
+import learningModuleData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/learningModule.json";
+import referencesData from "@content/Home/references.json";
+
+// Set content based on different pages
+export function getStaticPaths() {
+  return [
+    { params: { chapter: "1" } },
+    { params: { chapter: "2" } },
+    { params: { chapter: "3" } },
+    { params: { chapter: "4" } },
+  ];
+}
+
+const { chapter } = Astro.params;
+
+// Should do this dynamically based on the content structure really but it will do for now
+const totalChapters = 4;
+const currentChapter = parseInt(chapter, 10);
+const nextChapter = currentChapter + 1;
+
+const currentRoute: string = Astro.url.pathname;
+
+// Trim leading slash from current route so we can use to filter returned collections
+const filterUrl: string = currentRoute.replace(/^\//, "");
+// Remove trailing chapter number to form `parentUrl`
+const parentUrl: string = sanitizeUrl(currentRoute.replace(/\d+\/$/, ""));
+
+// Get introduction data
+const introductionData = await getCollection(
+  "learningResourcesIntroduction",
+  ({ id }) => {
+    return id === `${filterUrl}introduction`;
+  },
+);
+
+// Get markdown content
+const contentData = await getCollection(
+  "learningResourcesContent",
+  ({ id }) => {
+    return id === `${filterUrl}content`;
+  },
+);
+
+// Parse the content data and split up into sections
+const learningSections = await createLearningSections(
+  contentData[0].body ?? "",
+);
+
+// Create link data
+let linkData = {
+  label: "Next chapter",
+  href: sanitizeUrl(parentUrl, nextChapter.toString()),
+};
+
+if (currentChapter === totalChapters) {
+  // We have reached the end of the unit so display a different message and set link to the
+  // overview page
+  linkData = {
+    label: "End learning",
+    href: parentUrl,
+  };
+}
+
+// Load the data for the learning module per chapter
+const learningResourceData: LearningResourceProps = {
+  learningModuleNav: {
+    chapters: learningModuleData.navProps.chapters,
+    parentUrl: parentUrl,
+    activeChapterId: chapter,
+  },
+  introduction: introductionData[0].data,
+  learningResource: {
+    learningSections: learningSections,
+  },
+  link: linkData,
+};
+---
+
+<BaseLayout title={headerData.title}>
+  <main>
+    <Header {...headerData} />
+    <LearningResource {...learningResourceData} />
+    <References {...referencesData} />
+  </main>
+</BaseLayout>

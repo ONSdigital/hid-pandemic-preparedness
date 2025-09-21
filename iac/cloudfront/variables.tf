@@ -32,3 +32,23 @@ variable "function_association" {
   }))
   default = []
 }
+
+variable "geo_restriction" {
+  description = "The restrictions sub-resource takes another single sub-resource named geo_restriction."
+  type = list(object({
+    restriction_type = string       # Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
+    locations        = list(string) # ISO 3166-1-alpha-2 codes for which you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist). If the type is specified as `none` an empty array can be used.
+  }))
+  default = [
+    {
+      restriction_type = "whitelist"
+      locations        = ["GB"]
+    }
+  ]
+}
+
+variable "price_class" {
+  description = "Price class for this distribution. See https://aws.amazon.com/cloudfront/features/?icmpid=docs_console_unmapped#Global_Edge_Network"
+  type        = string
+  default     = "PriceClass_100"
+}
