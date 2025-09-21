@@ -9,10 +9,3 @@ export interface ListGroupChecksProps {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void; // eslint-disable-line no-unused-vars
   selectedIds?: string[];
 }
-
-export interface ListGroupLinksProps {
-  title?: string;
-  href?: string;
-  children?: NavItem[];
-  inverse?: boolean;
-}

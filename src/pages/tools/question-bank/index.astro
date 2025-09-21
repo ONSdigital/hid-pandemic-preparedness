@@ -1,0 +1,71 @@
+---
+import { getCollection } from "astro:content";
+import sanitizeHtml from "sanitize-html";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Interfaces
+import type { FilterMenuProps as FilterableQuestionsProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
+import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
+
+// Components
+import { Header } from "@components/Core/Header/Header";
+import { FilterMenu as FilterableQuestions } from "@components/QuestionBank/FilterMenu/FilterMenu";
+import { References } from "@components/References/References";
+
+// Helpers
+import { parseMarkdown } from "@helpers/parseMarkdown";
+
+// Content
+import headerData from "@content/tools/question-bank/header.json";
+import questionBlocksData from "@content/tools/question-bank/questionBlocks.json";
+import referencesData from "@content/Home/references.json";
+
+const currentRoute: string = Astro.url.pathname;
+
+// Trim leading slash from current route so we can use to filter returned collections
+const filterUrl: string = currentRoute.replace(/^\//, "");
+
+// Get explainer markdown
+const explainerData = await getCollection("toolsExplainer", ({ id }) => {
+  return id === `${filterUrl}explainer`;
+});
+
+console.log(explainerData);
+
+// Get content markdown
+const contentData = await getCollection("toolsContent", ({ id }) => {
+  return id === `${filterUrl}content`;
+});
+
+console.log(contentData);
+
+const filterMenuData = {
+  title: "Theme",
+  checkItems: [
+    { label: "Fucking", id: "1" },
+    { label: "Cunts", id: "2" },
+  ],
+  inverse: false,
+};
+
+const filterableQuestionsData: FilterableQuestionsProps = {
+  explainer: {
+    htmlContent: explainerData[0].rendered?.html ?? "",
+  },
+  filterMenu: filterMenuData,
+  questionBlocks: questionBlocksData as QuestionBlockProps[],
+};
+
+//   explainer: ExplainerProps;
+//   filterMenu: ListGroupChecksProps;
+//   questionBlocks: QuestionBlockProps[];
+---
+
+<BaseLayout title={headerData.title}>
+  <main>
+    <Header {...headerData} />
+    <FilterableQuestions {...filterableQuestionsData} client:visible />
+    <References {...referencesData} client:visible />
+  </main>
+</BaseLayout>
