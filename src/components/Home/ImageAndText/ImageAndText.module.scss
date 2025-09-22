@@ -8,6 +8,7 @@
   background: $color-brand-primary-200;
   overflow: hidden;
   padding-bottom: 2rem;
+  padding-top: 2rem;
   position: relative;
 
   &::before {
@@ -36,6 +37,6 @@
 // Adjust padding to show background image above title
 .title-padding {
   @include media-breakpoint-down(md) {
-    padding-top: 20rem !important;
+    padding-top: 18rem !important;
   }
 }
