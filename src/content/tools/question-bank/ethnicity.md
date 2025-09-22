@@ -1,21 +1,20 @@
 # Ethnicity
 
 **1. What is your ethnic group?**
-
 OR for T&T and IAIS: **What ethnic group do you belong to?**
 OR for HAS only: **What is your ethnic group? Choose one option that best describes your ethnic group of background**
 
 - White - English, Welsh, Scottish
 - Northern Irish or British
 - White - Irish
-- White - Gypsy or Irish Traveller
+- White - Gypsy or Iris Traveller
 - White - Any other white background, specify
 
 **2. What is your ethnic group?**
 
 - White (Includes any White background)
 
-**3. What is your ethnic group? I will read out the options. Please choose one option that best describes your ethnic group or background.**
+**3. Wat is your ethnic group? I will read out the options. Please choose one option that best describes your ethnic group or background.**
 
 - White
 - Mixed / Multiple ethnic groups
@@ -24,26 +23,25 @@ OR for HAS only: **What is your ethnic group? Choose one option that best descri
 - Chinese
 - Arab
 - Other ethnic group
-- Prefer not to say
 
-**4. Which one best describes your White ethnic group or background?**
+**4. Which one best describes your White ethnic group of background?**
 OR for LFS only: **And which one of these best describes your ethnic group or background?**
 
-- English* / Welsh* / Scottish* / Northern Irish* / British
+- English* / Welsh* / Scottish* / Norther Irish* / British
 - Irish
-- Gypsy or Irish Traveller
+- Grypsy or Irish Traveller
 - Any other White background
 
-**5. Which one best describes your Mixed or Multiple ethnic group or background?**
+**5. Which one best describes your Mixed or Multiple ethnic group of background?**
 OR for LFS only: **And which one of these best describes your ethnic group or background?**
 
 - White and Black Caribbean
 - White and Black African
 - White and Asian
-- Any other mixed / multiple ethnic background
+- Any other miuxed / multiple ethnic background
 
-**6. And which one of these best describes your ethnic group or background?**
-OR for LMS only: **Which one best describes your Asian or Asian British ethnic group or background?**
+**6. And which one of these best describes your ethnic group of background?**
+OR for LFS only: **Which one best describes your Asian or Asian Britisgh ethnic group or background?**
 
 - Indian
 - Pakistani
@@ -56,9 +54,9 @@ OR for LMS only: **Which one best describes your Black, African, Caribbean or Bl
 
 - African
 - Caribbean
-- Any other Black / African / Caribbean background
+- Any other Black/ African / Caribbean background
 
-**8. Which one best describes your ethnic group or background?**
+**8. Which one best describes your ethnic group of background?**
 
 - Arab
 - Any other background (please specify)
@@ -111,4 +109,4 @@ OR for LMS and OPN: **What do you consider your national identity to be? Please 
 - Northern Irish
 - British
 - Irish
-- View more
+- [View More](/)
