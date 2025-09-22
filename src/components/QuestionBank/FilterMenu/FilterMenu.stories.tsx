@@ -14,14 +14,11 @@ import ethnicityQ2MdContent from "@content/QuestionBank/questions/ethnicity/2.md
 import travelQ1MdContent from "@content/QuestionBank/questions/travel/1.md?raw";
 import travelQ2MdContent from "@content/QuestionBank/questions/travel/2.md?raw";
 
-import explainerMdContent from "@content/QuestionBank/explainer.md?raw";
-
-import { parseMarkdown } from "@src/helpers/parseMarkdown";
 import { FilterMenu } from "@components/QuestionBank/FilterMenu/FilterMenu";
 import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
-import type { TagData } from "@src/types/TagData";
-import type { ExplainerProps } from "../Explainer/Explainer.interface";
+import { parseMarkdown } from "@helpers/parseMarkdown";
+import type { TagData } from "@localTypes/TagData";
 
 const meta = {
   component: FilterMenu,
@@ -30,7 +27,6 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    explainer: { table: { disable: true } },
     filterMenu: { table: { disable: true } },
     questionBlocks: { table: { disable: true } },
   },
@@ -128,16 +124,8 @@ const questionBlocksData: QuestionBlockProps[] = [
   travelQuestionBlock,
 ];
 
-// Construct props for Explainer component
-const htmlContent = await parseMarkdown(explainerMdContent);
-
-const explainerData: ExplainerProps = {
-  htmlContent: DOMPurify.sanitize(htmlContent),
-};
-
 // Bring all the props together for FilterMenu component
 const filterMenuProps: FilterMenuProps = {
-  explainer: explainerData,
   filterMenu: filterMenuData,
   questionBlocks: questionBlocksData,
 };

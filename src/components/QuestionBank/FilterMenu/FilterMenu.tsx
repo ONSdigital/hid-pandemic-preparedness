@@ -1,7 +1,6 @@
 import { useState, type ChangeEvent, type FC } from "react";
 import clsx from "clsx";
 
-import { Explainer } from "@components/QuestionBank/Explainer/Explainer";
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
 import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
 import { QuestionBlock } from "@components/QuestionBank/QuestionBlock/QuestionBlock";
@@ -37,11 +36,6 @@ export const FilterMenu: FC<FilterMenuProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["filter-menu__container"])}>
       <div className={clsx("container-lg", "py-4", "p-lg-5")}>
-        <div className={clsx("row")}>
-          <div className={clsx("col")}>
-            <Explainer {...props.explainer} />
-          </div>
-        </div>
         <div className={clsx("row", "gap-lg-4", "my-lg-4")}>
           <div className={clsx("col", "col-md-auto", "mb-4", "mb-lg-0")}>
             <ListGroupChecks

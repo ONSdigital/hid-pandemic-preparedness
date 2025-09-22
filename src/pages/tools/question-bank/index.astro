@@ -5,11 +5,13 @@ import _ from "lodash";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
+import type { ExplainerProps } from "@components/QuestionBank/Explainer/Explainer.interface";
 import type { FilterMenuProps as FilterableQuestionsProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
 import type { TagData } from "@localTypes/TagData";
 
 // Components
+import { Explainer } from "@components/QuestionBank/Explainer/Explainer";
 import { Header } from "@components/Core/Header/Header";
 import { FilterMenu as FilterableQuestions } from "@components/QuestionBank/FilterMenu/FilterMenu";
 import { References } from "@components/References/References";
@@ -34,7 +36,7 @@ const currentRoute: string = Astro.url.pathname;
 const filterUrl: string = currentRoute.replace(/^\//, "");
 
 // Get explainer markdown
-const explainerData = await getCollection("toolsExplainer", ({ id }) => {
+const explainerCollection = await getCollection("toolsExplainer", ({ id }) => {
   return id === `${filterUrl}explainer`;
 });
 
@@ -75,10 +77,12 @@ qbd.push(questionBlock3);
 qbd.push(questionBlock4);
 qbd.push(questionBlock5);
 
+// Build the explainerData
+const explainerData: ExplainerProps = {
+  htmlContent: explainerCollection[0].rendered?.html ?? "",
+};
+
 const filterableQuestionsData: FilterableQuestionsProps = {
-  explainer: {
-    htmlContent: explainerData[0].rendered?.html ?? "",
-  },
   filterMenu: filterMenuData,
   questionBlocks: qbd as QuestionBlockProps[],
 };
@@ -87,6 +91,7 @@ const filterableQuestionsData: FilterableQuestionsProps = {
 <BaseLayout title={headerData.title}>
   <main>
     <Header {...headerData} />
+    <Explainer {...explainerData} />
     <FilterableQuestions {...filterableQuestionsData} client:visible />
     <References {...referencesData} client:visible />
   </main>
