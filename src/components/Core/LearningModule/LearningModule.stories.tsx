@@ -36,7 +36,8 @@ const learningModuleProps: LearningModuleProps = {
   },
   navProps: {
     chapters: chaptersData,
-    activeId: "chapter1",
+    activeChapterId: "chapter1",
+    parentUrl: "https://ons.gov.uk/",
   },
 };
 
