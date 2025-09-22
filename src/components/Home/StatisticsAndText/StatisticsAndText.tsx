@@ -10,7 +10,14 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["statistics-and-text-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
-        <div className={clsx("row", "row-cols-1", "row-cols-lg-2")}>
+        <div
+          className={clsx(
+            "row",
+            "row-cols-1",
+            "row-cols-lg-2",
+            "justify-content-center",
+          )}
+        >
           <div
             className={clsx(
               "col",
@@ -58,7 +65,7 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
               {props.statisticCards.map((card) => (
                 <div
                   key={card.id}
-                  className={clsx("col", "d-flex", "justify-content")}
+                  className={clsx("col", "d-flex", "justify-content-center")}
                 >
                   <CardStat {...card} />
                 </div>
