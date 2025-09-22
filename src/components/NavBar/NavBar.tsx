@@ -150,7 +150,10 @@ export const NavBar: FC<NavBarProps> = ({
   return (
     <nav className={styles.navbar}>
       {/* Main Navigation Bar */}
-      <div className={styles["navbar-container"]} ref={navRef}>
+      <div
+        className={clsx("container-lg", styles["navbar-container"])}
+        ref={navRef}
+      >
         <div className={styles["navbar-content"]}>
           {/* Logo */}
           <div className={styles["navbar-logo"]}>

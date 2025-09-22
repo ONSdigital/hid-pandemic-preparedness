@@ -48,7 +48,7 @@ export const Footer: FC<FooterProps> = (props) => {
     <footer
       className={clsx("w-100", styles["footer-bg"], "text-light", "py-4")}
     >
-      <div className={clsx("container-xl")}>
+      <div className={clsx("container-lg")}>
         <div className={clsx("row", "row-cols-1", "row-cols-lg-4")}>
           {/* Columns for viewports sm and up first three */}
           {props.columns.slice(0, 3).map((col) => (
