@@ -1,10 +1,11 @@
 import { RiArrowDownLine } from "@remixicon/react";
-import type { FC } from "react";
 import clsx from "clsx";
+import type { FC } from "react";
 
-import type { NavItem } from "../../../types/NavItem";
-import { MegaMenu } from "../../MegaMenu/MegaMenu";
-import SearchBar from "../../SearchBar/SearchBar";
+import { MegaMenu } from "@components/MegaMenu/MegaMenu";
+import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
+import type { NavItem } from "@localTypes/NavItem";
+
 import styles from "../NavBar.module.scss";
 
 interface MobileMenuProps {

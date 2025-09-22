@@ -3,8 +3,9 @@ import type { FC, FormEvent } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
 import type { SearchBarProps } from "./SearchBar.interface";
+import styles from "./SearchBar.module.scss";
 
-const SearchBar: FC<SearchBarProps> = (props) => {
+export const SearchBar: FC<SearchBarProps> = (props) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -18,7 +19,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
       <div className={clsx("input-group", "mb-3")}>
         <input
           type="search"
-          className={clsx("form-control")}
+          className={clsx("form-control", styles["input-sizing"])}
           placeholder={props.placeholder}
           aria-label={props.placeholder}
           aria-describedby="search-button"
@@ -34,5 +35,3 @@ const SearchBar: FC<SearchBarProps> = (props) => {
     </form>
   );
 };
-
-export default SearchBar;

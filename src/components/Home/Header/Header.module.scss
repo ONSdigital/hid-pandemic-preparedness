@@ -9,23 +9,25 @@
   overflow: hidden;
   position: relative;
 
-  // Background image aligned right
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    right: 0; // align right
-    width: 40%; // adjust width as needed
+    left: calc(
+      15px + 55%
+    ); // offset by container padding + 55% width of container
+    width: calc(
+      100% - (15px + 55%)
+    ); // fill the rest of the container width to the right
     height: 100%;
-    // Image
+
     background-image: url("/images/home-header-world-of-data.png");
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: left center; // align image left edge to left of pseudo-element
     background-size: cover;
     z-index: 0;
   }
 
-  // Hide image on small screens
   @include media-breakpoint-down(md) {
     &::before {
       display: none;
