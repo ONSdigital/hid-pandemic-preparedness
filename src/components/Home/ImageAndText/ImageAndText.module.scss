@@ -7,6 +7,31 @@
 .image-and-text-bg {
   background: $color-brand-primary-200;
   overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0; // offset by container padding + 55% width of container
+    width: calc(
+      100% - (15px + 65%)
+    ); // fill the rest of the container width to the right
+    height: 100%;
+
+    background-image: url("/images/two-professionals-discussing-statistics.png");
+    background-repeat: no-repeat;
+    background-position: left center; // align image left edge to left of pseudo-element
+    background-size: cover;
+    z-index: 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    &::before {
+      height: 20rem;
+      width: 100%;
+    }
+  }
 }
 
 .image-and-text-img {
