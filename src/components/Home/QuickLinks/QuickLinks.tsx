@@ -8,26 +8,28 @@ import styles from "./QuickLinks.module.scss";
 
 export const QuickLinks: FC<QuickLinksProps> = (props) => {
   const itemsPerList = 2;
+  const viewAllString: string = "View all";
+
   return (
     <div className={clsx("w-100", styles["quick-links-bg"])}>
       <div className={clsx("container-lg", "text-light", "py-4")}>
         <div className={clsx("row")}>
-          <h4 className={clsx("heading-s", "pb-4")}>{props.title}</h4>
+          <h4 className={clsx("heading-s")}>{props.title}</h4>
         </div>
-        <div className={clsx("row")}>
+        <div className={clsx("row", "row-cols-1", "row-cols-lg-5")}>
           {props.navItems.map((navItem) => (
             <div
-              className={clsx("col-12", "col-md", "d-flex", "flex-column")}
+              className={clsx("col", "py-3", "d-flex", "flex-column")}
               key={navItem.id}
             >
-              <p className={clsx("body-regular", "fw-bold")}>{navItem.label}</p>
+              <p className={clsx("fw-bold")}>{navItem.label}</p>
               <div
                 className={clsx(
                   "d-none",
                   "d-md-block",
                   "list-group",
                   "list-group-flush",
-                  "py-4",
+                  "pb-4",
                 )}
               >
                 {navItem.children?.slice(0, itemsPerList).map((link) => (
@@ -47,9 +49,12 @@ export const QuickLinks: FC<QuickLinksProps> = (props) => {
                   </a>
                 ))}
               </div>
-              <div className={clsx("mt-2", "mb-3", "mt-auto")}>
-                <Link href={"/"} label={"View all"} textInverse={true} />
-              </div>
+              <Link
+                href={"/"}
+                label={viewAllString}
+                textInverse={true}
+                className={clsx("mt-auto", styles["link-color"])}
+              />
             </div>
           ))}
         </div>
