@@ -35,7 +35,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ReferencesStory = {
-  name: "References",
+export const WithReferencesStory = {
+  name: "Rendered with reference data",
+  args: referencesOptions.References,
+} satisfies Story;
+
+export const WithoutReferencesStory = {
+  name: "Rendered without reference data",
   args: referencesOptions.None,
 } satisfies Story;
