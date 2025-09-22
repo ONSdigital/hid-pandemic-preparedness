@@ -15,7 +15,7 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
             "row",
             "row-cols-1",
             "row-cols-lg-2",
-            "justify-content-center",
+            "justify-content-lg-between",
           )}
         >
           <div
