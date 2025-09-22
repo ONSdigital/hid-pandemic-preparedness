@@ -1,9 +1,7 @@
-import type { ImageData } from "../../../types/ImageData";
-import type { LinkData } from "../../../types/LinkData";
+import type { LinkData } from "@localTypes/LinkData";
 
 export interface ImageAndTextProps {
   title: string;
   subTitle: string;
-  image: ImageData;
   link: LinkData;
 }

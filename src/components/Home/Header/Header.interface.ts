@@ -3,7 +3,6 @@ import type { BreadcrumbProps } from "../../Molecules/Breadcrumb/Breadcrumb.inte
 export interface HeaderProps {
   breadcrumbs: BreadcrumbProps;
   title: string;
-  subTitleTop: string;
-  subTitleBtm: string;
+  subTitle: string;
   searchPlaceholderText: string;
 }
