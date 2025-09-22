@@ -1,7 +1,6 @@
 # Ethnicity
 
 **1. What is your ethnic group?**
-
 OR for T&T and IAIS: **What ethnic group do you belong to?**
 OR for HAS only: **What is your ethnic group? Choose one option that best describes your ethnic group of background**
 
@@ -24,7 +23,6 @@ OR for HAS only: **What is your ethnic group? Choose one option that best descri
 - Chinese
 - Arab
 - Other ethnic group
-- Prefer not to say
 
 **4. Which one best describes your White ethnic group or background?**
 OR for LFS only: **And which one of these best describes your ethnic group or background?**
@@ -34,7 +32,7 @@ OR for LFS only: **And which one of these best describes your ethnic group or ba
 - Gypsy or Irish Traveller
 - Any other White background
 
-**5. Which one best describes your Mixed or Multiple ethnic group or background?**
+**5. Which one best describes your Mixed or Multiple ethnic group of background?**
 OR for LFS only: **And which one of these best describes your ethnic group or background?**
 
 - White and Black Caribbean
@@ -42,8 +40,8 @@ OR for LFS only: **And which one of these best describes your ethnic group or ba
 - White and Asian
 - Any other mixed / multiple ethnic background
 
-**6. And which one of these best describes your ethnic group or background?**
-OR for LMS only: **Which one best describes your Asian or Asian British ethnic group or background?**
+**6. And which one of these best describes your ethnic group of background?**
+OR for LFS only: **Which one best describes your Asian or Asian British ethnic group or background?**
 
 - Indian
 - Pakistani
@@ -56,7 +54,7 @@ OR for LMS only: **Which one best describes your Black, African, Caribbean or Bl
 
 - African
 - Caribbean
-- Any other Black / African / Caribbean background
+- Any other Black/ African / Caribbean background
 
 **8. Which one best describes your ethnic group or background?**
 
@@ -111,4 +109,4 @@ OR for LMS and OPN: **What do you consider your national identity to be? Please 
 - Northern Irish
 - British
 - Irish
-- View more
+- [View More](/)
