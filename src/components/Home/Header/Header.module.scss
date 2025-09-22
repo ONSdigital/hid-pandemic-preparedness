@@ -6,26 +6,28 @@
 
 .header-bg {
   background: $gradient-brand-primary-1;
-  overflow: hidden;
+  overflow: visible; // allow overflow to the right
   position: relative;
 
-  // Background image aligned right
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    right: 0; // align right
-    width: 40%; // adjust width as needed
+    left: calc(
+      15px + 52%
+    ); // offset by container padding + 50% width of container
+    width: calc(
+      100% - (15px + 52%)
+    ); // fill the rest of the container width to the right
     height: 100%;
-    // Image
+
     background-image: url("/images/home-header-world-of-data.png");
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: left center; // align image left edge to left of pseudo-element
     background-size: cover;
     z-index: 0;
   }
 
-  // Hide image on small screens
   @include media-breakpoint-down(md) {
     &::before {
       display: none;
