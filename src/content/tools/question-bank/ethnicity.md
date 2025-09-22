@@ -7,14 +7,14 @@ OR for HAS only: **What is your ethnic group? Choose one option that best descri
 - White - English, Welsh, Scottish
 - Northern Irish or British
 - White - Irish
-- White - Gypsy or Iris Traveller
+- White - Gypsy or Irish Traveller
 - White - Any other white background, specify
 
 **2. What is your ethnic group?**
 
 - White (Includes any White background)
 
-**3. Wat is your ethnic group? I will read out the options. Please choose one option that best describes your ethnic group or background.**
+**3. What is your ethnic group? I will read out the options. Please choose one option that best describes your ethnic group or background.**
 
 - White
 - Mixed / Multiple ethnic groups
@@ -24,12 +24,12 @@ OR for HAS only: **What is your ethnic group? Choose one option that best descri
 - Arab
 - Other ethnic group
 
-**4. Which one best describes your White ethnic group of background?**
+**4. Which one best describes your White ethnic group or background?**
 OR for LFS only: **And which one of these best describes your ethnic group or background?**
 
-- English* / Welsh* / Scottish* / Norther Irish* / British
+- English* / Welsh* / Scottish* / Northern Irish* / British
 - Irish
-- Grypsy or Irish Traveller
+- Gypsy or Irish Traveller
 - Any other White background
 
 **5. Which one best describes your Mixed or Multiple ethnic group of background?**
@@ -38,10 +38,10 @@ OR for LFS only: **And which one of these best describes your ethnic group or ba
 - White and Black Caribbean
 - White and Black African
 - White and Asian
-- Any other miuxed / multiple ethnic background
+- Any other mixed / multiple ethnic background
 
 **6. And which one of these best describes your ethnic group of background?**
-OR for LFS only: **Which one best describes your Asian or Asian Britisgh ethnic group or background?**
+OR for LFS only: **Which one best describes your Asian or Asian British ethnic group or background?**
 
 - Indian
 - Pakistani
@@ -56,7 +56,7 @@ OR for LMS only: **Which one best describes your Black, African, Caribbean or Bl
 - Caribbean
 - Any other Black/ African / Caribbean background
 
-**8. Which one best describes your ethnic group of background?**
+**8. Which one best describes your ethnic group or background?**
 
 - Arab
 - Any other background (please specify)

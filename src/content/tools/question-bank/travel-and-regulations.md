@@ -37,7 +37,7 @@
 - The news
 - Family or friends
 - Social media or internet search
-- [View More](https://df9xuldq2g6ny.cloudfront.net/)
+- [View More](/)
 
 **6. Overall, how easy or difficult did you find it to follow Coronavirus (COVID-19) regulations during your stay overseas?**
 
@@ -64,7 +64,7 @@
 - Quarantining for 10 days after arriving home
 - Social distancing at your destination
 - Providing details of your accommodation, dates of travel and home address
-- [View More](https://df9xuldq2g6ny.cloudfront.net/)
+- [View More](/)
 
 **9. What country did you travel from?**
 
@@ -77,7 +77,7 @@
 - Some other people
 - Hardly anyone
 - No one
-- [View More](https://df9xuldq2g6ny.cloudfront.net/)
+- [View More](/)
 
 **11. During your stay, how satisfied were you with any measures implemented in the UK to reduce spreading the coronavirus infection?**
 
