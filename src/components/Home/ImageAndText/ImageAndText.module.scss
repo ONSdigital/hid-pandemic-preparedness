@@ -7,22 +7,21 @@
 .image-and-text-bg {
   background: $color-brand-primary-200;
   overflow: hidden;
+  padding-bottom: 2rem;
   position: relative;
 
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0; // offset by container padding + 55% width of container
-    width: calc(
-      100% - (15px + 65%)
-    ); // fill the rest of the container width to the right
+    left: 0;
+    width: 50%;
     height: 100%;
 
     background-image: url("/images/two-professionals-discussing-statistics.png");
     background-repeat: no-repeat;
     background-position: left center; // align image left edge to left of pseudo-element
-    background-size: cover;
+    background-size: contain;
     z-index: 0;
   }
 
@@ -34,15 +33,9 @@
   }
 }
 
-.image-and-text-img {
-  margin-bottom: -1rem;
-  margin-left: -6rem;
-  margin-right: 2rem;
-  margin-top: -2rem;
-
-  // Adjust margins on small screens to fit image
+// Adjust padding to show background image above title
+.title-padding {
   @include media-breakpoint-down(md) {
-    margin-bottom: 0rem;
-    margin-left: -1rem;
+    padding-top: 20rem !important;
   }
 }

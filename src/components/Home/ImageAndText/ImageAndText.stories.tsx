@@ -7,12 +7,10 @@ import type { ImageAndTextProps } from "./ImageAndText.interface";
 const meta = {
   component: ImageAndText,
   title: "Organisms/Home/ImageAndText",
+  parameters: {
+    layout: "fullscreen",
+  },
   argTypes: {
-    image: {
-      table: {
-        disable: true,
-      },
-    },
     link: {
       table: {
         disable: true,
