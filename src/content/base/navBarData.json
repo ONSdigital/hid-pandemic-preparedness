@@ -3,7 +3,7 @@
     {
       "id": "about",
       "label": "About",
-      "href": "/about"
+      "href": "#"
     },
     {
       "id": "learning-resources",
@@ -16,22 +16,22 @@
             {
               "id": "sampling",
               "label": "Sampling",
-              "href": "/learning-resources/data-collection/sampling"
+              "href": "#"
             },
             {
               "id": "survey-design",
               "label": "Survey design",
-              "href": "/learning-resources/data-collection/survey-design"
+              "href": "#"
             },
             {
               "id": "data-collection-mode",
               "label": "Data collection mode",
-              "href": "/learning-resources/data-collection/mode"
+              "href": "#"
             },
             {
               "id": "administrative-data",
               "label": "Administrative data",
-              "href": "/learning-resources/data-collection/administrative-data"
+              "href": "#"
             }
           ]
         },
@@ -42,12 +42,12 @@
             {
               "id": "data-preparation",
               "label": "Data preparation",
-              "href": "/learning-resources/data-analysis/preparation"
+              "href": "#"
             },
             {
               "id": "reproducible-analytical-pipelines",
               "label": "Reproducible analytical pipelines",
-              "href": "/learning-resources/data-analysis/reproducible-pipelines"
+              "href": "#"
             },
             {
               "id": "epidemiological-analysis",
@@ -63,12 +63,12 @@
             {
               "id": "implementation-legislation",
               "label": "Implementation legislation",
-              "href": "/learning-resources/data-governance/legislation"
+              "href": "#"
             },
             {
               "id": "data-protection-privacy",
               "label": "Data protection and user privacy",
-              "href": "/learning-resources/data-governance/protection-privacy"
+              "href": "#"
             }
           ]
         },
@@ -79,12 +79,12 @@
             {
               "id": "data-visualisation",
               "label": "Data visualisation",
-              "href": "/learning-resources/outputs-reporting/visualisation"
+              "href": "#"
             },
             {
               "id": "written-verbal-communication",
               "label": "Written and verbal communication",
-              "href": "/learning-resources/outputs-reporting/communication"
+              "href": "#"
             }
           ]
         },
@@ -95,17 +95,17 @@
             {
               "id": "stakeholder-mapping",
               "label": "Stakeholder mapping",
-              "href": "/learning-resources/stakeholder-engagement/mapping"
+              "href": "#"
             },
             {
               "id": "leadership",
               "label": "Leadership",
-              "href": "/learning-resources/stakeholder-engagement/leadership"
+              "href": "#"
             },
             {
               "id": "public-acceptability",
               "label": "Public acceptability",
-              "href": "/learning-resources/stakeholder-engagement/public-acceptability"
+              "href": "#"
             }
           ]
         }
@@ -114,7 +114,7 @@
     {
       "id": "case-studies",
       "label": "Case studies",
-      "href": "/case-studies"
+      "href": "#"
     },
     {
       "id": "tools",
@@ -224,7 +224,7 @@
     {
       "id": "contact",
       "label": "Contact",
-      "href": "/contact"
+      "href": "#"
     }
   ],
   "languages": [
