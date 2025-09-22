@@ -90,7 +90,7 @@ const filterMenuData = {
 
 // Construct props for QuestionBlock component
 const ageQuestionBlock = createQuestionBlock(
-  themeId1,
+  uuidv4(),
   "Age",
   [{ id: themeId1, title: themeLabel1, type: "secondary" }],
   [
@@ -103,15 +103,14 @@ const ageQuestionBlock = createQuestionBlock(
 );
 
 const ethnicityQuestionBlock = createQuestionBlock(
-  themeId1,
+  uuidv4(),
   "Ethnicity",
-
   [{ id: themeId1, title: themeLabel1, type: "secondary" }],
   [ethnicityQ1HtmlContent, ethnicityQ2HtmlContent],
 );
 
 const travelQuestionBlock = createQuestionBlock(
-  themeId2,
+  uuidv4(),
   "Frequency and purpose of travel (business, leisure, family)",
   [
     {

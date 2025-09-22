@@ -1,11 +1,12 @@
-import clsx from "clsx";
 import { useState, type ChangeEvent, type FC } from "react";
+import clsx from "clsx";
 
-import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
+import { Explainer } from "@components/QuestionBank/Explainer/Explainer";
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
+import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
 import { QuestionBlock } from "@components/QuestionBank/QuestionBlock/QuestionBlock";
+
 import styles from "./FilterMenu.module.scss";
-import { Explainer } from "../Explainer/Explainer";
 
 export const FilterMenu: FC<FilterMenuProps> = (props) => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -28,7 +29,9 @@ export const FilterMenu: FC<FilterMenuProps> = (props) => {
   const hasSelectedIds = selectedIds.length > 0;
 
   const filteredQuestionBlocks = hasSelectedIds
-    ? props.questionBlocks.filter((block) => selectedIds.includes(block.id))
+    ? props.questionBlocks.filter((block) =>
+        block.tags.some((tag) => selectedIds.includes(tag.id)),
+      )
     : props.questionBlocks;
 
   return (
