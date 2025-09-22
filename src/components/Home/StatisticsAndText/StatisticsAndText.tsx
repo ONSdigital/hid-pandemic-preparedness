@@ -2,8 +2,8 @@ import type { FC } from "react";
 import clsx from "clsx";
 
 import type { StatisticsAndTextProps } from "./StatisticsAndText.interface";
-import { CardStat } from "../../CardStat/CardStat";
-import { Link } from "../../Link/Link";
+import { CardStat } from "@components/CardStat/CardStat";
+import { Link } from "@components/Link/Link";
 import styles from "./StatisticsAndText.module.scss";
 
 export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
