@@ -6,7 +6,7 @@
 
 .header-bg {
   background: $gradient-brand-primary-1;
-  overflow: visible; // allow overflow to the right
+  overflow: hidden;
   position: relative;
 
   &::before {
@@ -14,10 +14,10 @@
     position: absolute;
     top: 0;
     left: calc(
-      15px + 52%
-    ); // offset by container padding + 50% width of container
+      15px + 55%
+    ); // offset by container padding + 55% width of container
     width: calc(
-      100% - (15px + 52%)
+      100% - (15px + 55%)
     ); // fill the rest of the container width to the right
     height: 100%;
 
