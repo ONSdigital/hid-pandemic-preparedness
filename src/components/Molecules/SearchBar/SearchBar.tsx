@@ -4,7 +4,7 @@ import { RiSearchLine } from "@remixicon/react";
 
 import type { SearchBarProps } from "./SearchBar.interface";
 
-const SearchBar: FC<SearchBarProps> = (props) => {
+export const SearchBar: FC<SearchBarProps> = (props) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -34,5 +34,3 @@ const SearchBar: FC<SearchBarProps> = (props) => {
     </form>
   );
 };
-
-export default SearchBar;
