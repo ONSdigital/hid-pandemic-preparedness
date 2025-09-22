@@ -19,7 +19,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       <div className={clsx("input-group", "mb-3")}>
         <input
           type="search"
-          className={clsx("form-control", styles["input-height"])}
+          className={clsx("form-control", styles["input-sizing"])}
           placeholder={props.placeholder}
           aria-label={props.placeholder}
           aria-describedby="search-button"
