@@ -7,7 +7,8 @@
 // Sets width based on viewport size and background dots
 .card-stat {
   $dot-color: $color-brand-primary-200;
-  $encoded-dot-color: unquote(str-replace(#{$dot-color}, "#", "%23"));
+  $dot-tint-color: mix(white, $dot-color, 70%);
+  $encoded-dot-color: unquote(str-replace(#{$dot-tint-color}, "#", "%23"));
 
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='#{$encoded-dot-color}'><circle cx='1' cy='1' r='1'/></svg>");
   background-origin: content-box;
@@ -22,5 +23,18 @@
 }
 
 .card-stat-ref-link {
-  color: $blue;
+  color: $color-blue;
+}
+
+.short-border-bottom {
+  position: relative;
+
+  &::after {
+    bottom: 0;
+    border-bottom: 1px solid black;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 10ch;
+  }
 }

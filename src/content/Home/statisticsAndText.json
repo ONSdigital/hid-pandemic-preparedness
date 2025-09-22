@@ -24,7 +24,7 @@
       "image": {
         "id": "stat-card-image-1",
         "altText": "Stakced column chart showing deaths from all respiratory disease 1980-2021.",
-        "srcPath": "./images/plots/stacked-bar-chart.png"
+        "srcPath": "./images/plots/stacked-bar-chart.svg"
       }
     },
     {
@@ -38,7 +38,7 @@
       "image": {
         "id": "stat-card-image-2",
         "altText": "Bar chart showing deaths from COVID-19 as of August 2025.",
-        "srcPath": "./images/plots/line-chart.png"
+        "srcPath": "./images/plots/line-chart.svg"
       }
     },
     {
@@ -52,7 +52,7 @@
       "image": {
         "id": "stat-card-image-3",
         "altText": "Line chart showing people pushed into extreme poverty due to COVID-19.",
-        "srcPath": "./images/plots/histogram.png"
+        "srcPath": "./images/plots/histogram.svg"
       }
     },
     {
@@ -66,7 +66,7 @@
       "image": {
         "id": "stat-card-image-4",
         "altText": "Bubble plot showing pathogens identified as diseases with pandemic potential.",
-        "srcPath": "./images/plots/bubble-plot.png"
+        "srcPath": "./images/plots/bubble-plot.svg"
       }
     }
   ]

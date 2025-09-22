@@ -43,7 +43,7 @@ const cardStatProps: CardStatProps = {
   image: {
     id: uuidv4(),
     altText: "Bar chart showing deaths from all respiritory disease.",
-    srcPath: "./example-images/bubble-plot.png",
+    srcPath: "./images/plots/stacked-bar-chart.svg",
   },
 };
 

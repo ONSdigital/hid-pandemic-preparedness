@@ -9,17 +9,25 @@ export const CardStat: FC<CardStatProps> = (props) => {
     <div
       className={clsx(
         "card",
-        styles["card-stat"],
         "border",
         "border-0",
+        "p-4",
+        "rounded-4",
         "shadow",
-        "py-4",
+        styles["card-stat"],
       )}
     >
       <div className={clsx("card-body")}>
         <h3 className={clsx("heading-m", "text-primary")}>{props.title}</h3>
         <p
-          className={clsx("card-text", "border-black", "border-bottom", "py-4")}
+          className={clsx(
+            "card-text",
+            "border-black",
+            "mb-4",
+            "pb-3",
+            "pt-4",
+            styles["short-border-bottom"],
+          )}
         >
           {props.subTitle}{" "}
           <a
