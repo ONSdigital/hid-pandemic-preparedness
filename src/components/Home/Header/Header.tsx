@@ -19,25 +19,23 @@ export const Header: FC<HeaderProps> = (props) => {
         )}
       >
         <div className={clsx("row")}>
-          <div className={clsx("col-md-7")}>
+          <div className={clsx("col-md-6")}>
             <Breadcrumb {...props.breadcrumbs} />
           </div>
         </div>
         <div className={clsx("row")}>
-          <div className={clsx("col-md-7")}>
+          <div className={clsx("col-md-6")}>
             <h1 className={clsx("heading-xl")}>{props.title}</h1>
           </div>
         </div>
         <div className={clsx("row", "py-lg-4")}>
-          <div className={clsx("col-md-7")}>
-            <p>
-              <strong>{props.subTitleTop}</strong>
-            </p>
+          <div className={clsx("col-md-6")}>
+            <p className={clsx("fw-bold")}>{props.subTitleTop}</p>
             <p>{props.subTitleBtm}</p>
           </div>
         </div>
         <div className={clsx("row", "py-2")}>
-          <div className={clsx("col-md-6")}>
+          <div className={clsx("col-md-5")}>
             <SearchBar placeholder={props.searchPlaceholderText} />
           </div>
         </div>
