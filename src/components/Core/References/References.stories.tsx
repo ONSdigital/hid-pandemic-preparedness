@@ -19,7 +19,7 @@ const referencesOptions: ReferencesOptions = {
 
 const meta = {
   component: References,
-  title: "Organisms/References",
+  title: "Organisms/Core/References",
   parameters: {
     layout: "fullscreen",
   },
