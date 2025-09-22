@@ -12,7 +12,7 @@ export const CaseStudies: FC<CaseStudiesProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["case-studies-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
-        <div className={clsx("row", "py-4")}>
+        <div className={clsx("row", "py-2")}>
           <div className={clsx("col-md-4")}>
             <h4 className={clsx("heading-l")}>{props.title}</h4>
           </div>

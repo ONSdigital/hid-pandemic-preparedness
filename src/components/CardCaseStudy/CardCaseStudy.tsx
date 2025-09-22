@@ -13,6 +13,7 @@ export const CardCaseStudy: FC<CardCaseStudyProps> = (props) => {
         styles["card-case-study"],
         "bg-transparent",
         "border-0",
+        "py-2",
       )}
     >
       <img
