@@ -7,6 +7,9 @@ import type { HeaderProps } from "./Header.interface";
 const meta = {
   component: Header,
   title: "Organisms/Home/Header",
+  parameters: {
+    layout: "fullscreen",
+  },
   argTypes: {
     breadcrumbs: {
       table: {
