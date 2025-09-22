@@ -36,7 +36,6 @@ export const QuickLinks: FC<QuickLinksProps> = (props) => {
                   <a
                     href={link.href}
                     className={clsx(
-                      "body-regular",
                       "text-light",
                       "list-group-item",
                       "list-group-item-action",
