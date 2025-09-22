@@ -35,7 +35,7 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
 
   return (
     <div className={clsx("w-100", styles["filter-menu__container"])}>
-      <div className={clsx("container-lg", "py-4", "p-lg-5")}>
+      <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row", "gap-lg-4", "my-lg-4")}>
           <div className={clsx("col", "col-md-auto", "mb-4", "mb-lg-0")}>
             <ListGroupChecks

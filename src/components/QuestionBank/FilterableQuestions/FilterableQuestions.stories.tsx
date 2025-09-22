@@ -24,7 +24,7 @@ const meta = {
   component: FilterableQuestions,
   title: "Organisms/QuestionBank/FilterableQuestions",
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   argTypes: {
     filterMenu: { table: { disable: true } },
