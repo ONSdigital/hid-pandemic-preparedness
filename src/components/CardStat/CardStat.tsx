@@ -11,7 +11,6 @@ export const CardStat: FC<CardStatProps> = (props) => {
         "card",
         "border",
         "border-0",
-        "p-4",
         "rounded-4",
         "shadow",
         styles["card-stat"],
