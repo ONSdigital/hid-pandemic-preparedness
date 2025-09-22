@@ -30,8 +30,7 @@ export const Header: FC<HeaderProps> = (props) => {
         </div>
         <div className={clsx("row", "py-lg-4")}>
           <div className={clsx("col-md-6")}>
-            <p className={clsx("fw-bold")}>{props.subTitleTop}</p>
-            <p>{props.subTitleBtm}</p>
+            <p>{props.subTitle}</p>
           </div>
         </div>
         <div className={clsx("row", "py-2")}>
