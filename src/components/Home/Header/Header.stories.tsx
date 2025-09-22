@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import headerData from "../../../content/Home/header.json";
+import headerData from "@content/Home/header.json";
+
 import { Header } from "./Header";
 import type { HeaderProps } from "./Header.interface";
 

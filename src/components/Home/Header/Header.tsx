@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Breadcrumb } from "../../Molecules/Breadcrumb/Breadcrumb";
-import SearchBar from "../../SearchBar/SearchBar";
+import { Breadcrumb } from "@components/Molecules/Breadcrumb/Breadcrumb";
+import SearchBar from "@components/SearchBar/SearchBar";
+
 import type { HeaderProps } from "./Header.interface";
 import styles from "./Header.module.scss";
 
