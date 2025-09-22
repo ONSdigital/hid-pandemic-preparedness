@@ -12,6 +12,7 @@ export const CardCaseStudySmall: FC<CardCaseStudyProps> = (props) => {
         styles["card-case-study-small"],
         "bg-transparent",
         "border-0",
+        "py-2",
       )}
     >
       <div
@@ -20,7 +21,7 @@ export const CardCaseStudySmall: FC<CardCaseStudyProps> = (props) => {
           "row-cols-1",
           "row-cols-lg-2",
           "gx-0",
-          "gx-lg-5",
+          "gx-lg-3",
         )}
       >
         <div className="col">
