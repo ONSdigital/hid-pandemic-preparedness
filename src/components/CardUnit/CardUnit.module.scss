@@ -7,10 +7,10 @@
 // Sets width based on viewport size
 .card-width {
   border-color: $color-brand-secondary-200;
-  width: 18rem;
+  max-width: 18rem;
 
   @include media-breakpoint-up(md) {
-    width: 22.5rem;
+    max-width: 22.5rem;
   }
 }
 
