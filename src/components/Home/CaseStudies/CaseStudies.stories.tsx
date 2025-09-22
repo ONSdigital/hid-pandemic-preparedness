@@ -19,7 +19,7 @@ const meta = {
   component: CaseStudies,
   title: "Organisms/Home/CaseStudies",
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof CaseStudies>;
 
