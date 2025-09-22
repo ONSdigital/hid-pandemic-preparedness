@@ -1,5 +1,5 @@
-import type { ImageData } from "../../types/ImageData";
-import type { LinkData } from "../../types/LinkData";
+import type { ImageData } from "@localTypes/ImageData";
+import type { LinkData } from "@localTypes/LinkData";
 
 export interface CardStatProps {
   id: string;
