@@ -121,34 +121,101 @@
       "label": "Tools",
       "children": [
         {
-          "id": "analysis-tools",
-          "label": "Analysis tools",
+          "id": "tools-col-1",
+          "label": "",
           "children": [
             {
-              "id": "statistical-software",
-              "label": "Statistical software",
-              "href": "/tools/analysis/statistical-software"
+              "id": "contrast-checker",
+              "label": "Contrast checker",
+              "href": "#"
             },
             {
-              "id": "data-visualization-tools",
-              "label": "Data visualization tools",
-              "href": "/tools/analysis/visualization"
+              "id": "data-protection-impact-assessment-template",
+              "label": "Data protection impact assessment template",
+              "href": "#"
+            },
+            {
+              "id": "digital-data-visualisation-dashboard",
+              "label": "Digital data visualisation dashboard",
+              "href": "#"
+            },
+            {
+              "id": "epidemic-curve-modelling-dashboard",
+              "label": "Epidemic curve modelling dashboard",
+              "href": "#"
             }
           ]
         },
         {
-          "id": "data-collection-tools",
-          "label": "Data collection tools",
+          "id": "tools-col-2",
+          "label": "",
           "children": [
             {
-              "id": "survey-platforms",
-              "label": "Survey platforms",
-              "href": "/tools/collection/survey-platforms"
+              "id": "geospatial-dashboard",
+              "label": "Geospatial dashboard",
+              "href": "#"
             },
             {
-              "id": "mobile-data-collection",
-              "label": "Mobile data collection",
-              "href": "/tools/collection/mobile"
+              "id": "implementation-of-rap-principles-checklist",
+              "label": "Implementation of RAP Principles checklist",
+              "href": "#"
+            },
+            {
+              "id": "memorandum-of-understanding-template",
+              "label": "Memorandum of understanding template",
+              "href": "#"
+            },
+            {
+              "id": "question-bank",
+              "label": "Question bank",
+              "href": "/tools/question-bank/"
+            }
+          ]
+        },
+        {
+          "id": "tools-col-3",
+          "label": "",
+          "children": [
+            {
+              "id": "rap-quality-assurance-checklists",
+              "label": "RAP quality assurance checklists",
+              "href": "#"
+            },
+            {
+              "id": "rap-resource-tool",
+              "label": "RAP Resource tool",
+              "href": "#"
+            },
+            {
+              "id": "rumour-form",
+              "label": "Rumour form",
+              "href": "#"
+            },
+            {
+              "id": "sample-size-calculator",
+              "label": "Sample size calculator",
+              "href": "#"
+            }
+          ]
+        },
+        {
+          "id": "tools-col-4",
+          "label": "",
+          "children": [
+            {
+              "id": "stakeholder-activity-log",
+              "label": "Stakeholder activity log",
+              "href": "#"
+            },
+            {
+              "id": "stakeholder-identification-checklist",
+              "label": "Stakeholder identification checklist",
+              "href": "#"
+            },
+            {
+              "id": "stakeholder-mapping-template",
+              "label": "Stakeholder mapping template",
+              "href": "#"
             }
           ]
         }
