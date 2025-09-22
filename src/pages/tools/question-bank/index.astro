@@ -9,6 +9,7 @@ import type { ExplainerProps } from "@components/QuestionBank/Explainer/Explaine
 import type { FilterableQuestionsProps } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions.interface";
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
 import type { TagData } from "@localTypes/TagData";
+import type { ReferencesProps } from "@components/References/References.interface";
 
 // Components
 import { Explainer } from "@components/QuestionBank/Explainer/Explainer";
@@ -22,7 +23,6 @@ import { createQuestionBlock } from "@helpers/createQuestionBlock";
 // Content
 import headerData from "@content/tools/question-bank/header.json";
 import questionBlocksData from "@content/tools/question-bank/questionBlocks.json";
-import referencesData from "@content/Home/references.json";
 
 import ageMarkdown from "@content/tools/question-bank/age.md?raw";
 import ethnicityMarkdown from "@content/tools/question-bank/ethnicity.md?raw";
@@ -85,6 +85,11 @@ const explainerData: ExplainerProps = {
 const filterableQuestionsData: FilterableQuestionsProps = {
   filterMenu: filterMenuData,
   questionBlocks: qbd as QuestionBlockProps[],
+};
+
+// Make references blank
+const referencesData: ReferencesProps = {
+  references: undefined,
 };
 ---
 
