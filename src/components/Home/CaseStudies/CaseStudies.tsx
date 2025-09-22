@@ -18,7 +18,7 @@ export const CaseStudies: FC<CaseStudiesProps> = (props) => {
           </div>
         </div>
         <div className={clsx("row", "py-4")}>
-          <div className={clsx("col-md-4")}>
+          <div className={clsx("col-md-4", "pb-4")}>
             <CardCaseStudy {...props.mainCard} />
           </div>
           <div className={clsx("col-md-8")}>
@@ -27,7 +27,7 @@ export const CaseStudies: FC<CaseStudiesProps> = (props) => {
                 "d-flex",
                 "flex-column",
                 "align-items-end",
-                "gap-5",
+                "gap-4",
               )}
             >
               {props.smallCards.map((card) => (

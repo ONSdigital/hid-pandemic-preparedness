@@ -56,20 +56,6 @@
       },
       "subTitle": "Leveraging existing administrative datasets to monitor trends.",
       "title": "Using administrative data during COVID-19"
-    },
-    {
-      "id": "card-small-4",
-      "image": {
-        "id": "image-small-4",
-        "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./images/group-of-medical-professionals.jpg"
-      },
-      "link": {
-        "href": "/",
-        "label": "View all case studies"
-      },
-      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
-      "title": "Using administrative data during COVID-19"
     }
   ]
 }
