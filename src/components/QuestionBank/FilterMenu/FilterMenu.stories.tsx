@@ -14,15 +14,15 @@ import ethnicityQ2MdContent from "@content/QuestionBank/questions/ethnicity/2.md
 import travelQ1MdContent from "@content/QuestionBank/questions/travel/1.md?raw";
 import travelQ2MdContent from "@content/QuestionBank/questions/travel/2.md?raw";
 
-import { FilterMenu } from "@components/QuestionBank/FilterMenu/FilterMenu";
-import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
+import { FilterableQuestions } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions";
+import type { FilterableQuestionsProps } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions.interface";
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
 import { parseMarkdown } from "@helpers/parseMarkdown";
 import type { TagData } from "@localTypes/TagData";
 
 const meta = {
-  component: FilterMenu,
-  title: "Organisms/QuestionBank/FilterMenu",
+  component: FilterableQuestions,
+  title: "Organisms/QuestionBank/FilterableQuestions",
   parameters: {
     layout: "centered",
   },
@@ -30,7 +30,7 @@ const meta = {
     filterMenu: { table: { disable: true } },
     questionBlocks: { table: { disable: true } },
   },
-} satisfies Meta<typeof FilterMenu>;
+} satisfies Meta<typeof FilterableQuestions>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -124,13 +124,13 @@ const questionBlocksData: QuestionBlockProps[] = [
   travelQuestionBlock,
 ];
 
-// Bring all the props together for FilterMenu component
-const filterMenuProps: FilterMenuProps = {
+// Bring all the props together for FilterableQuestions component
+const filterMenuProps: FilterableQuestionsProps = {
   filterMenu: filterMenuData,
   questionBlocks: questionBlocksData,
 };
 
-export const FilterMenuStory = {
-  name: "FilterMenu",
+export const FilterableQuestionsStory = {
+  name: "FilterableQuestions",
   args: filterMenuProps,
 } satisfies Story;

@@ -2,12 +2,12 @@ import { useState, type ChangeEvent, type FC } from "react";
 import clsx from "clsx";
 
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
-import type { FilterMenuProps } from "@components/QuestionBank/FilterMenu/FilterMenu.interface";
+import type { FilterableQuestionsProps } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions.interface";
 import { QuestionBlock } from "@components/QuestionBank/QuestionBlock/QuestionBlock";
 
-import styles from "./FilterMenu.module.scss";
+import styles from "./FilterableQuestions.module.scss";
 
-export const FilterMenu: FC<FilterMenuProps> = (props) => {
+export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const onCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
