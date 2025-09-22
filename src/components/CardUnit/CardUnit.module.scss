@@ -8,11 +8,7 @@
 .card-width {
   aspect-ratio: 1;
   border-color: $color-brand-secondary-200;
-  width: 100%;
-
-  @include media-breakpoint-up(md) {
-    max-width: 22.5rem;
-  }
+  max-width: 22.5rem;
 }
 
 .time-box {
