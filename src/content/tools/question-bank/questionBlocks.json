@@ -1,0 +1,62 @@
+[
+  {
+    "id": "319f417f-0e6b-4745-bf9c-e7a2fb8664d4",
+    "title": "Age",
+    "tags": [
+      {
+        "id": "9dc7cb4b-5dd4-40cc-aa99-bd4958cabfda",
+        "title": "Demographic information",
+        "type": "secondary"
+      }
+    ],
+    "questions": []
+  },
+  {
+    "id": "1786b048-a9a4-4ef9-9fcb-0f67ba65ebd3",
+    "title": "Ethnicity",
+    "tags": [
+      {
+        "id": "9dc7cb4b-5dd4-40cc-aa99-bd4958cabfda",
+        "title": "Demographic information",
+        "type": "secondary"
+      }
+    ],
+    "questions": []
+  },
+  {
+    "id": "b1d2f3a4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "title": "Sex/Gender",
+    "tags": [
+      {
+        "id": "9dc7cb4b-5dd4-40cc-aa99-bd4958cabfda",
+        "title": "Demographic information",
+        "type": "secondary"
+      }
+    ],
+    "questions": []
+  },
+  {
+    "id": "c2d3e4f5-6a7b-8c9d-0e1f-2a3b4c5d6e7f",
+    "title": "Frequency and purpose of travel (business, leisure, family)",
+    "tags": [
+      {
+        "id": "9f6e6705-741e-4ada-b914-7eecbacade4f",
+        "title": "Travel",
+        "type": "secondary"
+      }
+    ],
+    "questions": []
+  },
+  {
+    "id": "d3e4f5a6-7b8c-9d0e-1f2a-3b4c5d6e7f8a",
+    "title": "Travel and regulations",
+    "tags": [
+      {
+        "id": "9f6e6705-741e-4ada-b914-7eecbacade4f",
+        "title": "Travel",
+        "type": "secondary"
+      }
+    ],
+    "questions": []
+  }
+]

@@ -3,13 +3,6 @@ import { glob } from "astro/loaders";
 
 // https://docs.astro.build/en/guides/content-collections/
 
-const learningResourcesIntroduction = defineCollection({
-  loader: glob({
-    pattern: "learning-resources/**/introduction.json",
-    base: "./src/content/",
-  }),
-});
-
 const learningResourcesContent = defineCollection({
   loader: glob({
     pattern: "learning-resources/**/content.md",
@@ -17,7 +10,30 @@ const learningResourcesContent = defineCollection({
   }),
 });
 
+const learningResourcesIntroduction = defineCollection({
+  loader: glob({
+    pattern: "learning-resources/**/introduction.json",
+    base: "./src/content/",
+  }),
+});
+
+// const toolsContent = defineCollection({
+//   loader: glob({
+//     pattern: "tools/**/content.md",
+//     base: "./src/content/",
+//   }),
+// });
+
+const toolsExplainer = defineCollection({
+  loader: glob({
+    pattern: "tools/**/explainer.md",
+    base: "./src/content/",
+  }),
+});
+
 export const collections = {
-  learningResourcesIntroduction,
   learningResourcesContent,
+  learningResourcesIntroduction,
+  // toolsContent,
+  toolsExplainer,
 };

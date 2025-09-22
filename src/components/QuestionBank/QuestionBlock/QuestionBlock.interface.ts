@@ -1,9 +1,3 @@
-import type { QuestionData } from "../../../types/QuestionData";
-import type { TagData } from "../../../types/TagData";
+import type { QuestionBlock } from "@localTypes/QuestionBlock";
 
-export interface QuestionBlockProps {
-  id: string;
-  title: string;
-  tags: TagData[];
-  questions: QuestionData[];
-}
+export interface QuestionBlockProps extends QuestionBlock {}

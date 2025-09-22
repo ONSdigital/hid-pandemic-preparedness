@@ -44,7 +44,7 @@ const filterUrl: string = currentRoute.replace(/^\//, "");
 // Remove trailing chapter number to form `parentUrl`
 const parentUrl: string = sanitizeUrl(currentRoute.replace(/\d+\/$/, ""));
 
-// Get introduction data
+// Get introduction json data
 const introductionData = await getCollection(
   "learningResourcesIntroduction",
   ({ id }) => {
@@ -52,7 +52,7 @@ const introductionData = await getCollection(
   },
 );
 
-// Get markdown content
+// Get content markdown
 const contentData = await getCollection(
   "learningResourcesContent",
   ({ id }) => {
