@@ -1,6 +1,7 @@
 import { marked } from "marked";
 
-import { markedRenderer } from "@helpers/markedRenderer";
+import { markedRenderer } from "./markedRenderer";
+
 // Takes input markdown and outputs as html
 export async function parseMarkdown(markdownContent: string): Promise<string> {
   // Use the custom renderer

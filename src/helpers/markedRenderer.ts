@@ -4,20 +4,39 @@ import type { Tokens } from "marked";
 
 export const markedRenderer = new marked.Renderer();
 
+// Copied from https://github.com/markedjs/marked/blob/master/src/Renderer.ts and modified to set
+// custom classes to `table` html tags
 markedRenderer.table = function (token: Tokens.Table) {
-  const tableClasses: string = clsx("table", "table-striped");
+  const cssClasses: string = clsx("table-ppt");
 
-  const headerHtml = `<tr>\n${token.header.map((cell) => this.tablecell(cell)).join("")}</tr>\n`;
-  const bodyHtml = token.rows
-    .map(
-      (row) =>
-        `<tr>\n${row.map((cell) => this.tablecell(cell)).join("")}</tr>\n`,
-    )
-    .join("");
+  let header = "";
 
-  return `<table class="${tableClasses}">
-<thead>
-${headerHtml}</thead>
-<tbody>${bodyHtml}</tbody></table>
-`;
+  // header
+  let cell = "";
+  for (let j = 0; j < token.header.length; j++) {
+    cell += this.tablecell(token.header[j]);
+  }
+  header += this.tablerow({ text: cell });
+
+  let body = "";
+  for (let j = 0; j < token.rows.length; j++) {
+    const row = token.rows[j];
+
+    cell = "";
+    for (let k = 0; k < row.length; k++) {
+      cell += this.tablecell(row[k]);
+    }
+
+    body += this.tablerow({ text: cell });
+  }
+  if (body) body = `<tbody>${body}</tbody>`;
+
+  return (
+    `<table class="${cssClasses}">\n` +
+    "<thead>\n" +
+    header +
+    "</thead>\n" +
+    body +
+    "</table>\n"
+  );
 };

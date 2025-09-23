@@ -1,8 +1,8 @@
 import { marked } from "marked";
-import util from "util";
 import { describe, it, expect } from "vitest";
 
 import { markedRenderer } from "./markedRenderer";
+
 marked.use({ renderer: markedRenderer });
 
 describe("markedRenderer", () => {
@@ -13,7 +13,7 @@ describe("markedRenderer", () => {
     "| Bob   | 25  | London   |";
 
   const expectedOutput: string =
-    '<table class="table">\n' +
+    '<table class="table-ppt">\n' +
     "<thead>\n" +
     "<tr>\n" +
     "<th>Name</th>\n" +
@@ -35,9 +35,6 @@ describe("markedRenderer", () => {
 
   it("parses table markdown into html correctly", async () => {
     const result = marked.parse(tableMarkdown);
-
-    console.log(util.inspect(result, { depth: null, colors: true }));
-
     expect(result).toMatch(expectedOutput);
   });
 });
