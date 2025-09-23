@@ -1,8 +1,14 @@
 {
   "cardProps": {
-    "githubLinkHref": "https://github.com/",
+    "githubLink": {
+      "href": "https://github.com/",
+      "label": "Open Github"
+    },
     "readingTime": "Set aside 5-10 minutes",
-    "startLinkHref": "/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/1",
+    "startLink": {
+      "href": "/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/1/",
+      "label": "Start"
+    },
     "tags": [
       {
         "id": "8d1063b6-6f7d-4341-9cdc-3b438029a34d",

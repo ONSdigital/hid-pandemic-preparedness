@@ -72,13 +72,18 @@ export const References: FC<ReferencesProps> = (props) => {
               data-bs-parent={`#${accordionId}`}
             >
               <div className={clsx("accordion-body")}>
-                <div className={clsx("row", "row-cols-1", "row-cols-lg-2")}>
-                  {props.references.map((refItem) => (
-                    <div className={clsx("col", "text-light")} key={refItem.id}>
-                      <ReferenceItem {...refItem} />
-                    </div>
-                  ))}
-                </div>
+                {props.references && (
+                  <div className={clsx("row", "row-cols-1", "row-cols-lg-2")}>
+                    {props.references.map((refItem) => (
+                      <div
+                        className={clsx("col", "text-light")}
+                        key={refItem.id}
+                      >
+                        <ReferenceItem {...refItem} />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
