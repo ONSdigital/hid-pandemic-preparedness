@@ -1,7 +1,7 @@
 {
   "attribution": "– World Health Organisation",
   "attributionLink": {
-    "href": "https://www.who.int/",
+    "href": "#references-accordion-id",
     "label": "1"
   },
   "buttonLink": {
@@ -18,7 +18,7 @@
       "title": "14.8 million+",
       "subTitle": "deaths from all respiratory disease 1980-2021.",
       "link": {
-        "href": "/",
+        "href": "#references-accordion-id",
         "label": "2"
       },
       "image": {
@@ -32,7 +32,7 @@
       "title": "7 million+",
       "subTitle": "deaths from COVID-19 as of August 2025.",
       "link": {
-        "href": "/",
+        "href": "#references-accordion-id",
         "label": "4"
       },
       "image": {
@@ -46,7 +46,7 @@
       "title": "88 million+",
       "subTitle": "people pushed into extreme poverty due to COVID-19.",
       "link": {
-        "href": "/",
+        "href": "#references-accordion-id",
         "label": "3"
       },
       "image": {
@@ -60,7 +60,7 @@
       "title": "34 pathogens",
       "subTitle": "identified as diseases with pandemic potential.",
       "link": {
-        "href": "/",
+        "href": "#references-accordion-id",
         "label": "5"
       },
       "image": {

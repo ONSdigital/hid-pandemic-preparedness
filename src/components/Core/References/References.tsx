@@ -30,7 +30,7 @@ const ReferenceItem: FC<ReferenceItemProps> = (props) => {
 };
 
 export const References: FC<ReferencesProps> = (props) => {
-  const accordionId: string = uuidv4();
+  const accordionId: string = "references-accordion-id";
   const accordionItemId: string = uuidv4();
 
   return (
