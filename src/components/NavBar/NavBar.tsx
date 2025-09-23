@@ -222,7 +222,14 @@ export const NavBar: FC<NavBarProps> = ({
 
       {/* Desktop Mega Menu */}
       {selectedItem && selectedItem.children && (
-        <div className={styles["desktop-mega-menu"]}>
+        <div
+          className={clsx(
+            "w-100",
+            "d-none",
+            "d-lg-block",
+            styles["desktop-mega-menu"],
+          )}
+        >
           <MegaMenu navItems={selectedItem.children} />
         </div>
       )}

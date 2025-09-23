@@ -458,8 +458,9 @@
 }
 
 .desktop-mega-menu {
-  @include media-breakpoint-down(md) {
-    display: none;
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    box-shadow: 0 10px 20px 0 rgba($color-grey-600, 0.1);
   }
 }
 
