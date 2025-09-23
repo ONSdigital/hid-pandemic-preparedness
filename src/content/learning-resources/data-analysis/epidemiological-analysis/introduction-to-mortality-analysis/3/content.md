@@ -172,7 +172,7 @@ The crude mortality rate is a basic measure of mortality that represents the tot
 
 ##### Formula
 
-BANGFORMULA Mₖ = (dₖ / pₖ) × 1,000
+$ Mₖ = (dₖ / pₖ) × 1,000 $
 
 ---
 
@@ -200,7 +200,7 @@ The number of deaths in a specific age group per 1,000 people in that age group.
 
 #### Formula
 
-BANGFORMULA Mₖ = (dₖ / pₖ) × 1,000
+$ Mₖ = (dₖ / pₖ) × 1,000 $
 
 **Where:**
 
@@ -236,7 +236,7 @@ The number of deaths in a specific age group per 1,000 people in that age group.
 
 ### Formula
 
-BANGFORMULA Mₖ = (dₖ / pₖ) × 1,000
+$ Mₖ = (dₖ / pₖ) × 1,000 $
 
 **Where:**
 
@@ -272,7 +272,7 @@ Years of Life Lost (YLL) quantifies the impact of premature mortality by estimat
 
 ##### Formula
 
-BANGFORMULA YLL = Σ (aᵢ × dᵢ)
+$ YLL = Σ (aᵢ × dᵢ) $
 
 **Where:**
 
@@ -300,7 +300,7 @@ An indicator of premature mortality, calculated as the average age at which deat
 
 ##### Formula
 
-BANGFORMULA Mean age at death = (Σ (aᵢ × dᵢ)) / d
+$ Mean age at death = (Σ (aᵢ × dᵢ)) / d $
 
 **Where:**
 
@@ -324,7 +324,7 @@ The crude rate of Years of Life Lost (YLL) is defined as the total number of yea
 
 ##### Formula
 
-BANGFORMULA Crude YLL rate = (YLLᵢ / P) × 100,000
+$ Crude YLL rate = (YLLᵢ / P) × 100,000 $
 
 **Where:**
 
@@ -349,7 +349,7 @@ To enable comparisons between areas and over time, age-standardised PYLL rates, 
 
 ##### Formula
 
-BANGFORMULA SYLL = Σ ((dᵢ × aᵢ) / nᵢ × wᵢ)
+$ SYLL = Σ ((dᵢ × aᵢ) / nᵢ × wᵢ) $
 
 **Where:**
 
@@ -395,25 +395,25 @@ A life table is a demographic tool used to model the survival experience of a hy
 1. Start with 100,000 live births (l₀).
 2. Calculate qₓ using observed mortality rates. For ages 1 and above:
 
-BANGFORMULA qₓ = (2⋅mₓ) / (2 + mₓ)
+$ qₓ = (2⋅mₓ) / (2 + mₓ) $
 
 3. Calculate dₓ:
-   BANGFORMULA dₓ = qₓ ⋅ lₓ
+   $ dₓ = qₓ ⋅ lₓ $
 
 4. Calculate lₓ:
-   BANGFORMULA lₓ₊₁ = lₓ − dₓ
+   $ lₓ₊₁ = lₓ − dₓ $
 
-5. =Calculate Lₓ:
-   BANGFORMULA For most ages: Lₓ = (lₓ + lₓ₊₁) / 2
-   BANGFORMULA For age 0: L₀ = l₁ + a₀ ⋅ d₀
+5. Calculate Lₓ:
+   For most ages: $ Lₓ = (lₓ + lₓ₊₁) / 2 $
+   For age 0: $ L₀ = l₁ + a₀ ⋅ d₀ $
 
 where a₀ is the average age at death in the first year of life.
 
 6. Calculate Tₓ:
-   BANGFORMULA Tₓ = ∑(from y = x to ω) Lᵧ
+   $ Tₓ = ∑(from y = x to ω) Lᵧ $
 
 7. Calculate eₓ:
-   BANGFORMULA eₓ = Tₓ / lₓ
+   $ eₓ = Tₓ / lₓ $
 
 ---
 
