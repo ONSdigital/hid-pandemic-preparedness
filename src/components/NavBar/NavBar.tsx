@@ -38,54 +38,6 @@ export const NavBar: FC<NavBarProps> = ({
 
   const navRef = useRef<HTMLDivElement>(null);
 
-  const findActiveNavItem = (): NavItem | null => {
-    const currentPath = window.location.pathname;
-
-    for (const item of items) {
-      if (item.href && item.href !== "#" && currentPath === item.href) {
-        return item;
-      }
-
-      if (item.children) {
-        const hasActiveChild = checkChildrenForPath(item.children, currentPath);
-        if (hasActiveChild) {
-          return item;
-        }
-      }
-    }
-
-    for (const item of items) {
-      if (item.children) {
-        const pathSegment = currentPath.split("/")[1];
-        const normalizedLabel = item.label.toLowerCase().replace(/\s+/g, "-");
-        if (pathSegment === normalizedLabel) {
-          return item;
-        }
-      }
-    }
-
-    return null;
-  };
-
-  const checkChildrenForPath = (children: NavItem[], path: string): boolean => {
-    for (const child of children) {
-      if (child.href && child.href !== "#" && path === child.href) {
-        return true;
-      }
-      if (child.children && checkChildrenForPath(child.children, path)) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  useEffect(() => {
-    const activeItem = findActiveNavItem();
-    if (activeItem && !selectedItem) {
-      setSelectedItem(activeItem);
-    }
-  }, []);
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     setSelectedItem(null);
