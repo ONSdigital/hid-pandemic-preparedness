@@ -13,7 +13,7 @@ const ReferenceItem: FC<ReferenceItemProps> = (props) => {
   return (
     <p>
       <small>
-        ({props.id}) {props.websiteAuthor} ({props.yearPublished}){" "}
+        ({props.id}) {props.websiteAuthor} ({props.yearPublished}).{" "}
         <span className="fst-italic">{props.websiteTitle}</span>. Available at:{" "}
         <a
           className={clsx("text-break", "link-light")}
@@ -23,7 +23,7 @@ const ReferenceItem: FC<ReferenceItemProps> = (props) => {
         >
           {props.websiteUrl}
         </a>{" "}
-        (Accessed {props.accessedDate}).
+        (Accessed: {props.accessedDate}).
       </small>
     </p>
   );
