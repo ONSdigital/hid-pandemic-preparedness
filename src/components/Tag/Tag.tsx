@@ -13,7 +13,6 @@ export const Tag: FC<TagProps> = (props) => {
         styles[`tag-${props.type}`],
         "px-3",
         "py-2",
-        "d-inline-block",
         "text-center",
         "text-truncate",
       )}
