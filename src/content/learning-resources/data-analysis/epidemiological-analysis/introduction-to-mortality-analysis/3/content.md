@@ -398,22 +398,28 @@ A life table is a demographic tool used to model the survival experience of a hy
 $ qₓ = (2⋅mₓ) / (2 + mₓ) $
 
 3. Calculate dₓ:
-   $ dₓ = qₓ ⋅ lₓ $
+
+$ dₓ = qₓ ⋅ lₓ $
 
 4. Calculate lₓ:
-   $ lₓ₊₁ = lₓ − dₓ $
+
+$ lₓ₊₁ = lₓ − dₓ $
 
 5. Calculate Lₓ:
-   For most ages: $ Lₓ = (lₓ + lₓ₊₁) / 2 $
-   For age 0: $ L₀ = l₁ + a₀ ⋅ d₀ $
+
+$ For most ages: Lₓ = (lₓ + lₓ₊₁) / 2 $
+
+$ For age 0: L₀ = l₁ + a₀ ⋅ d₀ $
 
 where a₀ is the average age at death in the first year of life.
 
 6. Calculate Tₓ:
-   $ Tₓ = ∑(from y = x to ω) Lᵧ $
+
+$ Tₓ = ∑(from y = x to ω) Lᵧ $
 
 7. Calculate eₓ:
-   $ eₓ = Tₓ / lₓ $
+
+$ eₓ = Tₓ / lₓ $
 
 ---
 
