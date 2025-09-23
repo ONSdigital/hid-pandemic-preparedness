@@ -15,7 +15,17 @@ const meta = {
         disable: true,
       },
     },
+    githubLink: {
+      table: {
+        disable: true,
+      },
+    },
     htmlContent: {
+      table: {
+        disable: true,
+      },
+    },
+    startLink: {
       table: {
         disable: true,
       },

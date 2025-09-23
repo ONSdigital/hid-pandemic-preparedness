@@ -20,32 +20,24 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
         "w-100",
         "border",
         "rounded",
-        "py-4",
+        "p-4",
         styles["container-bg"],
       )}
     >
       <div className={clsx("row")}>
         <div className={clsx("col-12")}>
-          <div className="d-flex flex-row gap-2">
+          <div className={clsx("d-flex", "flex-row", "mb-3", "gap-2")}>
             {props.tags.map((tag) => (
-              <Tag key={tag.id} {...tag} />
+              <div key={tag.id}>
+                <Tag {...tag} />
+              </div>
             ))}
-          </div>
-          <div
-            className={clsx(
-              "align-items-center",
-              "d-flex",
-              "gap-2",
-              "justify-content-center",
-              "rounded",
-            )}
-          >
-            <div
-              className={clsx(styles["learning-module-card__time-box"], "p-2")}
-            >
-              <RiTimerLine size={iconSize} />
+            <div className={clsx("ms-auto", "d-none", "d-md-inline")}>
+              <span className={clsx("p-2", styles["icon-bg"])}>
+                <RiTimerLine size={iconSize} />
+              </span>{" "}
+              {props.readingTime}
             </div>
-            <span>{props.readingTime}</span>
           </div>
         </div>
       </div>
@@ -85,81 +77,3 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
     </div>
   );
 };
-
-{
-  /* <div
-      className={clsx(
-        "mx-1",
-        "mt-5",
-        "m-lg-0",
-        "p-5",
-        "d-flex",
-        "flex-column",
-        "gap-4",
-        styles["learning-module-card__container"],
-      )}
-    >
-      <div
-        className={clsx(
-          "d-flex",
-          "flex-column",
-          "flex-md-row",
-          "align-items-start",
-          "align-items-md-center",
-          "justify-content-between",
-          "gap-3",
-        )}
-      >
-        <div className="d-flex flex-wrap gap-2">
-          {props.tags.map((tag) => (
-            <Tag key={tag.id} {...tag} />
-          ))}
-        </div>
-        <div
-          className={clsx(
-            "align-items-center",
-            "d-flex",
-            "gap-2",
-            "justify-content-center",
-            "rounded",
-          )}
-        >
-          <div
-            className={clsx(styles["learning-module-card__time-box"], "p-2")}
-          >
-            <RiTimerLine size={iconSize} />
-          </div>
-
-          <span>{props.readingTime}</span>
-        </div>
-      </div>
-      <h1 className={clsx("heading-m")}>{props.title}</h1>
-      <hr />
-      <TextModule {...props} />
-      <div
-        className={clsx(
-          "d-flex",
-          "flex-column",
-          "flex-lg-row",
-          "justify-content-end",
-          "gap-3",
-        )}
-      >
-        <Link
-          asButton={true}
-          aria-label="Open GitHub"
-          buttonVariant="primary"
-          href={props.githubLinkHref}
-          label="Open Github"
-        />
-
-        <Link
-          asButton={true}
-          aria-label="Start"
-          buttonVariant="secondary"
-          href={props.startLinkHref}
-          label="Start"
-        />
-      </div>
-    </div> */
-}
