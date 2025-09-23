@@ -16,7 +16,7 @@ const meta = {
   },
   component: LearningModule,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   title: "Organisms/Core/LearningModule",
 } satisfies Meta<typeof LearningModule>;
