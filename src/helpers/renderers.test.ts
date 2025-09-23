@@ -13,7 +13,7 @@ describe("renderer", () => {
     "| Bob   | 25  | London   |";
 
   const expectedOutput: string =
-    '<table class="table-ppt">\n' +
+    '<table class="table table-borderless table-ppt">\n' +
     "<thead>\n" +
     "<tr>\n" +
     "<th>Name</th>\n" +

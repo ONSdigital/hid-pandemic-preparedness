@@ -1,8 +1,6 @@
 @import "../global/tokens";
 
 .table-ppt {
-  @extend .table, .table-borderless;
-
   border-collapse: separate;
   border-spacing: 1rem 0.5rem;
 

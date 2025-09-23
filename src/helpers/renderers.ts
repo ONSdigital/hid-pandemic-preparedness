@@ -7,7 +7,7 @@ export const renderer = new marked.Renderer();
 // Copied from https://github.com/markedjs/marked/blob/master/src/Renderer.ts and modified to set
 // custom classes to `table` html tags
 renderer.table = function (token: Tokens.Table) {
-  const cssClasses: string = clsx("table-ppt");
+  const cssClasses: string = clsx("table", "table-borderless", "table-ppt");
 
   let header = "";
 

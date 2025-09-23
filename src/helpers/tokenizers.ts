@@ -1,19 +1,14 @@
-import type { Tokens } from "marked";
+import { clsx } from "clsx";
 
-// Define some match strings we can use to target content to format differently
-const matchStrings = {
-  function: "!FUNCTION",
-  tip: "!TIP",
-};
-
+// Finds a block starting with `!TIP` and applies specific formatting
 export const tipTokenizer = {
   name: "tip",
   level: "block",
   start(src: string) {
-    return src.indexOf(matchStrings.tip);
+    return src.indexOf("!TIP");
   },
   tokenizer(src: string) {
-    const rule = new RegExp(`^${matchStrings.tip}\\s+(.*)(\\n|$)`);
+    const rule = new RegExp(`^!TIP\\s+(.*)(\\n|$)`);
     const match = rule.exec(src);
     if (match) {
       return {
@@ -23,7 +18,38 @@ export const tipTokenizer = {
       };
     }
   },
-  renderer(token: Tokens.Paragraph) {
+  renderer(token: any) {
     return `<span class="tip-ppt">${token.text}</span>`;
+  },
+};
+
+// Finds a block wrapped in $ e.g. `$ qₓ = (2⋅mₓ) / (2 + mₓ) $` and applies specific formatting
+export const mathBlockTokenizer = {
+  name: "mathBlock",
+  level: "block",
+  start(src: string) {
+    return src.indexOf("$");
+  },
+  tokenizer(src: string) {
+    const rule = /^\s*\$(.+?)\$\s*(?:\n|$)/;
+    const match = rule.exec(src);
+    if (match) {
+      return {
+        type: "mathBlock",
+        raw: match[0],
+        text: match[1].trim(),
+        tokens: [], // no nested tokens
+      };
+    }
+  },
+  renderer(token: any) {
+    const cssClasses: string = clsx(
+      "d-flex",
+      "p-3",
+      "fw-semibold",
+      "math-block",
+    );
+    // Render the formula in a div with a class for styling
+    return `<div class="${cssClasses}">${token.text}</div>\n`;
   },
 };
