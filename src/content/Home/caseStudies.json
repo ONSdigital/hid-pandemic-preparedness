@@ -4,8 +4,8 @@
     "id": "card-main-1",
     "image": {
       "id": "image-main-1",
-      "altText": "A group of medical professionals chatting and smiling.",
-      "srcPath": "./images/group-of-medical-professionals.jpg"
+      "altText": "Two ladies wearing medical face masks and sparkling tinsel around their necks chat",
+      "srcPath": "./images/two-ladies-in-face-mask-chat.jpeg"
     },
     "link": {
       "href": "/",
@@ -20,7 +20,7 @@
       "image": {
         "id": "image-small-1",
         "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./images/group-of-medical-professionals.jpg"
+        "srcPath": "./images/group-of-medical-professionals.jpeg"
       },
       "link": {
         "href": "/",
@@ -33,29 +33,29 @@
       "id": "card-small-2",
       "image": {
         "id": "image-small-2",
-        "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./images/group-of-medical-professionals.jpg"
+        "altText": "A phone screen shows information in spanish displaying numbers related to recoveries, deaths and cases.",
+        "srcPath": "./images/info-on-phone-screen.jpeg"
       },
       "link": {
         "href": "/",
         "label": "View all case studies"
       },
-      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
-      "title": "Using administrative data during COVID-19"
+      "subTitle": "Understanding how statistical laws are developed and implemented.",
+      "title": "Implementing a new statistical law"
     },
     {
       "id": "card-small-3",
       "image": {
         "id": "image-small-3",
         "altText": "A group of medical professionals chatting and smiling.",
-        "srcPath": "./images/group-of-medical-professionals.jpg"
+        "srcPath": "./images/consultation-occurring.jpeg"
       },
       "link": {
         "href": "/",
         "label": "View all case studies"
       },
-      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
-      "title": "Using administrative data during COVID-19"
+      "subTitle": "Coordinating efforts with global partners.",
+      "title": "Working with international organisations"
     }
   ]
 }
