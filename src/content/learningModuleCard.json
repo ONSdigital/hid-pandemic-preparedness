@@ -1,7 +1,13 @@
 {
-  "githubLinkHref": "https://github.com/",
+  "githubLink": {
+    "href": "https://github.com/",
+    "label": "Open Github"
+  },
+  "startLink": {
+    "href": "/",
+    "label": "Start"
+  },
   "readingTime": "Set aside 5-10 minutes",
-  "startLinkHref": "/",
   "tags": [
     {
       "id": "1",

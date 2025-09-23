@@ -1,9 +1,10 @@
-import type { TagData } from "../../types/TagData";
-import type { TextModuleProps } from "../TextModule/TextModule.interface";
+import type { LinkData } from "@localTypes/LinkData";
+import type { TagData } from "@localTypes/TagData";
+import type { TextModuleProps } from "@components/TextModule/TextModule.interface";
 
 export interface LearningModuleCardProps extends TextModuleProps {
-  githubLinkHref: string;
-  startLinkHref: string;
+  githubLink: LinkData;
+  startLink: LinkData;
   readingTime: string;
   tags: TagData[];
   title: string;

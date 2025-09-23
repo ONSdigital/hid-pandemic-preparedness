@@ -16,6 +16,79 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
   return (
     <div
       className={clsx(
+        "container",
+        "w-100",
+        "border",
+        "rounded",
+        "py-4",
+        styles["container-bg"],
+      )}
+    >
+      <div className={clsx("row")}>
+        <div className={clsx("col-12")}>
+          <div className="d-flex flex-row gap-2">
+            {props.tags.map((tag) => (
+              <Tag key={tag.id} {...tag} />
+            ))}
+          </div>
+          <div
+            className={clsx(
+              "align-items-center",
+              "d-flex",
+              "gap-2",
+              "justify-content-center",
+              "rounded",
+            )}
+          >
+            <div
+              className={clsx(styles["learning-module-card__time-box"], "p-2")}
+            >
+              <RiTimerLine size={iconSize} />
+            </div>
+            <span>{props.readingTime}</span>
+          </div>
+        </div>
+      </div>
+      <div className={clsx("row")}>
+        <div className={clsx("col-12")}>
+          <h1 className={clsx("heading-m")}>{props.title}</h1>
+          <hr />
+          <TextModule {...props} />
+        </div>
+      </div>
+      <div className={clsx("row")}>
+        <div className={clsx("col-12")}>
+          <div
+            className={clsx(
+              "d-flex",
+              "flex-column",
+              "flex-lg-row",
+              "justify-content-end",
+              "gap-4",
+            )}
+          >
+            <Link
+              {...props.githubLink}
+              asButton={true}
+              aria-label={props.githubLink.label}
+              buttonVariant="primary"
+            />
+            <Link
+              {...props.startLink}
+              asButton={true}
+              aria-label="Start"
+              buttonVariant="secondary"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+{
+  /* <div
+      className={clsx(
         "mx-1",
         "mt-5",
         "m-lg-0",
@@ -61,6 +134,7 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
         </div>
       </div>
       <h1 className={clsx("heading-m")}>{props.title}</h1>
+      <hr />
       <TextModule {...props} />
       <div
         className={clsx(
@@ -87,6 +161,5 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
           label="Start"
         />
       </div>
-    </div>
-  );
-};
+    </div> */
+}
