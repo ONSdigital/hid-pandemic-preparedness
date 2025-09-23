@@ -6,7 +6,7 @@
 - Some but limited understanding
 - Good understanding
 
-**2. Overall, how easy of difficult did you find it to follow Coronavirus (COVID-19) regulations during your stay overseas?**
+**2. Overall, how easy or difficult did you find it to follow Coronavirus (COVID-19) regulations during your stay overseas?**
 
 - Very difficult
 - Difficult
@@ -37,7 +37,6 @@
 - The news
 - Family or friends
 - Social media or internet search
-- [View More](/)
 
 **6. Overall, how easy or difficult did you find it to follow Coronavirus (COVID-19) regulations during your stay overseas?**
 
@@ -58,13 +57,12 @@
 
 **8. Which of the following would you be willing to carry out when going on a trip abroad? Please select all that apply**
 
-- Wearing a face covering while travelling to and from destination
+- Wearing a face covering while travelling to and from your destination
 - Providing proof that you have been vaccinated for the coronavirus (COVID-19)
 - Taking coronavirus (COVID-19) tests before and after travelling
 - Quarantining for 10 days after arriving home
 - Social distancing at your destination
 - Providing details of your accommodation, dates of travel and home address
-- [View More](/)
 
 **9. What country did you travel from?**
 
@@ -74,10 +72,9 @@
 
 - Everyone
 - Almost everyone
-- Some other people
+- Some people
 - Hardly anyone
 - No one
-- [View More](/)
 
 **11. During your stay, how satisfied were you with any measures implemented in the UK to reduce spreading the coronavirus infection?**
 
@@ -92,7 +89,6 @@
 
 - Everyone
 - Almost everyone
-- Some other people
+- Some people
 - Hardly anyone
 - No one
-- [View More](/)
