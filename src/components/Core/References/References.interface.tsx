@@ -1,4 +1,4 @@
-import type { ReferenceData } from "../../types/ReferenceData";
+import type { ReferenceData } from "@localTypes/ReferenceData";
 
 export interface ReferenceItemProps extends ReferenceData {}
 
