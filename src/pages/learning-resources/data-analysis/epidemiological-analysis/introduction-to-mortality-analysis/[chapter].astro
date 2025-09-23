@@ -5,11 +5,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
 import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
+import type { ReferencesProps } from "@components/Core/References/References.interface";
 
 // Components
 import { Header } from "@components/Core/Header/Header";
 import { LearningResource } from "@components/Core/LearningResource/LearningResource";
-import { References } from "@components/References/References";
+import { References } from "@components/Core/References/References";
 
 // Helpers
 import { createLearningSections } from "@helpers/createLearningSections";
@@ -18,7 +19,6 @@ import { sanitizeUrl } from "@helpers/sanitizeUrl";
 // Content
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/header.json";
 import learningModuleData from "@content/learning-resources/data-analysis/epidemiological-analysis/introduction-to-mortality-analysis/learningModule.json";
-import referencesData from "@content/Home/references.json";
 
 // Set content based on different pages
 export function getStaticPaths() {
@@ -92,6 +92,11 @@ const learningResourceData: LearningResourceProps = {
     learningSections: learningSections,
   },
   link: linkData,
+};
+
+// Make references blank
+const referencesData: ReferencesProps = {
+  references: undefined,
 };
 ---
 
