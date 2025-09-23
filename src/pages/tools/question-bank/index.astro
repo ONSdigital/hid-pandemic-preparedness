@@ -25,6 +25,7 @@ import headerData from "@content/tools/question-bank/header.json";
 import questionBlocksData from "@content/tools/question-bank/questionBlocks.json";
 
 import ageMarkdown from "@content/tools/question-bank/age.md?raw";
+import careGiverMarkdown from "@content/tools/question-bank/care-giver.md?raw";
 import ethnicityMarkdown from "@content/tools/question-bank/ethnicity.md?raw";
 import frequencyAndPurposeOfTravelMarkdown from "@content/tools/question-bank/frequency-and-purpose-of-travel.md?raw";
 import sexGenderMarkdown from "@content/tools/question-bank/sex-gender.md?raw";
@@ -62,6 +63,7 @@ const qbSexGender = await createQuestionBlock(sexGenderMarkdown);
 const qbTravelRegulations = await createQuestionBlock(
   travelAndRegulationsMarkdown,
 );
+const qbCareGiver = await createQuestionBlock(careGiverMarkdown);
 
 // Update the tags
 qbAge.tags = questionBlocksData.find((item) => item.title === "Age")
@@ -79,6 +81,9 @@ qbSexGender.tags = questionBlocksData.find(
 qbTravelRegulations.tags = questionBlocksData.find(
   (item) => item.title === "Travel and regulations",
 )?.tags as TagData[];
+qbCareGiver.tags = questionBlocksData.find(
+  (item) => item.title === "Care giver",
+)?.tags as TagData[];
 
 const qbd: QuestionBlockProps[] = [];
 
@@ -88,6 +93,7 @@ qbd.push(qbEthnicity);
 qbd.push(qbTravelFrequency);
 qbd.push(qbSexGender);
 qbd.push(qbTravelRegulations);
+qbd.push(qbCareGiver);
 
 // Build the explainerData
 const explainerData: ExplainerProps = {

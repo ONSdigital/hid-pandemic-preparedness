@@ -15,11 +15,19 @@ export const tipTokenizer = {
         type: "tip",
         raw: match[0],
         text: match[1].trim(),
+        tokens: [], // no nested tokens
       };
     }
   },
   renderer(token: any) {
-    return `<span class="tip-ppt">${token.text}</span>`;
+    const cssClasses: string = clsx(
+      "d-flex",
+      "p-3",
+      "fw-semibold",
+      "math-block",
+    );
+    // Render the tip in a div with a class for styling
+    return `<div class="${cssClasses}">${token.text}</div>\n`;
   },
 };
 
