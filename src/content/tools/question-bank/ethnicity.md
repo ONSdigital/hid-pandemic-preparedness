@@ -7,7 +7,7 @@ OR for HAS only: **What is your ethnic group? Choose one option that best descri
 - White - English, Welsh, Scottish
 - Northern Irish or British
 - White - Irish
-- White - Gypsy or Irish Traveller
+- White - Gypsy or Iris Traveller
 - White - Any other white background, specify
 
 **2. What is your ethnic group?**
@@ -24,7 +24,7 @@ OR for HAS only: **What is your ethnic group? Choose one option that best descri
 - Arab
 - Other ethnic group
 
-**4. Which one best describes your White ethnic group or background?**
+**4. Which one best describes your White ethnic group of background?**
 OR for LFS only: **And which one of these best describes your ethnic group or background?**
 
 - English* / Welsh* / Scottish* / Northern Irish* / British
@@ -56,7 +56,7 @@ OR for LMS only: **Which one best describes your Black, African, Caribbean or Bl
 - Caribbean
 - Any other Black/ African / Caribbean background
 
-**8. Which one best describes your ethnic group or background?**
+**8. Which one best describes your ethnic group of background?**
 
 - Arab
 - Any other background (please specify)
@@ -109,4 +109,3 @@ OR for LMS and OPN: **What do you consider your national identity to be? Please 
 - Northern Irish
 - British
 - Irish
-- [View More](/)
