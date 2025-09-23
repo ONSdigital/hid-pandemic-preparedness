@@ -2,11 +2,11 @@ import { clsx } from "clsx";
 import { marked } from "marked";
 import type { Tokens } from "marked";
 
-export const markedRenderer = new marked.Renderer();
+export const renderer = new marked.Renderer();
 
 // Copied from https://github.com/markedjs/marked/blob/master/src/Renderer.ts and modified to set
 // custom classes to `table` html tags
-markedRenderer.table = function (token: Tokens.Table) {
+renderer.table = function (token: Tokens.Table) {
   const cssClasses: string = clsx("table-ppt");
 
   let header = "";

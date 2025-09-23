@@ -1,11 +1,11 @@
 import { marked } from "marked";
 import { describe, it, expect } from "vitest";
 
-import { markedRenderer } from "./markedRenderer";
+import { renderer } from "./renderers";
 
-marked.use({ renderer: markedRenderer });
+marked.use({ renderer: renderer });
 
-describe("markedRenderer", () => {
+describe("renderer", () => {
   const tableMarkdown: string =
     "| Name  | Age | City     |\n" +
     "|-------|-----|----------|\n" +
