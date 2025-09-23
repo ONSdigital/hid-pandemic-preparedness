@@ -7,7 +7,7 @@ import q2MdContent from "@content/QuestionBank/questions/age/2.md?raw";
 import q3MdContent from "@content/QuestionBank/questions/age/3.md?raw";
 import q4MdContent from "@content/QuestionBank/questions/age/4.md?raw";
 import q5MdContent from "@content/QuestionBank/questions/age/5.md?raw";
-import { parseMarkdown } from "../../../helpers/parseMarkdown";
+import { parseMarkdown } from "@helpers/parseMarkdown";
 import { QuestionBlock } from "./QuestionBlock";
 import type { QuestionBlockProps } from "./QuestionBlock.interface";
 
