@@ -1,22 +1,17 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Tag } from "../../Tag/Tag";
-import { TextModule } from "../../TextModule/TextModule";
+import { Tag } from "@components/Tag/Tag";
+import { TextModule } from "@components/TextModule/TextModule";
 import type { QuestionBlockProps } from "./QuestionBlock.interface";
 import styles from "./QuestionBlock.module.scss";
 
 export const QuestionBlock: FC<QuestionBlockProps> = (props) => {
   return (
     <div
-      className={clsx(
-        "p-4",
-        "border",
-        "rounded",
-        styles["question-block__container"],
-      )}
+      className={clsx("p-4", "border", "rounded", styles["question-block-bg"])}
     >
-      <div className={clsx("d-inline-flex", "pt-4", "pb-2")}>
+      <div className={clsx("d-inline-flex", "pt-4", "pb-2", "mw-100")}>
         {props.tags.map((tag) => (
           <Tag {...tag} key={tag.id} />
         ))}
