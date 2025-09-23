@@ -93,9 +93,7 @@ Mortality data is used by a wide range of organisations across the public, priva
 
 **Public Sector Users**
 
-- Department of Health and Social Care (DHSC), the Cabinet Office, the UK Health Security Agency, and the Office for Health Improvement and
-
-**Disparity use mortality data to:**
+- [Department of Health and Social Care (DHSC)](https://www.gov.uk/government/organisations/department-of-health-and-social-care), the [Cabinet Office](https://www.gov.uk/government/organisations/cabinet-office), the [UK Health Security Agency](https://www.gov.uk/government/organisations/uk-health-security-agency), and the [Office for Health Improvement and Disparity](https://www.gov.uk/government/organisations/office-for-health-improvement-and-disparities) use mortality data to:
 
 - Inform health policy decisions
 - Monitor population health
