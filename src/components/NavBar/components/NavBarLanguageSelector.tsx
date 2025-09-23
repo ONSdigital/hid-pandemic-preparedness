@@ -35,6 +35,7 @@ export const NavBarLanguageSelector: FC<NavBarLanguageSelectorProps> = ({
         type="button"
         className={styles["language-button"]}
         onClick={toggleLanguageDropdown}
+        disabled
       >
         <span className={styles["language-icon"]}>
           <RiGlobalLine />
