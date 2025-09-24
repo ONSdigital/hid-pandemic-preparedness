@@ -9,9 +9,9 @@ import styles from "./StatisticsAndText.module.scss";
 export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["statistics-and-text-bg"])}>
-      <div className={clsx("container-lg")}>
+      <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row")}>
-          <div className={clsx("col-lg-5")}>
+          <div className={clsx("col-lg-5", "pb-5")}>
             <h1
               className={clsx(
                 "fw-bold",

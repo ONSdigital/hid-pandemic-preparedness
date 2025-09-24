@@ -6,7 +6,9 @@
 
 .statistics-and-text-bg {
   background-color: $color-brand-secondary-100;
-  padding: 5rem 0;
+  @include media-breakpoint-up(lg) {
+    padding: 5rem 0;
+  }
 }
 
 .statistics-and-text__ref-link {
