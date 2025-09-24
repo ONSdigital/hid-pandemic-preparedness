@@ -38,7 +38,7 @@
       "image": {
         "id": "stat-card-image-2",
         "altText": "Bar chart showing deaths from COVID-19 as of August 2025.",
-        "srcPath": "./images/plots/line-chart.svg"
+        "srcPath": "./images/plots/histogram.svg"
       }
     },
     {
@@ -52,7 +52,7 @@
       "image": {
         "id": "stat-card-image-3",
         "altText": "Line chart showing people pushed into extreme poverty due to COVID-19.",
-        "srcPath": "./images/plots/histogram.svg"
+        "srcPath": "./images/plots/line-chart.svg"
       }
     },
     {
