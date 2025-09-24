@@ -12,14 +12,12 @@ import styles from "./LearningResource.module.scss";
 export const LearningResource: FC<LearningResourceProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["learning-resource__container"])}>
-      <div className={clsx("container-lg", "py-4", "p-lg-5")}>
+      <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row")}>
-          <div className={clsx("col", "col-lg-auto", "mb-4", "mb-lg-0")}>
+          <div className={clsx("col-md-3")}>
             <LearningModuleNav {...props.learningModuleNav} />
           </div>
-          <div
-            className={clsx("col", "d-flex", "flex-column", "gap-4", "w-100")}
-          >
+          <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
             <Introduction {...props.introduction} />
             <LearningResourceBlock {...props.learningResource} />
             <div className={clsx("d-flex", "justify-content-center")}>
