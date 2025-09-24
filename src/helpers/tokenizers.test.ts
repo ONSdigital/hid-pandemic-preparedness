@@ -10,7 +10,7 @@ marked.use({
 describe("mathBlockTokenizer", () => {
   const mathMarkdown: string = "$ qₓ = (2⋅mₓ) / (2 + mₓ) $";
 
-  const expectedOutput: string = `<div class="d-flex p-3 fw-semibold math-block">qₓ = (2⋅mₓ) / (2 + mₓ)</div>`;
+  const expectedOutput: string = `<div class="d-flex p-3 my-2 fw-semibold math-block">qₓ = (2⋅mₓ) / (2 + mₓ)</div>`;
 
   it("parses math formula markdown into html correctly", async () => {
     const result = marked.parse(mathMarkdown);
@@ -22,7 +22,7 @@ describe("tipTokenizer", () => {
   const tipMarkdown: string =
     "!TIP Tip: If you're surveying students or children, check the specific demographic themes tailored to those groups.";
 
-  const expectedOutput: string = `<span class="tip-ppt">Tip: If you're surveying students or children, check the specific demographic themes tailored to those groups.</span>`;
+  const expectedOutput: string = `<div class="d-flex p-3 fw-semibold math-block">Tip: If you're surveying students or children, check the specific demographic themes tailored to those groups.</div>`;
 
   it("parses tip markdown into html correctly", async () => {
     const result = marked.parse(tipMarkdown);

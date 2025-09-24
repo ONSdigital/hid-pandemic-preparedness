@@ -54,6 +54,7 @@ export const mathBlockTokenizer = {
     const cssClasses: string = clsx(
       "d-flex",
       "p-3",
+      "my-2",
       "fw-semibold",
       "math-block",
     );
