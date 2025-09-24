@@ -14,6 +14,7 @@ export const Tag: FC<TagProps> = (props) => {
         "px-3",
         "py-2",
         "text-center",
+        "text-truncate",
       )}
     >
       {props.title}

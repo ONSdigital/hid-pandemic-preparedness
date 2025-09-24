@@ -34,19 +34,17 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
     : props.questionBlocks;
 
   return (
-    <div className={clsx("w-100", styles["filter-menu__container"])}>
+    <div className={clsx("w-100", styles["filter-menu-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
-        <div className={clsx("row", "gap-lg-4", "my-lg-4")}>
-          <div className={clsx("col", "col-md-auto", "mb-4", "mb-lg-0")}>
+        <div className={clsx("row")}>
+          <div className={clsx("col-md-3", "mb-3")}>
             <ListGroupChecks
               {...props.filterMenu}
               selectedIds={selectedIds}
               onChange={onCheckboxChange}
             />
           </div>
-          <div
-            className={clsx("col", "d-flex", "flex-column", "gap-4", "w-100")}
-          >
+          <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
             {filteredQuestionBlocks.map((questionBlock, index) => {
               return <QuestionBlock key={index} {...questionBlock} />;
             })}
