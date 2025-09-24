@@ -10,25 +10,10 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["statistics-and-text-bg"])}>
       <div className={clsx("container-lg")}>
-        <div
-          className={clsx(
-            "row",
-            "row-cols-1",
-            "row-cols-lg-2",
-            "justify-content-lg-between",
-          )}
-        >
-          <div
-            className={clsx(
-              "col",
-              "mb-5",
-              "mb-lg-0",
-              styles["statistics-and-text__content-container"],
-            )}
-          >
+        <div className={clsx("row")}>
+          <div className={clsx("col-lg-5")}>
             <h1
               className={clsx(
-                "body-regular",
                 "fw-bold",
                 "text-uppercase",
                 styles["statistics-and-text__subtitle"],
@@ -40,7 +25,7 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
             <p className={clsx("fst-italic", "heading-s", "mt-4")}>
               {props.quote}
             </p>
-            <p className={clsx("body-regular", "mt-2")}>
+            <p className={clsx("mt-2")}>
               {props.attribution}{" "}
               <a
                 className={clsx(
@@ -60,12 +45,16 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
               {...props.buttonLink}
             />
           </div>
-          <div className="col">
-            <div className={clsx("row", "row-cols-1", "row-cols-lg-2", "g-4")}>
+          <div className={clsx("col-lg-7")}>
+            <div className={clsx("row", "g-5", "justify-content-center")}>
               {props.statisticCards.map((card) => (
                 <div
                   key={card.id}
-                  className={clsx("col", "d-flex", "justify-content-center")}
+                  className={clsx(
+                    "col-auto",
+                    "d-flex",
+                    "justify-content-center",
+                  )}
                 >
                   <CardStat {...card} />
                 </div>
