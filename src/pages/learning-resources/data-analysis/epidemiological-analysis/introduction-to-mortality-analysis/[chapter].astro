@@ -76,7 +76,9 @@ if (currentChapter === totalChapters) {
   // overview page
   linkData = {
     label: "End learning",
-    href: parentUrl,
+    href: sanitizeUrl(
+      "/learning-resources/data-analysis/epidemiological-analysis/",
+    ),
   };
 }
 
