@@ -20,7 +20,7 @@
     {
       "id": "a43b43d8-43eb-47e5-ad77-6db71732473c",
       "href": "section4",
-      "label": "Overview"
+      "label": "Calculating Rates"
     },
     {
       "id": "27566065-cd5a-4eff-b53f-292f558a46d2",
@@ -65,7 +65,7 @@
     {
       "id": "b4f8944e-8855-4dce-8529-474199d7bbe8",
       "href": "section13",
-      "label": "Life Expectancy Methods"
+      "label": "Excess deaths calculations"
     }
   ]
 }

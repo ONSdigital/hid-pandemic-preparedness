@@ -1,19 +1,23 @@
-# Definition of Importance of Mortality Analysis
+# Definition and Importance of Mortality Analysis
 
 Mortality analysis involves examining data on deaths to understand patterns, causes, and trends across populations. It includes calculating mortality rates, analysing causes of death, and interpreting life expectancy.
 
-## Importance
+#### Importance
 
 - Provides insight into the health status of populations
 - Identifies inequalities and emerging health issues
 - Supports planning and evaluation of health services and interventions
 
-## Step-by-step
+---
+
+##### Step-by-step
 
 1. Identify the population or subgroup to be analysed
 1. Obtain death registration data from a reliable source
 1. Apply standard methods to calculate mortality indicators
 1. Interpret results in the context of demographic and health trends
+
+---
 
 # Relevance and Coverage
 
@@ -31,27 +35,31 @@ Mortality data plays a central role in informing health and demographic statisti
 
 These applications contribute to both national policy development and international reporting obligations, including **Sustainable Development Goals (SDGs) and WHO health indicators.**
 
-## Coverage
+---
+
+#### Coverage
 
 Mortality statistics are based on information collected during the death registration process. The data typically includes:
 
 - Demographic details: Age, sex, and usual residence of the deceased
 - Event details: Date and place of death
-  Medical information: Cause of death, coded using the International Classification of Diseases (ICD-10 or ICD-11) The coverage of mortality data is influenced by the legal and administrative framework for death registration. For example, in England and Wales, all deaths must be registered by law, ensuring high completeness.
+- Medical information: Cause of death, coded using the International Classification of Diseases (ICD-10 or ICD-11) The coverage of mortality data is influenced by the legal and administrative framework for death registration. For example, in England and Wales, all deaths must be registered by law, ensuring high completeness.
 
-## Quality Considerations
+---
+
+#### Quality Considerations
 
 To ensure mortality data is fit for purpose, the following aspects should be assessed:
 
-### Completeness
+##### **Completeness**
 
 All deaths should be registered. Delays may occur in cases referred to a coroner, but these are accounted for in statistical outputs.
 
-### Timeliness
+##### **Timeliness**
 
 Data is published regularly, with provisional and final releases. **Timeliness may vary depending on registration delays or the complexity of cause-of-death coding.**
 
-### Accuracy
+##### **Accuracy**
 
 Causes of death are coded using ICD standards. Coding is based on the information provided by certifying doctors or coroners, and may be affected by the quality of medical certification.
 
@@ -70,7 +78,9 @@ Mortality analysis supports a wide range of statistical, demographic, and public
 
 These uses help inform **policy, allocate resources, and monitor progress against health objectives.**
 
-## Step-by-step
+---
+
+#### Step-by-step
 
 1. Define the purpose of the analysis (e.g., population projections, health surveillance)
 1. Select appropriate mortality indicators and breakdowns (e.g., age, sex, cause)
@@ -81,30 +91,28 @@ These uses help inform **policy, allocate resources, and monitor progress agains
 
 Mortality data is used by a wide range of organisations across the public, private, and international sectors. Each group applies the data to support decision-making, planning, and monitoring activities relevant to their specific responsibilities. **The following examples indicate users of mortality data across the UK.**
 
-### Public Sector Users
+**Public Sector Users**
 
-- Department of Health and Social Care (DHSC), the Cabinet Office, the UK Health Security Agency, and the Office for Health Improvement and
-
-### Disparity use mortality data to:
+- [Department of Health and Social Care (DHSC)](https://www.gov.uk/government/organisations/department-of-health-and-social-care), the [Cabinet Office](https://www.gov.uk/government/organisations/cabinet-office), the [UK Health Security Agency](https://www.gov.uk/government/organisations/uk-health-security-agency), and the [Office for Health Improvement and Disparity](https://www.gov.uk/government/organisations/office-for-health-improvement-and-disparities) use mortality data to:
 
 - Inform health policy decisions
 - Monitor population health
 - Track progress against national health targets (e.g. reducing stillbirth and neonatal mortality)
 - Devolved administrations such as the Welsh Government and Public Health Wales (PHW) use the data for regional health planning and performance monitoring.
 
-### Other government departments:
+**Other government departments:**
 
-- Home Office andpolice force use data on external causes of death (e.g. homicides) for crime and safety analysis.
+- Home Office and police force use data on external causes of death (e.g. homicides) for crime and safety analysis.
 - Department for Work and Pensions (DWP) uses mortality data in statistical models to estimate pensions and benefits.
 - Local authorities use mortality data to support service planning, health needs assessments, and resource allocation at the community level.
 
-### Private Sector Users
+**Private Sector Users**
 
 - Banks, insurance companies, and investment firms use mortality data by single year of age and region for risk modelling, underwriting, and financial forecasting.
 
-### International Organisations
+**International Organisations**
 
-- World Health Organization and the United Nations (UN) Statistics Division use mortality statistics to:
+- World Health Organisation and the United Nations (UN) Statistics Division use mortality statistics to:
 - Monitor global health trends
-- Track progress toward international goals such as the UN's
+- Track progress toward international goals such as the UN's Sustainable Development Goals
 - Sustainable Development Goals.
