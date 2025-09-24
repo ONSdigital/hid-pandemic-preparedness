@@ -20,7 +20,7 @@ const meta = {
   },
   component: LearningResource,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   title: "Organisms/Core/LearningResource",
 } satisfies Meta<typeof LearningResource>;

@@ -37,6 +37,7 @@
 @import "./bootstrap-5.3.8/scss/transitions";
 @import "./bootstrap-5.3.8/scss/card";
 @import "./bootstrap-5.3.8/scss/breadcrumb";
+@import "./bootstrap-5.3.8/scss/tables";
 // ...
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
@@ -44,6 +45,8 @@
 
 // 8. Add additional custom code here
 @import "./elements/typography";
+@import "./elements/tables";
+@import "./elements/math";
 
 // Fix for https://anddigitaltransformation.atlassian.net/browse/ONSPPT-217 see
 // https://stackoverflow.com/questions/25887927/bootstrap-some-kind-of-margin-on-mobile-devices-only-right-side
