@@ -2,43 +2,43 @@
   "references": [
     {
       "id": "1",
-      "accessedDate": "12th March 2024",
-      "yearPublished": "2022",
-      "websiteAuthor": "Dr. Maria Thompson",
-      "websiteTitle": "Advances in CRISPR Gene Editing Technology",
-      "websiteUrl": "https://www.sciencejournal.org/crispr-advances"
+      "accessedDate": "19th August 2025",
+      "yearPublished": "2021",
+      "websiteAuthor": "The Independent Panel for Pandemic Preparedness & Response",
+      "websiteTitle": "COVID-19: Make it the Last Pandemic",
+      "websiteUrl": "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf"
     },
     {
       "id": "2",
-      "accessedDate": "5th January 2024",
-      "yearPublished": "2021",
-      "websiteAuthor": "Prof. Alan Richards",
-      "websiteTitle": "Climate Change Impact on Arctic Ice Melt",
-      "websiteUrl": "https://www.environmentalstudies.edu/arctic-ice-melt"
+      "accessedDate": "26th August 2025",
+      "yearPublished": "2024",
+      "websiteAuthor": "Institute for Health Metrics and Evaluation (IHME)",
+      "websiteTitle": "Global Burden of Disease (2024)– with minor processing by Our World in Data. Deaths from infectious diseases [dataset]. In: Global Burden of Disease - Deaths and DALYs [original data]",
+      "websiteUrl": "https://archive.ourworldindata.org/20250624-125417/grapher/deaths-from-infectious-diseases.html"
     },
     {
       "id": "3",
-      "accessedDate": "19th August 2025",
-      "yearPublished": "2023",
-      "websiteAuthor": "Dr. Susan Lee",
-      "websiteTitle": "Nanomaterials in Drug Delivery Systems",
-      "websiteUrl": "https://www.medicalresearchhub.com/nanomaterials-drug-delivery"
+      "accessedDate": "26th August 2025",
+      "yearPublished": "2025",
+      "websiteAuthor": "World Health Organisation",
+      "websiteTitle": "WHO COVID-19 dashboard",
+      "websiteUrl": "https://data.who.int/dashboards/covid19/deaths"
     },
     {
       "id": "4",
-      "accessedDate": "30th September 2023",
+      "accessedDate": "26th August 2025",
       "yearPublished": "2020",
-      "websiteAuthor": "Dr. James Patel",
-      "websiteTitle": "Quantum Computing: Current State and Future Prospects",
-      "websiteUrl": "https://www.techinsights.com/quantum-computing-review"
+      "websiteAuthor": "The World Bank Group. Poverty and Shared Prosperity",
+      "websiteTitle": "Washington, DC: World Bank Group",
+      "websiteUrl": "https://www.worldbank.org/en/publication/poverty-and-shared-prosperity"
     },
     {
       "id": "5",
-      "accessedDate": "7th July 2024",
+      "accessedDate": "26th August 2025",
       "yearPublished": "2019",
-      "websiteAuthor": "Prof. Linda Gomez",
-      "websiteTitle": "Renewable Energy Technologies: A Comprehensive Overview",
-      "websiteUrl": "https://www.energyresearch.org/renewables-overview"
+      "websiteAuthor": "World Health Organisation",
+      "websiteTitle": "Pathogens Prioritization",
+      "websiteUrl": " https://cdn.who.int/media/docs/default-source/consultation-rdb/prioritization-pathogens-v6final.pdf"
     }
   ]
 }
