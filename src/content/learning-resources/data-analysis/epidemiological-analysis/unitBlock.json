@@ -4,8 +4,8 @@
     {
       "id": "8c726a8f-3084-4660-bd45-71a92108ea3e",
       "link": {
-        "href": "/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis",
-        "label": "Introduction to Mortality Analysis"
+        "href": "/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/",
+        "label": "Mortality Analysis"
       },
       "subTitle": "Introduction to principles and practices of mortality analysis.",
       "tags": [
@@ -23,12 +23,96 @@
       "readingTime": "3 min"
     },
     {
+      "id": "2279d43b-e983-472c-a8a0-0c4d3997fa86",
+      "link": {
+        "href": "#",
+        "label": "Risk analysis"
+      },
+      "subTitle": "How to identify and measure public health risks early.",
+      "tags": [
+        {
+          "id": "c6e5189e-3b95-4a30-9c1c-5057c730895e",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "cc7e839c-897d-450f-b128-db2f4b43b05b",
+          "title": "Beginner",
+          "type": "primary"
+        }
+      ],
+      "readingTime": "3 min"
+    },
+    {
+      "id": "f36dadcd-4911-406e-9671-318214bd9eb1",
+      "link": {
+        "href": "#",
+        "label": "Impact analysis"
+      },
+      "subTitle": "How to measure the impact of emergencies on communities and wider society.",
+      "tags": [
+        {
+          "id": "c6e5189e-3b95-4a30-9c1c-5057c730895e",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "cc7e839c-897d-450f-b128-db2f4b43b05b",
+          "title": "Beginner",
+          "type": "primary"
+        }
+      ],
+      "readingTime": "3 min"
+    },
+    {
+      "id": "6a38515f-1252-4dbf-8210-c476c7bd0a73",
+      "link": {
+        "href": "#",
+        "label": "Geospatial analysis"
+      },
+      "subTitle": "Using geospatial methods to monitor the spread of infectious diseases and access to facilities.",
+      "tags": [
+        {
+          "id": "c6e5189e-3b95-4a30-9c1c-5057c730895e",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "cc7e839c-897d-450f-b128-db2f4b43b05b",
+          "title": "Beginner",
+          "type": "primary"
+        }
+      ],
+      "readingTime": "3 min"
+    },
+    {
       "id": "313d84a0-6cb4-42f4-a5dc-ba66312a0003",
       "link": {
         "href": "#",
-        "label": "Mortality Analysis"
+        "label": "Infectious disease modelling"
       },
-      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "subTitle": "Using statistical modelling methods to monitor and predict the spread of infectious diseases.",
+      "tags": [
+        {
+          "id": "c6e5189e-3b95-4a30-9c1c-5057c730895e",
+          "title": "Mortality Analysis",
+          "type": "secondary"
+        },
+        {
+          "id": "cc7e839c-897d-450f-b128-db2f4b43b05b",
+          "title": "Beginner",
+          "type": "primary"
+        }
+      ],
+      "readingTime": "3 min"
+    },
+    {
+      "id": "d285822b-d10f-483e-b939-7e2802d8daf6",
+      "link": {
+        "href": "#",
+        "label": "Disease prevalence and incidence rates"
+      },
+      "subTitle": "Metrics for measuring the spread of infectious diseases.",
       "tags": [
         {
           "id": "c6e5189e-3b95-4a30-9c1c-5057c730895e",
