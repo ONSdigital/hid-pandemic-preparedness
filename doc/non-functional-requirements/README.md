@@ -13,7 +13,6 @@ Following a review of the guidelines above and overall project requirements, non
  - [Compatibility](./compatibility.md)
  - [Content](./content.md)
  - [Development](./development.md)
- - [Internationalization](./internationalization.md)
  - [Performance and reliability](./performance-and-reliability.md)
  - [Privacy](./privacy.md)
  - [Security](./security.md)

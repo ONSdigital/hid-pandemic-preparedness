@@ -100,3 +100,5 @@ The minor version of this Astro.js version will be incremented during developmen
 In order to make sure these two tools work harmoniously together, without styling rules from ESLint interferring with those applied through Prettier, the [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier) plugin is used.
 
 To ensure that both Prettier and ESLint recognise and handle Astro-specific files, the [prettier-plugin-astro](https://github.com/withastro/prettier-plugin-astro) and community maintained [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro) plugins were used (the latter of which also outlines the reccomended `eslint.config.js` as part of its documentation).
+
+## ADR-13: Project content should not be stored with application source code
