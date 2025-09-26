@@ -7,8 +7,6 @@
 .image-and-text-bg {
   background: $color-brand-primary-200;
   overflow: hidden;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
   position: relative;
 
   &::before {
@@ -16,7 +14,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: calc(100% - (15px + 55%));
     height: 100%;
 
     background-image: url("/images/two-professionals-discussing-statistics.png");
@@ -37,6 +35,6 @@
 // Adjust padding to show background image above title
 .title-padding {
   @include media-breakpoint-down(md) {
-    padding-top: 18rem !important;
+    padding-top: 19rem !important;
   }
 }

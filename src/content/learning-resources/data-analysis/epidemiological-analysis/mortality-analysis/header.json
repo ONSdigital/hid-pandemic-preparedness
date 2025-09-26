@@ -1,5 +1,5 @@
 {
-  "title": "Introduction to Mortality Analysis",
+  "title": "Mortality Analysis",
   "breadcrumbs": {
     "items": [
       {
@@ -18,13 +18,13 @@
         "id": "a8aead7c-4748-4c37-961d-caa64ff6558b"
       },
       {
-        "href": "/learning-resources/data-analysis/epidemiological-analysis",
+        "href": "/learning-resources/data-analysis/epidemiological-analysis/",
         "label": "Epidemiological Analysis",
         "id": "819cf680-7200-4bb0-9cc6-364b86f7bff1"
       },
       {
         "href": "/",
-        "label": "Introduction to Mortality Analysis",
+        "label": "Mortality Analysis",
         "id": "819cf680-7200-4bb0-9cc6-364b86f7bff1"
       }
     ]
