@@ -10,29 +10,25 @@ import styles from "./Header.module.scss";
 export const Header: FC<HeaderProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["header-bg"])}>
-      <div
-        className={clsx(
-          "container-lg",
-          styles["header-container"],
-          "py-4",
-          "text-light",
-        )}
-      >
-        <div className={clsx("row")}>
-          <div className={clsx("col-md-6")}>
-            <Breadcrumb {...props.breadcrumbs} />
+      <div className={clsx("container-lg", "py-4")}>
+        <div className="text-light">
+          <div className={clsx("row")}>
+            <div className={clsx("col-md-6")}>
+              <Breadcrumb {...props.breadcrumbs} />
+            </div>
+          </div>
+          <div className={clsx("row")}>
+            <div className={clsx("col-md-6")}>
+              <h1 className={clsx("heading-xl")}>{props.title}</h1>
+            </div>
+          </div>
+          <div className={clsx("row", "py-lg-4")}>
+            <div className={clsx("col-md-6")}>
+              <p>{props.subTitle}</p>
+            </div>
           </div>
         </div>
-        <div className={clsx("row")}>
-          <div className={clsx("col-md-6")}>
-            <h1 className={clsx("heading-xl")}>{props.title}</h1>
-          </div>
-        </div>
-        <div className={clsx("row", "py-lg-4")}>
-          <div className={clsx("col-md-6")}>
-            <p>{props.subTitle}</p>
-          </div>
-        </div>
+
         <div className={clsx("row", "py-2")}>
           <div className={clsx("col-md-5")}>
             <SearchBar placeholder={props.searchPlaceholderText} />
