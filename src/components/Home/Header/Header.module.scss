@@ -6,7 +6,6 @@
 
 .header-bg {
   background: $gradient-brand-primary-1;
-  overflow: hidden;
   position: relative;
 
   &::before {
@@ -33,9 +32,4 @@
       display: none;
     }
   }
-}
-
-.header-container {
-  position: relative;
-  z-index: 1;
 }
