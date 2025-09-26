@@ -1,7 +1,7 @@
 [
   {
     "link": {
-      "href": "/learning-resources/data-analysis/epidemiological-analysis",
+      "href": "#",
       "label": "Data analysis"
     },
     "contextLabel": "Context for data analysis",
@@ -13,7 +13,7 @@
   },
   {
     "link": {
-      "href": "/learning-resources/data-analysis/epidemiological-analysis",
+      "href": "#",
       "label": "Basic data visualisation"
     },
     "contextLabel": "Context for data visualisation",
