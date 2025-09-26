@@ -13,7 +13,3 @@ This project uses [semantic versioning](https://semver.org/).
 ## Use gpg to sign all commits
 
 All commits should be [signed using a gpg key linked to your github account](https://docs.github.com/en/authentication/managing-commit-signature-verification) to align with wider ONS standards.
-
-## Use BEM methodology for style naming
-
-All css and scss classes should be written according to the [Block Element Modifier (BEM) methodology](https://getbem.com/) to ensure consistent naming across the project.

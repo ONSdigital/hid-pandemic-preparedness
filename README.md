@@ -118,6 +118,8 @@ The styling of the project is laid out such that:
 - Global and element styles are loaded on every page
 - Component-level styles are loaded and scoped to their respective components
 
+[Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) is used as the base CSS framework. [Bootstrap SCSS](./src/styles/bootstrap-5.3.8/) is included as part of the styles source code and component scss is imported as required into the application [index.scss](./src/styles/index.scss).
+
 ## Linting and code formatting
 
 This project makes use of [Prettier](https://prettier.io) and [ESLint](https://eslint.org/) to apply linting and code-formatting rules respectively. Prettier automatically formats the codebase to ensure uniform style, while ESLint enforces coding standards specified by rules in `eslint.config.js`.
@@ -163,7 +165,7 @@ This will do the following:
 - Sets Prettier as the default formatter for `.astro` files
 
 ## Testing
-[Vitest](https://vitest.dev/) is used as the testing suite for this project. Vitest is a suitable choice since Astro.js already uses vite under the hood for its build process. 
+[Vitest](https://vitest.dev/) is used as the testing suite for this project. Vitest is a suitable choice since Astro.js already uses vite under the hood for its build process.
 
 To write tests for a component (e.g., `Component.tsx`), create a corresponding test file named `Component.test.tsx` or `Component.spec.tsx` in the same directory. Vitest will automatically detect and run these test files.
 
