@@ -19,7 +19,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   };
 
   return (
-    <form role="search" className={styles["input-bg"]}>
+    <form role="search" className={clsx("text-dark", styles["input-bg"])}>
       <div className={clsx("input-group", "mb-3")}>
         <input
           aria-describedby="search-button"
