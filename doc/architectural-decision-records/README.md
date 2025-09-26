@@ -16,3 +16,4 @@ This page lists the Architectural Decision Records (ADRs) that have defined the 
 | [ADR-10](./adr-10-use-typescript.md) | Use typescript |
 | [ADR-11](./adr-11-use-the-astrojs-web-framework-v5.11.1.md) | Use the Astro.js web framework |
 | [ADR-12](./adr-12-use-prettier-and-eslint-for-linting-and-code-formatting.md) | Use Prettier and ESLint for linting and code-formatting |
+| [ADR-13](./adr-13-use-bootstrap-for-base-styling.md) | Use Bootstrap 5.3.8 for base styling |
