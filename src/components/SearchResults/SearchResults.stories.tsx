@@ -10,7 +10,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  argTypes: {},
+  argTypes: { searchResults: { table: { disable: true } } },
 } satisfies Meta<typeof SearchResults>;
 
 export default meta;
