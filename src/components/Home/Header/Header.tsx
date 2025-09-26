@@ -26,11 +26,10 @@ export const Header: FC<HeaderProps> = (props) => {
             <p>{props.subTitle}</p>
           </div>
         </div>
-      </div>
-
-      <div className={clsx("row", "py-2")}>
-        <div className={clsx("col-md-5")}>
-          <SearchBar placeholder={props.searchPlaceholderText} />
+        <div className={clsx("row", "py-2")}>
+          <div className={clsx("col-md-5")}>
+            <SearchBar placeholder={props.searchPlaceholderText} />
+          </div>
         </div>
       </div>
     </div>
