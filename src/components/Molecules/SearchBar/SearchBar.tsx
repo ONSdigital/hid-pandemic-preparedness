@@ -1,17 +1,25 @@
 import clsx from "clsx";
-import { useState, type ChangeEvent, type FC } from "react";
+import { useState, useRef, type ChangeEvent, type FC } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
+import { useClickOutside } from "@hooks/useClickOutside";
 import type { SearchBarProps } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
-import { SearchResults } from "../../SearchResults/SearchResults";
 import SearchResultsData from "@content/searchResults.json";
-import type { SearchResultItemProps } from "../../SearchResults/SearchResults.interface";
+import { SearchResults } from "@components/SearchResults/SearchResults";
+import type { SearchResultItemProps } from "@components/SearchResults/SearchResults.interface";
 
 const SearchResultsProps = SearchResultsData as SearchResultItemProps[];
 
 export const SearchBar: FC<SearchBarProps> = (props) => {
   const [searchInput, setSearchInput] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+
+  const searchContainerRef = useRef(null);
+
+  useClickOutside(searchContainerRef, () => {
+    setIsFocused(false);
+  });
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
@@ -20,16 +28,17 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   return (
     <form role="search" className={clsx("text-dark", styles["input-bg"])}>
-      <div className={clsx("input-group", "mb-3")}>
+      <div ref={searchContainerRef} className={clsx("input-group", "mb-3")}>
         <input
           aria-describedby="search-button"
           aria-label={props.placeholder}
           className={clsx("form-control", styles["input-sizing"])}
           onChange={onChange}
+          onFocus={() => setIsFocused(true)}
           placeholder={props.placeholder}
           type="search"
         />
-        {searchInput && (
+        {searchInput && isFocused && (
           <div className={clsx("mt-2", "w-100", styles["search-results"])}>
             <SearchResults searchResults={SearchResultsProps} />
           </div>
