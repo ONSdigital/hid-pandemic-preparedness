@@ -6,7 +6,7 @@ import type { SearchResultItemProps } from "./SearchResults.interface";
 
 const meta = {
   component: SearchResults,
-  title: "Components/SearchResults",
+  title: "Molecules/SearchResults",
   parameters: {
     layout: "centered",
   },

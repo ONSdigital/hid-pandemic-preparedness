@@ -6,8 +6,8 @@ import { useClickOutside } from "@hooks/useClickOutside";
 import type { SearchBarProps } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
 import SearchResultsData from "@content/searchResults.json";
-import { SearchResults } from "@components/SearchResults/SearchResults";
-import type { SearchResultItemProps } from "@components/SearchResults/SearchResults.interface";
+import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
+import type { SearchResultItemProps } from "@components/Molecules/SearchResults/SearchResults.interface";
 
 const SearchResultsProps = SearchResultsData as SearchResultItemProps[];
 
