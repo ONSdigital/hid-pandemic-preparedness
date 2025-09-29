@@ -16,7 +16,7 @@ There is a need for the application to provide search across the site. The quest
 - Provide a fast, accurate, and user-friendly search experience, including keyword search
 - Align with overall performance and usability goals, ensuring responsiveness and accessibility across all supported languages and conditions
 
-Content structure and user needs when searching are not yet fully defined, so any search implementation should be extensible to ensure it meets future needs.
+Content structure and user needs when searching are not yet fully defined, so any search implementation should be extensible to ensure it meets future needs. Initial designs for a Search Bar [have already been implemented](https://github.com/ONSdigital/hid-pandemic-preparedness/pull/111)
 
 ## What implementation options are available?
 
