@@ -14,6 +14,16 @@ const meta = {
         disable: true,
       },
     },
+    onChange: {
+      table: {
+        disable: true,
+      },
+    },
+    selectedIds: {
+      table: {
+        disable: true,
+      },
+    },
   },
   component: ListGroupChecks,
   title: "Components/List group",

@@ -22,6 +22,11 @@ const meta = {
         disable: true,
       },
     },
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Meta<typeof Accordion>;
 

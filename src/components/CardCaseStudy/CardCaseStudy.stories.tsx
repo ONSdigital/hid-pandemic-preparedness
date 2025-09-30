@@ -44,7 +44,7 @@ const cardCaseStudyProps: CardCaseStudyProps = {
   image: {
     id: uuidv4(),
     altText: "A group of medical professionals chatting and smiling.",
-    srcPath: "./example-images/group-of-medical-professionals.jpg",
+    srcPath: "./images/group-of-medical-professionals.jpeg",
   },
 };
 
