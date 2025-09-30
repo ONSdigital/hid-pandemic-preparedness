@@ -1,0 +1,26 @@
+[
+  {
+    "link": {
+      "href": "#",
+      "label": "Data analysis"
+    },
+    "contextLabel": "Context for data analysis",
+    "tag": {
+      "id": "32dd65e8-c0ab-4731-9eec-ecfcdfaa2f6c",
+      "title": "Beginner",
+      "type": "primary"
+    }
+  },
+  {
+    "link": {
+      "href": "#",
+      "label": "Basic data visualisation"
+    },
+    "contextLabel": "Context for data visualisation",
+    "tag": {
+      "id": "e480ae99-fb73-4e9f-b75a-87619975c793",
+      "title": "Beginner",
+      "type": "primary"
+    }
+  }
+]

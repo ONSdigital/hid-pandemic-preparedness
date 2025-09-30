@@ -1,0 +1,9 @@
+@use "../../../styles/global/tokens" as *;
+
+.search-results-bg {
+  background-color: $color-grey-100;
+}
+
+.search-results-link {
+  color: $color-blue;
+}

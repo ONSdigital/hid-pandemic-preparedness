@@ -10,14 +10,7 @@ import styles from "./Header.module.scss";
 export const Header: FC<HeaderProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["header-bg"])}>
-      <div
-        className={clsx(
-          "container-lg",
-          styles["header-container"],
-          "py-4",
-          "text-light",
-        )}
-      >
+      <div className={clsx("container-lg", "py-4", "text-light")}>
         <div className={clsx("row")}>
           <div className={clsx("col-md-6")}>
             <Breadcrumb {...props.breadcrumbs} />
