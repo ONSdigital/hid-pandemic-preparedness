@@ -15,6 +15,7 @@ Following a review of the guidelines above and overall project requirements, non
  - [Development](./development.md)
  - [Performance and reliability](./performance-and-reliability.md)
  - [Privacy](./privacy.md)
+ - [Search](./search.md)
  - [Security](./security.md)
  - [Sustainability](./sustainability.md)
  - [Usability](./usability.md)
