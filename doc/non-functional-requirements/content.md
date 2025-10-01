@@ -40,7 +40,7 @@ Certain requirements around video size, resolution and colour depth have been ch
 | :------------------------------------ | :---------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
 | [content-images-1](#content-images-1) | The maximum file size for any individual uploaded image should be 500MB | [Sustainability NFRs](./sustainability.md)                                   |
 | [content-images-2](#content-images-2) | Image assets should be uploaded as jpeg or png file types               |                                                                              |
-| [content-images-2](#content-images-2) | Image container when rendered by the application should be WebP         | [Handling long form content](../spike-outputs/handling-long-form-content.md) |
+| [content-images-3](#content-images-3) | Image container when rendered by the application should be WebP         | [Handling long form content](../spike-outputs/handling-long-form-content.md) |
 
 ## Search
 
