@@ -11,32 +11,32 @@
   height: 100%;
 
   &::before {
+    aspect-ratio: 1.55;
     background-image: url("/images/two-professionals-discussing-statistics.png");
     background-size: cover;
     content: "";
-    height: 360px;
-    left: -150px;
+    left: 50%;
     overflow: visible;
     position: absolute;
-    top: -35px;
-    width: calc(100% + 150px);
+    transform: translateX(-50%);
+    top: 0;
+    width: 500px;
     z-index: 0;
   }
 
   @include media-breakpoint-up(md) {
     &::before {
-      left: -195px;
-      top: 50px;
-      width: calc(50% + 150px);
+      top: 50%;
+      width: 70%;
+      left: -25%;
+      transform: translateY(-60%);
     }
   }
 
   @include media-breakpoint-up(lg) {
     &::before {
-      left: 15%;
-      height: 115%;
-      top: -5%;
-      width: 30vw;
+      transform: translateY(-50%);
+      max-width: 1000px;
     }
   }
 }
