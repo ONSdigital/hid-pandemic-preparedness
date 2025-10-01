@@ -1,7 +1,5 @@
 # Content
 
-The
-
 | Id                      | Requirement                                                                        | Ref                                    |
 | :---------------------- | :--------------------------------------------------------------------------------- | :------------------------------------- |
 | [content-1](#content-1) | The application must provide a method for a "non-technical" user to upload content | ADP00041 alpha scoping exercise output |

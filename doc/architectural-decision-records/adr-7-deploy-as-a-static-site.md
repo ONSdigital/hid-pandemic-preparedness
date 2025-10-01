@@ -1,6 +1,4 @@
-# [1]: ../non-functional-requirements/ADR.md#ADR-7
-
-: Deploy as a static site
+# ADR-7: Deploy as a static site
 
 ## Related NFRs
 

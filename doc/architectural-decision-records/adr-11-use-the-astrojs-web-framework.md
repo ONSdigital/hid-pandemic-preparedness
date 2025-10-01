@@ -18,4 +18,4 @@ At the time of project initiation, [Astro.js v5.11.1](https://github.com/withast
 The minor version of this Astro.js version will be incremented during development as and when new versions are available. See the [package.json](../../package.json) file for the current version used.
 
 [1]: ../non-functional-requirements/performance.md#performance-1
-[1]: ../non-functional-requirements/performance.md#performance-2
+[2]: ../non-functional-requirements/performance.md#performance-2
