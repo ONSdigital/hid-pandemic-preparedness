@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Home strings",
+    "slug": "home-strings",
+    "entries": [
+      {
+        "name": "search_bar_placeholder_text",
+        "value": "Search learning resources"
+      },
+      {
+        "name": "learning_resources_title",
+        "value": "Learning resources"
+      },
+      {
+        "name": "what_is_aa_button_label",
+        "value": "About"
+      },
+      {
+        "name": "the_statistics_title",
+        "value": "The statistics"
+      },
+      {
+        "name": "the_statistics_subtitle",
+        "value": "Preparedness saves lives"
+      },
+      {
+        "name": "the_statistics_link_label",
+        "value": "Learning resources"
+      },
+      {
+        "name": "case_studies_title",
+        "value": "Case studies"
+      },
+      {
+        "name": "case_studies_link_label",
+        "value": "View all case studies"
+      },
+      {
+        "name": "global_impact_title",
+        "value": "Global impact"
+      },
+      {
+        "name": "strategic_partners_title",
+        "value": "Strategic partners"
+      }
+    ]
+  }
+]
