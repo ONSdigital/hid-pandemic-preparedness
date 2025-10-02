@@ -8,33 +8,31 @@
   background: $color-brand-primary-200;
   overflow: hidden;
   position: relative;
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(100% - (15px + 55%));
-    height: 100%;
+.image-styles {
+  width: 70%;
+  min-width: 440px;
+  margin-top: -30px;
 
-    background-image: url("/images/two-professionals-discussing-statistics.png");
-    background-repeat: no-repeat;
-    background-position: left center; // align image left edge to left of pseudo-element
-    background-size: contain;
-    z-index: 0;
+  @include media-breakpoint-up(md) {
+    margin-bottom: -20px;
   }
 
-  @include media-breakpoint-down(md) {
-    &::before {
-      height: 20rem;
-      width: 100%;
-    }
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    right: 0px;
+    top: -80px;
+    margin-top: 0;
+    width: auto;
+    margin-bottom: 0;
   }
 }
 
-// Adjust padding to show background image above title
-.title-padding {
-  @include media-breakpoint-down(md) {
-    padding-top: 19rem !important;
+.image-container {
+  overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    overflow: visible;
   }
 }
