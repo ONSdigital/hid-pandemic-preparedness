@@ -81,7 +81,6 @@ const filterMenuData = {
     { label: themeLabel1, id: themeId1 },
     { label: themeLabel2, id: themeId2 },
   ],
-  inverse: false,
 };
 
 // Construct props for QuestionBlock component

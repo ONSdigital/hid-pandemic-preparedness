@@ -1,8 +1,19 @@
 {
   "title": "Theme",
   "checkItems": [
-    { "label": "Demographic Information", "id": "demographic-information" },
-    { "label": "Carer Specific", "id": "carer-specific" },
+    {
+      "label": "Demographic Information",
+      "id": "demographic-information",
+      "subThemes": [
+        { "label": "Age", "id": "age" },
+        { "label": "Ethnicity", "id": "ethnicity" }
+      ]
+    },
+    {
+      "label": "Carer Specific",
+      "id": "carer-specific",
+      "subThemes": [{ "label": "Care Giver", "id": "care-giver" }]
+    },
     { "label": "General Health", "id": "general-health" },
     { "label": "COVID-19 Symptoms", "id": "covid-19-symptoms" },
     {
@@ -17,9 +28,17 @@
       "label": "Social and Lifestyle Impacts",
       "id": "social-and-lifestyle-impacts"
     },
-    { "label": "Travel", "id": "travel" },
+    {
+      "label": "Travel",
+      "id": "travel",
+      "subThemes": [
+        {
+          "label": "Frequency and purpose of travel (business, leisure, family)",
+          "id": "frequency-and-purpose"
+        }
+      ]
+    },
     { "label": "Policy and Compliance", "id": "policy-and-compliance" },
     { "label": "Students", "id": "students" }
-  ],
-  "inverse": false
+  ]
 }

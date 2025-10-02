@@ -35,6 +35,10 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
                   {item.label}
                 </label>
               </div>
+              {item.subThemes &&
+                item.subThemes.map((subItem, index) => (
+                  <h1 key={index}>{subItem.label}</h1>
+                ))}
             </li>
           );
         })}
