@@ -27,7 +27,7 @@ const meta = {
     layout: "fullscreen",
   },
   argTypes: {
-    filterMenu: { table: { disable: true } },
+    filterCheckboxList: { table: { disable: true } },
     questionBlocks: { table: { disable: true } },
   },
 } satisfies Meta<typeof FilterableQuestions>;
@@ -74,10 +74,11 @@ const themeId1 = uuidv4();
 const themeLabel2 = "Travel";
 const themeId2 = uuidv4();
 
+const filterTitleData = "Theme";
+
 // Construct props for ListGroupCheck component
-const filterMenuData = {
-  title: "Theme",
-  checkItems: [
+const filterCheckBoxListData = {
+  listItems: [
     { label: themeLabel1, id: themeId1 },
     { label: themeLabel2, id: themeId2 },
   ],
@@ -125,7 +126,8 @@ const questionBlocksData: QuestionBlockProps[] = [
 
 // Bring all the props together for FilterableQuestions component
 const filterMenuProps: FilterableQuestionsProps = {
-  filterMenu: filterMenuData,
+  filterTitle: filterTitleData,
+  filterCheckboxList: filterCheckBoxListData,
   questionBlocks: questionBlocksData,
 };
 

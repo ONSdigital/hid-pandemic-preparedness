@@ -1,17 +1,12 @@
 {
-  "title": "Theme",
-  "checkItems": [
+  "listItems": [
     {
       "label": "Demographic Information",
       "id": "demographic-information",
       "subItems": [
         {
           "label": "Age",
-          "id": "age",
-          "subItems": [
-            { "label": "hairColor", "id": "hairColor" },
-            { "label": "Height", "id": "height" }
-          ]
+          "id": "age"
         },
         { "label": "Ethnicity", "id": "ethnicity" }
       ]

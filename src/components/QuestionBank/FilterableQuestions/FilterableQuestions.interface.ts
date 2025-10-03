@@ -2,6 +2,7 @@ import type { ListGroupChecksProps } from "@components/ListGroup/ListGroup.inter
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
 
 export interface FilterableQuestionsProps {
-  filterMenu: ListGroupChecksProps;
+  filterTitle: string;
+  filterCheckboxList: ListGroupChecksProps;
   questionBlocks: QuestionBlockProps[];
 }

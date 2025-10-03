@@ -38,8 +38,11 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
       <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row")}>
           <div className={clsx("col-md-3", "mb-3")}>
+            <p className={clsx("text-primary", "fw-bold")}>
+              {props.filterTitle}
+            </p>
             <ListGroupChecks
-              {...props.filterMenu}
+              {...props.filterCheckboxList}
               selectedIds={selectedIds}
               onChange={onCheckboxChange}
             />

@@ -6,30 +6,37 @@ import type {
   ListGroupLinksProps,
 } from "./ListGroup.interface";
 import styles from "./ListGroup.module.scss";
-import { ListCheckBoxItem } from "../ListCheckboxItem/ListCheckBoxItem";
 
 // Use when rendering a list of checkboxes
 export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
   return (
-    <div>
-      {props.title && (
-        <p className={clsx("text-primary", "fw-bold")}>{props.title}</p>
+    <ul
+      className={clsx(
+        "list-group",
+        "list-group-flush",
+        styles["list-group-checks"],
       )}
-      <ul className={clsx("list-group", "list-group-flush")}>
-        {props.checkItems.map((item, index) => {
-          const isSelected =
-            props.selectedIds && props.selectedIds.includes(item.id);
-          return (
-            <ListCheckBoxItem
-              key={`listGroupItem${index}`}
-              label={item.label}
-              id={item.id}
-              subItems={item.subItems}
-            />
-          );
-        })}
-      </ul>
-    </div>
+    >
+      {props.listItems.map((item) => {
+        // const isSelected =
+        // props.selectedIds && props.selectedIds.includes(item.id);
+        return (
+          <li className={clsx("list-group-item")} key={item.id}>
+            <div className={clsx("form-check")}>
+              <input
+                className={clsx("form-check-input")}
+                type="checkbox"
+                id={item.id}
+              />
+              <label className={clsx("form-check-label")} htmlFor={item.id}>
+                {item.label}
+              </label>
+            </div>
+            {item.subItems && <ListGroupChecks listItems={item.subItems} />}
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
