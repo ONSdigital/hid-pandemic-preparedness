@@ -114,6 +114,14 @@ module "app_main_cloudfront" {
   }]
 }
 
+# Create an s3 bucket for Storyblok preview SSR build files
+module "app_preview_s3" {
+  source                     = "./s3"
+  bucket_name                = "${var.bucket_name_prefix}-app-preview"
+  configure_for_site_hosting = false
+  force_destroy              = true
+}
+
 # Create iam user for automated deployments via github actions
 resource "aws_iam_user" "aws_iam_user" {
   name          = "github-actions"
