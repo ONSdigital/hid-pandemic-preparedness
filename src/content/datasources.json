@@ -1,70 +1,110 @@
 [
   {
+    "name": "Breadcrumb strings",
+    "slug": "breadcrumb-strings",
+    "entries": [
+      {
+        "name": "homeLabel",
+        "value": "Home"
+      }
+    ]
+  },
+  {
+    "name": "Footer strings",
+    "slug": "footer-strings",
+    "entries": [
+      {
+        "name": "aboutLabel",
+        "value": "About"
+      },
+      {
+        "name": "learningResourcesLabel",
+        "value": "Learning resources"
+      },
+      {
+        "name": "caseStudiesLabel",
+        "value": "Case studies"
+      },
+      {
+        "name": "toolsLabel",
+        "value": "Tools"
+      },
+      {
+        "name": "contactLabel",
+        "value": "Contact"
+      }
+    ]
+  },
+  {
     "name": "Home strings",
     "slug": "home-strings",
     "entries": [
       {
-        "name": "search_bar_placeholder_text",
+        "name": "searchBarPlaceholderText",
         "value": "Search learning resources"
       },
       {
-        "name": "learning_resources_title",
+        "name": "learningResourcesTitle",
         "value": "Learning resources"
       },
       {
-        "name": "what_is_aa_button_label",
+        "name": "whatIsAaButtonLabel",
         "value": "About"
       },
       {
-        "name": "the_statistics_title",
+        "name": "theStatisticsTitle",
         "value": "The statistics"
       },
       {
-        "name": "the_statistics_subtitle",
-        "value": "Preparedness saves lives"
-      },
-      {
-        "name": "the_statistics_link_label",
+        "name": "theStatisticsLinkLabel",
         "value": "Learning resources"
       },
       {
-        "name": "case_studies_title",
+        "name": "toolsTitle",
+        "value": "Tools to guide planning and response efforts"
+      },
+      {
+        "name": "toolsLinkLabel",
+        "value": "View all tools"
+      },
+      {
+        "name": "caseStudiesTitle",
         "value": "Case studies"
       },
       {
-        "name": "case_studies_link_label",
+        "name": "caseStudiesLinkLabel",
         "value": "View all case studies"
       },
       {
-        "name": "global_impact_title",
+        "name": "globalImpactTitle",
         "value": "Global impact"
       },
       {
-        "name": "global_impact_experts_title",
+        "name": "globalImpactExpertsTitle",
         "value": "50+ experts"
       },
       {
-        "name": "global_impact_experts_subtitle",
+        "name": "globalImpactExpertsSubtitle",
         "value": "internationally have contributed to content for Analysis for Action"
       },
       {
-        "name": "global_impact_countries_title",
+        "name": "globalImpactCountriesTitle",
         "value": "48 countries"
       },
       {
-        "name": "global_impact_countries_subtitle",
+        "name": "globalImpactCountriesSubtitle",
         "value": "have joined the Analysis for Action global network"
       },
       {
-        "name": "global_impact_users_title",
+        "name": "globalImpactUsersTitle",
         "value": "100,000+ users"
       },
       {
-        "name": "global_impact_users_subtitle",
+        "name": "globalImpactUsersSubtitle",
         "value": "of Analysis for Action resources so far"
       },
       {
-        "name": "strategic_partners_title",
+        "name": "strategicPartnersTitle",
         "value": "Strategic partners"
       }
     ]
@@ -74,42 +114,32 @@
     "slug": "navbar-strings",
     "entries": [
       {
-        "name": "about_label",
+        "name": "aboutLabel",
         "value": "About"
       },
       {
-        "name": "learning_resources_label",
+        "name": "learningResourcesLabel",
         "value": "Learning resources"
       },
       {
-        "name": "case_studies_label",
+        "name": "caseStudiesLabel",
         "value": "Case studies"
       },
       {
-        "name": "tools_label",
+        "name": "toolsLabel",
         "value": "Tools"
       },
       {
-        "name": "contact_label",
+        "name": "contactLabel",
         "value": "Contact"
       },
       {
-        "name": "language_label",
+        "name": "languageLabel",
         "value": "Language"
       },
       {
-        "name": "search_label",
+        "name": "searchLabel",
         "value": "Search"
-      }
-    ]
-  },
-  {
-    "name": "Breadcrumb strings",
-    "slug": "breadcrumb-strings",
-    "entries": [
-      {
-        "name": "home_label",
-        "value": "Home"
       }
     ]
   }
