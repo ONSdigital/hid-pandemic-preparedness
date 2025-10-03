@@ -24,7 +24,7 @@ async function syncDataWithStoryblok() {
     oauthToken: STORYBLOCK_ACCESS_TOKEN,
   });
 
-  console.log("Syncing datasources with Storyblok.");
+  console.log("Syncing datasources with Storyblok...");
 
   // Loop through local datasources definition
   for (const datasource of datasourcesData) {
@@ -102,7 +102,7 @@ async function syncDataWithStoryblok() {
       for (const entry of datasource.entries) {
         // Check whether we already have the entry
         const existingEntry = existingEntries.find(
-          (entry) => entry.name === entry.name,
+          (e) => e.name === entry.name,
         );
 
         if (existingEntry) {
@@ -146,8 +146,8 @@ async function syncDataWithStoryblok() {
         }
       }
     }
-    console.log("Syncing data complete.");
   }
+  console.log("Syncing data complete.");
 }
 
 syncDataWithStoryblok();

@@ -44,5 +44,49 @@
         "value": "Strategic partners"
       }
     ]
+  },
+  {
+    "name": "Navbar strings",
+    "slug": "navbar-strings",
+    "entries": [
+      {
+        "name": "about_label",
+        "value": "About"
+      },
+      {
+        "name": "learning_resources_label",
+        "value": "Learning resources"
+      },
+      {
+        "name": "case_studies_label",
+        "value": "Case studies"
+      },
+      {
+        "name": "tools_label",
+        "value": "Tools"
+      },
+      {
+        "name": "contact_label",
+        "value": "Contact"
+      },
+      {
+        "name": "language_label",
+        "value": "Language"
+      },
+      {
+        "name": "search_label",
+        "value": "Search"
+      }
+    ]
+  },
+  {
+    "name": "Breadcrumb strings",
+    "slug": "breadcrumb-strings",
+    "entries": [
+      {
+        "name": "home_label",
+        "value": "Home"
+      }
+    ]
   }
 ]
