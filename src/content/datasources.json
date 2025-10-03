@@ -40,6 +40,30 @@
         "value": "Global impact"
       },
       {
+        "name": "global_impact_experts_title",
+        "value": "50+ experts"
+      },
+      {
+        "name": "global_impact_experts_subtitle",
+        "value": "internationally have contributed to content for Analysis for Action"
+      },
+      {
+        "name": "global_impact_countries_title",
+        "value": "48 countries"
+      },
+      {
+        "name": "global_impact_countries_subtitle",
+        "value": "have joined the Analysis for Action global network"
+      },
+      {
+        "name": "global_impact_users_title",
+        "value": "100,000+ users"
+      },
+      {
+        "name": "global_impact_users_subtitle",
+        "value": "of Analysis for Action resources so far"
+      },
+      {
         "name": "strategic_partners_title",
         "value": "Strategic partners"
       }
