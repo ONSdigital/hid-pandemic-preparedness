@@ -6,6 +6,7 @@ import type {
   ListGroupLinksProps,
 } from "./ListGroup.interface";
 import styles from "./ListGroup.module.scss";
+import { ListCheckBoxItem } from "../ListCheckboxItem/ListCheckBoxItem";
 
 // Use when rendering a list of checkboxes
 export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
@@ -19,27 +20,12 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
           const isSelected =
             props.selectedIds && props.selectedIds.includes(item.id);
           return (
-            <li
-              className={clsx("list-group-item")}
+            <ListCheckBoxItem
               key={`listGroupItem${index}`}
-            >
-              <div className={clsx("form-check")}>
-                <input
-                  className={clsx("form-check-input")}
-                  type="checkbox"
-                  id={item.id}
-                  onChange={props.onChange}
-                  checked={isSelected}
-                />
-                <label className={clsx("form-check-label")} htmlFor={item.id}>
-                  {item.label}
-                </label>
-              </div>
-              {item.subThemes &&
-                item.subThemes.map((subItem, index) => (
-                  <h1 key={index}>{subItem.label}</h1>
-                ))}
-            </li>
+              label={item.label}
+              id={item.id}
+              subItems={item.subItems}
+            />
           );
         })}
       </ul>

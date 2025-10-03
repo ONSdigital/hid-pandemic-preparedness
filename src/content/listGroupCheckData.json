@@ -4,15 +4,22 @@
     {
       "label": "Demographic Information",
       "id": "demographic-information",
-      "subThemes": [
-        { "label": "Age", "id": "age" },
+      "subItems": [
+        {
+          "label": "Age",
+          "id": "age",
+          "subItems": [
+            { "label": "hairColor", "id": "hairColor" },
+            { "label": "Height", "id": "height" }
+          ]
+        },
         { "label": "Ethnicity", "id": "ethnicity" }
       ]
     },
     {
       "label": "Carer Specific",
       "id": "carer-specific",
-      "subThemes": [{ "label": "Care Giver", "id": "care-giver" }]
+      "subItems": [{ "label": "Care Giver", "id": "care-giver" }]
     },
     { "label": "General Health", "id": "general-health" },
     { "label": "COVID-19 Symptoms", "id": "covid-19-symptoms" },
@@ -31,7 +38,7 @@
     {
       "label": "Travel",
       "id": "travel",
-      "subThemes": [
+      "subItems": [
         {
           "label": "Frequency and purpose of travel (business, leisure, family)",
           "id": "frequency-and-purpose"
