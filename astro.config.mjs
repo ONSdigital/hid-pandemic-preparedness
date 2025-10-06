@@ -14,6 +14,10 @@ export default defineConfig({
   }),
   vite: {
     plugins: [tsconfigPaths()],
+    build: {
+      cssCodeSplit: false,
+      cssTarget: "es2015",
+    },
     css: {
       preprocessorOptions: {
         scss: {
