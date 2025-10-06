@@ -118,8 +118,19 @@ module "app_main_cloudfront" {
 module "app_preview_s3" {
   source                     = "./s3"
   bucket_name                = "${var.project_name_prefix}-app-preview"
-  configure_for_site_hosting = false
+  configure_for_site_hosting = true
   force_destroy              = true
+}
+
+# Set up cloudfront distribution for storybook main
+# Default root object required for storybook as deployed as SPA
+module "app_preview_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.app_preview_s3.id
+  bucket_regional_domain_name = module.app_preview_s3.bucket_regional_domain_name
+  distribution_enabled        = true
+  distribution_name           = "Preview assets"
+  default_root_object         = "index.html"
 }
 
 # IAM role for Lambda execution
@@ -153,7 +164,7 @@ resource "aws_lambda_function" "aws_lambda_function" {
   filename         = data.archive_file.astro_ssr_deployment_zip.output_path
   function_name    = "${var.project_name_prefix}-lambda-storyblok-preview"
   role             = aws_iam_role.aws_iam_role_lambda.arn
-  handler          = "./server/entry.mjs"
+  handler          = "handler.handler"
   source_code_hash = data.archive_file.astro_ssr_deployment_zip.output_base64sha256
 
   runtime = "nodejs22.x"
@@ -176,7 +187,14 @@ resource "aws_apigatewayv2_integration" "aws_apigatewayv2_integration" {
 
 resource "aws_apigatewayv2_route" "aws_apigatewayv2_route" {
   api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  route_key = "$default"
+  route_key = "ANY /{proxy+}"
+  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
+}
+
+# Add a route for the root (/) as well for good measure, though ANY /{proxy+} often covers it.
+resource "aws_apigatewayv2_route" "aws_apigatewayv2_route_2" {
+  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  route_key = "ANY /"
   target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
 }
 
@@ -201,6 +219,18 @@ output "api_gateway_invoke_url" {
   description = "Invoke URL for the API Gateway HTTP API"
 }
 
+# Attach cors policy to preview s3 bucket so assets can be requested from the deployed site
+resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
+  bucket = module.app_preview_s3.id
+
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["GET", "HEAD"]
+    allowed_origins = [aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint]
+    expose_headers  = []
+    max_age_seconds = 3000
+  }
+}
 
 # Create iam user for automated deployments via github actions
 resource "aws_iam_user" "aws_iam_user" {
