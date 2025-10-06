@@ -122,6 +122,86 @@ module "app_preview_s3" {
   force_destroy              = true
 }
 
+# IAM role for Lambda execution
+data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "aws_iam_role_lambda" {
+  name               = "${var.project_name_prefix}-lambda-execution-role"
+  assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_lambda.json
+}
+
+# Package the Lambda function code
+data "archive_file" "astro_ssr_deployment_zip" {
+  type        = "zip"
+  source_dir  = "${path.module}/../dist/"
+  output_path = "${path.module}/../astro-ssr-lambda.zip"
+}
+
+# Lambda function for CMS preview deployment
+resource "aws_lambda_function" "aws_lambda_function" {
+  filename         = data.archive_file.astro_ssr_deployment_zip.output_path
+  function_name    = "${var.project_name_prefix}-lambda-storyblok-preview"
+  role             = aws_iam_role.aws_iam_role_lambda.arn
+  handler          = "./server/entry.mjs"
+  source_code_hash = data.archive_file.astro_ssr_deployment_zip.output_base64sha256
+
+  runtime = "nodejs22.x"
+}
+
+# Api gateway for CMS preview deployment
+resource "aws_apigatewayv2_api" "aws_apigatewayv2_api" {
+  name          = "${var.project_name_prefix}-api-storyblok-preview"
+  description   = "Provides endpoint for Astro SSR CMS preview"
+  protocol_type = "HTTP"
+}
+
+resource "aws_apigatewayv2_integration" "aws_apigatewayv2_integration" {
+  api_id             = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  integration_type   = "AWS_PROXY"
+  description        = "Integration to invoke storyblok preview lambda"
+  integration_method = "POST"
+  integration_uri    = aws_lambda_function.aws_lambda_function.invoke_arn
+}
+
+resource "aws_apigatewayv2_route" "aws_apigatewayv2_route" {
+  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  route_key = "$default"
+  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
+}
+
+resource "aws_apigatewayv2_stage" "aws_apigatewayv2_stage" {
+  api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  name        = "${var.project_name_prefix}-api-stage-storyblok-preview"
+  auto_deploy = true
+}
+
+# Permission for API Gateway to invoke Lambda
+resource "aws_lambda_permission" "aws_lambda_permission" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.aws_lambda_function.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.aws_apigatewayv2_api.execution_arn}/*/*"
+}
+
+# Output the api gateway invoke url
+output "api_gateway_invoke_url" {
+  value       = aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint
+  description = "Invoke URL for the API Gateway HTTP API"
+}
+
+
 # Create iam user for automated deployments via github actions
 resource "aws_iam_user" "aws_iam_user" {
   name          = "github-actions"
