@@ -27,7 +27,7 @@ resource "aws_cloudfront_function" "aws_cloudfront_function" {
 # Create bucket for storybook dev
 module "storybook_dev_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-storybook-dev"
+  bucket_name                = "${var.project_name_prefix}-storybook-dev"
   configure_for_site_hosting = false
   force_destroy              = true
 }
@@ -46,7 +46,7 @@ module "storybook_dev_cloudfront" {
 # Create bucket for storybook main
 module "storybook_main_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-storybook-main"
+  bucket_name                = "${var.project_name_prefix}-storybook-main"
   configure_for_site_hosting = false
   force_destroy              = true
 }
@@ -65,7 +65,7 @@ module "storybook_main_cloudfront" {
 # Create bucket for app dev
 module "app_dev_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-app-dev"
+  bucket_name                = "${var.project_name_prefix}-app-dev"
   configure_for_site_hosting = true
   force_destroy              = true
 }
@@ -89,7 +89,7 @@ module "app_dev_cloudfront" {
 # Create bucket for app main
 module "app_main_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-app-main"
+  bucket_name                = "${var.project_name_prefix}-app-main"
   configure_for_site_hosting = true
   force_destroy              = true
 }
@@ -117,7 +117,7 @@ module "app_main_cloudfront" {
 # Create an s3 bucket for Storyblok preview SSR build files
 module "app_preview_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-app-preview"
+  bucket_name                = "${var.project_name_prefix}-app-preview"
   configure_for_site_hosting = false
   force_destroy              = true
 }

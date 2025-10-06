@@ -1,5 +1,5 @@
-variable "bucket_name_prefix" {
-  description = "The prefix we use whenever we're naming a bucket to ensure a unique name"
+variable "project_name_prefix" {
+  description = "The prefix we use whenever we're naming resources to ensure a unique name"
   default     = "hid-ppt"
   type        = string
 }
