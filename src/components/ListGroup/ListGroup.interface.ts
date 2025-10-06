@@ -5,8 +5,9 @@ import type { NavItem } from "../../types/NavItem";
 export interface ListGroupChecksProps {
   listItems: ListItem[];
   inverse?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void; // eslint-disable-line no-unused-vars
+  onChange?: (id: string, parentId: string | undefined) => void; // eslint-disable-line no-unused-vars
   selectedIds?: string[];
+  parentId?: string;
 }
 
 export interface ListGroupLinksProps {

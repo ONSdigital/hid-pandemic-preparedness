@@ -27,12 +27,21 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
                 className={clsx("form-check-input")}
                 type="checkbox"
                 id={item.id}
+                onChange={() =>
+                  props.onChange && props.onChange(item.id, props.parentId)
+                }
               />
               <label className={clsx("form-check-label")} htmlFor={item.id}>
                 {item.label}
               </label>
             </div>
-            {item.subItems && <ListGroupChecks listItems={item.subItems} />}
+            {item.subItems && (
+              <ListGroupChecks
+                parentId={item.id}
+                listItems={item.subItems}
+                onChange={props.onChange}
+              />
+            )}
           </li>
         );
       })}

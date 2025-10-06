@@ -30,6 +30,7 @@ import ethnicityMarkdown from "@content/tools/question-bank/ethnicity.md?raw";
 import frequencyAndPurposeOfTravelMarkdown from "@content/tools/question-bank/frequency-and-purpose-of-travel.md?raw";
 import sexGenderMarkdown from "@content/tools/question-bank/sex-gender.md?raw";
 import travelAndRegulationsMarkdown from "@content/tools/question-bank/travel-and-regulations.md?raw";
+import type { ListItem } from "@/src/types/ListItem";
 
 const currentRoute: string = Astro.url.pathname;
 
@@ -47,9 +48,39 @@ const uniqueTags = _.uniqBy(
   "id",
 );
 
-const filterMenuData = {
-  title: "Theme",
-  checkItems: uniqueTags.map((tag) => ({ label: tag.title, id: tag.id })),
+interface MyMap {
+  [key: string]: {
+    title: string;
+    subItems: ListItem[];
+  };
+}
+
+const questionBlockItems: ListItem[] = questionBlocksData.reduce(
+  (acc, questionBank) => {
+    questionBank.tags.forEach((tag: any) => {
+      const index = acc.findIndex((el) => el.id === tag.id);
+      if (index === -1) {
+        acc.push({
+          label: tag.title,
+          id: tag.id,
+          subItems: [{ label: questionBank.title, id: questionBank.id }],
+        });
+      } else {
+        acc[index].subItems?.push({
+          label: questionBank.title,
+          id: questionBank.id,
+        });
+      }
+    });
+    return acc;
+  },
+  [] as ListItem[],
+);
+
+const filterTitle = "Theme";
+
+const filterCheckboxList = {
+  listItems: questionBlockItems,
   inverse: false,
 };
 
@@ -101,7 +132,8 @@ const explainerData: ExplainerProps = {
 };
 
 const filterableQuestionsData: FilterableQuestionsProps = {
-  filterMenu: filterMenuData,
+  filterTitle: filterTitle,
+  filterCheckboxList: filterCheckboxList,
   questionBlocks: qbd as QuestionBlockProps[],
 };
 
