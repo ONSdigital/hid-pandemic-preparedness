@@ -114,7 +114,7 @@ module "app_main_cloudfront" {
   }]
 }
 
-# Create an s3 bucket for Storyblok preview SSR build files
+# Create an s3 bucket for Storyblok preview SSR assets
 module "app_preview_s3" {
   source                     = "./s3"
   bucket_name                = "${var.project_name_prefix}-app-preview"
@@ -122,8 +122,7 @@ module "app_preview_s3" {
   force_destroy              = true
 }
 
-# Set up cloudfront distribution for storybook main
-# Default root object required for storybook as deployed as SPA
+# Set up cloudfront distribution for Storyblok preview SSR assets
 module "app_preview_cloudfront" {
   source                      = "./cloudfront"
   bucket_name                 = module.app_preview_s3.id
@@ -191,7 +190,6 @@ resource "aws_apigatewayv2_route" "aws_apigatewayv2_route" {
   target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
 }
 
-# Add a route for the root (/) as well for good measure, though ANY /{proxy+} often covers it.
 resource "aws_apigatewayv2_route" "aws_apigatewayv2_route_2" {
   api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
   route_key = "ANY /"
@@ -200,7 +198,7 @@ resource "aws_apigatewayv2_route" "aws_apigatewayv2_route_2" {
 
 resource "aws_apigatewayv2_stage" "aws_apigatewayv2_stage" {
   api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  name        = "${var.project_name_prefix}-api-stage-storyblok-preview"
+  name        = "$default"
   auto_deploy = true
 }
 
