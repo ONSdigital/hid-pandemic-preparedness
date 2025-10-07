@@ -18,6 +18,7 @@
     "deploy-storybook-main": "npm run build-storybook && bash ./scripts/deploy.sh storybook-static/ hid-ppt-storybook-main",
     "deploy-app-dev": "npm run build && bash ./scripts/deploy.sh dist/ hid-ppt-app-dev",
     "deploy-app-main": "npm run build && bash ./scripts/deploy.sh dist/ hid-ppt-app-main",
+    "deploy-app-preview": "npm run build && bash ./scripts/deployPreview.sh",
     "build-bootstrap-css": "cd src/styles/bootstrap-5.3.8/ && npm ci && npm run css-compile",
     "build-bootstrap-js": "cd src/styles/bootstrap-5.3.8/ && npm ci && npm run js-compile",
     "sync-data-with-storyblok": "node scripts/sync-data-with-storyblok.js"

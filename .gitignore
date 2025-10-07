@@ -35,3 +35,4 @@ storybook-static
 .vscode/
 
 src/styles/bootstrap-5.3.8/node_modules/
+astro-ssr-lambda.zip
