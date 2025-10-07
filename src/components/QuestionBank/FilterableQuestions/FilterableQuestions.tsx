@@ -33,24 +33,28 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
   function addChild(key: string, value: string, obj: selectedType) {
     return {
       ...obj,
-      [key]: [...(obj[key] || []), value], // TODO add comment
+      [key]: [...(obj[key] || []), value],
     };
   }
 
-  function checkBoxChecker(id: string, parentId: string | undefined) {
-    if (!parentId) {
-      // Is a parent
-      if (selectedIds[id]) {
-        setSelectedIds((prev) => removeParent(id, prev));
-      } else {
-        setSelectedIds((prev) => addParent(id, prev));
-      }
-    } else {
-      // Is a child
-      if (selectedIds[parentId]?.includes(id)) {
+  function onCheckboxClick(id: string, parentId: string | undefined) {
+    const isChild = parentId;
+
+    if (isChild) {
+      const parentIncludesChildId = Boolean(
+        selectedIds[parentId]?.includes(id),
+      );
+      if (parentIncludesChildId) {
         setSelectedIds((prev) => removeChild(parentId, id, prev));
       } else {
         setSelectedIds((prev) => addChild(parentId, id, prev));
+      }
+    } else {
+      const inSelectedList = Boolean(selectedIds[id]);
+      if (inSelectedList) {
+        setSelectedIds((prev) => removeParent(id, prev));
+      } else {
+        setSelectedIds((prev) => addParent(id, prev));
       }
     }
     console.log(selectedIds);
@@ -83,7 +87,7 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
             <ListGroupChecks
               {...props.filterCheckboxList}
               // selectedIds={selectedIds}
-              onChange={checkBoxChecker}
+              onChange={onCheckboxClick}
             />
           </div>
           {/* <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
