@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type FC } from "react";
+import { useState, type FC } from "react";
 import clsx from "clsx";
 
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
@@ -57,7 +57,6 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
         setSelectedIds((prev) => addParent(id, prev));
       }
     }
-    console.log(selectedIds);
 
     // setSelectedIds((currentSelection) => {
     //   if (checked) {
@@ -71,13 +70,37 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
     // });
   }
 
-  // const hasSelectedIds = selectedIds.length > 0;
+  function getChildIdsFromState() {
+    let childIds: string[] = [];
+    for (let item in selectedIds) {
+      if (selectedIds[item].length > 0) {
+        childIds = [...childIds, ...selectedIds[item]];
+      } else {
+        const index = props.filterCheckboxList.listItems.findIndex(
+          (el) => el.id === item,
+        );
+        if (index === -1) {
+          return [];
+        }
+        const questionBlock = props.filterCheckboxList.listItems[index];
+        if (!questionBlock.subItems) {
+          return [];
+        }
+        const childrenOfQuestionBlock = questionBlock.subItems?.map(
+          (item) => item.id,
+        );
+        childIds = [...childIds, ...(childrenOfQuestionBlock || [])];
+      }
+    }
+    return childIds;
+  }
 
-  // const filteredQuestionBlocks = hasSelectedIds
-  //   ? props.questionBlocks.filter((block) =>
-  //       block.tags.some((tag) => selectedIds.includes(tag.id)),
-  //     )
-  //   : props.questionBlocks;
+  const childIds = getChildIdsFromState();
+  const hasSelectedIds = childIds.length > 0;
+
+  const filteredQuestionBlocks = hasSelectedIds
+    ? props.questionBlocks.filter((block) => childIds.includes(block.id))
+    : props.questionBlocks;
 
   return (
     <div className={clsx("w-100", styles["filter-menu-bg"])}>
@@ -90,11 +113,11 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
               onChange={onCheckboxClick}
             />
           </div>
-          {/* <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
+          <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
             {filteredQuestionBlocks.map((questionBlock, index) => {
               return <QuestionBlock key={index} {...questionBlock} />;
             })}
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

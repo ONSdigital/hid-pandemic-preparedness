@@ -1,4 +1,3 @@
-import type { ChangeEvent } from "react";
 import type { ListItem } from "@localTypes/ListItem";
 import type { NavItem } from "../../types/NavItem";
 

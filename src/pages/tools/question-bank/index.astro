@@ -42,48 +42,6 @@ const explainerCollection = await getCollection("toolsExplainer", ({ id }) => {
   return id === `${filterUrl}explainer`;
 });
 
-// Get the unique tags from the question block data to build filter
-const uniqueTags = _.uniqBy(
-  questionBlocksData.flatMap((item) => item.tags),
-  "id",
-);
-
-interface MyMap {
-  [key: string]: {
-    title: string;
-    subItems: ListItem[];
-  };
-}
-
-const questionBlockItems: ListItem[] = questionBlocksData.reduce(
-  (acc, questionBank) => {
-    questionBank.tags.forEach((tag: any) => {
-      const index = acc.findIndex((el) => el.id === tag.id);
-      if (index === -1) {
-        acc.push({
-          label: tag.title,
-          id: tag.id,
-          subItems: [{ label: questionBank.title, id: questionBank.id }],
-        });
-      } else {
-        acc[index].subItems?.push({
-          label: questionBank.title,
-          id: questionBank.id,
-        });
-      }
-    });
-    return acc;
-  },
-  [] as ListItem[],
-);
-
-const filterTitle = "Theme";
-
-const filterCheckboxList = {
-  listItems: questionBlockItems,
-  inverse: false,
-};
-
 // Build the questions blocks using `questionBlocksData` and found content
 const qbAge = await createQuestionBlock(ageMarkdown);
 const qbEthnicity = await createQuestionBlock(ethnicityMarkdown);
@@ -125,6 +83,32 @@ qbd.push(qbTravelFrequency);
 qbd.push(qbSexGender);
 qbd.push(qbTravelRegulations);
 qbd.push(qbCareGiver);
+
+const questionBlockItems: ListItem[] = qbd.reduce((acc, questionBank) => {
+  questionBank.tags.forEach((tag: any) => {
+    const index = acc.findIndex((el) => el.id === tag.id);
+    if (index === -1) {
+      acc.push({
+        label: tag.title,
+        id: tag.id,
+        subItems: [{ label: questionBank.title, id: questionBank.id }],
+      });
+    } else {
+      acc[index].subItems?.push({
+        label: questionBank.title,
+        id: questionBank.id,
+      });
+    }
+  });
+  return acc;
+}, [] as ListItem[]);
+
+const filterTitle = "Theme";
+
+const filterCheckboxList = {
+  listItems: questionBlockItems,
+  inverse: false,
+};
 
 // Build the explainerData
 const explainerData: ExplainerProps = {
