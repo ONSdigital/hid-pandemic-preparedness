@@ -33,4 +33,4 @@ zip -r $ZIP_FILENAME $BUILD_FOLDER
 echo "Pushing '$ZIP_FILENAME' zip archive to '$LAMBDA_FUNCTION_NAME' lambda function..."
 aws lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME --zip-file fileb://$ZIP_FILENAME --publish --output text
 
-echo "Preview site deployment complete. Updated site is available at https://${DISTRIBUTION_DOMAIN_NAME}."
+echo "Preview site deployment complete. Updated site is available at $PREVIEW_CDN_BASE_URL"

@@ -25,3 +25,8 @@ jobs:
         shell: bash
       - run: npm run deploy-storybook-main
         shell: bash
+      - run: npm run deploy-app-preview
+        shell: bash
+        env:
+          ASTRO_OUTPUT: server
+          PREVIEW_CDN_BASE_URL: ${{ secrets.PREVIEW_CDN_BASE_URL }}
