@@ -133,7 +133,7 @@ module "app_preview_cloudfront" {
 }
 
 # IAM role for Lambda execution
-data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
+data "aws_iam_policy_document" "aws_iam_policy_document_lambda_execution" {
   statement {
     effect = "Allow"
 
@@ -148,7 +148,7 @@ data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
 
 resource "aws_iam_role" "aws_iam_role_lambda" {
   name               = "${var.project_name_prefix}-lambda-execution-role"
-  assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_lambda.json
+  assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_lambda_execution.json
 }
 
 # Package the Lambda function code
@@ -211,12 +211,6 @@ resource "aws_lambda_permission" "aws_lambda_permission" {
   source_arn    = "${aws_apigatewayv2_api.aws_apigatewayv2_api.execution_arn}/*/*"
 }
 
-# Output the api gateway invoke url
-output "api_gateway_invoke_url" {
-  value       = aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint
-  description = "Invoke URL for the API Gateway HTTP API"
-}
-
 # Attach cors policy to preview s3 bucket so assets can be requested from the deployed site
 resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
   bucket = module.app_preview_s3.id
@@ -248,10 +242,12 @@ data "aws_iam_policy_document" "aws_iam_policy_document_s3" {
       "s3:ListBucket"
     ]
     resources = [
-      "arn:aws:s3:::${module.storybook_main_s3.id}",
-      "arn:aws:s3:::${module.storybook_main_s3.id}/*",
-      "arn:aws:s3:::${module.app_main_s3.id}",
-      "arn:aws:s3:::${module.app_main_s3.id}/*"
+      module.storybook_main_s3.arn,
+      "${module.storybook_main_s3.arn}/*",
+      module.app_main_s3.arn,
+      "${module.app_main_s3.arn}/*",
+      module.app_preview_s3.arn,
+      "${module.app_preview_s3.arn}/*",
     ]
   }
 }
@@ -289,4 +285,27 @@ resource "aws_iam_policy" "aws_iam_policy_cloudfront" {
 resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_cloudfront" {
   user       = aws_iam_user.aws_iam_user.name
   policy_arn = aws_iam_policy.aws_iam_policy_cloudfront.arn
+}
+
+data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "lambda:InvokeFunction"
+    ]
+    resources = [
+      aws_lambda_function.aws_lambda_function.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "aws_iam_policy_lambda" {
+  name        = "github-actions-lambda-access"
+  description = "Allow lambda access to push new function zip archives"
+  policy      = data.aws_iam_policy_document.aws_iam_policy_document_lambda.json
+}
+
+resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda" {
+  user       = aws_iam_user.aws_iam_user.name
+  policy_arn = aws_iam_policy.aws_iam_policy_lambda.arn
 }
