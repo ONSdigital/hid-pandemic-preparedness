@@ -1,0 +1,55 @@
+{
+  "story": {
+    "name": "Home",
+    "created_at": "2025-10-01T13:40:10.376Z",
+    "published_at": "2025-10-01T16:12:04.472Z",
+    "updated_at": "2025-10-08T16:13:11.493Z",
+    "id": 96814736940977,
+    "uuid": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+    "content": {
+      "_uid": "22f30891-bfa3-45eb-9a81-937b6fedfd9c",
+      "component": "page",
+      "header_title": "Resilience through data",
+      "case_study_main": [
+        {
+          "_uid": "0014b4ae-c712-4e47-8dac-b64305abe761",
+          "link": {
+            "id": "",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": ""
+          },
+          "image": "",
+          "title": "",
+          "subtitle": "",
+          "component": "card_case_study",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"card_case_study\", \"space\": \"287525897740819\", \"uid\": \"0014b4ae-c712-4e47-8dac-b64305abe761\", \"id\": \"96814736940977\"}--\u003E"
+        }
+      ],
+      "header_subtitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
+      "what_is_aa_title": "What is Analysis for Action?",
+      "what_is_aa_subtitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"page\", \"space\": \"287525897740819\", \"uid\": \"22f30891-bfa3-45eb-9a81-937b6fedfd9c\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    "slug": "home",
+    "full_slug": "home",
+    "sort_by_date": null,
+    "position": 0,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": 0,
+    "meta_data": null,
+    "group_id": "9c5b5151-ba7f-495b-9d07-63124a320481",
+    "first_published_at": "2025-10-01T16:12:04.472Z",
+    "release_id": null,
+    "lang": "default",
+    "path": "/",
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "cv": 1759939992,
+  "rels": [],
+  "links": []
+}

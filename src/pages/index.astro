@@ -1,11 +1,15 @@
 ---
+import { v4 as uuidv4 } from "uuid";
+
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
 import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
+import type { HeaderProps } from "@components/Home/Header/Header.interface";
 import type { ImpactAndPartnersProps } from "@components/Home/ImpactAndPartners/ImpactAndPartners.interface";
-import type { NavItem } from "../types/NavItem";
 import type { QuickLinksProps } from "@components/Home/QuickLinks/QuickLinks.interface";
+import type { DatasourceEntry } from "@src/types/DatasourceEntry";
+import type { NavItem } from "@src/types/NavItem";
 
 // Components
 import { Carousel } from "@components/Core/Carousel/Carousel";
@@ -17,15 +21,53 @@ import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
 import { StatisticsAndText } from "@components/Home/StatisticsAndText/StatisticsAndText";
 import { References } from "@components/Core/References/References";
 
+// Helpers
+import { fetchDatasourceEntries, fetchStory } from "@/src/helpers/fetchContent";
+
 // Content
 import carouselData from "@content/Home/carousel.json";
 import caseStudiesData from "@content/Home/caseStudies.json";
-import headerData from "@content/Home/header.json";
+// import headerData from "@content/Home/header.json";
 import imageAndTextData from "@content/Home/imageAndText.json";
 import impactAndPartnersData from "@content/Home/impactAndPartners.json";
 import navBarData from "@content/base/navBarData.json";
 import statisticsAndTextData from "@content/Home/statisticsAndText.json";
 import referencesData from "@content/Home/references.json";
+
+// Fetch datasource content from api to return content and strings we need
+const homeLabel = (await fetchDatasourceEntries(
+  "breadcrumb-strings",
+  "homeLabel",
+)) as DatasourceEntry;
+const homeStrings = (await fetchDatasourceEntries(
+  "home-strings",
+)) as DatasourceEntry[];
+const pageContent = await fetchStory("home");
+
+console.log(pageContent);
+
+const searchBarPlaceholderText = homeStrings.find(
+  (item) => item.name === "searchBarPlaceholderText",
+);
+
+// Build header data
+const headerData: HeaderProps = {
+  breadcrumbs: {
+    items: [
+      {
+        href: "/",
+        label: homeLabel.value,
+        id: uuidv4(),
+      },
+    ],
+  },
+  title: "Resilience through data",
+  subTitle:
+    "Equipping National Offices wiasdasdsth skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
+  searchPlaceholderText: searchBarPlaceholderText
+    ? searchBarPlaceholderText.value
+    : "",
+};
 
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {

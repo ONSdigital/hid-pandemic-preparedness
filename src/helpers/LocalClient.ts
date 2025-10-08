@@ -19,10 +19,9 @@ interface ILocalClient {
 export class LocalClient implements ILocalClient {
   // Get method supports:
   //  * Fetching of datasource entries `cdn/datasource_entries`
+  //  * Fetching of a story `cdn/stories`
   public get(url: string, params?: any): Promise<ISbResult> {
     if (url === "cdn/datasource_entries") {
-      // Check the params are in the right format
-
       // Build the path so we can load data from json
       const filePath = path.resolve(
         process.cwd(),
@@ -46,6 +45,15 @@ export class LocalClient implements ILocalClient {
       } catch (error) {
         return Promise.reject(error);
       }
+    } else if (url.startsWith("cdn/stories/")) {
+      // Build the path so we can load data from json
+      const filePath = path.resolve(
+        process.cwd(),
+        "src",
+        "content",
+        "datasource_entries",
+        `${params.datasource}.json`,
+      );
     }
 
     // Return a mocked 404 response for unknown URLs
