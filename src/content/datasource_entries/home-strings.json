@@ -1,0 +1,74 @@
+{
+  "name": "Home strings",
+  "slug": "home-strings",
+  "entries": [
+    {
+      "name": "searchBarPlaceholderText",
+      "value": "Search learning resources"
+    },
+    {
+      "name": "learningResourcesTitle",
+      "value": "Learning resources"
+    },
+    {
+      "name": "whatIsAaButtonLabel",
+      "value": "About"
+    },
+    {
+      "name": "theStatisticsTitle",
+      "value": "The statistics"
+    },
+    {
+      "name": "theStatisticsLinkLabel",
+      "value": "Learning resources"
+    },
+    {
+      "name": "toolsTitle",
+      "value": "Tools to guide planning and response efforts"
+    },
+    {
+      "name": "toolsLinkLabel",
+      "value": "View all tools"
+    },
+    {
+      "name": "caseStudiesTitle",
+      "value": "Case studies"
+    },
+    {
+      "name": "caseStudiesLinkLabel",
+      "value": "View all case studies"
+    },
+    {
+      "name": "globalImpactTitle",
+      "value": "Global impact"
+    },
+    {
+      "name": "globalImpactExpertsTitle",
+      "value": "50+ experts"
+    },
+    {
+      "name": "globalImpactExpertsSubtitle",
+      "value": "internationally have contributed to content for Analysis for Action"
+    },
+    {
+      "name": "globalImpactCountriesTitle",
+      "value": "48 countries"
+    },
+    {
+      "name": "globalImpactCountriesSubtitle",
+      "value": "have joined the Analysis for Action global network"
+    },
+    {
+      "name": "globalImpactUsersTitle",
+      "value": "100,000+ users"
+    },
+    {
+      "name": "globalImpactUsersSubtitle",
+      "value": "of Analysis for Action resources so far"
+    },
+    {
+      "name": "strategicPartnersTitle",
+      "value": "Strategic partners"
+    }
+  ]
+}

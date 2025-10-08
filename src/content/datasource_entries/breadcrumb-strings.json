@@ -1,0 +1,10 @@
+{
+  "name": "Breadcrumb strings",
+  "slug": "breadcrumb-strings",
+  "entries": [
+    {
+      "name": "homeLabel",
+      "value": "Home"
+    }
+  ]
+}
