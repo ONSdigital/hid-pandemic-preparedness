@@ -30,7 +30,7 @@ import ethnicityMarkdown from "@content/tools/question-bank/ethnicity.md?raw";
 import frequencyAndPurposeOfTravelMarkdown from "@content/tools/question-bank/frequency-and-purpose-of-travel.md?raw";
 import sexGenderMarkdown from "@content/tools/question-bank/sex-gender.md?raw";
 import travelAndRegulationsMarkdown from "@content/tools/question-bank/travel-and-regulations.md?raw";
-import type { ListItem } from "@/src/types/ListItem";
+import { getCheckboxListItems } from "@/src/helpers/QuestionBank/getCheckboxListItems";
 
 const currentRoute: string = Astro.url.pathname;
 
@@ -79,34 +79,15 @@ const qbd: QuestionBlockProps[] = [];
 // Build the questionBlocksData
 qbd.push(qbAge);
 qbd.push(qbEthnicity);
-qbd.push(qbTravelFrequency);
 qbd.push(qbSexGender);
+qbd.push(qbTravelFrequency);
 qbd.push(qbTravelRegulations);
 qbd.push(qbCareGiver);
-
-const questionBlockItems: ListItem[] = qbd.reduce((acc, questionBank) => {
-  questionBank.tags.forEach((tag: any) => {
-    const index = acc.findIndex((el) => el.id === tag.id);
-    if (index === -1) {
-      acc.push({
-        label: tag.title,
-        id: tag.id,
-        subItems: [{ label: questionBank.title, id: questionBank.id }],
-      });
-    } else {
-      acc[index].subItems?.push({
-        label: questionBank.title,
-        id: questionBank.id,
-      });
-    }
-  });
-  return acc;
-}, [] as ListItem[]);
 
 const filterTitle = "Theme";
 
 const filterCheckboxList = {
-  listItems: questionBlockItems,
+  listItems: getCheckboxListItems(qbd),
   inverse: false,
 };
 

@@ -18,8 +18,14 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
       )}
     >
       {props.listItems.map((item) => {
-        // const isSelected =
-        // props.selectedIds && props.selectedIds.includes(item.id);
+        const { parentId, listItems, ...restProps } = props;
+
+        const isChecked = Boolean(
+          props.parentId
+            ? props.checkedIds?.[props.parentId]?.includes(item.id)
+            : props.checkedIds?.hasOwnProperty(item.id),
+        );
+
         return (
           <li className={clsx("list-group-item")} key={item.id}>
             <div className={clsx("form-check")}>
@@ -30,6 +36,7 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
                 onChange={() =>
                   props.onChange && props.onChange(item.id, props.parentId)
                 }
+                checked={isChecked}
               />
               <label className={clsx("form-check-label")} htmlFor={item.id}>
                 {item.label}
@@ -39,7 +46,7 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
               <ListGroupChecks
                 parentId={item.id}
                 listItems={item.subItems}
-                onChange={props.onChange}
+                {...restProps}
               />
             )}
           </li>
