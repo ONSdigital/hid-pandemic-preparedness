@@ -1,6 +1,6 @@
 ---
 import { v4 as uuidv4 } from "uuid";
-
+import { getLiveStory } from "@storyblok/astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
@@ -27,7 +27,6 @@ import { fetchDatasourceEntries, fetchStory } from "@/src/helpers/fetchContent";
 // Content
 import carouselData from "@content/Home/carousel.json";
 import caseStudiesData from "@content/Home/caseStudies.json";
-// import headerData from "@content/Home/header.json";
 import imageAndTextData from "@content/Home/imageAndText.json";
 import impactAndPartnersData from "@content/Home/impactAndPartners.json";
 import navBarData from "@content/base/navBarData.json";
@@ -42,9 +41,17 @@ const homeLabel = (await fetchDatasourceEntries(
 const homeStrings = (await fetchDatasourceEntries(
   "home-strings",
 )) as DatasourceEntry[];
-const pageContent = await fetchStory("home");
 
-console.log(pageContent);
+let story = null;
+
+const liveStory = await getLiveStory(Astro);
+
+if (liveStory) {
+  story = liveStory;
+} else {
+  const { data } = await fetchStory("home");
+  story = data?.story;
+}
 
 const searchBarPlaceholderText = homeStrings.find(
   (item) => item.name === "searchBarPlaceholderText",
@@ -61,9 +68,7 @@ const headerData: HeaderProps = {
       },
     ],
   },
-  title: "Resilience through data",
-  subTitle:
-    "Equipping National Offices wiasdasdsth skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
+  ...story.content.header[0],
   searchPlaceholderText: searchBarPlaceholderText
     ? searchBarPlaceholderText.value
     : "",

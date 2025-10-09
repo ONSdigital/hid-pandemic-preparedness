@@ -8,9 +8,9 @@ import type {
 
 interface ILocalClient {
   get(
-    slug: string,
-    params?: ISbStoriesParams,
-    fetchOptions?: ISbCustomFetch,
+    slug: string, // eslint-disable-line no-unused-vars
+    params?: ISbStoriesParams, // eslint-disable-line no-unused-vars
+    fetchOptions?: ISbCustomFetch, // eslint-disable-line no-unused-vars
   ): Promise<ILocalClientResult>;
 }
 

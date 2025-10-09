@@ -1,7 +1,7 @@
 import "dotenv/config";
 
-import StoryblokClient from "storyblok-js-client";
-import type { ISbStory } from "storyblok-js-client";
+import { useStoryblokApi } from "@storyblok/astro";
+import type { ISbStory } from "@storyblok/astro";
 
 import { LocalClient } from "@helpers/LocalClient";
 import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
@@ -9,7 +9,6 @@ import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
 // Read config env vars from the environment
 const ASTRO_USE_LOCAL_DATA = process.env.ASTRO_USE_LOCAL_DATA || "true";
 const NODE_ENV = process.env.NODE_ENV || "development";
-const STORYBLOK_ACCESS_TOKEN = process.env.STORYBLOK_ACCESS_TOKEN || undefined;
 
 // Configures client to
 const client =
@@ -17,12 +16,7 @@ const client =
     ? // Use local client to load data from source files
       new LocalClient()
     : // Initialise the Storyblok client for Content Delivery API (Access Token)
-      new StoryblokClient({
-        accessToken: STORYBLOK_ACCESS_TOKEN,
-        cache: {
-          clear: "auto",
-        },
-      });
+      useStoryblokApi();
 
 // Fetches datasource content from either static content files as part of the repo or from CMS api
 // depending on client initialised
@@ -34,16 +28,11 @@ export async function fetchDatasourceEntries(
   let datasourceEntries: DatasourceEntry[];
 
   // Retrieve all the datasources so we can then find the id for the one we want
-  try {
-    const response = await client.get("cdn/datasource_entries", {
-      datasource: slug,
-      dimension: locale,
-    });
-    datasourceEntries = response.data.datasource_entries;
-  } catch (error) {
-    // Raise error if api call fails
-    throw error;
-  }
+  const response = await client.get("cdn/datasource_entries", {
+    datasource: slug,
+    dimension: locale,
+  });
+  datasourceEntries = response.data.datasource_entries;
 
   // Either return all the entries or just one depending on whether a name is part of the input args
   if (name) {
@@ -61,12 +50,7 @@ export async function fetchDatasourceEntries(
 }
 
 // Fetches story content from input `fullSlug` and returns just the content
-export async function fetchStoryContent(fullSlug: string): Promise<any> {
-  try {
-    const response = await client.get(`cdn/stories/${fullSlug}`);
-    return response.data.content;
-  } catch (error) {
-    // Raise error if api call fails
-    throw error;
-  }
+export async function fetchStory(fullSlug: string): Promise<ISbStory> {
+  const response = await client.get(`cdn/stories/${fullSlug}`);
+  return response;
 }

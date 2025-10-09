@@ -1,12 +1,7 @@
-import { describe, it, expect, test } from "vitest";
-import type {
-  ISbCustomFetch,
-  ISbStoriesParams,
-  ISbResult,
-} from "storyblok-js-client";
+import { describe, expect, test } from "vitest";
+import type { ISbResult } from "storyblok-js-client";
 
 import { LocalClient } from "./LocalClient";
-import type { ILocalClientResult } from "./LocalClient";
 
 const client = new LocalClient();
 
@@ -62,18 +57,6 @@ describe("LocalClient get request datasource_entries", () => {
 
 describe("LocalClient get request story", () => {
   test("returns story data correctly if data exists", async () => {
-    // Don't look for the full result, but make sure important key/value pairs are there
-    const expectedResult: ILocalClientResult = {
-      data: {
-        datasource_entries: [
-          {
-            name: "homeLabel",
-            value: "Home",
-          },
-        ],
-      },
-      headers: new Headers(),
-    };
     // Request valid file as part of the request url
     const result = await client.get("cdn/stories/home/");
     // Don't look for the full result, but make sure important key/value pairs are there
