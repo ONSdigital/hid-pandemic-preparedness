@@ -1,10 +1,11 @@
 {
-  "name": "Breadcrumb strings",
-  "slug": "breadcrumb-strings",
-  "entries": [
+  "datasource_entries": [
     {
+      "id": 97484693863408,
       "name": "homeLabel",
-      "value": "Home"
+      "value": "Home",
+      "dimension_value": null
     }
-  ]
+  ],
+  "cv": 1759939992
 }

@@ -1,21 +1,34 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, test } from "vitest";
 import type {
   ISbCustomFetch,
   ISbStoriesParams,
   ISbResult,
 } from "storyblok-js-client";
 
-import type { DatasourceEntry } from "@src/types/DatasourceEntry";
-
 import { LocalClient } from "./LocalClient";
+import type { ILocalClientResult } from "./LocalClient";
 
-describe("LocalClient", () => {
-  const client = new LocalClient();
+const client = new LocalClient();
 
-  it("returns breadcrumb string data correctly if data exists", async () => {
-    const slug: string = "breadcrumb-strings";
-    const locale: string = "en";
+describe("LocalClient get request", () => {
+  test("raises error if path is not provided for", async () => {
+    const promise = client.get("cdn/datasauce_entries", {
+      datasource: "",
+      dimension: "",
+    });
 
+    // Expect the promise to be rejected
+    await expect(promise).rejects.toThrow(
+      `404: Endpoint "cdn/datasauce_entries" not available in LocalClient.get method.`,
+    );
+  });
+});
+
+describe("LocalClient get request datasource_entries", () => {
+  const slug: string = "breadcrumb-strings";
+  const locale: string = "en";
+
+  test("returns breadcrumb string data correctly if data exists", async () => {
     const expectedResult: ISbResult = {
       data: {
         datasource_entries: [
@@ -35,32 +48,43 @@ describe("LocalClient", () => {
     });
     expect(result).toMatchObject(expectedResult);
   });
-  it("raises error if file not found", async () => {
-    // This file is not valid
-    const slug: string = "cookiecrumb-strings";
-    const locale: string = "en";
-
+  test("raises error if file not found", async () => {
+    // Request invalid file
     const promise = client.get("cdn/datasource_entries", {
-      datasource: slug,
+      datasource: "cookiecrumb-strings",
       dimension: locale,
     });
 
     // Expect the promise to be rejected and contain file not found
     await expect(promise).rejects.toThrow(/ENOENT: no such file or directory/i);
   });
-  it("raises error if path is not provided for", async () => {
-    // File is valid but path is not
-    const slug: string = "breadcrumb-strings";
-    const locale: string = "en";
+});
 
-    const promise = client.get("cdn/datasauce_entries", {
-      datasource: slug,
-      dimension: locale,
-    });
+describe("LocalClient get request story", () => {
+  test("returns story data correctly if data exists", async () => {
+    // Don't look for the full result, but make sure important key/value pairs are there
+    const expectedResult: ILocalClientResult = {
+      data: {
+        datasource_entries: [
+          {
+            name: "homeLabel",
+            value: "Home",
+          },
+        ],
+      },
+      headers: new Headers(),
+    };
+    // Request valid file as part of the request url
+    const result = await client.get("cdn/stories/home/");
+    // Don't look for the full result, but make sure important key/value pairs are there
+    expect(result.data.story).toMatchObject({ name: "Home" });
+    expect(result.data.story).toMatchObject({ slug: "home" });
+  });
+  test("raises error if file not found", async () => {
+    // Request invalid file as part of the request url
+    const promise = client.get("cdn/stories/testsetest/");
 
-    // Expect the promise to be rejected
-    await expect(promise).rejects.toThrow(
-      `404: Endpoint "cdn/datasauce_entries" not available in LocalClient.get method.`,
-    );
+    // Expect the promise to be rejected and contain file not found
+    await expect(promise).rejects.toThrow(/ENOENT: no such file or directory/i);
   });
 });
