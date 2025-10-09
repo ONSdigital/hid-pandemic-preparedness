@@ -167,6 +167,15 @@ resource "aws_lambda_function" "aws_lambda_function" {
   source_code_hash = data.archive_file.astro_ssr_deployment_zip.output_base64sha256
 
   runtime = "nodejs22.x"
+  timeout = 10
+
+  environment {
+    variables = {
+      ASTRO_USE_LOCAL_DATA = "false"
+      NODE_ENV             = "production"
+      LOG_LEVEL            = "info"
+    }
+  }
 }
 
 # Api gateway for CMS preview deployment
