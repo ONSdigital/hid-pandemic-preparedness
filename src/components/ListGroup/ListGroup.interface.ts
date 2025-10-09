@@ -1,15 +1,12 @@
 import type { ListItem } from "@localTypes/ListItem";
-import type { NavItem } from "../../types/NavItem";
-
-interface checkedType {
-  [key: string]: string[];
-}
+import type { NavItem } from "@localTypes/NavItem";
+import type { SelectedCheckboxes } from "@localTypes/SelectedCheckboxes";
 
 export interface ListGroupChecksProps {
   listItems: ListItem[];
   inverse?: boolean;
   onChange?: (id: string, parentId: string | undefined) => void; // eslint-disable-line no-unused-vars
-  checkedIds?: checkedType; //TODO extract as a type {}
+  checkedIds?: SelectedCheckboxes;
   parentId?: string;
 }
 

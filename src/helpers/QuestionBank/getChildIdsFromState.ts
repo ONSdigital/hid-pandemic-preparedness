@@ -1,8 +1,5 @@
-import type { ListItem } from "@/src/types/ListItem";
-
-interface checkedType {
-  [key: string]: string[];
-}
+import type { ListItem } from "@localTypes/ListItem";
+import type { SelectedCheckboxes } from "@localTypes/SelectedCheckboxes";
 
 function getAllNestedCheckboxIds(
   parentCheckboxId: string,
@@ -19,7 +16,7 @@ function getAllNestedCheckboxIds(
 }
 
 export function getChildIdsFromState(
-  checkedIds: checkedType,
+  checkedIds: SelectedCheckboxes,
   checkboxListItems: ListItem[],
 ) {
   let checkChildIds: string[] = [];

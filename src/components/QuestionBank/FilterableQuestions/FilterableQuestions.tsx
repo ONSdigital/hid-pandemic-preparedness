@@ -1,6 +1,8 @@
 import { useState, type FC } from "react";
 import clsx from "clsx";
 
+import type { SelectedCheckboxes } from "@localTypes/SelectedCheckboxes";
+
 import { getChildIdsFromState } from "@helpers/QuestionBank/getChildIdsFromState";
 import { handleCheckboxClick } from "@helpers/QuestionBank/handleCheckboxClick";
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
@@ -9,12 +11,8 @@ import { QuestionBlock } from "@components/QuestionBank/QuestionBlock/QuestionBl
 
 import styles from "./FilterableQuestions.module.scss";
 
-interface checkedType {
-  [key: string]: string[];
-}
-
 export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
-  const [checkedIds, setCheckedIds] = useState<checkedType>({});
+  const [checkedIds, setCheckedIds] = useState<SelectedCheckboxes>({});
 
   const childIds = getChildIdsFromState(
     checkedIds,

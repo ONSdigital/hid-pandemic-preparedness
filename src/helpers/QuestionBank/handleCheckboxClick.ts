@@ -1,24 +1,22 @@
-interface checkedType {
-  [key: string]: string[];
-} // TODO
+import type { SelectedCheckboxes } from "@localTypes/SelectedCheckboxes";
 
-function uncheckParent(key: string, obj: checkedType) {
+function uncheckParent(key: string, obj: SelectedCheckboxes) {
   const { [key]: removedKey, ...rest } = obj; // eslint-disable-line no-unused-vars
   return rest;
 }
 
-function checkParent(key: string, obj: checkedType) {
+function checkParent(key: string, obj: SelectedCheckboxes) {
   return { ...obj, [key]: [] };
 }
 
-function uncheckChild(key: string, value: string, obj: checkedType) {
+function uncheckChild(key: string, value: string, obj: SelectedCheckboxes) {
   return {
     ...obj,
     [key]: obj[key].filter((item) => item !== value),
   };
 }
 
-function checkChild(key: string, value: string, obj: checkedType) {
+function checkChild(key: string, value: string, obj: SelectedCheckboxes) {
   return {
     ...obj,
     [key]: [...(obj[key] || []), value],
@@ -26,10 +24,10 @@ function checkChild(key: string, value: string, obj: checkedType) {
 }
 
 export function handleCheckboxClick(
-  prev: checkedType,
+  prev: SelectedCheckboxes,
   id: string,
   parentId: string | undefined,
-  checkedIds: checkedType,
+  checkedIds: SelectedCheckboxes,
 ) {
   const isChild = parentId;
 
