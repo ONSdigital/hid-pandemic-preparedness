@@ -27,11 +27,11 @@ import { fetchDatasourceEntries, fetchStory } from "@/src/helpers/fetchContent";
 // Content
 import carouselData from "@content/Home/carousel.json";
 import caseStudiesData from "@content/Home/caseStudies.json";
-import imageAndTextData from "@content/Home/imageAndText.json";
 import impactAndPartnersData from "@content/Home/impactAndPartners.json";
 import navBarData from "@content/base/navBarData.json";
 import statisticsAndTextData from "@content/Home/statisticsAndText.json";
 import referencesData from "@content/Home/references.json";
+import type { ImageAndTextProps } from "../components/Home/ImageAndText/ImageAndText.interface";
 
 // Fetch datasource content from api to return content and strings we need
 const homeLabel = (await fetchDatasourceEntries(
@@ -56,6 +56,9 @@ if (liveStory) {
 const searchBarPlaceholderText = homeStrings.find(
   (item) => item.name === "searchBarPlaceholderText",
 );
+const whatIsAaButtonLabel = homeStrings.find(
+  (item) => item.name === "whatIsAaButtonLabel",
+);
 
 // Build header data
 const headerData: HeaderProps = {
@@ -72,6 +75,16 @@ const headerData: HeaderProps = {
   searchPlaceholderText: searchBarPlaceholderText
     ? searchBarPlaceholderText.value
     : "",
+};
+
+// Build imageAndText data
+const imageAndTextData: ImageAndTextProps = {
+  ...story.content.imageAndText[0],
+  link: {
+    href: "/",
+    label: whatIsAaButtonLabel ? whatIsAaButtonLabel.value : "",
+    disabled: true,
+  },
 };
 
 // Ref learning resources data from `navBarData` for rendering as quick links
