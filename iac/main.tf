@@ -171,6 +171,7 @@ resource "aws_lambda_function" "aws_lambda_function" {
 
   environment {
     variables = {
+      ASTRO_PREVIEW        = "true"
       ASTRO_USE_LOCAL_DATA = "false"
       NODE_ENV             = "production"
       LOG_LEVEL            = "info"
