@@ -44,6 +44,11 @@ const meta = {
       options: Object.keys(hrefOptions),
       mapping: hrefOptions,
     },
+    id: {
+      table: {
+        disable: true,
+      },
+    },
     target: {
       table: {
         disable: true,
