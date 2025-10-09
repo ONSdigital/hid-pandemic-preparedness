@@ -18,12 +18,12 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
       )}
     >
       {props.listItems.map((item) => {
-        const { parentId, listItems, ...restProps } = props;
+        const { parentId, listItems, ...propsToPassOn } = props; // eslint-disable-line no-unused-vars
 
         const isChecked = Boolean(
           props.parentId
             ? props.checkedIds?.[props.parentId]?.includes(item.id)
-            : props.checkedIds?.hasOwnProperty(item.id),
+            : props.checkedIds && item.id in props.checkedIds,
         );
 
         return (
@@ -46,7 +46,7 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
               <ListGroupChecks
                 parentId={item.id}
                 listItems={item.subItems}
-                {...restProps}
+                {...propsToPassOn}
               />
             )}
           </li>

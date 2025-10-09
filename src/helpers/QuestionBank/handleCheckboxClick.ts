@@ -3,7 +3,7 @@ interface checkedType {
 } // TODO
 
 function uncheckParent(key: string, obj: checkedType) {
-  const { [key]: removedKey, ...rest } = obj;
+  const { [key]: removedKey, ...rest } = obj; // eslint-disable-line no-unused-vars
   return rest;
 }
 
