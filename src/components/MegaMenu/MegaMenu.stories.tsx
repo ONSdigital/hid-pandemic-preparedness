@@ -6,6 +6,13 @@ import { MegaMenu } from "./MegaMenu";
 import type { MegaMenuProps } from "./MegaMenu.interface";
 
 const meta = {
+  argTypes: {
+    navItems: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   component: MegaMenu,
   title: "Components/MegaMenu",
   parameters: {

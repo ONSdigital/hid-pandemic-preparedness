@@ -4,7 +4,23 @@ import { StatisticsAndText } from "./StatisticsAndText";
 import StatisticsAndTextData from "@content/Home/statisticsAndText.json";
 
 const meta = {
-  argTypes: { statisticCards: { table: { disable: true } } },
+  argTypes: {
+    attributionLink: {
+      table: {
+        disable: true,
+      },
+    },
+    buttonLink: {
+      table: {
+        disable: true,
+      },
+    },
+    statisticCards: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   component: StatisticsAndText,
   title: "Organisms/Home/StatisticsAndText",
 } satisfies Meta<typeof StatisticsAndText>;
