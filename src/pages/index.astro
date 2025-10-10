@@ -17,7 +17,7 @@ import { ImageAndText } from "@components/Organisms/Home/ImageAndText/ImageAndTe
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
-import { StatisticsAndText } from "@components/Home/StatisticsAndText/StatisticsAndText";
+import { StatisticsAndText } from "@/src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { References } from "@components/Core/References/References";
 
 // Helpers
@@ -27,7 +27,6 @@ import { fetchDatasourceEntries, fetchStory } from "@/src/helpers/fetchContent";
 import carouselData from "@content/Home/carousel.json";
 import caseStudiesData from "@content/Home/caseStudies.json";
 import navBarData from "@content/base/navBarData.json";
-import statisticsAndTextData from "@content/Home/statisticsAndText.json";
 import referencesData from "@content/Home/references.json";
 
 // Fetch datasource content from api to return content and strings we need
@@ -76,7 +75,7 @@ const quickLinksData: QuickLinksProps = {
     />
     <QuickLinks {...quickLinksData} />
     <ImageAndText {...story.content.imageAndText[0]} />
-    <StatisticsAndText {...statisticsAndTextData} />
+    <StatisticsAndText {...story.content.StatisticsAndText[0]} />
     <Carousel {...carouselData as CarouselProps} client:visible />
     <CaseStudies {...caseStudiesData} />
     <Impact {...story.content.Impact[0]} />

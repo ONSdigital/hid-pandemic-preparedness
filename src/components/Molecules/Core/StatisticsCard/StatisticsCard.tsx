@@ -31,7 +31,7 @@ export const StatisticsCard: FC<StatisticsCardProps> = (props) => {
             styles["short-border-bottom"],
           )}
         >
-          {props.subTitle} <Reference {...props.reference} />
+          {props.subTitle} <Reference {...props.reference[0]} />
         </p>
         <Image {...props.image} className={clsx("card-img-bottom")} />
       </div>

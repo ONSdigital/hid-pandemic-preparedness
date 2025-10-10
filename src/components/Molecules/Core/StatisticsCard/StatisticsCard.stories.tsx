@@ -36,15 +36,18 @@ const statisticsCardProps: StatisticsCardProps = {
   _uid: uuidv4(),
   title: "14.8 million+",
   subTitle: "Deaths from all respiratory disease 1980-2021.",
-  reference: {
-    _uid: uuidv4(),
-    accessedDate: "19th August 2025",
-    yearPublished: "2021",
-    websiteAuthor: "The Independent Panel for Pandemic Preparedness & Response",
-    websiteTitle: "COVID-19: Make it the Last Pandemic",
-    websiteUrl:
-      "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
-  },
+  reference: [
+    {
+      _uid: uuidv4(),
+      accessedDate: "19th August 2025",
+      yearPublished: "2021",
+      websiteAuthor:
+        "The Independent Panel for Pandemic Preparedness & Response",
+      websiteTitle: "COVID-19: Make it the Last Pandemic",
+      websiteUrl:
+        "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
+    },
+  ],
   image: {
     id: 99913189991725,
     alt: "Bar chart showing deaths from all respiritory disease.",

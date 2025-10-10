@@ -5,6 +5,8 @@ export interface StatisticsCardProps {
   _uid: string;
   title: string;
   subTitle: string;
-  reference: Reference;
+  // Reference needs to be array here even if we have a single reference due to the way Storyblok
+  //  blocks work
+  reference: Reference[];
   image: Asset;
 }

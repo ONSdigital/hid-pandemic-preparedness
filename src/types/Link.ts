@@ -1,6 +1,6 @@
 // This is the same as `https://github.com/storyblok/monoblok/packages/cli/src/types/storyblok.ts:StoryblokMultilink`
 export interface Link {
-  fieldtype: "multilink";
+  fieldtype: string; // "multilink"
   id: string;
   url: string;
   cached_url: string;
@@ -9,7 +9,7 @@ export interface Link {
   rel?: string;
   title?: string;
   prep?: string;
-  linktype: "story" | "url" | "email" | "asset";
+  linktype: string; // "story" | "url" | "email" | "asset";
   story?: {
     name: string;
     created_at: string;
