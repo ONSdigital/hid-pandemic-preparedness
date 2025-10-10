@@ -1,5 +1,5 @@
 import type { LinkData } from "@localTypes/LinkData";
-import type { CardStatProps } from "@components/CardStat/CardStat.interface";
+import type { CardStatProps } from "@/src/components/Molecules/Core/StatisticsCard/StatisticsCard.interface";
 
 export interface StatisticsAndTextProps {
   attribution: string;

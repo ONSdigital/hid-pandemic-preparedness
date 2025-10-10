@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { v4 as uuidv4 } from "uuid";
 
-import { CardStat } from "./StatisticsCard";
-import type { CardStatProps } from "./StatisticsCard.interface";
+import { StatisticsCard } from "./StatisticsCard";
+import type { StatisticsCardProps } from "./StatisticsCard.interface";
 
 const meta = {
-  component: CardStat,
-  title: "Components/Cards/CardStat",
+  component: StatisticsCard,
+  title: "Molecules/Core/StatisticsCard",
   parameters: {
     layout: "centered",
   },
   argTypes: {
-    id: {
+    _uid: {
       table: {
         disable: true,
       },
@@ -21,33 +21,51 @@ const meta = {
         disable: true,
       },
     },
-    link: {
+    reference: {
       table: {
         disable: true,
       },
     },
   },
-} satisfies Meta<typeof CardStat>;
+} satisfies Meta<typeof StatisticsCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const cardStatProps: CardStatProps = {
-  id: uuidv4(),
+const statisticsCardProps: StatisticsCardProps = {
+  _uid: uuidv4(),
   title: "14.8 million+",
   subTitle: "Deaths from all respiratory disease 1980-2021.",
-  link: {
-    href: "/",
-    label: "2",
+  reference: {
+    _uid: uuidv4(),
+    accessedDate: "19th August 2025",
+    yearPublished: "2021",
+    websiteAuthor: "The Independent Panel for Pandemic Preparedness & Response",
+    websiteTitle: "COVID-19: Make it the Last Pandemic",
+    websiteUrl:
+      "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
   },
   image: {
-    id: uuidv4(),
-    altText: "Bar chart showing deaths from all respiritory disease.",
-    srcPath: "./images/plots/stacked-bar-chart.svg",
+    id: 99913189991725,
+    alt: "Bar chart showing deaths from all respiritory disease.",
+    name: "",
+    focus: "",
+    title: "",
+    source: "",
+    filename: "./images/plots/stacked-bar-chart.svg",
+    copyright: "",
+    fieldtype: "asset",
+    meta_data: {
+      alt: "Bar chart showing deaths from all respiritory disease.",
+      title: "",
+      source: "",
+      copyright: "",
+    },
+    is_external_url: false,
   },
 };
 
-export const CardStatStory = {
-  args: cardStatProps,
-  name: "CardStat",
+export const StatisticsCardStory = {
+  args: statisticsCardProps,
+  name: "StatisticsCard",
 } satisfies Story;

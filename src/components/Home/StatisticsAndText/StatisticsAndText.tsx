@@ -2,7 +2,7 @@ import type { FC } from "react";
 import clsx from "clsx";
 
 import type { StatisticsAndTextProps } from "./StatisticsAndText.interface";
-import { CardStat } from "@components/CardStat/CardStat";
+import { CardStat } from "@/src/components/Molecules/Core/StatisticsCard/StatisticsCard";
 import { Link } from "@components/Link/Link";
 import styles from "./StatisticsAndText.module.scss";
 
