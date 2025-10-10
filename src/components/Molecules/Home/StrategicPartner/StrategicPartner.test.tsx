@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import "@testing-library/jest-dom";
@@ -9,6 +8,7 @@ import { StrategicPartner } from "./StrategicPartner";
 
 describe("StrategicPartner component", () => {
   const baseProps: StrategicPartnerProps = {
+    _uid: uuidv4(),
     link: {
       id: uuidv4(),
       cached_url: "https://example.com",

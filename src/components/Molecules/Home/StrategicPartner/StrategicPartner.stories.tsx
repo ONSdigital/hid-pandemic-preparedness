@@ -11,6 +11,7 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
+    _uid: { table: { disable: true } },
     link: { table: { disable: true } },
     logo: { table: { disable: true } },
   },
@@ -20,6 +21,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const strategicPartnerProps: StrategicPartnerProps = {
+  _uid: uuidv4(),
   link: {
     id: uuidv4(),
     cached_url: "https://www.cemic.edu.ar/",
