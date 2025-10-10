@@ -5,6 +5,7 @@ import {
   RiDownload2Line,
   RiGithubLine,
   RiLightbulbLine,
+  RiRestartLine,
   RiShareBoxLine,
 } from "@remixicon/react";
 
@@ -18,6 +19,7 @@ const linkIconMap: Record<string, ReactNode> = {
     <RiLightbulbLine className={styles["icon-and-text-link__icon-size"]} />
   ),
   share: <RiShareBoxLine className={styles["icon-and-text-link__icon-size"]} />,
+  reset: <RiRestartLine className={styles["icon-and-text-link__icon-size"]} />,
 };
 
 export const IconAndTextLink: FC<IconAndTextLinkInterface> = (props) => {
