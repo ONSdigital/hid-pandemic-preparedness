@@ -36,7 +36,7 @@ export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
                 onChange={() =>
                   props.onChange && props.onChange(item.id, props.parentId)
                 }
-                checked={isChecked}
+                checked={props.checkedIds && isChecked}
               />
               <label className={clsx("form-check-label")} htmlFor={item.id}>
                 {item.label}
