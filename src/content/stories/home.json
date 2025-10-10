@@ -2,12 +2,59 @@
   "story": {
     "name": "Home",
     "created_at": "2025-10-01T13:40:10.376Z",
-    "published_at": "2025-10-09T11:44:15.760Z",
-    "updated_at": "2025-10-09T11:44:15.771Z",
+    "published_at": "2025-10-10T09:20:24.173Z",
+    "updated_at": "2025-10-10T11:09:41.335Z",
     "id": 96814736940977,
     "uuid": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
     "content": {
+      "Body": [
+        {
+          "_uid": "fa7b4adb-90ea-4b8c-b203-133e54617a8d",
+          "title": "",
+          "subTitle": "",
+          "component": "header",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"header\", \"space\": \"287525897740819\", \"uid\": \"fa7b4adb-90ea-4b8c-b203-133e54617a8d\", \"id\": \"96814736940977\"}--\u003e"
+        }
+      ],
       "_uid": "22f30891-bfa3-45eb-9a81-937b6fedfd9c",
+      "Impact": [
+        {
+          "_uid": "7f525bea-78d2-4a42-a0f6-f0b8e761d247",
+          "type": "",
+          "cards": [
+            {
+              "_uid": "d49ccdfa-6838-48cf-8d5b-82b5ded19a89",
+              "icon": "experts",
+              "type": "",
+              "title": "50+ experts",
+              "subTitle": "internationally have contributed to content for Analysis for Action",
+              "component": "ImpactCard",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"d49ccdfa-6838-48cf-8d5b-82b5ded19a89\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "736ffe86-bd53-460c-adb2-22d5dacfbf6e",
+              "icon": "countries",
+              "type": "",
+              "title": "48 countries",
+              "subTitle": "have joined the Analysis for Action global network",
+              "component": "ImpactCard",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"736ffe86-bd53-460c-adb2-22d5dacfbf6e\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "4561fc67-ef5d-4082-a8e4-f1afddd373c7",
+              "icon": "users",
+              "type": "",
+              "title": "100,000+ users",
+              "subTitle": "of Analysis for Action resources so far",
+              "component": "ImpactCard",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"4561fc67-ef5d-4082-a8e4-f1afddd373c7\", \"id\": \"96814736940977\"}--\u003e"
+            }
+          ],
+          "title": "global impact",
+          "component": "Impact",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"Impact\", \"space\": \"287525897740819\", \"uid\": \"7f525bea-78d2-4a42-a0f6-f0b8e761d247\", \"id\": \"96814736940977\"}--\u003e"
+        }
+      ],
       "header": [
         {
           "_uid": "caa6844a-8069-4b70-8320-5ff850d15674",
@@ -16,7 +63,257 @@
           "subTitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
           "component": "header",
           "searchPlaceholderText": "",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"header\", \"space\": \"287525897740819\", \"uid\": \"caa6844a-8069-4b70-8320-5ff850d15674\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003c!--#storyblok#{\"name\": \"header\", \"space\": \"287525897740819\", \"uid\": \"caa6844a-8069-4b70-8320-5ff850d15674\", \"id\": \"96814736940977\"}--\u003e"
+        }
+      ],
+      "Partners": [
+        {
+          "_uid": "d51ef85a-d743-4adb-ab08-8eefb576ef67",
+          "link": {
+            "id": "",
+            "url": "https://www.ons.gov.uk/",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "https://www.ons.gov.uk/"
+          },
+          "logo": {
+            "id": 99913190454577,
+            "alt": "Office for National Statistics logo",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/192x41/34742c4c8c/ons_logo_digital_colour_english_rgb.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "Office for National Statistics logo",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"d51ef85a-d743-4adb-ab08-8eefb576ef67\", \"id\": \"96814736940977\"}--\u003e"
+        },
+        {
+          "_uid": "81f0be87-b732-4c13-b08b-73bd959635b3",
+          "link": {
+            "id": "",
+            "url": "#",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "#"
+          },
+          "logo": {
+            "id": 99913190069550,
+            "alt": "Emblem of Nepal",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/113x95/1360a341e0/emblem_of_nepal.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "Emblem of Nepal",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"81f0be87-b732-4c13-b08b-73bd959635b3\", \"id\": \"96814736940977\"}--\u003e"
+        },
+        {
+          "_uid": "4d1d2e16-a6ff-427a-861b-e3061c008218",
+          "link": {
+            "id": "",
+            "url": "https://www.nsomalawi.mw/",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "https://www.nsomalawi.mw/"
+          },
+          "logo": {
+            "id": 99913190487346,
+            "alt": "National Statistical Office of Malawi",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/212x87/cb68830c18/malawi-national-statistical-office.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "National Statistical Office of Malawi",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"4d1d2e16-a6ff-427a-861b-e3061c008218\", \"id\": \"96814736940977\"}--\u003e"
+        },
+        {
+          "_uid": "a4ca5440-da24-4396-a8eb-e92fb091e199",
+          "link": {
+            "id": "",
+            "url": "https://www.indec.gob.ar/",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "https://www.indec.gob.ar/"
+          },
+          "logo": {
+            "id": 99913190434096,
+            "alt": "INDEC logo",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/100x52/86e7c3fa5a/logo_indec.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "INDEC logo",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"a4ca5440-da24-4396-a8eb-e92fb091e199\", \"id\": \"96814736940977\"}--\u003e"
+        },
+        {
+          "_uid": "540f715c-2d81-47f7-8789-2294cc3e8396",
+          "link": {
+            "id": "",
+            "url": "https://wellcome.org/",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "https://wellcome.org/"
+          },
+          "logo": {
+            "id": 99913190552884,
+            "alt": "Wellcome",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/132x49/61a31698bc/wellcome.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "Wellcome",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"540f715c-2d81-47f7-8789-2294cc3e8396\", \"id\": \"96814736940977\"}--\u003e"
+        },
+        {
+          "_uid": "8f778847-51af-450c-aa1c-7909387a5367",
+          "link": {
+            "id": "",
+            "url": "https://herdint.com/",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "https://herdint.com/"
+          },
+          "logo": {
+            "id": 99913190274351,
+            "alt": "HERD International logo",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/135x59/5b1b1f8c4a/herdi_nepal.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "HERD International logo",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"8f778847-51af-450c-aa1c-7909387a5367\", \"id\": \"96814736940977\"}--\u003e"
+        },
+        {
+          "_uid": "a57f9160-2758-4dbf-90d3-d7222e3c0dc0",
+          "link": {
+            "id": "",
+            "url": "https://lukeinternational.no/",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "https://lukeinternational.no/"
+          },
+          "logo": {
+            "id": 99913190499635,
+            "alt": "LUKE International logo",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/145x47/999f5c6c1e/lin-luke-logo.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "LUKE International logo",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"a57f9160-2758-4dbf-90d3-d7222e3c0dc0\", \"id\": \"96814736940977\"}--\u003e"
+        },
+        {
+          "_uid": "4696bc7a-1c04-4817-9a37-21e516dad1a7",
+          "link": {
+            "id": "",
+            "url": "https://www.cemic.edu.ar/",
+            "linktype": "url",
+            "fieldtype": "multilink",
+            "cached_url": "https://www.cemic.edu.ar/"
+          },
+          "logo": {
+            "id": 99913189991725,
+            "alt": "CEMIC logo",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/134x41/4c1231f443/cemic-logo.svg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {
+              "alt": "CEMIC logo",
+              "title": "",
+              "source": "",
+              "copyright": ""
+            },
+            "is_external_url": false
+          },
+          "type": "",
+          "component": "strategicPartner",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"4696bc7a-1c04-4817-9a37-21e516dad1a7\", \"id\": \"96814736940977\"}--\u003e"
         }
       ],
       "component": "page",
@@ -25,17 +322,19 @@
         {
           "_uid": "fa817014-c4ca-488a-9609-d60ee4bd419e",
           "link": {
-            "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+            "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+            "rel": "",
             "url": "",
+            "title": "About",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "about"
           },
           "type": "",
           "title": "What is Analysis for Action?",
           "subTitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
           "component": "imageAndText",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"imageAndText\", \"space\": \"287525897740819\", \"uid\": \"fa817014-c4ca-488a-9609-d60ee4bd419e\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003c!--#storyblok#{\"name\": \"imageAndText\", \"space\": \"287525897740819\", \"uid\": \"fa817014-c4ca-488a-9609-d60ee4bd419e\", \"id\": \"96814736940977\"}--\u003e"
         }
       ],
       "case_study_main": [
@@ -52,17 +351,267 @@
           "title": "",
           "subtitle": "",
           "component": "card_case_study",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"card_case_study\", \"space\": \"287525897740819\", \"uid\": \"0014b4ae-c712-4e47-8dac-b64305abe761\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003c!--#storyblok#{\"name\": \"card_case_study\", \"space\": \"287525897740819\", \"uid\": \"0014b4ae-c712-4e47-8dac-b64305abe761\", \"id\": \"96814736940977\"}--\u003e"
         }
       ],
       "header_subtitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
       "statisticsCards": [],
       "what_is_aa_title": "What is Analysis for Action?",
+      "StrategicPartners": [
+        {
+          "_uid": "575206f0-4734-46b8-9290-2f5985736daf",
+          "title": "Strategic partners",
+          "partners": [
+            {
+              "_uid": "c6beeacc-f385-4dc0-80d5-fcdbd229fbc6",
+              "link": {
+                "id": "",
+                "url": "https://www.ons.gov.uk/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.ons.gov.uk/"
+              },
+              "logo": {
+                "id": 99913190454577,
+                "alt": "Office for National Statistics logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/192x41/34742c4c8c/ons_logo_digital_colour_english_rgb.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "Office for National Statistics logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"c6beeacc-f385-4dc0-80d5-fcdbd229fbc6\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "da89b4d2-7994-4b60-9301-798236f6939b",
+              "link": {
+                "id": "",
+                "url": "#",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "#"
+              },
+              "logo": {
+                "id": 99913190069550,
+                "alt": "Emblem of Nepal",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/113x95/1360a341e0/emblem_of_nepal.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "Emblem of Nepal",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"da89b4d2-7994-4b60-9301-798236f6939b\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "7a6163d2-d8b4-4411-9091-15ae3c5febce",
+              "link": {
+                "id": "",
+                "url": "https://www.nsomalawi.mw",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.nsomalawi.mw"
+              },
+              "logo": {
+                "id": 99913190487346,
+                "alt": "National Statistical Office of Malawi",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/212x87/cb68830c18/malawi-national-statistical-office.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "National Statistical Office of Malawi",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"7a6163d2-d8b4-4411-9091-15ae3c5febce\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "39f2c7c6-8dc5-46e9-b69e-b474a1a6e009",
+              "link": {
+                "id": "",
+                "url": "https://www.indec.gob.ar/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.indec.gob.ar/"
+              },
+              "logo": {
+                "id": 99913190434096,
+                "alt": "INDEC logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/100x52/86e7c3fa5a/logo_indec.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "INDEC logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"39f2c7c6-8dc5-46e9-b69e-b474a1a6e009\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "90b26bb3-fba1-495d-959c-199aa267f4ee",
+              "link": {
+                "id": "",
+                "url": "https://wellcome.org/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://wellcome.org/"
+              },
+              "logo": {
+                "id": 99913190552884,
+                "alt": "Wellcome",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/132x49/61a31698bc/wellcome.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "Wellcome",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"90b26bb3-fba1-495d-959c-199aa267f4ee\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "bae0219e-a475-49aa-8793-88deeb9777e9",
+              "link": {
+                "id": "",
+                "url": "https://herdint.com/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://herdint.com/"
+              },
+              "logo": {
+                "id": 99913190274351,
+                "alt": "HERD International logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/135x59/5b1b1f8c4a/herdi_nepal.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "HERD International logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"bae0219e-a475-49aa-8793-88deeb9777e9\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "45b07491-078b-4edc-8318-b7b9fa7c22b0",
+              "link": {
+                "id": "",
+                "url": "https://lukeinternational.no/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://lukeinternational.no/"
+              },
+              "logo": {
+                "id": 99913190499635,
+                "alt": "LUKE International logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/145x47/999f5c6c1e/lin-luke-logo.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "LUKE International logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"45b07491-078b-4edc-8318-b7b9fa7c22b0\", \"id\": \"96814736940977\"}--\u003e"
+            },
+            {
+              "_uid": "d8cf8dde-05d9-4d37-8e79-50bde4be00dc",
+              "link": {
+                "id": "",
+                "url": "https://www.cemic.edu.ar/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.cemic.edu.ar/"
+              },
+              "logo": {
+                "id": 99913189991725,
+                "alt": "CEMIC logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/134x41/4c1231f443/cemic-logo.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "CEMIC logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"d8cf8dde-05d9-4d37-8e79-50bde4be00dc\", \"id\": \"96814736940977\"}--\u003e"
+            }
+          ],
+          "component": "StrategicPartners",
+          "_editable": "\u003c!--#storyblok#{\"name\": \"StrategicPartners\", \"space\": \"287525897740819\", \"uid\": \"575206f0-4734-46b8-9290-2f5985736daf\", \"id\": \"96814736940977\"}--\u003e"
+        }
+      ],
       "strategicPartners": [],
       "caseStudiesMainCard": [],
       "what_is_aa_subtitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
       "caseStudiesSmallCards": [],
-      "_editable": "\u003C!--#storyblok#{\"name\": \"page\", \"space\": \"287525897740819\", \"uid\": \"22f30891-bfa3-45eb-9a81-937b6fedfd9c\", \"id\": \"96814736940977\"}--\u003E"
+      "_editable": "\u003c!--#storyblok#{\"name\": \"page\", \"space\": \"287525897740819\", \"uid\": \"22f30891-bfa3-45eb-9a81-937b6fedfd9c\", \"id\": \"96814736940977\"}--\u003e"
     },
     "slug": "home",
     "full_slug": "home",
@@ -81,7 +630,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1760010256,
+  "cv": 1760094581,
   "rels": [],
   "links": []
 }

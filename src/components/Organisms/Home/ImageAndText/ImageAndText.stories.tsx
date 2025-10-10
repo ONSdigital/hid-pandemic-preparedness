@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import imageAndTextData from "../../../content/Home/imageAndText.json";
+import imageAndTextData from "./image-and-test.json";
 import { ImageAndText } from "./ImageAndText";
 import type { ImageAndTextProps } from "./ImageAndText.interface";
 
@@ -11,6 +11,11 @@ const meta = {
     layout: "fullscreen",
   },
   argTypes: {
+    _uid: {
+      table: {
+        disable: true,
+      },
+    },
     link: {
       table: {
         disable: true,

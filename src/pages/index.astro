@@ -6,7 +6,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 // Interfaces
 import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
 import type { HeaderProps } from "@components/Home/Header/Header.interface";
-import type { ImpactAndPartnersProps } from "@components/Home/ImpactAndPartners/ImpactAndPartners.interface";
 import type { QuickLinksProps } from "@components/Home/QuickLinks/QuickLinks.interface";
 import type { DatasourceEntry } from "@src/types/DatasourceEntry";
 import type { NavItem } from "@src/types/NavItem";
@@ -16,7 +15,8 @@ import { Carousel } from "@components/Core/Carousel/Carousel";
 import { CaseStudies } from "@components/Home/CaseStudies/CaseStudies";
 import { Header } from "@components/Home/Header/Header";
 import { ImageAndText } from "@components/Home/ImageAndText/ImageAndText";
-import { ImpactAndPartners } from "@components/Home/ImpactAndPartners/ImpactAndPartners";
+import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
+import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
 import { StatisticsAndText } from "@components/Home/StatisticsAndText/StatisticsAndText";
 import { References } from "@components/Core/References/References";
@@ -27,7 +27,6 @@ import { fetchDatasourceEntries, fetchStory } from "@/src/helpers/fetchContent";
 // Content
 import carouselData from "@content/Home/carousel.json";
 import caseStudiesData from "@content/Home/caseStudies.json";
-import impactAndPartnersData from "@content/Home/impactAndPartners.json";
 import navBarData from "@content/base/navBarData.json";
 import statisticsAndTextData from "@content/Home/statisticsAndText.json";
 import referencesData from "@content/Home/references.json";
@@ -77,6 +76,8 @@ const headerData: HeaderProps = {
     : "",
 };
 
+console.log(story.content);
+
 // Build imageAndText data
 const imageAndTextData: ImageAndTextProps = {
   ...story.content.imageAndText[0],
@@ -102,8 +103,8 @@ const quickLinksData: QuickLinksProps = {
     <StatisticsAndText {...statisticsAndTextData} />
     <Carousel {...carouselData as CarouselProps} client:visible />
     <CaseStudies {...caseStudiesData} />
-    <!-- Props type required here to stop typescript error -->
-    <ImpactAndPartners {...impactAndPartnersData as ImpactAndPartnersProps} />
+    <Impact {...story.content.Impact[0]} />
+    <StrategicPartners {...story.content.StrategicPartners[0]} />
     <References {...referencesData} client:visible />
   </main>
 </BaseLayout>

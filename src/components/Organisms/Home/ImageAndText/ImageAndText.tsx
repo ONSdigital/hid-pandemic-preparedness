@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Link } from "@components/Link/Link";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
 
 import type { ImageAndTextProps } from "./ImageAndText.interface";
 import styles from "./ImageAndText.module.scss";
