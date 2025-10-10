@@ -5,7 +5,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
 import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
-import type { HeaderProps } from "@components/Home/Header/Header.interface";
 import type { QuickLinksProps } from "@components/Home/QuickLinks/QuickLinks.interface";
 import type { DatasourceEntry } from "@src/types/DatasourceEntry";
 import type { NavItem } from "@src/types/NavItem";
@@ -13,7 +12,7 @@ import type { NavItem } from "@src/types/NavItem";
 // Components
 import { Carousel } from "@components/Core/Carousel/Carousel";
 import { CaseStudies } from "@components/Home/CaseStudies/CaseStudies";
-import { Header } from "@components/Home/Header/Header";
+import { Header } from "@components/Organisms/Home/Header/Header";
 import { ImageAndText } from "@components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
@@ -36,9 +35,6 @@ const homeLabel = (await fetchDatasourceEntries(
   "breadcrumb-strings",
   "homeLabel",
 )) as DatasourceEntry;
-const homeStrings = (await fetchDatasourceEntries(
-  "home-strings",
-)) as DatasourceEntry[];
 
 let story = null;
 
@@ -51,28 +47,15 @@ if (liveStory) {
   story = data?.story;
 }
 
-const searchBarPlaceholderText = homeStrings.find(
-  (item) => item.name === "searchBarPlaceholderText",
-);
-const whatIsAaButtonLabel = homeStrings.find(
-  (item) => item.name === "whatIsAaButtonLabel",
-);
-
-// Build header data
-const headerData: HeaderProps = {
-  breadcrumbs: {
-    items: [
-      {
-        href: "/",
-        label: homeLabel.value,
-        id: uuidv4(),
-      },
-    ],
-  },
-  ...story.content.header[0],
-  searchPlaceholderText: searchBarPlaceholderText
-    ? searchBarPlaceholderText.value
-    : "",
+// Build breadcrumbs
+const breadcrumbs = {
+  items: [
+    {
+      href: "/",
+      label: homeLabel.value,
+      id: uuidv4(),
+    },
+  ],
 };
 
 console.log(story.content);
@@ -86,7 +69,11 @@ const quickLinksData: QuickLinksProps = {
 
 <BaseLayout>
   <main>
-    <Header {...headerData} client:visible />
+    <Header
+      {...story.content.Header[0]}
+      breadcrumbs={breadcrumbs}
+      client:visible
+    />
     <QuickLinks {...quickLinksData} />
     <ImageAndText {...story.content.imageAndText[0]} />
     <StatisticsAndText {...statisticsAndTextData} />
