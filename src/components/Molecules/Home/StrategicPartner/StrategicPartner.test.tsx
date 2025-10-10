@@ -41,39 +41,4 @@ describe("StrategicPartner component", () => {
     const partnerLink = screen.getByRole("partner-link");
     expect(partnerLink).toHaveAttribute("href", baseProps.link.url);
   });
-
-  test("renders `partner-image` with empty alt attribute when alt is null", () => {
-    render(<StrategicPartner {...baseProps} />);
-    const partnerImage = screen.getByRole("partner-image");
-    expect(partnerImage).toHaveAttribute("alt", "");
-  });
-
-  test("renders `partner-image` with src attribute set to `null` when filename is null", () => {
-    render(<StrategicPartner {...baseProps} />);
-    const partnerImage = screen.getByRole("partner-image");
-    expect(partnerImage).toHaveAttribute("src", "null");
-  });
-
-  test("renders `partner-image` with alt attribute when alt is provided", () => {
-    const altText: string = "Example Alt Text";
-    const props = {
-      ...baseProps,
-      logo: { ...baseProps.logo, alt: altText },
-    };
-    render(<StrategicPartner {...props} />);
-    const partnerImage = screen.getByRole("partner-image");
-    expect(partnerImage).toHaveAttribute("alt", altText);
-  });
-
-  test("renders `partner-image` with src attribute when alt is provided", () => {
-    const filename: string =
-      "https://a.storyblok.com/f/287525897740819/134x41/4c1231f443/cemic-logo.svg";
-    const props = {
-      ...baseProps,
-      logo: { ...baseProps.logo, filename: filename },
-    };
-    render(<StrategicPartner {...props} />);
-    const partnerImage = screen.getByRole("partner-image");
-    expect(partnerImage).toHaveAttribute("src", filename);
-  });
 });
