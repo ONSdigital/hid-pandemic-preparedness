@@ -1,8 +1,8 @@
-@use "../../../styles/global/variables" as *;
+@use "../../../../styles/global/variables" as *;
 
-@import "../../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../styles/bootstrap-5.3.8/scss/variables";
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
 
 .header-bg {
   background: $gradient-brand-primary-1;

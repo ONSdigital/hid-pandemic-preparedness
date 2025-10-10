@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import type { FC } from "react";
+import { sentenceCase } from "sentence-case";
 
 import { Breadcrumb } from "@components/Molecules/Breadcrumb/Breadcrumb";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
@@ -18,7 +19,9 @@ export const Header: FC<HeaderProps> = (props) => {
         </div>
         <div className={clsx("row")}>
           <div className={clsx("col-md-6")}>
-            <h1 className={clsx("heading-xl")}>{props.title}</h1>
+            <h1 role={"header-title"} className={clsx("heading-xl")}>
+              {sentenceCase(props.title)}
+            </h1>
           </div>
         </div>
         <div className={clsx("row", "py-lg-4")}>
