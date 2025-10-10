@@ -14,7 +14,7 @@ const impactIconMap: Record<string, ReactNode> = {
 
 export const ImpactCard: FC<ImpactCardProps> = (props) => {
   return (
-    <div className={clsx("col")}>
+    <div className={clsx("col", "text-center", styles["text-color"])}>
       <p
         className={clsx(
           "d-flex",

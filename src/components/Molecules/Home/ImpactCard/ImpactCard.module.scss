@@ -1,3 +1,10 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.text-color {
+  color: $color-text-accent;
+}
+
 .icon-badge-size {
   height: 6rem;
   width: 6rem;
