@@ -1,4 +1,4 @@
 export interface CongratulationsProps {
-  text: string;
+  title: string;
   htmlContent: string;
 }

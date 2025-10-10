@@ -8,12 +8,27 @@ import styles from "./Congratulations.module.scss";
 
 export const Congratulations: FC<CongratulationsProps> = (props) => {
   return (
-    <div className={clsx("text-center", "rounded", "py-4", "px-3", styles["congratulations-container"])}>
-      <h5 className={clsx("d-flex", "justify-content-center", "gap-1", "align-items-center")}>
+    <div
+      className={clsx(
+        "text-center",
+        "rounded",
+        "py-4",
+        "px-3",
+        styles["congratulations-container"],
+      )}
+    >
+      <h5
+        className={clsx(
+          "d-flex",
+          "justify-content-center",
+          "gap-1",
+          "align-items-center",
+        )}
+      >
         <span className={clsx("d-flex", "align-items-center")}>
           <RiStarLine />
         </span>
-        {props.text} 
+        {props.title}
         <span className={clsx("d-flex", "align-items-center")}>
           <RiStarLine />
         </span>
