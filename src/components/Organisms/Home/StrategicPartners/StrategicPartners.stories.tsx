@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { v4 as uuidv4 } from "uuid";
 
 import strategicPartnersProps from "./strategic-partners.json";
 import { StrategicPartners } from "./StrategicPartners";

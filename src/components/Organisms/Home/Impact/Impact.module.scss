@@ -1,0 +1,11 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.text-color {
+  color: $color-text-accent;
+}
+
+.impact-bg {
+  color: $color-text-accent;
+  background: $color-brand-primary-200;
+}

@@ -1,0 +1,33 @@
+{
+  "_uid": "7f525bea-78d2-4a42-a0f6-f0b8e761d247",
+  "cards": [
+    {
+      "_uid": "d49ccdfa-6838-48cf-8d5b-82b5ded19a89",
+      "icon": "experts",
+      "type": "",
+      "title": "50+ experts",
+      "subTitle": "internationally have contributed to content for Analysis for Action",
+      "component": "ImpactCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"d49ccdfa-6838-48cf-8d5b-82b5ded19a89\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "736ffe86-bd53-460c-adb2-22d5dacfbf6e",
+      "icon": "countries",
+      "type": "",
+      "title": "48 countries",
+      "subTitle": "have joined the Analysis for Action global network",
+      "component": "ImpactCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"736ffe86-bd53-460c-adb2-22d5dacfbf6e\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "4561fc67-ef5d-4082-a8e4-f1afddd373c7",
+      "icon": "users",
+      "type": "",
+      "title": "100,000+ users",
+      "subTitle": "of Analysis for Action resources so far",
+      "component": "ImpactCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"4561fc67-ef5d-4082-a8e4-f1afddd373c7\", \"id\": \"96814736940977\"}--\u003E"
+    }
+  ],
+  "title": "global impact"
+}
