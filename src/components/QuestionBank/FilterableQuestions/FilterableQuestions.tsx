@@ -1,6 +1,10 @@
-import { useState, type ChangeEvent, type FC } from "react";
+import { useState, type FC } from "react";
 import clsx from "clsx";
 
+import type { SelectedCheckboxes } from "@localTypes/SelectedCheckboxes";
+
+import { getChildIdsFromState } from "@helpers/QuestionBank/getChildIdsFromState";
+import { handleCheckboxClick } from "@helpers/QuestionBank/handleCheckboxClick";
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
 import type { FilterableQuestionsProps } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions.interface";
 import { QuestionBlock } from "@components/QuestionBank/QuestionBlock/QuestionBlock";
@@ -8,29 +12,16 @@ import { QuestionBlock } from "@components/QuestionBank/QuestionBlock/QuestionBl
 import styles from "./FilterableQuestions.module.scss";
 
 export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [checkedIds, setCheckedIds] = useState<SelectedCheckboxes>({});
 
-  const onCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { id, checked } = event.target;
-
-    setSelectedIds((currentSelection) => {
-      if (checked) {
-        if (currentSelection.includes(id)) {
-          return currentSelection;
-        }
-        return [...currentSelection, id];
-      } else {
-        return currentSelection.filter((selectedId) => selectedId !== id);
-      }
-    });
-  };
-
-  const hasSelectedIds = selectedIds.length > 0;
+  const childIds = getChildIdsFromState(
+    checkedIds,
+    props.filterCheckboxList.listItems,
+  );
+  const hasSelectedIds = childIds.length > 0;
 
   const filteredQuestionBlocks = hasSelectedIds
-    ? props.questionBlocks.filter((block) =>
-        block.tags.some((tag) => selectedIds.includes(tag.id)),
-      )
+    ? props.questionBlocks.filter((block) => childIds.includes(block.id))
     : props.questionBlocks;
 
   return (
@@ -38,10 +29,19 @@ export const FilterableQuestions: FC<FilterableQuestionsProps> = (props) => {
       <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row")}>
           <div className={clsx("col-md-3", "mb-3")}>
+            {props.filterTitle && (
+              <p className={clsx("text-primary", "fw-bold")}>
+                {props.filterTitle}
+              </p>
+            )}
             <ListGroupChecks
-              {...props.filterMenu}
-              selectedIds={selectedIds}
-              onChange={onCheckboxChange}
+              {...props.filterCheckboxList}
+              checkedIds={checkedIds}
+              onChange={(id, parentId) =>
+                setCheckedIds((prev) =>
+                  handleCheckboxClick(prev, id, parentId, checkedIds),
+                )
+              }
             />
           </div>
           <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>

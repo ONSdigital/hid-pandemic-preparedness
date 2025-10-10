@@ -1,13 +1,13 @@
-import type { ChangeEvent } from "react";
-import type { FilterItem } from "../../types/FilterItem";
-import type { NavItem } from "../../types/NavItem";
+import type { ListItem } from "@localTypes/ListItem";
+import type { NavItem } from "@localTypes/NavItem";
+import type { SelectedCheckboxes } from "@localTypes/SelectedCheckboxes";
 
 export interface ListGroupChecksProps {
-  title?: string;
-  checkItems: FilterItem[];
+  listItems: ListItem[];
   inverse?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void; // eslint-disable-line no-unused-vars
-  selectedIds?: string[];
+  onChange?: (id: string, parentId: string | undefined) => void; // eslint-disable-line no-unused-vars
+  checkedIds?: SelectedCheckboxes;
+  parentId?: string;
 }
 
 export interface ListGroupLinksProps {

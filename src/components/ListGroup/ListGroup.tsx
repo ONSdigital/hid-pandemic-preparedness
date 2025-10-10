@@ -10,36 +10,49 @@ import styles from "./ListGroup.module.scss";
 // Use when rendering a list of checkboxes
 export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
   return (
-    <div>
-      {props.title && (
-        <p className={clsx("text-primary", "fw-bold")}>{props.title}</p>
+    <ul
+      className={clsx(
+        "list-group",
+        "list-group-flush",
+        styles["list-group-checks"],
       )}
-      <ul className={clsx("list-group", "list-group-flush")}>
-        {props.checkItems.map((item, index) => {
-          const isSelected =
-            props.selectedIds && props.selectedIds.includes(item.id);
-          return (
-            <li
-              className={clsx("list-group-item")}
-              key={`listGroupItem${index}`}
-            >
-              <div className={clsx("form-check")}>
-                <input
-                  className={clsx("form-check-input")}
-                  type="checkbox"
-                  id={item.id}
-                  onChange={props.onChange}
-                  checked={isSelected}
-                />
-                <label className={clsx("form-check-label")} htmlFor={item.id}>
-                  {item.label}
-                </label>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    >
+      {props.listItems.map((item) => {
+        const { parentId, listItems, ...propsToPassOn } = props; // eslint-disable-line no-unused-vars
+
+        const isChecked = Boolean(
+          props.parentId
+            ? props.checkedIds?.[props.parentId]?.includes(item.id)
+            : props.checkedIds && item.id in props.checkedIds,
+        );
+
+        return (
+          <li className={clsx("list-group-item")} key={item.id}>
+            <div className={clsx("form-check")}>
+              <input
+                className={clsx("form-check-input")}
+                type="checkbox"
+                id={item.id}
+                onChange={() =>
+                  props.onChange && props.onChange(item.id, props.parentId)
+                }
+                checked={props.checkedIds && isChecked}
+              />
+              <label className={clsx("form-check-label")} htmlFor={item.id}>
+                {item.label}
+              </label>
+            </div>
+            {item.subItems && (
+              <ListGroupChecks
+                parentId={item.id}
+                listItems={item.subItems}
+                {...propsToPassOn}
+              />
+            )}
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

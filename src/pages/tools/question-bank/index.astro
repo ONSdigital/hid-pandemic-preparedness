@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import _ from "lodash";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 
@@ -30,6 +29,7 @@ import ethnicityMarkdown from "@content/tools/question-bank/ethnicity.md?raw";
 import frequencyAndPurposeOfTravelMarkdown from "@content/tools/question-bank/frequency-and-purpose-of-travel.md?raw";
 import sexGenderMarkdown from "@content/tools/question-bank/sex-gender.md?raw";
 import travelAndRegulationsMarkdown from "@content/tools/question-bank/travel-and-regulations.md?raw";
+import { getCheckboxListItems } from "@/src/helpers/QuestionBank/getCheckboxListItems";
 
 const currentRoute: string = Astro.url.pathname;
 
@@ -40,18 +40,6 @@ const filterUrl: string = currentRoute.replace(/^\//, "");
 const explainerCollection = await getCollection("toolsExplainer", ({ id }) => {
   return id === `${filterUrl}explainer`;
 });
-
-// Get the unique tags from the question block data to build filter
-const uniqueTags = _.uniqBy(
-  questionBlocksData.flatMap((item) => item.tags),
-  "id",
-);
-
-const filterMenuData = {
-  title: "Theme",
-  checkItems: uniqueTags.map((tag) => ({ label: tag.title, id: tag.id })),
-  inverse: false,
-};
 
 // Build the questions blocks using `questionBlocksData` and found content
 const qbAge = await createQuestionBlock(ageMarkdown);
@@ -90,10 +78,17 @@ const qbd: QuestionBlockProps[] = [];
 // Build the questionBlocksData
 qbd.push(qbAge);
 qbd.push(qbEthnicity);
-qbd.push(qbTravelFrequency);
 qbd.push(qbSexGender);
+qbd.push(qbTravelFrequency);
 qbd.push(qbTravelRegulations);
 qbd.push(qbCareGiver);
+
+const filterTitle = "Theme";
+
+const filterCheckboxList = {
+  listItems: getCheckboxListItems(qbd),
+  inverse: false,
+};
 
 // Build the explainerData
 const explainerData: ExplainerProps = {
@@ -101,7 +96,8 @@ const explainerData: ExplainerProps = {
 };
 
 const filterableQuestionsData: FilterableQuestionsProps = {
-  filterMenu: filterMenuData,
+  filterTitle: filterTitle,
+  filterCheckboxList: filterCheckboxList,
   questionBlocks: qbd as QuestionBlockProps[],
 };
 

@@ -4,7 +4,7 @@ import { ListGroupChecks } from "./ListGroup";
 import listGroupCheckData from "@content/listGroupCheckData.json";
 const meta = {
   argTypes: {
-    checkItems: {
+    checkedIds: {
       table: {
         disable: true,
       },
@@ -14,12 +14,12 @@ const meta = {
         disable: true,
       },
     },
-    onChange: {
+    listItems: {
       table: {
         disable: true,
       },
     },
-    selectedIds: {
+    onChange: {
       table: {
         disable: true,
       },

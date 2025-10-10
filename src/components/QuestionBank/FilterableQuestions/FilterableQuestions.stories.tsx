@@ -19,6 +19,7 @@ import type { FilterableQuestionsProps } from "@components/QuestionBank/Filterab
 import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
 import { parseMarkdown } from "@helpers/parseMarkdown";
 import type { TagData } from "@localTypes/TagData";
+import { getCheckboxListItems } from "@helpers/QuestionBank/getCheckboxListItems";
 
 const meta = {
   component: FilterableQuestions,
@@ -27,7 +28,7 @@ const meta = {
     layout: "fullscreen",
   },
   argTypes: {
-    filterMenu: { table: { disable: true } },
+    filterCheckboxList: { table: { disable: true } },
     questionBlocks: { table: { disable: true } },
   },
 } satisfies Meta<typeof FilterableQuestions>;
@@ -74,15 +75,7 @@ const themeId1 = uuidv4();
 const themeLabel2 = "Travel";
 const themeId2 = uuidv4();
 
-// Construct props for ListGroupCheck component
-const filterMenuData = {
-  title: "Theme",
-  checkItems: [
-    { label: themeLabel1, id: themeId1 },
-    { label: themeLabel2, id: themeId2 },
-  ],
-  inverse: false,
-};
+const filterTitleData = "Theme";
 
 // Construct props for QuestionBlock component
 const ageQuestionBlock = createQuestionBlock(
@@ -124,9 +117,16 @@ const questionBlocksData: QuestionBlockProps[] = [
   travelQuestionBlock,
 ];
 
+// Construct props for ListGroupCheck component
+const filterCheckboxList = {
+  listItems: getCheckboxListItems(questionBlocksData),
+  inverse: false,
+};
+
 // Bring all the props together for FilterableQuestions component
 const filterMenuProps: FilterableQuestionsProps = {
-  filterMenu: filterMenuData,
+  filterTitle: filterTitleData,
+  filterCheckboxList: filterCheckboxList,
   questionBlocks: questionBlocksData,
 };
 
