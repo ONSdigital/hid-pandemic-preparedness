@@ -3,11 +3,11 @@
   "link": {
     "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
     "rel": "",
-    "url": "",
+    "url": "/about",
     "title": "About",
     "linktype": "story",
     "fieldtype": "multilink",
-    "cached_url": "about"
+    "cached_url": "/about"
   },
   "title": "What is Analysis for Action?",
   "subTitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most."

@@ -14,7 +14,7 @@ import type { NavItem } from "@src/types/NavItem";
 import { Carousel } from "@components/Core/Carousel/Carousel";
 import { CaseStudies } from "@components/Home/CaseStudies/CaseStudies";
 import { Header } from "@components/Home/Header/Header";
-import { ImageAndText } from "@components/Home/ImageAndText/ImageAndText";
+import { ImageAndText } from "@components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
@@ -30,7 +30,6 @@ import caseStudiesData from "@content/Home/caseStudies.json";
 import navBarData from "@content/base/navBarData.json";
 import statisticsAndTextData from "@content/Home/statisticsAndText.json";
 import referencesData from "@content/Home/references.json";
-import type { ImageAndTextProps } from "../components/Home/ImageAndText/ImageAndText.interface";
 
 // Fetch datasource content from api to return content and strings we need
 const homeLabel = (await fetchDatasourceEntries(
@@ -78,16 +77,6 @@ const headerData: HeaderProps = {
 
 console.log(story.content);
 
-// Build imageAndText data
-const imageAndTextData: ImageAndTextProps = {
-  ...story.content.imageAndText[0],
-  link: {
-    href: "/",
-    label: whatIsAaButtonLabel ? whatIsAaButtonLabel.value : "",
-    disabled: true,
-  },
-};
-
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {
   title: navBarData.items[1].label,
@@ -99,7 +88,7 @@ const quickLinksData: QuickLinksProps = {
   <main>
     <Header {...headerData} client:visible />
     <QuickLinks {...quickLinksData} />
-    <ImageAndText {...imageAndTextData} />
+    <ImageAndText {...story.content.imageAndText[0]} />
     <StatisticsAndText {...statisticsAndTextData} />
     <Carousel {...carouselData as CarouselProps} client:visible />
     <CaseStudies {...caseStudiesData} />
