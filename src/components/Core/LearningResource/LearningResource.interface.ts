@@ -2,10 +2,14 @@ import type { IntroductionProps } from "@components/Core/Introduction/Introducti
 import type { LearningModuleNavProps } from "@components/LearningModuleNav/LearningModuleNav.interface";
 import type { LearningResourceBlockProps } from "@components/LearningResourceBlock/LearningResourceBlock.interface";
 import type { LinkData } from "@localTypes/LinkData";
+import type { CongratulationsProps } from "../../Congratulations/Congratulations.interface";
 
 export interface LearningResourceProps {
   learningModuleNav: LearningModuleNavProps;
   introduction: IntroductionProps;
   learningResource: LearningResourceBlockProps;
   link: LinkData;
+  congratulations: CongratulationsProps;
+  currentChapter: number;
+  totalChapters: number;
 }
