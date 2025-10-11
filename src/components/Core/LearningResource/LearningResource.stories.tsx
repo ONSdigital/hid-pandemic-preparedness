@@ -14,15 +14,12 @@ import learningResourceMd2 from "@content/learning-resources/introduction/sectio
 import { parseMarkdown } from "../../../helpers/parseMarkdown";
 
 const meta = {
-  argTypes: {
-    introduction: { table: { disable: true } },
-    learningModuleNav: { table: { disable: true } },
-    learningResource: { table: { disable: true } },
-    link: { table: { disable: true } },
-  },
   component: LearningResource,
   parameters: {
     layout: "fullscreen",
+    controls: {
+      disable: true,
+    },
   },
   title: "Organisms/Core/LearningResource",
 } satisfies Meta<typeof LearningResource>;
