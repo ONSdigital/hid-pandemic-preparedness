@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 import { Carousel } from "@src/components/Core/Carousel/Carousel";
-import { CaseStudies } from "@src/components/Home/CaseStudies/CaseStudies";
+import { CaseStudies } from "@/src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";

@@ -1,7 +1,9 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Link } from "../Link/Link";
+import { Image } from "@src/components/Molecules/Core/Image/Image";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
+
 import type { CardCaseStudyProps } from "./CardCaseStudy.interface";
 import styles from "./CardCaseStudy.module.scss";
 
@@ -16,10 +18,9 @@ export const CardCaseStudy: FC<CardCaseStudyProps> = (props) => {
         "py-2",
       )}
     >
-      <img
-        alt={props.image.altText}
+      <Image
+        {...props.image}
         className={clsx("card-img", styles["card-case-study__image"])}
-        src={props.image.srcPath}
       />
       <div className={clsx("card-body", "p-0")}>
         <h4
@@ -37,11 +38,10 @@ export const CardCaseStudy: FC<CardCaseStudyProps> = (props) => {
         </p>
         <div className={clsx("d-none", "d-lg-block")}>
           <Link
-            className={clsx(styles["card-case-study__link"], "card-link")}
             asButton={true}
-            buttonVariant={"secondary"}
-            href={props.link.href}
-            label={props.link.label}
+            buttonVariant="secondary"
+            className={clsx(styles["card-case-study__link"], "card-link")}
+            {...props.link}
           />
         </div>
       </div>

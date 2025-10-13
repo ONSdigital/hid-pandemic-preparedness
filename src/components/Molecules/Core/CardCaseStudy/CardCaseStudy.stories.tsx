@@ -6,12 +6,12 @@ import type { CardCaseStudyProps } from "./CardCaseStudy.interface";
 
 const meta = {
   component: CardCaseStudy,
-  title: "Components/Cards/CardCaseStudy",
+  title: "Molecules/Core/CardCaseStudy",
   parameters: {
     layout: "centered",
   },
   argTypes: {
-    id: {
+    _uid: {
       table: {
         disable: true,
       },
