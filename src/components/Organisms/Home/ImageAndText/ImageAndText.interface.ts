@@ -1,3 +1,4 @@
+import type { ImageProps } from "@src/components/Molecules/Core/Image/Image.interface";
 import type { Link } from "@src/types/Link";
 
 export interface ImageAndTextProps {
@@ -5,4 +6,5 @@ export interface ImageAndTextProps {
   title: string;
   subTitle: string;
   link: Link;
+  image: ImageProps;
 }

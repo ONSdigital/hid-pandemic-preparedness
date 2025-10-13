@@ -3,7 +3,7 @@
     "name": "Home",
     "created_at": "2025-10-01T13:40:10.376Z",
     "published_at": "2025-10-13T11:31:06.004Z",
-    "updated_at": "2025-10-13T11:31:06.027Z",
+    "updated_at": "2025-10-13T11:52:11.409Z",
     "id": 96814736940977,
     "uuid": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
     "content": {
@@ -446,6 +446,19 @@
             "linktype": "story",
             "fieldtype": "multilink",
             "cached_url": "about"
+          },
+          "image": {
+            "id": 101034835114964,
+            "alt": "",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/854x550/bd906c11a9/two-professionals-discussing-statistics.png",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {},
+            "is_external_url": false
           },
           "title": "What is Analysis for Action?",
           "subTitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
@@ -1159,7 +1172,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1760355066,
+  "cv": 1760356331,
   "rels": [],
   "links": []
 }

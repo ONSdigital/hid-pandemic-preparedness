@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
+import { Image } from "@src/components/Molecules/Core/Image/Image";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
 
 import type { ImageAndTextProps } from "./ImageAndText.interface";
@@ -20,10 +21,7 @@ export const ImageAndText: FC<ImageAndTextProps> = (props) => {
               styles["image-container"],
             )}
           >
-            <img
-              className={styles["image-styles"]}
-              src="./images/two-professionals-discussing-statistics.png"
-            ></img>
+            <Image className={styles["image-styles"]} {...props.image} />
           </div>
           <div className={clsx("col-lg-7", "py-4")}>
             <h3 className={clsx("heading-m", "py-2")}>{props.title}</h3>
