@@ -2,10 +2,10 @@
 @use "../../styles/global/variables" as *;
 
 .congratulations-container {
-    color: $color-grey-100;
-    background-color: $color-brand-primary-400;
+  color: $color-grey-100;
+  background-color: $color-brand-primary-400;
 
-    & :last-child {
-      margin-bottom: 0;
-    }
+  & :last-child {
+    margin-bottom: 0;
+  }
 }

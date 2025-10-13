@@ -8,7 +8,7 @@ describe("Congratulations component", () => {
   const htmlContent = "<p>This is a congratulatory message.</p>";
   const textContent = "This is a congratulatory message.";
 
-   beforeEach(() => {
+  beforeEach(() => {
     render(<Congratulations title={title} htmlContent={htmlContent} />);
   });
 
@@ -18,8 +18,7 @@ describe("Congratulations component", () => {
   });
 
   test("renders the HTML content correctly", () => {
-    const text = screen.getByText(textContent)
-    expect(text.tagName).toBe("P")
+    const text = screen.getByText(textContent);
+    expect(text.tagName).toBe("P");
   });
 });
-
