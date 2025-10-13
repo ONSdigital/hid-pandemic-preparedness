@@ -18,3 +18,5 @@ This page lists the Architectural Decision Records (ADRs) that have defined the 
 | [ADR-12](./adr-12-use-prettier-and-eslint-for-linting-and-code-formatting.md) | Use Prettier and ESLint for linting and code-formatting |
 | [ADR-13](./adr-13-use-bootstrap-for-base-styling.md) | Use Bootstrap 5.3.8 for base styling |
 | [ADR-14](./adr-14-use-pagefind-for-search.md) | Use Pagefind for search |
+| [ADR-15](./adr-15-use-storyblok-for-content-management.md) | Use Storyblok for content management |
+| [ADR-16](./adr-16-use-aws-api-gateway-and-lambda-for-storyblok-preview.md) | Use AWS API Gateway and Lambda for Storyblok preview |
