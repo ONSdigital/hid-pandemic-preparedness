@@ -19,6 +19,7 @@ import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartn
 import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
 import { StatisticsAndText } from "@/src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { References } from "@components/Core/References/References";
+import { DynamicComponent } from "@src/components/DynamicComponent";
 
 // Helpers
 import { fetchDatasourceEntries, fetchStory } from "@/src/helpers/fetchContent";
@@ -57,7 +58,7 @@ const breadcrumbs = {
   ],
 };
 
-console.log(story.content);
+console.log(story.content.Middle);
 
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {
@@ -74,12 +75,17 @@ const quickLinksData: QuickLinksProps = {
       client:visible
     />
     <QuickLinks {...quickLinksData} />
-    <ImageAndText {...story.content.imageAndText[0]} />
-    <StatisticsAndText {...story.content.StatisticsAndText[0]} />
+    {
+      story.content.Middle.map((blok: any) => (
+        <DynamicComponent blok={blok} key={blok._uid} />
+      ))
+    }
     <Carousel {...carouselData as CarouselProps} client:visible />
-    <CaseStudies {...caseStudiesData} />
-    <Impact {...story.content.Impact[0]} />
-    <StrategicPartners {...story.content.StrategicPartners[0]} />
+    {
+      story.content.Bottom.partners.map((blok: any) => (
+        <DynamicComponent blok={blok} key={blok._uid} />
+      ))
+    }
     <References {...referencesData} client:visible />
   </main>
 </BaseLayout>

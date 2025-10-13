@@ -4,7 +4,9 @@ import { Carousel } from "@src/components/Core/Carousel/Carousel";
 import { CaseStudies } from "@src/components/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
+import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StatisticsAndText } from "@/src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
+import { StrategicPartners } from "@/src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =
@@ -12,6 +14,8 @@ type ComponentName =
   | "CaseStudies"
   | "Header"
   | "ImageAndText"
+  | "Impact"
+  | "StrategicPartners"
   | "StatisticsAndText";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
@@ -19,13 +23,18 @@ const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   CaseStudies,
   Header,
   ImageAndText,
+  Impact,
   StatisticsAndText,
+  StrategicPartners,
+};
+
+type DynamicComponentProps = {
+  blok: any;
 };
 
 // Component allows us to dynamically load a component based on the value of the input
 // `component` prop
-export const DynamicComponent: FC<{ blok: any }> = ({ blok }) => {
-  console.log(blok.component);
+export const DynamicComponent: FC<DynamicComponentProps> = ({ blok }) => {
   const component: string = blok.component;
 
   // If we are trying to render a blok we don't have a corresponding component for, raise error
@@ -37,5 +46,5 @@ export const DynamicComponent: FC<{ blok: any }> = ({ blok }) => {
   const Component = COMPONENT_MAP[component as ComponentName];
 
   // Spread blok properties as props
-  return <Component key={blok._uid} {...blok} />;
+  return <Component {...blok} />;
 };
