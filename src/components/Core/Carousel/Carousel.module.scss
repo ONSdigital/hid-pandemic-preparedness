@@ -1,0 +1,12 @@
+@use "../../../styles/global/tokens" as *;
+
+.swiper-default-bullets {
+  background-color: $color-brand-secondary-600;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+}
+
+.swiper-default-bullets.swiper-active-bullets {
+  background-color: $color-brand-primary-500;
+}
