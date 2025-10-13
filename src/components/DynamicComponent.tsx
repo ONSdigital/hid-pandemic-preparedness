@@ -28,13 +28,13 @@ const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   StrategicPartners,
 };
 
-interface IDynamicComponent {
+interface DynamicComponentProps {
   blok: any;
 }
 
 // Component allows us to dynamically load a component based on the value of the input
 // `component` prop
-export const DynamicComponent: FC<IDynamicComponent> = ({ blok }) => {
+export const DynamicComponent: FC<DynamicComponentProps> = ({ blok }) => {
   const component: string = blok.component;
 
   // If we are trying to render a blok we don't have a corresponding component for, raise error
