@@ -45,11 +45,11 @@ const cardCaseStudyProps: CaseStudyCardProps = {
     "Strengthening data-driven health strategies through close collaboration.",
   link: {
     id: uuidv4(),
-    cached_url: "https://www.cemic.edu.ar/",
+    cached_url: "/",
     fieldtype: "multilink",
-    title: "About",
+    title: "View all case studies",
     linktype: "url",
-    url: "https://www.cemic.edu.ar/",
+    url: "/",
   },
   image: {
     id: 99913189991725,

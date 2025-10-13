@@ -48,6 +48,12 @@ aws configure
 npm i --include-dev
 ```
 
+8. Bundle the bootstrap JavaScript so it can be used by the app and Storybook
+
+```bash
+npm run build-bootstrap-js
+```
+
 The project is now ready for development or to use for deployments.
 
 ## Development server
