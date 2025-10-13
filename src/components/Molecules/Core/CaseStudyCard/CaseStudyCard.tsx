@@ -4,10 +4,10 @@ import type { FC } from "react";
 import { Image } from "@src/components/Molecules/Core/Image/Image";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
 
-import type { CardCaseStudyProps } from "./CardCaseStudy.interface";
-import styles from "./CardCaseStudy.module.scss";
+import type { CaseStudyCardProps } from "./CaseStudyCard.interface";
+import styles from "./CaseStudyCard.module.scss";
 
-export const CardCaseStudy: FC<CardCaseStudyProps> = (props) => {
+export const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
   return (
     <div
       className={clsx(
