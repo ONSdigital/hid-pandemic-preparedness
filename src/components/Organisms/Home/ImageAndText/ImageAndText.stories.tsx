@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import imageAndTextData from "./image-and-test.json";
+import imageAndTextData from "./image-and-text.json";
 import { ImageAndText } from "./ImageAndText";
 import type { ImageAndTextProps } from "./ImageAndText.interface";
 
