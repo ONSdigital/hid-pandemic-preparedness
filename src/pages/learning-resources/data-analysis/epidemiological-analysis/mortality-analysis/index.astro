@@ -15,7 +15,6 @@ import { LearningModule } from "@components/Core/LearningModule/LearningModule";
 import { parseMarkdown } from "@helpers/parseMarkdown";
 
 // Content
-import carouselData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/carousel.json";
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/header.json";
 import learningModuleData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/learningModule.json";
 import overviewMarkdown from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/overview.md?raw";
@@ -31,6 +30,6 @@ learningModuleData.navProps.parentUrl = Astro.url.pathname;
   <main>
     <Header {...headerData} />
     <LearningModule {...learningModuleData as LearningModuleProps} />
-    <Carousel {...carouselData as CarouselProps} />
+    <Carousel />
   </main>
 </BaseLayout>
