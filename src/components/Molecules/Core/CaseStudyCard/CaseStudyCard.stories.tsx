@@ -16,6 +16,11 @@ const meta = {
         disable: true,
       },
     },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
     image: {
       table: {
         disable: true,
@@ -66,7 +71,12 @@ const cardCaseStudyProps: CaseStudyCardProps = {
   },
 };
 
-export const CaseStudyCardStory = {
-  args: cardCaseStudyProps,
-  name: "CaseStudyCard",
+export const CaseStudyCardLargeStory = {
+  args: { ...cardCaseStudyProps, size: "large" },
+  name: "Large",
+} satisfies Story;
+
+export const CaseStudyCardSmallStory = {
+  args: { ...cardCaseStudyProps, size: "small" },
+  name: "Small",
 } satisfies Story;

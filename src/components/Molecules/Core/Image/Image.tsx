@@ -7,5 +7,7 @@ export const Image: FC<ImageProps> = (props) => {
   const alt: string = props.alt ? props.alt : "";
   const src: string = props.filename ? props.filename : "null";
 
-  return <img role={"image"} src={src} alt={alt}></img>;
+  return (
+    <img className={props.className} role={"image"} src={src} alt={alt}></img>
+  );
 };
