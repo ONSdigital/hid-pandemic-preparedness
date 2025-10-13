@@ -11,7 +11,7 @@ import congratulationsContent from "@content/learning-resources/data-analysis/ep
 import congratulationsData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsTitle.json";
 import learningResourceMd1 from "@content/learning-resources/introduction/sections/1.md?raw";
 import learningResourceMd2 from "@content/learning-resources/introduction/sections/2.md?raw";
-import { parseMarkdown } from "../../../helpers/parseMarkdown";
+import { parseMarkdown } from "@src/helpers/parseMarkdown";
 
 const meta = {
   component: LearningResource,
