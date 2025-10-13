@@ -1,7 +1,8 @@
-import type { CardCaseStudyProps } from "@components/CardCaseStudy/CardCaseStudy.interface";
+import type { CaseStudyCardProps } from "@src/components/Molecules/Core/CaseStudyCard/CaseStudyCard.interface";
 
 export interface CaseStudiesProps {
+  _uid: string;
   title: string;
-  mainCard: CardCaseStudyProps;
-  smallCards: CardCaseStudyProps[];
+  mainCard: CaseStudyCardProps[];
+  smallCards: CaseStudyCardProps[];
 }
