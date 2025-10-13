@@ -20,7 +20,7 @@ export const CaseStudies: FC<CaseStudiesProps> = (props) => {
           <div className={clsx("col-md-4", "pb-4")}>
             {/* Mapping here as storyblok sends this data through as arrary even if we specify a single blok */}
             {props.mainCard.map((card) => (
-              <CaseStudyCard {...card} size="large" />
+              <CaseStudyCard key={card._uid} {...card} size="large" />
             ))}
           </div>
           <div className={clsx("col-md-8")}>
