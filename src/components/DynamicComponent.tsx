@@ -1,0 +1,41 @@
+import type { FC } from "react";
+
+import { Carousel } from "@src/components/Core/Carousel/Carousel";
+import { CaseStudies } from "@src/components/Home/CaseStudies/CaseStudies";
+import { Header } from "@src/components/Organisms/Home/Header/Header";
+import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
+import { StatisticsAndText } from "@/src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
+
+// List of components that we have corresponding bloks for in Storyblok
+type ComponentName =
+  | "Carousel"
+  | "CaseStudies"
+  | "Header"
+  | "ImageAndText"
+  | "StatisticsAndText";
+
+const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
+  Carousel,
+  CaseStudies,
+  Header,
+  ImageAndText,
+  StatisticsAndText,
+};
+
+// Component allows us to dynamically load a component based on the value of the input
+// `component` prop
+export const DynamicComponent: FC<{ blok: any }> = ({ blok }) => {
+  console.log(blok.component);
+  const component: string = blok.component;
+
+  // If we are trying to render a blok we don't have a corresponding component for, raise error
+  if (!Object.keys(COMPONENT_MAP).includes(component)) {
+    throw new Error(
+      `DynamicComponent error: Component "${component}" not found in COMPONENT_MAP.`,
+    );
+  }
+  const Component = COMPONENT_MAP[component as ComponentName];
+
+  // Spread blok properties as props
+  return <Component key={blok._uid} {...blok} />;
+};
