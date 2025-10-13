@@ -2,8 +2,8 @@
   "story": {
     "name": "Home",
     "created_at": "2025-10-01T13:40:10.376Z",
-    "published_at": "2025-10-10T09:20:24.173Z",
-    "updated_at": "2025-10-13T09:56:53.792Z",
+    "published_at": "2025-10-13T11:31:06.004Z",
+    "updated_at": "2025-10-13T11:31:06.027Z",
     "id": 96814736940977,
     "uuid": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
     "content": {
@@ -430,7 +430,7 @@
           "title": "Resilience through data",
           "subTitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
           "component": "Header",
-          "searchPlaceholderText": "Search learning resources NOW!",
+          "searchPlaceholderText": "Search learning resources",
           "_editable": "\u003C!--#storyblok#{\"name\": \"Header\", \"space\": \"287525897740819\", \"uid\": \"e2107683-0038-4079-b074-a11fd8345326\", \"id\": \"96814736940977\"}--\u003E"
         }
       ],
@@ -1159,7 +1159,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1760349430,
+  "cv": 1760355066,
   "rels": [],
   "links": []
 }

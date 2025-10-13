@@ -9,10 +9,9 @@ import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
 // Read config env vars from the environment
 const ASTRO_PREVIEW = process.env.ASTRO_PREVIEW || "false";
 const ASTRO_USE_LOCAL_DATA = process.env.ASTRO_USE_LOCAL_DATA || "true";
-const NODE_ENV = process.env.NODE_ENV || "development";
 
 const client =
-  NODE_ENV === "development" && ASTRO_USE_LOCAL_DATA === "true"
+  ASTRO_USE_LOCAL_DATA === "true"
     ? // Use local client to load data from source files
       new LocalClient()
     : // Initialise the Storyblok client for Content Delivery API (Access Token)
