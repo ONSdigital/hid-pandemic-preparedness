@@ -6,7 +6,7 @@ This is the output of the [ONSPPT-275](https://anddigitaltransformation.atlassia
 
 ## Creating the preview
 
-When content creators are uploading content using the Storyblok CMS, a preview of the site can be rendered within the Storyblok UI. This allows users to see how the site will be look when the content they are editing is rendered by the application. This preview should be able to update in real time based on the content being inputted.
+When content creators are uploading content using the Storyblok CMS, a preview of the site can be rendered within the Storyblok UI. This allows users to see how the site will look when the content they are editing is rendered by the application. This preview should be able to update in real time based on the content being inputted.
 
 As the application is [deployed as a static site](../architectural-decision-records/adr-7-deploy-as-a-static-site.md), this deployment method cannot be used to facilitate this preview as this requires client-side or server-side rendering (SSR) to update application content in real time. The application can be built using [Astro server-side rendering (SSR)](https://docs.astro.build/en/guides/on-demand-rendering/), but this requires a different deployment infrastructure. The application needs to be deployed as a function that can respond to requests from the user.
 
