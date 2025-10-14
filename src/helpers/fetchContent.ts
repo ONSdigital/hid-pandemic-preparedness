@@ -4,7 +4,8 @@ import { useStoryblokApi } from "@storyblok/astro";
 import type { ISbStory } from "@storyblok/astro";
 
 import { LocalClient } from "@helpers/LocalClient";
-import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
+import type { DatasourceEntry } from "@src/types/DatasourceEntry";
+import type { ISpace } from "@src/types/Space";
 
 // Read config env vars from the environment
 const ASTRO_PREVIEW = process.env.ASTRO_PREVIEW || "false";
@@ -50,6 +51,20 @@ export async function fetchDatasourceEntries(
   } else {
     return datasourceEntries;
   }
+}
+
+// Defining our own interface here for the data returned by Storyblok spaces api as Storyblok
+// doesn't provide one
+interface ISbSpace {
+  data: {
+    space: ISpace;
+  };
+  headers: any;
+}
+
+export async function fetchSpace(): Promise<ISbSpace> {
+  const response = await client.get("cdn/spaces/me");
+  return response;
 }
 
 // Fetches story content from input `fullSlug` and returns just the content

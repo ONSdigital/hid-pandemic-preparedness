@@ -71,3 +71,19 @@ describe("LocalClient get request story", () => {
     await expect(promise).rejects.toThrow(/ENOENT: no such file or directory/i);
   });
 });
+
+describe("LocalClient get request space", () => {
+  test("returns space data correctly if data exists", async () => {
+    // Request valid file as part of the request url
+    const result = await client.get("cdn/spaces/me");
+    // Don't look for the full result, but make sure important key/value pairs are there
+    expect(result.data.space).toMatchObject({ name: "Analysis for Action" });
+  });
+  test("raises error if file not found", async () => {
+    // Request invalid file as part of the request url
+    const promise = client.get("cdn/spaces/testsetest/");
+
+    // Expect the promise to be rejected and contain file not found
+    await expect(promise).rejects.toThrow(/ENOENT: no such file or directory/i);
+  });
+});

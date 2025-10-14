@@ -5,6 +5,8 @@ import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+import spaceData from "./src/content/spaces/me.json" assert { type: "json" };
+
 const mode = process.env.NODE_ENV;
 const env = loadEnv(mode, process.cwd(), "");
 
@@ -41,6 +43,11 @@ const VITE_SSR =
         noExternal: true,
       }
     : undefined;
+
+// Get space data for list of locales
+let space = null;
+const { data } = spaceData;
+space = data?.space;
 
 // https://astro.build/config
 export default defineConfig({
@@ -86,4 +93,14 @@ export default defineConfig({
       },
     }),
   ],
+  i18n: {
+    // Set locales from space if they are available
+    locales: space ? ["en", ...space.language_codes] : ["en"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: true,
+      fallbackType: "redirect",
+    },
+  },
 });
