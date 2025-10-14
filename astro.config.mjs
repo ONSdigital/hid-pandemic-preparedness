@@ -1,5 +1,6 @@
 import node from "@astrojs/node";
 import react from "@astrojs/react";
+import { storyblok } from "@storyblok/astro";
 import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -20,6 +21,9 @@ const ASTRO_ADAPTER =
 // If output is server set assets prefix to cdn base url if available
 const ASTRO_ASSETS_PREFIX =
   ASTRO_OUTPUT == "server" ? env.PREVIEW_CDN_BASE_URL || undefined : undefined;
+
+// Storyblok API token
+const STORYBLOK_ACCESS_TOKEN = env.STORYBLOK_ACCESS_TOKEN || undefined;
 
 // If output is server set extra ssr vite config
 const VITE_SSR =
@@ -68,5 +72,18 @@ export default defineConfig({
     },
     ssr: VITE_SSR,
   },
-  integrations: [react()],
+  integrations: [
+    react(),
+    storyblok({
+      accessToken: STORYBLOK_ACCESS_TOKEN,
+      // Set live preview to true if we're in the preview environment
+      livePreview: ASTRO_OUTPUT == "server" ? true : false,
+      apiOptions: {
+        cache: {
+          clear: "auto",
+          type: "memory",
+        },
+      },
+    }),
+  ],
 });

@@ -1,0 +1,6 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.text-color {
+  color: $color-text-accent;
+}

@@ -29,4 +29,6 @@ jobs:
         shell: bash
         env:
           ASTRO_OUTPUT: server
+          ASTRO_PREVIEW: true
           PREVIEW_CDN_BASE_URL: ${{ secrets.PREVIEW_CDN_BASE_URL }}
+          STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}

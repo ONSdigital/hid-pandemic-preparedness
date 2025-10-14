@@ -1,0 +1,107 @@
+{
+  "datasource_entries": [
+    {
+      "id": 97485938105335,
+      "name": "searchBarPlaceholderText",
+      "value": "Search learning resources now!",
+      "dimension_value": null
+    },
+    {
+      "id": 97485941799928,
+      "name": "learningResourcesTitle",
+      "value": "Learning resources",
+      "dimension_value": null
+    },
+    {
+      "id": 97485942156281,
+      "name": "whatIsAaButtonLabel",
+      "value": "About",
+      "dimension_value": null
+    },
+    {
+      "id": 97485942496250,
+      "name": "theStatisticsTitle",
+      "value": "The statistics",
+      "dimension_value": null
+    },
+    {
+      "id": 97485946231803,
+      "name": "theStatisticsLinkLabel",
+      "value": "Learning resources",
+      "dimension_value": null
+    },
+    {
+      "id": 97485946620924,
+      "name": "toolsTitle",
+      "value": "Tools to guide planning and response efforts",
+      "dimension_value": null
+    },
+    {
+      "id": 97485946911741,
+      "name": "toolsLinkLabel",
+      "value": "View all tools",
+      "dimension_value": null
+    },
+    {
+      "id": 97485950614526,
+      "name": "caseStudiesTitle",
+      "value": "Case studies",
+      "dimension_value": null
+    },
+    {
+      "id": 97485951003647,
+      "name": "caseStudiesLinkLabel",
+      "value": "View all case studies",
+      "dimension_value": null
+    },
+    {
+      "id": 97485951314944,
+      "name": "globalImpactTitle",
+      "value": "Global impact",
+      "dimension_value": null
+    },
+    {
+      "id": 97485955025921,
+      "name": "globalImpactExpertsTitle",
+      "value": "50+ experts",
+      "dimension_value": null
+    },
+    {
+      "id": 97485955439618,
+      "name": "globalImpactExpertsSubtitle",
+      "value": "internationally have contributed to content for Analysis for Action",
+      "dimension_value": null
+    },
+    {
+      "id": 97485955742723,
+      "name": "globalImpactCountriesTitle",
+      "value": "48 countries",
+      "dimension_value": null
+    },
+    {
+      "id": 97485959425028,
+      "name": "globalImpactCountriesSubtitle",
+      "value": "have joined the Analysis for Action global network",
+      "dimension_value": null
+    },
+    {
+      "id": 97485959818245,
+      "name": "globalImpactUsersTitle",
+      "value": "100,000+ users",
+      "dimension_value": null
+    },
+    {
+      "id": 97485960195078,
+      "name": "globalImpactUsersSubtitle",
+      "value": "of Analysis for Action resources so far",
+      "dimension_value": null
+    },
+    {
+      "id": 97485963824135,
+      "name": "strategicPartnersTitle",
+      "value": "Strategic partners",
+      "dimension_value": null
+    }
+  ],
+  "cv": 1759939992
+}

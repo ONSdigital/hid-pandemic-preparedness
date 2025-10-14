@@ -1,0 +1,121 @@
+{
+  "_uid": "9503511e-423c-47e3-a26a-d0eec5fa87bc",
+  "title": "Case Studies",
+  "mainCard": [
+    {
+      "_uid": "14ae3b15-cf49-41d4-94d6-8fc9ce88159c",
+      "link": {
+        "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+        "rel": "",
+        "url": "",
+        "title": "View all case studies",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "about"
+      },
+      "type": "",
+      "image": {
+        "id": 101005805741375,
+        "alt": "",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/two-ladies-in-face-mask-chat.jpeg",
+        "copyright": "",
+        "meta_data": {},
+        "is_external_url": false
+      },
+      "title": "Working with the Ministry of Health",
+      "subTitle": "Strengthening data-driven health strategies through close collaboration.",
+      "component": "CaseStudyCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"14ae3b15-cf49-41d4-94d6-8fc9ce88159c\", \"id\": \"96814736940977\"}--\u003E"
+    }
+  ],
+  "smallCards": [
+    {
+      "_uid": "d46fb445-44ef-4527-b5a2-65ae9f5b29e9",
+      "link": {
+        "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "about"
+      },
+      "type": "",
+      "image": {
+        "id": 101005805638972,
+        "alt": "",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/group-of-medical-professionals.jpeg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {},
+        "is_external_url": false
+      },
+      "title": "Using administrative data during COVID-19",
+      "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+      "component": "CaseStudyCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"d46fb445-44ef-4527-b5a2-65ae9f5b29e9\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "87bfb5b0-7278-4e31-9b88-171cf07ed38b",
+      "link": {
+        "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "about"
+      },
+      "type": "",
+      "image": {
+        "id": 101005805724990,
+        "alt": "",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/info-on-phone-screen.jpeg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {},
+        "is_external_url": false
+      },
+      "title": "Implementing a new statistical law",
+      "subTitle": "Understanding how statistical laws are developed and implemented.",
+      "component": "CaseStudyCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"87bfb5b0-7278-4e31-9b88-171cf07ed38b\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "1a13e2c3-0313-4dd2-b161-b7ac672f689b",
+      "link": {
+        "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "about"
+      },
+      "type": "",
+      "image": {
+        "id": 101005805643069,
+        "alt": "",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/consultation-occurring.jpeg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {},
+        "is_external_url": false
+      },
+      "title": "Working with international organisations",
+      "subTitle": "Coordinating efforts with global partners.",
+      "component": "CaseStudyCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"1a13e2c3-0313-4dd2-b161-b7ac672f689b\", \"id\": \"96814736940977\"}--\u003E"
+    }
+  ]
+}
