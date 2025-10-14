@@ -166,8 +166,9 @@ resource "aws_lambda_function" "aws_lambda_function" {
   handler          = "handler.handler"
   source_code_hash = data.archive_file.astro_ssr_deployment_zip.output_base64sha256
 
-  runtime = "nodejs22.x"
-  timeout = 10
+  runtime     = "nodejs22.x"
+  memory_size = 1024
+  timeout     = 30
 
   environment {
     variables = {
@@ -301,7 +302,8 @@ data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
   statement {
     effect = "Allow"
     actions = [
-      "lambda:InvokeFunction"
+      "lambda:InvokeFunction",
+      "lambda:UpdateFunctionCode"
     ]
     resources = [
       aws_lambda_function.aws_lambda_function.arn
