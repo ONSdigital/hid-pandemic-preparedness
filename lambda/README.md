@@ -1,0 +1,5 @@
+# Lambda files
+
+These files are copied into the Astro distribution folder after the application has been built for server-side rendering (SSR), see [scripts/deployPreview.sh](../scripts/deployPreview.sh). These files are required to enable to the application built for SSR to work when deployed as a Lambda.
+ - [package.json](./package.json) and [package-lock.json](./package-lock.json) provides dependencies that cannot be bundled as part of the build and must be installed separately. The dependencies in this file should match those in the overall project package files for the lambda to work correctly
+ - [handler.mjs](./handler.mjs) forms the entry point for the lambda function using [serverless-http](https://www.npmjs.com/package/serverless-http/v/3.0.1). The generic [@astrojs/node](https://docs.astro.build/en/guides/integrations-guide/node/) adapter is used to build the SSR application for node, we need this extra file to make it suitable to deploy using a lambda

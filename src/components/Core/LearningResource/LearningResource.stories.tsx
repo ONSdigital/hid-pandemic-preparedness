@@ -2,25 +2,24 @@ import type { Meta, StoryObj } from "@storybook/react";
 import DOMPurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
 
-import { parseMarkdown } from "../../../helpers/parseMarkdown";
-import learningResourceMd1 from "@content/learning-resources/introduction/sections/1.md?raw";
-import learningResourceMd2 from "@content/learning-resources/introduction/sections/2.md?raw";
+import type { IntroductionProps } from "@components/Core/Introduction/Introduction.interface";
 import { LearningResource } from "@components/Core/LearningResource/LearningResource";
 import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
-import chaptersData from "@content/chapters.json";
-import type { IntroductionProps } from "@components/Core/Introduction/Introduction.interface";
 import type { LearningResourceBlockProps } from "@components/LearningResourceBlock/LearningResourceBlock.interface";
+import chaptersData from "@content/chapters.json";
+import congratulationsContent from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsContent.md?raw";
+import congratulationsData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsTitle.json";
+import learningResourceMd1 from "@content/learning-resources/introduction/sections/1.md?raw";
+import learningResourceMd2 from "@content/learning-resources/introduction/sections/2.md?raw";
+import { parseMarkdown } from "@src/helpers/parseMarkdown";
 
 const meta = {
-  argTypes: {
-    introduction: { table: { disable: true } },
-    learningModuleNav: { table: { disable: true } },
-    learningResource: { table: { disable: true } },
-    link: { table: { disable: true } },
-  },
   component: LearningResource,
   parameters: {
     layout: "fullscreen",
+    controls: {
+      disable: true,
+    },
   },
   title: "Organisms/Core/LearningResource",
 } satisfies Meta<typeof LearningResource>;
@@ -68,6 +67,8 @@ const learningResourceBlockProps: LearningResourceBlockProps = {
   ],
 };
 
+const congratulationsHtmlContent = await parseMarkdown(congratulationsContent);
+
 const learningResourcesProps: LearningResourceProps = {
   learningModuleNav: {
     chapters: chaptersData,
@@ -78,8 +79,14 @@ const learningResourcesProps: LearningResourceProps = {
   learningResource: learningResourceBlockProps,
   link: {
     href: "/",
-    label: "Next chapter",
+    label: "End learning",
   },
+  congratulations: {
+    title: congratulationsData.title,
+    htmlContent: congratulationsHtmlContent,
+  },
+  currentChapter: 1,
+  totalChapters: 1,
 };
 
 export const LearningResourceStory = {

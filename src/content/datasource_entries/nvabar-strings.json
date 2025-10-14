@@ -1,0 +1,34 @@
+{
+  "name": "Navbar strings",
+  "slug": "navbar-strings",
+  "entries": [
+    {
+      "name": "aboutLabel",
+      "value": "About"
+    },
+    {
+      "name": "learningResourcesLabel",
+      "value": "Learning resources"
+    },
+    {
+      "name": "caseStudiesLabel",
+      "value": "Case studies"
+    },
+    {
+      "name": "toolsLabel",
+      "value": "Tools"
+    },
+    {
+      "name": "contactLabel",
+      "value": "Contact"
+    },
+    {
+      "name": "languageLabel",
+      "value": "Language"
+    },
+    {
+      "name": "searchLabel",
+      "value": "Search"
+    }
+  ]
+}

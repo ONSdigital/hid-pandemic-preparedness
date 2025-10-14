@@ -25,3 +25,11 @@ jobs:
         shell: bash
       - run: npm run deploy-storybook-main
         shell: bash
+      - run: npm run deploy-app-preview
+        shell: bash
+        env:
+          ASTRO_OUTPUT: server
+          ASTRO_PREVIEW: true
+          ASTRO_USE_LOCAL_DATA: false
+          PREVIEW_CDN_BASE_URL: ${{ secrets.PREVIEW_CDN_BASE_URL }}
+          STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}

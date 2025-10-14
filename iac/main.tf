@@ -27,7 +27,7 @@ resource "aws_cloudfront_function" "aws_cloudfront_function" {
 # Create bucket for storybook dev
 module "storybook_dev_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-storybook-dev"
+  bucket_name                = "${var.project_name_prefix}-storybook-dev"
   configure_for_site_hosting = false
   force_destroy              = true
 }
@@ -46,7 +46,7 @@ module "storybook_dev_cloudfront" {
 # Create bucket for storybook main
 module "storybook_main_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-storybook-main"
+  bucket_name                = "${var.project_name_prefix}-storybook-main"
   configure_for_site_hosting = false
   force_destroy              = true
 }
@@ -65,7 +65,7 @@ module "storybook_main_cloudfront" {
 # Create bucket for app dev
 module "app_dev_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-app-dev"
+  bucket_name                = "${var.project_name_prefix}-app-dev"
   configure_for_site_hosting = true
   force_destroy              = true
 }
@@ -89,7 +89,7 @@ module "app_dev_cloudfront" {
 # Create bucket for app main
 module "app_main_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.bucket_name_prefix}-app-main"
+  bucket_name                = "${var.project_name_prefix}-app-main"
   configure_for_site_hosting = true
   force_destroy              = true
 }
@@ -114,6 +114,127 @@ module "app_main_cloudfront" {
   }]
 }
 
+# Create an s3 bucket for Storyblok preview SSR assets
+module "app_preview_s3" {
+  source                     = "./s3"
+  bucket_name                = "${var.project_name_prefix}-app-preview"
+  configure_for_site_hosting = true
+  force_destroy              = true
+}
+
+# Set up cloudfront distribution for Storyblok preview SSR assets
+module "app_preview_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.app_preview_s3.id
+  bucket_regional_domain_name = module.app_preview_s3.bucket_regional_domain_name
+  distribution_enabled        = true
+  distribution_name           = "Preview assets"
+  default_root_object         = "index.html"
+}
+
+# IAM role for Lambda execution
+data "aws_iam_policy_document" "aws_iam_policy_document_lambda_execution" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "aws_iam_role_lambda" {
+  name               = "${var.project_name_prefix}-lambda-execution-role"
+  assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_lambda_execution.json
+}
+
+# Package the Lambda function code
+data "archive_file" "astro_ssr_deployment_zip" {
+  type        = "zip"
+  source_dir  = "${path.module}/../dist/"
+  output_path = "${path.module}/../astro-ssr-lambda.zip"
+}
+
+# Lambda function for CMS preview deployment
+resource "aws_lambda_function" "aws_lambda_function" {
+  filename         = data.archive_file.astro_ssr_deployment_zip.output_path
+  function_name    = "${var.project_name_prefix}-lambda-storyblok-preview"
+  role             = aws_iam_role.aws_iam_role_lambda.arn
+  handler          = "handler.handler"
+  source_code_hash = data.archive_file.astro_ssr_deployment_zip.output_base64sha256
+
+  runtime     = "nodejs22.x"
+  memory_size = 1024
+  timeout     = 30
+
+  environment {
+    variables = {
+      ASTRO_PREVIEW        = "true"
+      ASTRO_USE_LOCAL_DATA = "false"
+      NODE_ENV             = "production"
+      LOG_LEVEL            = "info"
+    }
+  }
+}
+
+# Api gateway for CMS preview deployment
+resource "aws_apigatewayv2_api" "aws_apigatewayv2_api" {
+  name          = "${var.project_name_prefix}-api-storyblok-preview"
+  description   = "Provides endpoint for Astro SSR CMS preview"
+  protocol_type = "HTTP"
+}
+
+resource "aws_apigatewayv2_integration" "aws_apigatewayv2_integration" {
+  api_id             = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  integration_type   = "AWS_PROXY"
+  description        = "Integration to invoke storyblok preview lambda"
+  integration_method = "POST"
+  integration_uri    = aws_lambda_function.aws_lambda_function.invoke_arn
+}
+
+resource "aws_apigatewayv2_route" "aws_apigatewayv2_route" {
+  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  route_key = "ANY /{proxy+}"
+  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
+}
+
+resource "aws_apigatewayv2_route" "aws_apigatewayv2_route_2" {
+  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  route_key = "ANY /"
+  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
+}
+
+resource "aws_apigatewayv2_stage" "aws_apigatewayv2_stage" {
+  api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  name        = "$default"
+  auto_deploy = true
+}
+
+# Permission for API Gateway to invoke Lambda
+resource "aws_lambda_permission" "aws_lambda_permission" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.aws_lambda_function.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.aws_apigatewayv2_api.execution_arn}/*/*"
+}
+
+# Attach cors policy to preview s3 bucket so assets can be requested from the deployed site
+resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
+  bucket = module.app_preview_s3.id
+
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["GET", "HEAD"]
+    allowed_origins = [aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint]
+    expose_headers  = []
+    max_age_seconds = 3000
+  }
+}
+
 # Create iam user for automated deployments via github actions
 resource "aws_iam_user" "aws_iam_user" {
   name          = "github-actions"
@@ -132,10 +253,12 @@ data "aws_iam_policy_document" "aws_iam_policy_document_s3" {
       "s3:ListBucket"
     ]
     resources = [
-      "arn:aws:s3:::${module.storybook_main_s3.id}",
-      "arn:aws:s3:::${module.storybook_main_s3.id}/*",
-      "arn:aws:s3:::${module.app_main_s3.id}",
-      "arn:aws:s3:::${module.app_main_s3.id}/*"
+      module.storybook_main_s3.arn,
+      "${module.storybook_main_s3.arn}/*",
+      module.app_main_s3.arn,
+      "${module.app_main_s3.arn}/*",
+      module.app_preview_s3.arn,
+      "${module.app_preview_s3.arn}/*",
     ]
   }
 }
@@ -173,4 +296,28 @@ resource "aws_iam_policy" "aws_iam_policy_cloudfront" {
 resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_cloudfront" {
   user       = aws_iam_user.aws_iam_user.name
   policy_arn = aws_iam_policy.aws_iam_policy_cloudfront.arn
+}
+
+data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "lambda:InvokeFunction",
+      "lambda:UpdateFunctionCode"
+    ]
+    resources = [
+      aws_lambda_function.aws_lambda_function.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "aws_iam_policy_lambda" {
+  name        = "github-actions-lambda-access"
+  description = "Allow lambda access to push new function zip archives"
+  policy      = data.aws_iam_policy_document.aws_iam_policy_document_lambda.json
+}
+
+resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda" {
+  user       = aws_iam_user.aws_iam_user.name
+  policy_arn = aws_iam_policy.aws_iam_policy_lambda.arn
 }

@@ -41,9 +41,11 @@ To provision resources on aws, run either `terraform plan`, `terraform apply` or
 This infrastructure is configured to do the following:
 
 - Create a Cloudfront function to use with Astro app deployments
-- Create S3 buckets for Storybook deployment
-- Create Cloudfront distributions to serve storybook deployments
-- Create an IAM user and a policy to allow Github actions workflows to build and sync Storybook files to an S3 bucket
+- Create S3 buckets for Astro app and Storybook deployments
+- Create Cloudfront distributions to serve Astro app and storybook deployments
+- Create Lambda function to host Astro Server-side Rendering (SSR) node.js app for CMS preview
+- Create API Gateway to provide endpoint to invoke lambda function
+- Create an IAM user and policies to allow Github actions workflows to build and sync Astro app and Storybook files to S3 buckets and update lambda function code
 
 The infrastructure creates the IAM user, but does not create the access key and secret access key necessary for Github actions to authenticate with AWS as part of the workflow. Once the infrastructure has created the IAM user, this step must be done manually. To do this follow the steps below:
 

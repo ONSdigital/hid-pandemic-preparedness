@@ -1,0 +1,176 @@
+{
+  "_uid": "fbb4837a-db1d-484c-aa34-ee35e0c57f59",
+  "link": {
+    "id": "38295d19-bc78-46f5-a9a0-c92866de7545",
+    "url": "",
+    "linktype": "story",
+    "fieldtype": "multilink",
+    "cached_url": "learning-resources",
+    "title": "Learning resources"
+  },
+  "cards": [
+    {
+      "_uid": "95be2a75-2018-4b05-a9b3-3b717ed6c590",
+      "type": "",
+      "image": {
+        "id": 99213522516826,
+        "alt": "A graph to show significant pandemic instances and the number of deaths as a result",
+        "name": "",
+        "focus": "",
+        "title": "deaths from all respiratory disease 1980-2021",
+        "source": "",
+        "filename": "https://a.storyblok.com/f/287525897740819/244x158/53f0bff783/14-8million.svg",
+        "copyright": "ONS",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "A graph to show significant pandemic instances and the number of deaths as a result",
+          "title": "deaths from all respiratory disease 1980-2021",
+          "source": "",
+          "copyright": "ONS"
+        },
+        "is_external_url": false
+      },
+      "title": "14.8 million+",
+      "subTitle": "deaths from all respiratory disease 1980-2021.",
+      "component": "StatisticsCard",
+      "reference": [
+        {
+          "_uid": "ecbbcbc8-541f-40f5-bb86-5e8488318563",
+          "type": "",
+          "component": "Reference",
+          "websiteUrl": " https://archive.ourworldindata.org/20250624-125417/grapher/deaths-from-infectious-diseases.html",
+          "accessedDate": "26th August 2025",
+          "websiteTitle": "Global Burden of Disease (2024)– with minor processing by Our World in Data. Deaths from infectious diseases [dataset]. In: Global Burden of Disease - Deaths and DALYs [original data]",
+          "websiteAuthor": "Institute for Health Metrics and Evaluation (IHME) ",
+          "yearPublished": "2024"
+        }
+      ]
+    },
+    {
+      "_uid": "7b655725-7ef6-4b6d-8096-36d9ab0a29db",
+      "type": "",
+      "image": {
+        "id": 99213522369368,
+        "alt": "A graph to show 7 million + deaths from Covid-19 as of August 2025",
+        "name": "",
+        "focus": "",
+        "title": "Deaths from Covid as of August 2025",
+        "source": "",
+        "filename": "https://a.storyblok.com/f/287525897740819/246x163/b86a31251b/7million.svg",
+        "copyright": "ONS",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "A graph to show 7 million + deaths from Covid-19 as of August 2025",
+          "title": "Deaths from Covid as of August 2025",
+          "source": "",
+          "copyright": "ONS"
+        },
+        "is_external_url": false
+      },
+      "title": "7 million+",
+      "subTitle": "deaths from COVID-19 as of August 2025.",
+      "component": "StatisticsCard",
+      "reference": [
+        {
+          "_uid": "0acfdcb7-2935-4fed-bcbb-8a7bf0ebf7cf",
+          "type": "",
+          "component": "Reference",
+          "websiteUrl": "https://www.worldbank.org/en/publication/poverty-and-shared-prosperity",
+          "accessedDate": "26th August 2025",
+          "websiteTitle": "Washington, DC: World Bank Group",
+          "websiteAuthor": "The World Bank Group. Poverty and Shared Prosperity ",
+          "yearPublished": "2020"
+        }
+      ]
+    },
+    {
+      "_uid": "7f350369-b413-478e-a506-0901b7c55475",
+      "type": "",
+      "image": {
+        "id": 99213522099030,
+        "alt": "A graph to show that 88 million+ people have been pushed into extreme poverty due to COVID-19",
+        "name": "",
+        "focus": "",
+        "title": "People pushed into extreme poverty",
+        "source": "",
+        "filename": "https://a.storyblok.com/f/287525897740819/244x161/4f04a5f39f/88million.svg",
+        "copyright": "ONS",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "A graph to show that 88 million+ people have been pushed into extreme poverty due to COVID-19",
+          "title": "People pushed into extreme poverty",
+          "source": "",
+          "copyright": "ONS"
+        },
+        "is_external_url": false
+      },
+      "title": "88 million+",
+      "subTitle": "people pushed into extreme poverty due to COVID-19.",
+      "component": "StatisticsCard",
+      "reference": [
+        {
+          "_uid": "ff58d682-bf38-468e-b738-9ce1b17131cc",
+          "type": "",
+          "component": "Reference",
+          "websiteUrl": " https://data.who.int/dashboards/covid19/deaths",
+          "accessedDate": "26th August 2025",
+          "websiteTitle": "WHO COVID-19 dashboard",
+          "websiteAuthor": "World Health Organisation",
+          "yearPublished": "2025"
+        }
+      ]
+    },
+    {
+      "_uid": "c33ccfda-8ae4-40ce-ac5e-5d5bb3820c98",
+      "type": "",
+      "image": {
+        "id": 99213522430809,
+        "alt": "A graphical representation of diseases with pandemic potential.",
+        "name": "",
+        "focus": "",
+        "title": "Pathogen Dots",
+        "source": "",
+        "filename": "https://a.storyblok.com/f/287525897740819/247x151/670eca417c/34pathogens.svg",
+        "copyright": "ONS",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "A graphical representation of diseases with pandemic potential.",
+          "title": "Pathogen Dots",
+          "source": "",
+          "copyright": "ONS"
+        },
+        "is_external_url": false
+      },
+      "title": "34 pathogens",
+      "subTitle": "identified as diseases with pandemic potential.",
+      "component": "StatisticsCard",
+      "reference": [
+        {
+          "_uid": "c35b5c7c-ac58-4ee3-a9b2-03467600589d",
+          "type": "",
+          "component": "Reference",
+          "websiteUrl": " https://cdn.who.int/media/docs/default-source/consultation-rdb/prioritization-pathogens-v6final.pdf ",
+          "accessedDate": "26th August 2025",
+          "websiteTitle": "Pathogens Prioritization",
+          "websiteAuthor": "World Health Organisation",
+          "yearPublished": "2019"
+        }
+      ]
+    }
+  ],
+  "title": "The statistics",
+  "subTitle": "Preparedness saves lives",
+  "quotation": "Invest in preparedness now to create fully functional capacities at the national, regional and global level",
+  "reference": [
+    {
+      "_uid": "2fd742cd-77ab-4e2f-8e09-fb37c49d6ba5",
+      "type": "",
+      "component": "Reference",
+      "websiteUrl": "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
+      "accessedDate": "26th August 2025",
+      "websiteTitle": "COVID-19: Make it the Last Pandemic.",
+      "websiteAuthor": "The Independent Panel for Pandemic Preparedness & Response",
+      "yearPublished": "2021"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+@use "../../../../styles/global/tokens" as *;
+
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+
+.statistics-and-text-bg {
+  background-color: $color-brand-secondary-100;
+  @include media-breakpoint-up(lg) {
+    padding: 5rem 0;
+  }
+}
+
+.statistics-and-text__ref-link {
+  color: $blue;
+}
+
+.statistics-and-text__subtitle {
+  letter-spacing: 0.2em;
+}

@@ -1,0 +1,246 @@
+{
+  "_uid": "575206f0-4734-46b8-9290-2f5985736daf",
+  "title": "Strategic partners",
+  "partners": [
+    {
+      "_uid": "c6beeacc-f385-4dc0-80d5-fcdbd229fbc6",
+      "link": {
+        "id": "",
+        "url": "https://www.ons.gov.uk/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://www.ons.gov.uk/"
+      },
+      "logo": {
+        "id": 99913190454577,
+        "alt": "Office for National Statistics logo",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/ONS_Logo_Digital_Colour_English_RGB.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "Office for National Statistics logo",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"c6beeacc-f385-4dc0-80d5-fcdbd229fbc6\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "da89b4d2-7994-4b60-9301-798236f6939b",
+      "link": {
+        "id": "",
+        "url": "#",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "#"
+      },
+      "logo": {
+        "id": 99913190069550,
+        "alt": "Emblem of Nepal",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/Emblem_of_Nepal.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "Emblem of Nepal",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"da89b4d2-7994-4b60-9301-798236f6939b\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "7a6163d2-d8b4-4411-9091-15ae3c5febce",
+      "link": {
+        "id": "",
+        "url": "https://www.nsomalawi.mw",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://www.nsomalawi.mw"
+      },
+      "logo": {
+        "id": 99913190487346,
+        "alt": "National Statistical Office of Malawi",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/malawi-national-statistical-office.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "National Statistical Office of Malawi",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"7a6163d2-d8b4-4411-9091-15ae3c5febce\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "39f2c7c6-8dc5-46e9-b69e-b474a1a6e009",
+      "link": {
+        "id": "",
+        "url": "https://www.indec.gob.ar/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://www.indec.gob.ar/"
+      },
+      "logo": {
+        "id": 99913190434096,
+        "alt": "INDEC logo",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/Logo_Indec.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "INDEC logo",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"39f2c7c6-8dc5-46e9-b69e-b474a1a6e009\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "90b26bb3-fba1-495d-959c-199aa267f4ee",
+      "link": {
+        "id": "",
+        "url": "https://wellcome.org/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://wellcome.org/"
+      },
+      "logo": {
+        "id": 99913190552884,
+        "alt": "Wellcome",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/wellcome.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "Wellcome",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"90b26bb3-fba1-495d-959c-199aa267f4ee\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "bae0219e-a475-49aa-8793-88deeb9777e9",
+      "link": {
+        "id": "",
+        "url": "https://herdint.com/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://herdint.com/"
+      },
+      "logo": {
+        "id": 99913190274351,
+        "alt": "HERD International logo",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/herdi_nepal.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "HERD International logo",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"bae0219e-a475-49aa-8793-88deeb9777e9\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "45b07491-078b-4edc-8318-b7b9fa7c22b0",
+      "link": {
+        "id": "",
+        "url": "https://lukeinternational.no/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://lukeinternational.no/"
+      },
+      "logo": {
+        "id": 99913190499635,
+        "alt": "LUKE International logo",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/LIN-Luke-logo.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "LUKE International logo",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"45b07491-078b-4edc-8318-b7b9fa7c22b0\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "d8cf8dde-05d9-4d37-8e79-50bde4be00dc",
+      "link": {
+        "id": "",
+        "url": "https://www.cemic.edu.ar/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://www.cemic.edu.ar/"
+      },
+      "logo": {
+        "id": 99913189991725,
+        "alt": "CEMIC logo",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "./images/logos/cemic-logo.svg",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {
+          "alt": "CEMIC logo",
+          "title": "",
+          "source": "",
+          "copyright": ""
+        },
+        "is_external_url": false
+      },
+      "component": "StrategicPartner",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"d8cf8dde-05d9-4d37-8e79-50bde4be00dc\", \"id\": \"96814736940977\"}--\u003E"
+    }
+  ]
+}
