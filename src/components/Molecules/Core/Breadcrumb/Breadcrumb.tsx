@@ -5,7 +5,7 @@ import type { BreadcrumbProps } from "./Breadcrumb.interface";
 
 export const Breadcrumb: FC<BreadcrumbProps> = (props) => {
   return (
-    <nav aria-label="breadcrumb">
+    <nav aria-title="breadcrumb">
       <ol className={clsx("breadcrumb")}>
         {props.items.map((item, index, arr) => (
           <li
@@ -18,10 +18,10 @@ export const Breadcrumb: FC<BreadcrumbProps> = (props) => {
           >
             {/* Don't render as link if last element in array */}
             {index === arr.length - 1 ? (
-              item.label
+              item.title
             ) : (
-              <a className={clsx("link-light")} href={item.href}>
-                {item.label}
+              <a className={clsx("link-light")} href={item.url}>
+                {item.title}
               </a>
             )}
           </li>
