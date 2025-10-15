@@ -1,12 +1,10 @@
 ---
-import { v4 as uuidv4 } from "uuid";
 import { getLiveStory } from "@storyblok/astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
 import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
 import type { QuickLinksProps } from "@components/Home/QuickLinks/QuickLinks.interface";
-import type { DatasourceEntry } from "@src/types/DatasourceEntry";
 import type { NavItem } from "@src/types/NavItem";
 
 // Components
@@ -17,18 +15,13 @@ import { References } from "@components/Core/References/References";
 import { DynamicComponent } from "@src/components/DynamicComponent";
 
 // Helpers
-import { fetchDatasourceEntries, fetchStory } from "@/src/helpers/fetchContent";
+import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
+import { fetchStory } from "@/src/helpers/fetchContent";
 
 // Content
 import carouselData from "@content/Home/carousel.json";
 import navBarData from "@content/base/navBarData.json";
 import referencesData from "@content/Home/references.json";
-
-// Fetch datasource content from api to return content and strings we need
-const homeLabel = (await fetchDatasourceEntries(
-  "breadcrumb-strings",
-  "homeLabel",
-)) as DatasourceEntry;
 
 let story = null;
 
@@ -42,15 +35,7 @@ if (liveStory) {
 }
 
 // Build breadcrumbs
-const breadcrumbs = {
-  items: [
-    {
-      href: "/",
-      label: homeLabel.value,
-      id: uuidv4(),
-    },
-  ],
-};
+const breadcrumbs = await buildBreadcrumbs(Astro.url.pathname);
 
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {
