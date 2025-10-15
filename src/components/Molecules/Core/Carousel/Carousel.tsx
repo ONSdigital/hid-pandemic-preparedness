@@ -47,8 +47,6 @@ export const Carousel: FC<CarouselProps> = (props) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const hiddenNavigation = clsx("d-none", "d-md-block");
 
-  const numberOfSlidesDesktop = 3;
-  const loopEnabled = props.cards.length > numberOfSlidesDesktop;
   return (
     <>
       <div className="d-flex align-items-center gap-3">
@@ -74,7 +72,7 @@ export const Carousel: FC<CarouselProps> = (props) => {
               slidesPerView: 3,
             },
           }}
-          loop={loopEnabled}
+          loop={true}
           modules={[Navigation, Pagination]}
           onSwiper={(swiper: any) => (swiperRef.current = swiper)}
           pagination={{
