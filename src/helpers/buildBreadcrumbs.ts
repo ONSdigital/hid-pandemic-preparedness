@@ -29,7 +29,9 @@ export async function buildBreadcrumbs(
       }
     }
   }
-  // Sorting by id will ensure home returns first and most distant child last
+  // Sorting by id will ensure home returns first and most distant child last see
+  // https://www.storyblok.com/docs/api/content-delivery/v2/stories/retrieve-multiple-stories and
+  // https://www.storyblok.com/docs/api/content-delivery/v2/stories/examples/sorting-by-story-object-property
   const { data } = await fetchStories({
     by_slugs: bySlugsItems.join(","),
     sort_by: "id:asc",
