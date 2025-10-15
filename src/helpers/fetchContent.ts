@@ -56,7 +56,7 @@ export async function fetchDatasourceEntries(
 export async function fetchStories(
   params?: ISbStoriesParams,
 ): Promise<ISbStories> {
-  const response = await client.get("cdn/stories", {
+  const response = await client.get("cdn/stories/", {
     version: VERSION,
     ...params,
   });

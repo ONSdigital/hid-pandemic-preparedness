@@ -14,7 +14,7 @@ import { fetchStories, fetchStory } from "@/src/helpers/fetchContent";
 export async function getStaticPaths() {
   // Have to define this here as `getStaticPaths` runs before any other Astro runtime api context
   // is assembled
-  const folderName: string = "tools";
+  const folderName: string = "case-studies";
   // Fetch the stories for this folder
   const { data } = await fetchStories({ starts_with: folderName });
   const stories: ISbStoryData[] = data.stories;
