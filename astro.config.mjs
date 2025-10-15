@@ -45,9 +45,7 @@ const VITE_SSR =
     : undefined;
 
 // Get space data for list of locales
-let space = null;
-const { data } = spaceData;
-space = data?.space;
+const { space } = spaceData;
 
 // https://astro.build/config
 export default defineConfig({
@@ -98,7 +96,7 @@ export default defineConfig({
     locales: space ? ["en", ...space.language_codes] : ["en"],
     defaultLocale: "en",
     routing: {
-      prefixDefaultLocale: false,
+      prefixDefaultLocale: true,
       redirectToDefaultLocale: true,
       fallbackType: "redirect",
     },

@@ -68,8 +68,12 @@ export async function fetchSpace(): Promise<ISbSpace> {
 }
 
 // Fetches story content from input `fullSlug` and returns just the content
-export async function fetchStory(fullSlug: string): Promise<ISbStory> {
+export async function fetchStory(
+  fullSlug: string,
+  locale?: string,
+): Promise<ISbStory> {
   const response = await client.get(`cdn/stories/${fullSlug}`, {
+    language: locale,
     version: VERSION,
   });
   return response;
