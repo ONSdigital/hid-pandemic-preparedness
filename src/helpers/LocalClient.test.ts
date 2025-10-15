@@ -55,6 +55,15 @@ describe("LocalClient get request datasource_entries", () => {
   });
 });
 
+describe("LocalClient get request stories", () => {
+  test("returns stories correctly if data exists", async () => {
+    // Request valid file as part of the request url
+    const result = await client.get("cdn/stories/");
+    // Don't look for the full result, but make sure important key/value pairs are there
+    expect(result.data.stories[0]).toMatchObject({ name: "Tools" });
+  });
+});
+
 describe("LocalClient get request story", () => {
   test("returns story data correctly if data exists", async () => {
     // Request valid file as part of the request url
