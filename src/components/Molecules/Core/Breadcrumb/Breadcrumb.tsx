@@ -5,7 +5,7 @@ import type { BreadcrumbProps } from "./Breadcrumb.interface";
 
 export const Breadcrumb: FC<BreadcrumbProps> = (props) => {
   return (
-    <nav aria-title="breadcrumb">
+    <nav aria-label="breadcrumb">
       <ol className={clsx("breadcrumb")}>
         {props.items.map((item, index, arr) => (
           <li
