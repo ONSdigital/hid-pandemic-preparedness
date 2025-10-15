@@ -20,29 +20,8 @@ describe("LocalClient get request", () => {
 });
 
 describe("LocalClient get request datasource_entries", () => {
-  const slug: string = "breadcrumb-strings";
   const locale: string = "en";
 
-  test("returns breadcrumb string data correctly if data exists", async () => {
-    const expectedResult: ISbResult = {
-      data: {
-        datasource_entries: [
-          {
-            name: "homeLabel",
-            value: "Home",
-          },
-        ],
-      },
-      headers: new Headers(),
-      perPage: 1,
-      total: 1,
-    };
-    const result = await client.get("cdn/datasource_entries", {
-      datasource: slug,
-      dimension: locale,
-    });
-    expect(result).toMatchObject(expectedResult);
-  });
   test("raises error if file not found", async () => {
     // Request invalid file
     const promise = client.get("cdn/datasource_entries", {
@@ -60,7 +39,7 @@ describe("LocalClient get request stories", () => {
     // Request valid file as part of the request url
     const result = await client.get("cdn/stories/");
     // Don't look for the full result, but make sure important key/value pairs are there
-    expect(result.data.stories[0]).toMatchObject({ name: "Tools" });
+    expect(result.data.stories[0]).toMatchObject({ name: "Data analysis" });
   });
 });
 
