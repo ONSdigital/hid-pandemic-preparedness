@@ -19,6 +19,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const CarouselStory = {
-  name: "Carousel w/ Card Units",
+  name: "Tool Cards",
   args: carouselData,
 } satisfies Story;

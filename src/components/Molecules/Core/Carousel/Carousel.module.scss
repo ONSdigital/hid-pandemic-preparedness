@@ -10,3 +10,8 @@
 .swiper-default-bullets.swiper-active-bullets {
   background-color: $color-brand-primary-500;
 }
+
+.swiper-slide-container {
+  padding: 1rem;
+  flex-shrink: 0;
+}

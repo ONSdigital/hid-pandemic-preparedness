@@ -3,11 +3,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import sanitizeHtml from "sanitize-html";
 
 // Interfaces
-import type { CarouselProps } from "@components/Core/Carousel/Carousel.interface";
 import type { LearningModuleProps } from "@components/Core/LearningModule/LearningModule.interface";
 
 // Components
-import { Carousel } from "@components/Core/Carousel/Carousel";
 import { Header } from "@components/Core/Header/Header";
 import { LearningModule } from "@components/Core/LearningModule/LearningModule";
 
@@ -30,6 +28,5 @@ learningModuleData.navProps.parentUrl = Astro.url.pathname;
   <main>
     <Header {...headerData} />
     <LearningModule {...learningModuleData as LearningModuleProps} />
-    <Carousel />
   </main>
 </BaseLayout>

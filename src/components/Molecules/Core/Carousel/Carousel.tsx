@@ -63,6 +63,17 @@ export const Carousel: FC<CarouselProps> = (props) => {
         </div>
 
         <Swiper
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
           loop={loopEnabled}
           modules={[Navigation, Pagination]}
           onSwiper={(swiper: any) => (swiperRef.current = swiper)}
@@ -73,20 +84,16 @@ export const Carousel: FC<CarouselProps> = (props) => {
             bulletClass: styles["swiper-default-bullets"],
             bulletActiveClass: styles["swiper-active-bullets"],
           }}
-          spaceBetween={50}
-          slidesPerView={3}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            // md
-            768: {
-              slidesPerView: 3,
-            },
-          }}
+          spaceBetween={30}
         >
           {props.cards.map((blok: any) => (
-            <SwiperSlide key={blok._uid}>
+            <SwiperSlide
+              key={blok._uid}
+              className={clsx(
+                styles["swiper-slide-container"],
+                "d-flex justify-content-center",
+              )}
+            >
               <DynamicCarouselItemComponent blok={blok} />
             </SwiperSlide>
           ))}
