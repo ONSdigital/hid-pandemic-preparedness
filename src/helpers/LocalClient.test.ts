@@ -1,5 +1,4 @@
 import { describe, expect, test } from "vitest";
-import type { ISbResult } from "storyblok-js-client";
 
 import { LocalClient } from "./LocalClient";
 
