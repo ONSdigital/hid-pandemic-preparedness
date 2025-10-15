@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import { Carousel } from "@src/components/Core/Carousel/Carousel";
+import { Carousel } from "./Molecules/Core/Carousel/Carousel";
 import { CaseStudies } from "@/src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
@@ -15,8 +15,8 @@ type ComponentName =
   | "Header"
   | "ImageAndText"
   | "Impact"
-  | "StrategicPartners"
-  | "StatisticsAndText";
+  | "StatisticsAndText"
+  | "StrategicPartners";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Carousel,

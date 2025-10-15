@@ -10,7 +10,7 @@ import type { DatasourceEntry } from "@src/types/DatasourceEntry";
 import type { NavItem } from "@src/types/NavItem";
 
 // Components
-import { Carousel } from "@components/Core/Carousel/Carousel";
+import { Carousel } from "@components/Core/CarouselOld/Carousel";
 import { Header } from "@components/Organisms/Home/Header/Header";
 import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
 import { References } from "@components/Core/References/References";
@@ -68,7 +68,7 @@ const quickLinksData: QuickLinksProps = {
     />
     <QuickLinks {...quickLinksData} />
     {story.content.Middle.map((blok: any) => <DynamicComponent blok={blok} />)}
-    <Carousel {...carouselData as CarouselProps} client:visible />
+    <Carousel client:visible />
     {story.content.Bottom.map((blok: any) => <DynamicComponent blok={blok} />)}
     <References {...referencesData} client:visible />
   </main>

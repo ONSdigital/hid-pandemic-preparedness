@@ -7,9 +7,9 @@ import {
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 
-import type { CardToolProps } from "./CardTool.interface";
-import styles from "../CardTool/CardTool.module.scss";
-import { Link } from "../Link/Link";
+import type { ToolCardProps } from "./ToolCard.interface";
+import styles from "../ToolCard/ToolCard.module.scss";
+import { Link } from "@components/Molecules/Core/Link/Link";
 
 // Set size of icon here using icon component props
 const iconSize: string = "2.375rem";
@@ -21,7 +21,7 @@ const iconMap: Record<string, ReactNode> = {
   report: <RiFocusLine size={iconSize} />,
 };
 
-export const CardTool: FC<CardToolProps> = (props) => {
+export const ToolCard: FC<ToolCardProps> = (props) => {
   return (
     <div className={clsx("card", styles["card-tool"], "shadow", "py-4")}>
       <div className={clsx("card-body", "text-center")}>
@@ -43,7 +43,7 @@ export const CardTool: FC<CardToolProps> = (props) => {
           {props.title}
         </h4>
         <p className={clsx("card-text")}>{props.subTitle}</p>
-        <Link href={props.link.href} label={props.link.label} />
+        <Link {...props.link} />
       </div>
     </div>
   );

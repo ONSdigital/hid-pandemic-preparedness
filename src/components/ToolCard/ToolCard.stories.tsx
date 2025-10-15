@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { v4 as uuidv4 } from "uuid";
 
-import { CardTool } from "./CardTool";
-import type { CardToolProps } from "./CardTool.interface";
+import { ToolCard } from "./ToolCard";
+import type { ToolCardProps } from "./ToolCard.interface";
 
 // Defines some options for icons so we can show how different icons are rendered
 interface IconOptions {
@@ -20,8 +20,8 @@ const iconOptions: IconOptions = {
 };
 
 const meta = {
-  component: CardTool,
-  title: "Components/Cards/CardTool",
+  component: ToolCard,
+  title: "Components/Cards/ToolCard",
   parameters: {
     layout: "centered",
   },
@@ -43,12 +43,12 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof CardTool>;
+} satisfies Meta<typeof ToolCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const cardToolProps: CardToolProps = {
+const toolCardProps: ToolCardProps = {
   id: uuidv4(),
   icon: "dashboard",
   title: "Rumour report",
@@ -59,7 +59,7 @@ const cardToolProps: CardToolProps = {
   },
 };
 
-export const CardToolStory = {
-  args: cardToolProps,
-  name: "CardTool",
+export const ToolCardStory = {
+  args: toolCardProps,
+  name: "ToolCard",
 } satisfies Story;
