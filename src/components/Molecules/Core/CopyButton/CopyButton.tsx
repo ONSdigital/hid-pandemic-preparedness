@@ -3,12 +3,9 @@ import type { FC } from "react";
 import { useState, useRef } from "react";
 import type { CopyButtonProps } from "./CopyButton.interface";
 import { createClipboardContent } from "./createClipboardContent";
+import buttonText from "@content/copyButtonText.json";
 import clsx from "clsx";
 import styles from "./CopyButton.module.scss";
-
-// Data imported from somewhere
-const copyText = "Copy";
-const copiedText = "Copied!";
 
 export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
   const timeoutRef = useRef<number | null>(null);
@@ -52,11 +49,11 @@ export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
     >
       {isCopied ? (
         <>
-          <RiCheckLine /> {copiedText}
+          <RiCheckLine /> {buttonText.copiedText}
         </>
       ) : (
         <>
-          <RiFileCopyLine /> {copyText}
+          <RiFileCopyLine /> {buttonText.text}
         </>
       )}
     </button>
