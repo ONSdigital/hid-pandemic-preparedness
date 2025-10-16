@@ -12,8 +12,11 @@ describe("Header component", () => {
     breadcrumbs: {
       items: [
         {
-          href: "/",
-          label: "Home",
+          fieldtype: "",
+          linktype: "multilink",
+          cached_url: "/",
+          url: "/",
+          title: "Home",
           id: "0c6dd168-38da-4a09-b62c-971490cb80b4",
         },
       ],

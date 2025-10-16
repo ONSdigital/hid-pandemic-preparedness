@@ -1,13 +1,9 @@
 ---
 import type { ISbStoryData } from "storyblok-js-client";
 
-import BaseLayout from "@layouts/BaseLayout.astro";
+import { LAYOUT_MAP } from "@/src/layouts/layoutMap";
+import type { LayoutName } from "@/src/layouts/layoutMap";
 
-// Components
-import { Header } from "@/src/components/Organisms/Core/Header/Header";
-
-// Helpers
-import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
 import { fetchStories, fetchStory } from "@/src/helpers/fetchContent";
 
 // SSG paths
@@ -20,39 +16,35 @@ export async function getStaticPaths() {
   const stories: ISbStoryData[] = data.stories;
 
   // Build pages based on stories returned for this folder
-  return stories.map(({ full_slug, name }) => {
+  return stories.map((story) => {
     // Build the correct slug from the returned story
-    const slug: string = full_slug.replace(folderName, "");
+    const slug: string = story.full_slug.replace(folderName, "");
 
     return {
       params: { slug },
-      props: { name, full_slug },
+      props: { story },
     };
   });
 }
 
 // Build the page context
-let name = "";
-let full_slug = "";
+let story = {} as ISbStoryData;
 
 if (Astro.isPrerendered) {
-  ({ name, full_slug } = Astro.props);
+  ({ story } = Astro.props);
 } else {
   const { data } = await fetchStory(Astro.url.pathname);
-  const story = data?.story;
+  story = data?.story;
   if (!story) return Astro.redirect("/404");
-
-  ({ name, full_slug } = story);
 }
 
-// Build breadcrumbs
-const breadcrumbs = await buildBreadcrumbs(Astro.url.pathname);
+// Load the correct layout based on the content component. Return 404 if it isn't there
+let Layout = null;
+const layoutName = story.content.component;
+
+if (layoutName) {
+  Layout = LAYOUT_MAP[layoutName as LayoutName];
+}
 ---
 
-<BaseLayout>
-  <main>
-    <Header title={name} breadcrumbs={breadcrumbs} />
-    <p>Name: {name}</p>
-    <p>Full slug: {full_slug}</p>
-  </main></BaseLayout
->
+{Layout && <Layout story={story} />}
