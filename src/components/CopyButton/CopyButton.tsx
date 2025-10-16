@@ -3,6 +3,8 @@ import type { FC } from "react";
 import { useState, useRef } from "react";
 import type { CopyButtonProps } from "./CopyButton.interface";
 import { createClipboardContent } from "./createClipboardContent";
+import clsx from "clsx";
+import styles from "./CopyButton.module.scss";
 
 // Data imported from somewhere
 const copyText = "Copy";
@@ -39,7 +41,15 @@ export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button
+      className={clsx(
+        "border-0",
+        "bg-transparent",
+        styles["copy-button-color"],
+        props.className,
+      )}
+      onClick={handleClick}
+    >
       {isCopied ? (
         <>
           <RiCheckLine /> {copiedText}
