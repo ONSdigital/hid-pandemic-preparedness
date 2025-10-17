@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import styles from "./LearningResourceBlock.module.scss";
 import type { LearningResourceBlockProps } from "@components/LearningResourceBlock/LearningResourceBlock.interface";
-import { TextModule } from "@components/TextModule/TextModule";
+import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
 import { Accordion } from "@components/Accordion/Accordion";
 import type { AccordionProps } from "@components/Accordion/Accordion.interface";
 
