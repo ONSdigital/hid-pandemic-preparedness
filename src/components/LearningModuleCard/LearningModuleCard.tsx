@@ -3,11 +3,12 @@ import clsx from "clsx";
 
 import { RiTimerLine } from "@remixicon/react";
 
+import { Link } from "@src/components/Link/Link";
+import { Tag } from "@src/components/Tag/Tag";
+import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
+
 import styles from "./LearningModuleCard.module.scss";
 import type { LearningModuleCardProps } from "./LearningModuleCard.interface";
-import { Tag } from "../Tag/Tag";
-import { TextModule } from "../TextModule/TextModule";
-import { Link } from "../Link/Link";
 
 // Set size of icon here using icon component props
 const iconSize: string = "1.5rem";
