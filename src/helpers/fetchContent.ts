@@ -9,6 +9,7 @@ import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
 // Read config env vars from the environment
 const ASTRO_PREVIEW = process.env.ASTRO_PREVIEW || "false";
 const ASTRO_USE_LOCAL_DATA = process.env.ASTRO_USE_LOCAL_DATA || "true";
+const HOME_STORY_UID = "102414283876191";
 
 const client =
   ASTRO_USE_LOCAL_DATA === "true"
@@ -68,6 +69,12 @@ export async function fetchStory(
   fullSlug: string,
   params?: ISbStoriesParams,
 ): Promise<ISbStory> {
+  // If input `fullSlug` is `/`, this is the path for the homepage but we can't return the story
+  // using this so update to include the homepage uid
+  if (fullSlug === "/") {
+    fullSlug = HOME_STORY_UID;
+  }
+
   const response = await client.get(`cdn/stories/${fullSlug}`, {
     version: VERSION,
     ...params,
