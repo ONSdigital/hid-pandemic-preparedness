@@ -30,8 +30,11 @@ export async function buildBreadcrumbs(
     }
   } else {
     // If there is no slashes in the `fullSlug`, then this is a level 0 single slug so just add the
-    // item without slash for searching
-    bySlugsItems.push(slugItems[0]);
+    // item without slash for searching. Only process if not home
+    const item: string = slugItems[0];
+    if (item !== "home") {
+      bySlugsItems.push(slugItems[0]);
+    }
   }
 
   // Sorting by id will ensure home returns first and most distant child last see
