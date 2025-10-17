@@ -5,6 +5,15 @@ $breakpoint-lg: 992px !default;
 $breakpoint-xl: 1200px !default;
 $breakpoint-xxl: 1400px !default;
 
+$grid-breakpoints: (
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+  xxl: $breakpoint-xxl,
+) !default;
+
 :export {
   breakpointXs: $breakpoint-xs;
   breakpointSm: $breakpoint-sm;

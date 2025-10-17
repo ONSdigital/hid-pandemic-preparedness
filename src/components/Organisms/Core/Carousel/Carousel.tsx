@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import styles from "./Carousel.module.scss";
-import breakpoints from "../../../../styles/global/_breakpoints.module.scss";
+import breakpoints from "../../../../styles/global/overrides/_breakpoints.module.scss";
 
 import { ArrowButton } from "@components/ArrowButton/ArrowButton";
 import { ToolCard } from "@/src/components/Molecules/Core/ToolCard/ToolCard";
