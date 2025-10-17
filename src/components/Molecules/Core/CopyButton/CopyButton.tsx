@@ -1,8 +1,8 @@
 import { RiFileCopyLine, RiCheckLine } from "@remixicon/react";
 import type { FC } from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { CopyButtonProps } from "./CopyButton.interface";
-import { createClipboardContent } from "./createClipboardContent";
+import { copyToClipboard } from "./copyToClipboard";
 import buttonText from "@content/copyButtonText.json";
 import clsx from "clsx";
 import styles from "./CopyButton.module.scss";
@@ -19,11 +19,9 @@ export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
       return;
     }
 
-    const clipboardItem = createClipboardContent(element);
+    const isCopyToClipboardSuccessful = await copyToClipboard(element);
 
-    try {
-      await navigator.clipboard.write([clipboardItem]);
-
+    if (isCopyToClipboardSuccessful) {
       setIsCopied(true);
 
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -32,10 +30,15 @@ export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
         setIsCopied(false);
         timeoutRef.current = null;
       }, 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
     }
   };
+
+  // Clean up timeout if the component is unmounted
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   return (
     <button
