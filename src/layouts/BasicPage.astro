@@ -10,13 +10,13 @@ import { Header } from "@src/components/Organisms/Core/Header/Header";
 // Helpers
 import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
 
-// Build breadcrumbs
-const breadcrumbs = await buildBreadcrumbs(Astro.url.pathname);
-
 interface Props {
   story: ISbStoryData;
 }
 const { story } = Astro.props;
+
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 ---
 
 <BaseLayout title={story.name}>

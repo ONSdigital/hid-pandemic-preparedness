@@ -15,6 +15,15 @@ vi.mock("@src/helpers/fetchContent", () => {
 // Example stories data with unused fields omitted
 const stories = [
   {
+    name: "Data analysis",
+    id: 101682469948563,
+    uuid: "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+    slug: "data-analysis",
+    full_slug: "learning-resources/data-analysis/",
+    parent_id: 101679722763615,
+    path: null,
+  },
+  {
     name: "Home",
     id: 96814736940977,
     uuid: "e26bc65c-c83e-4d04-a5da-114fec6ce981",
@@ -33,15 +42,6 @@ const stories = [
     path: null,
   },
   {
-    name: "Data analysis",
-    id: 101682469948563,
-    uuid: "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
-    slug: "data-analysis",
-    full_slug: "learning-resources/data-analysis/",
-    parent_id: 101679722763615,
-    path: null,
-  },
-  {
     name: "Epidemiological analysis",
     id: 101682550221975,
     uuid: "87076f3e-9fae-4606-ad8d-e709bc04ff4f",
@@ -52,20 +52,19 @@ const stories = [
   },
 ];
 
-describe("buildBreadcrumbs", () => {
+describe("buildBreadcrumbs with link hierarchy", () => {
   test("builds breadcrumbs when input `fullSlug` is empty", async () => {
     // Arrange: define the mock return value
     (fetchStories as Mock).mockResolvedValue({
       data: {
         // Corresponds to just the home story
-        stories: [stories[0]],
+        stories: [stories[1]],
       },
     });
     const result = await buildBreadcrumbs("home");
 
     expect(fetchStories).toHaveBeenCalledWith({
       by_slugs: "home",
-      sort_by: "id:asc",
     });
     expect(result.items).toHaveLength(1);
     expect(result.items[0]).toMatchObject({
@@ -79,14 +78,13 @@ describe("buildBreadcrumbs", () => {
     (fetchStories as Mock).mockResolvedValue({
       data: {
         // Corresponds to just the home and child story
-        stories: stories.slice(0, 2),
+        stories: stories.slice(1, 3),
       },
     });
     const result = await buildBreadcrumbs("/learning-resources/");
 
     expect(fetchStories).toHaveBeenCalledWith({
       by_slugs: "home,learning-resources/",
-      sort_by: "id:asc",
     });
     expect(result.items).toHaveLength(2);
     expect(result.items[0]).toMatchObject({
@@ -113,7 +111,6 @@ describe("buildBreadcrumbs", () => {
 
     expect(fetchStories).toHaveBeenCalledWith({
       by_slugs: "home,learning-resources/",
-      sort_by: "id:asc",
     });
     expect(result.items).toHaveLength(4);
     expect(result.items[0]).toMatchObject({
