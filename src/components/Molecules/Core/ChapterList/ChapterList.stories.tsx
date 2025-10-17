@@ -27,7 +27,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  title: "Components/ChapterList",
+  title: "Molecules/Core/ChapterList",
 } satisfies Meta<typeof ChapterList>;
 
 export default meta;

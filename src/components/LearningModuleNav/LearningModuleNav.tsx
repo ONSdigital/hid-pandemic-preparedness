@@ -2,11 +2,12 @@ import type { FC } from "react";
 import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
-import { IconAndTextLink } from "../IconAndTextLink/IconAndTextLink";
+import { Accordion } from "@src/components/Accordion/Accordion";
+import { ChapterList } from "@src/components/Molecules/Core/ChapterList/ChapterList";
+import { IconAndTextLink } from "@src/components/IconAndTextLink/IconAndTextLink";
+
 import type { LearningModuleNavProps } from "./LearningModuleNav.interface";
-import { ChapterList } from "../ChapterList/ChapterList";
 import styles from "./LearningModuleNav.module.scss";
-import { Accordion } from "../Accordion/Accordion";
 
 export const LearningModuleNav: FC<LearningModuleNavProps> = (props) => {
   const accordionId = uuidv4();
