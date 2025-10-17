@@ -45,12 +45,3 @@
   font-size: 1.25;
   font-weight: $font-weight-bold;
 }
-
-.body-regular {
-  @extend .p;
-  line-height: 115%;
-  font-size: 1rem;
-  font-weight: $font-weight-light;
-  margin: 0;
-  padding: 0;
-}

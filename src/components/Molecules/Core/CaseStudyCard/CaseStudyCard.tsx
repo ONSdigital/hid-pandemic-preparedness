@@ -48,9 +48,7 @@ export const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
             >
               {props.title}
             </h4>
-            <p className={clsx("card-text", "body-regular", "mt-3")}>
-              {props.subTitle}
-            </p>
+            <p className={clsx("card-text", "mt-3")}>{props.subTitle}</p>
             {props.size === "large" && (
               <div className={clsx("d-none", "d-lg-block")}>
                 <Link
