@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { TextModule } from "@components/TextModule/TextModule";
+import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
 
 import type { ExplainerProps } from "./Explainer.interface";
 import styles from "./Explainer.module.scss";
