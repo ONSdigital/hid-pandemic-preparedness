@@ -1,12 +1,14 @@
 ---
+import type { ISbStoryData } from "storyblok-js-client";
+
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Components
-import { Header } from "@components/Core/Header/Header";
+import { Header } from "@/src/components/Organisms/Core/Header/Header";
 
 // Helpers
+import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
 import { fetchStories, fetchStory } from "@/src/helpers/fetchContent";
-import type { ISbStoryData } from "storyblok-js-client";
 
 // SSG paths
 export async function getStaticPaths() {
@@ -44,15 +46,7 @@ if (Astro.isPrerendered) {
 }
 
 // Build breadcrumbs
-const breadcrumbs = {
-  items: [
-    {
-      href: "/",
-      label: "Home",
-      id: "1234",
-    },
-  ],
-};
+const breadcrumbs = await buildBreadcrumbs(Astro.url.pathname);
 ---
 
 <BaseLayout>
