@@ -60,12 +60,7 @@ export default defineConfig({
         scss: {
           // need this until bootstrap is updated, see https://github.com/twbs/bootstrap/issues/40962
           quietDeps: true,
-          silenceDeprecations: [
-            // "mixed-decls",
-            "import",
-            "color-functions",
-            "global-builtin",
-          ],
+          silenceDeprecations: ["import", "color-functions", "global-builtin"],
           verbose: false,
         },
       },
