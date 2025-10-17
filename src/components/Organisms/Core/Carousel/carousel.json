@@ -1,0 +1,75 @@
+{
+  "_uid": "b2870200-8454-4cab-9bae-b4b0bc0650af",
+  "cards": [
+    {
+      "_uid": "0c39696c-2668-473c-8055-d1d193b7a208",
+      "icon": "report",
+      "link": {
+        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "rel": "",
+        "url": "/",
+        "title": "Try now",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "title": "Survey analysis tool",
+      "subTitle": "Analyze survey data with automated insights and visualizations.",
+      "component": "ToolCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"0c39696c-2668-473c-8055-d1d193b7a208\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "0a39ec9e-f9a9-4aca-ae83-f157ed763c32",
+      "icon": "dashboard",
+      "link": {
+        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "rel": "",
+        "url": "/",
+        "title": "Try now",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "title": "Modelling dashboard",
+      "subTitle": "An infectious disease modelling dashboard.",
+      "component": "ToolCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"0a39ec9e-f9a9-4aca-ae83-f157ed763c32\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "a927e29f-0fbc-451b-a63b-8379d089118d",
+      "icon": "dashboard",
+      "link": {
+        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "rel": "",
+        "url": "/tools/question-bank/",
+        "title": "Try now",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "title": "Question bank",
+      "subTitle": "Curated library of ready-to-use, evidence-backed questions.",
+      "component": "ToolCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"a927e29f-0fbc-451b-a63b-8379d089118d\", \"id\": \"96814736940977\"}--\u003E"
+    },
+    {
+      "_uid": "9b4dbed5-cb15-451a-b03f-ed08aea17c08",
+      "icon": "calculator",
+      "link": {
+        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "rel": "",
+        "url": "/",
+        "title": "Try now",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "title": "Sample size calculator",
+      "subTitle": "Estimates required sample size for a study or survey.",
+      "component": "ToolCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"9b4dbed5-cb15-451a-b03f-ed08aea17c08\", \"id\": \"96814736940977\"}--\u003E"
+    }
+  ],
+  "component": "Carousel",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"Carousel\", \"space\": \"287525897740819\", \"uid\": \"b2870200-8454-4cab-9bae-b4b0bc0650af\", \"id\": \"96814736940977\"}--\u003E"
+}

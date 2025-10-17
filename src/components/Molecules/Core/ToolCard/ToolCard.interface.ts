@@ -1,9 +1,9 @@
-import type { LinkData } from "../../types/LinkData";
+import type { Link } from "@/src/types/Link";
 
-export interface CardToolProps {
+export interface ToolCardProps {
   id: string;
   icon: "calculator" | "dashboard" | "questionbank" | "report";
   title: string;
   subTitle: string;
-  link: LinkData;
+  link: Link;
 }
