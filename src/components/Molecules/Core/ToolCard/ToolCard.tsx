@@ -8,7 +8,7 @@ import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 
 import type { ToolCardProps } from "./ToolCard.interface";
-import styles from "../ToolCard/ToolCard.module.scss";
+import styles from "./ToolCard.module.scss";
 import { Link } from "@components/Molecules/Core/Link/Link";
 
 // Set size of icon here using icon component props

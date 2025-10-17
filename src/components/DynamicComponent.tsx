@@ -1,12 +1,12 @@
 import type { FC } from "react";
 
-import { Carousel } from "./Molecules/Core/Carousel/Carousel";
-import { CaseStudies } from "@/src/components/Organisms/Home/CaseStudies/CaseStudies";
-import { Header } from "@src/components/Organisms/Home/Header/Header";
-import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
-import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
-import { StatisticsAndText } from "@/src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
-import { StrategicPartners } from "@/src/components/Organisms/Home/StrategicPartners/StrategicPartners";
+import { Carousel } from "@/src/components/Organisms/Core/Carousel/Carousel";
+import { CaseStudies } from "@components/Organisms/Home/CaseStudies/CaseStudies";
+import { Header } from "@components/Organisms/Home/Header/Header";
+import { ImageAndText } from "@components/Organisms/Home/ImageAndText/ImageAndText";
+import { Impact } from "@components/Organisms/Home/Impact/Impact";
+import { StatisticsAndText } from "@components/Organisms/Home/StatisticsAndText/StatisticsAndText";
+import { StrategicPartners } from "@components/Organisms/Home/StrategicPartners/StrategicPartners";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =

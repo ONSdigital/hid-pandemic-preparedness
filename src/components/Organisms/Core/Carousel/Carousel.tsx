@@ -10,10 +10,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import styles from "./Carousel.module.scss";
+import breakpoints from "../../../../styles/global/_breakpoints.module.scss";
 
 import { ArrowButton } from "@components/ArrowButton/ArrowButton";
-import { ToolCard } from "@components/ToolCard/ToolCard";
-import { CardUnit } from "@components/CardUnit/CardUnit";
+import { ToolCard } from "@/src/components/Molecules/Core/ToolCard/ToolCard";
+import { CardUnit } from "@/src/components/Molecules/Core/CardUnit/CardUnit";
 import type {
   CarouselProps,
   DynamicCarouselItemComponentProps,
@@ -43,9 +44,17 @@ export const DynamicCarouselItemComponent: FC<
   return <Component key={blok._uid} {...blok} />;
 };
 
+function parseBreakpoint(breakpoint: string) {
+  return parseInt(breakpoint, 10);
+}
+
 export const Carousel: FC<CarouselProps> = (props) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const hiddenNavigation = clsx("d-none", "d-md-block");
+
+  const breakpointMd = parseBreakpoint(breakpoints.breakpointMd);
+  const breakpointLg = parseBreakpoint(breakpoints.breakpointLg);
+  const breakpointXxl = parseBreakpoint(breakpoints.breakpointXxl);
 
   return (
     <>
@@ -65,11 +74,14 @@ export const Carousel: FC<CarouselProps> = (props) => {
             0: {
               slidesPerView: 1,
             },
-            768: {
+            [breakpointMd]: {
               slidesPerView: 2,
             },
-            1024: {
+            [breakpointLg]: {
               slidesPerView: 3,
+            },
+            [breakpointXxl]: {
+              slidesPerView: 4,
             },
           }}
           loop={true}
