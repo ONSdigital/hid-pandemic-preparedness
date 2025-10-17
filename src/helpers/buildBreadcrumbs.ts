@@ -28,20 +28,30 @@ export async function buildBreadcrumbs(
         bySlugsItems.push(currentPath + "/");
       }
     }
+  } else {
+    // If there is no slashes in the `fullSlug`, then this is a level 0 single slug so just add the
+    // item without slash for searching
+    bySlugsItems.push(slugItems[0]);
   }
+
   // Sorting by id will ensure home returns first and most distant child last see
   // https://www.storyblok.com/docs/api/content-delivery/v2/stories/retrieve-multiple-stories and
   // https://www.storyblok.com/docs/api/content-delivery/v2/stories/examples/sorting-by-story-object-property
   const { data } = await fetchStories({
     by_slugs: bySlugsItems.join(","),
-    sort_by: "id:asc",
   });
   stories = data?.stories;
 
-  if (stories) {
+  // Sort the stories ourselves by shortest full_slug to longest. There is no reliable way to get
+  // the stories in this order using the api
+  const sortedStories = stories.sort((a, b) => {
+    return a.full_slug.length - b.full_slug.length;
+  });
+
+  if (sortedStories) {
     // Loop through the returned stories and build the breadcrumbs
     returnBreadcrumbs = {
-      items: stories.map(({ uuid, name, full_slug, path }) => ({
+      items: sortedStories.map(({ uuid, name, full_slug, path }) => ({
         fieldtype: "multilink",
         linktype: "",
         id: uuid,

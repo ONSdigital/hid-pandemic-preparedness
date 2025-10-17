@@ -35,7 +35,7 @@ if (liveStory) {
 }
 
 // Build breadcrumbs
-const breadcrumbs = await buildBreadcrumbs(Astro.url.pathname);
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 
 // Ref learning resources data from `navBarData` for rendering as quick links
 const quickLinksData: QuickLinksProps = {
