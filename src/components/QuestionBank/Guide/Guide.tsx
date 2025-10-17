@@ -2,7 +2,7 @@ import clsx from "clsx";
 import type { FC } from "react";
 
 import { Link } from "@components/Link/Link";
-import { TextModule } from "@components/TextModule/TextModule";
+import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
 
 import type { GuideProps } from "./Guide.interface";
 import styles from "./Guide.module.scss";

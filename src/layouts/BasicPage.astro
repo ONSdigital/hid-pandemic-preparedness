@@ -22,6 +22,9 @@ const { story } = Astro.props;
 <BaseLayout title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
-    {story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)}
+    {
+      story.content.Body &&
+        story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
+    }
   </main>
 </BaseLayout>
