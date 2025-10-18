@@ -4,8 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import type { CopyButtonProps } from "./CopyButton.interface";
 import { copyToClipboard } from "./copyToClipboard";
 import buttonText from "@content/copyButtonText.json";
-import clsx from "clsx";
 import styles from "./CopyButton.module.scss";
+import { Button } from "@/src/components/Button/Button";
 
 export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
   const timeoutRef = useRef<number | null>(null);
@@ -41,24 +41,24 @@ export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
   }, []);
 
   return (
-    <button
-      className={clsx(
-        "border-0",
-        "bg-transparent",
-        styles["copy-button-color"],
-        props.className,
-      )}
-      onClick={handleClick}
+    <Button
+      ariaLabel="Copy the contents"
+      type="button"
+      variant="primary-inverse"
+      onClick={() => handleClick()}
+      className={props.className}
     >
       {isCopied ? (
         <>
-          <RiCheckLine /> {buttonText.copiedText}
+          <RiCheckLine className={styles["btn-label-icon"]} />
+          {buttonText.copiedText}
         </>
       ) : (
         <>
-          <RiFileCopyLine /> {buttonText.text}
+          <RiFileCopyLine className={styles["btn-label-icon"]} />
+          {buttonText.text}
         </>
       )}
-    </button>
+    </Button>
   );
 };

@@ -8,7 +8,8 @@ import type { QuestionData } from "@localTypes/QuestionData";
 import styles from "./QuestionCard.module.scss";
 
 export const QuestionCard: FC<QuestionData> = (props) => {
-  const contentElement = useRef<HTMLInputElement>(null);
+  const contentElement = useRef<HTMLDivElement>(null);
+
   return (
     <div className={clsx("position-relative")}>
       <div
@@ -25,8 +26,8 @@ export const QuestionCard: FC<QuestionData> = (props) => {
         <TextModule {...props} />
       </div>
       <CopyButton
-        className={clsx("position-absolute", "top-0", "end-0", "mt-2", "me-4")}
         contentElement={contentElement}
+        className={clsx("position-absolute", "top-0", "end-0")}
       />
     </div>
   );
