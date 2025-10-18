@@ -16,7 +16,7 @@ export const QuestionCard: FC<QuestionData> = (props) => {
         ref={contentElement}
         className={clsx(
           "rounded",
-          "py-2",
+          "py-3",
           "ps-4",
           styles["question-bg"],
           styles["copy-btn-space"],
@@ -27,7 +27,7 @@ export const QuestionCard: FC<QuestionData> = (props) => {
       </div>
       <CopyButton
         contentElement={contentElement}
-        className={clsx("position-absolute", "top-0", "end-0")}
+        className={clsx("position-absolute", "top-0", "end-0", "mt-2")}
       />
     </div>
   );
