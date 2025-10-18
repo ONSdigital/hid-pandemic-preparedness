@@ -13,7 +13,7 @@ export const Button: FC<ButtonProps> = (props) => {
   return (
     <button
       aria-label={props.ariaLabel}
-      className={clsx("btn", `btn-${props.variant}`)}
+      className={clsx("btn", `btn-${props.variant}`, props.className)}
       disabled={props.disabled}
       onClick={handleClick}
       type={props.type}
