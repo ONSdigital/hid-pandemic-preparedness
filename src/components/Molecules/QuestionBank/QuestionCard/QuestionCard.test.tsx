@@ -3,11 +3,11 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { QuestionCard } from "./QuestionCard";
-import { TextModule } from "@components/TextModule/TextModule";
+import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
 import { CopyButton } from "@components/Molecules/Core/CopyButton/CopyButton";
 
 // Mock the child components
-vi.mock("@components/TextModule/TextModule", () => ({
+vi.mock("@components/Molecules/Core/TextModule/TextModule", () => ({
   TextModule: vi.fn(() => <div data-testid="text-module">Mock TextModule</div>),
 }));
 

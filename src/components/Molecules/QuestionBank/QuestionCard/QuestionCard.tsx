@@ -2,8 +2,8 @@ import clsx from "clsx";
 import type { FC } from "react";
 import { useRef } from "react";
 
-import { TextModule } from "@components/TextModule/TextModule";
 import { CopyButton } from "@components/Molecules/Core/CopyButton/CopyButton";
+import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
 import type { QuestionData } from "@localTypes/QuestionData";
 import styles from "./QuestionCard.module.scss";
 
