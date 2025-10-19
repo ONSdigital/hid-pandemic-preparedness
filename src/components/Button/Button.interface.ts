@@ -11,7 +11,8 @@ export interface ButtonProps {
     | "primary-inverse"
     | "secondary"
     | "secondary-inverse"
-    | "search-bar";
+    | "search-bar"
+    | "link";
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
 }

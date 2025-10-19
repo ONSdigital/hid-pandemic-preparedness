@@ -44,7 +44,7 @@ export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
     <Button
       ariaLabel="Copy to clipboard"
       type="button"
-      variant="primary-inverse"
+      variant="link"
       onClick={() => handleClick()}
       className={props.className}
     >
