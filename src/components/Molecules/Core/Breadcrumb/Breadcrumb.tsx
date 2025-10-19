@@ -18,10 +18,10 @@ export const Breadcrumb: FC<BreadcrumbProps> = (props) => {
           >
             {/* Don't render as link if last element in array */}
             {index === arr.length - 1 ? (
-              item.label
+              item.title
             ) : (
-              <a className={clsx("link-light")} href={item.href}>
-                {item.label}
+              <a className={clsx("link-light")} href={item.url}>
+                {item.title}
               </a>
             )}
           </li>

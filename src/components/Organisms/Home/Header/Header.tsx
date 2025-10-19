@@ -2,7 +2,7 @@ import clsx from "clsx";
 import type { FC } from "react";
 import { sentenceCase } from "sentence-case";
 
-import { Breadcrumb } from "@components/Molecules/Breadcrumb/Breadcrumb";
+import { Breadcrumb } from "@components/Molecules/Core/Breadcrumb/Breadcrumb";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 
 import type { HeaderProps } from "./Header.interface";

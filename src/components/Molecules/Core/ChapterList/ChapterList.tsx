@@ -10,7 +10,6 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
   const startStr: string = "Start";
 
   const listItemDefaultClasses = clsx(
-    "body-regular",
     "m-0",
     "pt-3",
     "pb-3",

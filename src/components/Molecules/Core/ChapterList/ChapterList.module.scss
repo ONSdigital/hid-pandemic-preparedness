@@ -1,5 +1,5 @@
-@use "../../styles/global/tokens" as *;
-@use "../../styles/global/variables" as *;
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
 
 .chapter-list__list-group {
   color: $color-brand-primary-500;

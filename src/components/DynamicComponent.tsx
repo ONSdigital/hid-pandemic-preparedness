@@ -2,6 +2,7 @@ import type { FC } from "react";
 
 import { Carousel } from "@src/components/Core/Carousel/Carousel";
 import { CaseStudies } from "@/src/components/Organisms/Home/CaseStudies/CaseStudies";
+import { FullWidthRichText } from "@/src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
@@ -12,6 +13,7 @@ import { StrategicPartners } from "@/src/components/Organisms/Home/StrategicPart
 type ComponentName =
   | "Carousel"
   | "CaseStudies"
+  | "FullWidthRichText"
   | "Header"
   | "ImageAndText"
   | "Impact"
@@ -21,6 +23,7 @@ type ComponentName =
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Carousel,
   CaseStudies,
+  FullWidthRichText,
   Header,
   ImageAndText,
   Impact,

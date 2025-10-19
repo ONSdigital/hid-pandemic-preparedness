@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DOMPurify from "dompurify";
 
-import markdownContent from "../../content/text-module-content.md?raw";
-import { parseMarkdown } from "../../helpers/parseMarkdown";
+import markdownContent from "@src/content/text-module-content.md?raw";
+import { parseMarkdown } from "@src/helpers/parseMarkdown";
+
 import { TextModule } from "./TextModule";
 import type { TextModuleProps } from "./TextModule.interface";
 

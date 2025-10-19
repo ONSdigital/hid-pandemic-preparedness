@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 import { useStoryblokApi } from "@storyblok/astro";
-import type { ISbStory } from "@storyblok/astro";
+import type { ISbStories, ISbStoriesParams, ISbStory } from "@storyblok/astro";
 
 import { LocalClient } from "@helpers/LocalClient";
 import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
@@ -52,10 +52,31 @@ export async function fetchDatasourceEntries(
   }
 }
 
+// Fetches stores
+export async function fetchStories(
+  params?: ISbStoriesParams,
+): Promise<ISbStories> {
+  const response = await client.get("cdn/stories/", {
+    version: VERSION,
+    ...params,
+  });
+  return response;
+}
+
 // Fetches story content from input `fullSlug` and returns just the content
-export async function fetchStory(fullSlug: string): Promise<ISbStory> {
+export async function fetchStory(
+  fullSlug: string,
+  params?: ISbStoriesParams,
+): Promise<ISbStory> {
+  // If input `fullSlug` is `/`, this is the path for the homepage but we can't return the story
+  // using this so update to just `home`
+  if (fullSlug === "/") {
+    fullSlug = "home";
+  }
+
   const response = await client.get(`cdn/stories/${fullSlug}`, {
     version: VERSION,
+    ...params,
   });
   return response;
 }

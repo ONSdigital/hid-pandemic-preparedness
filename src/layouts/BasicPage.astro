@@ -1,0 +1,30 @@
+---
+import type { ISbStoryData } from "storyblok-js-client";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Components
+import { DynamicComponent } from "@src/components/DynamicComponent";
+import { Header } from "@src/components/Organisms/Core/Header/Header";
+
+// Helpers
+import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
+
+interface Props {
+  story: ISbStoryData;
+}
+const { story } = Astro.props;
+
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+---
+
+<BaseLayout title={story.name}>
+  <main>
+    <Header title={story.name} breadcrumbs={breadcrumbs} />
+    {
+      story.content.Body &&
+        story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
+    }
+  </main>
+</BaseLayout>

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Breadcrumb } from "@components/Molecules/Breadcrumb/Breadcrumb";
+import { Breadcrumb } from "@components/Molecules/Core/Breadcrumb/Breadcrumb";
 
 import type { HeaderProps } from "./Header.interface";
 import styles from "./Header.module.scss";

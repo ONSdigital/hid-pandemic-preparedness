@@ -1,0 +1,47 @@
+---
+import type { ISbStoryData } from "storyblok-js-client";
+
+import { LAYOUT_MAP } from "@/src/layouts/layoutMap";
+import type { LayoutName } from "@/src/layouts/layoutMap";
+
+import { fetchStories, fetchStory } from "@/src/helpers/fetchContent";
+
+// SSG paths
+export async function getStaticPaths() {
+  // Fetch all the stories for this folder
+  const { data } = await fetchStories();
+  const stories: ISbStoryData[] = data.stories;
+
+  // Build pages based on stories returned for this folder
+  return stories.map((story) => {
+    // Build the correct slug from the returned story
+    const slug: string = story.path ? story.path : story.full_slug;
+
+    return {
+      params: { slug },
+      props: { story },
+    };
+  });
+}
+
+// Build the page context
+let story = {} as ISbStoryData;
+
+if (Astro.isPrerendered) {
+  ({ story } = Astro.props);
+} else {
+  const { data } = await fetchStory(Astro.url.pathname);
+  story = data?.story;
+  if (!story) return Astro.redirect("/404");
+}
+
+// Load the correct layout based on the content component. Return 404 if it isn't there
+let Layout = null;
+const layoutName = story.content.component;
+
+if (layoutName) {
+  Layout = LAYOUT_MAP[layoutName as LayoutName];
+}
+---
+
+{Layout && <Layout story={story} />}
