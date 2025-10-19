@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import type { CopyButtonProps } from "./CopyButton.interface";
 import { copyToClipboard } from "./copyToClipboard";
 import buttonText from "@content/copyButtonText.json";
-import styles from "./CopyButton.module.scss";
 import { Button } from "@/src/components/Button/Button";
 
 export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
@@ -50,12 +49,12 @@ export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
     >
       {isCopied ? (
         <>
-          <RiCheckLine className={styles["btn-label-icon"]} />
+          <RiCheckLine />
           {buttonText.copiedText}
         </>
       ) : (
         <>
-          <RiFileCopyLine className={styles["btn-label-icon"]} />
+          <RiFileCopyLine />
           {buttonText.text}
         </>
       )}
