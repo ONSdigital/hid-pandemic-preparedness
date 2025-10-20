@@ -4,10 +4,10 @@ import type { TagData } from "@localTypes/TagData";
 
 export interface CaseStudyCardProps {
   _uid: string;
-  size: "large" | "small";
-  title: string;
-  subTitle: string;
   link: LinkProps;
   image: Asset;
+  size: "large" | "small";
+  subTitle: string;
   tag: TagData;
+  title: string;
 }

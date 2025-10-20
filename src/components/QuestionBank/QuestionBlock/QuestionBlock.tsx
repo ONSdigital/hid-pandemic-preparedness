@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Tag } from "@components/Tag/Tag";
-import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
+import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 import type { QuestionBlockProps } from "./QuestionBlock.interface";
 import styles from "./QuestionBlock.module.scss";
+import { QuestionCard } from "@/src/components/Molecules/QuestionBank/QuestionCard/QuestionCard";
 
 export const QuestionBlock: FC<QuestionBlockProps> = (props) => {
   return (
@@ -22,12 +22,7 @@ export const QuestionBlock: FC<QuestionBlockProps> = (props) => {
       </div>
       <div className={clsx("d-flex", "flex-column", "gap-2")}>
         {props.questions.map((question) => (
-          <div
-            className={clsx("rounded", "py-2", "px-4", styles["question-bg"])}
-            key={question.id}
-          >
-            <TextModule {...question} />
-          </div>
+          <QuestionCard key={question.id} {...question} />
         ))}
       </div>
     </div>

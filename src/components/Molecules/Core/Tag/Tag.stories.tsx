@@ -6,12 +6,12 @@ import type { TagProps } from "./Tag.interface";
 
 const meta = {
   component: Tag,
-  title: "Components/Tag",
+  title: "Molecules/Core/Tag",
   parameters: {
     layout: "centered",
   },
   argTypes: {
-    id: {
+    _uid: {
       table: {
         disable: true,
       },
@@ -23,7 +23,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const tagData: TagProps = {
-  id: uuidv4(),
+  _uid: uuidv4(),
   title: "Reports",
   type: "location",
 };

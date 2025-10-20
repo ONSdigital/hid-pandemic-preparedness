@@ -9,6 +9,9 @@
     $font-size: $btn-font-size,
     $border-radius: 50%
   );
-  height: 50px;
+  align-items: center;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
   width: 50px;
 }

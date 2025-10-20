@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { RiTimerLine } from "@remixicon/react";
 
 import { Link } from "@src/components/Link/Link";
-import { Tag } from "@src/components/Tag/Tag";
+import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 
 import styles from "./LearningModuleCard.module.scss";
