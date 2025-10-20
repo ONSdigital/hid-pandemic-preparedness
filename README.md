@@ -54,7 +54,21 @@ npm i --include-dev
 npm run build-bootstrap-js
 ```
 
+9. Create a `.env` file and include env vars to ensure correct settings are loaded to support development. See the [.example-env](.example-env) and the [environment variables](#environment-variables) section below
+
 The project is now ready for development or to use for deployments.
+
+## Environment variables
+
+The table below lists the environment variables used in this project and a description of how they are used.
+
+| Variable | Default value | Description |
+| - | - | - |
+| STORYBLOK_ACCESS_TOKEN | - | Used to authenticate with the [Storyblok CMS content delivery API](https://www.storyblok.com/docs/api/content-delivery/v2). This token is required to fetch data from the Storyblok CMS and can be obtained from the project space settings within Storyblok. |
+| ASTRO_OUTPUT | static | This is read by the [astro.config.mjs](./astro.config.mjs) file when the Astro project is configured and used to set the [output option](https://docs.astro.build/en/reference/configuration-reference/#output). This should be set to either `static` or `server`. If set to `static`, the site is built for static site generation (SSG) which is used for local development and the production deployment. If set to `server` the site is built for sever side rendering (SSR) which is used for the CMS preview deployment |
+| ASTRO_PREVIEW | false | This is used within the [fetchContent](./src/helpers/fetchContent.ts) helpers. If set to `true` content is fetched from the Storyblok CMS content delivery API as draft, which is useful when we are previewing content. If set to `false` content is fetched as published, which is what we want when building the production deployment |
+| PREVIEW_CDN_BASE_URL | - | This is read by the [astro.config.mjs](./astro.config.mjs) file when the Astro project is configured and used to set the [build.assetsPrefix option](https://docs.astro.build/en/reference/configuration-reference/#buildassetsprefix). If we are building for the `server` output for the CMS preview deployment, CSS and JS assets are served from a separate location. This var sets the base url of this location. |
+| ASTRO_USE_LOCAL_DATA | true |This is used within the [fetchContent](./src/helpers/fetchContent.ts) helpers to set the client we are using to fetch content. If set to `true` content is not fetched from the Storyblok CMS content delivery API and loaded from static content files, which is useful when we are testing or developing locally. If set to `false` content is fetched from the Storyblok CMS content delivery API |
 
 ## Development server
 
