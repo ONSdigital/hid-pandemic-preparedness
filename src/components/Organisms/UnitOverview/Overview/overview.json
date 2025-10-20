@@ -1,0 +1,198 @@
+{
+  "tags": [
+    {
+      "_uid": "af0f8ecd-b589-4104-9a56-0700cc07acd5",
+      "type": "primary",
+      "title": "Reports",
+      "component": "Tag",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Tag\", \"space\": \"287525897740819\", \"uid\": \"af0f8ecd-b589-4104-9a56-0700cc07acd5\", \"id\": \"103536107383396\"}--\u003E"
+    },
+    {
+      "_uid": "b28638ce-63ff-4e34-a65f-8c7b2c75c41c",
+      "type": "gray",
+      "title": "Beginner",
+      "component": "Tag",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Tag\", \"space\": \"287525897740819\", \"uid\": \"b28638ce-63ff-4e34-a65f-8c7b2c75c41c\", \"id\": \"103536107383396\"}--\u003E"
+    }
+  ],
+  "githubLink": {
+    "id": "",
+    "rel": "",
+    "url": "github.com",
+    "title": "Open Github",
+    "linktype": "url",
+    "fieldtype": "multilink",
+    "cached_url": "github.com"
+  },
+  "readingTime": "Set aside 5-10 minutes",
+  "overviewRichText": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Overview",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "horizontal_rule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "This guidance introduces the principles and practices of mortality analysis. It is designed for professionals working in public health, statistics, policy, or research who need to interpret mortality trends and use them to inform decisions. ",
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#212529"
+                }
+              }
+            ]
+          },
+          {
+            "text": "The guidance introduces key concepts, methods, and tools used globally, with examples drawn from the UK’s Office for National Statistics (ONS).",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 3,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Learning Outcomes:",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bullet_list",
+        "content": [
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Understand the key concepts and terminology related to mortality data.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Identify common users and uses of mortality statistics in public health and policy.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Understand how mortality data is collected, processed, and reported.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Apply standard methods to calculate mortality rates and interpret life tables.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Analyse causes of death using structured classification systems (e.g., ICD).",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Present mortality data clearly and responsibly to avoid misinterpretation.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

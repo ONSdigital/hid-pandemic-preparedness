@@ -1,19 +1,22 @@
+import { RiTimerLine } from "@remixicon/react";
+import { renderRichText } from "@storyblok/astro";
 import type { FC } from "react";
 import clsx from "clsx";
 
-import { RiTimerLine } from "@remixicon/react";
-
-import { Link } from "@src/components/Link/Link";
-import { Tag } from "@src/components/Tag/Tag";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
+import { Tag } from "@src/components/Molecules/Core/Tag/Tag";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 
-import styles from "./LearningModuleCard.module.scss";
-import type { LearningModuleCardProps } from "./LearningModuleCard.interface";
+import styles from "./Overview.module.scss";
+import type { OverviewProps } from "./Overview.interface";
 
 // Set size of icon here using icon component props
 const iconSize: string = "1.5rem";
 
-export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
+export const Overview: FC<OverviewProps> = (props) => {
+  // Render the rich text content from props using Storyblok helper
+  const renderedRichText = renderRichText(props.overviewRichText);
+
   return (
     <div
       className={clsx(
@@ -28,11 +31,12 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
       <div className={clsx("row")}>
         <div className={clsx("col-12")}>
           <div className={clsx("d-flex", "flex-row", "mb-3", "gap-2")}>
-            {props.tags.map((tag) => (
-              <div key={tag.id}>
-                <Tag {...tag} />
-              </div>
-            ))}
+            {props.tags &&
+              props.tags.map((tag) => (
+                <div key={tag._uid}>
+                  <Tag {...tag} />
+                </div>
+              ))}
             <div className={clsx("ms-auto", "d-none", "d-md-inline")}>
               <span className={clsx("p-2", styles["icon-bg"])}>
                 <RiTimerLine size={iconSize} />
@@ -44,9 +48,7 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
       </div>
       <div className={clsx("row")}>
         <div className={clsx("col-12")}>
-          <h1 className={clsx("heading-m")}>{props.title}</h1>
-          <hr />
-          <TextModule {...props} />
+          {renderedRichText && <TextModule htmlContent={renderedRichText} />}
         </div>
       </div>
       <div className={clsx("row")}>
@@ -63,15 +65,17 @@ export const LearningModuleCard: FC<LearningModuleCardProps> = (props) => {
             <Link
               {...props.githubLink}
               asButton={true}
-              aria-label={props.githubLink.label}
+              aria-label={props.githubLink.title}
               buttonVariant="primary"
             />
-            <Link
-              {...props.startLink}
-              asButton={true}
-              aria-label="Start"
-              buttonVariant="secondary"
-            />
+            {props.startLink && (
+              <Link
+                {...props.startLink}
+                asButton={true}
+                aria-label={props.startLink.title}
+                buttonVariant="secondary"
+              />
+            )}
           </div>
         </div>
       </div>
