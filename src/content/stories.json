@@ -1149,7 +1149,7 @@
             "_editable": "<!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"4696bc7a-1c04-4817-9a37-21e516dad1a7\", \"id\": \"96814736940977\"}-->"
           }
         ],
-        "component": "page",
+        "component": "HomePage",
         "header_title": "Resilience through data",
         "imageAndText": [
           {
