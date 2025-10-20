@@ -1,4 +1,4 @@
-import { useRef, type FC } from "react";
+import { useRef, useState, type FC } from "react";
 
 import type { Swiper as SwiperType } from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
@@ -49,12 +49,22 @@ function parseBreakpoint(breakpoint: string) {
 }
 
 export const Carousel: FC<CarouselProps> = (props) => {
+  const [currentSlidesPerView, setCurrentSlidesPerView] = useState<number>(1);
   const swiperRef = useRef<SwiperType | null>(null);
-  const hiddenNavigation = clsx("d-none", "d-md-block");
 
   const breakpointMd = parseBreakpoint(breakpoints.breakpointMd);
   const breakpointLg = parseBreakpoint(breakpoints.breakpointLg);
   const breakpointXxl = parseBreakpoint(breakpoints.breakpointXxl);
+
+  const handleBreakpointChange = (swiper: SwiperType) => {
+    const slidesPerView = swiper.params.slidesPerView;
+    if (typeof slidesPerView === "number") {
+      setCurrentSlidesPerView(slidesPerView);
+    }
+  };
+
+  const showControls = props.cards.length > currentSlidesPerView;
+  const hiddenNavigation = clsx("d-none", showControls && "d-md-block");
 
   return (
     <>
@@ -84,9 +94,10 @@ export const Carousel: FC<CarouselProps> = (props) => {
               slidesPerView: 4,
             },
           }}
-          loop={true}
+          loop={showControls}
           modules={[Navigation, Pagination]}
           onSwiper={(swiper: any) => (swiperRef.current = swiper)}
+          onBreakpoint={handleBreakpointChange}
           pagination={{
             clickable: true,
             el: "#container-for-pagination-bullets",
@@ -119,10 +130,12 @@ export const Carousel: FC<CarouselProps> = (props) => {
         </div>
       </div>
       {/* Swiper.js references this div when creating custom pagination bullets*/}
-      <div
-        id="container-for-pagination-bullets"
-        className="d-flex d-md-none justify-content-center gap-3 mt-4"
-      ></div>
+      {showControls && (
+        <div
+          id="container-for-pagination-bullets"
+          className="d-flex d-md-none justify-content-center gap-3 mt-4"
+        ></div>
+      )}
     </>
   );
 };
