@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import sanitizeHtml from "sanitize-html";
 
 // Interfaces
+import type { HeaderProps } from "@components/Organisms/Core/Header/Header.interface";
 import type { LearningModuleProps } from "@components/Core/LearningModule/LearningModule.interface";
 
 // Components
@@ -26,7 +27,7 @@ learningModuleData.navProps.parentUrl = Astro.url.pathname;
 
 <BaseLayout title={headerData.title}>
   <main>
-    <Header {...headerData} />
+    <Header {...headerData as HeaderProps} />
     <LearningModule {...learningModuleData as LearningModuleProps} />
   </main>
 </BaseLayout>
