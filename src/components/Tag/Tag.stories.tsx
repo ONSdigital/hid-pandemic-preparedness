@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 const tagData: TagProps = {
   id: uuidv4(),
   title: "Reports",
-  type: "primary",
+  type: "location",
 };
 
 export const TagStory = {

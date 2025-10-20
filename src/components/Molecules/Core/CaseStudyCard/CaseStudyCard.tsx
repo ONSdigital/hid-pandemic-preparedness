@@ -6,6 +6,7 @@ import { Link } from "@src/components/Molecules/Core/Link/Link";
 
 import type { CaseStudyCardProps } from "./CaseStudyCard.interface";
 import styles from "./CaseStudyCard.module.scss";
+import { Tag } from "@/src/components/Tag/Tag";
 
 export const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
   return (
@@ -29,11 +30,16 @@ export const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
           ],
         )}
       >
-        <div className={clsx(props.size === "small" && "col")}>
+        <div
+          className={clsx("position-relative", props.size === "small" && "col")}
+        >
           <Image
             {...props.image}
             className={clsx("card-img", styles["image"])}
           />
+          <div className={clsx("position-absolute", styles["tag-container"])}>
+            <Tag {...props.tag} />
+          </div>
         </div>
         <div className={clsx(props.size === "small" && "col")}>
           <div className={clsx("card-body", "p-0")}>

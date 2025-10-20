@@ -1,5 +1,5 @@
 export interface TagData {
-  id: string;
+  _uid: string;
   title: string;
-  type: "primary" | "secondary" | "gray";
+  type: "level" | "location" | "theme";
 }
