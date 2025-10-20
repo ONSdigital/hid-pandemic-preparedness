@@ -16,17 +16,22 @@ const meta = {
         disable: true,
       },
     },
-    size: {
-      table: {
-        disable: true,
-      },
-    },
     image: {
       table: {
         disable: true,
       },
     },
     link: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    tag: {
       table: {
         disable: true,
       },
@@ -68,6 +73,11 @@ const cardCaseStudyProps: CaseStudyCardProps = {
       copyright: "",
     },
     is_external_url: false,
+  },
+  tag: {
+    _uid: uuidv4(),
+    title: "Nepal",
+    type: "primary",
   },
 };
 
