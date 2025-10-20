@@ -54,8 +54,13 @@ const toolCardProps: ToolCardProps = {
   title: "Rumour report",
   subTitle: "A rumour report logs unverified claims or info in circulation.",
   link: {
-    href: "/",
-    label: "Try now",
+    id: "e26bc65c-c83e-4d04-a5da-114fec6ce123",
+    rel: "",
+    url: "/",
+    title: "Try now",
+    linktype: "story",
+    fieldtype: "multilink",
+    cached_url: "home",
   },
 };
 
