@@ -1,13 +1,13 @@
 import type { FC } from "react";
 
-import { Carousel } from "@src/components/Core/Carousel/Carousel";
-import { CaseStudies } from "@/src/components/Organisms/Home/CaseStudies/CaseStudies";
-import { FullWidthRichText } from "@/src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
+import { Carousel } from "@src/components/Organisms/Core/Carousel/Carousel";
+import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
+import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
-import { StatisticsAndText } from "@/src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
-import { StrategicPartners } from "@/src/components/Organisms/Home/StrategicPartners/StrategicPartners";
+import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
+import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =
@@ -17,8 +17,8 @@ type ComponentName =
   | "Header"
   | "ImageAndText"
   | "Impact"
-  | "StrategicPartners"
-  | "StatisticsAndText";
+  | "StatisticsAndText"
+  | "StrategicPartners";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Carousel,

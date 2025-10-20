@@ -1,13 +1,14 @@
-@use "../../styles/global/tokens" as *;
+@use "../../../../styles/global/tokens" as *;
 
-@import "../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../styles/bootstrap-5.3.8/scss/variables";
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
 
 // Sets width based on viewport size
 .card-tool {
   border-color: $color-brand-secondary-200;
   width: 18rem;
+  aspect-ratio: 1;
 
   @include media-breakpoint-up(md) {
     width: 22.5rem;
