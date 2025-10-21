@@ -1,0 +1,18 @@
+{
+  "content-types": {
+    "reports": "Reports"
+  },
+  "levels": {
+    "advanced": "Advanced",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate"
+  },
+  "locations": {
+    "argentina": "Argentina",
+    "malawi": "Malawi",
+    "nepal": "Nepal",
+    "united-kingdom": "United Kingdom"
+  },
+  "office-for-national-statistics": "Office for National Statistics",
+  "title": "Analysis for Action"
+}
