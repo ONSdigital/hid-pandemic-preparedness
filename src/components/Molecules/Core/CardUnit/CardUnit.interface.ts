@@ -1,10 +1,10 @@
 import type { LinkData } from "@localTypes/LinkData";
-import type { TagData } from "@localTypes/TagData";
+import type { Tag } from "@src/types/Tag";
 
 export interface CardUnitProps {
   id: string;
   link: LinkData;
   subTitle: string;
-  tags: TagData[];
+  tags: Tag[];
   readingTime: string;
 }

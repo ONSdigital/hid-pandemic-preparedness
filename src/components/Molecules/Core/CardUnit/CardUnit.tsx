@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { RiTimerLine } from "@remixicon/react";
 import clsx from "clsx";
 import type { FC } from "react";
@@ -41,7 +42,7 @@ export const CardUnit: FC<CardUnitProps> = (props) => {
         )}
       >
         {props.tags.map((item) => (
-          <Tag {...item} key={item.id} />
+          <Tag {...item} key={uuidv4()} />
         ))}
       </div>
       <div
