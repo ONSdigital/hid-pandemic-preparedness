@@ -7,6 +7,10 @@
     "beginner": "Beginner",
     "intermediate": "Intermediate"
   },
+  "links": {
+    "open-github": "Open Github",
+    "start": "Start"
+  },
   "locations": {
     "argentina": "Argentina",
     "malawi": "Malawi",

@@ -15,7 +15,7 @@ const meta = {
       disable: true,
     },
   },
-  title: "Organisms/UnitOverview/Overview",
+  title: "Organisms/Unit/Overview",
 } satisfies Meta<typeof Overview>;
 
 export default meta;
