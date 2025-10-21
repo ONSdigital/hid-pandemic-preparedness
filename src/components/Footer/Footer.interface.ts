@@ -1,8 +1,8 @@
-import type { LinkData } from "../../types/LinkData";
+import type { Link } from "@/src/types/Link";
 import type { MenuData } from "../../types/MenuData";
 
 export interface FooterColumnLinksProps {
-  links: LinkData[];
+  links: Link[];
 }
 
 export interface FooterColumnTitleBlockProps {

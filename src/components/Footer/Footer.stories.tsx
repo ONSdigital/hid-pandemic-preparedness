@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import footerData from "../../content/base/footerData.json";
+import footerData from "./footer.json?raw";
 import { Footer } from "./Footer";
 import type { FooterProps } from "./Footer.interface";
 
@@ -24,5 +24,5 @@ type Story = StoryObj<typeof meta>;
 
 export const FooterStory = {
   name: "Footer",
-  args: footerData as FooterProps,
+  args: JSON.parse(footerData) as FooterProps, //footer.json?raw parsed in this way to avoid type
 } satisfies Story;

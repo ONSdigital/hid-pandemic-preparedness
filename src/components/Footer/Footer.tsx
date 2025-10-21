@@ -20,10 +20,10 @@ const FooterColumnLinks: FC<FooterColumnLinksProps> = (props) => {
               "link-underline",
               "link-underline-opacity-0",
             )}
-            href={link.href}
-            aria-disabled={link.disabled}
+            href={link.url}
+            // aria-disabled={link.disabled} TODO
           >
-            {link.label}
+            {link.title}
           </a>
         </p>
       ))}
@@ -52,7 +52,7 @@ export const Footer: FC<FooterProps> = (props) => {
         <div className={clsx("row", "row-cols-1", "row-cols-lg-4")}>
           {/* Columns for viewports sm and up first three */}
           {props.columns.slice(0, 3).map((col) => (
-            <div className={clsx("col", "d-none", "d-sm-block")} key={col.id}>
+            <div className={clsx("col", "d-none", "d-sm-block")} key={col._uid}>
               <FooterColumnTitleBlock title={col.title} />
               <FooterColumnLinks links={col.links} />
             </div>
@@ -66,7 +66,7 @@ export const Footer: FC<FooterProps> = (props) => {
             data-bs-theme="dark"
           >
             {props.columns.slice(0, 3).map((col) => (
-              <div className={clsx("accordion-item")} key={col.id}>
+              <div className={clsx("accordion-item")} key={col._uid}>
                 <h4 className={clsx("accordion-header")}>
                   <button
                     className={clsx(
@@ -77,15 +77,15 @@ export const Footer: FC<FooterProps> = (props) => {
                     )}
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target={`#${col.id}`}
+                    data-bs-target={`#${col._uid}`}
                     aria-expanded="true"
-                    aria-controls={col.id}
+                    aria-controls={col._uid}
                   >
                     {col.title}
                   </button>
                 </h4>
                 <div
-                  id={col.id}
+                  id={col._uid}
                   className={clsx("accordion-collapse", "collapse", "show")}
                   data-bs-parent={`#${accordionId}`}
                 >
