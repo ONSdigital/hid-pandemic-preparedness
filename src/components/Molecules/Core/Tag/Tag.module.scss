@@ -3,14 +3,14 @@
 @import "../../../../styles/bootstrap-5.3.8/scss/functions";
 @import "../../../../styles/bootstrap-5.3.8/scss/variables";
 
-.tag-primary {
+.tag-level {
+  background-color: $color-grey-200;
+}
+
+.tag-location {
   background-color: $color-brand-primary-200;
 }
 
-.tag-secondary {
+.tag-theme {
   background-color: $color-brand-secondary-300;
-}
-
-.tag-gray {
-  background-color: $gray-200;
 }

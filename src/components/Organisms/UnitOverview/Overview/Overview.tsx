@@ -3,8 +3,8 @@ import { renderRichText } from "@storyblok/astro";
 import type { FC } from "react";
 import clsx from "clsx";
 
-import { Link } from "@src/components/Molecules/Core/Link/Link";
-import { Tag } from "@src/components/Molecules/Core/Tag/Tag";
+import { Link } from "@src/components/Link/Link";
+import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 
 import styles from "./Overview.module.scss";

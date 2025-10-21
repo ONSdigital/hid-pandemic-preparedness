@@ -4,7 +4,7 @@ import type { FC } from "react";
 
 import type { CardUnitProps } from "./CardUnit.interface";
 import styles from "../CardUnit/CardUnit.module.scss";
-import { Tag } from "@components/Tag/Tag";
+import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 
 // Set size of icon here using icon component props
 const iconSize: string = "1.5rem";

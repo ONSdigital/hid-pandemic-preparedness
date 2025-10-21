@@ -7,6 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      ASTRO_USE_LOCAL_DATA: false
+      STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: aws-actions/configure-aws-credentials@v4
@@ -23,6 +26,9 @@ jobs:
         shell: bash
       - run: npm run deploy-app-main
         shell: bash
+        env:
+          ASTRO_OUTPUT: static
+          ASTRO_PREVIEW: true
       - run: npm run deploy-storybook-main
         shell: bash
       - run: npm run deploy-app-preview
@@ -30,6 +36,4 @@ jobs:
         env:
           ASTRO_OUTPUT: server
           ASTRO_PREVIEW: true
-          ASTRO_USE_LOCAL_DATA: false
           PREVIEW_CDN_BASE_URL: ${{ secrets.PREVIEW_CDN_BASE_URL }}
-          STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}

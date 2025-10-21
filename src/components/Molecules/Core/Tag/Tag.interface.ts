@@ -1,3 +1,3 @@
-import type { Tag } from "@src/types/Tag";
+import type { TagData } from "@localTypes/TagData";
 
-export interface TagProps extends Tag {}
+export interface TagProps extends TagData {}
