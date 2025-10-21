@@ -1,20 +1,7 @@
 {
-  "tags": [
-    {
-      "_uid": "af0f8ecd-b589-4104-9a56-0700cc07acd5",
-      "type": "primary",
-      "title": "Reports",
-      "component": "Tag",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"Tag\", \"space\": \"287525897740819\", \"uid\": \"af0f8ecd-b589-4104-9a56-0700cc07acd5\", \"id\": \"103536107383396\"}--\u003E"
-    },
-    {
-      "_uid": "b28638ce-63ff-4e34-a65f-8c7b2c75c41c",
-      "type": "gray",
-      "title": "Beginner",
-      "component": "Tag",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"Tag\", \"space\": \"287525897740819\", \"uid\": \"b28638ce-63ff-4e34-a65f-8c7b2c75c41c\", \"id\": \"103536107383396\"}--\u003E"
-    }
-  ],
+  "_uid": "c31436d6-3216-48c5-85c6-3020920ce6b5",
+  "title": "Overview",
+  "component": "UnitOverview",
   "githubLink": {
     "id": "",
     "rel": "",
@@ -28,22 +15,6 @@
   "overviewRichText": {
     "type": "doc",
     "content": [
-      {
-        "type": "heading",
-        "attrs": {
-          "level": 1,
-          "textAlign": null
-        },
-        "content": [
-          {
-            "text": "Overview",
-            "type": "text"
-          }
-        ]
-      },
-      {
-        "type": "horizontal_rule"
-      },
       {
         "type": "paragraph",
         "attrs": {
@@ -194,5 +165,6 @@
         ]
       }
     ]
-  }
+  },
+  "_editable": "\u003C!--#storyblok#{\"name\": \"UnitOverview\", \"space\": \"287525897740819\", \"uid\": \"c31436d6-3216-48c5-85c6-3020920ce6b5\", \"id\": \"103536107383396\"}--\u003E"
 }

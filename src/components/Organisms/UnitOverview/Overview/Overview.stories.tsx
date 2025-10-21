@@ -1,35 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { v4 as uuidv4 } from "uuid";
+
+import type { Tag } from "@src/types/Tag";
 
 import { Overview } from "./Overview";
-import type { OverviewProps } from "./Overview.interface";
-import overviewData from "./overview.json";
+// Importing raw here to avoid typescript errors when parsing strings to enums
+import overviewDataJson from "./overview.json?raw";
 
 const meta = {
-  argTypes: {
-    githubLink: {
-      table: {
-        disable: true,
-      },
-    },
-    startLink: {
-      table: {
-        disable: true,
-      },
-    },
-    overviewRichText: {
-      table: {
-        disable: true,
-      },
-    },
-    tags: {
-      table: {
-        disable: true,
-      },
-    },
-  },
   component: Overview,
   parameters: {
     layout: "centered",
+    controls: {
+      disable: true,
+    },
   },
   title: "Organisms/UnitOverview/Overview",
 } satisfies Meta<typeof Overview>;
@@ -37,7 +21,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Create some tags to add to the data
+const tags: Tag[] = [
+  {
+    id: uuidv4(),
+    title: "Reports",
+  },
+  {
+    id: uuidv4(),
+    title: "Beginner",
+  },
+];
+
 export const OverviewStory = {
-  args: { ...overviewData } as OverviewProps,
+  args: { ...JSON.parse(overviewDataJson), tags: tags },
   name: "Overview",
 } satisfies Story;
