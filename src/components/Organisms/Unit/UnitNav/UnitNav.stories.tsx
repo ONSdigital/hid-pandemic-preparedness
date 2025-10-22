@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import chaptersData from "@content/chapters.json";
 
-import { LearningModuleNav } from "./LearningModuleNav";
+import { LearningModuleNav } from "./UnitNav";
 
 const meta = {
   argTypes: {
