@@ -1,7 +1,4 @@
 {
-  "themes": {
-    "reports": "Reports"
-  },
   "levels": {
     "advanced": "Advanced",
     "beginner": "Beginner",
@@ -17,6 +14,21 @@
     "nepal": "Nepal",
     "united-kingdom": "United Kingdom"
   },
-  "office-for-national-statistics": "Office for National Statistics",
-  "title": "Analysis for Action"
+  "officeForNationalStatistics": "Office for National Statistics",
+  "themes": {
+    "reports": "Reports"
+  },
+  "title": "Analysis for Action",
+  "unit": {
+    "overview": {
+      "openGithub": "Open Github",
+      "start": "Start"
+    },
+    "unitNav": {
+      "chapters": "Chapters",
+      "downloadPdf": "Download PDF",
+      "feedback": "Feedback",
+      "openGithub": "Open GITHUB"
+    }
+  }
 }

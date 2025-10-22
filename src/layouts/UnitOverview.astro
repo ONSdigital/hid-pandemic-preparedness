@@ -37,10 +37,10 @@ const { data } = await fetchStories({
 });
 const stories: ISbStoryData[] = data.stories;
 
-// If query returned some stories, build the nav and links
+// If query returned some stories, build the nav props and links
 if (stories.length > 1) {
   overviewStartLink = {
-    title: strings.links.start,
+    title: strings.unit.overview.start,
     url: `${stories[0].slug}`,
   };
   console.log(stories);
