@@ -2,11 +2,13 @@ import clsx from "clsx";
 import type { FC } from "react";
 
 import { Link } from "@components/Molecules/Core/Link/Link";
+
 import type {
   FooterColumnLinksProps,
   FooterColumnTitleProps,
   FooterProps,
 } from "./Footer.interface";
+
 import styles from "./Footer.module.scss";
 
 const FooterColumnLinks: FC<FooterColumnLinksProps> = (props) => {

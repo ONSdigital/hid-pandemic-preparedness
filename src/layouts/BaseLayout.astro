@@ -7,7 +7,6 @@ import { NavBar } from "@components/NavBar/NavBar";
 
 // Content
 import strings from "@content/base/strings.json";
-import footerData from "@content/base/footerData.json";
 import navBarData from "@content/base/navBarData.json";
 
 // Css and fonts
@@ -16,6 +15,7 @@ import "@fontsource-variable/open-sans";
 
 // Helpers
 import { fetchStory } from "@helpers/fetchContent";
+import type { FooterProps } from "@components/Organisms/Footer/Footer.interface";
 
 interface Props {
   title?: string;
@@ -33,7 +33,7 @@ if (liveStory) {
   story = data?.story;
 }
 
-console.log("sotrryyy... ", story);
+const footerContent = story.content as FooterProps;
 ---
 
 <html lang="en">
@@ -53,6 +53,6 @@ console.log("sotrryyy... ", story);
       <NavBar {...navBarData} client:load />
     </header>
     <slot />
-    <Footer {...footerData} client:load />
+    <Footer {...footerContent} client:load />
   </body>
 </html>

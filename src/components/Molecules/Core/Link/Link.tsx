@@ -9,6 +9,7 @@ import clsx from "clsx";
 import type { LinkProps } from "./Link.interface";
 
 export const Link: FC<LinkProps> = (props) => {
+  console.log(props);
   let classes: string[] = [];
   let Icon = null;
 
