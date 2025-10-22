@@ -17,7 +17,7 @@ import { UnitNav } from "@src/components/Organisms/Unit/UnitNav/UnitNav";
 import strings from "@src/content/strings.json";
 
 // Helpers
-import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
 import { fetchStories } from "@src/helpers/fetchContent";
 import { getTags } from "@src/helpers/getTags";
 
@@ -46,7 +46,7 @@ const stories: ISbStoryData[] = data.stories;
 if (stories.length > 1) {
   overviewStartLink = {
     title: strings.unit.overview.start,
-    url: `${stories[0].slug}`,
+    url: stories[0].full_slug,
   };
   unitNavProps = {
     activeChapterSlug: story.full_slug,

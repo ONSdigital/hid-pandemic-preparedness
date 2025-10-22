@@ -6,11 +6,15 @@ import {
 } from "@remixicon/react";
 import clsx from "clsx";
 
+import { sanitizeUrl } from "@src/helpers/sanitizeUrl";
+
 import type { LinkProps } from "./Link.interface";
 
 export const Link: FC<LinkProps> = (props) => {
   let classes: string[] = [];
   let Icon = null;
+  // Sanitize the url first just to make sure its in the correct format
+  const sanitizedUrl = sanitizeUrl(props.url);
 
   // Set css class based on whether we are rendering as a button or inverse
   if (props.asButton) {
@@ -36,10 +40,10 @@ export const Link: FC<LinkProps> = (props) => {
     classes.push("disabled");
   }
 
-  if (props.url.startsWith("http")) {
+  if (sanitizedUrl.startsWith("http")) {
     // If href starts with http, render as an external link to include icon
     Icon = <RiShareBoxFill />;
-  } else if (props.url.startsWith("/")) {
+  } else if (sanitizedUrl.startsWith("/")) {
     // If href starts with /, this is an internal navigation link
     if (props.goBack) {
       // If goBack, render a back icon
@@ -61,7 +65,7 @@ export const Link: FC<LinkProps> = (props) => {
   return (
     <a
       className={clsx(classes)}
-      href={props.url}
+      href={sanitizedUrl}
       target={props.target}
       aria-disabled={props.disabled}
     >
