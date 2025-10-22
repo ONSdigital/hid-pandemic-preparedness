@@ -6,7 +6,7 @@ export function sanitizeUrl(baseUrl: string, path?: string): string {
   // See whether we have an absolute url by trying to construct URL object
   try {
     absoluteUrl = new URL(baseUrl);
-  } catch (error) {
+  } catch {
     // Not absolute url so just ignore
   }
 
