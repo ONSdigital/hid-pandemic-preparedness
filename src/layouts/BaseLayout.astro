@@ -1,6 +1,8 @@
 ---
+import { getLiveStory } from "@storyblok/astro";
+
 // Components
-import { Footer } from "@components/Footer/Footer";
+import { Footer } from "@components/Organisms/Footer/Footer";
 import { NavBar } from "@components/NavBar/NavBar";
 
 // Content
@@ -12,10 +14,26 @@ import navBarData from "@content/base/navBarData.json";
 import "@styles/index.scss";
 import "@fontsource-variable/open-sans";
 
+// Helpers
+import { fetchStory } from "@helpers/fetchContent";
+
 interface Props {
   title?: string;
 }
 const { title } = Astro.props;
+
+let story = null;
+
+const liveStory = await getLiveStory(Astro);
+
+if (liveStory) {
+  story = liveStory;
+} else {
+  const { data } = await fetchStory("footer");
+  story = data?.story;
+}
+
+console.log("sotrryyy... ", story);
 ---
 
 <html lang="en">

@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
+import { Link } from "@components/Molecules/Core/Link/Link";
 import type {
   FooterColumnLinksProps,
-  FooterColumnTitleBlockProps,
+  FooterColumnTitleProps,
   FooterProps,
 } from "./Footer.interface";
 import styles from "./Footer.module.scss";
@@ -11,29 +12,18 @@ import styles from "./Footer.module.scss";
 const FooterColumnLinks: FC<FooterColumnLinksProps> = (props) => {
   return (
     <>
-      {props.links?.map((link) => (
-        <p key={link.id}>
-          <a
-            className={clsx(
-              "fw-light",
-              "link-light",
-              "link-underline",
-              "link-underline-opacity-0",
-            )}
-            href={link.url}
-            // aria-disabled={link.disabled} TODO
-          >
-            {link.title}
-          </a>
+      {props.links?.map((item) => (
+        <p key={item._uid}>
+          <Link {...item.link} textInverse={true} />
         </p>
       ))}
     </>
   );
 };
 
-const FooterColumnTitleBlock: FC<FooterColumnTitleBlockProps> = (props) => {
+const FooterColumnTitleBlock: FC<FooterColumnTitleProps> = (props) => {
   return (
-    <div className={clsx(styles["col-title-block"])}>
+    <div className={clsx(styles["col-title-block"], "mb-3")}>
       {props.title && (
         <h4 className={clsx("heading-s", "text-light")}>{props.title}</h4>
       )}
@@ -42,6 +32,7 @@ const FooterColumnTitleBlock: FC<FooterColumnTitleBlockProps> = (props) => {
 };
 
 export const Footer: FC<FooterProps> = (props) => {
+  console.log(props.columns.slice(0, 3));
   const accordionId: string = "footerAccordion";
 
   return (
