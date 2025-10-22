@@ -64,19 +64,25 @@ export const Overview: FC<OverviewProps> = (props) => {
               "gap-4",
             )}
           >
-            <Link
-              {...props.githubLink}
-              asButton={true}
-              aria-label={props.githubLink.title}
-              buttonVariant="primary"
-            />
+            {props.githubLink && (
+              <div data-testid="github-link">
+                <Link
+                  {...props.githubLink}
+                  asButton={true}
+                  aria-label={props.githubLink.title}
+                  buttonVariant="primary"
+                />
+              </div>
+            )}
             {props.startLink && (
-              <Link
-                {...props.startLink}
-                asButton={true}
-                aria-label={props.startLink.title}
-                buttonVariant="secondary"
-              />
+              <div data-testid="start-link">
+                <Link
+                  {...props.startLink}
+                  asButton={true}
+                  aria-label={props.startLink.title}
+                  buttonVariant="secondary"
+                />
+              </div>
             )}
           </div>
         </div>

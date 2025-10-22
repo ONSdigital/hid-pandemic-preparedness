@@ -7,7 +7,7 @@ export interface OverviewProps {
   title: string;
   readingTime: string;
   overviewRichText: StoryblokRichTextNode;
-  githubLink: Link;
+  githubLink?: Link;
   startLink?: Link;
   tags?: Tag[];
 }
