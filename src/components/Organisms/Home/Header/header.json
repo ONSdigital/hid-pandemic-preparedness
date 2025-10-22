@@ -2,5 +2,18 @@
   "_uid": "e2107683-0038-4079-b074-a11fd8345326",
   "title": "Resilience through data",
   "subTitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
-  "searchPlaceholderText": "Search learning resources"
+  "searchPlaceholderText": "Search learning resources",
+  "image": {
+    "id": 101034835114964,
+    "alt": "",
+    "name": "",
+    "focus": "",
+    "title": "",
+    "source": "",
+    "filename": "./images/home-header-world-of-data.jpg",
+    "copyright": "",
+    "fieldtype": "asset",
+    "meta_data": {},
+    "is_external_url": false
+  }
 }
