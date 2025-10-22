@@ -4,6 +4,7 @@ import { sentenceCase } from "sentence-case";
 
 import { Breadcrumb } from "@components/Molecules/Core/Breadcrumb/Breadcrumb";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
+import { Image } from "@src/components/Molecules/Core/Image/Image";
 
 import type { HeaderProps } from "./Header.interface";
 import styles from "./Header.module.scss";
@@ -32,10 +33,10 @@ export const Header: FC<HeaderProps> = (props) => {
               "justify-content-center",
             )}
           >
-            <img
-              src="/images/home-header-world-of-data.jpg"
-              alt=""
+            <Image
               className={clsx(styles["header-image"])}
+              {...props.image}
+              alt=""
             />
           </div>
         </div>
