@@ -1,35 +1,40 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import chaptersData from "@content/chapters.json";
+// Importing raw here to avoid typescript errors when parsing strings to enums
+import unitNavJson from "./unit-nav.json?raw";
+import { UnitNav } from "./UnitNav";
+import type { UnitNavProps } from "./UnitNav.interface";
 
-import { LearningModuleNav } from "./UnitNav";
+const unitNavProps: UnitNavProps = {
+  ...JSON.parse(unitNavJson),
+};
 
 const meta = {
   argTypes: {
-    activeChapterId: {
+    activeChapterSlug: {
       control: {
         type: "select",
       },
-      options: [null, ...chaptersData.map((chapter) => chapter.id)],
+      options: [
+        null,
+        unitNavProps.parentStory.full_slug,
+        ...unitNavProps.chapterStories.map((chapter) => chapter.full_slug),
+      ],
     },
-    chapters: { table: { disable: true } },
-    parentUrl: { table: { disable: true } },
+    chapterStories: { table: { disable: true } },
+    parentStory: { table: { disable: true } },
   },
-  component: LearningModuleNav,
+  component: UnitNav,
   parameters: {
     layout: "centered",
   },
-  title: "Components/LearningModuleNav",
-} satisfies Meta<typeof LearningModuleNav>;
+  title: "Organisms/Unit/UnitNav",
+} satisfies Meta<typeof UnitNav>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LearningModuleNavStory = {
-  args: {
-    chapters: chaptersData,
-    activeChapterId: "chapter1",
-    parentUrl: "https://ons.gov.uk/",
-  },
-  name: "LearningModuleNav",
+export const UnitNavStory = {
+  args: unitNavProps,
+  name: "UnitNav",
 } satisfies Story;
