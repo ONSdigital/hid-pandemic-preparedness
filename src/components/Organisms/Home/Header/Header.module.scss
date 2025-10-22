@@ -9,19 +9,6 @@
   position: relative;
 }
 
-.header-image-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  position: relative;
-
-  // Add feather to top
-  @include media-breakpoint-down(lg) {
-    mask-image: linear-gradient(to bottom, transparent, black 10%);
-  }
-}
-
 .header-image {
   @include media-breakpoint-up(lg) {
     position: absolute;
@@ -50,5 +37,10 @@
       black 90%,
       transparent 100%
     );
+  }
+
+  // Add feather to top
+  @include media-breakpoint-down(lg) {
+    mask-image: linear-gradient(to bottom, transparent, black 10%);
   }
 }

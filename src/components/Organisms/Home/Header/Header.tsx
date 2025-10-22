@@ -13,7 +13,7 @@ export const Header: FC<HeaderProps> = (props) => {
     <div className={clsx("w-100", styles["header-bg"])}>
       <div className={clsx("container-lg", "text-light")}>
         <div className={clsx("row")}>
-          <div className={clsx("col-lg-6", "py-4", "position-relative", "z-1")}>
+          <div className={clsx("col-lg-6", "py-4", "z-1")}>
             <Breadcrumb {...props.breadcrumbs} />
 
             <h1 className={clsx("heading-xl")}>{sentenceCase(props.title)}</h1>
@@ -23,14 +23,20 @@ export const Header: FC<HeaderProps> = (props) => {
               <SearchBar placeholder={props.searchPlaceholderText} />
             </div>
           </div>
-          <div className={clsx("col-lg-6")}>
-            <div className={clsx(styles["header-image-wrapper"])}>
-              <img
-                src="/images/home-header-world-of-data.jpg"
-                alt=""
-                className={clsx(styles["header-image"])}
-              />
-            </div>
+          <div
+            className={clsx(
+              "col-lg-6",
+              "position-relative",
+              "d-flex",
+              "flex-column",
+              "justify-content-center",
+            )}
+          >
+            <img
+              src="/images/home-header-world-of-data.jpg"
+              alt=""
+              className={clsx(styles["header-image"])}
+            />
           </div>
         </div>
       </div>
