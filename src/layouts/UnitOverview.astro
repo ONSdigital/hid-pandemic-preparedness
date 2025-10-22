@@ -11,6 +11,7 @@ import type { Tag } from "@src/types/Tag";
 // Components
 import { Header } from "@src/components/Organisms/Core/Header/Header";
 import { Overview } from "@src/components/Organisms/Unit/Overview/Overview";
+import { UnitNav } from "@src/components/Organisms/Unit/UnitNav/UnitNav";
 
 // Content
 import strings from "@src/content/strings.json";
@@ -20,11 +21,15 @@ import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
 import { fetchStories } from "@src/helpers/fetchContent";
 import { getTags } from "@src/helpers/getTags";
 
+// Styles
+import styles from "./UnitOverview.module.scss";
+
 interface Props {
   story: ISbStoryData;
 }
 const { story } = Astro.props;
 let overviewStartLink = null;
+let unitNavProps = null;
 
 // Build breadcrumbs
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
@@ -43,7 +48,11 @@ if (stories.length > 1) {
     title: strings.unit.overview.start,
     url: `${stories[0].slug}`,
   };
-  console.log(stories);
+  unitNavProps = {
+    activeChapterSlug: story.full_slug,
+    parentStory: story,
+    chapterStories: stories,
+  };
 }
 
 // Build the tags from story `tag_list` and add to overview data
@@ -58,10 +67,13 @@ const overviewProps = {
 <BaseLayout title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
-    <div class={clsx("w-100")}>
+    <div class={clsx("w-100", styles["background"])}>
       <div class={clsx("container-lg", "py-4")}>
         <div class={clsx("row")}>
-          <div class={clsx("col-md-3")}></div>
+          <div class={clsx("col-md-3")}>
+            <!-- Only render the nav if we have valid props -->
+            {unitNavProps && <UnitNav {...unitNavProps} />}
+          </div>
           <div class={clsx("col-md-9")}>
             <Overview {...overviewProps as OverviewProps} />
           </div>
