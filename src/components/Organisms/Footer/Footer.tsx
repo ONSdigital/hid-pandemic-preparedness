@@ -34,7 +34,6 @@ const FooterColumnTitleBlock: FC<FooterColumnTitleProps> = (props) => {
 };
 
 export const Footer: FC<FooterProps> = (props) => {
-  console.log(props.columns.slice(0, 3));
   const accordionId: string = "footerAccordion";
 
   return (
