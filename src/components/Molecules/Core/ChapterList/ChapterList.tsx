@@ -1,6 +1,8 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
+import { sanitizeUrl } from "@src/helpers/sanitizeUrl";
+
 import styles from "./ChapterList.module.scss";
 import type { ChapterListProps } from "./ChapterList.interface";
 
@@ -27,7 +29,8 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
       >
         <a
           className={clsx("text-decoration-none")}
-          href={props.parent.fullSlug}
+          // sanitizeUrl used here to make sure input `fullSlug` evaluates to a relative url
+          href={sanitizeUrl(props.parent.fullSlug)}
         >
           {props.parent.title}
         </a>
@@ -45,7 +48,11 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
             ],
           )}
         >
-          <a className={clsx("text-decoration-none")} href={chapter.fullSlug}>
+          <a
+            className={clsx("text-decoration-none")}
+            // sanitizeUrl used here to make sure input `fullSlug` evaluates to a relative url
+            href={sanitizeUrl(chapter.fullSlug)}
+          >
             {chapter.title}
           </a>
         </li>
