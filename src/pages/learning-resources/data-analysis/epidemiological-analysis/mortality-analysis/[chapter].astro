@@ -8,17 +8,18 @@ import type { LearningResourceProps } from "@components/Core/LearningResource/Le
 import type { ReferencesProps } from "@components/Core/References/References.interface";
 
 // Components
-import { Header } from "@/src/components/Organisms/Core/Header/Header";
+import { Header } from "@src/components/Organisms/Core/Header/Header";
 import { LearningResource } from "@components/Core/LearningResource/LearningResource";
 import { References } from "@components/Core/References/References";
 
 // Helpers
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
 import { createLearningSections } from "@helpers/createLearningSections";
 import { sanitizeUrl } from "@helpers/sanitizeUrl";
 
 // Content
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/header.json";
-import learningModuleData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/learningModule.json";
+import unitNavJson from "@src/components/Organisms/Unit/UnitNav/unit-nav.json?raw";
 
 import { parseMarkdown } from "@/src/helpers/parseMarkdown";
 import congratulationsMarkdown from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsContent.md?raw";
@@ -42,6 +43,9 @@ const currentChapter = parseInt(chapter, 10);
 const nextChapter = currentChapter + 1;
 
 const currentRoute: string = Astro.url.pathname;
+// Horrible hack here to ensure `fullSlug`` is in the correct format but will be cleaned up once
+// we're loading data properly from stories
+const fullSlug: string = currentRoute.replace(/^\//, "").replace(/\/$/, "");
 
 // Trim leading slash from current route so we can use to filter returned collections
 const filterUrl: string = currentRoute.replace(/^\//, "");
@@ -91,10 +95,9 @@ const congratulationsHtmlContent = await parseMarkdown(congratulationsMarkdown);
 
 // Load the data for the learning module per chapter
 const learningResourceData: LearningResourceProps = {
-  learningModuleNav: {
-    chapters: learningModuleData.navProps.chapters,
-    parentUrl: parentUrl,
-    activeChapterId: chapter,
+  unitNav: {
+    ...JSON.parse(unitNavJson),
+    activeChapterSlug: fullSlug,
   },
   introduction: introductionData[0].data,
   learningResource: {
@@ -113,11 +116,14 @@ const learningResourceData: LearningResourceProps = {
 const referencesData: ReferencesProps = {
   references: undefined,
 };
+
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(fullSlug);
 ---
 
 <BaseLayout title={headerData.title}>
   <main>
-    <Header {...headerData} />
+    <Header title={headerData.title} breadcrumbs={breadcrumbs} />
     <LearningResource {...learningResourceData} />
     <References {...referencesData} />
   </main>

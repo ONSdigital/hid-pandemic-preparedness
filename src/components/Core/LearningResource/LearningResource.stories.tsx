@@ -6,11 +6,14 @@ import type { IntroductionProps } from "@components/Core/Introduction/Introducti
 import { LearningResource } from "@components/Core/LearningResource/LearningResource";
 import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
 import type { LearningResourceBlockProps } from "@components/LearningResourceBlock/LearningResourceBlock.interface";
-import chaptersData from "@content/chapters.json";
+
 import congratulationsContent from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsContent.md?raw";
 import congratulationsData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsTitle.json";
 import learningResourceMd1 from "@content/learning-resources/introduction/sections/1.md?raw";
 import learningResourceMd2 from "@content/learning-resources/introduction/sections/2.md?raw";
+// Importing raw here to avoid typescript errors when parsing strings to enums
+import unitNavJson from "@src/components/Organisms/Unit/UnitNav/unit-nav.json?raw";
+
 import { parseMarkdown } from "@src/helpers/parseMarkdown";
 
 const meta = {
@@ -70,11 +73,7 @@ const learningResourceBlockProps: LearningResourceBlockProps = {
 const congratulationsHtmlContent = await parseMarkdown(congratulationsContent);
 
 const learningResourcesProps: LearningResourceProps = {
-  learningModuleNav: {
-    chapters: chaptersData,
-    activeChapterId: "chapter1",
-    parentUrl: "https://ons.gov.uk/",
-  },
+  unitNav: JSON.parse(unitNavJson),
   introduction: introductionProps,
   learningResource: learningResourceBlockProps,
   link: {
