@@ -4,6 +4,7 @@ import { sentenceCase } from "sentence-case";
 
 import { Breadcrumb } from "@components/Molecules/Core/Breadcrumb/Breadcrumb";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
+import { Image } from "@src/components/Molecules/Core/Image/Image";
 
 import type { HeaderProps } from "./Header.interface";
 import styles from "./Header.module.scss";
@@ -11,27 +12,32 @@ import styles from "./Header.module.scss";
 export const Header: FC<HeaderProps> = (props) => {
   return (
     <div className={clsx("w-100", styles["header-bg"])}>
-      <div className={clsx("container-lg", "py-4", "text-light")}>
+      <div className={clsx("container-lg", "text-light")}>
         <div className={clsx("row")}>
-          <div className={clsx("col-md-6")}>
+          <div className={clsx("col-lg-6", "py-4", "z-1")}>
             <Breadcrumb {...props.breadcrumbs} />
+
+            <h1 className={clsx("heading-xl")}>{sentenceCase(props.title)}</h1>
+            <p className={clsx("py-lg-4")}>{props.subTitle}</p>
+
+            <div className={clsx("col-xl-9", "pt-2")}>
+              <SearchBar placeholder={props.searchPlaceholderText} />
+            </div>
           </div>
-        </div>
-        <div className={clsx("row")}>
-          <div className={clsx("col-md-6")}>
-            <h1 role={"header-title"} className={clsx("heading-xl")}>
-              {sentenceCase(props.title)}
-            </h1>
-          </div>
-        </div>
-        <div className={clsx("row", "py-lg-4")}>
-          <div className={clsx("col-md-6")}>
-            <p>{props.subTitle}</p>
-          </div>
-        </div>
-        <div className={clsx("row", "py-2")}>
-          <div className={clsx("col-md-5")}>
-            <SearchBar placeholder={props.searchPlaceholderText} />
+          <div
+            className={clsx(
+              "col-lg-6",
+              "position-relative",
+              "d-flex",
+              "flex-column",
+              "justify-content-center",
+            )}
+          >
+            <Image
+              className={clsx(styles["header-image"])}
+              {...props.image}
+              alt=""
+            />
           </div>
         </div>
       </div>

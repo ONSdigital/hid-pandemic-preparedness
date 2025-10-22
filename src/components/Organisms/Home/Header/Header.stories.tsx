@@ -21,6 +21,11 @@ const meta = {
         disable: true,
       },
     },
+    image: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Meta<typeof Header>;
 

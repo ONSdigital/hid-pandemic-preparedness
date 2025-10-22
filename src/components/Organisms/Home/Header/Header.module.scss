@@ -1,3 +1,4 @@
+@use "../../../../styles/global/tokens" as *;
 @use "../../../../styles/global/variables" as *;
 
 @import "../../../../styles/bootstrap-5.3.8/scss/functions";
@@ -5,31 +6,42 @@
 @import "../../../../styles/bootstrap-5.3.8/scss/variables";
 
 .header-bg {
-  background: $gradient-brand-primary-1;
+  background: $color-darker-olive-green;
   position: relative;
+}
 
-  &::before {
-    content: "";
+.header-image {
+  @include media-breakpoint-up(lg) {
     position: absolute;
-    top: 0;
-    left: calc(
-      15px + 55%
-    ); // offset by container padding + 55% width of container
-    width: calc(
-      100% - (15px + 55%)
-    ); // fill the rest of the container width to the right
-    height: 100%;
+    width: 130%;
+    right: -30%;
 
-    background-image: url("/images/home-header-world-of-data.png");
-    background-repeat: no-repeat;
-    background-position: left center; // align image left edge to left of pseudo-element
-    background-size: cover;
-    z-index: 0;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
   }
 
-  @include media-breakpoint-down(md) {
-    &::before {
-      display: none;
-    }
+  @include media-breakpoint-up(xl) {
+    height: 100%;
+    width: auto;
+    right: -10%;
+
+    // Add feather to left and right
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
+  // Add feather to top
+  @include media-breakpoint-down(lg) {
+    mask-image: linear-gradient(to bottom, transparent, black 10%);
   }
 }
