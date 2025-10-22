@@ -24,5 +24,5 @@ type Story = StoryObj<typeof meta>;
 
 export const FooterStory = {
   name: "Footer",
-  args: JSON.parse(footerData) as FooterProps, //footer.json?raw parsed in this way to avoid type
+  args: JSON.parse(footerData) as FooterProps, //Without parsing, TypeScript cannot infer the type correctly
 } satisfies Story;

@@ -1,7 +1,7 @@
-import type { Link } from "./Link";
+import type { LinkData } from "./LinkData";
 
 export interface MenuData {
-  _uid: string;
-  links: Link[];
+  id: string;
+  links: LinkData[];
   title?: string;
 }
