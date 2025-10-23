@@ -1,6 +1,6 @@
-@use "../../styles/global/tokens" as *;
+@use "../../../../styles/global/tokens" as *;
 
-.learning-resource-block__container {
+.container {
   background-color: $color-grey-100;
   border: 1px solid $color-brand-secondary-300;
   border-radius: 1rem;
