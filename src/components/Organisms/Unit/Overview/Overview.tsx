@@ -5,6 +5,7 @@ import clsx from "clsx";
 import type { FC } from "react";
 
 import { Link } from "@src/components/Molecules/Core/Link/Link";
+import strings from "@src/content/strings.json";
 import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 import { overiddenResolvers } from "@src/helpers/resolvers";
@@ -20,6 +21,7 @@ export const Overview: FC<OverviewProps> = (props) => {
   const renderedRichText = renderRichText(props.overviewRichText, {
     resolvers: overiddenResolvers,
   });
+  const overviewStrings = strings.unit.overview;
 
   return (
     <div
@@ -51,7 +53,7 @@ export const Overview: FC<OverviewProps> = (props) => {
         </div>
       </div>
       <div className={clsx("row")}>
-        <h1 className={clsx("heading-m")}>{props.title}</h1>
+        <h3 className={clsx("heading-m")}>{overviewStrings.overview}</h3>
         <hr />
         <div className={clsx("col-12")}>
           {renderedRichText && <TextModule htmlContent={renderedRichText} />}

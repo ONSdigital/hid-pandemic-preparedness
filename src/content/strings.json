@@ -22,6 +22,7 @@
   "unit": {
     "overview": {
       "openGithub": "Open Github",
+      "overview": "Overview",
       "start": "Start"
     },
     "unitNav": {
