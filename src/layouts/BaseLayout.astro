@@ -2,7 +2,7 @@
 import { getLiveStory } from "@storyblok/astro";
 
 // Components
-import { Footer } from "@/src/components/Organisms/Core/Footer/Footer";
+import { Footer } from "@components/Organisms/Core/Footer/Footer";
 import { NavBar } from "@components/NavBar/NavBar";
 
 // Content
@@ -15,7 +15,7 @@ import "@fontsource-variable/open-sans";
 
 // Helpers
 import { fetchStory } from "@helpers/fetchContent";
-import type { FooterProps } from "@/src/components/Organisms/Core/Footer/Footer.interface";
+import type { FooterProps } from "@components/Organisms/Core/Footer/Footer.interface";
 
 interface Props {
   title?: string;
