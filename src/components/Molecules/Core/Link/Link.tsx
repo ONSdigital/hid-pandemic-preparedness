@@ -21,19 +21,9 @@ export const Link: FC<LinkProps> = (props) => {
     // Combine base class and variant class
     classes = ["btn", `btn-${props.buttonVariant}`, "fw-medium"];
   } else if (props.textInverse) {
-    classes = [
-      "link-light",
-      "link-underline",
-      "link-underline-opacity-0",
-      "fw-bold",
-    ];
+    classes = ["link-light", "link-underline", "link-underline-opacity-0"];
   } else {
-    classes = [
-      "link-dark",
-      "link-underline",
-      "link-underline-opacity-0",
-      "fw-bold",
-    ];
+    classes = ["link-dark", "link-underline", "link-underline-opacity-0"];
   }
 
   if (props.disabled) {

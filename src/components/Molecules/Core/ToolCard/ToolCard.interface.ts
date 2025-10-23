@@ -1,4 +1,4 @@
-import type { Link } from "@/src/types/Link";
+import type { Link } from "@localTypes/Link";
 
 export interface ToolCardProps {
   id: string;
