@@ -28,7 +28,7 @@ jobs:
         shell: bash
         env:
           ASTRO_OUTPUT: static
-          ASTRO_PREVIEW: true
+          ASTRO_PREVIEW: false
       - run: npm run deploy-storybook-main
         shell: bash
       - run: npm run deploy-app-preview
