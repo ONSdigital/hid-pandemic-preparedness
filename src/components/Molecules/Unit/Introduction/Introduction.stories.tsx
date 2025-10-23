@@ -6,9 +6,9 @@ import type { IntroductionProps } from "./Introduction.interface";
 
 const meta = {
   component: Introduction,
-  title: "Organisms/Core/Introduction",
+  title: "Molecules/Unit/Introduction",
   argTypes: {
-    sections: {
+    sectionLinks: {
       table: {
         disable: true,
       },
@@ -23,26 +23,38 @@ const introductionProps: IntroductionProps = {
   title: "Introduction",
   subTitle:
     "This section introduces mortality analysis, explaining what it is, why it matters, and who uses it. It outlines the scope, relevance, and practical applications of mortality data in health and policy work.",
-  sections: [
+  sectionLinks: [
     {
       id: uuidv4(),
-      label: "Definition and Importance of Mortality Analysis",
-      href: "/",
+      fieldtype: "multilink",
+      linktype: "url",
+      title: "Definition and Importance of Mortality Analysis",
+      cached_url: "/",
+      url: "/",
     },
     {
       id: uuidv4(),
-      label: "Relevance and Coverage",
-      href: "/",
+      fieldtype: "multilink",
+      linktype: "url",
+      title: "Relevance and Coverage",
+      cached_url: "/",
+      url: "/",
     },
     {
       id: uuidv4(),
-      label: "Uses of Mortality Analysis",
-      href: "/",
+      fieldtype: "multilink",
+      linktype: "url",
+      title: "Uses of Mortality Analysis",
+      cached_url: "/",
+      url: "/",
     },
     {
       id: uuidv4(),
-      label: "Example Users",
-      href: "/",
+      fieldtype: "multilink",
+      linktype: "url",
+      title: "Example Users",
+      cached_url: "/",
+      url: "/",
     },
   ],
 };
