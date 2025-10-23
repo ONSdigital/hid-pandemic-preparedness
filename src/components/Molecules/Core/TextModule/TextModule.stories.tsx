@@ -9,7 +9,7 @@ import type { TextModuleProps } from "./TextModule.interface";
 
 const meta = {
   component: TextModule,
-  title: "Components/TextModule",
+  title: "Molecules/Core/TextModule",
   parameters: {
     layout: "centered",
   },
@@ -20,6 +20,11 @@ const meta = {
       },
     },
     htmlContent: {
+      table: {
+        disable: true,
+      },
+    },
+    richText: {
       table: {
         disable: true,
       },
