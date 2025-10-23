@@ -1,39 +1,31 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
+import { Link } from "@components/Molecules/Core/Link/Link";
+
 import type {
   FooterColumnLinksProps,
-  FooterColumnTitleBlockProps,
+  FooterColumnTitleProps,
   FooterProps,
 } from "./Footer.interface";
+
 import styles from "./Footer.module.scss";
 
 const FooterColumnLinks: FC<FooterColumnLinksProps> = (props) => {
   return (
     <>
-      {props.links?.map((link) => (
-        <p key={link.id}>
-          <a
-            className={clsx(
-              "fw-light",
-              "link-light",
-              "link-underline",
-              "link-underline-opacity-0",
-            )}
-            href={link.href}
-            aria-disabled={link.disabled}
-          >
-            {link.label}
-          </a>
+      {props.links?.map((item) => (
+        <p key={item._uid}>
+          <Link {...item.link} textInverse={true} />
         </p>
       ))}
     </>
   );
 };
 
-const FooterColumnTitleBlock: FC<FooterColumnTitleBlockProps> = (props) => {
+const FooterColumnTitleBlock: FC<FooterColumnTitleProps> = (props) => {
   return (
-    <div className={clsx(styles["col-title-block"])}>
+    <div className={clsx(styles["col-title-block"], "mb-3")}>
       {props.title && (
         <h4 className={clsx("heading-s", "text-light")}>{props.title}</h4>
       )}
@@ -43,30 +35,39 @@ const FooterColumnTitleBlock: FC<FooterColumnTitleBlockProps> = (props) => {
 
 export const Footer: FC<FooterProps> = (props) => {
   const accordionId: string = "footerAccordion";
+  const firstColumns = props.columns.slice(0, 4);
+  const lastColumn = props.columns[props.columns.length - 1];
 
   return (
     <footer
       className={clsx("w-100", styles["footer-bg"], "text-light", "py-4")}
     >
       <div className={clsx("container-lg")}>
-        <div className={clsx("row", "row-cols-1", "row-cols-lg-4")}>
-          {/* Columns for viewports sm and up first three */}
-          {props.columns.slice(0, 3).map((col) => (
-            <div className={clsx("col", "d-none", "d-sm-block")} key={col.id}>
+        {/* Desktop columns */}
+        <div className={clsx("row", "d-none", "d-lg-flex")}>
+          {firstColumns.map((col) => (
+            <div className={clsx("col")} key={col._uid}>
               <FooterColumnTitleBlock title={col.title} />
               <FooterColumnLinks links={col.links} />
             </div>
           ))}
-          {/* Accordion for viewports sm and down first three */}
+          <div className={clsx("col")}>
+            <FooterColumnTitleBlock title={lastColumn.title} />
+            <FooterColumnLinks links={lastColumn.links} />
+          </div>
+        </div>
+
+        {/* Mobile accordion with last column below */}
+        <div className="d-lg-none">
           <div
-            className={clsx("accordion", "accordion-flush", "d-sm-none")}
+            className={clsx("accordion", "accordion-flush")}
             id={accordionId}
             // Theme set to dark here to quickly make button icon visible against dark background.
             // May be better in future to override this to a custom colour.
             data-bs-theme="dark"
           >
-            {props.columns.slice(0, 3).map((col) => (
-              <div className={clsx("accordion-item")} key={col.id}>
+            {firstColumns.map((col) => (
+              <div className={clsx("accordion-item")} key={col._uid}>
                 <h4 className={clsx("accordion-header")}>
                   <button
                     className={clsx(
@@ -77,15 +78,15 @@ export const Footer: FC<FooterProps> = (props) => {
                     )}
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target={`#${col.id}`}
+                    data-bs-target={`#${col._uid}`}
                     aria-expanded="true"
-                    aria-controls={col.id}
+                    aria-controls={col._uid}
                   >
                     {col.title}
                   </button>
                 </h4>
                 <div
-                  id={col.id}
+                  id={col._uid}
                   className={clsx("accordion-collapse", "collapse", "show")}
                   data-bs-parent={`#${accordionId}`}
                 >
@@ -96,15 +97,11 @@ export const Footer: FC<FooterProps> = (props) => {
               </div>
             ))}
           </div>
-          <div className={clsx("col")}>
-            <FooterColumnTitleBlock
-              title={props.columns[props.columns.length - 1].title}
-            />
+          <div>
+            <FooterColumnTitleBlock title={lastColumn.title} />
             {/* A bit of a hack to get these links to line up with accordion above */}
             <div className={clsx("px-4")}>
-              <FooterColumnLinks
-                links={props.columns[props.columns.length - 1].links}
-              />
+              <FooterColumnLinks links={lastColumn.links} />
             </div>
           </div>
         </div>
