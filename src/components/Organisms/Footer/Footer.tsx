@@ -35,29 +35,38 @@ const FooterColumnTitleBlock: FC<FooterColumnTitleProps> = (props) => {
 
 export const Footer: FC<FooterProps> = (props) => {
   const accordionId: string = "footerAccordion";
+  const firstColumns = props.columns.slice(0, 4);
+  const lastColumn = props.columns[props.columns.length - 1];
 
   return (
     <footer
       className={clsx("w-100", styles["footer-bg"], "text-light", "py-4")}
     >
       <div className={clsx("container-lg")}>
-        <div className={clsx("row", "row-cols-1", "row-cols-lg-4")}>
-          {/* Columns for viewports sm and up first three */}
-          {props.columns.slice(0, 3).map((col) => (
-            <div className={clsx("col", "d-none", "d-sm-block")} key={col._uid}>
+        {/* Desktop columns */}
+        <div className={clsx("row", "d-none", "d-lg-flex")}>
+          {firstColumns.map((col) => (
+            <div className={clsx("col")} key={col._uid}>
               <FooterColumnTitleBlock title={col.title} />
               <FooterColumnLinks links={col.links} />
             </div>
           ))}
-          {/* Accordion for viewports sm and down first three */}
+          <div className={clsx("col")}>
+            <FooterColumnTitleBlock title={lastColumn.title} />
+            <FooterColumnLinks links={lastColumn.links} />
+          </div>
+        </div>
+
+        {/* Mobile accordion with last column below */}
+        <div className="d-lg-none">
           <div
-            className={clsx("accordion", "accordion-flush", "d-sm-none")}
+            className={clsx("accordion", "accordion-flush")}
             id={accordionId}
             // Theme set to dark here to quickly make button icon visible against dark background.
             // May be better in future to override this to a custom colour.
             data-bs-theme="dark"
           >
-            {props.columns.slice(0, 3).map((col) => (
+            {firstColumns.map((col) => (
               <div className={clsx("accordion-item")} key={col._uid}>
                 <h4 className={clsx("accordion-header")}>
                   <button
@@ -88,15 +97,11 @@ export const Footer: FC<FooterProps> = (props) => {
               </div>
             ))}
           </div>
-          <div className={clsx("col")}>
-            <FooterColumnTitleBlock
-              title={props.columns[props.columns.length - 1].title}
-            />
+          <div>
+            <FooterColumnTitleBlock title={lastColumn.title} />
             {/* A bit of a hack to get these links to line up with accordion above */}
             <div className={clsx("px-4")}>
-              <FooterColumnLinks
-                links={props.columns[props.columns.length - 1].links}
-              />
+              <FooterColumnLinks links={lastColumn.links} />
             </div>
           </div>
         </div>
