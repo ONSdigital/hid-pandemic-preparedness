@@ -1,5 +1,4 @@
 import { RiTimerLine } from "@remixicon/react";
-import { renderRichText } from "@storyblok/astro";
 
 import clsx from "clsx";
 import type { FC } from "react";
@@ -8,7 +7,6 @@ import { Link } from "@src/components/Molecules/Core/Link/Link";
 import strings from "@src/content/strings.json";
 import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
-import { overiddenResolvers } from "@src/helpers/resolvers";
 
 import styles from "./Overview.module.scss";
 import type { OverviewProps } from "./Overview.interface";
@@ -17,10 +15,6 @@ import type { OverviewProps } from "./Overview.interface";
 const iconSize: string = "1.5rem";
 
 export const Overview: FC<OverviewProps> = (props) => {
-  // Render the rich text content from props using Storyblok helper
-  const renderedRichText = renderRichText(props.overviewRichText, {
-    resolvers: overiddenResolvers,
-  });
   const overviewStrings = strings.unit.overview;
 
   return (
@@ -56,7 +50,9 @@ export const Overview: FC<OverviewProps> = (props) => {
         <h3 className={clsx("heading-m")}>{overviewStrings.overview}</h3>
         <hr />
         <div className={clsx("col-12")}>
-          {renderedRichText && <TextModule htmlContent={renderedRichText} />}
+          {props.overviewRichText && (
+            <TextModule richText={props.overviewRichText} />
+          )}
         </div>
       </div>
       <div className={clsx("row")}>

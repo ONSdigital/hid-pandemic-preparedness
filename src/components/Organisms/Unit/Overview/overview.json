@@ -4,7 +4,7 @@
   "githubLink": {
     "id": "",
     "rel": "",
-    "url": "github.com",
+    "url": "https://github.com",
     "title": "Open Github",
     "linktype": "url",
     "fieldtype": "multilink",
