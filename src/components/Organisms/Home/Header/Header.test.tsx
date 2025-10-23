@@ -28,7 +28,7 @@ describe("Header component", () => {
     // Make sure title is lower case first
     expect(baseProps.title).toBe("resilience through data");
     render(<Header {...baseProps} />);
-    const title = screen.getByRole("header-title");
-    expect(title.textContent).toBe("Resilience through data");
+    const title = screen.getByRole("heading", { level: 1 });
+    expect(title).toHaveTextContent("Resilience through data");
   });
 });
