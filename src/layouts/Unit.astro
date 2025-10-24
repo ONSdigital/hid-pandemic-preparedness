@@ -22,6 +22,6 @@ const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 <BaseLayout title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
-    <UnitComponent story={story} client:load />
+    <UnitComponent story={story} client:visible />
   </main>
 </BaseLayout>

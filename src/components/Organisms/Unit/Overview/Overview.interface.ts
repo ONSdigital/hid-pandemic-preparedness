@@ -7,6 +7,7 @@ export interface OverviewProps {
   readingTime: string;
   overviewRichText: StoryblokRichTextNode;
   githubLink?: Link;
-  startLink?: Link;
   tags?: Tag[];
+  // Prop for handling button click to increment chapter
+  onNext: () => void;
 }

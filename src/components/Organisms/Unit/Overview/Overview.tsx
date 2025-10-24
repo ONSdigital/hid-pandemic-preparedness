@@ -3,10 +3,12 @@ import { RiTimerLine } from "@remixicon/react";
 import clsx from "clsx";
 import type { FC } from "react";
 
+import { Button } from "@src/components/Button/Button";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
-import strings from "@src/content/strings.json";
 import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
+
+import strings from "@src/content/strings.json";
 
 import styles from "./Overview.module.scss";
 import type { OverviewProps } from "./Overview.interface";
@@ -76,16 +78,14 @@ export const Overview: FC<OverviewProps> = (props) => {
                 />
               </div>
             )}
-            {props.startLink && (
-              <div data-testid="start-link">
-                <Link
-                  {...props.startLink}
-                  asButton={true}
-                  aria-label={props.startLink.title}
-                  buttonVariant="secondary"
-                />
-              </div>
-            )}
+            <Button
+              className="fw-medium"
+              ariaLabel={overviewStrings.start}
+              children={<>{overviewStrings.start}</>}
+              type="button"
+              variant="secondary"
+              onClick={props.onNext}
+            />
           </div>
         </div>
       </div>

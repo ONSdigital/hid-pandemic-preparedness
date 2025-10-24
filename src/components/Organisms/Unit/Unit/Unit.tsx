@@ -7,6 +7,7 @@ import type { ButtonProps } from "@src/components/Button/Button.interface";
 import type { Chapter } from "@src/types/Chapter";
 import type { CongratulationsProps } from "@/src/components/Molecules/Unit/Congratulations/Congratulations.interface";
 import type { LinkProps } from "@src/components/Molecules/Core/Link/Link.interface";
+import type { Tag } from "@src/types/Tag";
 import type { UnitNavProps } from "@components/Organisms/Unit/UnitNav/UnitNav.interface";
 
 import { Button } from "@src/components/Button/Button";
@@ -14,6 +15,8 @@ import { Congratulations } from "@/src/components/Molecules/Unit/Congratulations
 import { DynamicComponent } from "@/src/components/DynamicComponent";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
 import { UnitNav } from "@components/Organisms/Unit/UnitNav/UnitNav";
+
+import { getTags } from "@src/helpers/getTags";
 
 // Content
 import strings from "@src/content/strings.json";
@@ -24,6 +27,7 @@ import styles from "./Unit.module.scss";
 export const Unit: FC<UnitProps> = (props) => {
   const unitStrings = strings.unit;
 
+  // Build props for static subcomponents
   const buttonProps: ButtonProps = {
     ariaLabel: unitStrings.unit.nextChapter,
     children: <>{unitStrings.unit.nextChapter}</>,
@@ -47,12 +51,14 @@ export const Unit: FC<UnitProps> = (props) => {
   };
 
   let unitNavProps: UnitNavProps | null = null;
+  let blok: any;
 
   const chapters = props.story.content.chapters;
   const chapterIds: string[] = chapters.map(({ _uid }: Chapter) => _uid);
   const overviewChapter = chapters.find(
     (chapter: Chapter) => chapter.component === "UnitOverview",
   );
+  const tags: Tag[] = getTags(props.story);
 
   // Initialize selected chapter ID state with overview chapter's _uid or null
   const [selectedChapterId, setSelectedChapterId] = useState(
@@ -64,8 +70,12 @@ export const Unit: FC<UnitProps> = (props) => {
     ? chapterIds.indexOf(selectedChapterId)
     : -1;
 
+  // Set overview chapter boolean if we're on the overview chapter
+  const isOverviewChapter: boolean =
+    overviewChapter && selectedChapterId === overviewChapter._uid;
+
   // Set last chapter boolean if we're on the last chapter
-  const lastChapter: boolean =
+  const isLastChapter: boolean =
     selectedChapterId === chapterIds[chapterIds.length - 1];
 
   // If story contains some chapters including an overview, build the nav props
@@ -95,6 +105,21 @@ export const Unit: FC<UnitProps> = (props) => {
     }
   };
 
+  // If we're on the overview, add some additional props otherwise just set blok to chapter
+  if (isOverviewChapter) {
+    blok = {
+      ...selectedChapter,
+      startLink: {
+        title: strings.unit.overview.start,
+        url: props.story.full_slug,
+      },
+      tags: tags,
+      onNext: handleNext,
+    };
+  } else {
+    blok = selectedChapter;
+  }
+
   return (
     <div className={clsx("w-100", styles["container-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
@@ -103,13 +128,16 @@ export const Unit: FC<UnitProps> = (props) => {
             {unitNavProps && <UnitNav {...unitNavProps} />}
           </div>
           <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
-            <DynamicComponent blok={selectedChapter} />
-            {lastChapter && <Congratulations {...congratulationsProps} />}
+            <DynamicComponent blok={blok} />
+            {isLastChapter && <Congratulations {...congratulationsProps} />}
             <div className={clsx("d-flex", "justify-content-center")}>
-              {lastChapter ? (
+              {isLastChapter ? (
                 <Link {...linkProps} />
               ) : (
-                <Button {...buttonProps} onClick={handleNext} />
+                // Only render the next button if we're not on the overview
+                !isOverviewChapter && (
+                  <Button {...buttonProps} onClick={handleNext} />
+                )
               )}
             </div>
           </div>
