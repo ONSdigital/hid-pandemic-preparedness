@@ -1,8 +1,6 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
-import { sanitizeUrl } from "@src/helpers/sanitizeUrl";
-
 import styles from "./ChapterList.module.scss";
 import type { ChapterListProps } from "./ChapterList.interface";
 
@@ -15,43 +13,30 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
     styles["chapter-list__list-group-item"],
   );
 
+  // Handle user clicking a link
+  const onClick = (selectedId: string) => {
+    // Use callback to inform parent
+    if (props.onSelect) {
+      props.onSelect(selectedId);
+    }
+  };
+
   return (
     <ul className={clsx("m-0", "p-0")}>
-      {/* Always render the parent item first */}
-      <li
-        className={clsx(
-          listItemDefaultClasses,
-          props.parent.fullSlug === props.activeChapterSlug && [
-            styles["active"],
-            "fw-bold",
-          ],
-        )}
-      >
-        <a
-          className={clsx("text-decoration-none")}
-          // sanitizeUrl used here to make sure input `fullSlug` evaluates to a relative url
-          href={sanitizeUrl(props.parent.fullSlug)}
-        >
-          {props.parent.title}
-        </a>
-      </li>
-      {/* Loop through the chapters to make the rest of the links */}
+      {/* Loop through the chapters to make the links */}
       {props.chapters.map((chapter) => (
         <li
           key={chapter._uid}
           className={clsx(
             listItemDefaultClasses,
             styles["chapter-list__list-group-item"],
-            chapter.fullSlug === props.activeChapterSlug && [
-              styles["active"],
-              "fw-bold",
-            ],
+            chapter._uid === props.activeId && [styles["active"], "fw-bold"],
           )}
         >
           <a
             className={clsx("text-decoration-none")}
-            // sanitizeUrl used here to make sure input `fullSlug` evaluates to a relative url
-            href={sanitizeUrl(chapter.fullSlug)}
+            href={`#${chapter._uid}`}
+            onClick={() => onClick(chapter._uid)}
           >
             {chapter.title}
           </a>
