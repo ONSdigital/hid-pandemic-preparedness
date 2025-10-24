@@ -38,13 +38,22 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
   }
 
   return (
-    <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
+    <div
+      className={clsx(
+        "container",
+        "w-100",
+        "col-md-9",
+        "d-flex",
+        "flex-column",
+        "gap-4",
+      )}
+    >
       <Introduction
         title={props.title}
         subTitle={props.subTitle}
         sectionLinks={sectionLinks}
       />
-      <div className={clsx("w-100", styles["container"])}>
+      <div className={clsx(styles["container"])}>
         <div className={clsx("px-2", "py-4", "p-lg-4")}>
           {accordionProps && (
             <Accordion {...accordionProps} variant="primary" />

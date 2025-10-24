@@ -3,6 +3,7 @@ import clsx from "clsx";
 import type { FC } from "react";
 
 import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
+
 import type { CongratulationsProps } from "./Congratulations.interface";
 import styles from "./Congratulations.module.scss";
 
