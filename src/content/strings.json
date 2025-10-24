@@ -29,6 +29,10 @@
       "overview": "Overview",
       "start": "Start"
     },
+    "unit": {
+      "endLearning": "End learning",
+      "nextChapter": "Next chapter"
+    },
     "unitNav": {
       "chapters": "Chapters",
       "downloadPdf": "Download PDF",

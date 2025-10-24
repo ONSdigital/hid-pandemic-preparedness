@@ -1,12 +1,18 @@
 import clsx from "clsx";
 import type { FC } from "react";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
+import type { ButtonProps } from "@src/components/Button/Button.interface";
+import type { Chapter } from "@src/types/Chapter";
 import type { CongratulationsProps } from "@/src/components/Molecules/Unit/Congratulations/Congratulations.interface";
+import type { LinkProps } from "@src/components/Molecules/Core/Link/Link.interface";
 import type { UnitNavProps } from "@components/Organisms/Unit/UnitNav/UnitNav.interface";
 
+import { Button } from "@src/components/Button/Button";
 import { Congratulations } from "@/src/components/Molecules/Unit/Congratulations/Congratulations";
 import { DynamicComponent } from "@/src/components/DynamicComponent";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
 import { UnitNav } from "@components/Organisms/Unit/UnitNav/UnitNav";
 
 // Content
@@ -16,19 +22,47 @@ import type { UnitProps } from "./Unit.interface";
 import styles from "./Unit.module.scss";
 
 export const Unit: FC<UnitProps> = (props) => {
-  let congratulationsProps: CongratulationsProps | null = null;
+  const unitStrings = strings.unit;
+
+  const buttonProps: ButtonProps = {
+    ariaLabel: unitStrings.unit.nextChapter,
+    children: <>{unitStrings.unit.nextChapter}</>,
+    className: "fw-medium",
+    type: "button",
+    variant: "secondary",
+  };
+  const congratulationsProps: CongratulationsProps = {
+    title: unitStrings.congratulations.title,
+    htmlContent: unitStrings.congratulations.htmlContent,
+  };
+  const linkProps: LinkProps = {
+    id: uuidv4(),
+    asButton: true,
+    buttonVariant: "secondary",
+    cached_url: props.story.full_slug,
+    fieldtype: "multilink",
+    linktype: "url",
+    title: unitStrings.unit.endLearning,
+    url: props.story.full_slug,
+  };
+
   let unitNavProps: UnitNavProps | null = null;
 
   const chapters = props.story.content.chapters;
-  const chapterIds: string[] = chapters.map(({ _uid }) => _uid);
+  const chapterIds: string[] = chapters.map(({ _uid }: Chapter) => _uid);
   const overviewChapter = chapters.find(
-    (chapter) => chapter.component === "UnitOverview",
+    (chapter: Chapter) => chapter.component === "UnitOverview",
   );
 
   // Initialize selected chapter ID state with overview chapter's _uid or null
   const [selectedChapterId, setSelectedChapterId] = useState(
     chapters.length > 0 && overviewChapter ? overviewChapter._uid : null,
   );
+
+  // Find index of the selected chapter
+  const selectedIndex = selectedChapterId
+    ? chapterIds.indexOf(selectedChapterId)
+    : -1;
 
   // Set last chapter boolean if we're on the last chapter
   const lastChapter: boolean =
@@ -39,7 +73,7 @@ export const Unit: FC<UnitProps> = (props) => {
     unitNavProps = {
       activeChapterId: selectedChapterId,
       githubLink: overviewChapter.githubLink,
-      chapters: chapters.map(({ _uid, title }) => ({
+      chapters: chapters.map(({ _uid, title }: Chapter) => ({
         _uid,
         title,
       })),
@@ -51,19 +85,15 @@ export const Unit: FC<UnitProps> = (props) => {
 
   // Find selected chapter object by ID
   const selectedChapter = chapters.find(
-    (chapter) => chapter._uid === selectedChapterId,
+    (chapter: Chapter) => chapter._uid === selectedChapterId,
   );
 
-  // Create the congratulations props for use if appropriate
-  if (lastChapter) {
-    const congratulationsStrings = strings.unit.congratulations;
-    congratulationsProps = {
-      title: congratulationsStrings.title,
-      htmlContent: congratulationsStrings.htmlContent,
-    };
-  }
-
-  // Build the link
+  // Handler for Next button click
+  const handleNext = () => {
+    if (selectedIndex >= 0 && selectedIndex < chapterIds.length - 1) {
+      setSelectedChapterId(chapterIds[selectedIndex + 1]);
+    }
+  };
 
   return (
     <div className={clsx("w-100", styles["container-bg"])}>
@@ -74,11 +104,13 @@ export const Unit: FC<UnitProps> = (props) => {
           </div>
           <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
             <DynamicComponent blok={selectedChapter} />
-            {congratulationsProps && (
-              <Congratulations {...congratulationsProps} />
-            )}
+            {lastChapter && <Congratulations {...congratulationsProps} />}
             <div className={clsx("d-flex", "justify-content-center")}>
-              {/* <LinkComponent {...link} asButton={true} buttonVariant="secondary" /> */}
+              {lastChapter ? (
+                <Link {...linkProps} />
+              ) : (
+                <Button {...buttonProps} onClick={handleNext} />
+              )}
             </div>
           </div>
         </div>
