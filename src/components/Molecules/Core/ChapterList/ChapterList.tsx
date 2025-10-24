@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC, MouseEventHandler } from "react";
 import clsx from "clsx";
 
 import styles from "./ChapterList.module.scss";
@@ -13,13 +13,16 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
     styles["chapter-list__list-group-item"],
   );
 
-  // Handle user clicking a link
-  const onClick = (selectedId: string) => {
-    // Use callback to inform parent
-    if (props.onSelect) {
-      props.onSelect(selectedId);
-    }
-  };
+  // Handle the click and add clicked id to the callback
+  const handleClick =
+    (selectedId: string): MouseEventHandler<HTMLAnchorElement> =>
+    (e) => {
+      e.preventDefault();
+
+      if (props.onSelect) {
+        props.onSelect(selectedId);
+      }
+    };
 
   return (
     <ul className={clsx("m-0", "p-0")}>
@@ -34,9 +37,10 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
           )}
         >
           <a
+            role="button"
             className={clsx("text-decoration-none")}
-            href={`#${chapter._uid}`}
-            onClick={() => onClick(chapter._uid)}
+            href={void 0}
+            onClick={handleClick(chapter._uid)}
           >
             {chapter.title}
           </a>

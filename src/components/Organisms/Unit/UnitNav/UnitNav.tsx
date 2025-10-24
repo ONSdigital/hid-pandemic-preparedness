@@ -19,6 +19,12 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
   const accordionItemId = uuidv4();
   const headingText = unitNavStrings.chapters;
 
+  const handleChapterSelect = (id: string) => {
+    if (props.onSelect) {
+      props.onSelect(id);
+    }
+  };
+
   const accordionProps = {
     id: accordionId,
     items: [
@@ -29,11 +35,13 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
           <ChapterList
             chapters={props.chapters}
             activeId={props.activeChapterId && props.activeChapterId}
+            onSelect={handleChapterSelect}
           />
         ),
       },
     ],
   };
+
   return (
     <div className="w-100">
       <div className={clsx(styles["learning-module-nav__container"])}>
@@ -70,6 +78,7 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
           <ChapterList
             chapters={props.chapters}
             activeId={props.activeChapterId && props.activeChapterId}
+            onSelect={handleChapterSelect}
           />
         </div>
       </div>

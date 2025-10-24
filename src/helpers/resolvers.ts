@@ -90,7 +90,6 @@ export const headingResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
-  console.log(node);
   const headingStylingMap: Record<number, string> = {
     1: "heading-xl",
     2: "heading-l",

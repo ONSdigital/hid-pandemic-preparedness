@@ -5,4 +5,5 @@ export interface UnitNavProps {
   githubLink: Link;
   chapters: Chapter[];
   activeChapterId?: string;
+  onSelect?: (selectedId: string) => void; // eslint-disable-line no-unused-vars
 }
