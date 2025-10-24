@@ -1,3 +1,4 @@
+import { RiArrowRightLine } from "@remixicon/react";
 import clsx from "clsx";
 import type { FC } from "react";
 import { useState } from "react";
@@ -30,7 +31,11 @@ export const Unit: FC<UnitProps> = (props) => {
   // Build props for static subcomponents
   const buttonProps: ButtonProps = {
     ariaLabel: unitStrings.unit.nextChapter,
-    children: <>{unitStrings.unit.nextChapter}</>,
+    children: (
+      <>
+        {unitStrings.unit.nextChapter} <RiArrowRightLine />
+      </>
+    ),
     className: "fw-medium",
     type: "button",
     variant: "secondary",

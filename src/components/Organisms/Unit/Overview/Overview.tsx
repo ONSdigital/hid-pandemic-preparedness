@@ -1,4 +1,4 @@
-import { RiTimerLine } from "@remixicon/react";
+import { RiArrowRightLine, RiTimerLine } from "@remixicon/react";
 
 import clsx from "clsx";
 import type { FC } from "react";
@@ -81,7 +81,11 @@ export const Overview: FC<OverviewProps> = (props) => {
             <Button
               className="fw-medium"
               ariaLabel={overviewStrings.start}
-              children={<>{overviewStrings.start}</>}
+              children={
+                <>
+                  {overviewStrings.start} <RiArrowRightLine />
+                </>
+              }
               type="button"
               variant="secondary"
               onClick={props.onNext}
