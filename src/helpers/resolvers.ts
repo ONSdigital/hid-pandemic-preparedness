@@ -3,6 +3,7 @@ import type {
   StoryblokRichTextNode,
   StoryblokRichTextNodeResolver,
 } from "@storyblok/richtext";
+import { clsx } from "clsx";
 
 // Copied from https://github.com/storyblok/monoblok/packages/richtext/src/types/index.ts as these are not exported
 enum BlockTypes {
@@ -19,10 +20,10 @@ enum BlockTypes {
   // IMAGE = "image",
   // EMOJI = "emoji",
   // COMPONENT = "blok",
-  // TABLE = "table",
-  // TABLE_ROW = "tableRow",
-  // TABLE_CELL = "tableCell",
-  // TABLE_HEADER = "tableHeader",
+  TABLE = "table",
+  TABLE_ROW = "tableRow",
+  TABLE_CELL = "tableCell",
+  TABLE_HEADER = "tableHeader",
 }
 
 // enum MarkTypes {
@@ -112,6 +113,25 @@ export const headingResolver: StoryblokRichTextNodeResolver<T> = (
   return context.render(headingElement, attributes, node.children) as T;
 };
 
+// Custom table resolver that adds our custom styling
+export const tableResolver: StoryblokRichTextNodeResolver<T> = (
+  node: StoryblokRichTextNode<T>,
+  context,
+): T => {
+  const cssClasses: string = clsx("table", "table-borderless", "table-ppt");
+
+  const attributes = processAttributes(node.attrs);
+  const children = node.children || (null as any);
+
+  const tableElement = `table class="${cssClasses}"`;
+
+  return context.render(
+    tableElement,
+    attributes,
+    context.render("tbody", {}, children),
+  ) as T;
+};
+
 // Create some overrides for our resolvers so we can add custom styles
 export const overiddenResolvers: Record<
   string,
@@ -143,7 +163,7 @@ export const overiddenResolvers: Record<
   // [MarkTypes.SUPERSCRIPT, markResolver("sup")],
   // [MarkTypes.SUBSCRIPT, markResolver("sub")],
   // [MarkTypes.HIGHLIGHT, markResolver("mark")],
-  // [BlockTypes.TABLE, tableResolver],
+  [BlockTypes.TABLE]: tableResolver,
   // [BlockTypes.TABLE_ROW, tableRowResolver],
   // [BlockTypes.TABLE_CELL, tableCellResolver],
   // [BlockTypes.TABLE_HEADER, tableHeaderResolver],
