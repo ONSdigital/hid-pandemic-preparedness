@@ -1,7 +1,8 @@
-import type { ISbStoryData } from "storyblok-js-client";
+import type { Chapter } from "@src/types/Chapter";
+import type { Link } from "@src/types/Link";
 
 export interface UnitNavProps {
-  parentStory: ISbStoryData;
-  chapterStories: ISbStoryData[];
-  activeChapterSlug?: string;
+  githubLink: Link;
+  chapters: Chapter[];
+  activeChapterId?: string;
 }
