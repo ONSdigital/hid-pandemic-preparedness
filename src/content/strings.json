@@ -1,0 +1,34 @@
+{
+  "levels": {
+    "advanced": "Advanced",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate"
+  },
+  "links": {
+    "open-github": "Open Github",
+    "start": "Start"
+  },
+  "locations": {
+    "argentina": "Argentina",
+    "malawi": "Malawi",
+    "nepal": "Nepal",
+    "united-kingdom": "United Kingdom"
+  },
+  "officeForNationalStatistics": "Office for National Statistics",
+  "themes": {
+    "reports": "Reports"
+  },
+  "title": "Analysis for Action",
+  "unit": {
+    "overview": {
+      "openGithub": "Open Github",
+      "start": "Start"
+    },
+    "unitNav": {
+      "chapters": "Chapters",
+      "downloadPdf": "Download PDF",
+      "feedback": "Feedback",
+      "openGithub": "Open GITHUB"
+    }
+  }
+}

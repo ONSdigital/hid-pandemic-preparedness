@@ -1,0 +1,84 @@
+---
+import { clsx } from "clsx";
+import type { ISbStoryData } from "storyblok-js-client";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Interfaces
+import type { OverviewProps } from "@src/components/Organisms/Unit/Overview/Overview.interface";
+import type { Tag } from "@src/types/Tag";
+
+// Components
+import { Header } from "@src/components/Organisms/Core/Header/Header";
+import { Overview } from "@src/components/Organisms/Unit/Overview/Overview";
+import { UnitNav } from "@src/components/Organisms/Unit/UnitNav/UnitNav";
+
+// Content
+import strings from "@src/content/strings.json";
+
+// Helpers
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+import { fetchStories } from "@src/helpers/fetchContent";
+import { getTags } from "@src/helpers/getTags";
+
+// Styles
+import styles from "./UnitOverview.module.scss";
+
+interface Props {
+  story: ISbStoryData;
+}
+const { story } = Astro.props;
+let overviewStartLink = null;
+let unitNavProps = null;
+
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+
+// Fetch the chapter pages if they exist sorted by name used as chapter number
+const { data } = await fetchStories({
+  excluding_ids: `${story.id}`,
+  sort_by: "name:asc",
+  starts_with: story.full_slug,
+});
+const stories: ISbStoryData[] = data.stories;
+
+// If query returned some stories, build the nav props and links
+if (stories.length > 1) {
+  overviewStartLink = {
+    title: strings.unit.overview.start,
+    url: stories[0].full_slug,
+  };
+  unitNavProps = {
+    activeChapterSlug: story.full_slug,
+    parentStory: story,
+    chapterStories: stories,
+  };
+}
+
+// Build the tags from story `tag_list` and add to overview data
+const tags: Tag[] = getTags(story);
+const overviewProps = {
+  ...story.content,
+  tags: tags,
+  startLink: overviewStartLink,
+};
+---
+
+<BaseLayout title={story.name}>
+  <main>
+    <Header title={story.name} breadcrumbs={breadcrumbs} />
+    <div class={clsx("w-100", styles["background"])}>
+      <div class={clsx("container-lg", "py-4")}>
+        <div class={clsx("row")}>
+          <div class={clsx("col-md-3")}>
+            <!-- Only render the nav if we have valid props -->
+            {unitNavProps && <UnitNav {...unitNavProps} />}
+          </div>
+          <div class={clsx("col-md-9")}>
+            <Overview {...overviewProps as OverviewProps} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

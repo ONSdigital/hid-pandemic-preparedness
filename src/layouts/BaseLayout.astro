@@ -1,21 +1,39 @@
 ---
+import { getLiveStory } from "@storyblok/astro";
+
 // Components
-import { Footer } from "@components/Footer/Footer";
+import { Footer } from "@components/Organisms/Core/Footer/Footer";
 import { NavBar } from "@components/NavBar/NavBar";
 
 // Content
-import strings from "@content/base/strings.json";
-import footerData from "@content/base/footerData.json";
+import strings from "@content/strings.json";
 import navBarData from "@content/base/navBarData.json";
 
 // Css and fonts
 import "@styles/index.scss";
 import "@fontsource-variable/open-sans";
 
+// Helpers
+import { fetchStory } from "@helpers/fetchContent";
+import type { FooterProps } from "@components/Organisms/Core/Footer/Footer.interface";
+
 interface Props {
   title?: string;
 }
 const { title } = Astro.props;
+
+let story = null;
+
+const liveStory = await getLiveStory(Astro);
+
+if (liveStory) {
+  story = liveStory;
+} else {
+  const { data } = await fetchStory("footer");
+  story = data?.story;
+}
+
+const footerContent = story.content as FooterProps;
 ---
 
 <html lang="en">
@@ -35,6 +53,6 @@ const { title } = Astro.props;
       <NavBar {...navBarData} client:load />
     </header>
     <slot />
-    <Footer {...footerData} client:load />
+    <Footer {...footerContent} client:load />
   </body>
 </html>

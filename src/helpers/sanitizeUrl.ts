@@ -1,7 +1,25 @@
 // Takes an input `baseUrl` and optional `path` to always construct a valid url with a trailing slash
 export function sanitizeUrl(baseUrl: string, path?: string): string {
-  // Remove any trailing slashes before building
-  baseUrl = baseUrl.replace(/\/$/, "");
+  let absoluteUrl = null;
+  let origin = null;
+
+  // See whether we have an absolute url by trying to construct URL object
+  try {
+    absoluteUrl = new URL(baseUrl);
+  } catch {
+    // Not absolute url so just ignore
+  }
+
+  if (absoluteUrl) {
+    origin = absoluteUrl.origin;
+  } else {
+    // Remove any trailing slashes
+    origin = baseUrl.replace(/\/$/, "");
+    // Prepend with slash if appropriate to construct relative url
+    if (!origin.startsWith("/")) {
+      origin = `/${origin}`;
+    }
+  }
 
   // If path, append it
   if (path) {
@@ -9,8 +27,8 @@ export function sanitizeUrl(baseUrl: string, path?: string): string {
     path = path.replace(/^\//, "");
     path = path.replace(/\/$/, "");
 
-    return `${baseUrl}/${path}/`;
+    return `${origin}/${path}/`;
   } else {
-    return `${baseUrl}/`;
+    return `${origin}/`;
   }
 }

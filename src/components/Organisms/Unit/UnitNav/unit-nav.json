@@ -1,0 +1,335 @@
+{
+  "parentStory": {
+    "name": "Mortality analysis",
+    "created_at": "2025-10-20T13:29:29.961Z",
+    "published_at": null,
+    "updated_at": "2025-10-21T12:41:04.637Z",
+    "id": 103536107383396,
+    "uuid": "cc26ff13-e25b-410d-a553-d8175f46910e",
+    "content": {
+      "_uid": "c31436d6-3216-48c5-85c6-3020920ce6b5",
+      "tags": [
+        {
+          "_uid": "af0f8ecd-b589-4104-9a56-0700cc07acd5",
+          "type": "primary",
+          "title": "Reports",
+          "component": "Tag",
+          "_editable": "<!--#storyblok#{\"name\": \"Tag\", \"space\": \"287525897740819\", \"uid\": \"af0f8ecd-b589-4104-9a56-0700cc07acd5\", \"id\": \"103536107383396\"}-->"
+        },
+        {
+          "_uid": "b28638ce-63ff-4e34-a65f-8c7b2c75c41c",
+          "type": "gray",
+          "title": "Beginner",
+          "component": "Tag",
+          "_editable": "<!--#storyblok#{\"name\": \"Tag\", \"space\": \"287525897740819\", \"uid\": \"b28638ce-63ff-4e34-a65f-8c7b2c75c41c\", \"id\": \"103536107383396\"}-->"
+        }
+      ],
+      "title": "Overview",
+      "component": "UnitOverview",
+      "githubLink": {
+        "id": "",
+        "rel": "",
+        "url": "github.com",
+        "title": "Open Github",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "github.com"
+      },
+      "readingTime": "Set aside 5-10 minutes",
+      "overviewRichText": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "This guidance introduces the principles and practices of mortality analysis. It is designed for professionals working in public health, statistics, policy, or research who need to interpret mortality trends and use them to inform decisions. ",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#212529"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "The guidance introduces key concepts, methods, and tools used globally, with examples drawn from the UK’s Office for National Statistics (ONS).",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Learning Outcomes:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Understand the key concepts and terminology related to mortality data.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Identify common users and uses of mortality statistics in public health and policy.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Understand how mortality data is collected, processed, and reported.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Apply standard methods to calculate mortality rates and interpret life tables.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Analyse causes of death using structured classification systems (e.g., ICD).",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Present mortality data clearly and responsibly to avoid misinterpretation.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "_editable": "<!--#storyblok#{\"name\": \"UnitOverview\", \"space\": \"287525897740819\", \"uid\": \"c31436d6-3216-48c5-85c6-3020920ce6b5\", \"id\": \"103536107383396\"}-->"
+    },
+    "slug": "mortality-analysis",
+    "full_slug": "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/",
+    "sort_by_date": null,
+    "position": -180,
+    "tag_list": ["Reports", "Beginner"],
+    "is_startpage": true,
+    "parent_id": 101679933737008,
+    "meta_data": null,
+    "group_id": "e9a9b63f-a1b2-4779-8cf6-7da41c01cc36",
+    "first_published_at": null,
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "chapterStories": [
+    {
+      "name": "1",
+      "created_at": "2025-10-21T15:33:59.315Z",
+      "published_at": null,
+      "updated_at": "2025-10-21T15:34:49.680Z",
+      "id": 103920596295084,
+      "uuid": "cba67d14-80bc-42f4-9a85-f3e0c8fd9cd4",
+      "content": {
+        "_uid": "844a35e8-b281-4cc0-a361-72dac09871cc",
+        "title": "Introduction to Mortality Analysis",
+        "component": "UnitChapter",
+        "chapterNumber": "1",
+        "_editable": "<!--#storyblok#{\"name\": \"UnitChapter\", \"space\": \"287525897740819\", \"uid\": \"844a35e8-b281-4cc0-a361-72dac09871cc\", \"id\": \"103920596295084\"}-->"
+      },
+      "slug": "1",
+      "full_slug": "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/1",
+      "sort_by_date": null,
+      "position": -90,
+      "tag_list": [],
+      "is_startpage": false,
+      "parent_id": 101679933737008,
+      "meta_data": null,
+      "group_id": "4b26b86a-58d6-46b3-bf6f-f8c1c7d0c17b",
+      "first_published_at": null,
+      "release_id": null,
+      "lang": "default",
+      "path": null,
+      "alternates": [],
+      "default_full_slug": null,
+      "translated_slugs": null
+    },
+    {
+      "name": "2",
+      "created_at": "2025-10-21T15:35:08.740Z",
+      "published_at": null,
+      "updated_at": "2025-10-21T15:35:26.328Z",
+      "id": 103920880647601,
+      "uuid": "5b84f9ba-3ac7-4efe-8a5e-38f9a21734e6",
+      "content": {
+        "_uid": "53185b53-9c2a-495e-b10f-ca2f976ec918",
+        "title": "Data Quality, Completeness and Data Cleaning",
+        "component": "UnitChapter",
+        "_editable": "<!--#storyblok#{\"name\": \"UnitChapter\", \"space\": \"287525897740819\", \"uid\": \"53185b53-9c2a-495e-b10f-ca2f976ec918\", \"id\": \"103920880647601\"}-->"
+      },
+      "slug": "2",
+      "full_slug": "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/2",
+      "sort_by_date": null,
+      "position": -110,
+      "tag_list": [],
+      "is_startpage": false,
+      "parent_id": 101679933737008,
+      "meta_data": null,
+      "group_id": "424eef89-4a5b-4662-b6a0-bf099105f575",
+      "first_published_at": null,
+      "release_id": null,
+      "lang": "default",
+      "path": null,
+      "alternates": [],
+      "default_full_slug": null,
+      "translated_slugs": null
+    },
+    {
+      "name": "3",
+      "created_at": "2025-10-21T15:35:44.461Z",
+      "published_at": null,
+      "updated_at": "2025-10-21T15:36:00.338Z",
+      "id": 103921026960823,
+      "uuid": "58c34ac6-3b70-4bae-945e-b322c7cfc6a6",
+      "content": {
+        "_uid": "6022f5da-8fd1-49ca-8969-3275ae02a192",
+        "title": "Key Concepts",
+        "component": "UnitChapter",
+        "_editable": "<!--#storyblok#{\"name\": \"UnitChapter\", \"space\": \"287525897740819\", \"uid\": \"6022f5da-8fd1-49ca-8969-3275ae02a192\", \"id\": \"103921026960823\"}-->"
+      },
+      "slug": "3",
+      "full_slug": "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/3",
+      "sort_by_date": null,
+      "position": -130,
+      "tag_list": [],
+      "is_startpage": false,
+      "parent_id": 101679933737008,
+      "meta_data": null,
+      "group_id": "b6687c92-14f3-4ce3-8eb4-2d7dcbb94d93",
+      "first_published_at": null,
+      "release_id": null,
+      "lang": "default",
+      "path": null,
+      "alternates": [],
+      "default_full_slug": null,
+      "translated_slugs": null
+    },
+    {
+      "name": "4",
+      "created_at": "2025-10-21T15:36:46.335Z",
+      "published_at": null,
+      "updated_at": "2025-10-21T15:37:06.722Z",
+      "id": 103921280396746,
+      "uuid": "2426d037-9dcd-4f1d-ac7c-4d92eb7d75b7",
+      "content": {
+        "_uid": "4a7e7b36-ea62-4008-8ebc-aa3b7928b0ba",
+        "title": "Grouping and Analysing Mortality Data",
+        "component": "UnitChapter",
+        "_editable": "<!--#storyblok#{\"name\": \"UnitChapter\", \"space\": \"287525897740819\", \"uid\": \"4a7e7b36-ea62-4008-8ebc-aa3b7928b0ba\", \"id\": \"103921280396746\"}-->"
+      },
+      "slug": "4",
+      "full_slug": "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/4",
+      "sort_by_date": null,
+      "position": -170,
+      "tag_list": [],
+      "is_startpage": false,
+      "parent_id": 101679933737008,
+      "meta_data": null,
+      "group_id": "6b26e1d7-e237-4a2f-adba-dcc3e72570d1",
+      "first_published_at": null,
+      "release_id": null,
+      "lang": "default",
+      "path": null,
+      "alternates": [],
+      "default_full_slug": null,
+      "translated_slugs": null
+    }
+  ]
+}

@@ -41,14 +41,10 @@ const cardUnitProps: CardUnitProps = {
   subTitle: "Using 7-1-7 to Strengthen Uganda’s Health Security.",
   tags: [
     {
-      id: uuidv4(),
-      title: "Theme",
-      type: "secondary",
+      title: "Reports",
     },
     {
-      id: uuidv4(),
-      title: "Level",
-      type: "primary",
+      title: "Beginner",
     },
   ],
   readingTime: "3 min",

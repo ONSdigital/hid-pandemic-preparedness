@@ -1,0 +1,371 @@
+{
+  "columns": [
+    {
+      "_uid": "fc57ecfb-e37d-4526-9363-a38513ac1ccd",
+      "type": "",
+      "links": [
+        {
+          "_uid": "14c82977-9dd2-4c29-ba61-cf3182d77cc1",
+          "link": {
+            "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+            "rel": "",
+            "url": "",
+            "title": "Data collection",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-analysis/"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"14c82977-9dd2-4c29-ba61-cf3182d77cc1\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "a3a8d988-be24-48ce-b2c3-67244fb8fbd3",
+          "link": {
+            "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+            "rel": "",
+            "url": "",
+            "title": "Data analysis",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-analysis/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"a3a8d988-be24-48ce-b2c3-67244fb8fbd3\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "6b287fb4-f50c-48b6-9fc6-54ce18c7b6a4",
+          "link": {
+            "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+            "rel": "",
+            "url": "",
+            "title": "Data governance",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-analysis/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"6b287fb4-f50c-48b6-9fc6-54ce18c7b6a4\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "c55b4476-b05d-4540-a95a-9f478790af75",
+          "link": {
+            "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+            "rel": "",
+            "url": "",
+            "title": "Outputs and reporting",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-analysis/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"c55b4476-b05d-4540-a95a-9f478790af75\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "6089b3ff-6cb6-476e-b4b2-1e98e19383ce",
+          "link": {
+            "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+            "rel": "",
+            "url": "",
+            "title": "Stakeholder engagement",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-analysis/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"6089b3ff-6cb6-476e-b4b2-1e98e19383ce\", \"id\": \"103845764580260\"}--\u003E"
+        }
+      ],
+      "title": "Learning resources",
+      "component": "FooterColumn",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumn\", \"space\": \"287525897740819\", \"uid\": \"fc57ecfb-e37d-4526-9363-a38513ac1ccd\", \"id\": \"103845764580260\"}--\u003E"
+    },
+    {
+      "_uid": "3a19ad40-3cb3-44aa-b7f6-93de99fd76c3",
+      "type": "",
+      "links": [
+        {
+          "_uid": "59f6a7c6-a1ca-4a54-89bb-3671aedf1851",
+          "link": {
+            "id": "50a33e7f-ab97-4fa5-ae2d-1175894692a1",
+            "rel": "",
+            "url": "",
+            "title": "Question bank",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "tools/question-bank/"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"59f6a7c6-a1ca-4a54-89bb-3671aedf1851\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "463825b0-25ee-4e90-95a4-74be2ba7fa21",
+          "link": {
+            "id": "50a33e7f-ab97-4fa5-ae2d-1175894692a1",
+            "rel": "",
+            "url": "",
+            "title": "Sample size calculator",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "tools/question-bank/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"463825b0-25ee-4e90-95a4-74be2ba7fa21\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "0f6f26b5-18cc-4b5f-b9b4-e8506b8928f3",
+          "link": {
+            "id": "50a33e7f-ab97-4fa5-ae2d-1175894692a1",
+            "rel": "",
+            "url": "",
+            "title": "Modelling dashboard",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "tools/question-bank/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"0f6f26b5-18cc-4b5f-b9b4-e8506b8928f3\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "b0e96257-ab5e-466c-a8b2-e14a2bd5230d",
+          "link": {
+            "id": "50a33e7f-ab97-4fa5-ae2d-1175894692a1",
+            "rel": "",
+            "url": "",
+            "title": "Rumour report",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "tools/question-bank/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"b0e96257-ab5e-466c-a8b2-e14a2bd5230d\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "a14317b0-3eb8-44f2-ac49-6f7cbf3cafdc",
+          "link": {
+            "id": "50a33e7f-ab97-4fa5-ae2d-1175894692a1",
+            "rel": "",
+            "url": "",
+            "title": "View all tools",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "tools/question-bank/"
+          },
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"a14317b0-3eb8-44f2-ac49-6f7cbf3cafdc\", \"id\": \"103845764580260\"}--\u003E"
+        }
+      ],
+      "title": "Tools",
+      "component": "FooterColumn",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumn\", \"space\": \"287525897740819\", \"uid\": \"3a19ad40-3cb3-44aa-b7f6-93de99fd76c3\", \"id\": \"103845764580260\"}--\u003E"
+    },
+    {
+      "_uid": "ce74576b-505b-4653-af13-8a8664c8ff79",
+      "type": "",
+      "links": [
+        {
+          "_uid": "d8027fce-a84a-441d-84c3-647e5da1e3f3",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Promoted case study 1",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"d8027fce-a84a-441d-84c3-647e5da1e3f3\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "782196d5-4144-46b4-a70d-c63c500970d7",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Promoted case study 2",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"782196d5-4144-46b4-a70d-c63c500970d7\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "f4a1e9c9-13c5-4283-9bb3-4cb0a8792f46",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Promoted case study 3",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"f4a1e9c9-13c5-4283-9bb3-4cb0a8792f46\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "ae5cdbde-3a19-4ba3-a4b4-2cacf11121a0",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Promoted case study 4",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"ae5cdbde-3a19-4ba3-a4b4-2cacf11121a0\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "33aaec24-0792-4679-9847-90bb83237cc7",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "View all case studies",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"33aaec24-0792-4679-9847-90bb83237cc7\", \"id\": \"103845764580260\"}--\u003E"
+        }
+      ],
+      "title": "Case studies",
+      "component": "FooterColumn",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumn\", \"space\": \"287525897740819\", \"uid\": \"ce74576b-505b-4653-af13-8a8664c8ff79\", \"id\": \"103845764580260\"}--\u003E"
+    },
+    {
+      "_uid": "34e5fcd9-c083-4c2a-ae75-69affe411bcd",
+      "type": "",
+      "links": [
+        {
+          "_uid": "08263a8c-53dc-4d7a-80b4-f22389465f69",
+          "link": {
+            "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+            "rel": "",
+            "url": "",
+            "title": "Mission and goals",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "about"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"08263a8c-53dc-4d7a-80b4-f22389465f69\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "c6117697-e5db-45ca-8854-64317169bfd4",
+          "link": {
+            "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+            "rel": "",
+            "url": "",
+            "title": "Global partners",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "about"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"c6117697-e5db-45ca-8854-64317169bfd4\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "b0323c4b-9212-4a46-a6d7-fe5fa73d1341",
+          "link": {
+            "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+            "rel": "",
+            "url": "",
+            "title": "FAQs",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "about"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"b0323c4b-9212-4a46-a6d7-fe5fa73d1341\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "f313ee5c-87a6-4256-9846-afb0744537c5",
+          "link": {
+            "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+            "rel": "",
+            "url": "",
+            "title": "How to get involved",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "about"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"f313ee5c-87a6-4256-9846-afb0744537c5\", \"id\": \"103845764580260\"}--\u003E"
+        }
+      ],
+      "title": "About",
+      "component": "FooterColumn",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumn\", \"space\": \"287525897740819\", \"uid\": \"34e5fcd9-c083-4c2a-ae75-69affe411bcd\", \"id\": \"103845764580260\"}--\u003E"
+    },
+    {
+      "_uid": "46f28d66-75e3-4d71-a4a0-8eac3af009bc",
+      "type": "",
+      "links": [
+        {
+          "_uid": "253c8c11-9a1d-4cfa-8999-6cd0266d31b5",
+          "link": {
+            "id": "b504093b-0d5e-4c6e-961f-8a2a2f33924e",
+            "rel": "",
+            "url": "",
+            "title": "Contact",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "contact"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"253c8c11-9a1d-4cfa-8999-6cd0266d31b5\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "7a918fdd-00d4-4865-b8fa-fc6521644084",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Github",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"7a918fdd-00d4-4865-b8fa-fc6521644084\", \"id\": \"103845764580260\"}--\u003E"
+        },
+        {
+          "_uid": "452cbd69-c285-4997-93cd-a4f8300b3efb",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Privacy policy",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "component": "FooterColumnLink",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumnLink\", \"space\": \"287525897740819\", \"uid\": \"452cbd69-c285-4997-93cd-a4f8300b3efb\", \"id\": \"103845764580260\"}--\u003E"
+        }
+      ],
+      "title": "",
+      "component": "FooterColumn",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FooterColumn\", \"space\": \"287525897740819\", \"uid\": \"46f28d66-75e3-4d71-a4a0-8eac3af009bc\", \"id\": \"103845764580260\"}--\u003E"
+    }
+  ]
+}

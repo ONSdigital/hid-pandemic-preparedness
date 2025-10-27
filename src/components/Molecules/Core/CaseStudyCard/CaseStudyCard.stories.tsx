@@ -75,9 +75,7 @@ const cardCaseStudyProps: CaseStudyCardProps = {
     is_external_url: false,
   },
   tag: {
-    _uid: uuidv4(),
     title: "Nepal",
-    type: "location",
   },
 };
 
