@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import markdownContent from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsContent.md?raw";
-import congratulationsData from "@content/learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/congratulationsTitle.json";
-import { parseMarkdown } from "@src/helpers/parseMarkdown";
+import strings from "@src/content/strings.json";
+
 import { Congratulations } from "./Congratulations";
 import type { CongratulationsProps } from "./Congratulations.interface";
 
@@ -20,11 +19,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const htmlContent = await parseMarkdown(markdownContent);
-
 const congratulationsProps: CongratulationsProps = {
-  title: congratulationsData.title,
-  htmlContent: htmlContent,
+  title: strings.unit.congratulations.title,
+  htmlContent: strings.unit.congratulations.htmlContent,
 };
 
 export const CongratulationsStory = {

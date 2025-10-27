@@ -10,13 +10,13 @@ import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule
 
 import strings from "@src/content/strings.json";
 
-import styles from "./Overview.module.scss";
-import type { OverviewProps } from "./UnitOverview.interface";
+import styles from "./UnitOverview.module.scss";
+import type { UnitOverviewProps } from "./UnitOverview.interface";
 
 // Set size of icon here using icon component props
 const iconSize: string = "1.5rem";
 
-export const Overview: FC<OverviewProps> = (props) => {
+export const UnitOverview: FC<UnitOverviewProps> = (props) => {
   const overviewStrings = strings.unit.overview;
 
   return (
