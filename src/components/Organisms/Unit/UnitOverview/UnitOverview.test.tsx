@@ -4,24 +4,24 @@ import "@testing-library/jest-dom";
 
 // Importing raw here to avoid typescript errors when parsing strings to enums
 import overviewDataJson from "./overview.json?raw";
-import type { OverviewProps } from "./Overview.interface";
-import { Overview } from "./Overview";
+import type { UnitOverviewProps } from "./UnitOverview.interface";
+import { UnitOverview } from "./UnitOverview";
 
-describe("Overview component", () => {
-  const baseProps: OverviewProps = {
+describe("UnitOverview component", () => {
+  const baseProps: UnitOverviewProps = {
     ...JSON.parse(overviewDataJson),
     githubLink: null,
     startLink: null,
   };
 
   test("doesn't render `github-link` if `githubLink` prop not defined", () => {
-    render(<Overview {...baseProps} />);
+    render(<UnitOverview {...baseProps} />);
     // Test id should not exist if `githubLink` prop not defined
     expect(screen.queryByTestId("github-link")).toEqual(null);
   });
 
   test("doesn't render `start-link` if `startLink` prop not defined", () => {
-    render(<Overview {...baseProps} />);
+    render(<UnitOverview {...baseProps} />);
     // Test id should not exist if `startLink` prop not defined
     expect(screen.queryByTestId("start-link")).toEqual(null);
   });
@@ -36,7 +36,7 @@ describe("Overview component", () => {
       fieldtype: "multilink",
       cached_url: "github.com",
     };
-    render(<Overview {...baseProps} githubLink={githubLink} />);
+    render(<UnitOverview {...baseProps} githubLink={githubLink} />);
     // Test id should exist if `githubLink` prop is defined
     expect(screen.getByTestId("github-link")).toBeInTheDocument();
   });
@@ -56,7 +56,7 @@ describe("Overview component", () => {
       startLink: startLink,
     };
 
-    render(<Overview {...updatedProps} />);
+    render(<UnitOverview {...updatedProps} />);
     // Test id should exist if `startLink` prop is defined
     expect(screen.getByTestId("start-link")).toBeInTheDocument();
   });

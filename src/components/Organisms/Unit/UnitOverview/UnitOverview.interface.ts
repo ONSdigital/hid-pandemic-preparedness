@@ -3,7 +3,7 @@ import type { StoryblokRichTextNode } from "@storyblok/richtext";
 import type { Link } from "@src/types/Link";
 import type { Tag } from "@src/types/Tag";
 
-export interface OverviewProps {
+export interface UnitOverviewProps {
   readingTime: string;
   overviewRichText: StoryblokRichTextNode;
   githubLink?: Link;

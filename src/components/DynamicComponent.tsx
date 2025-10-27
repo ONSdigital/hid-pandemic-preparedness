@@ -9,7 +9,7 @@ import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
-import { Overview as UnitOverview } from "@src/components/Organisms/Unit/Overview/Overview";
+import { UnitOverview } from "@/src/components/Organisms/Unit/UnitOverview/UnitOverview";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =
