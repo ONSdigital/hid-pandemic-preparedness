@@ -2,8 +2,11 @@ import clsx from "clsx";
 import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
-import type { SearchBarProps } from "./SearchBar.interface";
+import { useClickOutside } from "@src/hooks/useClickOutside";
+
 import styles from "./SearchBar.module.scss";
+import type { SearchBarProps } from "./SearchBar.interface";
+
 import SearchResultsData from "@content/searchResults.json";
 import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
 import type { SearchResultItemProps } from "@components/Molecules/SearchResults/SearchResults.interface";
@@ -16,21 +19,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    // Check for clicks outside the referenced element (search container)
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        searchContainerRef.current &&
-        !searchContainerRef.current.contains(event.target as Node) // If click isn't inside
-      ) {
-        setIsFocused(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside); // Clean up - remove listener on unmount
-    };
-  }, []);
+  useClickOutside(searchContainerRef, () => setIsFocused(false));
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
