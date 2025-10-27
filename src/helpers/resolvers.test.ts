@@ -38,8 +38,8 @@ describe.each([
     test(`returns ${expectedStylingClass}`, () => {
       headingResolver(headingNode, context);
       expect(context.render).toHaveBeenCalledWith(
-        `h${level} class=${expectedStylingClass}`,
-        {},
+        `h${level}`,
+        { class: expectedStylingClass },
         headingNode.children,
       );
     });

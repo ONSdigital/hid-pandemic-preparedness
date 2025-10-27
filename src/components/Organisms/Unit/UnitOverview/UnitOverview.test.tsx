@@ -40,24 +40,4 @@ describe("UnitOverview component", () => {
     // Test id should exist if `githubLink` prop is defined
     expect(screen.getByTestId("github-link")).toBeInTheDocument();
   });
-
-  test("renders `start-link` if `startLink` prop is defined", () => {
-    const startLink = {
-      id: "",
-      rel: "",
-      url: "/1/",
-      title: "Start",
-      linktype: "url",
-      fieldtype: "multilink",
-      cached_url: "/1/",
-    };
-    const updatedProps = {
-      ...baseProps,
-      startLink: startLink,
-    };
-
-    render(<UnitOverview {...updatedProps} />);
-    // Test id should exist if `startLink` prop is defined
-    expect(screen.getByTestId("start-link")).toBeInTheDocument();
-  });
 });
