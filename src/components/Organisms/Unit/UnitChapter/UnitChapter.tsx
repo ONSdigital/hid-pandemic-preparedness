@@ -17,22 +17,24 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
   if (props.sections) {
     accordionProps = {
       id: props._uid,
-      items: props.sections.map((section) => ({
-        id: section._uid,
-        headerTitle: section.title,
-        bodyContent: <TextModule richText={section.contentRichText} />,
-      })),
+      items: props.sections.map((section) => {
+        return {
+          id: slugify(section.title, { lower: true }),
+          headerTitle: section.title,
+          bodyContent: <TextModule richText={section.contentRichText} />,
+        };
+      }),
       expandAll: true,
     };
     sectionLinks = props.sections.map((section) => {
-      const slug = slugify(section.title);
+      const slug = slugify(section.title, { lower: true });
       return {
         id: section._uid,
         fieldtype: "multilink",
         linktype: "url",
         title: section.title,
-        cached_url: `#${slug}`,
-        url: `#${slug}`,
+        cached_url: slug,
+        url: slug,
       };
     });
   }

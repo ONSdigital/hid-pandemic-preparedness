@@ -1,3 +1,6 @@
+// Ignoring instances where generic `T` is undefined
+/* eslint-disable no-undef */
+
 import type {
   BlockAttributes,
   StoryblokRichTextNode,
@@ -8,7 +11,7 @@ import { clsx } from "clsx";
 // Copied from https://github.com/storyblok/monoblok/packages/richtext/src/types/index.ts as these are not exported
 enum BlockTypes {
   // DOCUMENT = "doc",
-  HEADING = "heading",
+  HEADING = "heading", // eslint-disable-line no-unused-vars
   // PARAGRAPH = "paragraph",
   // QUOTE = "blockquote",
   // OL_LIST = "ordered_list",
@@ -19,11 +22,11 @@ enum BlockTypes {
   // BR = "hard_break",
   // IMAGE = "image",
   // EMOJI = "emoji",
-  COMPONENT = "blok",
-  TABLE = "table",
-  TABLE_ROW = "tableRow",
-  TABLE_CELL = "tableCell",
-  TABLE_HEADER = "tableHeader",
+  COMPONENT = "blok", // eslint-disable-line no-unused-vars
+  TABLE = "table", // eslint-disable-line no-unused-vars
+  TABLE_ROW = "tableRow", // eslint-disable-line no-unused-vars
+  TABLE_CELL = "tableCell", // eslint-disable-line no-unused-vars
+  TABLE_HEADER = "tableHeader", // eslint-disable-line no-unused-vars
 }
 
 // enum MarkTypes {
