@@ -90,26 +90,35 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
 };
 
 // Override to include formula stylings if applicable
-const componentResolver: StoryblokRichTextNodeResolver<T> = (
+export const componentResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
-  const blok = node.attrs?.body[0];
+  const blok = node.attrs?.body?.[0];
 
-  if (blok.component === "Formula") {
-    return context.render(
-      "span",
-      {
-        blok: node?.attrs?.body[0],
-        class: clsx("d-flex", "p-3", "my-2", "fw-semibold", "math-block"),
-        id: node.attrs?.id,
-      },
-      [blok.richText.content[0].content[0].text] as unknown as T,
-    ) as T;
+  if (blok) {
+    if (blok.component === "Formula") {
+      // Only try and render if the formula text is where we expect it to be
+      const formulaText =
+        blok?.richText?.content?.[0]?.content?.[0]?.text ?? null;
+
+      if (formulaText) {
+        return context.render(
+          "span",
+          {
+            blok: node?.attrs?.body[0],
+            class: clsx("d-flex", "p-3", "my-2", "fw-semibold", "math-block"),
+            id: node.attrs?.id,
+          },
+          [blok.richText.content[0].content[0].text] as unknown as T,
+        ) as T;
+      }
+    }
   }
 
+  // If not recognised just return default implementation
   return context.render("span", {
-    blok: node?.attrs?.body[0],
+    blok: blok && blok,
     id: node.attrs?.id,
     style: "display: none",
   }) as T;
