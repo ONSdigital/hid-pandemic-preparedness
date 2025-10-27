@@ -53,8 +53,6 @@ export async function buildBreadcrumbs(
     return a.full_slug.length - b.full_slug.length;
   });
 
-  console.log(sortedStories);
-
   if (sortedStories) {
     // Loop through the returned stories and build the breadcrumbs
     returnBreadcrumbs = {

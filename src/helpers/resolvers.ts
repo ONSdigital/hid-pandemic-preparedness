@@ -19,7 +19,7 @@ enum BlockTypes {
   // BR = "hard_break",
   // IMAGE = "image",
   // EMOJI = "emoji",
-  // COMPONENT = "blok",
+  COMPONENT = "blok",
   TABLE = "table",
   TABLE_ROW = "tableRow",
   TABLE_CELL = "tableCell",
@@ -86,6 +86,32 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
   });
 };
 
+// Override to include formula stylings if applicable
+const componentResolver: StoryblokRichTextNodeResolver<T> = (
+  node: StoryblokRichTextNode<T>,
+  context,
+): T => {
+  const blok = node.attrs?.body[0];
+
+  if (blok.component === "Formula") {
+    return context.render(
+      "span",
+      {
+        blok: node?.attrs?.body[0],
+        class: clsx("d-flex", "p-3", "my-2", "fw-semibold", "math-block"),
+        id: node.attrs?.id,
+      },
+      [blok.richText.content[0].content[0].text] as unknown as T,
+    ) as T;
+  }
+
+  return context.render("span", {
+    blok: node?.attrs?.body[0],
+    id: node.attrs?.id,
+    style: "display: none",
+  }) as T;
+};
+
 // Custom heading resolver that adds our custom styling based on heading level
 export const headingResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
@@ -103,13 +129,13 @@ export const headingResolver: StoryblokRichTextNodeResolver<T> = (
 
   let headingElement = `h${level}`;
 
+  let attributes = processAttributes(rest);
   const levelStyle = headingStylingMap[level];
-  // Add styling class if available
+  // Add styling classes if available
   if (levelStyle) {
-    headingElement = `${headingElement} class=${levelStyle}`;
+    attributes.class = levelStyle;
   }
 
-  const attributes = processAttributes(rest);
   return context.render(headingElement, attributes, node.children) as T;
 };
 
@@ -118,15 +144,13 @@ export const tableResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
-  const cssClasses: string = clsx("table", "table-borderless", "table-ppt");
-
-  const attributes = processAttributes(node.attrs);
+  let attributes = processAttributes(node.attrs);
+  // Add styling to the attributes
+  attributes.class = clsx("table", "table-borderless", "table-ppt");
   const children = node.children || (null as any);
 
-  const tableElement = `table class="${cssClasses}"`;
-
   return context.render(
-    tableElement,
+    "table",
     attributes,
     context.render("tbody", {}, children),
   ) as T;
@@ -149,7 +173,7 @@ export const overiddenResolvers: Record<
   // [BlockTypes.HR, nodeResolver("hr")],
   // [BlockTypes.BR, nodeResolver("br")],
   // [BlockTypes.QUOTE, nodeResolver("blockquote")],
-  // [BlockTypes.COMPONENT, componentResolver],
+  [BlockTypes.COMPONENT]: componentResolver,
   // [TextTypes.TEXT, textResolver],
   // [MarkTypes.LINK, linkResolver],
   // [MarkTypes.ANCHOR, linkResolver],
