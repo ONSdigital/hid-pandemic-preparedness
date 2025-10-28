@@ -1,0 +1,1342 @@
+{
+  "_uid": "8b149d6d-010a-417c-b316-d79b8453ef17",
+  "type": "",
+  "title": "Introduction to Mortality Analysis",
+  "sections": [
+    {
+      "_uid": "91f63cf6-bc80-4175-b423-24499a1bf8de",
+      "type": "",
+      "title": "Definintion and importance of mortality analysis",
+      "component": "UnitSection",
+      "contentRichText": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Mortality analysis involves examining data on deaths to understand patterns, causes, and trends across populations. It includes calculating mortality rates, analysing causes of death, and interpreting life expectancy.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 4,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Importance",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Provides insight into the health status of populations",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Identifies inequalities and emerging health issues",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Supports planning and evaluation of health services and interventions",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "horizontal_rule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 5,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Step-by-step",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ordered_list",
+            "attrs": {
+              "order": 1
+            },
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Identify the population or subgroup to be analysed",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Obtain death registration data from a reliable source",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Apply standard methods to calculate mortality indicators",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Interpret results in the context of demographic and health trends",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "_editable": "\u003C!--#storyblok#{\"name\": \"UnitSection\", \"space\": \"287525897740819\", \"uid\": \"91f63cf6-bc80-4175-b423-24499a1bf8de\", \"id\": \"104602884954168\"}--\u003E"
+    },
+    {
+      "_uid": "05b66ef6-3dc4-4d3d-84c5-1cc326978b0e",
+      "type": "",
+      "title": "Relevance and coverage",
+      "component": "UnitSection",
+      "contentRichText": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Mortality data plays a central role in informing health and demographic statistics. It is used to:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Monitor public health outcomes and identify trends over time",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Support the planning and delivery of health and social care services",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Allocate resources based on population needs and mortality patterns",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Conduct research into health inequalities, disease burden, and life expectancy",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Produce national and subnational population estimates and projections",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Quality assure census outputs and demographic models",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Report on social and demographic changes",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Provide timely information on public health emergencies (e.g., COVID-19)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Enable detailed analysis of specific mortality topics, such as drug-related deaths or infant mortality linked to birth characteristics",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "These applications contribute to both national policy development and international reporting obligations, including ",
+                "type": "text"
+              },
+              {
+                "text": "Sustainable Development Goals (SDGs) and WHO health indicators.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "horizontal_rule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 4,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Coverage",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Mortality statistics are based on information collected during the death registration process. The data typically includes:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Demographic details: Age, sex, and usual residence of the deceased",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Event details: Date and place of death",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Medical information: Cause of death, coded using the International Classification of Diseases (ICD-10 or ICD-11) The coverage of mortality data is influenced by the legal and administrative framework for death registration. For example, in England and Wales, all deaths must be registered by law, ensuring high completeness.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "horizontal_rule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 4,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Quality Considerations",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "To ensure mortality data is fit for purpose, the following aspects should be assessed:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 5,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Completeness",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "All deaths should be registered. Delays may occur in cases referred to a coroner, but these are accounted for in statistical outputs.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 5,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Timeliness",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Data is published regularly, with provisional and final releases. ",
+                "type": "text"
+              },
+              {
+                "text": "Timeliness may vary depending on registration delays or the complexity of cause-of-death coding.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 5,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Accuracy",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Causes of death are coded using ICD standards. Coding is based on the information provided by certifying doctors or coroners, and may be affected by the quality of medical certification.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "_editable": "\u003C!--#storyblok#{\"name\": \"UnitSection\", \"space\": \"287525897740819\", \"uid\": \"05b66ef6-3dc4-4d3d-84c5-1cc326978b0e\", \"id\": \"104602884954168\"}--\u003E"
+    },
+    {
+      "_uid": "ca1b1ed8-14b3-42eb-a538-4ad6434d418a",
+      "type": "",
+      "title": "Use of mortality analysis",
+      "component": "UnitSection",
+      "contentRichText": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Mortality analysis supports a wide range of statistical, demographic, and public health functions. It is used to:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Produce population estimates and projections at national and subnational levels",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Calculate life expectancy at birth and at various ages",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Quality assure census estimates and outputs",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Report on social and demographic trends over time",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Provide timely information on public health issues (e.g., the COVID-19 pandemic)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Conduct health analyses to understand disease burden and health inequalities",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Analyse mortality by cause, including deaths from infections and drug-related causes",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Examine infant mortality in more detail by linking death records to birth characteristics (e.g., parental age, birthweight, multiple births)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "These uses help inform ",
+                "type": "text"
+              },
+              {
+                "text": "policy, allocate resources, and monitor progress against health objectives.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "horizontal_rule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 4,
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Step-by-step",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ordered_list",
+            "attrs": {
+              "order": 1
+            },
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Define the purpose of the analysis (e.g., population projections, health surveillance)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Select appropriate mortality indicators and breakdowns (e.g., age, sex, cause)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Use linked datasets where available to enhance analysis (e.g., birth-death linkage for infant mortality)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Present findings in a format that supports decision-making and further research",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "_editable": "\u003C!--#storyblok#{\"name\": \"UnitSection\", \"space\": \"287525897740819\", \"uid\": \"ca1b1ed8-14b3-42eb-a538-4ad6434d418a\", \"id\": \"104602884954168\"}--\u003E"
+    },
+    {
+      "_uid": "63e5da79-e684-4d6d-905e-93151c92194d",
+      "type": "",
+      "title": "Example users",
+      "component": "UnitSection",
+      "contentRichText": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Mortality data is used by a wide range of organisations across the public, private, and international sectors. Each group applies the data to support decision-making, planning, and monitoring activities relevant to their specific responsibilities. ",
+                "type": "text"
+              },
+              {
+                "text": "The following examples indicate users of mortality data across the UK.",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Public Sector Users",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Department of Health and Social Care (DHSC)",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.gov.uk/government/organisations/department-of-health-and-social-care",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": null,
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", the ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Cabinet Office",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.gov.uk/government/organisations/cabinet-office",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": null,
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", the ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "UK Health Security Agency",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.gov.uk/government/organisations/uk-health-security-agency",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": null,
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", and the ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Office for Health Improvement and Disparity",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.gov.uk/government/organisations/office-for-health-improvement-and-disparities",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": null,
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " use mortality data to:",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Inform health policy decisions",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Monitor population health",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Track progress against national health targets (e.g. reducing stillbirth and neonatal mortality)",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Devolved administrations such as the Welsh Government and Public Health Wales (PHW) use the data for regional health planning and performance monitoring.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Other government departments:",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Home Office and police force use data on external causes of death (e.g. homicides) for crime and safety analysis.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Department for Work and Pensions (DWP) uses mortality data in statistical models to estimate pensions and benefits.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Local authorities use mortality data to support service planning, health needs assessments, and resource allocation at the community level.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Private Sector Users",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Banks, insurance companies, and investment firms use mortality data by single year of age and region for risk modelling, underwriting, and financial forecasting.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "International Organisations",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "World Health Organisation and the United Nations (UN) Statistics Division use mortality statistics to:",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Monitor global health trends",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Track progress toward international goals such as the UN's Sustainable Development Goals",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Sustainable Development Goals.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "_editable": "\u003C!--#storyblok#{\"name\": \"UnitSection\", \"space\": \"287525897740819\", \"uid\": \"63e5da79-e684-4d6d-905e-93151c92194d\", \"id\": \"104602884954168\"}--\u003E"
+    }
+  ],
+  "subTitle": "This section introduces mortality analysis, explaining what it is, why it matters, and who uses it. It outlines the scope, relevance, and practical applications of mortality data in health and policy work.",
+  "component": "UnitChapter",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"UnitChapter\", \"space\": \"287525897740819\", \"uid\": \"8b149d6d-010a-417c-b316-d79b8453ef17\", \"id\": \"104602884954168\"}--\u003E"
+}

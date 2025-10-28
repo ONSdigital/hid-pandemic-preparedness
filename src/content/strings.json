@@ -20,9 +20,18 @@
   },
   "title": "Analysis for Action",
   "unit": {
+    "congratulations": {
+      "title": "Congratulations",
+      "htmlContent": "<p>You've reached the end of this learning. Select <strong>'End Learning'</strong> to explore more resources.</p>"
+    },
     "overview": {
       "openGithub": "Open Github",
+      "overview": "Overview",
       "start": "Start"
+    },
+    "unit": {
+      "endLearning": "End learning",
+      "nextChapter": "Next chapter"
     },
     "unitNav": {
       "chapters": "Chapters",

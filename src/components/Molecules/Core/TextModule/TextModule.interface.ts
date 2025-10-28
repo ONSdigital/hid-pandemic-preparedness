@@ -1,4 +1,7 @@
+import type { StoryblokRichTextNode } from "@storyblok/richtext";
+
 export interface TextModuleProps {
-  htmlContent: string;
   className?: string;
+  htmlContent?: string;
+  richText?: StoryblokRichTextNode;
 }

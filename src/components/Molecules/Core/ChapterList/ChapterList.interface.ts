@@ -1,7 +1,7 @@
 import type { Chapter } from "@src/types/Chapter";
 
 export interface ChapterListProps {
-  parent: Chapter;
   chapters: Chapter[];
-  activeChapterSlug?: string;
+  activeId?: string;
+  onSelect?: (id: string) => void; // eslint-disable-line no-unused-vars
 }
