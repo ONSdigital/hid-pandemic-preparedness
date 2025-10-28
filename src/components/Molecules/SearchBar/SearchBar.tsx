@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
+import { useState, useRef, type ChangeEvent, type FC } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
 import { useClickOutside } from "@src/hooks/useClickOutside";

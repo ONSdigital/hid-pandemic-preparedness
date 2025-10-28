@@ -5,12 +5,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Interfaces
 import type { LearningResourceProps } from "@components/Core/LearningResource/LearningResource.interface";
-import type { ReferencesProps } from "@components/Core/References/References.interface";
 
 // Components
 import { Header } from "@src/components/Organisms/Core/Header/Header";
 import { LearningResource } from "@components/Core/LearningResource/LearningResource";
-import { References } from "@components/Core/References/References";
 
 // Helpers
 import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
@@ -110,11 +108,6 @@ const learningResourceData: LearningResourceProps = {
   },
   currentChapter: currentChapter,
   totalChapters: totalChapters,
-};
-
-// Make references blank
-const referencesData: ReferencesProps = {
-  references: undefined,
 };
 
 // Build breadcrumbs

@@ -16,7 +16,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const PopoverStory = {
+export const ReferenceStory = {
   name: "Reference",
   args: JSON.parse(referencesDataRaw),
 } satisfies Story;
