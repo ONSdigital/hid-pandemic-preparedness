@@ -49,7 +49,7 @@ export const UnitOverview: FC<UnitOverviewProps> = (props) => {
         </div>
       </div>
       <div className={clsx("row")}>
-        <h3 className={clsx("heading-m")}>{overviewStrings.overview}</h3>
+        <h3 className={clsx("heading-m")}>{props.title}</h3>
         <hr />
         <div className={clsx("col-12")}>
           {props.overviewRichText && (
