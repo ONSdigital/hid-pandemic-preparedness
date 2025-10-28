@@ -11,7 +11,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
     <div className={clsx("accordion", "accordion-flush")} id={accordionId}>
       {props.items.map((item) => (
         <div className={clsx("accordion-item", "border-bottom")} key={item.id}>
-          <h2 className={clsx("accordion-header", "heading-s")}>
+          <h2 className={clsx("accordion-header")}>
             <button
               className={clsx(
                 "accordion-button",
@@ -25,7 +25,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
               aria-expanded="false"
               aria-controls={item.id}
             >
-              {item.headerTitle}
+              <h4 className={clsx("heading-s")}>{item.headerTitle}</h4>
             </button>
           </h2>
           <div

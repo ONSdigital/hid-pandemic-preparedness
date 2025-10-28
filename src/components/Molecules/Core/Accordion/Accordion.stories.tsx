@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import slugify from "slugify";
 import { v4 as uuidv4 } from "uuid";
 
 import { Accordion } from "./Accordion";
@@ -7,7 +8,7 @@ import type { AccordionProps } from "./Accordion.interface";
 
 const meta = {
   component: Accordion,
-  title: "Components/Accordion",
+  title: "Molecules/Core/Accordion",
   parameters: {
     layout: "centered",
   },
@@ -23,9 +24,10 @@ const meta = {
       },
     },
     variant: {
-      table: {
-        disable: true,
+      control: {
+        type: "select",
       },
+      options: [null, "primary"],
     },
   },
 } satisfies Meta<typeof Accordion>;
@@ -39,18 +41,22 @@ const accordionProps: AccordionProps = {
   id: uuidv4(),
   items: [
     {
-      id: uuidv4(),
+      id: slugify("Open example", { lower: true }),
       headerTitle: "Open example",
       bodyContent: AccordionBodyContent,
     },
     {
-      id: uuidv4(),
+      id: slugify("Definition and importance of mortality analysis", {
+        lower: true,
+      }),
       headerTitle: "Definition and importance of mortality analysis",
       bodyContent: AccordionBodyContent,
     },
     {
-      id: uuidv4(),
-      headerTitle: "Definition and importance of mortality analysis",
+      id: slugify("Key concepts", {
+        lower: true,
+      }),
+      headerTitle: "Key concepts",
       bodyContent: AccordionBodyContent,
     },
   ],

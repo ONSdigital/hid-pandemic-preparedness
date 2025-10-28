@@ -1,7 +1,7 @@
 @use "../../../../styles/global/tokens" as *;
 
 .accordion-button-primary {
-  background-color: $color-brand-primary-500;
+  background-color: $color-brand-primary-600;
   color: $color-grey-100;
 
   &.collapsed {
@@ -10,7 +10,7 @@
   }
 
   &:not(.collapsed) {
-    background-color: $color-brand-primary-500;
+    background-color: $color-brand-primary-600;
     color: $color-grey-100;
   }
 
