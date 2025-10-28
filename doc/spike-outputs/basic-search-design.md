@@ -27,3 +27,4 @@ It is expected that users will use this simple search to quickly find content th
 - A loading indicator should be included if testing shows that the search api response is slow
 - The search list does not need to paginate results, but it should be scrollable so all results can be viewed without the dropdown getting too large and obscuring the rest of the page
 - Results should be ordered by relevance or whatever the default ordering is provided by the search api
+- The result list should include a message stating how many results have been returned (e.g. "2 results found")
