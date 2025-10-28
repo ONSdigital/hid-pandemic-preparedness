@@ -10,7 +10,6 @@ const meta = {
     layout: "centered",
     controls: { disable: true },
   },
-  argTypes: {},
 } satisfies Meta<typeof Reference>;
 
 export default meta;

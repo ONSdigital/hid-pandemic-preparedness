@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import type { ReferenceItemProps, ReferenceProps } from "./Reference.interface";
+import type { ReferenceProps } from "./Reference.interface";
 import { Tooltip } from "../Tooltip/Tooltip";
 
 // Formatting a reference as per harvard reference style see https://libguides.ucd.ie/harvardstyle/harvardwebsite
-const ReferenceItem: FC<ReferenceItemProps> = (props) => {
+const ReferenceItem: FC<ReferenceProps> = (props) => {
   return (
     <p>
       <small>
