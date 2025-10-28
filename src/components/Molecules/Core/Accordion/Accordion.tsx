@@ -22,7 +22,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target={`#${item.id}`}
-              aria-expanded="false"
+              aria-expanded={props.expandAll ? "true" : "false"}
               aria-controls={item.id}
             >
               <h4 className={clsx("heading-s", "pe-4")}>{item.headerTitle}</h4>
@@ -36,7 +36,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
               props.expandAll && "show",
             )}
           >
-            <div className="accordion-body">{item.bodyContent}</div>
+            <div className={clsx("accordion-body")}>{item.bodyContent}</div>
           </div>
         </div>
       ))}
