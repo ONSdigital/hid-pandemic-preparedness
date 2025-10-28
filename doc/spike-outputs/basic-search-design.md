@@ -1,23 +1,27 @@
 # Basic search design
 
-This is the output of the [ONSPPT-298](https://anddigitaltransformation.atlassian.net/browse/ONSPPT-298) spike ticket to design how a simple and advanced search should be implemented.
+This is the output of the [ONSPPT-298](https://anddigitaltransformation.atlassian.net/browse/ONSPPT-298) spike ticket to design how a basic search should be implemented.
 
-We have already designed [how the site should be indexed](./search-design.md) using [pagefind](../architectural-decision-records/adr-14-use-pagefind-for-search.md). This spike includes how a simple and more advanced search should be implemented using this index.
+We have already designed [how the site should be indexed](./search-design.md) using [pagefind](../architectural-decision-records/adr-14-use-pagefind-for-search.md). This spike includes how a basic search should be implemented using this index.
 
-A simple search will be provided as part of the homepage header and navbar. An image of the existing placeholder implementation is given below.
+A basic search will be provided as part of the homepage header and navbar. An image of the existing placeholder implementation is given below.
 
 ![Screenshot of the application Search Bar component in use.](../images/search-bar.png)
 
-It is expected that users will use this simple search to quickly find content they are interested in.
+It is expected that users will use this basic search to quickly find content pages they are interested in. The basic search should extend the existing placeholder [SearchBar](https://github.com/ONSdigital/hid-pandemic-preparedness/tree/main/src/components/Molecules/SearchBar) and [SearchResults](https://github.com/ONSdigital/hid-pandemic-preparedness/tree/main/src/components/Molecules/SearchResults) React components that already exist.
 
-## Search bar design requirements
+## SearchBar design requirements
+
+The [SearchBar](https://github.com/ONSdigital/hid-pandemic-preparedness/tree/main/src/components/Molecules/SearchBar) React component should be updated to query the pagefind api and perform a search according to the requirements below.
 
 - The search bar should include a text input field where users can type their search query
 - The input should be accessible using the [search aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)
 - Search should trigger on every change (onChange event) as the user types but may need to be [debounced](https://developer.mozilla.org/en-US/docs/Glossary/Debounce) to avoid excessive search api requests
-- The term submitted for search via the api should match page names and tags in the index
+- The term submitted for search via the api should match content page names and associated tags in the index
 
-## Search results list design requirements
+## SearchResults design requirements
+
+The [SearchResults](https://github.com/ONSdigital/hid-pandemic-preparedness/tree/main/src/components/Molecules/SearchResults) React component should be updated to show search results to the user according to the requirements below.
 
 - Each result item should be rendered as per the existing placeholder implementation and should include:
   - Page Title: Displayed as a clickable link navigating to the page
