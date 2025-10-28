@@ -11,7 +11,6 @@ import styles from "./Tooltip.module.scss";
 export const Tooltip: FC<TooltipProps> = (props) => {
   const triggerRef = useRef(null);
   const tooltipInstance = useRef<Popover | null>(null);
-
   const [visible, setVisible] = useState(false);
 
   // Create tooltip instance on page load
@@ -37,7 +36,7 @@ export const Tooltip: FC<TooltipProps> = (props) => {
       },
     });
 
-    // Remove tooltip on unmount (so it doesn't persist)
+    // On unmount, remove tooltip instance (so it doesn't persist)
     return () => {
       tooltipInstance.current?.dispose();
     };
@@ -63,7 +62,6 @@ export const Tooltip: FC<TooltipProps> = (props) => {
     // Clicks inside content ignored
     if (tooltipContent && tooltipContent.contains(event.target as Node)) return;
 
-    // Clicks outside content close it
     setVisible(false);
   });
 
