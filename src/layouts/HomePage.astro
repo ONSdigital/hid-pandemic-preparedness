@@ -9,7 +9,6 @@ import type { NavItem } from "@src/types/NavItem";
 // Components
 import { Header } from "@components/Organisms/Home/Header/Header";
 import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
-import { References } from "@components/Core/References/References";
 import { DynamicComponent } from "@src/components/DynamicComponent";
 
 // Helpers
@@ -18,7 +17,6 @@ import { fetchStory } from "@/src/helpers/fetchContent";
 
 // Content
 import navBarData from "@content/base/navBarData.json";
-import referencesData from "@content/Home/references.json";
 
 let story = null;
 
@@ -51,6 +49,5 @@ const quickLinksData: QuickLinksProps = {
     <QuickLinks {...quickLinksData} />
     {story.content.Middle.map((blok: any) => <DynamicComponent blok={blok} />)}
     {story.content.Bottom.map((blok: any) => <DynamicComponent blok={blok} />)}
-    <References {...referencesData} client:visible />
   </main>
 </BaseLayout>

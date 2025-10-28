@@ -10,11 +10,14 @@ describe("Reference component", () => {
   const baseProps: ReferenceProps = {
     _uid: uuidv4(),
     accessedDate: "19th August 2025",
-    yearPublished: "2021",
+    component: "Reference",
+    _editable: "",
+    type: "",
     websiteAuthor: "The Independent Panel for Pandemic Preparedness & Response",
     websiteTitle: "COVID-19: Make it the Last Pandemic",
     websiteUrl:
       "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
+    yearPublished: "2021",
   };
 
   test("renders `reference-link` with url constructed of `_uid`", () => {

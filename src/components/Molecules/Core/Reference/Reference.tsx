@@ -1,28 +1,30 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import type { ReferenceProps } from "./Reference.interface";
+import type { ReferenceItemProps, ReferenceProps } from "./Reference.interface";
+import { Tooltip } from "../Tooltip/Tooltip";
 
-import styles from "./Reference.module.scss";
+// Formatting a reference as per harvard reference style see https://libguides.ucd.ie/harvardstyle/harvardwebsite
+const ReferenceItem: FC<ReferenceItemProps> = (props) => {
+  return (
+    <p>
+      <small>
+        {props.websiteAuthor} ({props.yearPublished}){" "}
+        <span className="fst-italic">{props.websiteTitle}</span>. Available at:{" "}
+        <a
+          className={clsx("text-break")}
+          href={props.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {props.websiteUrl}
+        </a>{" "}
+        (Accessed {props.accessedDate}).
+      </small>
+    </p>
+  );
+};
 
 export const Reference: FC<ReferenceProps> = (props) => {
-  // Set label to a placeholder if its not provided
-  const label: string = props.label ? props.label : "REF!";
-  // Make the link href to be the uid of the reference so we can use this to jump to the references
-  // section at the foot of the page
-  const url: string = `#${props._uid}`;
-
-  return (
-    <a
-      role="reference-link"
-      className={clsx(
-        styles["ref-link"],
-        "link-underline",
-        "link-underline-opacity-0",
-      )}
-      href={url}
-    >
-      ({label})
-    </a>
-  );
+  return <Tooltip triggerText="!REF" content={<ReferenceItem {...props} />} />;
 };

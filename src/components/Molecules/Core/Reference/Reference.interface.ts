@@ -1,5 +1,8 @@
-import type { Reference } from "@src/types/Reference";
+import type { ReferenceData } from "@localTypes/ReferenceData";
 
-export interface ReferenceProps extends Reference {
+export interface ReferenceItemProps extends ReferenceData {}
+
+// Props for the Reference wrapper component (optional extra props)
+export interface ReferenceProps extends ReferenceData {
   label?: string;
 }
