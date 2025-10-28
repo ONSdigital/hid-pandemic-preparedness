@@ -25,14 +25,18 @@ import strings from "@src/content/strings.json";
 import type { UnitProps } from "./Unit.interface";
 import styles from "./Unit.module.scss";
 
-export const Unit: FC<UnitProps> = (props) => {
+export const Unit: FC<UnitProps> = ({ story }) => {
   // Initialize vars
   let blok: any;
-  let chapters = props.story.content.chapters;
+  let chapters = story.content.chapters;
   let chapterIds: string[] | null = null;
   let isLastChapter: boolean | null = null;
   let isOverviewChapter: boolean | null = null;
   let overviewChapter: Chapter | null = null;
+  const parentSlug: string = story.full_slug.substring(
+    0,
+    story.full_slug.length - story.slug.length,
+  );
   let selectedChapter: Chapter | null = null;
   let selectedIndex: number;
   let unitNavProps: UnitNavProps | null = null;
@@ -46,7 +50,7 @@ export const Unit: FC<UnitProps> = (props) => {
     );
   }
 
-  const tags: Tag[] = getTags(props.story);
+  const tags: Tag[] = getTags(story);
 
   // Initialize selected chapter ID state with overview chapter's _uid or null
   const [selectedChapterId, setSelectedChapterId] = useState(
@@ -101,7 +105,7 @@ export const Unit: FC<UnitProps> = (props) => {
       ...selectedChapter,
       startLink: {
         title: strings.unit.overview.start,
-        url: props.story.full_slug,
+        url: story.full_slug,
       },
       tags: tags,
       onNext: handleNext,
@@ -130,11 +134,11 @@ export const Unit: FC<UnitProps> = (props) => {
     id: uuidv4(),
     asButton: true,
     buttonVariant: "secondary",
-    cached_url: props.story.full_slug,
+    cached_url: parentSlug,
     fieldtype: "multilink",
     linktype: "url",
     title: unitStrings.unit.endLearning,
-    url: props.story.full_slug,
+    url: parentSlug,
   };
 
   return (
