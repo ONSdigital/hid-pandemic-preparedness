@@ -4,6 +4,7 @@ import type { Link } from "@src/types/Link";
 import type { Tag } from "@src/types/Tag";
 
 export interface UnitOverviewProps {
+  title: string;
   readingTime: string;
   overviewRichText: StoryblokRichTextNode;
   githubLink?: Link;

@@ -61,8 +61,10 @@ export const Unit: FC<UnitProps> = (props) => {
     // Set overview chapter boolean if we're on the overview chapter
     isOverviewChapter =
       overviewChapter && selectedChapterId === overviewChapter._uid;
-    // Set last chapter boolean if we're on the last chapter
-    isLastChapter = selectedChapterId === chapterIds[chapterIds.length - 1];
+    // Set last chapter boolean if we're on the last chapter not including the overview
+    isLastChapter =
+      !isOverviewChapter &&
+      selectedChapterId === chapterIds[chapterIds.length - 1];
     // Find selected chapter object by ID
     selectedChapter = chapters.find(
       (chapter: Chapter) => chapter._uid === selectedChapterId,
