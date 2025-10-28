@@ -25,7 +25,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
               aria-expanded="false"
               aria-controls={item.id}
             >
-              <h4 className={clsx("heading-s")}>{item.headerTitle}</h4>
+              <h4 className={clsx("heading-s", "pe-4")}>{item.headerTitle}</h4>
             </button>
           </h2>
           <div
