@@ -19,24 +19,74 @@ describe("Unit component", () => {
     expect(screen.getByTestId("unit-container")).toBeInTheDocument();
   });
 
-  // test("doesn't render `start-link` if `startLink` prop not defined", () => {
-  //   render(<UnitOverview {...baseProps} />);
-  //   // Test id should not exist if `startLink` prop not defined
-  //   expect(screen.queryByTestId("start-link")).toEqual(null);
-  // });
+  test("renders successfully if chapters just contain an overview", () => {
+    // Update props to include a single overview chapter
+    const props: UnitProps = {
+      story: {
+        ...baseProps.story,
+        content: {
+          ...baseProps.story.content,
+          chapters: [
+            {
+              _uid: "2b215315-ede6-42a5-9cd0-749a916b8661",
+              title: "Overview",
+              component: "UnitOverview",
+              githubLink: {
+                id: "",
+                url: "https://www.github.com",
+                linktype: "url",
+                fieldtype: "multilink",
+                cached_url: "https://www.github.com",
+              },
+              readingTime: "Takes around six months",
+              overviewRichText: {
+                type: "doc",
+                content: [
+                  {
+                    type: "paragraph",
+                    attrs: {
+                      textAlign: null,
+                    },
+                    content: [
+                      {
+                        text: "By the end of this learning you should know react.",
+                        type: "text",
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+    };
 
-  // test("renders `github-link` if `githubLink` prop is defined", () => {
-  //   const githubLink = {
-  //     id: "",
-  //     rel: "",
-  //     url: "github.com",
-  //     title: "Open Github",
-  //     linktype: "url",
-  //     fieldtype: "multilink",
-  //     cached_url: "github.com",
-  //   };
-  //   render(<UnitOverview {...baseProps} githubLink={githubLink} />);
-  //   // Test id should exist if `githubLink` prop is defined
-  //   expect(screen.getByTestId("github-link")).toBeInTheDocument();
-  // });
+    render(<Unit {...props} />);
+    expect(screen.getByTestId("unit-container")).toBeInTheDocument();
+  });
+
+  test("renders successfully if chapters just contain a chapter", () => {
+    // Update props to include a single chapter
+    const props: UnitProps = {
+      story: {
+        ...baseProps.story,
+        content: {
+          ...baseProps.story.content,
+          chapters: [
+            {
+              _uid: "716cfc89-83fa-48c4-9922-23333d705885",
+              title: "Key parts of react",
+              sections: [],
+              subTitle: "Oooooooh",
+              component: "UnitChapter",
+            },
+          ],
+        },
+      },
+    };
+
+    render(<Unit {...props} />);
+    expect(screen.getByTestId("unit-container")).toBeInTheDocument();
+  });
 });
