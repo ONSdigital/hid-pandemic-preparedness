@@ -1,0 +1,7 @@
+@use "../../../../styles/global/tokens" as *;
+
+.tooltip-trigger {
+  all: unset;
+  color: $color-blue;
+  cursor: pointer;
+}

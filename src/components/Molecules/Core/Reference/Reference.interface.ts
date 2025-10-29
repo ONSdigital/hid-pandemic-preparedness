@@ -1,5 +1,3 @@
-import type { Reference } from "@src/types/Reference";
+import type { ReferenceData } from "@localTypes/ReferenceData";
 
-export interface ReferenceProps extends Reference {
-  label?: string;
-}
+export interface ReferenceProps extends ReferenceData {}

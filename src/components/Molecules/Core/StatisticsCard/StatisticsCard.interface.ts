@@ -1,5 +1,5 @@
 import type { Asset } from "@src/types/Asset";
-import type { Reference } from "@src/types/Reference";
+import type { ReferenceData } from "@localTypes/ReferenceData";
 
 export interface StatisticsCardProps {
   _uid: string;
@@ -7,6 +7,6 @@ export interface StatisticsCardProps {
   subTitle: string;
   // Reference needs to be array here even if we have a single reference due to the way Storyblok
   //  blocks work
-  reference: Reference[];
+  reference: ReferenceData[];
   image: Asset;
 }
