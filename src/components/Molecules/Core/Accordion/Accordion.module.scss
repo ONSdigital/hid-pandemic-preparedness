@@ -1,16 +1,13 @@
-@use "../../styles/global/tokens" as *;
+@use "../../../../styles/global/tokens" as *;
 
 .accordion-button-primary {
-  background-color: $color-brand-primary-500;
-  color: $color-grey-100;
-
-  &.collapsed {
+  &:global(.collapsed) {
     background-color: $color-brand-primary-500;
     color: $color-grey-100;
   }
 
-  &:not(.collapsed) {
-    background-color: $color-brand-primary-500;
+  &:global(:not(.collapsed)) {
+    background-color: $color-brand-primary-600;
     color: $color-grey-100;
   }
 
