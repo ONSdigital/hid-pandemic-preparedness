@@ -8,3 +8,4 @@ Spikes were carried out during the project to research different approaches duri
 | [Audio content requirements](./audio-content-requirements.md) | 15/08/2025 |
 | [Search design](./search-design.md) | 29/09/2025 |
 | [Basic search design](./basic-search-design.md) | 28/10/2025 |
+| [Quiz component design](./quiz-component-design.md) | 28/10/2025 |
