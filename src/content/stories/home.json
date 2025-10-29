@@ -437,6 +437,95 @@
       "Impact": [],
       "Middle": [
         {
+          "_uid": "a9ce75d3-7d2f-4369-9824-96b524179a68",
+          "links": [
+            {
+              "_uid": "f25fb7c9-db3d-446e-99b1-c4bb59c7106d",
+              "icon": "RiCollageLine",
+              "link": {
+                "id": "b504093b-0d5e-4c6e-961f-8a2a2f33924e",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "#",
+                "story": {
+                  "name": "Data collection"
+                }
+              },
+              "type": "",
+              "component": "QuickLinksItem"
+            },
+            {
+              "_uid": "5d5cb5b6-e5b1-4561-a1a3-50c0561988da",
+              "icon": "RiShapeLine",
+              "link": {
+                "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "#",
+                "story": {
+                  "name": "Data analysis"
+                }
+              },
+              "type": "",
+              "component": "QuickLinksItem"
+            },
+            {
+              "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
+              "icon": "RiGovernmentLine",
+              "link": {
+                "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "#",
+                "story": {
+                  "name": "Data governance"
+                }
+              },
+              "type": "",
+              "component": "QuickLinksItem"
+            },
+            {
+              "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
+              "icon": "RiFilePaperLine",
+              "link": {
+                "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "#",
+                "story": {
+                  "name": "Outputs and reporting"
+                }
+              },
+              "type": "",
+              "component": "QuickLinksItem"
+            },
+            {
+              "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
+              "icon": "RiGroupLine",
+              "link": {
+                "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "#",
+                "story": {
+                  "name": "Stakeholder engagement"
+                }
+              },
+              "type": "",
+              "component": "QuickLinksItem"
+            }
+          ],
+          "title": "Learning Resources",
+          "subTitle": "Materials to support skills development, grouped into the following themes:",
+          "component": "QuickLinks",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"QuickLinks\", \"space\": \"287525897740819\", \"uid\": \"a9ce75d3-7d2f-4369-9824-96b524179a68\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
           "_uid": "9be51354-1986-473d-bbec-a970b12a9786",
           "link": {
             "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
