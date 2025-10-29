@@ -8,6 +8,7 @@ import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageA
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
+import { QuickLinks } from "@/src/components/Organisms/Home/QuickLinks/QuickLinks";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =
@@ -18,7 +19,8 @@ type ComponentName =
   | "ImageAndText"
   | "Impact"
   | "StatisticsAndText"
-  | "StrategicPartners";
+  | "StrategicPartners"
+  | "QuickLinks";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Carousel,
@@ -29,6 +31,7 @@ const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Impact,
   StatisticsAndText,
   StrategicPartners,
+  QuickLinks,
 };
 
 interface DynamicComponentProps {
