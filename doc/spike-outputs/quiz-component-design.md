@@ -32,5 +32,21 @@ There are many third party options to create quizzes. Most are provided as part 
 
 As the quiz is expected to be simple and will need to match the existing application design and UX, it is recommended that a custom component is created.
 
+## Quiz component design
+
+A custom quiz component will be structured according to the diagram below and consist of:
+
+- A top level **Quiz** component which can be be added to a Story as a dynamic component on its own, or as an embedded component as part of a RichText field
+- A **QuizQuestion** component that would be a child of the **Quiz** component and comprising:
+  - A richText field to contain the question content (e.g. text, images etc.)
+  - A text field for help or guidance text that can be optionally displayed
+- A **QuizAnswer** component that would be a child of the **QuizQuestion** component and comprising:
+  - A richText field to contain the answer content (e.g. text, images etc.)
+  - An `isCorrect` boolean field to indicate whether the answer is correct or not
+
+![Diagram of initial quiz high-level architecture design.](../images/quiz-architecture-diagram.png)
+
+Bloks in Storyblok can be configured according to the design above, and corresponding react components created to render the data returned from the Storyblok content API.
+
 [1]: ../non-functional-requirements/usability.md#usability-1
 [2]: ../non-functional-requirements/accessibility.md#accessibility-1
