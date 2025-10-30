@@ -5,35 +5,26 @@ import { ChapterList } from "./ChapterList";
 import type { ChapterListProps } from "./ChapterList.interface";
 
 const chapterListData: ChapterListProps = {
-  parent: {
-    _uid: uuidv4(),
-    fullSlug:
-      "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis",
-    title: "Overview",
-  },
   chapters: [
     {
       _uid: uuidv4(),
-      fullSlug:
-        "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/1",
+      title: "Overview",
+    },
+    {
+      _uid: uuidv4(),
       title: "Introduction to Mortality Analysis",
     },
     {
       _uid: uuidv4(),
-      fullSlug:
-        "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/2",
+
       title: "Data Quality, Completeness and Data Cleaning",
     },
     {
       _uid: uuidv4(),
-      fullSlug:
-        "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/3",
       title: "Key Concepts",
     },
     {
       _uid: uuidv4(),
-      fullSlug:
-        "learning-resources/data-analysis/epidemiological-analysis/mortality-analysis/4",
       title: "Grouping and Analysing Mortality Data",
     },
   ],
@@ -41,22 +32,18 @@ const chapterListData: ChapterListProps = {
 
 const meta = {
   argTypes: {
-    activeChapterSlug: {
+    activeId: {
       control: {
         type: "select",
       },
-      options: [
-        null,
-        chapterListData.parent.fullSlug,
-        ...chapterListData.chapters.map((chapter) => chapter.fullSlug),
-      ],
+      options: [...chapterListData.chapters.map((chapter) => chapter._uid)],
     },
     chapters: {
       table: {
         disable: true,
       },
     },
-    parent: {
+    onSelect: {
       table: {
         disable: true,
       },

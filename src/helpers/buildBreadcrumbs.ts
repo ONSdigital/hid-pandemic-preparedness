@@ -37,6 +37,9 @@ export async function buildBreadcrumbs(
     }
   }
 
+  // Add the original input slug onto the end for good measure to ensure we fetch this story
+  bySlugsItems.push(fullSlug);
+
   // See
   // https://www.storyblok.com/docs/api/content-delivery/v2/stories/retrieve-multiple-stories
   const { data } = await fetchStories({

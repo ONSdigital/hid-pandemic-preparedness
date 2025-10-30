@@ -6,7 +6,6 @@ import type { ButtonProps } from "./Button.interface";
 
 export const Button: FC<ButtonProps> = (props) => {
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    console.log("clicked!");
     if (props.onClick) props.onClick(e);
   };
 

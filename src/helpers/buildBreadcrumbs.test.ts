@@ -64,7 +64,7 @@ describe("buildBreadcrumbs with link hierarchy", () => {
     const result = await buildBreadcrumbs("home");
 
     expect(fetchStories).toHaveBeenCalledWith({
-      by_slugs: "home",
+      by_slugs: "home,home",
     });
     expect(result.items).toHaveLength(1);
     expect(result.items[0]).toMatchObject({
@@ -84,7 +84,7 @@ describe("buildBreadcrumbs with link hierarchy", () => {
     const result = await buildBreadcrumbs("/learning-resources/");
 
     expect(fetchStories).toHaveBeenCalledWith({
-      by_slugs: "home,learning-resources/",
+      by_slugs: "home,learning-resources/,/learning-resources/",
     });
     expect(result.items).toHaveLength(2);
     expect(result.items[0]).toMatchObject({
@@ -110,7 +110,8 @@ describe("buildBreadcrumbs with link hierarchy", () => {
     );
 
     expect(fetchStories).toHaveBeenCalledWith({
-      by_slugs: "home,learning-resources/",
+      by_slugs:
+        "home,learning-resources/,learning-resources/data-analysis/,learning-resources/data-analysis/epidemiological-analysis/,/learning-resources/data-analysis/epidemiological-analysis/",
     });
     expect(result.items).toHaveLength(4);
     expect(result.items[0]).toMatchObject({

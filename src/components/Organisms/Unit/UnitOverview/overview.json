@@ -1,0 +1,170 @@
+{
+  "_uid": "c31436d6-3216-48c5-85c6-3020920ce6b5",
+  "component": "UnitOverview",
+  "githubLink": {
+    "id": "",
+    "rel": "",
+    "url": "https://github.com",
+    "title": "Open Github",
+    "linktype": "url",
+    "fieldtype": "multilink",
+    "cached_url": "github.com"
+  },
+  "readingTime": "Set aside 5-10 minutes",
+  "title": "Overview",
+  "overviewRichText": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "This guidance introduces the principles and practices of mortality analysis. It is designed for professionals working in public health, statistics, policy, or research who need to interpret mortality trends and use them to inform decisions. ",
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#212529"
+                }
+              }
+            ]
+          },
+          {
+            "text": "The guidance introduces key concepts, methods, and tools used globally, with examples drawn from the UK’s Office for National Statistics (ONS).",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 3,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Learning Outcomes:",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bullet_list",
+        "content": [
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Understand the key concepts and terminology related to mortality data.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Identify common users and uses of mortality statistics in public health and policy.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Understand how mortality data is collected, processed, and reported.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Apply standard methods to calculate mortality rates and interpret life tables.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Analyse causes of death using structured classification systems (e.g., ICD).",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Present mortality data clearly and responsibly to avoid misinterpretation.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "_editable": "\u003C!--#storyblok#{\"name\": \"UnitOverview\", \"space\": \"287525897740819\", \"uid\": \"c31436d6-3216-48c5-85c6-3020920ce6b5\", \"id\": \"103536107383396\"}--\u003E"
+}

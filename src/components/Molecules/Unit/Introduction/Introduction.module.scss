@@ -1,0 +1,6 @@
+@use "../../../../styles/global/tokens" as *;
+
+.introduction__container {
+  background-color: $color-grey-100;
+  border-color: $color-brand-secondary-200 !important;
+}
