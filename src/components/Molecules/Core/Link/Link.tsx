@@ -13,8 +13,9 @@ import type { LinkProps } from "./Link.interface";
 export const Link: FC<LinkProps> = (props) => {
   let classes: string[] = [];
   let Icon = null;
-  // Sanitize the url first just to make sure its in the correct format
   const url = props.linktype === "story" ? props.cached_url : props.url;
+
+  // Sanitize the url first just to make sure its in the correct format
   const sanitizedUrl = sanitizeUrl(url);
 
   // Set css class based on whether we are rendering as a button or inverse
