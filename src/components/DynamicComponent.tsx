@@ -22,7 +22,7 @@ type ComponentName =
   | "Impact"
   | "StatisticsAndText"
   | "StrategicPartners"
-  | "QuickLinks";
+  | "QuickLinks"
   | "UnitChapter"
   | "UnitOverview";
 
