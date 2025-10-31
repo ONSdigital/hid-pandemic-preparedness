@@ -13,8 +13,10 @@ import type { LinkProps } from "./Link.interface";
 export const Link: FC<LinkProps> = (props) => {
   let classes: string[] = [];
   let Icon = null;
+  const url = props.linktype === "story" ? props.cached_url : props.url;
+
   // Sanitize the url first just to make sure its in the correct format
-  const sanitizedUrl = sanitizeUrl(props.url);
+  const sanitizedUrl = sanitizeUrl(url);
 
   // Set css class based on whether we are rendering as a button or inverse
   if (props.asButton) {
@@ -60,7 +62,7 @@ export const Link: FC<LinkProps> = (props) => {
       aria-disabled={props.disabled}
     >
       {/* Renders the label and an icon if not null */}
-      {props.title} {Icon && Icon}
+      {props.label ?? props.title} {Icon && Icon}
     </a>
   );
 };

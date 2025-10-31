@@ -2,7 +2,7 @@ import clsx from "clsx";
 import type { FC } from "react";
 import slugify from "slugify";
 
-import { Accordion } from "@components/Accordion/Accordion";
+import { Accordion } from "@src/components/Molecules/Core/Accordion/Accordion";
 import { Introduction } from "@components/Molecules/Unit/Introduction/Introduction";
 import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
 

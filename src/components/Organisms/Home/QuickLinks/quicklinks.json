@@ -1,0 +1,86 @@
+{
+  "title": "Learning resources",
+  "subTitle": "Materials to support skills development, grouped into the following themes:",
+  "links": [
+    {
+      "_uid": "f25fb7c9-db3d-446e-99b1-c4bb59c7106d",
+      "icon": "RiCollageLine",
+      "link": {
+        "id": "b504093b-0d5e-4c6e-961f-8a2a2f33924e",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "#",
+        "story": {
+          "name": "Data collection"
+        }
+      },
+      "type": "",
+      "component": "QuickLinksItem"
+    },
+    {
+      "_uid": "5d5cb5b6-e5b1-4561-a1a3-50c0561988da",
+      "icon": "RiShapeLine",
+      "link": {
+        "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "#",
+        "story": {
+          "name": "Data analysis"
+        }
+      },
+      "type": "",
+      "component": "QuickLinksItem"
+    },
+    {
+      "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
+      "icon": "RiGovernmentLine",
+      "link": {
+        "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "#",
+        "story": {
+          "name": "Data governance"
+        }
+      },
+      "type": "",
+      "component": "QuickLinksItem"
+    },
+    {
+      "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
+      "icon": "RiFilePaperLine",
+      "link": {
+        "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "#",
+        "story": {
+          "name": "Outputs and reporting"
+        }
+      },
+      "type": "",
+      "component": "QuickLinksItem"
+    },
+    {
+      "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
+      "icon": "RiGroupLine",
+      "link": {
+        "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "#",
+        "story": {
+          "name": "Stakeholder engagement"
+        }
+      },
+      "type": "",
+      "component": "QuickLinksItem"
+    }
+  ]
+}

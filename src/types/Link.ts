@@ -13,20 +13,20 @@ export interface Link {
   story?: {
     name: string;
     created_at: string;
-    published_at: string;
+    published_at: string | null;
     id: number;
     uuid: string;
     content: Record<string, any>;
     slug: string;
     full_slug: string;
-    sort_by_date?: string;
+    sort_by_date?: string | null;
     position?: number;
     tag_list?: string[];
     is_startpage?: boolean;
     parent_id?: number | null;
     meta_data?: Record<string, any> | null;
     group_id?: string;
-    first_published_at?: string;
+    first_published_at?: string | null;
     release_id?: number | null;
     lang?: string;
     path?: string | null;

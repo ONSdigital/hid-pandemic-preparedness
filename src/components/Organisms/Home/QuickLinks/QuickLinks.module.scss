@@ -1,0 +1,22 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.quick-links-bg {
+  background: $gradient-brand-primary-2;
+}
+
+.link-color {
+  color: $color-brand-secondary-300 !important;
+}
+
+.icon-bg {
+  background-color: $color-brand-secondary-600;
+  width: 2.75em;
+  height: 2.5em;
+}
+
+.icon {
+  height: 1.2em;
+  width: 1.2em;
+  color: $color-brand-primary-500;
+}

@@ -2,7 +2,7 @@ import type { FC } from "react";
 import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
-import { Accordion } from "@src/components/Accordion/Accordion";
+import { Accordion } from "@src/components/Molecules/Core/Accordion/Accordion";
 import { ChapterList } from "@src/components/Molecules/Core/ChapterList/ChapterList";
 import { IconAndTextLink } from "@src/components/IconAndTextLink/IconAndTextLink";
 
