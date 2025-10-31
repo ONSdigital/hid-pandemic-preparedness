@@ -1,0 +1,15 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.navbar-bg {
+  background-color: $color-brand-primary-500;
+  color: $color-text-inverse;
+  overflow: visible !important;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-4;
+}

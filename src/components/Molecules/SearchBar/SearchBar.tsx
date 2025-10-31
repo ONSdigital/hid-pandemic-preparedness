@@ -39,7 +39,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   return (
     <form role="search" className={clsx("text-dark", styles["input-bg"])}>
-      <div ref={searchContainerRef} className={clsx("input-group", "mb-3")}>
+      <div ref={searchContainerRef} className={clsx("input-group")}>
         <input
           aria-describedby="search-button"
           aria-label={props.placeholder}
