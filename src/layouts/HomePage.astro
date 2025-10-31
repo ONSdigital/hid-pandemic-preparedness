@@ -49,7 +49,12 @@ const quickLinksData: QuickLinksProps = {
       client:visible
     />
     <QuickLinks {...quickLinksData} />
-    {story.content.Middle.map((blok: any) => <DynamicComponent blok={blok} />)}
+    {
+      story.content.Middle.map(
+        (blok: any) =>
+          blok.component !== "QuickLinks" && <DynamicComponent blok={blok} />,
+      )
+    }
     {story.content.Bottom.map((blok: any) => <DynamicComponent blok={blok} />)}
     <References {...referencesData} client:visible />
   </main>

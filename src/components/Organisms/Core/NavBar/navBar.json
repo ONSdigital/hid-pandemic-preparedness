@@ -1,0 +1,86 @@
+{
+  "_uid": "7e257fbf-c08b-4144-8d51-acc92751a41a",
+  "logo": {
+    "id": 106763103976653,
+    "alt": "The logo for Analysis for Action showing the name and a globe with orange markers to indicate the partners involved in the platform",
+    "name": "",
+    "focus": "",
+    "title": "Analysis for Action Logo",
+    "source": "",
+    "filename": "https://a.storyblok.com/f/287525897740819/266x38/b53a90c8b9/analysis-for-action-logo.svg",
+    "copyright": "",
+    "fieldtype": "asset",
+    "meta_data": {
+      "alt": "The logo for Analysis for Action showing the name and a globe with orange markers to indicate the partners involved in the platform",
+      "title": "Analysis for Action Logo",
+      "source": "",
+      "copyright": ""
+    },
+    "is_external_url": false
+  },
+  "NavItem": [],
+  "NavLink": [],
+  "navItems": [
+    {
+      "_uid": "1fb215be-99ae-4d5b-9b63-f5230d18832f",
+      "type": "",
+      "label": "Learning resources",
+      "overview": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Learning resources to support skills development grouped into themes, modules and units. NEEDS LINKS ",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "NavColumn": [
+        {
+          "_uid": "04cd4201-d269-455e-a0a4-6e27551ddef0",
+          "title": "",
+          "NavLink": [],
+          "component": "NavColumn",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"NavColumn\", \"space\": \"287525897740819\", \"uid\": \"04cd4201-d269-455e-a0a4-6e27551ddef0\", \"id\": \"106739531694731\"}--\u003E"
+        }
+      ],
+      "component": "NavItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"NavItem\", \"space\": \"287525897740819\", \"uid\": \"1fb215be-99ae-4d5b-9b63-f5230d18832f\", \"id\": \"106739531694731\"}--\u003E"
+    }
+  ],
+  "navLinks": [
+    {
+      "_uid": "f4901f7c-68a3-4b89-b190-e17a5672fb3f",
+      "link": {
+        "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+        "rel": "",
+        "url": "",
+        "title": "about",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "about"
+      },
+      "type": "",
+      "label": "About",
+      "component": "NavLink",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"NavLink\", \"space\": \"287525897740819\", \"uid\": \"f4901f7c-68a3-4b89-b190-e17a5672fb3f\", \"id\": \"106739531694731\"}--\u003E"
+    }
+  ],
+  "component": "NavBar",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"NavBar\", \"space\": \"287525897740819\", \"uid\": \"7e257fbf-c08b-4144-8d51-acc92751a41a\", \"id\": \"106739531694731\"}--\u003E"
+}
