@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import menuItems from "../../../content/menuItems.json";
-import type { NavItem } from "../../../types/NavItem";
+// import menuItems from "../../../content/menuItems.json";
+import quickLinksData from "./quicklinks.json?raw";
 import { QuickLinks } from "./QuickLinks";
 import type { QuickLinksProps } from "./QuickLinks.interface";
 
@@ -12,7 +12,7 @@ const meta = {
     layout: "fullscreen",
   },
   argTypes: {
-    navItems: {
+    links: {
       table: {
         disable: true,
       },
@@ -23,13 +23,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const quickLinksProps: QuickLinksProps = {
-  title: "Learning resources",
-  // This loads the "learning resources part of the menu items"
-  navItems: menuItems[1].children as NavItem[],
-};
-
 export const QuickLinksStory = {
   name: "QuickLinks",
-  args: quickLinksProps,
+  args: JSON.parse(quickLinksData) as QuickLinksProps,
 } satisfies Story;

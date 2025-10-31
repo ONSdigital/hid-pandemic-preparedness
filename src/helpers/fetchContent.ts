@@ -76,6 +76,7 @@ export async function fetchStory(
 
   const response = await client.get(`cdn/stories/${fullSlug}`, {
     version: VERSION,
+    resolve_links: "story",
     ...params,
   });
   return response;

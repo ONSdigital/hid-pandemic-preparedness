@@ -11,4 +11,5 @@ export interface LinkProps extends Link {
   disabled?: boolean;
   goBack?: boolean;
   textInverse?: boolean;
+  label?: string;
 }

@@ -2,13 +2,8 @@
 import { getLiveStory } from "@storyblok/astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-// Interfaces
-import type { QuickLinksProps } from "@components/Home/QuickLinks/QuickLinks.interface";
-import type { NavItem } from "@src/types/NavItem";
-
 // Components
 import { Header } from "@components/Organisms/Home/Header/Header";
-import { QuickLinks } from "@components/Home/QuickLinks/QuickLinks";
 import { References } from "@components/Core/References/References";
 import { DynamicComponent } from "@src/components/DynamicComponent";
 
@@ -17,7 +12,6 @@ import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
 import { fetchStory } from "@/src/helpers/fetchContent";
 
 // Content
-import navBarData from "@content/base/navBarData.json";
 import referencesData from "@content/Home/references.json";
 
 let story = null;
@@ -33,12 +27,6 @@ if (liveStory) {
 
 // Build breadcrumbs
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
-
-// Ref learning resources data from `navBarData` for rendering as quick links
-const quickLinksData: QuickLinksProps = {
-  title: navBarData.items[1].label,
-  navItems: navBarData.items[1].children as NavItem[],
-};
 ---
 
 <BaseLayout>
@@ -48,7 +36,6 @@ const quickLinksData: QuickLinksProps = {
       breadcrumbs={breadcrumbs}
       client:visible
     />
-    <QuickLinks {...quickLinksData} />
     {story.content.Middle.map((blok: any) => <DynamicComponent blok={blok} />)}
     {story.content.Bottom.map((blok: any) => <DynamicComponent blok={blok} />)}
     <References {...referencesData} client:visible />
