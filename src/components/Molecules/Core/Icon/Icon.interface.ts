@@ -1,4 +1,6 @@
+import type { RemixIcon } from "@/src/types/RemixIcon";
+
 export interface IconProps {
-  iconName: string;
+  iconName: RemixIcon;
   className?: string;
 }

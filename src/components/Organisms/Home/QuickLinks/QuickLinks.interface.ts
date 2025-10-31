@@ -1,8 +1,8 @@
 import type { Link } from "@/src/types/Link";
-import * as RemixIcons from "@remixicon/react";
+import type { RemixIcon } from "@/src/types/RemixIcon";
 
 interface QuickLinksItem {
-  icon: keyof typeof RemixIcons;
+  icon: RemixIcon;
   link: Link;
   _uid: string;
   type: string;
