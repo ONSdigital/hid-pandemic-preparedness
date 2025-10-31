@@ -40,6 +40,7 @@ export const QuickLinks: FC<QuickLinksProps> = (props) => {
               <Link
                 textInverse={true}
                 className={clsx("fw-semibold", styles["link-color"])}
+                label={linkItem.link.story?.name}
                 {...linkItem.link}
               />
             </div>
