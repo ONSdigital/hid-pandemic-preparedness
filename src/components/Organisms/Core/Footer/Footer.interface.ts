@@ -7,13 +7,9 @@ export interface FooterProps {
 interface FooterColumn {
   _uid: string;
   title?: string;
-  links: FooterColumnLink[];
+  links: Link[];
 }
 
-interface FooterColumnLink {
-  _uid: string;
-  link: Link;
-}
 export type FooterColumnTitleProps = Pick<FooterColumn, "title">;
 
 export type FooterColumnLinksProps = Pick<FooterColumn, "links">;
