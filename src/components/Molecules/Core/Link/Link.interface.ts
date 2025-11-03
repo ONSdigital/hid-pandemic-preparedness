@@ -1,6 +1,6 @@
-import type { Link } from "@src/types/Link";
+import type { StoryBlokLink } from "@localTypes/StoryBlokLink";
 
-export interface LinkProps extends Link {
+export interface LinkProps extends StoryBlokLink {
   asButton?: boolean;
   buttonVariant?:
     | "primary"

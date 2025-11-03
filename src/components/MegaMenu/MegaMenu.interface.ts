@@ -1,12 +1,3 @@
-import type { Link } from "@localTypes/Link";
-import type { NavItem } from "../../types/NavItem";
+import type { MegaMenu } from "@localTypes/MegaMenu";
 
-export interface BaseNavColumn {
-  _uid: string;
-  title: string;
-  NavLink: Link[];
-}
-
-export interface MegaMenuProps {
-  navItems: NavItem[];
-}
+export interface MegaMenuProps extends MegaMenu {}

@@ -1,5 +1,5 @@
 {
-  "_uid": "7e257fbf-c08b-4144-8d51-acc92751a41a",
+  "_uid": "eb9916e7-5884-4620-b849-ae383c515231",
   "logo": {
     "id": 106763103976653,
     "alt": "The logo for Analysis for Action showing the name and a globe with orange markers to indicate the partners involved in the platform",
@@ -18,110 +18,219 @@
     },
     "is_external_url": false
   },
-  "NavItem": [],
-  "NavLink": [],
-  "navItems": [
+  "links": [
     {
-      "_uid": "1fb215be-99ae-4d5b-9b63-f5230d18832f",
-      "type": "",
-      "label": "Learning resources",
-      "overview": {
-        "type": "doc",
-        "content": [
-          {
-            "type": "paragraph",
-            "attrs": {
-              "textAlign": null
-            },
-            "content": [
-              {
-                "text": "Learning resources to support skills development grouped into themes, modules and units. NEEDS LINKS ",
-                "type": "text",
-                "marks": [
-                  {
-                    "type": "textStyle",
-                    "attrs": {
-                      "color": ""
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "NavColumn": [
-        {
-          "_uid": "04cd4201-d269-455e-a0a4-6e27551ddef0",
-          "title": "",
-          "NavLink": [],
-          "component": "NavColumn",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"NavColumn\", \"space\": \"287525897740819\", \"uid\": \"04cd4201-d269-455e-a0a4-6e27551ddef0\", \"id\": \"106739531694731\"}--\u003E"
-        }
-      ],
-      "component": "NavItem",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"NavItem\", \"space\": \"287525897740819\", \"uid\": \"1fb215be-99ae-4d5b-9b63-f5230d18832f\", \"id\": \"106739531694731\"}--\u003E"
-    },
-    {
-      "_uid": "2b8385da-804f-4508-89f3-d229be9f0349",
-      "type": "",
-      "label": "Tools",
-      "overview": {
-        "type": "doc",
-        "content": [
-          {
-            "type": "paragraph",
-            "attrs": {
-              "textAlign": null
-            },
-            "content": [
-              {
-                "text": "Mix of interactive and downloadable tools to provide practical support, grouped into themes.NEEDS LINKS",
-                "type": "text",
-                "marks": [
-                  {
-                    "type": "textStyle",
-                    "attrs": {
-                      "color": ""
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "NavColumn": [
-        {
-          "_uid": "2c14afc7-ff5e-4d79-ade6-2ab412a1be7e",
-          "title": "",
-          "NavLink": [],
-          "component": "NavColumn",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"NavColumn\", \"space\": \"287525897740819\", \"uid\": \"2c14afc7-ff5e-4d79-ade6-2ab412a1be7e\", \"id\": \"106739531694731\"}--\u003E"
-        }
-      ],
-      "component": "NavItem",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"NavItem\", \"space\": \"287525897740819\", \"uid\": \"2b8385da-804f-4508-89f3-d229be9f0349\", \"id\": \"106739531694731\"}--\u003E"
-    }
-  ],
-  "navLinks": [
-    {
-      "_uid": "f4901f7c-68a3-4b89-b190-e17a5672fb3f",
+      "_uid": "9d4e9377-e6f3-4675-9f4a-f66f80b9db0e",
       "link": {
         "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
-        "rel": "",
         "url": "",
-        "title": "about",
         "linktype": "story",
         "fieldtype": "multilink",
         "cached_url": "about"
       },
       "type": "",
       "label": "About",
-      "component": "NavLink",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"NavLink\", \"space\": \"287525897740819\", \"uid\": \"f4901f7c-68a3-4b89-b190-e17a5672fb3f\", \"id\": \"106739531694731\"}--\u003E"
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"9d4e9377-e6f3-4675-9f4a-f66f80b9db0e\", \"id\": \"108543027842071\"}--\u003E"
+    },
+    {
+      "_uid": "3e7cb37c-62ea-43d5-b016-600ca6214bb6",
+      "link": {
+        "id": "b504093b-0d5e-4c6e-961f-8a2a2f33924e",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "contact"
+      },
+      "type": "",
+      "label": "Contact",
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"3e7cb37c-62ea-43d5-b016-600ca6214bb6\", \"id\": \"108543027842071\"}--\u003E"
     }
   ],
-  "component": "NavBar",
-  "_editable": "\u003C!--#storyblok#{\"name\": \"NavBar\", \"space\": \"287525897740819\", \"uid\": \"7e257fbf-c08b-4144-8d51-acc92751a41a\", \"id\": \"106739531694731\"}--\u003E"
+  "component": "page",
+  "expandableItems": [
+    {
+      "_uid": "d92239e1-9095-4f80-9311-1de77bb235ea",
+      "type": "",
+      "label": "Learning resources",
+      "MegaMenu": [
+        {
+          "_uid": "6f69b050-d56f-476b-9de1-dc3ea0f58bfd",
+          "type": "",
+          "columns": [
+            {
+              "_uid": "e6220bea-d0b2-4b84-b613-9fcdbafd1d66",
+              "type": "",
+              "links": [
+                {
+                  "_uid": "61ab9c4f-0ca5-420d-9f02-29c82fff9180",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "url": "",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "type": "",
+                  "label": "Sampling",
+                  "component": "Link",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"61ab9c4f-0ca5-420d-9f02-29c82fff9180\", \"id\": \"108543027842071\"}--\u003E"
+                },
+                {
+                  "_uid": "09ffb75e-d820-4f56-aac6-f3feec523763",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "url": "",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "type": "",
+                  "label": "Survey design",
+                  "component": "Link",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"09ffb75e-d820-4f56-aac6-f3feec523763\", \"id\": \"108543027842071\"}--\u003E"
+                }
+              ],
+              "title": "Data collection",
+              "component": "MegaMenuColumn",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"e6220bea-d0b2-4b84-b613-9fcdbafd1d66\", \"id\": \"108543027842071\"}--\u003E"
+            },
+            {
+              "_uid": "fc2530ea-c3a3-4a93-8474-58857468636f",
+              "type": "",
+              "links": [
+                {
+                  "_uid": "4d78bd14-9aa1-4283-9500-d8f0f37f2fed",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "url": "",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "type": "",
+                  "label": "Data preparation",
+                  "component": "Link",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"4d78bd14-9aa1-4283-9500-d8f0f37f2fed\", \"id\": \"108543027842071\"}--\u003E"
+                }
+              ],
+              "title": "Data analysis",
+              "component": "MegaMenuColumn",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"fc2530ea-c3a3-4a93-8474-58857468636f\", \"id\": \"108543027842071\"}--\u003E"
+            }
+          ],
+          "overview": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Learning resources to support skills development grouped into themes, modules and units.. NEEDS LINKS",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "textStyle",
+                        "attrs": {
+                          "color": ""
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "component": "MegaMenu",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenu\", \"space\": \"287525897740819\", \"uid\": \"6f69b050-d56f-476b-9de1-dc3ea0f58bfd\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
+      "component": "expandableItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"expandableItem\", \"space\": \"287525897740819\", \"uid\": \"d92239e1-9095-4f80-9311-1de77bb235ea\", \"id\": \"108543027842071\"}--\u003E"
+    },
+    {
+      "_uid": "ca952302-20d5-4119-a573-0aed98b2ef35",
+      "type": "",
+      "label": "Tools",
+      "MegaMenu": [
+        {
+          "_uid": "36cea343-d20a-431a-a70e-1642c1df48c3",
+          "type": "",
+          "columns": [
+            {
+              "_uid": "0220ac45-dad6-41c2-a730-40fa36092097",
+              "type": "",
+              "links": [
+                {
+                  "_uid": "9c680a52-b9ca-4477-b5b0-6f7b8a0f26b2",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "url": "",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "type": "",
+                  "label": "Sample size calculator",
+                  "component": "Link",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"9c680a52-b9ca-4477-b5b0-6f7b8a0f26b2\", \"id\": \"108543027842071\"}--\u003E"
+                },
+                {
+                  "_uid": "f8bbd905-24a6-4ea6-94e6-8ed4655d657b",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "url": "",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "type": "",
+                  "label": "Question bank",
+                  "component": "Link",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"f8bbd905-24a6-4ea6-94e6-8ed4655d657b\", \"id\": \"108543027842071\"}--\u003E"
+                }
+              ],
+              "title": "Data collection",
+              "component": "MegaMenuColumn",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"0220ac45-dad6-41c2-a730-40fa36092097\", \"id\": \"108543027842071\"}--\u003E"
+            }
+          ],
+          "overview": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Mix of interactive and downloadable tools to provide practical support, grouped into themes.. NEEDS LINK",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "textStyle",
+                        "attrs": {
+                          "color": ""
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "component": "MegaMenu",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenu\", \"space\": \"287525897740819\", \"uid\": \"36cea343-d20a-431a-a70e-1642c1df48c3\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
+      "component": "expandableItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"expandableItem\", \"space\": \"287525897740819\", \"uid\": \"ca952302-20d5-4119-a573-0aed98b2ef35\", \"id\": \"108543027842071\"}--\u003E"
+    }
+  ],
+  "_editable": "\u003C!--#storyblok#{\"name\": \"page\", \"space\": \"287525897740819\", \"uid\": \"eb9916e7-5884-4620-b849-ae383c515231\", \"id\": \"108543027842071\"}--\u003E"
 }

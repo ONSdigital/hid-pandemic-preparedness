@@ -2,8 +2,6 @@ import { useState, type FC } from "react";
 import clsx from "clsx";
 
 import styles from "./NavBar.module.scss";
-import type { NavBarProps, NavItem } from "./NavBar.interface";
-import type { MegaMenuProps } from "@components/MegaMenu/MegaMenu.interface";
 
 import { Image } from "@components/Molecules/Core/Image/Image";
 import { Link } from "@components/Molecules/Core/Link/Link";
@@ -11,7 +9,9 @@ import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 import { MegaMenu } from "@/src/components/MegaMenu/MegaMenu";
 
-const NavBarItem: FC<NavItem> = (props) => {
+import type { ExpandableItem, NavBarProps } from "./NavBar.interface";
+
+const NavBarItem: FC<ExpandableItem> = (props) => {
   const isOpen = props.openId === props._uid;
   const iconName = isOpen ? "RiArrowDownSLine" : "RiArrowUpSLine";
 
@@ -33,23 +33,26 @@ const NavBarItem: FC<NavItem> = (props) => {
 };
 
 export const NavBar: FC<NavBarProps> = (props) => {
-  const hasNavItems = props.navItems && props.navItems.length > 0;
-  const hasNavLinks = props.navLinks && props.navLinks.length > 0;
+  const hasExpandableItems =
+    props.expandableItems && props.expandableItems.length > 0;
+  const hasLinks = props.links && props.links.length > 0;
 
   const [openId, setOpenId] = useState<string | null>(null);
-  const [megaMenuData, setMegaMenuData] = useState<NavItem | null>(null);
+  const [megaMenuData, setMegaMenuData] = useState<ExpandableItem | null>(null);
 
-  function toggleNavBarItem(navItem: NavItem) {
-    console.log("nav item clicked", navItem.label);
+  function toggleNavBarItem(expandableItem: ExpandableItem) {
+    console.log("nav item clicked", expandableItem.label);
 
-    if (navItem._uid === openId) {
+    if (expandableItem._uid === openId) {
       setOpenId(null);
       setMegaMenuData(null);
     } else {
-      setOpenId(navItem._uid);
-      setMegaMenuData(navItem);
+      setOpenId(expandableItem._uid);
+      setMegaMenuData(expandableItem);
     }
   }
+
+  console.log("LINKS", props.links);
 
   return (
     <>
@@ -67,13 +70,13 @@ export const NavBar: FC<NavBarProps> = (props) => {
             <Image {...props.logo} />
 
             {/* Nav Items */}
-            {hasNavItems &&
-              props.navItems.map((navItem) => (
-                <div key={navItem._uid}>
+            {hasExpandableItems &&
+              props.expandableItems.map((expandableItem) => (
+                <div key={expandableItem._uid}>
                   {/* Nav Item label */}
                   <NavBarItem
-                    {...navItem}
-                    onClick={() => toggleNavBarItem(navItem)}
+                    {...expandableItem}
+                    onClick={() => toggleNavBarItem(expandableItem)}
                     openId={openId}
                   />
                   {/* Nav Item Overview */}
@@ -82,9 +85,14 @@ export const NavBar: FC<NavBarProps> = (props) => {
               ))}
 
             {/* Nav Links */}
-            {hasNavLinks &&
-              props.navLinks.map((navLink) => (
-                <Link key={navLink._uid} {...navLink.link} textInverse={true} />
+            {hasLinks &&
+              props.links.map((navBarLink) => (
+                <Link
+                  key={navBarLink._uid}
+                  {...navBarLink.link}
+                  label={navBarLink.label}
+                  textInverse={true}
+                />
               ))}
 
             {/* SearchBar */}
