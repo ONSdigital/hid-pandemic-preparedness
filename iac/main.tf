@@ -132,6 +132,14 @@ module "app_preview_cloudfront" {
   default_root_object         = "index.html"
 }
 
+# Create an s3 bucket to contain app source files for CodePipeline build
+module "app_source_s3" {
+  source                     = "./s3"
+  bucket_name                = "${var.project_name_prefix}-app-source"
+  configure_for_site_hosting = false
+  force_destroy              = true
+}
+
 # IAM role for Lambda execution
 data "aws_iam_policy_document" "aws_iam_policy_document_lambda_execution" {
   statement {
