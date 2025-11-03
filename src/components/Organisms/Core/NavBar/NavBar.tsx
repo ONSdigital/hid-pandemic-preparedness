@@ -9,6 +9,7 @@ import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 import { MegaMenu } from "@/src/components/MegaMenu/MegaMenu";
 
+import type { MegaMenu as MegaMenuData } from "@localTypes/MegaMenu";
 import type { ExpandableItem, NavBarProps } from "./NavBar.interface";
 
 const NavBarItem: FC<ExpandableItem> = (props) => {
@@ -38,7 +39,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
   const hasLinks = props.links && props.links.length > 0;
 
   const [openId, setOpenId] = useState<string | null>(null);
-  const [megaMenuData, setMegaMenuData] = useState<ExpandableItem | null>(null);
+  const [megaMenuData, setMegaMenuData] = useState<MegaMenuData | null>(null);
 
   function toggleNavBarItem(expandableItem: ExpandableItem) {
     console.log("nav item clicked", expandableItem.label);
@@ -48,7 +49,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
       setMegaMenuData(null);
     } else {
       setOpenId(expandableItem._uid);
-      setMegaMenuData(expandableItem);
+      setMegaMenuData(expandableItem.MegaMenu[0]);
     }
   }
 

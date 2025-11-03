@@ -1,0 +1,93 @@
+{
+  "_uid": "6f69b050-d56f-476b-9de1-dc3ea0f58bfd",
+  "type": "",
+  "columns": [
+    {
+      "_uid": "e6220bea-d0b2-4b84-b613-9fcdbafd1d66",
+      "type": "",
+      "links": [
+        {
+          "_uid": "61ab9c4f-0ca5-420d-9f02-29c82fff9180",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "label": "Sampling",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"61ab9c4f-0ca5-420d-9f02-29c82fff9180\", \"id\": \"108543027842071\"}--\u003E"
+        },
+        {
+          "_uid": "09ffb75e-d820-4f56-aac6-f3feec523763",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "label": "Survey design",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"09ffb75e-d820-4f56-aac6-f3feec523763\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
+      "title": "Data collection",
+      "component": "MegaMenuColumn",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"e6220bea-d0b2-4b84-b613-9fcdbafd1d66\", \"id\": \"108543027842071\"}--\u003E"
+    },
+    {
+      "_uid": "fc2530ea-c3a3-4a93-8474-58857468636f",
+      "type": "",
+      "links": [
+        {
+          "_uid": "4d78bd14-9aa1-4283-9500-d8f0f37f2fed",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "label": "Data preparation",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"4d78bd14-9aa1-4283-9500-d8f0f37f2fed\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
+      "title": "Data analysis",
+      "component": "MegaMenuColumn",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"fc2530ea-c3a3-4a93-8474-58857468636f\", \"id\": \"108543027842071\"}--\u003E"
+    }
+  ],
+  "overview": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Learning resources to support skills development grouped into themes, modules and units.. NEEDS LINKS",
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": ""
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "component": "MegaMenu",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenu\", \"space\": \"287525897740819\", \"uid\": \"6f69b050-d56f-476b-9de1-dc3ea0f58bfd\", \"id\": \"108543027842071\"}--\u003E"
+}

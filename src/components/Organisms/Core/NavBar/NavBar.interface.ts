@@ -8,8 +8,10 @@ export interface NavBarProps {
   links: Link[];
 }
 
-export interface ExpandableItem extends MegaMenu {
+export interface ExpandableItem {
+  _uid: string;
   label: string;
+  MegaMenu: MegaMenu[];
   onClick?: () => any;
   openId?: string | null;
 }
