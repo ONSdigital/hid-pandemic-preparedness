@@ -267,13 +267,15 @@ data "aws_iam_policy_document" "aws_iam_policy_document_s3" {
       "${module.app_main_s3.arn}/*",
       module.app_preview_s3.arn,
       "${module.app_preview_s3.arn}/*",
+      module.app_source_s3.arn,
+      "${module.app_source_s3.arn}/*",
     ]
   }
 }
 
 resource "aws_iam_policy" "aws_iam_policy" {
   name        = "github-actions-s3-access"
-  description = "Allow S3 access to specific bucket"
+  description = "Allow S3 access to specific buckets"
   policy      = data.aws_iam_policy_document.aws_iam_policy_document_s3.json
 }
 
