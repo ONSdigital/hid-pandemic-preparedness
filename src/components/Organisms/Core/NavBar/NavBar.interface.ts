@@ -13,11 +13,13 @@ interface NavLink {
   link: Link;
 }
 
-interface NavItem {
+export interface NavItem {
   _uid: string;
   label: string;
-  overview: StoryblokRichTextNode;
   NavColumn: NavColumn[]; //TODO potentially change this to 'NavMenuColumn'
+  onClick?: () => any;
+  openId?: string | null;
+  overview: StoryblokRichTextNode;
 }
 
 interface NavColumn {
