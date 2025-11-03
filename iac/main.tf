@@ -134,10 +134,39 @@ module "app_preview_cloudfront" {
 
 # Create an s3 bucket to contain app source files for CodePipeline build
 module "app_source_s3" {
+  source                          = "./s3"
+  bucket_name                     = "${var.project_name_prefix}-app-source"
+  configure_for_site_hosting      = false
+  force_destroy                   = true
+  versioning_configuration_status = "Enabled"
+}
+
+# Create bucket for app prod
+module "app_prod_s3" {
   source                     = "./s3"
-  bucket_name                = "${var.project_name_prefix}-app-source"
-  configure_for_site_hosting = false
+  bucket_name                = "${var.project_name_prefix}-app-prod"
+  configure_for_site_hosting = true
   force_destroy              = true
+}
+
+# Set up cloudfront distribution for app prod
+# Function association is enabled to enable astro static site folder based navigation
+# Price class and restrictions are set to ensure worldwide availability
+module "app_prod_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.app_prod_s3.id
+  bucket_regional_domain_name = module.app_prod_s3.bucket_regional_domain_name
+  distribution_enabled        = true
+  distribution_name           = "Prod app"
+  function_association = [{
+    event_type   = "viewer-request"
+    function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
+  }]
+  price_class = "PriceClass_All"
+  geo_restriction = [{
+    restriction_type = "none"
+    locations        = []
+  }]
 }
 
 # IAM role for Lambda execution
@@ -330,4 +359,90 @@ resource "aws_iam_policy" "aws_iam_policy_lambda" {
 resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda" {
   user       = aws_iam_user.aws_iam_user.name
   policy_arn = aws_iam_policy.aws_iam_policy_lambda.arn
+}
+
+# IAM role for Codepipeline execution
+data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["codepipeline.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "aws_iam_role_codepipeline" {
+  name               = "${var.project_name_prefix}-codepipeline-execution-role"
+  assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_codepipeline_execution.json
+}
+
+resource "aws_codepipeline" "aws_codepipeline" {
+  name     = "${var.project_name_prefix}-deployment-pipeline"
+  role_arn = aws_iam_role.aws_iam_role_codepipeline.arn
+
+  artifact_store {
+    location = module.app_source_s3.id
+    type     = "S3"
+  }
+
+  stage {
+    name = "Source"
+    action {
+      name             = "Source"
+      category         = "Source"
+      owner            = "AWS"
+      provider         = "S3"
+      version          = "1"
+      output_artifacts = ["source_output"]
+
+      configuration = {
+        S3Bucket    = module.app_source_s3.id
+        S3ObjectKey = "app-source.zip"
+      }
+    }
+  }
+
+  stage {
+    name = "Build"
+    action {
+      name             = "Build"
+      category         = "Build"
+      owner            = "AWS"
+      provider         = "CodeBuild"
+      version          = "1"
+      input_artifacts  = ["source_output"]
+      output_artifacts = ["build_output"]
+
+      configuration = {
+        ProjectName = var.project_name_prefix
+        EnvironmentVariables = jsonencode([
+          { name = "ASTRO_OUTPUT", value = "static", type = "PLAINTEXT" },
+          { name = "ASTRO_PREVIEW", value = "false", type = "PLAINTEXT" },
+          { name = "ASTRO_USE_LOCAL_DATA", value = "false", type = "PLAINTEXT" },
+          { name = "STORYBLOK_ACCESS_TOKEN", value = "false", type = "SECRETS_MANAGER" },
+        ])
+      }
+    }
+  }
+
+  stage {
+    name = "Deploy"
+    action {
+      name            = "Deploy"
+      category        = "Deploy"
+      owner           = "AWS"
+      provider        = "S3"
+      version         = "1"
+      input_artifacts = ["build_output"]
+
+      configuration = {
+        BucketName = module.app_prod_s3.id
+        Extract    = true
+      }
+    }
+  }
 }
