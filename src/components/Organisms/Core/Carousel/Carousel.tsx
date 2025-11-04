@@ -54,7 +54,6 @@ export const Carousel: FC<CarouselProps> = (props) => {
 
   const breakpointMd = parseBreakpoint(breakpoints.breakpointMd);
   const breakpointLg = parseBreakpoint(breakpoints.breakpointLg);
-  const breakpointXxl = parseBreakpoint(breakpoints.breakpointXxl);
 
   const handleBreakpointChange = (swiper: SwiperType) => {
     const slidesPerView = swiper.params.slidesPerView;
