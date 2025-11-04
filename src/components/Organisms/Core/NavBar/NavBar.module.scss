@@ -1,6 +1,10 @@
 @use "../../../../styles/global/tokens" as *;
 @use "../../../../styles/global/variables" as *;
 
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+
 .navbar-bg {
   background-color: $color-brand-primary-500;
   color: $color-text-inverse;
@@ -16,4 +20,12 @@
 
 .navbar-item-button {
   all: unset;
+}
+
+.desktop-mega-menu {
+  z-index: 2;
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    box-shadow: 0 10px 20px 0 rgba($color-grey-600, 0.1);
+  }
 }

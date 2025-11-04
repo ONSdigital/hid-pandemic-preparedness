@@ -42,8 +42,6 @@ export const NavBar: FC<NavBarProps> = (props) => {
   const [megaMenuData, setMegaMenuData] = useState<MegaMenuData | null>(null);
 
   function toggleNavBarItem(expandableItem: ExpandableItem) {
-    console.log("nav item clicked", expandableItem.label);
-
     if (expandableItem._uid === openId) {
       setOpenId(null);
       setMegaMenuData(null);
@@ -52,8 +50,6 @@ export const NavBar: FC<NavBarProps> = (props) => {
       setMegaMenuData(expandableItem.MegaMenu[0]);
     }
   }
-
-  console.log("LINKS", props.links);
 
   return (
     <>
@@ -101,7 +97,9 @@ export const NavBar: FC<NavBarProps> = (props) => {
           </div>
         </div>
       </nav>
-      {megaMenuData && <MegaMenu {...megaMenuData} />}
+      <div className={clsx(styles["desktop-mega-menu"], "w-100")}>
+        {megaMenuData && <MegaMenu {...megaMenuData} />}
+      </div>
     </>
   );
 };
