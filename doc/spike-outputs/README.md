@@ -10,4 +10,5 @@ Spikes were carried out during the project to research different approaches duri
 | [Basic search design](./basic-search-design.md) | 28/10/2025 |
 | [Video component](./video-component.md) | 29/10/2025 |
 | [Quiz component design](./quiz-component-design.md) | 29/10/2025 |
+| [Iframe component](./iframe-component.md) | 03/11/2025 |
 
