@@ -361,6 +361,12 @@ resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda
   policy_arn = aws_iam_policy.aws_iam_policy_lambda.arn
 }
 
+# Create the secret for Storyblok access token
+# Note that the secret version should be created manually in the AWS console
+resource "aws_secretsmanager_secret" "aws_secretsmanager_secret" {
+  name = "storyblok-access-token"
+}
+
 # IAM role for Code build and Codepipeline execution
 data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_assume_role" {
   statement {
@@ -422,6 +428,23 @@ data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" 
       "${module.app_source_s3.arn}/*"
     ]
   }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:PutObject",
+      "s3:PutObjectAcl",
+      "s3:PutObjectVersionAcl",
+      "s3:GetBucketVersioning",
+      "s3:GetBucketAcl",
+      "s3:GetBucketLocation"
+    ]
+    resources = [
+      module.app_prod_s3.arn,
+      "${module.app_prod_s3.arn}/*"
+    ]
+  }
+
   statement {
     effect = "Allow"
     actions = [
@@ -431,7 +454,26 @@ data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" 
       "codebuild:StartBuildBatch"
     ]
     resources = [
-      aws_codebuild_project.aws_codebuild_project.arn
+      aws_codebuild_project.aws_codebuild_project.arn,
+      "${aws_codebuild_project.aws_codebuild_project.arn}/*"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "logs:CreateLogStream"
+    ]
+    resources = ["*"]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "secretsmanager:GetSecretValue"
+    ]
+    resources = [
+      aws_secretsmanager_secret.aws_secretsmanager_secret.arn
     ]
   }
 }
@@ -445,12 +487,6 @@ resource "aws_iam_policy" "aws_iam_policy_codepipeline_execution" {
 resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachment_codepipeline" {
   role       = aws_iam_role.aws_iam_role_codepipeline.name
   policy_arn = aws_iam_policy.aws_iam_policy_codepipeline_execution.arn
-}
-
-# Create the secret for Storyblok access token
-# Note that the secret version should be created manually in the AWS console
-resource "aws_secretsmanager_secret" "aws_secretsmanager_secret" {
-  name = "storyblok-access-token"
 }
 
 # Create the codepipeline
