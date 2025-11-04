@@ -8,6 +8,6 @@ export interface CaseStudyCardProps {
   image: Asset;
   size: "large" | "small";
   subTitle: string;
-  tag: Tag;
   title: string;
+  tag?: Tag;
 }

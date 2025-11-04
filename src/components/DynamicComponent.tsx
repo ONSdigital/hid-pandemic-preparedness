@@ -51,9 +51,10 @@ export const DynamicComponent: FC<DynamicComponentProps> = ({ blok }) => {
 
   // If we are trying to render a blok we don't have a corresponding component for, raise error
   if (!Object.keys(COMPONENT_MAP).includes(component)) {
-    throw new Error(
-      `DynamicComponent error: Component "${component}" not found in COMPONENT_MAP.`,
+    console.warn(
+      `DynamicComponent warning: Component "${component}" not found in COMPONENT_MAP.`,
     );
+    return null;
   }
   const Component = COMPONENT_MAP[component as ComponentName];
 

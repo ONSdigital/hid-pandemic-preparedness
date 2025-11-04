@@ -13,6 +13,14 @@ export const TextModule: FC<TextModuleProps> = (props) => {
 
   if (props.richText) {
     html = renderRichText(props.richText, {
+      optimizeImages: {
+        class: "img-fluid",
+        loading: "lazy",
+        filters: {
+          format: "webp",
+          fill: "transparent",
+        },
+      },
       resolvers: overiddenResolvers,
     });
   } else if (props.htmlContent) {

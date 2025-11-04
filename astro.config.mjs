@@ -4,6 +4,7 @@ import { storyblok } from "@storyblok/astro";
 import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import pagefind from "astro-pagefind";
 
 const mode = process.env.NODE_ENV;
 const env = loadEnv(mode, process.cwd(), "");
@@ -68,6 +69,7 @@ export default defineConfig({
     ssr: VITE_SSR,
   },
   integrations: [
+    pagefind(),
     react(),
     storyblok({
       accessToken: STORYBLOK_ACCESS_TOKEN,

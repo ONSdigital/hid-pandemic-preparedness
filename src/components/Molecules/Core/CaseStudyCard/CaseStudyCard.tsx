@@ -37,9 +37,11 @@ export const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
             {...props.image}
             className={clsx("card-img", styles["image"])}
           />
-          <div className={clsx("position-absolute", styles["tag-container"])}>
-            <Tag {...props.tag} />
-          </div>
+          {props.tag && (
+            <div className={clsx("position-absolute", styles["tag-container"])}>
+              <Tag {...props.tag} />
+            </div>
+          )}
         </div>
         <div className={clsx(props.size === "small" && "col")}>
           <div className={clsx("card-body", "p-0")}>

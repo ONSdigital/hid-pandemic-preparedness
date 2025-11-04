@@ -75,6 +75,7 @@ const cardCaseStudyProps: CaseStudyCardProps = {
     is_external_url: false,
   },
   tag: {
+    id: "tag-id",
     title: "Nepal",
   },
 };
