@@ -68,74 +68,78 @@ export const Carousel: FC<CarouselProps> = (props) => {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3">
-        <div className={hiddenNavigation}>
-          <ArrowButton
-            ariaLabel="Previous"
-            direction="left"
-            onClick={() => swiperRef.current?.slidePrev()}
-            type="button"
-            variant="secondary"
-          />
-        </div>
+      <div className={clsx("w-100")}>
+        <div className={clsx("container-lg", "py-4")}>
+          <div className="d-flex align-items-center gap-3">
+            <div className={hiddenNavigation}>
+              <ArrowButton
+                ariaLabel="Previous"
+                direction="left"
+                onClick={() => swiperRef.current?.slidePrev()}
+                type="button"
+                variant="secondary"
+              />
+            </div>
 
-        <Swiper
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            [breakpointMd]: {
-              slidesPerView: 2,
-            },
-            [breakpointLg]: {
-              slidesPerView: 3,
-            },
-            [breakpointXxl]: {
-              slidesPerView: 4,
-            },
-          }}
-          loop={showControls}
-          modules={[Navigation, Pagination]}
-          onSwiper={(swiper: any) => (swiperRef.current = swiper)}
-          onBreakpoint={handleBreakpointChange}
-          pagination={{
-            clickable: true,
-            el: "#container-for-pagination-bullets",
-            type: "bullets",
-            bulletClass: styles["swiper-default-bullets"],
-            bulletActiveClass: styles["swiper-active-bullets"],
-          }}
-          spaceBetween={30}
-        >
-          {props.cards.map((blok: any) => (
-            <SwiperSlide
-              key={blok._uid}
-              className={clsx(
-                styles["swiper-slide-container"],
-                "d-flex justify-content-center",
-              )}
+            <Swiper
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                [breakpointMd]: {
+                  slidesPerView: 2,
+                },
+                [breakpointLg]: {
+                  slidesPerView: 3,
+                },
+                // [breakpointXxl]: {
+                //   slidesPerView: 4,
+                // },
+              }}
+              loop={showControls}
+              modules={[Navigation, Pagination]}
+              onSwiper={(swiper: any) => (swiperRef.current = swiper)}
+              onBreakpoint={handleBreakpointChange}
+              pagination={{
+                clickable: true,
+                el: "#container-for-pagination-bullets",
+                type: "bullets",
+                bulletClass: styles["swiper-default-bullets"],
+                bulletActiveClass: styles["swiper-active-bullets"],
+              }}
+              spaceBetween={30}
             >
-              <DynamicCarouselItemComponent blok={blok} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div className={hiddenNavigation}>
-          <ArrowButton
-            ariaLabel="Next"
-            direction="right"
-            onClick={() => swiperRef.current?.slideNext()}
-            type="button"
-            variant="secondary"
-          />
+              {props.cards.map((blok: any) => (
+                <SwiperSlide
+                  key={blok._uid}
+                  className={clsx(
+                    styles["swiper-slide-container"],
+                    "d-flex justify-content-center",
+                  )}
+                >
+                  <DynamicCarouselItemComponent blok={blok} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className={hiddenNavigation}>
+              <ArrowButton
+                ariaLabel="Next"
+                direction="right"
+                onClick={() => swiperRef.current?.slideNext()}
+                type="button"
+                variant="secondary"
+              />
+            </div>
+          </div>
+          {/* Swiper.js references this div when creating custom pagination bullets*/}
+          {showControls && (
+            <div
+              id="container-for-pagination-bullets"
+              className="d-flex d-md-none justify-content-center gap-3 mt-4"
+            ></div>
+          )}
         </div>
       </div>
-      {/* Swiper.js references this div when creating custom pagination bullets*/}
-      {showControls && (
-        <div
-          id="container-for-pagination-bullets"
-          className="d-flex d-md-none justify-content-center gap-3 mt-4"
-        ></div>
-      )}
     </>
   );
 };
