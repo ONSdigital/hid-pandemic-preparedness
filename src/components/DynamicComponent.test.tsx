@@ -13,14 +13,32 @@ describe("DynamicComponent", () => {
     expectTypeOf(component).toBeAny;
   });
 
-  test("throws an error when component is not found in the map", () => {
+  test("returns null when component is not found in the map", () => {
     const blok = {
       component: "UnknownComponent",
       _uid: "123",
     };
-    // Wrap in a function to test throwing
-    expect(() => DynamicComponent({ blok })).toThrowError(
-      /Component "UnknownComponent" not found in COMPONENT_MAP/,
+    const component = DynamicComponent({ blok });
+    // Should return null
+    expect(component).toBeNull;
+  });
+
+  test("logs warning when component is not found in the map", () => {
+    // Mock `console.warn`
+    const consoleWarnMock = vi
+      .spyOn(console, "warn")
+      .mockImplementation(() => {});
+    const blok = {
+      component: "UnknownComponent",
+      _uid: "123",
+    };
+    DynamicComponent({ blok });
+    // Mocked console.warn should include warning string
+    expect(consoleWarnMock).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Component "UnknownComponent" not found in COMPONENT_MAP',
+      ),
     );
+    consoleWarnMock.mockRestore();
   });
 });
