@@ -1,30 +1,30 @@
 {
-  "_uid": "b2870200-8454-4cab-9bae-b4b0bc0650af",
+  "_uid": "f281971b-df39-4058-a07e-bb6210c44d5f",
   "cards": [
     {
-      "_uid": "0c39696c-2668-473c-8055-d1d193b7a208",
+      "_uid": "cdc48ee6-5078-4dbe-8de5-2413289c5885",
       "icon": "report",
       "link": {
-        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
         "rel": "",
-        "url": "/",
+        "url": "",
         "title": "Try now",
         "linktype": "story",
         "fieldtype": "multilink",
         "cached_url": "home"
       },
-      "title": "Survey analysis tool",
-      "subTitle": "Analyze survey data with automated insights and visualizations.",
+      "title": "Rumour Report",
+      "subTitle": "A rumour report logs unverified claims or info in circulation.",
       "component": "ToolCard",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"0c39696c-2668-473c-8055-d1d193b7a208\", \"id\": \"96814736940977\"}--\u003E"
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"cdc48ee6-5078-4dbe-8de5-2413289c5885\", \"id\": \"102414283876191\"}--\u003E"
     },
     {
-      "_uid": "0a39ec9e-f9a9-4aca-ae83-f157ed763c32",
+      "_uid": "05a73324-17b5-421f-9eb9-554eb1267e6d",
       "icon": "dashboard",
       "link": {
-        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
         "rel": "",
-        "url": "/",
+        "url": "",
         "title": "Try now",
         "linktype": "story",
         "fieldtype": "multilink",
@@ -33,43 +33,60 @@
       "title": "Modelling dashboard",
       "subTitle": "An infectious disease modelling dashboard.",
       "component": "ToolCard",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"0a39ec9e-f9a9-4aca-ae83-f157ed763c32\", \"id\": \"96814736940977\"}--\u003E"
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"05a73324-17b5-421f-9eb9-554eb1267e6d\", \"id\": \"102414283876191\"}--\u003E"
     },
     {
-      "_uid": "a927e29f-0fbc-451b-a63b-8379d089118d",
-      "icon": "dashboard",
+      "_uid": "e8d1b829-0085-48c6-b6fb-95ab82c6ce78",
+      "icon": "questionbank",
       "link": {
-        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "id": "50a33e7f-ab97-4fa5-ae2d-1175894692a1",
         "rel": "",
-        "url": "/tools/question-bank/",
+        "url": "",
         "title": "Try now",
         "linktype": "story",
         "fieldtype": "multilink",
-        "cached_url": "home"
+        "cached_url": "tools/question-bank/"
       },
-      "title": "Question bank",
+      "title": "Question Bank",
       "subTitle": "Curated library of ready-to-use, evidence-backed questions.",
       "component": "ToolCard",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"a927e29f-0fbc-451b-a63b-8379d089118d\", \"id\": \"96814736940977\"}--\u003E"
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"e8d1b829-0085-48c6-b6fb-95ab82c6ce78\", \"id\": \"102414283876191\"}--\u003E"
     },
     {
-      "_uid": "9b4dbed5-cb15-451a-b03f-ed08aea17c08",
+      "_uid": "3ba8a5bc-0e07-4ed3-9dba-2075ecb6d59e",
       "icon": "calculator",
       "link": {
-        "id": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
         "rel": "",
-        "url": "/",
+        "url": "",
         "title": "Try now",
         "linktype": "story",
         "fieldtype": "multilink",
         "cached_url": "home"
       },
-      "title": "Sample size calculator",
-      "subTitle": "Estimates required sample size for a study or survey.",
+      "title": "Sample Size Calculator",
+      "subTitle": "Estimates required sample size for a study or survety.",
       "component": "ToolCard",
-      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"9b4dbed5-cb15-451a-b03f-ed08aea17c08\", \"id\": \"96814736940977\"}--\u003E"
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"3ba8a5bc-0e07-4ed3-9dba-2075ecb6d59e\", \"id\": \"102414283876191\"}--\u003E"
+    },
+    {
+      "_uid": "c1af0e0a-a413-4039-aee3-892880ccffdb",
+      "icon": "calculator",
+      "link": {
+        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+        "rel": "",
+        "url": "",
+        "title": "Try now",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "title": "Sample Size Calculator",
+      "subTitle": "Estimates required sample size for a study or survety.",
+      "component": "ToolCard",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"c1af0e0a-a413-4039-aee3-892880ccffdb\", \"id\": \"102414283876191\"}--\u003E"
     }
   ],
   "component": "Carousel",
-  "_editable": "\u003C!--#storyblok#{\"name\": \"Carousel\", \"space\": \"287525897740819\", \"uid\": \"b2870200-8454-4cab-9bae-b4b0bc0650af\", \"id\": \"96814736940977\"}--\u003E"
+  "_editable": "\u003C!--#storyblok#{\"name\": \"Carousel\", \"space\": \"287525897740819\", \"uid\": \"f281971b-df39-4058-a07e-bb6210c44d5f\", \"id\": \"102414283876191\"}--\u003E"
 }

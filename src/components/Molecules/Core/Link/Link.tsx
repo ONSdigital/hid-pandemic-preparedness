@@ -62,7 +62,7 @@ export const Link: FC<LinkProps> = (props) => {
       aria-disabled={props.disabled}
     >
       {/* Renders the label and an icon if not null */}
-      {props.label ?? props.title} {Icon && Icon}
+      {props.label ?? props.title} {!props.hideIcon && Icon && Icon}
     </a>
   );
 };

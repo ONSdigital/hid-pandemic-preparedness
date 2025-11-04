@@ -16,7 +16,7 @@ const FooterColumnLinks: FC<FooterColumnLinksProps> = (props) => {
     <>
       {props.links?.map((item) => (
         <p key={item._uid}>
-          <Link {...item.link} textInverse={true} />
+          <Link {...item.link} textInverse={true} hideIcon={true} />
         </p>
       ))}
     </>
