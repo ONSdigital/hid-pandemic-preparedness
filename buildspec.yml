@@ -1,0 +1,25 @@
+version: 0.2
+
+env:
+  variables:
+    ASTRO_OUTPUT: "static"
+    ASTRO_PREVIEW: false
+    ASTRO_USE_LOCAL_DATA: false
+  secrets-manager:
+    STORYBLOK_ACCESS_TOKEN: "storyblok-access-token:STORYBLOK_ACCESS_TOKEN"
+
+phases:
+  install:
+    on-failure: RETRY
+    commands:
+      - npm ci
+      - npm run build-bootstrap-js
+
+  build:
+    on-failure: RETRY
+    commands:
+      - npm run build
+
+artifacts:
+  files:
+    - dist/**/*

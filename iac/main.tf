@@ -402,7 +402,6 @@ resource "aws_codebuild_project" "aws_codebuild_project" {
   service_role = aws_iam_role.aws_iam_role_codepipeline.arn
 }
 
-
 # Add pipeline execution permissions for the role
 data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" {
   statement {
@@ -448,6 +447,11 @@ resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachment_codepi
   policy_arn = aws_iam_policy.aws_iam_policy_codepipeline_execution.arn
 }
 
+# Create the secret for Storyblok access token
+# Note that the secret version should be created manually in the AWS console
+resource "aws_secretsmanager_secret" "aws_secretsmanager_secret" {
+  name = "storyblok-access-token"
+}
 
 # Create the codepipeline
 resource "aws_codepipeline" "aws_codepipeline" {
