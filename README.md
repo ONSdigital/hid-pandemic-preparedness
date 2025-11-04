@@ -116,6 +116,10 @@ To run ESLint locally:
 npm run lint
 ```
 
+## Static Search
+
+A static search library, Pagefind, is used in the project to provide a lightweight, small footprint search facility.  Pagefind is implemented using the astro-pagefind library, which means the site is indexed automatically whenever the build step is run (i.e., within `npm run deploy-app-...`).  The indexed files are sent to the `dist/` directory ready to be deployed to CloudFront within the existing process.
+
 ## CI/CD workflows
 
 This project uses GitHub Actions workflows for Continuous Integration and Continuous Deployment (CI/CD). Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
