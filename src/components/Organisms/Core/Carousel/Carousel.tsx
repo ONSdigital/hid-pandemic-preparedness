@@ -92,9 +92,6 @@ export const Carousel: FC<CarouselProps> = (props) => {
                 [breakpointLg]: {
                   slidesPerView: 3,
                 },
-                // [breakpointXxl]: {
-                //   slidesPerView: 4,
-                // },
               }}
               loop={showControls}
               modules={[Navigation, Pagination]}
