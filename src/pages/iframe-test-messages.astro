@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Interfaces
+import type { UnitBlockProps } from "@components/Core/UnitBlock/UnitBlock.interface";
+
+// Components
+import { Header } from "@/src/components/Organisms/Core/Header/Header";
+import { UnitBlock } from "@components/Core/UnitBlock/UnitBlock";
+
+// Content
+import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/header.json";
+import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
+import { Iframe } from "../components/Iframe/Iframe";
+
+const breadcrumbs = {
+  items: [
+    {
+      url: "/",
+      title: "Home",
+      id: "0c6dd168-38da-4a09-b62c-971490cb80b4",
+    },
+  ],
+};
+---
+
+<BaseLayout title={headerData.title}>
+  <main>
+    <Header title="iframe test - messages" breadcrumbs={breadcrumbs} />
+
+    <Iframe
+      src="http://localhost:4321/iframes/iframeTest/index.html"
+      client:load
+    />
+
+    <!-- <Iframe
+      src="https://druiz.shinyapps.io/proto_epi/"
+      defaultHeight="1700px"
+      client:load
+    /> -->
+  </main>
+</BaseLayout>
