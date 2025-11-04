@@ -1,4 +1,4 @@
-import { describe, expect, expectTypeOf, test } from "vitest";
+import { describe, expect, expectTypeOf, test, vi } from "vitest";
 import "@testing-library/jest-dom";
 
 import { DynamicComponent } from "./DynamicComponent";
