@@ -380,39 +380,6 @@ resource "aws_iam_role" "aws_iam_role_codepipeline" {
   assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_codepipeline_assume_role.json
 }
 
-# Add pipeline execution permissions for the role
-data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" {
-  statement {
-    effect = "Allow"
-    actions = [
-      "s3:GetObject",
-      "s3:GetObjectVersion",
-      "s3:GetBucketVersioning",
-      "s3:GetBucketAcl",
-      "s3:GetBucketLocation",
-      "s3:GetObjectTagging",
-      "s3:GetObjectVersionTagging",
-      "s3:ListBucket",
-      "s3:PutObject"
-    ]
-    resources = [
-      module.app_source_s3.arn,
-      "${module.app_source_s3.arn}/*"
-    ]
-  }
-}
-
-resource "aws_iam_policy" "aws_iam_policy_codepipeline_execution" {
-  name        = "codepipeline-execution-permissions"
-  description = "Allow codepipeline to get object from s3, build artifacts and deploy"
-  policy      = data.aws_iam_policy_document.aws_iam_policy_document_codepipeline_execution.json
-}
-
-resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachment_codepipeline" {
-  role       = aws_iam_role.aws_iam_role_codepipeline.name
-  policy_arn = aws_iam_policy.aws_iam_policy_codepipeline_execution.arn
-}
-
 # Create the codebuild project
 resource "aws_codebuild_project" "aws_codebuild_project" {
   name = "${var.project_name_prefix}-codebuild-project"
@@ -433,6 +400,52 @@ resource "aws_codebuild_project" "aws_codebuild_project" {
   }
 
   service_role = aws_iam_role.aws_iam_role_codepipeline.arn
+}
+
+
+# Add pipeline execution permissions for the role
+data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:GetObject",
+      "s3:GetObjectVersion",
+      "s3:GetBucketVersioning",
+      "s3:GetBucketAcl",
+      "s3:GetBucketLocation",
+      "s3:GetObjectTagging",
+      "s3:GetObjectVersionTagging",
+      "s3:ListBucket",
+      "s3:PutObject"
+    ]
+    resources = [
+      module.app_source_s3.arn,
+      "${module.app_source_s3.arn}/*"
+    ]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "codebuild:BatchGetBuilds",
+      "codebuild:StartBuild",
+      "codebuild:BatchGetBuildBatches",
+      "codebuild:StartBuildBatch"
+    ]
+    resources = [
+      aws_codebuild_project.aws_codebuild_project.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "aws_iam_policy_codepipeline_execution" {
+  name        = "codepipeline-execution-permissions"
+  description = "Allow codepipeline to get object from s3, build artifacts and deploy"
+  policy      = data.aws_iam_policy_document.aws_iam_policy_document_codepipeline_execution.json
+}
+
+resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachment_codepipeline" {
+  role       = aws_iam_role.aws_iam_role_codepipeline.name
+  policy_arn = aws_iam_policy.aws_iam_policy_codepipeline_execution.arn
 }
 
 
