@@ -361,14 +361,14 @@ resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda
   policy_arn = aws_iam_policy.aws_iam_policy_lambda.arn
 }
 
-# IAM role for Codepipeline execution
+# IAM role for Code build and Codepipeline execution
 data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_assume_role" {
   statement {
     effect = "Allow"
 
     principals {
       type        = "Service"
-      identifiers = ["codepipeline.amazonaws.com"]
+      identifiers = ["codebuild.amazonaws.com", "codepipeline.amazonaws.com"]
     }
 
     actions = ["sts:AssumeRole"]
@@ -413,6 +413,29 @@ resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachment_codepi
   policy_arn = aws_iam_policy.aws_iam_policy_codepipeline_execution.arn
 }
 
+# Create the codebuild project
+resource "aws_codebuild_project" "aws_codebuild_project" {
+  name = "${var.project_name_prefix}-codebuild-project"
+
+  source {
+    type      = "CODEPIPELINE"
+    buildspec = "buildspec.yml"
+  }
+
+  artifacts {
+    type = "CODEPIPELINE"
+  }
+
+  environment {
+    compute_type = "BUILD_GENERAL1_SMALL"
+    image        = "aws/codebuild/standard:7.0"
+    type         = "LINUX_CONTAINER"
+  }
+
+  service_role = aws_iam_role.aws_iam_role_codepipeline.arn
+}
+
+
 # Create the codepipeline
 resource "aws_codepipeline" "aws_codepipeline" {
   name     = "${var.project_name_prefix}-deployment-pipeline"
@@ -452,13 +475,13 @@ resource "aws_codepipeline" "aws_codepipeline" {
       output_artifacts = ["build_output"]
 
       configuration = {
-        ProjectName = var.project_name_prefix
-        EnvironmentVariables = jsonencode([
-          { name = "ASTRO_OUTPUT", value = "static", type = "PLAINTEXT" },
-          { name = "ASTRO_PREVIEW", value = "false", type = "PLAINTEXT" },
-          { name = "ASTRO_USE_LOCAL_DATA", value = "false", type = "PLAINTEXT" },
-          { name = "STORYBLOK_ACCESS_TOKEN", value = "false", type = "SECRETS_MANAGER" },
-        ])
+        ProjectName = aws_codebuild_project.aws_codebuild_project.name
+        # EnvironmentVariables = jsonencode([
+        #   { name = "ASTRO_OUTPUT", value = "static", type = "PLAINTEXT" },
+        #   { name = "ASTRO_PREVIEW", value = "false", type = "PLAINTEXT" },
+        #   { name = "ASTRO_USE_LOCAL_DATA", value = "false", type = "PLAINTEXT" },
+        #   { name = "STORYBLOK_ACCESS_TOKEN", value = "false", type = "SECRETS_MANAGER" },
+        # ])
       }
     }
   }
