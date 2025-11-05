@@ -39,6 +39,6 @@ jobs:
         shell: bash
       - name: make post request to trigger codepipeline execution for deployment
         run: |
-          curl -X POST ${{ secrets.AWS_CODEPIPELINE_WEBHOOK_URL }} \
+          curl -X POST "${{ secrets.AWS_CODEPIPELINE_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
             -d '{"space_id": "${{ secrets.STORYBLOK_SPACE_ID }}"}'

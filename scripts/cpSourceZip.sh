@@ -2,9 +2,15 @@
 # set -e
 
 # Script zips source files and uses `aws s3 cp` to copy to an s3 bucket.
-# Run like this e.g `source ./scripts/cpSourceZip.sh`
+# Run like this e.g `source ./scripts/cpSourceZip.sh hid-ppt-app-source`
 
-BUCKET_NAME="hid-ppt-app-source"
+if [ -z "$1" ]; then
+    echo "Required input arguments not set"
+    echo "Usage: $0 <s3-bucket-name>"
+    exit 1
+fi
+
+BUCKET_NAME="$1"
 ZIP_FILENAME="app-source.zip"
 ZIP_IGNORE_DIRS=(".git/**" ".github/**" ".storybook/**" "dist/**" "doc/**" "iac/**" "node_modules/**" "src/styles/bootstrap-5.3.8/node_modules/**")
 
