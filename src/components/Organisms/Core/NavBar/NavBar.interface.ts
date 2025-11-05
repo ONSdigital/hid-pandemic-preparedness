@@ -18,3 +18,5 @@ export interface DesktopNavProps extends NavBarProps {
   onClick: (item: ExpandableItemData) => any;
   openItemId: string | null;
 }
+
+export interface MobileNavProps extends NavBarProps {}

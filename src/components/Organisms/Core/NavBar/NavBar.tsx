@@ -1,13 +1,13 @@
 import { useState, type FC } from "react";
 import clsx from "clsx";
 
-import styles from "./NavBar.module.scss";
-
 import { MegaMenu } from "@/src/components/MegaMenu/MegaMenu";
+import { DesktopNav } from "./DesktopNav";
+import { MobileNav } from "./MobileNav";
 
 import type { MegaMenu as MegaMenuData } from "@localTypes/MegaMenu";
 import type { ExpandableItemData, NavBarProps } from "./NavBar.interface";
-import { DesktopNav } from "./DesktopNav";
+import styles from "./NavBar.module.scss";
 
 export const NavBar: FC<NavBarProps> = (props) => {
   const [openId, setOpenId] = useState<string | null>(null);
@@ -37,7 +37,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
           </div>
           {/* Mobile Nav */}
           <div className="d-lg-none">
-            <h1>Mobile Nav to go here</h1>
+            <MobileNav {...props} />
           </div>
         </div>
       </nav>
