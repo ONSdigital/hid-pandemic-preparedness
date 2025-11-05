@@ -55,6 +55,9 @@ export default defineConfig({
     build: {
       cssCodeSplit: false,
       cssTarget: "es2015",
+      rollupOptions: {
+        external: ["/pagefind/pagefind.js"],
+      },
     },
     css: {
       preprocessorOptions: {
