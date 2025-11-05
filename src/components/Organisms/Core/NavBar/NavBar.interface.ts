@@ -15,7 +15,7 @@ export interface ExpandableItemData {
 }
 
 export interface DesktopNavProps extends NavBarProps {
-  onClick: (item: ExpandableItemData) => any;
+  onClick: (item: ExpandableItemData) => any; // eslint-disable-line no-unused-vars
   openItemId: string | null;
 }
 
