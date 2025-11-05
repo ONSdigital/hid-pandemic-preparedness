@@ -20,3 +20,4 @@ This page lists the Architectural Decision Records (ADRs) that have defined the 
 | [ADR-14](./adr-14-use-pagefind-for-search.md) | Use Pagefind for search |
 | [ADR-15](./adr-15-use-storyblok-for-content-management.md) | Use Storyblok for content management |
 | [ADR-16](./adr-16-use-aws-api-gateway-and-lambda-for-storyblok-preview.md) | Use AWS API Gateway and Lambda for Storyblok preview |
+| [ADR-17](./adr-16-use-aws-api-gateway-and-lambda-for-storyblok-preview.md) | Use AWS Codepipeline to build and deploy production site |
