@@ -42,7 +42,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   // DEV LOG - REMOVE BEFORE MERGE
   useEffect(() => {
     if (searchInput && isFocused && results.length > 0) {
-      console.log("New results set:", JSON.stringify(results));
+      console.log("Passed results set:", JSON.stringify(results));
     }
   }, [results]);
 
@@ -82,6 +82,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       const loadedResults = await Promise.all(
         search.results.map((r: any) => r.data()),
       );
+
+      console.log("Raw loadedResults:", JSON.stringify(loadedResults));
       
       const finalResults: SearchResultItemProps[] | undefined[] = loadedResults.flatMap((pageResult) => {   
         return pageResult.sub_results.map((subResult: any) => ({
