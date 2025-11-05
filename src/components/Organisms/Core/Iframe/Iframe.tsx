@@ -53,7 +53,7 @@ export const Iframe: FC<IframeProps> = (props) => {
           <iframe
             ref={iframeRef}
             src={iframeSrc}
-            title="Welcome"
+            title={props.title}
             width="100%"
             height={iframeHeight}
             className={clsx("mt-2")}
