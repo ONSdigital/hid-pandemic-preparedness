@@ -437,7 +437,9 @@ data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" 
       "s3:PutObjectVersionAcl",
       "s3:GetBucketVersioning",
       "s3:GetBucketAcl",
-      "s3:GetBucketLocation"
+      "s3:GetBucketLocation",
+      "s3:DeleteObject",
+      "s3:ListBucket"
     ]
     resources = [
       module.app_prod_s3.arn,
@@ -510,8 +512,9 @@ resource "aws_codepipeline" "aws_codepipeline" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        S3Bucket    = module.app_source_s3.id
-        S3ObjectKey = "app-source.zip"
+        S3Bucket             = module.app_source_s3.id
+        S3ObjectKey          = "app-source.zip"
+        PollForSourceChanges = false
       }
     }
   }
@@ -529,12 +532,6 @@ resource "aws_codepipeline" "aws_codepipeline" {
 
       configuration = {
         ProjectName = aws_codebuild_project.aws_codebuild_project.name
-        # EnvironmentVariables = jsonencode([
-        #   { name = "ASTRO_OUTPUT", value = "static", type = "PLAINTEXT" },
-        #   { name = "ASTRO_PREVIEW", value = "false", type = "PLAINTEXT" },
-        #   { name = "ASTRO_USE_LOCAL_DATA", value = "false", type = "PLAINTEXT" },
-        #   { name = "STORYBLOK_ACCESS_TOKEN", value = "false", type = "SECRETS_MANAGER" },
-        # ])
       }
     }
   }
@@ -554,5 +551,19 @@ resource "aws_codepipeline" "aws_codepipeline" {
         Extract    = true
       }
     }
+  }
+}
+
+# Create the webhook to allow storyblok to trigger the pipeline
+resource "aws_codepipeline_webhook" "aws_codepipeline_webhook" {
+  name            = "${var.project_name_prefix}-storyblok-pipeline-webhook"
+  authentication  = "UNAUTHENTICATED"
+  target_action   = "Source"
+  target_pipeline = aws_codepipeline.aws_codepipeline.name
+
+  # Just ensures the request is actually coming from our Storyblok space
+  filter {
+    json_path    = "$.space_id"
+    match_equals = var.storyblok_space_id
   }
 }
