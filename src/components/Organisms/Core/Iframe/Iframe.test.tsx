@@ -67,7 +67,7 @@ describe("Iframe component", () => {
     expect(iframe).toHaveAttribute("height", "150px");
 
     const wrongOriginEvent = new MessageEvent("message", {
-      origin: "https://malicious.com",
+      origin: "https://wrong-origin-website.com",
       data: { type: "iframeHeight", height: 500 },
     });
     window.dispatchEvent(wrongOriginEvent);
