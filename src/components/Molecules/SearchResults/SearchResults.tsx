@@ -27,7 +27,10 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
       >
         {props.link.label}
       </a>
-      <p dangerouslySetInnerHTML={{ __html: props.contextLabel }} />
+      <p
+        // subresults.excerpt is sanitised by Pagefind and therefore safe to use
+        dangerouslySetInnerHTML={{ __html: props.excerpt }} 
+      /> 
       <div className="flex-start">
         <Tag {...props.tag} />
       </div>

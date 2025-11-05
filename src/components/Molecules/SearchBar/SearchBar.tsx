@@ -89,7 +89,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
             href: subResult.url,
             label: subResult.title,
           },
-          contextLabel: subResult.excerpt,
+          excerpt: subResult.excerpt,
           tag: {
             title: pageResult.meta.tag || "DUMMY", // TODO: locate tagging info in Pagefind build output
           },
