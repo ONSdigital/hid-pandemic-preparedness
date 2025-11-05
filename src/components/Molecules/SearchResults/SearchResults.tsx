@@ -27,7 +27,7 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
       >
         {props.link.label}
       </a>
-      <p> {props.contextLabel}</p>
+      <p dangerouslySetInnerHTML={{ __html: props.contextLabel }} />
       <div className="flex-start">
         <Tag {...props.tag} />
       </div>

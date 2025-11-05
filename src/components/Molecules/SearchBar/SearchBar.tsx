@@ -5,11 +5,8 @@ import { RiSearchLine } from "@remixicon/react";
 
 import type { SearchBarProps } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
-// import SearchResultsData from "@content/searchResults.json";
-// import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
-// import type { SearchResultItemProps } from "@components/Molecules/SearchResults/SearchResults.interface";
-
-// const SearchResultsProps = SearchResultsData as SearchResultItemProps[];
+import type { SearchResultItemProps } from "@components/Molecules/SearchResults/SearchResults.interface";
+import { SearchResults } from "../SearchResults/SearchResults";
 
 type PagefindModule = {
   init: () => Promise<void>;
@@ -79,14 +76,27 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       // @ts-ignore
       const search = await pagefind.current.debouncedSearch(inputText);
 
-      // pagefind resolves debounced searches to null, so only the last search will resolve to results
+      // pagefind drops debounced searches and resolves to null, so only the completed search input (within 300ms) will execute and resolve to results
       if (!search) return;
-
+      
       const loadedResults = await Promise.all(
         search.results.map((r: any) => r.data()),
       );
+      
+      const finalResults: SearchResultItemProps[] | undefined[] = loadedResults.flatMap((pageResult) => {   
+        return pageResult.sub_results.map((subResult: any) => ({
+          link: {
+            href: subResult.url,
+            label: subResult.title,
+          },
+          contextLabel: subResult.excerpt,
+          tag: {
+            title: pageResult.meta.tag || "DUMMY", // TODO: locate tagging info in Pagefind build output
+          },
+        }));
+      });
 
-      setResults(loadedResults);
+      setResults(finalResults);
     } catch (e) {
       console.error("Pagefind search failed:", e);
     }    
@@ -106,7 +116,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         />
         {searchInput && isFocused && results.length > 0 && (
           <div className={clsx("mt-2", "w-100", styles["search-results"])}>
-            {JSON.stringify(results)}
+            <SearchResults searchResults={results} />
           </div>
         )}
 
