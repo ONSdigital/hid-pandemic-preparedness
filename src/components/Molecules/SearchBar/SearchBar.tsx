@@ -83,7 +83,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         search.results.map((r: any) => r.data()),
       );
 
-      console.log("Raw loadedResults:", JSON.stringify(loadedResults));
+      console.log("Raw loadedResults:", JSON.stringify(loadedResults)); // DEV LOG REMOVE BEFORE MERGE
       
       const finalResults: SearchResultItemProps[] | undefined[] = loadedResults.flatMap((pageResult) => {   
         return pageResult.sub_results.map((subResult: any) => ({
