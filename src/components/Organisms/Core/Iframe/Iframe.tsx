@@ -9,13 +9,11 @@ export const Iframe: FC<IframeProps> = (props) => {
   const [iframeHeight, setIframeHeight] = useState(defaultHeight);
   const [iframeSrc, setIframeSrc] = useState("");
   const iframeRef = useRef(null);
-  // const allowedOrigin = new URL(props.source.url).origin;
 
   // Allows for iframe not passing height entirely accurately
   const buffer = 40;
 
   function handleMessage(event: MessageEvent) {
-    // if (event.origin !== allowedOrigin) return;
     if (event.data?.type !== "iframeHeight") return;
 
     const newHeight = event.data.height;
@@ -27,7 +25,6 @@ export const Iframe: FC<IframeProps> = (props) => {
 
   useEffect(() => {
     window.addEventListener("message", handleMessage);
-    console.log("Event listener added");
 
     // Sets the iframe src after page loads to ensure iframe
     // content isn't loaded before event handler is set up
