@@ -67,6 +67,7 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
                 textColour,
               )}
               label={item.label}
+              hideIcon={true}
               {...item.link}
             />
           ))}

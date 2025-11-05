@@ -4,14 +4,19 @@ import type { MegaMenu } from "@localTypes/MegaMenu";
 
 export interface NavBarProps {
   logo: Asset;
-  expandableItems: ExpandableItem[];
+  expandableItems: ExpandableItemData[];
   links: Link[];
 }
 
-export interface ExpandableItem {
+export interface ExpandableItemData {
   _uid: string;
   label: string;
   MegaMenu: MegaMenu[];
-  onClick?: () => any;
-  openId?: string | null;
+}
+
+export interface DesktopNavProps {
+  expandableItems: ExpandableItemData[];
+  links: Link[];
+  onClick: (item: ExpandableItemData) => any;
+  openItemId: string | null;
 }
