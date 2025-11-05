@@ -14,9 +14,7 @@ export interface ExpandableItemData {
   MegaMenu: MegaMenu[];
 }
 
-export interface DesktopNavProps {
-  expandableItems: ExpandableItemData[];
-  links: Link[];
+export interface DesktopNavProps extends NavBarProps {
   onClick: (item: ExpandableItemData) => any;
   openItemId: string | null;
 }

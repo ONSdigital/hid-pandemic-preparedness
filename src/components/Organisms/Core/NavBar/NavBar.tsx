@@ -27,12 +27,18 @@ export const NavBar: FC<NavBarProps> = (props) => {
     <>
       <nav className={clsx("w-100", styles["navbar-bg"])}>
         <div className={clsx("container-lg", "p-2")}>
-          <DesktopNav
-            expandableItems={props.expandableItems}
-            links={props.links}
-            openItemId={openId}
-            onClick={toggleExpandableItem}
-          />
+          {/* Desktop Nav */}
+          <div className="d-none d-lg-block">
+            <DesktopNav
+              {...props}
+              openItemId={openId}
+              onClick={toggleExpandableItem}
+            />
+          </div>
+          {/* Mobile Nav */}
+          <div className="d-lg-none">
+            <h1>Mobile Nav to go here</h1>
+          </div>
         </div>
       </nav>
       <div className={clsx(styles["desktop-mega-menu"], "w-100")}>

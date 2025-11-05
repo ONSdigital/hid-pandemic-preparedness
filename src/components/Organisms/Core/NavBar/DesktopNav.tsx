@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
+import { Image } from "@components/Molecules/Core/Image/Image";
 
 import styles from "./NavBar.module.scss";
 import type { DesktopNavProps } from "./NavBar.interface";
@@ -22,6 +23,9 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
         "gap-4",
       )}
     >
+      {/* Logo */}
+      <Image {...props.logo} />
+
       {hasExpandableItems &&
         props.expandableItems.map((expandableItem) => {
           const isOpen = props.openItemId === expandableItem._uid;
