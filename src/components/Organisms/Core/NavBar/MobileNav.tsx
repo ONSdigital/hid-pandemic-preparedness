@@ -8,6 +8,9 @@ import { MegaMenu } from "@components/MegaMenu/MegaMenu";
 import { Accordion } from "@components/Molecules/Core/Accordion/Accordion";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Link } from "@components/Molecules/Core/Link/Link";
+import { Icon } from "@components/Molecules/Core/Icon/Icon";
+
+import styles from "./NavBar.module.scss";
 
 export const MobileNav: FC<MobileNavProps> = (props) => {
   const hasExpandableItems =
@@ -23,6 +26,7 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
     : [];
 
   const [showNavContent, setShowNavContent] = useState<boolean>(false);
+  const iconName = showNavContent ? "RiCloseFill" : "RiMenuFill";
 
   const toggleNavContent = () => {
     setShowNavContent((prev) => !prev);
@@ -30,9 +34,20 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
 
   return (
     <>
-      <div>
-        <Image {...props.logo} />
-        <button onClick={toggleNavContent}>Hello</button>
+      <div
+        className={clsx(
+          "d-flex",
+          "justify-content-between",
+          styles["navbar-height"],
+        )}
+      >
+        <Image {...props.logo} className={styles["navbar-logo"]} />
+        <button
+          onClick={toggleNavContent}
+          className={styles["navbar-icon-button"]}
+        >
+          <Icon iconName={iconName} className={styles["navbar-logo"]} />
+        </button>
       </div>
       {/* Toggable content */}
       {showNavContent && (

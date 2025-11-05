@@ -101,7 +101,6 @@ export const NavBar: FC<NavBarProps> = ({
 
   return (
     <nav className={styles.navbar}>
-      {/* Main Navigation Bar */}
       <div
         className={clsx("container-lg", styles["navbar-container"])}
         ref={navRef}

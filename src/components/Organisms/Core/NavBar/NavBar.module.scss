@@ -11,14 +11,18 @@
   overflow: visible !important;
 }
 
-.navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: $spacing-4;
+.navbar-height {
+  height: 4rem;
 }
 
-.navbar-item-button {
+.navbar-logo {
+  max-width: 163px;
+  @include media-breakpoint-up(md) {
+    max-width: 265px;
+  }
+}
+
+.navbar-icon-button {
   all: unset;
 }
 

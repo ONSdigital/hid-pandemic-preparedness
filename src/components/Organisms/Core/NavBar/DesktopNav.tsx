@@ -21,10 +21,11 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
         "align-items-center",
         "justify-content-between",
         "gap-4",
+        styles["navbar-height"],
       )}
     >
       {/* Logo */}
-      <Image {...props.logo} />
+      <Image {...props.logo} className={styles["navbar-logo"]} />
 
       {hasExpandableItems &&
         props.expandableItems.map((expandableItem) => {
@@ -39,11 +40,11 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
                 "justify-content-center",
                 "align-items-center",
                 "gap-1",
-                styles["navbar-item-button"],
+                styles["navbar-icon-button"],
               )}
             >
               <p className="m-0">{expandableItem.label}</p>
-              <Icon iconName={iconName} />
+              <Icon iconName={iconName} className={styles["navbar-logo"]} />
             </button>
           );
         })}

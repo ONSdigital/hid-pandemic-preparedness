@@ -26,8 +26,9 @@ export const NavBar: FC<NavBarProps> = (props) => {
   return (
     <>
       <nav className={clsx("w-100", styles["navbar-bg"])}>
-        <div className={clsx("container-lg", "p-2")}>
+        <div className={clsx("container-lg")}>
           {/* Desktop Nav */}
+
           <div className="d-none d-lg-block">
             <DesktopNav
               {...props}
