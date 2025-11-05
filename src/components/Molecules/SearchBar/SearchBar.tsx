@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import clsx from "clsx";
 import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { RiSearchLine } from "@remixicon/react";
@@ -10,13 +11,21 @@ import styles from "./SearchBar.module.scss";
 
 // const SearchResultsProps = SearchResultsData as SearchResultItemProps[];
 
+type PagefindModule = {
+  init: () => Promise<void>;
+  debouncedSearch: (
+    term: string,
+  ) => Promise<{ results: any[] } | null>;
+};
+
 export const SearchBar: FC<SearchBarProps> = (props) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [results, setResults] = useState<any[]>([]);
 
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
-
+  const pagefind = useRef<PagefindModule | null>(null);
+  
   useEffect(() => {
     // Check for clicks outside the referenced element (search container)
     const handleClickOutside = (event: MouseEvent) => {
@@ -33,13 +42,23 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     };
   }, []);
 
+  // DEV LOG - REMOVE BEFORE MERGE
+  useEffect(() => {
+    if (searchInput && isFocused && results.length > 0) {
+      console.log("New results set:", JSON.stringify(results));
+    }
+  }, [results]);
 
   const handleFocus = async () => {
     setIsFocused(true);
+
+    if (pagefind.current) return;
+
     try {
       // @ts-ignore
-      const pagefind = await import("/pagefind/pagefind.js")
-      pagefind.init();
+      const pf = await import("/pagefind/pagefind.js")
+      await pf.init();
+      pagefind.current = pf;
     } catch (e) {
       console.error("Failed to initialise Pagefind", e);
     }
@@ -49,6 +68,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     const inputText = event.target.value;
     setSearchInput(inputText);
 
+    if (!pagefind.current) return;
+
     if (!inputText) {
       setResults([]);
       return;
@@ -56,12 +77,10 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
     try {
       // @ts-ignore
-      const pagefind = await import("/pagefind/pagefind.js");
-      const search = await pagefind.debouncedSearch(inputText);
+      const search = await pagefind.current.debouncedSearch(inputText);
 
-      if (!search) {
-        return;
-      }
+      // pagefind resolves debounced searches to null, so only the last search will resolve to results
+      if (!search) return;
 
       const loadedResults = await Promise.all(
         search.results.map((r: any) => r.data()),
@@ -72,8 +91,6 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       console.error("Pagefind search failed:", e);
     }    
   };
-
-  searchInput && isFocused && results.length > 0 && console.log(JSON.stringify(results))
 
   return (
     <form role="search" className={clsx("text-dark", styles["input-bg"])}>
