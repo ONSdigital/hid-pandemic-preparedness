@@ -19,4 +19,4 @@ A new Github actions workflow was created for production deployment see [.github
 The AWS Codepipeline is configured to be triggered by a webhook, either from Storyblok or Github actions. Once triggered, the deployment pipeline builds the Astro static site whilst fetching published content from Storyblok and deploys to a production S3 bucket for distribution using CloudFront.
 
 [1]: ../non-functional-requirements/development.md#development-2
-[2]: ../non-functional-requirements/security.md#development-6
+[2]: ../non-functional-requirements/security.md#security-5
