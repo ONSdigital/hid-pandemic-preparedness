@@ -11,7 +11,7 @@ import { UnitBlock } from "@components/Core/UnitBlock/UnitBlock";
 // Content
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/header.json";
 import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
-import { Iframe } from "../components/Iframe/Iframe";
+import { Iframe } from "../components/Organisms/Core/Iframe/Iframe";
 
 const breadcrumbs = {
   items: [
@@ -23,12 +23,14 @@ const breadcrumbs = {
   ],
 };
 
-const src = "https://druiz.shinyapps.io/proto_epi/";
+// const src = "https://druiz.shinyapps.io/proto_epi/";
+// const src = "https://analysisforaction-test.shinyapps.io/contrast-checker/";
+const src = "https://gentle-babka-413b47.netlify.app/";
 ---
 
 <BaseLayout title={headerData.title}>
   <main>
     <Header title="iframe test - shinyapps" breadcrumbs={breadcrumbs} />
-    <Iframe src={src} defaultHeight="1700px" client:load />
+    <Iframe source={src} client:load />
   </main>
 </BaseLayout>

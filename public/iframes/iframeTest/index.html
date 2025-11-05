@@ -88,10 +88,13 @@
       function sendHeightMessage() {
         const height = getPageHeight();
         console.log(`Height of ${height} has been sent to parent.`);
-        window.parent.postMessage({
-          type: "iframeHeight",
-          height,
-        });
+        window.parent.postMessage(
+          {
+            type: "iframeHeight",
+            height,
+          },
+          "*",
+        );
       }
 
       // Send once on load
