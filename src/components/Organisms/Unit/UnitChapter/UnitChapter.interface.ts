@@ -1,14 +1,3 @@
-import type { StoryblokRichTextNode } from "@storyblok/richtext";
+import type { UnitChapter } from "@src/types/bloks/storyblok-components";
 
-interface UnitSection {
-  _uid: string;
-  title: string;
-  contentRichText: StoryblokRichTextNode;
-}
-
-export interface UnitChapterProps {
-  _uid: string;
-  title: string;
-  subTitle: string;
-  sections?: UnitSection[];
-}
+export interface UnitChapterProps extends UnitChapter {}

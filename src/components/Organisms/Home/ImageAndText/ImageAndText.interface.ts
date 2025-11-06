@@ -1,10 +1,3 @@
-import type { ImageProps } from "@src/components/Molecules/Core/Image/Image.interface";
-import type { Link } from "@src/types/Link";
+import type { ImageAndText } from "@src/types/bloks/storyblok-components";
 
-export interface ImageAndTextProps {
-  _uid: string;
-  title: string;
-  subTitle: string;
-  link: Link;
-  image: ImageProps;
-}
+export interface ImageAndTextProps extends ImageAndText {}

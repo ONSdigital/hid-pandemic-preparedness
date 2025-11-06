@@ -1,8 +1,3 @@
-import type { CaseStudyCardProps } from "@src/components/Molecules/Core/CaseStudyCard/CaseStudyCard.interface";
+import type { CaseStudies } from "@src/types/bloks/storyblok-components";
 
-export interface CaseStudiesProps {
-  _uid: string;
-  title: string;
-  mainCard: CaseStudyCardProps[];
-  smallCards: CaseStudyCardProps[];
-}
+export interface CaseStudiesProps extends CaseStudies {}

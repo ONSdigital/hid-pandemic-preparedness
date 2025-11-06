@@ -1,11 +1,3 @@
-import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
-import type { ImageProps } from "@src/components/Molecules/Core/Image/Image.interface";
+import type { Header } from "@src/types/bloks/storyblok-components";
 
-export interface HeaderProps {
-  _uid: string;
-  breadcrumbs: BreadcrumbProps;
-  title: string;
-  subTitle: string;
-  searchPlaceholderText: string;
-  image: ImageProps;
-}
+export interface HeaderProps extends Header {}

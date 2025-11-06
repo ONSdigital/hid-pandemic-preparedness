@@ -1,6 +1,3 @@
-export interface ImpactCardProps {
-  _uid: string;
-  icon: "countries" | "experts" | "users";
-  title: string;
-  subTitle: string;
-}
+import type { ImpactCard } from "@src/types/bloks/storyblok-components";
+
+export interface ImpactCardProps extends ImpactCard {}

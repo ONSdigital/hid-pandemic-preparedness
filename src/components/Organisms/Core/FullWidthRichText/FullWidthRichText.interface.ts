@@ -1,5 +1,3 @@
-import type { StoryblokRichTextNode } from "@storyblok/astro";
+import type { FullWidthRichText } from "@src/types/bloks/storyblok-components";
 
-export interface FullWidthRichTextProps {
-  content: StoryblokRichTextNode;
-}
+export interface FullWidthRichTextProps extends FullWidthRichText {}
