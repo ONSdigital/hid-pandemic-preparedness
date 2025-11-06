@@ -42,9 +42,11 @@ export const NavBar: FC<NavBarProps> = (props) => {
           </div>
         </div>
       </nav>
-      <div className={clsx(styles["overlayed-menu"], "w-100")}>
-        {megaMenuData && <MegaMenu {...megaMenuData} />}
-      </div>
+      {megaMenuData && (
+        <div className={clsx(styles["overlayed-menu"], "w-100")}>
+          <MegaMenu {...megaMenuData} />
+        </div>
+      )}
     </>
   );
 };
