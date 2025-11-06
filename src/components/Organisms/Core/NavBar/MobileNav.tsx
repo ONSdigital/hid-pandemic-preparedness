@@ -6,7 +6,6 @@ import { Image } from "@components/Molecules/Core/Image/Image";
 import type { MobileNavProps } from "./NavBar.interface";
 import { MegaMenu } from "@components/MegaMenu/MegaMenu";
 import { Accordion } from "@components/Molecules/Core/Accordion/Accordion";
-import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
@@ -33,7 +32,7 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
   };
 
   return (
-    <>
+    <div className="w-100">
       <div
         className={clsx(
           "d-flex",
@@ -52,7 +51,6 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
       {/* Toggable content */}
       {showNavContent && (
         <div className={clsx("d-flex", "flex-column", "gap-3", "px-1", "py-3")}>
-          <SearchBar placeholder="TODO searchBar" />
           {hasExpandableItems && (
             <Accordion
               id="mobileNavAccordion"
@@ -74,6 +72,6 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };

@@ -2,7 +2,6 @@ import type { FC } from "react";
 import clsx from "clsx";
 
 import { Link } from "@components/Molecules/Core/Link/Link";
-import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 import { Image } from "@components/Molecules/Core/Image/Image";
 
@@ -19,7 +18,7 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
       className={clsx(
         "d-flex",
         "align-items-center",
-        "justify-content-between",
+        "justify-content-evenly",
         "gap-4",
         styles["navbar-height"],
       )}
@@ -59,8 +58,6 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
             hideIcon={true}
           />
         ))}
-
-      <SearchBar placeholder="TODO searchBar" />
     </div>
   );
 };

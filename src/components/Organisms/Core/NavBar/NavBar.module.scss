@@ -17,7 +17,7 @@
 
 .navbar-logo {
   max-width: 163px;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     max-width: 265px;
   }
 }
@@ -26,10 +26,7 @@
   all: unset;
 }
 
-.desktop-mega-menu {
-  z-index: 2;
-  @include media-breakpoint-up(md) {
-    position: absolute;
-    box-shadow: 0 10px 20px 0 rgba($color-grey-600, 0.1);
-  }
+.overlayed-menu {
+  z-index: 2; //Raise the megamenu above content underneath
+  position: absolute;
 }
