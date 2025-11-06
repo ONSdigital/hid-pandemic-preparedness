@@ -50,25 +50,29 @@ export const MobileNav: FC<NavBarProps> = (props) => {
       </div>
       {/* Toggable content */}
       {showNavContent && (
-        <div className={clsx("d-flex", "flex-column", "gap-3", "px-1", "py-3")}>
-          {hasExpandableItems && (
-            <Accordion
-              id="mobileNavAccordion"
-              items={accordionItems}
-              variant="primary"
-            />
-          )}
-          <div className={clsx("d-flex", "flex-column", "gap-3", "px-4")}>
-            {hasLinks &&
-              props.links.map((navBarLink) => (
-                <Link
-                  key={navBarLink._uid}
-                  {...navBarLink.link}
-                  label={navBarLink.label}
-                  textInverse={true}
-                  hideIcon={true}
-                />
-              ))}
+        <div className={clsx(styles["overlayed-mobile-menu"], "w-100")}>
+          <div
+            className={clsx("d-flex", "flex-column", "gap-3", "px-1", "py-3")}
+          >
+            {hasExpandableItems && (
+              <Accordion
+                id="mobileNavAccordion"
+                items={accordionItems}
+                variant="primary"
+              />
+            )}
+            <div className={clsx("d-flex", "flex-column", "gap-3", "px-4")}>
+              {hasLinks &&
+                props.links.map((navBarLink) => (
+                  <Link
+                    key={navBarLink._uid}
+                    {...navBarLink.link}
+                    label={navBarLink.label}
+                    textInverse={true}
+                    hideIcon={true}
+                  />
+                ))}
+            </div>
           </div>
         </div>
       )}
