@@ -13,7 +13,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '/pagefind/pagefind.js': path.resolve(__dirname, './src/mocks/pagefind.ts')
-    }
-  }
+      "/pagefind/pagefind.js": path.resolve(
+        __dirname,
+        "./src/mocks/pagefind.ts",
+      ),
+    },
+  },
 });
