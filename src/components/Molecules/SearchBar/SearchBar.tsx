@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import clsx from "clsx";
-import { useState, useRef, type ChangeEvent, type FC, useEffect, type UIEvent } from "react";
+import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
 import type { PagefindResultData as PagefindResultsData, PagefindSubResult, SearchBarProps } from "./SearchBar.interface";
