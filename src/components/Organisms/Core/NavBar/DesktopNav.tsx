@@ -32,6 +32,9 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
           const iconName = isOpen ? "RiArrowDownSLine" : "RiArrowUpSLine"; // When expanded, the arrow icon direction will point down
           return (
             <button
+              aria-controls={`mega-menu-${expandableItem._uid}`}
+              aria-expanded={isOpen}
+              aria-label="Toggle nav bar expandable item"
               key={expandableItem._uid}
               onClick={() => props.onClick(expandableItem)}
               className={clsx(

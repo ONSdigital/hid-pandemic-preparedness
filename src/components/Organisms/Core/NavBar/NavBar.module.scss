@@ -23,7 +23,13 @@
 }
 
 .navbar-icon-button {
-  all: unset;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .overlayed-menu {
