@@ -29,8 +29,8 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
       </a>
       <p
         // subresults.excerpt is sanitised by Pagefind, ensuring it is safe to use
-        dangerouslySetInnerHTML={{ __html: props.excerpt }} 
-      /> 
+        dangerouslySetInnerHTML={{ __html: props.excerpt }}
+      />
       <div className="flex-start">
         <Tag {...props.tag} />
       </div>
@@ -40,10 +40,10 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
 
 export const SearchResults: FC<SearchResultsProps> = (props) => {
   return (
-    <div
-      className={clsx("w-100", "rounded", styles["search-results-bg"])}
-    >
-      <p className={clsx("fw-bold", styles["search-results-count"])}> {props.searchResults.length} search results</p>
+    <div className={clsx("w-100", "rounded", styles["search-results-bg"])}>
+      <p className={clsx("fw-bold", styles["search-results-count"])}>
+        {props.searchResults.length} search results
+      </p>
       <div className={clsx("d-flex", "flex-column", "gap-4", "px-4")}>
         {props.searchResults.map((searchResult, index) => (
           <SearchResultItem
