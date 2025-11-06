@@ -48,7 +48,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
     try {
       // @ts-ignore
-      const pf = await import(/* @vite-ignore */ "/pagefind/pagefind.js");
+      const pf = await import("/pagefind/pagefind.js");
       await pf.init();
       pagefind.current = pf;
     } catch (e) {
