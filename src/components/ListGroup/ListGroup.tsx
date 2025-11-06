@@ -1,12 +1,13 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
+import { Link } from "@components/Molecules/Core/Link/Link";
+
 import type {
   ListGroupChecksProps,
   ListGroupLinksProps,
 } from "./ListGroup.interface";
 import styles from "./ListGroup.module.scss";
-import { Link } from "../Molecules/Core/Link/Link";
 
 // Use when rendering a list of checkboxes
 export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
