@@ -5,6 +5,7 @@ export interface SearchResultItemProps {
   link: LinkData;
   excerpt: string;
   tag: Tag;
+  isLast: boolean;
 }
 
 export interface SearchResultsProps {

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import clsx from "clsx";
-import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
+import { useState, useRef, type ChangeEvent, type FC, useEffect, type UIEvent } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
-import type { SearchBarProps } from "./SearchBar.interface";
+import type { PagefindResultData as PagefindResultsData, PagefindSubResult, SearchBarProps } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
 import type { SearchResultItemProps } from "@components/Molecules/SearchResults/SearchResults.interface";
 import { SearchResults } from "../SearchResults/SearchResults";
@@ -18,8 +18,8 @@ type PagefindModule = {
 export const SearchBar: FC<SearchBarProps> = (props) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocused, setIsFocused] = useState(false);
-  const [results, setResults] = useState<any[]>([]);
-
+  const [allResults, setAllResults] = useState<any[]>([]);
+  
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
   const pagefind = useRef<PagefindModule | null>(null);
   
@@ -38,13 +38,6 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       document.removeEventListener("click", handleClickOutside); // Clean up - remove listener on unmount
     };
   }, []);
-
-  // DEV LOG - REMOVE BEFORE MERGE
-  useEffect(() => {
-    if (searchInput && isFocused && results.length > 0) {
-      console.log("Passed results set:", JSON.stringify(results));
-    }
-  }, [results]);
 
   const handleFocus = async () => {
     setIsFocused(true);
@@ -68,7 +61,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     if (!pagefind.current) return;
 
     if (!inputText) {
-      setResults([]);
+      setAllResults([]);
       return;
     }
 
@@ -76,29 +69,30 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       // @ts-ignore
       const search = await pagefind.current.debouncedSearch(inputText);
 
-      // pagefind drops debounced searches and resolves to null, so only the completed search input (within 300ms) will execute and resolve to results
+      // pagefind drops debounced searches resolving them to null, so the following line closes these
       if (!search) return;
       
+      // only the non-debounced search (within a 300ms window) will execute and resolve to results
       const loadedResults = await Promise.all(
         search.results.map((r: any) => r.data()),
       );
-
-      console.log("Raw loadedResults:", JSON.stringify(loadedResults)); // DEV LOG REMOVE BEFORE MERGE
       
-      const finalResults: SearchResultItemProps[] | undefined[] = loadedResults.flatMap((pageResult) => {   
-        return pageResult.sub_results.map((subResult: any) => ({
+      const finalResults: SearchResultItemProps[] | undefined[] = loadedResults.flatMap((pagefindResults: PagefindResultsData) => {
+        return pagefindResults.sub_results.map((subResult: PagefindSubResult, index: number, subResults) => ({
           link: {
             href: subResult.url,
             label: subResult.title,
           },
           excerpt: subResult.excerpt,
           tag: {
-            title: pageResult.meta.tag || "DUMMY", // TODO: locate tagging info in Pagefind build output
+            id: pagefindResults.meta?.tag?.id || index, // TODO: locate tagging info in Pagefind build output
+            title: pagefindResults.meta?.tag?.title || "DUMMY", // TODO: locate tagging info in Pagefind build output
           },
+          isLast: index === subResults.length - 1,
         }));
       });
 
-      setResults(finalResults);
+      setAllResults(finalResults);
     } catch (e) {
       console.error("Pagefind search failed:", e);
     }    
@@ -116,9 +110,9 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
           placeholder={props.placeholder}
           type="search"
         />
-        {searchInput && isFocused && results.length > 0 && (
+        {searchInput && isFocused && allResults.length > 0 && (
           <div className={clsx("mt-2", "w-100", styles["search-results"])}>
-            <SearchResults searchResults={results} />
+            <SearchResults searchResults={allResults} />
           </div>
         )}
 

@@ -16,7 +16,7 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
         "flex-column",
         "gap-1",
         "pb-4",
-        "border-bottom",
+        !props.isLast && "border-bottom",
       )}
     >
       <a
@@ -28,7 +28,7 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
         {props.link.label}
       </a>
       <p
-        // subresults.excerpt is sanitised by Pagefind and therefore safe to use
+        // subresults.excerpt is sanitised by Pagefind, ensuring it is safe to use
         dangerouslySetInnerHTML={{ __html: props.excerpt }} 
       /> 
       <div className="flex-start">
@@ -41,12 +41,16 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
 export const SearchResults: FC<SearchResultsProps> = (props) => {
   return (
     <div
-      className={clsx("p-4", "w-100", "rounded", styles["search-results-bg"])}
+      className={clsx("w-100", "rounded", styles["search-results-bg"])}
     >
-      <p className="fw-bold"> {props.searchResults.length} search results</p>
-      <div className={clsx("d-flex", "flex-column", "gap-4")}>
+      <p className={clsx("fw-bold", styles["search-results-count"])}> {props.searchResults.length} search results</p>
+      <div className={clsx("d-flex", "flex-column", "gap-4", "px-4")}>
         {props.searchResults.map((searchResult, index) => (
-          <SearchResultItem key={index} {...searchResult} />
+          <SearchResultItem
+            key={index}
+            {...searchResult}
+            isLast={index === props.searchResults.length - 1}
+          />
         ))}
       </div>
     </div>
