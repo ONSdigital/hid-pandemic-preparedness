@@ -2,13 +2,12 @@ import { useState, type FC } from "react";
 import clsx from "clsx";
 
 import { Image } from "@components/Molecules/Core/Image/Image";
-
-import type { MobileNavProps } from "./NavBar.interface";
 import { MegaMenu } from "@components/MegaMenu/MegaMenu";
 import { Accordion } from "@components/Molecules/Core/Accordion/Accordion";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
+import type { MobileNavProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 
 export const MobileNav: FC<MobileNavProps> = (props) => {
@@ -33,6 +32,7 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
 
   return (
     <div className="w-100">
+      {/* Logo with hamburger menu */}
       <div
         className={clsx(
           "d-flex",
