@@ -7,10 +7,10 @@ import { Accordion } from "@components/Molecules/Core/Accordion/Accordion";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
-import type { MobileNavProps } from "./NavBar.interface";
+import type { NavBarProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 
-export const MobileNav: FC<MobileNavProps> = (props) => {
+export const MobileNav: FC<NavBarProps> = (props) => {
   const hasExpandableItems =
     props.expandableItems && props.expandableItems.length > 0;
   const hasLinks = props.links && props.links.length > 0;

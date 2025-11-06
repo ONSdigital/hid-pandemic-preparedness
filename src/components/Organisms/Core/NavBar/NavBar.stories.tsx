@@ -7,7 +7,6 @@ import { NavBar } from "./NavBar";
 const meta = {
   component: NavBar,
   title: "Organisms/Core/NavBar",
-  argTypes: {},
   parameters: {
     controls: {
       disable: true,
@@ -18,7 +17,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const HeaderStory = {
+export const NavBarStory = {
   name: "NavBar",
   args: JSON.parse(navBarData),
 } satisfies Story;
