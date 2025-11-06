@@ -132,6 +132,43 @@ module "app_preview_cloudfront" {
   default_root_object         = "index.html"
 }
 
+# Create an s3 bucket to contain app source files for CodePipeline build
+module "app_source_s3" {
+  source                          = "./s3"
+  bucket_name                     = "${var.project_name_prefix}-app-source"
+  configure_for_site_hosting      = false
+  force_destroy                   = true
+  versioning_configuration_status = "Enabled"
+}
+
+# Create bucket for app prod
+module "app_prod_s3" {
+  source                     = "./s3"
+  bucket_name                = "${var.project_name_prefix}-app-prod"
+  configure_for_site_hosting = true
+  force_destroy              = true
+}
+
+# Set up cloudfront distribution for app prod
+# Function association is enabled to enable astro static site folder based navigation
+# Price class and restrictions are set to ensure worldwide availability
+module "app_prod_cloudfront" {
+  source                      = "./cloudfront"
+  bucket_name                 = module.app_prod_s3.id
+  bucket_regional_domain_name = module.app_prod_s3.bucket_regional_domain_name
+  distribution_enabled        = true
+  distribution_name           = "Prod app"
+  function_association = [{
+    event_type   = "viewer-request"
+    function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
+  }]
+  price_class = "PriceClass_All"
+  geo_restriction = [{
+    restriction_type = "none"
+    locations        = []
+  }]
+}
+
 # IAM role for Lambda execution
 data "aws_iam_policy_document" "aws_iam_policy_document_lambda_execution" {
   statement {
@@ -259,13 +296,15 @@ data "aws_iam_policy_document" "aws_iam_policy_document_s3" {
       "${module.app_main_s3.arn}/*",
       module.app_preview_s3.arn,
       "${module.app_preview_s3.arn}/*",
+      module.app_source_s3.arn,
+      "${module.app_source_s3.arn}/*",
     ]
   }
 }
 
 resource "aws_iam_policy" "aws_iam_policy" {
   name        = "github-actions-s3-access"
-  description = "Allow S3 access to specific bucket"
+  description = "Allow S3 access to specific buckets"
   policy      = data.aws_iam_policy_document.aws_iam_policy_document_s3.json
 }
 
@@ -320,4 +359,211 @@ resource "aws_iam_policy" "aws_iam_policy_lambda" {
 resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda" {
   user       = aws_iam_user.aws_iam_user.name
   policy_arn = aws_iam_policy.aws_iam_policy_lambda.arn
+}
+
+# Create the secret for Storyblok access token
+# Note that the secret version should be created manually in the AWS console
+resource "aws_secretsmanager_secret" "aws_secretsmanager_secret" {
+  name = "storyblok-access-token"
+}
+
+# IAM role for Code build and Codepipeline execution
+data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_assume_role" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["codebuild.amazonaws.com", "codepipeline.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "aws_iam_role_codepipeline" {
+  name               = "${var.project_name_prefix}-codepipeline-execution-role"
+  assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_codepipeline_assume_role.json
+}
+
+# Create the codebuild project
+resource "aws_codebuild_project" "aws_codebuild_project" {
+  name = "${var.project_name_prefix}-codebuild-project"
+
+  source {
+    type      = "CODEPIPELINE"
+    buildspec = "buildspec.yml"
+  }
+
+  artifacts {
+    type = "CODEPIPELINE"
+  }
+
+  environment {
+    compute_type = "BUILD_GENERAL1_SMALL"
+    image        = "aws/codebuild/standard:7.0"
+    type         = "LINUX_CONTAINER"
+  }
+
+  service_role = aws_iam_role.aws_iam_role_codepipeline.arn
+}
+
+# Add pipeline execution permissions for the role
+data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:GetObject",
+      "s3:GetObjectVersion",
+      "s3:GetBucketVersioning",
+      "s3:GetBucketAcl",
+      "s3:GetBucketLocation",
+      "s3:GetObjectTagging",
+      "s3:GetObjectVersionTagging",
+      "s3:ListBucket",
+      "s3:PutObject"
+    ]
+    resources = [
+      module.app_source_s3.arn,
+      "${module.app_source_s3.arn}/*"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:PutObject",
+      "s3:PutObjectAcl",
+      "s3:PutObjectVersionAcl",
+      "s3:GetBucketVersioning",
+      "s3:GetBucketAcl",
+      "s3:GetBucketLocation",
+      "s3:DeleteObject",
+      "s3:ListBucket"
+    ]
+    resources = [
+      module.app_prod_s3.arn,
+      "${module.app_prod_s3.arn}/*"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "codebuild:BatchGetBuilds",
+      "codebuild:StartBuild",
+      "codebuild:BatchGetBuildBatches",
+      "codebuild:StartBuildBatch"
+    ]
+    resources = [
+      aws_codebuild_project.aws_codebuild_project.arn,
+      "${aws_codebuild_project.aws_codebuild_project.arn}/*"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "logs:CreateLogStream"
+    ]
+    resources = ["*"]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "secretsmanager:GetSecretValue"
+    ]
+    resources = [
+      aws_secretsmanager_secret.aws_secretsmanager_secret.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "aws_iam_policy_codepipeline_execution" {
+  name        = "codepipeline-execution-permissions"
+  description = "Allow codepipeline to get object from s3, build artifacts and deploy"
+  policy      = data.aws_iam_policy_document.aws_iam_policy_document_codepipeline_execution.json
+}
+
+resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachment_codepipeline" {
+  role       = aws_iam_role.aws_iam_role_codepipeline.name
+  policy_arn = aws_iam_policy.aws_iam_policy_codepipeline_execution.arn
+}
+
+# Create the codepipeline
+resource "aws_codepipeline" "aws_codepipeline" {
+  name     = "${var.project_name_prefix}-deployment-pipeline"
+  role_arn = aws_iam_role.aws_iam_role_codepipeline.arn
+
+  artifact_store {
+    location = module.app_source_s3.id
+    type     = "S3"
+  }
+
+  stage {
+    name = "Source"
+    action {
+      name             = "Source"
+      category         = "Source"
+      owner            = "AWS"
+      provider         = "S3"
+      version          = "1"
+      output_artifacts = ["source_output"]
+
+      configuration = {
+        S3Bucket             = module.app_source_s3.id
+        S3ObjectKey          = "app-source.zip"
+        PollForSourceChanges = false
+      }
+    }
+  }
+
+  stage {
+    name = "Build"
+    action {
+      name             = "Build"
+      category         = "Build"
+      owner            = "AWS"
+      provider         = "CodeBuild"
+      version          = "1"
+      input_artifacts  = ["source_output"]
+      output_artifacts = ["build_output"]
+
+      configuration = {
+        ProjectName = aws_codebuild_project.aws_codebuild_project.name
+      }
+    }
+  }
+
+  stage {
+    name = "Deploy"
+    action {
+      name            = "Deploy"
+      category        = "Deploy"
+      owner           = "AWS"
+      provider        = "S3"
+      version         = "1"
+      input_artifacts = ["build_output"]
+
+      configuration = {
+        BucketName = module.app_prod_s3.id
+        Extract    = true
+      }
+    }
+  }
+}
+
+# Create the webhook to allow storyblok to trigger the pipeline
+resource "aws_codepipeline_webhook" "aws_codepipeline_webhook" {
+  name            = "${var.project_name_prefix}-storyblok-pipeline-webhook"
+  authentication  = "UNAUTHENTICATED"
+  target_action   = "Source"
+  target_pipeline = aws_codepipeline.aws_codepipeline.name
+
+  # Just ensures the request is actually coming from our Storyblok space
+  filter {
+    json_path    = "$.space_id"
+    match_equals = var.storyblok_space_id
+  }
 }
