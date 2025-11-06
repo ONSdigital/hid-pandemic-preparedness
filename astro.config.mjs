@@ -59,11 +59,6 @@ export default defineConfig({
         external: ["/pagefind/pagefind.js"],
       },
     },
-    test: {
-      deps: {
-        external: ['/pagefind/pagefind.js'],
-      },
-    },
     css: {
       preprocessorOptions: {
         scss: {
