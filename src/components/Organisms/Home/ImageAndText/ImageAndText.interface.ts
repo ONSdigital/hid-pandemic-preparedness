@@ -1,5 +1,5 @@
-import type { ImageProps } from "@src/components/Molecules/Core/Image/Image.interface";
-import type { Link } from "@src/types/Link";
+import type { ImageProps } from "@components/Molecules/Core/Image/Image.interface";
+import type { Link } from "@localTypes/Link";
 
 export interface ImageAndTextProps {
   _uid: string;

@@ -1,6 +1,6 @@
 import type { StoryblokRichTextNode } from "@storyblok/richtext";
 
-import type { Link } from "@src/types/Link";
+import type { Link } from "@localTypes/Link";
 import type { Tag } from "@src/types/Tag";
 
 export interface UnitOverviewProps {

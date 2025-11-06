@@ -1,4 +1,4 @@
-import type { Link } from "@localTypes/Link";
+import type { LinkComponent } from "@localTypes/LinkComponent";
 
 export interface FooterProps {
   columns: FooterColumn[];
@@ -7,7 +7,7 @@ export interface FooterProps {
 interface FooterColumn {
   _uid: string;
   title?: string;
-  links: Link[];
+  links: LinkComponent[];
 }
 
 export type FooterColumnTitleProps = Pick<FooterColumn, "title">;

@@ -1,5 +1,5 @@
-import type { Asset } from "@src/types/Asset";
-import type { Link } from "@src/types/Link";
+import type { Link } from "@localTypes/Link";
+import type { Asset } from "@localTypes/Asset";
 
 export interface StrategicPartnerProps {
   _uid: string;

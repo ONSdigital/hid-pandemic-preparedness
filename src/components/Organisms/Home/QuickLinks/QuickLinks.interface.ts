@@ -1,10 +1,8 @@
-import type { Link } from "@localTypes/Link";
+import type { LinkComponent } from "@/src/types/LinkComponent";
 import type { RemixIcon } from "@/src/types/RemixIcon";
 
-interface QuickLinksItem extends Link {
+interface QuickLinksItem extends LinkComponent {
   icon: RemixIcon;
-  type: string;
-  component: string;
 }
 
 export interface QuickLinksProps {

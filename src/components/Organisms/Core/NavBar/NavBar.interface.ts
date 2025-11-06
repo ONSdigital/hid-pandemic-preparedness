@@ -1,11 +1,11 @@
 import type { Asset } from "@localTypes/Asset";
-import type { Link } from "@localTypes/Link";
+import type { LinkComponent } from "@localTypes/LinkComponent";
 import type { MegaMenu } from "@localTypes/MegaMenu";
 
 export interface NavBarProps {
   logo: Asset;
   expandableItems: ExpandableItemData[];
-  links: Link[];
+  links: LinkComponent[];
 }
 
 export interface ExpandableItemData {
