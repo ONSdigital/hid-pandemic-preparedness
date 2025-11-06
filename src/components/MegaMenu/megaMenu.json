@@ -73,7 +73,29 @@
         },
         "content": [
           {
-            "text": "Learning resources to support skills development grouped into themes, modules and units.. NEEDS LINKS",
+            "text": "Learning resources",
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "/",
+                  "uuid": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                  "anchor": null,
+                  "target": "_self",
+                  "linktype": "story"
+                }
+              },
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": ""
+                }
+              }
+            ]
+          },
+          {
+            "text": " to support skills development grouped into themes, modules and units.",
             "type": "text",
             "marks": [
               {
