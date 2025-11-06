@@ -55,6 +55,7 @@ export interface BasicPage {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   component: "BasicPage";
   _uid: string;
@@ -117,6 +118,7 @@ export interface CardBlock {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   Clock?: StoryblokAsset;
   Time?: string;
@@ -316,6 +318,7 @@ export interface HomePage {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   Bottom?: (
     | BasicPage
@@ -370,6 +373,7 @@ export interface HomePage {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   component: "HomePage";
   _uid: string;
@@ -474,6 +478,7 @@ export interface Landing {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   Header?: (
     | BasicPage
@@ -528,6 +533,7 @@ export interface Landing {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   Content?: (
     | BasicPage
@@ -582,6 +588,7 @@ export interface Landing {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   Footer?: (
     | BasicPage
@@ -636,6 +643,7 @@ export interface Landing {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   component: "Landing";
   _uid: string;
@@ -755,6 +763,7 @@ export interface Quiz {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   component: "Quiz";
   _uid: string;
@@ -825,6 +834,7 @@ export interface QuizQuestion {
     | UnitChapter
     | UnitOverview
     | UnitSection
+    | Video
   )[];
   component: "QuizQuestion";
   _uid: string;
@@ -965,6 +975,13 @@ export interface UnitSection {
   title?: string;
   contentRichText?: StoryblokRichtext;
   component: "UnitSection";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Video {
+  url?: string;
+  component: "Video";
   _uid: string;
   [k: string]: unknown;
 }
