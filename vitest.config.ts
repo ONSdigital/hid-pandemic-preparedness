@@ -13,6 +13,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      // avoids vitest compilation error in pipeline when pagefind module cannot be found as it is runtime-only
       "/pagefind/pagefind.js": path.resolve(
         __dirname,
         "./src/mocks/pagefind.ts",
