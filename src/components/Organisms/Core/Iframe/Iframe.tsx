@@ -17,7 +17,7 @@ export const Iframe: FC<IframeProps> = (props) => {
     let allowedOrigin;
 
     try {
-      allowedOrigin = new URL(props.source.url).origin;
+      allowedOrigin = new URL(props.source).origin;
     } catch {
       console.warn(
         "Iframe requires an absolute URL to set the height dynamically.",
@@ -39,7 +39,7 @@ export const Iframe: FC<IframeProps> = (props) => {
 
     // Sets the iframe src after page loads to ensure iframe
     // content isn't loaded before event handler is set up
-    setIframeSrc(props.source.url);
+    setIframeSrc(props.source);
 
     return () => {
       window.removeEventListener("message", handleMessage);
@@ -50,8 +50,8 @@ export const Iframe: FC<IframeProps> = (props) => {
     <div className={clsx("container-lg", "pt-4")}>
       <p>
         Open iframe in a new tab:{" "}
-        <a href={props.source.url} target="_blank">
-          {props.source.url}
+        <a href={props.source} target="_blank">
+          {props.source}
         </a>
       </p>
       {iframeSrc === "" ? (
