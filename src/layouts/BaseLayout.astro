@@ -28,7 +28,6 @@ try {
   footerContent = footerResponse.data?.story?.content as FooterProps;
 } catch (error) {
   console.error("Failed to fetch Footer story:", error);
-  footerContent = null;
 }
 
 try {
@@ -36,7 +35,6 @@ try {
   navBarContent = navBarResponse.data?.story?.content as NavBarProps;
 } catch (error) {
   console.error("Failed to fetch NavBar story:", error);
-  navBarContent = null;
 }
 ---
 
