@@ -3,11 +3,10 @@ import clsx from "clsx";
 
 import { Image } from "@components/Molecules/Core/Image/Image";
 import { MegaMenu } from "@components/MegaMenu/MegaMenu";
-import { Accordion } from "@components/Molecules/Core/Accordion/Accordion";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
-import type { NavBarProps } from "./NavBar.interface";
+import type { NavAccordionProps, NavBarProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 
 export const MobileNav: FC<NavBarProps> = (props) => {
@@ -57,13 +56,7 @@ export const MobileNav: FC<NavBarProps> = (props) => {
           <div
             className={clsx("d-flex", "flex-column", "gap-3", "px-1", "py-3")}
           >
-            {hasExpandableItems && (
-              <Accordion
-                id="mobileNavAccordion"
-                items={accordionItems}
-                variant="primary"
-              />
-            )}
+            {hasExpandableItems && <NavAccordion items={accordionItems} />}
             <div className={clsx("d-flex", "flex-column", "gap-3", "px-4")}>
               {hasLinks &&
                 props.links.map((navBarLink) => (
@@ -79,6 +72,45 @@ export const MobileNav: FC<NavBarProps> = (props) => {
           </div>
         </div>
       )}
+    </div>
+  );
+};
+
+export const NavAccordion: FC<NavAccordionProps> = (props) => {
+  const accordionId = "navAccordion";
+
+  return (
+    <div className={clsx("accordion", "accordion-flush")} id={accordionId}>
+      {props.items.map((item) => (
+        <div className={clsx("accordion-item", "border-bottom")} key={item.id}>
+          <h2 className="accordion-header">
+            <button
+              id={`heading-${item.id}`}
+              aria-expanded="false"
+              aria-controls={item.id}
+              className={clsx(
+                "accordion-button",
+                "heading-s",
+                "text-light",
+                styles["nav-accordion-heading"],
+              )}
+              data-bs-target={`#${item.id}`}
+              data-bs-toggle="collapse"
+              type="button"
+            >
+              {item.headerTitle}
+            </button>
+          </h2>
+          <div
+            id={item.id}
+            aria-labelledby={`heading-${item.id}`}
+            className={clsx("accordion-collapse", "collapse")}
+            data-bs-parent={`#${accordionId}`}
+          >
+            <div>{item.bodyContent}</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

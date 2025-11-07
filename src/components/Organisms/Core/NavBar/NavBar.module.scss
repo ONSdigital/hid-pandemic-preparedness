@@ -48,3 +48,20 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.nav-accordion-heading {
+  background-color: transparent;
+
+  &.collapsed {
+    box-shadow: none !important;
+  }
+
+  &:not(.collapsed) {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  &::after {
+    filter: invert(1);
+  }
+}
