@@ -18,7 +18,7 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
       className={clsx(
         "d-flex",
         "align-items-center",
-        "justify-content-evenly",
+        "justify-content-between",
         "gap-4",
         styles["navbar-height"],
       )}
