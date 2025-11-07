@@ -46,3 +46,10 @@ resource "aws_s3_bucket_website_configuration" "aws_s3_bucket_website_configurat
     key = "404.html"
   }
 }
+
+resource "aws_s3_bucket_versioning" "aws_s3_bucket_versioning" {
+  bucket = aws_s3_bucket.aws_s3_bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}

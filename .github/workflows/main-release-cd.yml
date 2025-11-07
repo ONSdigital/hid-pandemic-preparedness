@@ -1,0 +1,46 @@
+name: "Release deployment"
+permissions:
+  contents: read
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      ASTRO_USE_LOCAL_DATA: false
+      STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+      - name: install dependencies
+        run: npm ci
+      - name: build bootstrap javascript
+        run: npm run build-bootstrap-js
+        shell: bash
+      - name: deploy preview site as lambda
+        run: npm run deploy-app-preview
+        shell: bash
+        env:
+          ASTRO_OUTPUT: server
+          ASTRO_PREVIEW: true
+          PREVIEW_CDN_BASE_URL: ${{ secrets.PREVIEW_CDN_BASE_URL }}
+      - name: copy source files to codepipeline source s3 bucket
+        run: npm run copy-source-zip
+        shell: bash
+      - name: make post request to trigger codepipeline execution for deployment
+        run: |
+          curl -X POST "${{ secrets.AWS_CODEPIPELINE_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{"space_id": "${{ secrets.STORYBLOK_SPACE_ID }}"}'

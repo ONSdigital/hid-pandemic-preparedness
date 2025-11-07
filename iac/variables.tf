@@ -9,3 +9,8 @@ variable "region" {
   default     = "eu-west-2"
   type        = string
 }
+
+variable "storyblok_space_id" {
+  description = "Storyblok space id used when creating codepipeline webhook url"
+  type        = number
+}
