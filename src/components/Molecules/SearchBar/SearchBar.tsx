@@ -4,17 +4,21 @@ import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { RiSearchLine } from "@remixicon/react";
 
 import type {
-  PagefindResultData as PagefindResultsData,
+  PagefindResultsData,
   PagefindSubResult,
   SearchBarProps,
 } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
 import type { SearchResultItemProps } from "@components/Molecules/SearchResults/SearchResults.interface";
-import { SearchResults } from "../SearchResults/SearchResults";
+import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
 
 type PagefindModule = {
   init: () => Promise<void>;
-  debouncedSearch: (term: string) => Promise<{ results: any[] } | null>;
+  debouncedSearch: (term: string) => Promise<{
+    results: {
+      data: () => Promise<PagefindResultsData>;
+    }[];
+  } | null>;
 };
 
 export const SearchBar: FC<SearchBarProps> = (props) => {
@@ -46,6 +50,9 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
     if (pagefind.current) return;
 
+    // standard Pagefind implementation requires ts-ignore because pagefind.js does not
+    // exist at build time (astro-pagefind creates the pagefind directory from the build output),
+    // causing compilation errors for TS
     try {
       // @ts-ignore
       const pf = await import("/pagefind/pagefind.js");
@@ -68,14 +75,13 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     }
 
     try {
-      // @ts-ignore
       const search = await pagefind.current.debouncedSearch(inputText);
 
       // pagefind drops debounced searches resolving them to null, so the following line closes these
       if (!search) return;
 
       // only the non-debounced search (within a 300ms window) will execute and resolve to results
-      const loadedResults = await Promise.all(
+      const loadedResults: PagefindResultsData[] = await Promise.all(
         search.results.map((r: any) => r.data()),
       );
 

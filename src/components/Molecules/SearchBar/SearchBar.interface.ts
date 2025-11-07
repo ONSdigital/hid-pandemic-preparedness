@@ -2,7 +2,7 @@ export interface SearchBarProps {
   placeholder: string;
 }
 
-export interface PagefindResultData {
+export interface PagefindResultsData {
   url: string;
   excerpt: string;
   meta: {
