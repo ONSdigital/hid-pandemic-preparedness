@@ -25,7 +25,7 @@
     "sb:login": "npx storyblok login",
     "sb:components-pull": "npx storyblok components pull --space $STORYBLOK_SPACE_ID",
     "sb:types-generate": "npx storyblok types generate --space $STORYBLOK_SPACE_ID",
-    "generate-storyblok-types": "bash ./scripts/generateTypes.sh",
+    "generate-storyblok-types": "bash ./scripts/generateTypes.sh"
   },
   "dependencies": {
     "@astrojs/node": "^9.4.4",
