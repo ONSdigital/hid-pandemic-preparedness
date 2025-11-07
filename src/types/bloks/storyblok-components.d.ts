@@ -36,9 +36,6 @@ export interface BasicPage {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -99,9 +96,6 @@ export interface CardBlock {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -299,9 +293,6 @@ export interface HomePage {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -354,9 +345,6 @@ export interface HomePage {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -459,9 +447,6 @@ export interface Landing {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -514,9 +499,6 @@ export interface Landing {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -569,9 +551,6 @@ export interface Landing {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -624,9 +603,6 @@ export interface Landing {
     | Page
     | QuickLinks
     | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
     | Reference
     | Reference
     | StatisticsAndText
@@ -705,138 +681,6 @@ export interface QuickLinksItem {
   icon: "" | "RiCollageLine" | "RiShapeLine" | "RiGovernmentLine" | "RiFilePaperLine" | "RiGroupLine";
   link: Exclude<StoryblokMultilink, {linktype?: "email"} | {linktype?: "asset"}>;
   component: "QuickLinksItem";
-  _uid: string;
-  [k: string]: unknown;
-}
-
-export interface Quiz {
-  questions?: (
-    | BasicPage
-    | CardBlock
-    | CardCaseStudy
-    | CardStatistics
-    | Carousel
-    | CaseStudies
-    | CaseStudyCard
-    | Chart
-    | Code
-    | ExpandableItem
-    | Footer
-    | FooterColumn
-    | FooterColumnLink
-    | Formula
-    | FullWidthRichText
-    | Header
-    | HeaderInternalPages
-    | Hero
-    | Home
-    | HomePage
-    | Iframe
-    | ImageAndText
-    | ImageText
-    | Impact
-    | ImpactCard
-    | Landing
-    | Link
-    | MegaMenu
-    | MegaMenuColumn
-    | NavBar
-    | Page
-    | QuickLinks
-    | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
-    | Reference
-    | Reference
-    | StatisticsAndText
-    | StatisticsCard
-    | StrategicPartner
-    | StrategicPartners
-    | Tag
-    | TerryCode
-    | Test
-    | Test
-    | TextModule
-    | ToolCard
-    | Unit
-    | UnitChapter
-    | UnitOverview
-    | UnitSection
-    | Video
-  )[];
-  component: "Quiz";
-  _uid: string;
-  [k: string]: unknown;
-}
-
-export interface QuizAnswer {
-  answerText?: string;
-  helpText?: string;
-  isCorrect?: boolean;
-  component: "QuizAnswer";
-  _uid: string;
-  [k: string]: unknown;
-}
-
-export interface QuizQuestion {
-  questionText?: string;
-  answers?: (
-    | BasicPage
-    | CardBlock
-    | CardCaseStudy
-    | CardStatistics
-    | Carousel
-    | CaseStudies
-    | CaseStudyCard
-    | Chart
-    | Code
-    | ExpandableItem
-    | Footer
-    | FooterColumn
-    | FooterColumnLink
-    | Formula
-    | FullWidthRichText
-    | Header
-    | HeaderInternalPages
-    | Hero
-    | Home
-    | HomePage
-    | Iframe
-    | ImageAndText
-    | ImageText
-    | Impact
-    | ImpactCard
-    | Landing
-    | Link
-    | MegaMenu
-    | MegaMenuColumn
-    | NavBar
-    | Page
-    | QuickLinks
-    | QuickLinksItem
-    | Quiz
-    | QuizAnswer
-    | QuizQuestion
-    | Reference
-    | Reference
-    | StatisticsAndText
-    | StatisticsCard
-    | StrategicPartner
-    | StrategicPartners
-    | Tag
-    | TerryCode
-    | Test
-    | Test
-    | TextModule
-    | ToolCard
-    | Unit
-    | UnitChapter
-    | UnitOverview
-    | UnitSection
-    | Video
-  )[];
-  component: "QuizQuestion";
   _uid: string;
   [k: string]: unknown;
 }
@@ -980,7 +824,11 @@ export interface UnitSection {
 }
 
 export interface Video {
-  url?: string;
+  title: string;
+  url: string;
+  autoplay?: boolean;
+  start?: string;
+  end?: string;
   component: "Video";
   _uid: string;
   [k: string]: unknown;
