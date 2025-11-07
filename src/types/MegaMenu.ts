@@ -1,4 +1,4 @@
-import type { StoryblokRichTextNode } from "@storyblok/astro";
+import type { StoryblokRichTextNode } from "@storyblok/richtext";
 
 import type { LinkList } from "./LinkList";
 
