@@ -12,7 +12,7 @@ STORYBLOK_TYPES_DIR=".storyblok/types"
 npm run sb:components-pull
 npm run sb:types-generate
 # Run prettier just to make sure the formatting of these files is ok
-npx prettier $STORYBLOK_TYPES_DIR --write
+npx npx prettier --write --ignore-path /dev/null $STORYBLOK_TYPES_DIR
 
 # Copy the generated files into our source folder
 cp ${STORYBLOK_TYPES_DIR}/*.d.ts $SOURCE_TYPES_DIR
