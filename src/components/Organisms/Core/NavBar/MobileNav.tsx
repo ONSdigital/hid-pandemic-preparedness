@@ -36,11 +36,14 @@ export const MobileNav: FC<NavBarProps> = (props) => {
       <div
         className={clsx(
           "d-flex",
+          "align-items-center",
           "justify-content-between",
           styles["navbar-height"],
         )}
       >
-        <Image {...props.logo} className={styles["navbar-logo"]} />
+        <a href="/" aria-label="Redirect to homepage">
+          <Image {...props.logo} className={styles["navbar-logo"]} />
+        </a>
         <button
           onClick={toggleNavContent}
           className={styles["navbar-icon-button"]}

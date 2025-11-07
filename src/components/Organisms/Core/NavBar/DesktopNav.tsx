@@ -24,7 +24,9 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
       )}
     >
       {/* Logo */}
-      <Image {...props.logo} className={styles["navbar-logo"]} />
+      <a href="/" aria-label="Redirect to homepage">
+        <Image {...props.logo} className={styles["navbar-logo"]} />
+      </a>
 
       {hasExpandableItems &&
         props.expandableItems.map((expandableItem) => {
