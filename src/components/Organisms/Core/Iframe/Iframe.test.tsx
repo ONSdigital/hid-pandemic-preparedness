@@ -5,7 +5,7 @@ import { Iframe } from "./Iframe";
 import type { Link } from "@/src/types/Link";
 
 describe("Iframe component", () => {
-  const source = { url: "https://example.com/page" } as Link;
+  const source = "https://example.com/page";
   const defaultHeight = 200;
   const newHeight = 500;
   const buffer = 40;
@@ -18,7 +18,7 @@ describe("Iframe component", () => {
     await waitFor(() => {
       const iframe = screen.getByTitle("Test iframe") as HTMLIFrameElement;
       expect(iframe).toBeDefined();
-      expect(iframe.src).toBe(source.url);
+      expect(iframe.src).toBe(source);
     });
   });
 
@@ -26,8 +26,8 @@ describe("Iframe component", () => {
     render(<Iframe source={source} title="Test iframe" />);
 
     await waitFor(() => {
-      const link = screen.getByRole("link", { name: source.url });
-      expect(link).toHaveAttribute("href", source.url);
+      const link = screen.getByRole("link", { name: source });
+      expect(link).toHaveAttribute("href", source);
       expect(link).toHaveAttribute("target", "_blank");
     });
   });
@@ -49,7 +49,7 @@ describe("Iframe component", () => {
 
     act(() => {
       const event = new MessageEvent("message", {
-        origin: new URL(source.url).origin,
+        origin: new URL(source).origin,
         data: { type: "iframeHeight", height: newHeight },
       });
       window.dispatchEvent(event);
@@ -101,7 +101,7 @@ describe("Iframe component", () => {
     act(() => {
       window.dispatchEvent(
         new MessageEvent("message", {
-          origin: new URL(source.url).origin,
+          origin: new URL(source).origin,
           data: { type: "wrongType", height: newHeight },
         }),
       );
