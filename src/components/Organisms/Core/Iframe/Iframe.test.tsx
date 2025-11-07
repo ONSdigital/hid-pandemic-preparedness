@@ -2,7 +2,6 @@ import "@testing-library/jest-dom";
 import { act, render, screen, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { Iframe } from "./Iframe";
-import type { Link } from "@/src/types/Link";
 
 describe("Iframe component", () => {
   const source = "https://example.com/page";
