@@ -29,7 +29,7 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
       {hasExpandableItems &&
         props.expandableItems.map((expandableItem) => {
           const isOpen = props.openItemId === expandableItem._uid;
-          const iconName = isOpen ? "RiArrowDownSLine" : "RiArrowUpSLine"; // When expanded, the arrow icon direction will point down
+          const iconName = isOpen ? "RiArrowUpSLine" : "RiArrowDownSLine"; // When expanded, the arrow icon direction will point down
           return (
             <button
               aria-controls={`mega-menu-${expandableItem._uid}`}
