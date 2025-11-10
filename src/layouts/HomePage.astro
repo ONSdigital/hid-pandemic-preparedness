@@ -36,8 +36,7 @@ const breadcrumbs = await buildBreadcrumbs(story.full_slug);
       breadcrumbs={breadcrumbs}
       client:visible
     />
-    {story.content.Middle.map((blok: any) => <DynamicComponent blok={blok} />)}
-    {story.content.Bottom.map((blok: any) => <DynamicComponent blok={blok} />)}
+    {story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)}
     <References {...referencesData} client:visible />
   </main>
 </BaseLayout>
