@@ -21,7 +21,7 @@
     "deploy-app-preview": "npm run build && bash ./scripts/deployPreview.sh",
     "build-bootstrap-css": "cd src/styles/bootstrap-5.3.8/ && npm ci && npm run css-compile",
     "build-bootstrap-js": "cd src/styles/bootstrap-5.3.8/ && npm ci && npm run js-compile",
-    "sync-data-with-storyblok": "node scripts/sync-data-with-storyblok.js"
+    "copy-source-zip": "bash ./scripts/cpSourceZip.sh hid-ppt-app-source"
   },
   "dependencies": {
     "@astrojs/node": "^9.4.4",
