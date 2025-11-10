@@ -1,5 +1,5 @@
-import type { Chapter } from "@src/types/Chapter";
-import type { Link } from "@src/types/Link";
+import type { Chapter } from "@localTypes/Chapter";
+import type { Link } from "@localTypes/Link";
 
 export interface UnitNavProps {
   chapters: Chapter[];

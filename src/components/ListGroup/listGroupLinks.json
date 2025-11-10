@@ -1,0 +1,37 @@
+{
+  "_uid": "e6220bea-d0b2-4b84-b613-9fcdbafd1d66",
+  "type": "",
+  "links": [
+    {
+      "_uid": "61ab9c4f-0ca5-420d-9f02-29c82fff9180",
+      "link": {
+        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "type": "",
+      "label": "Sampling",
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"61ab9c4f-0ca5-420d-9f02-29c82fff9180\", \"id\": \"108543027842071\"}--\u003E"
+    },
+    {
+      "_uid": "09ffb75e-d820-4f56-aac6-f3feec523763",
+      "link": {
+        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "type": "",
+      "label": "Survey design",
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"09ffb75e-d820-4f56-aac6-f3feec523763\", \"id\": \"108543027842071\"}--\u003E"
+    }
+  ],
+  "title": "Data collection",
+  "component": "MegaMenuColumn",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"e6220bea-d0b2-4b84-b613-9fcdbafd1d66\", \"id\": \"108543027842071\"}--\u003E"
+}
