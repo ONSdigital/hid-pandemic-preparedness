@@ -2,6 +2,7 @@ import clsx from "clsx";
 import type { FC } from "react";
 
 import type { VideoProps } from "./Video.interface";
+import strings from "@src/content/strings.json";
 
 export const Video: FC<VideoProps> = (props) => {
   function extractYouTubeVideoId(url: string) {
@@ -27,15 +28,22 @@ export const Video: FC<VideoProps> = (props) => {
   if (props.start) params.set("start", `${props.start}`);
   if (props.end) params.set("end", `${props.end}`);
 
+  const transcriptSrc = props.transcript?.filename;
+
   return (
-    <div className={clsx("ratio", "ratio-16x9")}>
-      <iframe
-        src={`https://www.youtube.com/embed/${videoId}?${params.toString()}`}
-        title={props.title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      ></iframe>
-    </div>
+    <>
+      <div className={clsx("ratio", "ratio-16x9")}>
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?${params.toString()}`}
+          title={props.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      </div>
+      {typeof transcriptSrc === "string" && (
+        <a href={transcriptSrc}>{strings.video.transcript}</a>
+      )}
+    </>
   );
 };
