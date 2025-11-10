@@ -44,9 +44,7 @@
 
 .nav-item {
   border-bottom: 2px solid transparent; //Avoid layout shift when border appears
-
-  &:hover,
-  &:focus {
+  &:hover {
     border-bottom: 2px solid $color-brand-secondary-500;
   }
 }
