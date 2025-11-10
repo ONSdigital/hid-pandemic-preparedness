@@ -7,6 +7,7 @@ import type {
   ListGroupChecksProps,
   ListGroupLinksProps,
 } from "./ListGroup.interface";
+import styles from "./ListGroup.module.scss";
 
 // Use when rendering a list of checkboxes
 export const ListGroupChecks: FC<ListGroupChecksProps> = (props) => {
@@ -63,6 +64,7 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
               className={clsx(
                 "list-group-item",
                 "list-group-item-action",
+                styles["list-group-item-action-bg"],
                 textColour,
               )}
               label={item.label}
