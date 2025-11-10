@@ -1,0 +1,66 @@
+---
+import { Carousel } from "@src/components/Organisms/Core/Carousel/Carousel";
+import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
+import { Header } from "@src/components/Organisms/Home/Header/Header";
+import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
+import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
+import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
+import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
+import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
+import { QuickLinks } from "@src/components/Organisms/Home/QuickLinks/QuickLinks";
+import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
+import { UnitOverview } from "@src/components/Organisms/Unit/UnitOverview/UnitOverview";
+
+// List of components that we have corresponding bloks for in Storyblok
+const COMPONENT_NAMES: string[] = [
+  "Carousel",
+  "CaseStudies",
+  "FullWidthRichText",
+  "Header",
+  "ImageAndText",
+  "Impact",
+  "StatisticsAndText",
+  "StrategicPartners",
+  "QuickLinks",
+  "UnitChapter",
+  "UnitOverview",
+];
+
+const { blok } = Astro.props;
+const componentName: string = blok.component;
+
+// If we are trying to render a blok we don't have a corresponding component for, log a warning
+if (!COMPONENT_NAMES.includes(blok.component)) {
+  console.warn(
+    `DynamicComponent warning: Component "${componentName}" not found in COMPONENT_MAP.`,
+  );
+}
+---
+
+{
+  componentName ? (
+    componentName === "Carousel" ? (
+      <Carousel {...blok} client:load />
+    ) : componentName === "CaseStudies" ? (
+      <CaseStudies {...blok} />
+    ) : componentName === "FullWidthRichText" ? (
+      <FullWidthRichText {...blok} />
+    ) : componentName === "Header" ? (
+      <Header {...blok} />
+    ) : componentName === "ImageAndText" ? (
+      <ImageAndText {...blok} />
+    ) : componentName === "Impact" ? (
+      <Impact {...blok} />
+    ) : componentName === "StatisticsAndText" ? (
+      <StatisticsAndText {...blok} />
+    ) : componentName === "StrategicPartners" ? (
+      <StrategicPartners {...blok} />
+    ) : componentName === "QuickLinks" ? (
+      <QuickLinks {...blok} />
+    ) : componentName === "UnitChapter" ? (
+      <UnitChapter {...blok} />
+    ) : componentName === "UnitOverview" ? (
+      <UnitOverview {...blok} />
+    ) : null
+  ) : null
+}
