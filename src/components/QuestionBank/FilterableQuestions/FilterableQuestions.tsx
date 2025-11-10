@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 import { ListGroupChecks } from "@components/ListGroup/ListGroup";
 import type { FilterableQuestionsProps } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions.interface";
-import { QuestionBlock } from "@components/QuestionBank/QuestionBlock/QuestionBlock";
+import { QuestionBlock } from "@/src/components/Organisms/FilterableResources/QuestionBlock/QuestionBlock";
 
 import styles from "./FilterableQuestions.module.scss";
 

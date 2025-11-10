@@ -16,7 +16,7 @@ import travelQ2MdContent from "@content/QuestionBank/questions/travel/2.md?raw";
 
 import { FilterableQuestions } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions";
 import type { FilterableQuestionsProps } from "@components/QuestionBank/FilterableQuestions/FilterableQuestions.interface";
-import type { QuestionBlockProps } from "@components/QuestionBank/QuestionBlock/QuestionBlock.interface";
+import type { QuestionBlockProps } from "@/src/components/Organisms/FilterableResources/QuestionBlock/QuestionBlock.interface";
 import { parseMarkdown } from "@helpers/parseMarkdown";
 import type { TagData } from "@localTypes/TagData";
 
