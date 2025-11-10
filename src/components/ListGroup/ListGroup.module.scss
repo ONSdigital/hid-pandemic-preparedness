@@ -1,14 +1,13 @@
 @use "../../styles/global/tokens" as *;
 
-.list-group-item-action-bg {
-  &:not(.active) {
-    // Hover state
-    &:hover,
-    &:focus {
-      // z-index: 1; // Place hover/focus items above their siblings for proper border styling
-      // color: var(--#{$prefix}list-group-action-hover-color);
-      // text-decoration: none;
-      background-color: $color-brand-primary-200;
-    }
+$list-group-border-bottom: 1px solid $color-brand-primary-500 !important;
+
+.list-group-bootstrap-overrides {
+  &:hover {
+    border-bottom: $list-group-border-bottom;
+  }
+  &:active {
+    border-bottom: $list-group-border-bottom;
+    font-weight: bold;
   }
 }
