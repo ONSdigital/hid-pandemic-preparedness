@@ -37,3 +37,5 @@ storybook-static
 src/styles/bootstrap-5.3.8/node_modules/
 app-source.zip
 astro-ssr-lambda.zip
+
+.storyblok/

@@ -21,7 +21,11 @@
     "deploy-app-preview": "npm run build && bash ./scripts/deployPreview.sh",
     "build-bootstrap-css": "cd src/styles/bootstrap-5.3.8/ && npm ci && npm run css-compile",
     "build-bootstrap-js": "cd src/styles/bootstrap-5.3.8/ && npm ci && npm run js-compile",
-    "copy-source-zip": "bash ./scripts/cpSourceZip.sh hid-ppt-app-source"
+    "copy-source-zip": "bash ./scripts/cpSourceZip.sh hid-ppt-app-source",
+    "sb:login": "npx storyblok login",
+    "sb:components-pull": "npx storyblok components pull --space $STORYBLOK_SPACE_ID",
+    "sb:types-generate": "npx storyblok types generate --space $STORYBLOK_SPACE_ID",
+    "generate-storyblok-types": "bash ./scripts/generateTypes.sh"
   },
   "dependencies": {
     "@astrojs/node": "^9.4.4",
@@ -42,6 +46,7 @@
     "sentence-case": "^3.0.4",
     "serverless-http": "^4.0.0",
     "slugify": "^1.6.6",
+    "storyblok": "^4.6.13",
     "storyblok-js-client": "^7.1.5",
     "swiper": "^12.0.2",
     "uuid": "^13.0.0",

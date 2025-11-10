@@ -1,7 +1,3 @@
-import type { StrategicPartnerProps } from "@src/components/Molecules/Home/StrategicPartner/StrategicPartner.interface";
+import type { StrategicPartners } from "@src/types/bloks/storyblok-components";
 
-export interface StrategicPartnersProps {
-  _uid: string;
-  title: string;
-  partners: StrategicPartnerProps[];
-}
+export interface StrategicPartnersProps extends StrategicPartners {}

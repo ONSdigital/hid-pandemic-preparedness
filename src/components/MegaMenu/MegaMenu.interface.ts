@@ -1,5 +1,3 @@
-import type { NavItem } from "../../types/NavItem";
+import type { MegaMenu } from "@localTypes/MegaMenu";
 
-export interface MegaMenuProps {
-  navItems: NavItem[];
-}
+export interface MegaMenuProps extends MegaMenu {}

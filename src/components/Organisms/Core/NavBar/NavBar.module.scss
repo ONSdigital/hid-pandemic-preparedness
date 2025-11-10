@@ -1,0 +1,50 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+
+.navbar-bg {
+  background-color: $color-brand-primary-500;
+  color: $color-text-inverse;
+  overflow: visible !important;
+}
+
+.navbar-height {
+  height: 4rem;
+}
+
+.navbar-logo {
+  max-width: 163px;
+  @include media-breakpoint-up(sm) {
+    max-width: 265px;
+  }
+}
+
+.navbar-icon-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.overlayed-menu {
+  z-index: 2; //Raise the megamenu above content underneath
+  position: absolute;
+}
+
+.overlayed-mobile-menu {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  background: $gradient-brand-primary-1;
+}
+
+.navbar-logo-link {
+  text-decoration: none;
+  cursor: pointer;
+}
