@@ -20,7 +20,7 @@ export const Theme: FC<ThemeProps> = (props) => {
       </div>
       {props.subThemes &&
         props.subThemes.map((subTheme) => (
-          <div className={clsx("py-4")}>
+          <div className={clsx("py-4")} key={subTheme._uid}>
             <SubTheme {...subTheme} parentTheme={props.title} />
           </div>
         ))}

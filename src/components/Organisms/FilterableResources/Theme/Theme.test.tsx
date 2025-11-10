@@ -1,9 +1,8 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
 import { SubTheme } from "@/src/components/Organisms/FilterableResources/SubTheme/SubTheme";
-import { FilterableResourcesItem } from "@src/components/Molecules/FilterableResources/FilterableResourcesItem/FilterableResourcesItem";
 
 import { Theme } from "./Theme";
 import type { ThemeProps } from "./Theme.interface";
