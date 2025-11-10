@@ -43,10 +43,7 @@ export const MobileNav: FC<NavBarProps> = (props) => {
         <a href="/" aria-label="Redirect to homepage">
           <Image {...props.logo} className={styles["navbar-logo"]} />
         </a>
-        <button
-          onClick={toggleNavContent}
-          className={styles["navbar-icon-button"]}
-        >
+        <button onClick={toggleNavContent} className={styles["navbar-button"]}>
           <Icon iconName={iconName} className={styles["navbar-logo"]} />
         </button>
       </div>

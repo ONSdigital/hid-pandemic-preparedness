@@ -44,7 +44,7 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
                 "justify-content-center",
                 "align-items-center",
                 "gap-1",
-                styles["navbar-icon-button"],
+                styles["navbar-button"],
                 styles["nav-item"],
                 isOpen && styles["nav-item-active"],
               )}
@@ -63,7 +63,7 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
             label={navBarLink.label}
             textInverse={true}
             hideIcon={true}
-            className={clsx(styles["nav-item"])}
+            className={clsx("d-flex", "align-items-center", styles["nav-item"])}
           />
         ))}
     </div>

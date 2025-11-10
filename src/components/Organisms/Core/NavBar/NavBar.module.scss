@@ -28,13 +28,9 @@
   overflow: visible !important;
 }
 
-.navbar-height {
-  height: 4rem;
-}
-
-.navbar-icon-button {
+.navbar-button {
   background: none;
-  border: none;
+  border: none; // To ensure correct specificity, this must be defined before any other border styles
   color: inherit;
   cursor: pointer;
   font: inherit;
@@ -42,15 +38,26 @@
   padding: 0;
 }
 
+$navbar-height: 4rem;
+$border-bottom-width: 4px;
+
+.navbar-height {
+  height: $navbar-height;
+}
+
 .nav-item {
-  border-bottom: 2px solid transparent; //Avoid layout shift when border appears
+  border-bottom: $border-bottom-width solid transparent; //Avoid layout shift when border appears
+  box-sizing: border-box;
+  height: $navbar-height;
+
   &:hover {
-    border-bottom: 2px solid $color-brand-secondary-500;
+    border-bottom: $border-bottom-width solid $color-brand-secondary-500;
   }
 }
 
+// Active styling is applied conditionally, so is defined seperately
 .nav-item-active {
-  border-bottom: 2px solid $color-brand-secondary-500;
+  border-bottom: $border-bottom-width solid $color-brand-secondary-500;
 }
 
 .navbar-logo {
