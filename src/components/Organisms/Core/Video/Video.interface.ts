@@ -1,9 +1,3 @@
-import type { Asset } from "@localTypes/Asset";
+import type { Video } from "@src/types/bloks/storyblok-components";
 
-export interface VideoProps {
-  title: string;
-  url: string;
-  start?: number;
-  end?: number;
-  transcript?: Asset;
-}
+export interface VideoProps extends Video {}
