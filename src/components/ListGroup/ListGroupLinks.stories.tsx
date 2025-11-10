@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ListGroupLinks } from "./ListGroup";
-import ListGroupLinksData from "./ListGroupLinks.json?raw";
+import listGroupLinksData from "./listGroupLinks.json?raw";
 
 const meta = {
   component: ListGroupLinks,
@@ -19,5 +19,5 @@ type Story = StoryObj<typeof meta>;
 
 export const ListGroupLinksStory = {
   name: "Links",
-  args: JSON.parse(ListGroupLinksData),
+  args: JSON.parse(listGroupLinksData),
 } satisfies Story;
