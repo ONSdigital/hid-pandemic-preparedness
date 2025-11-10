@@ -1,0 +1,308 @@
+{
+  "_uid": "f672bc83-5716-42e1-8fbe-9ddc15e4e816",
+  "type": "",
+  "items": [
+    {
+      "_uid": "530389f2-5fdc-4ca7-b5c0-da0b67ecd4a0",
+      "type": "",
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "1. What is your age?",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "[Select age from 0 to 120]",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Don’t know",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Prefer not to say",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            }
+          }
+        ]
+      },
+      "component": "FilterableResourcesItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FilterableResourcesItem\", \"space\": \"287525897740819\", \"uid\": \"530389f2-5fdc-4ca7-b5c0-da0b67ecd4a0\", \"id\": \"110950763487195\"}--\u003E"
+    },
+    {
+      "_uid": "b5c73386-d43a-4d7e-96c8-e15f25f16c21",
+      "type": "",
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "2. Are you 16 years or older?",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "Yes",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "No",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "component": "FilterableResourcesItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FilterableResourcesItem\", \"space\": \"287525897740819\", \"uid\": \"b5c73386-d43a-4d7e-96c8-e15f25f16c21\", \"id\": \"110950763487195\"}--\u003E"
+    },
+    {
+      "_uid": "d8d1bdb1-6ddc-4df2-b1a2-fe0689b57a36",
+      "type": "",
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "3. Please can you tell me how old you are?",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bullet_list",
+            "content": [
+              {
+                "type": "list_item",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "text": "[Enter age from 0 to 15]",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "component": "FilterableResourcesItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FilterableResourcesItem\", \"space\": \"287525897740819\", \"uid\": \"d8d1bdb1-6ddc-4df2-b1a2-fe0689b57a36\", \"id\": \"110950763487195\"}--\u003E"
+    },
+    {
+      "_uid": "097b4980-c0e4-4e1f-b3dd-a0530b639548",
+      "type": "",
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "4. What is your date of birth?",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "- [Enter date of birth]",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "- Prefer not to say",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "component": "FilterableResourcesItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FilterableResourcesItem\", \"space\": \"287525897740819\", \"uid\": \"097b4980-c0e4-4e1f-b3dd-a0530b639548\", \"id\": \"110950763487195\"}--\u003E"
+    },
+    {
+      "_uid": "d243151d-ab8e-4617-bc4f-574688f3d8da",
+      "type": "",
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "5. What was your age on your last birthday?",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "- [Select age from 0 to 105 years]",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "component": "FilterableResourcesItem",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"FilterableResourcesItem\", \"space\": \"287525897740819\", \"uid\": \"d243151d-ab8e-4617-bc4f-574688f3d8da\", \"id\": \"110950763487195\"}--\u003E"
+    }
+  ],
+  "title": "Age",
+  "component": "SubTheme",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"SubTheme\", \"space\": \"287525897740819\", \"uid\": \"f672bc83-5716-42e1-8fbe-9ddc15e4e816\", \"id\": \"110950763487195\"}--\u003E"
+}
