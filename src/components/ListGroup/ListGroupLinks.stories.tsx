@@ -1,40 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import menuItems from "../../content/menuItems.json";
 import { ListGroupLinks } from "./ListGroup";
-import type { ListGroupLinksProps } from "./ListGroup.interface";
+import ListGroupLinksData from "./ListGroupLinks.json?raw";
 
 const meta = {
-  argTypes: {
-    children: {
-      table: {
-        disable: true,
-      },
-    },
-    href: {
-      table: {
-        disable: true,
-      },
-    },
-  },
   component: ListGroupLinks,
   title: "Components/List group",
   parameters: {
     layout: "centered",
+    controls: {
+      disable: true,
+    },
   },
 } satisfies Meta<typeof ListGroupLinks>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Loads second element out of `menuItems.json` which contains valid nav menu data
-const listGroupLinksProps: ListGroupLinksProps = {
-  title: menuItems[1].label,
-  children: menuItems[1].children && menuItems[1].children[0].children,
-  inverse: false,
-};
-
 export const ListGroupLinksStory = {
   name: "Links",
-  args: listGroupLinksProps,
+  args: JSON.parse(ListGroupLinksData),
 } satisfies Story;
