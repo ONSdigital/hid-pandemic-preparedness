@@ -4,10 +4,13 @@ import { useRef } from "react";
 
 import { CopyButton } from "@components/Molecules/Core/CopyButton/CopyButton";
 import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
-import type { QuestionData } from "@localTypes/QuestionData";
-import styles from "./QuestionCard.module.scss";
 
-export const QuestionCard: FC<QuestionData> = (props) => {
+import type { FilterableResourcesItemProps } from "./FilterableResourcesItem.interface";
+import styles from "./FilterableResourcesItem.module.scss";
+
+export const FilterableResourcesItem: FC<FilterableResourcesItemProps> = (
+  props,
+) => {
   const contentElement = useRef<HTMLDivElement>(null);
 
   return (
@@ -18,12 +21,11 @@ export const QuestionCard: FC<QuestionData> = (props) => {
           "rounded",
           "py-3",
           "ps-4",
-          styles["question-bg"],
+          styles["item-bg"],
           styles["copy-btn-space"],
         )}
-        key={props.id}
       >
-        <TextModule {...props} />
+        {props.content && <TextModule richText={props.content} />}
       </div>
       <CopyButton
         contentElement={contentElement}
