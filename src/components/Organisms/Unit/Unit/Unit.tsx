@@ -13,9 +13,10 @@ import type { UnitNavProps } from "@components/Organisms/Unit/UnitNav/UnitNav.in
 
 import { Button } from "@src/components/Button/Button";
 import { Congratulations } from "@/src/components/Molecules/Unit/Congratulations/Congratulations";
-import { DynamicComponent } from "@/src/components/DynamicComponent";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
+import { UnitChapter } from "@components/Organisms/Unit/UnitChapter/UnitChapter";
 import { UnitNav } from "@components/Organisms/Unit/UnitNav/UnitNav";
+import { UnitOverview } from "@components/Organisms/Unit/UnitOverview/UnitOverview";
 
 import { getTags } from "@src/helpers/getTags";
 
@@ -154,7 +155,11 @@ export const Unit: FC<UnitProps> = ({ story }) => {
           <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
             {blok && (
               <>
-                <DynamicComponent blok={blok} />
+                {blok.component === "UnitOverview" ? (
+                  <UnitOverview {...blok} />
+                ) : (
+                  <UnitChapter {...blok} />
+                )}
                 {isLastChapter && <Congratulations {...congratulationsProps} />}
                 <div className={clsx("d-flex", "justify-content-center")}>
                   {isLastChapter ? (
