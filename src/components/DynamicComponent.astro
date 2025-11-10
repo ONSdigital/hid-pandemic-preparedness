@@ -8,8 +8,6 @@ import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 import { QuickLinks } from "@src/components/Organisms/Home/QuickLinks/QuickLinks";
-import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
-import { UnitOverview } from "@src/components/Organisms/Unit/UnitOverview/UnitOverview";
 
 // List of components that we have corresponding bloks for in Storyblok
 const COMPONENT_NAMES: string[] = [
@@ -22,8 +20,6 @@ const COMPONENT_NAMES: string[] = [
   "StatisticsAndText",
   "StrategicPartners",
   "QuickLinks",
-  "UnitChapter",
-  "UnitOverview",
 ];
 
 const { blok } = Astro.props;
@@ -57,10 +53,6 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
       <StrategicPartners {...blok} />
     ) : componentName === "QuickLinks" ? (
       <QuickLinks {...blok} />
-    ) : componentName === "UnitChapter" ? (
-      <UnitChapter {...blok} />
-    ) : componentName === "UnitOverview" ? (
-      <UnitOverview {...blok} />
     ) : null
   ) : null
 }
