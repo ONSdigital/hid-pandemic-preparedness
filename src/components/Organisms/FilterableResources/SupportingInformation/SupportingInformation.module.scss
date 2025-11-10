@@ -1,7 +1,7 @@
-@use "../../../styles/global/tokens" as *;
-@use "../../../styles/global/variables" as *;
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
 
-.guide-bg {
+.supporting-information-bg {
   background-color: $color-surface-subtle;
 }
 
