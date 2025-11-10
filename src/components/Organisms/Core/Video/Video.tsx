@@ -23,6 +23,7 @@ export const Video: FC<VideoProps> = (props) => {
   if (!videoId) console.warn("Invalid YouTube URL");
 
   const params = new URLSearchParams();
+  params.set("cc_load_policy", "1");
   if (props.start) params.set("start", `${props.start}`);
   if (props.end) params.set("end", `${props.end}`);
 
