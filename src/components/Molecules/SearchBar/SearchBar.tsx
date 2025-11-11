@@ -154,20 +154,20 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   };
 
   useEffect(() => {
-      // This runs on mount
-      setIsClient(true); // Now we know we're in the browser
+    // This runs on mount
+    setIsClient(true); // Now we know we're in the browser
 
-      if (props.isResultsPage) {
-        // Read URL from the window
-        const urlParams = new URLSearchParams(window.location.search);
-        const queryFromUrl = urlParams.get("params") || "";
+    if (props.isResultsPage) {
+      // Read URL from the window
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryFromUrl = urlParams.get("params") || "";
 
-        if (queryFromUrl) {
-          setSearchInput(queryFromUrl);
-          runSearch(queryFromUrl);
-        }
+      if (queryFromUrl) {
+        setSearchInput(queryFromUrl);
+        runSearch(queryFromUrl);
       }
-    }, [props.isResultsPage]);
+    }
+  }, [props.isResultsPage]);
 
   const showDropdown =
     searchInput && isFocused && allResults.length > 0 && !props.isResultsPage;
@@ -221,14 +221,17 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         </Button>
       </div>
 
-      {props.isResultsPage && isClient && resultsPortalContainer && allResults.length > 0 &&
+      {props.isResultsPage &&
+        isClient &&
+        resultsPortalContainer &&
+        allResults.length > 0 &&
         createPortal(
           <div className="container-lg py-5">
             <div className="bg-white rounded-3 p-4 p-md-5">
               <SearchResults searchResults={allResults} isMobile={isMobile} />
             </div>
           </div>,
-          resultsPortalContainer
+          resultsPortalContainer,
         )}
     </form>
   );

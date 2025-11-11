@@ -4,7 +4,7 @@ import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Header } from "@/src/components/Organisms/Core/Header/Header";
 import headerData from "@content/search-results/header.json";
 import ThemedSection from "@components/Util/ThemedSection.astro";
-import themedStyles from "@components/Util/ThemedSection.module.scss"
+import themedStyles from "@components/Util/ThemedSection.module.scss";
 
 const urlParams = Astro.url.searchParams;
 const initialQuery = urlParams.get("params") || ""; // TODO: fix this, or remove it
@@ -31,7 +31,6 @@ const pageTitle = initialQuery
       </div>
     </ThemedSection>
 
-    <div id="search-results-portal" class={themedStyles.section} ></div>
-
+    <div id="search-results-portal" class={themedStyles.section}></div>
   </main>
 </BaseLayout>
