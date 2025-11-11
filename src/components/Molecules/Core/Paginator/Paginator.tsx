@@ -1,85 +1,59 @@
-import type { FC } from "react";
+import { useState } from "react";
+import type { FC, MouseEvent } from "react";
 import clsx from "clsx";
 
-import strings from "@src/content/strings.json";
-
 import type { PaginatorProps } from "./Paginator.interface";
-import styles from "./Paginator.module.scss";
-
-function getPageItems(
-  totalPages: number,
-  currentPage: number,
-  siblingCount = 1, // number of pages to show on each side of current page
-  maxPageButtons = 7, // total buttons including first, last, ellipsis
-): Array<string> {
-  const totalPageNumbers = siblingCount * 2 + 5;
-
-  if (totalPages <= totalPageNumbers) {
-    // Show all pages if total pages are less than max buttons
-    return Array.from({ length: totalPages }, (_, i) => (i + 1).toString());
-  }
-
-  const leftSiblingIndex = Math.max(currentPage - siblingCount, 2);
-  const rightSiblingIndex = Math.min(
-    currentPage + siblingCount,
-    totalPages - 1,
-  );
-
-  const showLeftEllipsis = leftSiblingIndex > 2;
-  const showRightEllipsis = rightSiblingIndex < totalPages - 1;
-
-  const pages: Array<string> = [];
-
-  pages.push("1"); // first page always
-
-  if (showLeftEllipsis) {
-    pages.push("...");
-  } else {
-    for (let i = 2; i < leftSiblingIndex; i++) {
-      pages.push(i.toString());
-    }
-  }
-
-  for (let i = leftSiblingIndex; i <= rightSiblingIndex; i++) {
-    pages.push(i.toString());
-  }
-
-  if (showRightEllipsis) {
-    pages.push("...");
-  } else {
-    for (let i = rightSiblingIndex + 1; i < totalPages; i++) {
-      pages.push(i.toString());
-    }
-  }
-
-  pages.push(totalPages.toString()); // last page always
-
-  return pages;
-}
 
 export const Paginator: FC<PaginatorProps> = (props) => {
-  const MAX_PAGE_ITEMS: number = 6;
   // Calculate how many page items we need
-  const totalPageItems: number = Math.ceil(props.total / props.perPage);
-  const pageItems = getPageItems(totalPageItems, 1);
+  const totalItems = props.items.length;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Handler for clicking a page number
+  const handleItemClick = (page: number, e: MouseEvent) => {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    if (page >= 0 && page < totalItems) {
+      setCurrentPage(page);
+    }
+
+    if (props.onSelect) {
+      props.onSelect(props.items[page]);
+    }
+  };
 
   return (
     <nav aria-label={props.ariaLabel}>
       <ul className="pagination">
         <li className="page-item">
-          <a className="page-link" href="#">
+          <a
+            className="page-link"
+            href="#"
+            onClick={(e) => handleItemClick(currentPage - 1, e)}
+          >
             Previous
           </a>
         </li>
-        {pageItems.map((item) => (
-          <li className="page-item" key={item}>
-            <a className="page-link" href="#">
-              {item}
+        {props.items.map((item, i) => (
+          <li
+            className={clsx("page-item", currentPage === i && "active")}
+            key={item._uid}
+          >
+            <a
+              className="page-link"
+              href="#"
+              onClick={(e) => handleItemClick(i, e)}
+            >
+              {i + 1}
             </a>
           </li>
         ))}
         <li className="page-item">
-          <a className="page-link" href="#">
+          <a
+            className="page-link"
+            href="#"
+            onClick={(e) => handleItemClick(currentPage + 1, e)}
+          >
             Next
           </a>
         </li>
