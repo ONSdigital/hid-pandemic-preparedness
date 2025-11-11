@@ -2,38 +2,41 @@ import { useState } from "react";
 import type { FC, MouseEvent } from "react";
 import clsx from "clsx";
 
+import { ArrowButton } from "@src/components/ArrowButton/ArrowButton";
+
 import type { PaginatorProps } from "./Paginator.interface";
 import styles from "./Paginator.module.scss";
 
 export const Paginator: FC<PaginatorProps> = (props) => {
   // Calculate how many page items we need
   const totalItems = props.items.length;
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
   // Handler for clicking a page number
-  const handleItemClick = (page: number, e: MouseEvent) => {
-    e.preventDefault(); // Prevent default anchor behavior
+  const handleItemClick = (page: number, e?: MouseEvent) => {
+    if (e) {
+      e.preventDefault(); // Prevent default anchor behavior
+    }
 
     if (page >= 0 && page < totalItems) {
       setCurrentPage(page);
-    }
-
-    if (props.onSelect) {
-      props.onSelect(props.items[page]);
+      if (props.onSelect) {
+        props.onSelect(props.items[page]);
+      }
     }
   };
 
   return (
     <nav aria-label={props.ariaLabel}>
-      <ul className="pagination">
-        <li className="page-item">
-          <a
-            className="page-link"
-            href="#"
-            onClick={(e) => handleItemClick(currentPage - 1, e)}
-          >
-            Previous
-          </a>
+      <ul className={clsx("pagination", "d-flex", "align-items-center")}>
+        <li className={clsx("page-item", "mx-2")}>
+          <ArrowButton
+            ariaLabel="Previous"
+            direction="left"
+            variant="secondary"
+            type="button"
+            onClick={() => handleItemClick(currentPage - 1)}
+          />
         </li>
         {props.items.map((item, i) => (
           <li
@@ -50,13 +53,13 @@ export const Paginator: FC<PaginatorProps> = (props) => {
           </li>
         ))}
         <li className="page-item">
-          <a
-            className="page-link"
-            href="#"
-            onClick={(e) => handleItemClick(currentPage + 1, e)}
-          >
-            Next
-          </a>
+          <ArrowButton
+            ariaLabel="Next"
+            direction="right"
+            variant="secondary"
+            type="button"
+            onClick={() => handleItemClick(currentPage + 1)}
+          />
         </li>
       </ul>
     </nav>
