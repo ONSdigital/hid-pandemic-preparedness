@@ -11,6 +11,7 @@
 @import "./global/overrides/breadcrumb";
 @import "./global/overrides/components";
 @import "./global/overrides/breakpoints.module";
+@import "./global/overrides/pagination";
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "./bootstrap-5.3.8/scss/variables";

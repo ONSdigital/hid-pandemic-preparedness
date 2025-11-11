@@ -3,6 +3,7 @@ import type { FC, MouseEvent } from "react";
 import clsx from "clsx";
 
 import type { PaginatorProps } from "./Paginator.interface";
+import styles from "./Paginator.module.scss";
 
 export const Paginator: FC<PaginatorProps> = (props) => {
   // Calculate how many page items we need
@@ -36,11 +37,11 @@ export const Paginator: FC<PaginatorProps> = (props) => {
         </li>
         {props.items.map((item, i) => (
           <li
-            className={clsx("page-item", currentPage === i && "active")}
+            className={clsx("page-item", "mx-2", currentPage === i && "active")}
             key={item._uid}
           >
             <a
-              className="page-link"
+              className={clsx("page-link", "fw-bold", styles["page-link"])}
               href="#"
               onClick={(e) => handleItemClick(i, e)}
             >
