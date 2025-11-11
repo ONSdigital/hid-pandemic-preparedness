@@ -19,10 +19,4 @@ describe("Paginator component", () => {
     const navElement = screen.getByRole("navigation");
     expect(navElement).toHaveAttribute("aria-label", baseProps.ariaLabel);
   });
-
-  test("renders setting top level nav aria-role correctly", () => {
-    render(<Paginator {...baseProps} />);
-    const navElement = screen.getByRole("navigation");
-    expect(navElement).toHaveAttribute("aria-label", baseProps.ariaLabel);
-  });
 });

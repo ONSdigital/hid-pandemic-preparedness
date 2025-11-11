@@ -10,8 +10,8 @@ const meta = {
   title: "Molecules/Core/Paginator",
   parameters: {
     layout: "centered",
+    actions: { argTypesRegex: "^on.*" },
   },
-  args: { onSelect: fn() },
 } satisfies Meta<typeof Paginator>;
 
 export default meta;
