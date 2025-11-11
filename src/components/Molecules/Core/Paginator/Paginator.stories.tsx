@@ -15,6 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const paginatorProps: PaginatorProps = {
+  ariaLabel: "Storybook test page navigation",
   perPage: 10,
   total: 100,
 };
