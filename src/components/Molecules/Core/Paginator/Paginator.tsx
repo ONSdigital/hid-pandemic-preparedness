@@ -8,7 +8,6 @@ import type { PaginatorProps } from "./Paginator.interface";
 import styles from "./Paginator.module.scss";
 
 export const Paginator: FC<PaginatorProps> = (props) => {
-  // Calculate how many page items we need
   const totalItems = props.items.length;
   const [currentPage, setCurrentPage] = useState(0);
 
