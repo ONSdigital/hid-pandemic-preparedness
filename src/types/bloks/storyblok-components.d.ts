@@ -826,9 +826,9 @@ export interface UnitSection {
 export interface Video {
   title: string;
   url: string;
-  autoplay?: boolean;
   start?: string;
   end?: string;
+  transcript?: StoryblokAsset;
   component: "Video";
   _uid: string;
   [k: string]: unknown;
