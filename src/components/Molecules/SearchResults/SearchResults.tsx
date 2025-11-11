@@ -7,6 +7,7 @@ import type {
   SearchResultsProps,
 } from "./SearchResults.interface";
 import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
+import strings from "@src/content/strings.json";
 
 const SearchResultItem: FC<SearchResultItemProps> = (props) => {
   return (
@@ -39,10 +40,13 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
 };
 
 export const SearchResults: FC<SearchResultsProps> = (props) => {
+  const {
+    search: { numSearchResults },
+  } = strings;
   return (
-    <div className={clsx("w-100", "rounded", styles["search-results-bg"])}>
+    <div className={clsx("w-100", styles["search-results-bg"])}>
       <p className={clsx("fw-bold", styles["search-results-count"])}>
-        {props.searchResults.length} search results
+        {props.searchResults.length} {numSearchResults}
       </p>
       <div className={clsx("d-flex", "flex-column", "gap-4", "px-4")}>
         {props.searchResults.map((searchResult, index) => (

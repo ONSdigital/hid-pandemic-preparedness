@@ -1,5 +1,7 @@
 export interface SearchBarProps {
   placeholder: string;
+  initialQuery?: string;
+  isResultsPage?: boolean;
 }
 
 export interface PagefindResultsData {

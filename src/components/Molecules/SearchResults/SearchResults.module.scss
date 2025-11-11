@@ -2,6 +2,8 @@
 
 .search-results-bg {
   background-color: $color-grey-100;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .search-results-link {
@@ -9,9 +11,6 @@
 }
 
 .search-results-count {
-  position: sticky;
-  top: 0;
-  z-index: 1;
   background-color: inherit;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border-top-left-radius: 1rem;

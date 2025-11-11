@@ -2,6 +2,7 @@ import type { Link } from "@localTypes/Link";
 
 export interface FooterProps {
   columns: FooterColumn[];
+  className?: string;
 }
 
 interface FooterColumn {

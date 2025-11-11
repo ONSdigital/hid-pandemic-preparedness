@@ -39,5 +39,9 @@
       "feedback": "Feedback",
       "openGithub": "Open GITHUB"
     }
+  },
+  "search": {
+    "viewAllResults": "View all results",
+    "numSearchResults": "search results"
   }
 }
