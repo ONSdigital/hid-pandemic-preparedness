@@ -39,5 +39,12 @@
       "feedback": "Feedback",
       "openGithub": "Open GITHUB"
     }
+  },
+  "filterableResources": {
+    "themeFilter": {
+      "themes": "Themes",
+      "selectAll": "Select all",
+      "selectNone": "Select none"
+    }
   }
 }

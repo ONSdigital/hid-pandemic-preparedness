@@ -5,8 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 
 import type { Theme } from "@src/types/bloks/storyblok-components";
 
-import { Accordion } from "@src/components/Molecules/Core/Accordion/Accordion";
-import { ChapterList } from "@src/components/Molecules/Core/ChapterList/ChapterList";
 import { IconAndTextLink } from "@src/components/IconAndTextLink/IconAndTextLink";
 
 import strings from "@src/content/strings.json";
@@ -50,6 +48,8 @@ const SubThemeItem: FC<SubThemeItemProps> = (props) => {
 
 // Reusuable component for a theme item
 const ThemeItem: FC<ThemeItemProps> = (props) => {
+  const themeFilterStrings = strings.filterableResources.themeFilter;
+
   const [selectAll, setSelectAll] = useState(false);
 
   // State to track which subThemes are checked
@@ -117,7 +117,9 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
           {props.theme.subThemes && (
             <>
               <a href="#" onClick={handleSelectAllToggle}>
-                {selectAll ? "Select none" : "Select all"}
+                {selectAll
+                  ? themeFilterStrings.selectNone
+                  : themeFilterStrings.selectAll}
               </a>
               <ul className={clsx("list-group", "list-group-flush")}>
                 {props.theme.subThemes.map((subTheme) => (
@@ -139,6 +141,8 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
 
 export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
   const accordionId = uuidv4();
+  const themeFilterStrings = strings.filterableResources.themeFilter;
+
   const [filteredThemes, setFilteredThemes] = useState<Theme[]>([]);
 
   // Initialize filteredThemes when themes change
@@ -175,7 +179,9 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
         <div className={clsx("d-flex", "flex-column")}>
           {props.themes && (
             <>
-              <h1 className={clsx("heading-xs", "fw-bold", "mb-3")}>Themes</h1>
+              <h1 className={clsx("heading-xs", "fw-bold", "mb-3")}>
+                {themeFilterStrings.themes}
+              </h1>
               <div
                 className={clsx("accordion", "accordion-flush")}
                 id={accordionId}
