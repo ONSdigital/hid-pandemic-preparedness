@@ -32,9 +32,13 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
         // subresults.excerpt is sanitised by Pagefind, ensuring it is safe to use
         dangerouslySetInnerHTML={{ __html: props.excerpt }}
       />
-      <div className="flex-start">
-        <Tag {...props.tag} />
-      </div>
+      {props.tag?.length ? (
+        <div className="flex-start">
+          <Tag {...props.tag} />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

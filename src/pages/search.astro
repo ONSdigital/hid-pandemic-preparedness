@@ -3,8 +3,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Header } from "@/src/components/Organisms/Core/Header/Header";
 import headerData from "@content/search-results/header.json";
-import ThemedSection from "@components/Util/ThemedSection.astro";
-import themedStyles from "@components/Util/ThemedSection.module.scss";
+import SearchContainer from "@components/Util/SearchComponent.astro";
+import ResultsWrapper from "@components/Util/SearchResultsWrapper.astro";
 
 const urlParams = Astro.url.searchParams;
 const initialQuery = urlParams.get("params") || ""; // TODO: fix this, or remove it
@@ -17,10 +17,10 @@ const pageTitle = initialQuery
   <main>
     <Header {...headerData} />
 
-    <ThemedSection>
-      <div class="row justify-content-center my-5">
+    <SearchContainer>
+      <div class="row justify-content-center">
         <div class="col-lg-6">
-          <div class="col-xl-9 pt-2">
+          <div class="col-xl-9">
             <SearchBar
               placeholder="Search the site..."
               isResultsPage={true}
@@ -29,8 +29,8 @@ const pageTitle = initialQuery
           </div>
         </div>
       </div>
-    </ThemedSection>
+    </SearchContainer>
 
-    <div id="search-results-portal" class={themedStyles.section}></div>
+    <ResultsWrapper />
   </main>
 </BaseLayout>

@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { RiSearchLine } from "@remixicon/react";
+import { RiArrowRightLine, RiSearchLine } from "@remixicon/react";
 
 import type {
   PagefindResultsData,
@@ -15,6 +15,7 @@ import { SearchResults } from "@components/Molecules/SearchResults/SearchResults
 import breakpoints from "@src/styles/global/overrides/_breakpoints.module.scss";
 import strings from "@src/content/strings.json";
 import { Button } from "../../Button/Button";
+import { Link } from "../../Link/Link";
 
 type PagefindModule = {
   init: () => Promise<void>;
@@ -201,17 +202,17 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
               className={clsx(
                 "p-3",
                 "bg-light",
+                "d-flex",
+                "justify-content-center",
                 styles["sticky-link-container"],
               )}
             >
-              <Button
-                type="submit"
-                variant="secondary"
-                ariaLabel={viewAllResults}
-                className={clsx("w-100")}
+              <a
+                href={`/search?params=${encodeURIComponent(searchInput)}`}
+                className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
               >
-                {viewAllResults}
-              </Button>
+                {viewAllResults} <RiArrowRightLine />
+              </a>
             </div>
           </div>
         )}
@@ -226,7 +227,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         resultsPortalContainer &&
         allResults.length > 0 &&
         createPortal(
-          <div className="container-lg py-5">
+          <div className="container-lg">
             <div className="bg-white rounded-3 p-4 p-md-5">
               <SearchResults searchResults={allResults} isMobile={isMobile} />
             </div>
