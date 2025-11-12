@@ -64,7 +64,7 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
               className={clsx(
                 "list-group-item",
                 "list-group-item-action",
-                styles["list-group-bootstrap-overrides"],
+                styles["list-group"],
                 textColour,
               )}
               label={item.label}

@@ -22,7 +22,7 @@ export interface DesktopNavProps extends NavBarProps {
 }
 
 export interface MobileNavProps extends NavBarProps {
-  onClick: () => any; //
+  onClick: () => any;
   isOpen: boolean;
 }
 

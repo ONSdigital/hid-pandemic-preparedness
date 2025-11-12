@@ -84,6 +84,7 @@ export const NavAccordion: FC<NavAccordionProps> = (props) => {
                 "accordion-button",
                 "heading-s",
                 "text-light",
+                "collapsed",
                 styles["navbar-accordion-heading"],
               )}
               data-bs-target={`#${item.id}`}
