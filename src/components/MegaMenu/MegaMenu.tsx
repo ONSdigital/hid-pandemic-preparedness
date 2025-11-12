@@ -12,7 +12,7 @@ export const MegaMenu: FC<MegaMenuProps> = (props) => {
     <div className={clsx(styles["mega-menu"], "w-100")}>
       <div className={clsx("container-lg")}>
         {props.overview && (
-          <TextModule richText={props.overview} className="pb-4" />
+          <TextModule richText={props.overview} className="pb-lg-4" />
         )}
         <div className={clsx("row", "row-cols-1", "row-cols-lg-5")}>
           {props.columns.map((column) => (
