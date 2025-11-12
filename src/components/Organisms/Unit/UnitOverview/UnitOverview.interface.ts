@@ -1,13 +1,7 @@
-import type { StoryblokRichTextNode } from "@storyblok/richtext";
-
-import type { Link } from "@localTypes/Link";
 import type { Tag } from "@src/types/Tag";
+import type { UnitOverview } from "@src/types/bloks/storyblok-components";
 
-export interface UnitOverviewProps {
-  title: string;
-  readingTime: string;
-  overviewRichText: StoryblokRichTextNode;
-  githubLink?: Link;
+export interface UnitOverviewProps extends UnitOverview {
   tags?: Tag[];
   // Prop for handling button click to increment chapter
   onNext: () => void;

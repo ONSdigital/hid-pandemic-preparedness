@@ -11,6 +11,8 @@ import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartn
 import { QuickLinks } from "@/src/components/Organisms/Home/QuickLinks/QuickLinks";
 import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
 import { UnitOverview } from "@/src/components/Organisms/Unit/UnitOverview/UnitOverview";
+import { Iframe } from "@/src/components/Organisms/Core/Iframe/Iframe";
+import { Video } from "@/src/components/Organisms/Core/Video/Video";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =
@@ -24,7 +26,9 @@ type ComponentName =
   | "StrategicPartners"
   | "QuickLinks"
   | "UnitChapter"
-  | "UnitOverview";
+  | "UnitOverview"
+  | "Iframe"
+  | "Video";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Carousel,
@@ -38,6 +42,8 @@ const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   QuickLinks,
   UnitChapter,
   UnitOverview,
+  Iframe,
+  Video,
 };
 
 interface DynamicComponentProps {

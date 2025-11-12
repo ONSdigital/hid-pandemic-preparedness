@@ -1,7 +1,3 @@
-import type { ImpactCardProps } from "@/src/components/Molecules/Home/ImpactCard/ImpactCard.interface";
+import type { Impact } from "@src/types/bloks/storyblok-components";
 
-export interface ImpactProps {
-  _uid: string;
-  title: string;
-  cards: ImpactCardProps[];
-}
+export interface ImpactProps extends Impact {}

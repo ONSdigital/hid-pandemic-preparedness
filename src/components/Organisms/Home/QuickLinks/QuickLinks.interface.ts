@@ -1,12 +1,3 @@
-import type { LinkComponent } from "@/src/types/LinkComponent";
-import type { RemixIcon } from "@/src/types/RemixIcon";
+import type { QuickLinks } from "@src/types/bloks/storyblok-components";
 
-interface QuickLinksItem extends LinkComponent {
-  icon: RemixIcon;
-}
-
-export interface QuickLinksProps {
-  title: string;
-  subTitle: string;
-  links: QuickLinksItem[];
-}
+export interface QuickLinksProps extends QuickLinks {}

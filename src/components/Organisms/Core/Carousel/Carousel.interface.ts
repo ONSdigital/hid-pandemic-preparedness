@@ -1,11 +1,7 @@
-export interface CarouselItem {
-  _uid: string;
-  component: string;
-  [key: string]: any; //Other props will vary depending on what is passed to Carousel
-}
-export interface CarouselProps {
-  cards: CarouselItem[];
-}
+import type { Carousel } from "@src/types/bloks/storyblok-components";
+
+export interface CarouselProps extends Carousel {}
+
 export interface DynamicCarouselItemComponentProps {
   blok: any;
 }
