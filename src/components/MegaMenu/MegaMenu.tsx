@@ -9,9 +9,11 @@ import styles from "./MegaMenu.module.scss";
 
 export const MegaMenu: FC<MegaMenuProps> = (props) => {
   return (
-    <div className={clsx(styles["mega-menu"], "w-100", "py-4")}>
+    <div className={clsx(styles["mega-menu"], "w-100")}>
       <div className={clsx("container-lg")}>
-        {props.overview && <TextModule richText={props.overview} />}
+        {props.overview && (
+          <TextModule richText={props.overview} className="pb-4" />
+        )}
         <div className={clsx("row", "row-cols-1", "row-cols-lg-5")}>
           {props.columns.map((column) => (
             <div className={clsx("col", "py-2")} key={column._uid}>
