@@ -49,6 +49,7 @@ export interface BasicPage {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -111,6 +112,7 @@ export interface CardBlock {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -204,8 +206,8 @@ export interface ExpandableItem {
 
 export interface FilterableResources {
   resourceName?: string;
-  supportingInformationBlocks?: SupportingInformation[];
-  themes?: Theme[];
+  explanation?: StoryblokRichtext;
+  resources?: Theme[];
   component: "FilterableResources";
   _uid: string;
   [k: string]: unknown;
@@ -338,6 +340,7 @@ export interface HomePage {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -392,6 +395,7 @@ export interface HomePage {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -446,6 +450,7 @@ export interface HomePage {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -553,6 +558,7 @@ export interface Landing {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -607,6 +613,7 @@ export interface Landing {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -661,6 +668,7 @@ export interface Landing {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -715,6 +723,7 @@ export interface Landing {
     | StrategicPartners
     | SubTheme
     | SupportingInformation
+    | Table
     | Tag
     | TerryCode
     | TextModule
@@ -866,9 +875,15 @@ export interface SubTheme {
 }
 
 export interface SupportingInformation {
-  title?: string;
   content?: StoryblokRichtext;
   component: "SupportingInformation";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Table {
+  table?: StoryblokRichtext;
+  component: "Table";
   _uid: string;
   [k: string]: unknown;
 }

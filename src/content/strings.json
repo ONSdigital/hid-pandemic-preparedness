@@ -41,6 +41,9 @@
     }
   },
   "filterableResources": {
+    "filterableResources": {
+      "themeNavigation": "Theme navigation"
+    },
     "themeFilter": {
       "themes": "Themes",
       "selectAll": "Select all",
