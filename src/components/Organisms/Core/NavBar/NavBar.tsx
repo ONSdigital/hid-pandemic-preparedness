@@ -44,37 +44,44 @@ export const NavBar: FC<NavBarProps> = (props) => {
   }
 
   return (
-    <div ref={navBarContainerRef}>
-      <nav className={clsx("w-100", styles["navbar-bg"])}>
-        <div className={clsx("container-lg")}>
-          {/* Desktop Nav */}
-          <div className="d-none d-lg-block">
-            <DesktopNav
-              {...props}
-              openItemId={openId}
-              onClick={toggleDesktopNav}
-            />
-          </div>
+    <>
+      <div ref={navBarContainerRef}>
+        <nav className={clsx("w-100", styles["navbar-bg"])}>
+          <div className={clsx("container-lg")}>
+            {/* Desktop nav */}
+            <div className="d-none d-lg-block">
+              <DesktopNav
+                {...props}
+                openItemId={openId}
+                onClick={toggleDesktopNav}
+              />
+            </div>
 
-          {/* Mobile Nav */}
-          <div className="d-lg-none">
-            <MobileNav
-              {...props}
-              isOpen={isMobileNavOpen}
-              onClick={toggleMobileNav}
-            />
+            {/* Mobile nav */}
+            <div className="d-lg-none">
+              <MobileNav
+                {...props}
+                isOpen={isMobileNavOpen}
+                onClick={toggleMobileNav}
+              />
+            </div>
           </div>
-        </div>
-      </nav>
-      {megaMenuData && (
-        <div
-          id={`mega-menu-${openId}`}
-          className={clsx(styles["overlayed-desktop-menu"], "w-100")}
-        >
-          <MegaMenu {...megaMenuData} />
-        </div>
+        </nav>
+        {/* Desktop Megamenu */}
+        {megaMenuData && (
+          <div
+            id={`mega-menu-${openId}`}
+            className={clsx(styles["overlayed-desktop-menu"], "w-100")}
+          >
+            <MegaMenu {...megaMenuData} />
+          </div>
+        )}
+      </div>
+      {/* Screen dimmer */}
+      {(megaMenuData || isMobileNavOpen) && (
+        <div className={styles["screen-dimmer"]} />
       )}
-    </div>
+    </>
   );
 };
 
