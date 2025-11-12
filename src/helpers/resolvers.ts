@@ -36,7 +36,7 @@ enum MarkTypes {
   // UNDERLINE = "underline",
   // ITALIC = "italic",
   // CODE = "code",
-  LINK = "link",
+  LINK = "link", // eslint-disable-line no-unused-vars
   // ANCHOR = "anchor",
   // STYLED = "styled",
   // SUPERSCRIPT = "superscript",
