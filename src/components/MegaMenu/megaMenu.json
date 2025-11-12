@@ -172,6 +172,34 @@
           "label": "Stakeholder mapping ",
           "component": "Link",
           "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"5c065605-5b7f-4f3b-bd79-b40b4551a907\", \"id\": \"108543027842071\"}--\u003E"
+        },
+        {
+          "_uid": "cfafe5c1-3268-4d94-bc51-7eecb2f5a8b8",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "label": "Leadership",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"cfafe5c1-3268-4d94-bc51-7eecb2f5a8b8\", \"id\": \"108543027842071\"}--\u003E"
+        },
+        {
+          "_uid": "d00b1edf-d914-4203-8067-3ea0bc2c86f4",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "type": "",
+          "label": "Public acceptability",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"d00b1edf-d914-4203-8067-3ea0bc2c86f4\", \"id\": \"108543027842071\"}--\u003E"
         }
       ],
       "title": "Stakeholder engagement",
