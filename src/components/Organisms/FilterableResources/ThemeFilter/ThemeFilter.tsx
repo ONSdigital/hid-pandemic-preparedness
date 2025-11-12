@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { ChangeEvent, FC } from "react";
 import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
@@ -8,8 +8,40 @@ import { IconAndTextLink } from "@src/components/IconAndTextLink/IconAndTextLink
 
 import strings from "@src/content/strings.json";
 
-import type { ThemeFilterProps } from "./ThemeFilter.interface";
+import type {
+  SubThemeItemProps,
+  ThemeFilterProps,
+} from "./ThemeFilter.interface";
 import styles from "./ThemeFilter.module.scss";
+
+// Reusuable component for a sub theme item
+const SubThemeItem: FC<SubThemeItemProps> = (props) => {
+  // Callback for when item has been checked/unchecked
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (props.onToggle) {
+      props.onToggle(props.subTheme._uid, e.target.checked);
+    }
+  };
+
+  return (
+    <li className={clsx("list-group-item")} key={props.subTheme._uid}>
+      <div className={clsx("form-check")}>
+        <input
+          className={clsx("form-check-input")}
+          type="checkbox"
+          id={props.subTheme._uid}
+          onChange={handleChange}
+        />
+        <label
+          className={clsx("form-check-label")}
+          htmlFor={props.subTheme._uid}
+        >
+          {props.subTheme.title}
+        </label>
+      </div>
+    </li>
+  );
+};
 
 export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
   const accordionId = uuidv4();
@@ -54,24 +86,10 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
                             className={clsx("list-group", "list-group-flush")}
                           >
                             {theme.subThemes.map((subTheme) => (
-                              <li
-                                className={clsx("list-group-item")}
+                              <SubThemeItem
+                                subTheme={subTheme}
                                 key={subTheme._uid}
-                              >
-                                <div className={clsx("form-check")}>
-                                  <input
-                                    className={clsx("form-check-input")}
-                                    type="checkbox"
-                                    id={subTheme._uid}
-                                  />
-                                  <label
-                                    className={clsx("form-check-label")}
-                                    htmlFor={subTheme._uid}
-                                  >
-                                    {subTheme.title}
-                                  </label>
-                                </div>
-                              </li>
+                              />
                             ))}
                           </ul>
                         )}
