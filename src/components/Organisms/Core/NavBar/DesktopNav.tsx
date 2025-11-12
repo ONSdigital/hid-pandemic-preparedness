@@ -50,7 +50,7 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
               )}
             >
               <p className="m-0">{expandableItem.label}</p>
-              <Icon iconName={iconName} className={styles["navbar-logo"]} />
+              <Icon iconName={iconName} className={styles["navbar-icon"]} />
             </button>
           );
         })}

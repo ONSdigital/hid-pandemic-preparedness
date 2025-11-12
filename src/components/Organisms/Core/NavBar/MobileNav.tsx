@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import type { FC } from "react";
 import clsx from "clsx";
 
 import { Image } from "@components/Molecules/Core/Image/Image";
@@ -6,10 +6,10 @@ import { MegaMenu } from "@components/MegaMenu/MegaMenu";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
-import type { NavAccordionProps, NavBarProps } from "./NavBar.interface";
+import type { NavAccordionProps, MobileNavProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 
-export const MobileNav: FC<NavBarProps> = (props) => {
+export const MobileNav: FC<MobileNavProps> = (props) => {
   const hasExpandableItems =
     props.expandableItems && props.expandableItems.length > 0;
   const hasLinks = props.links && props.links.length > 0;
@@ -22,12 +22,7 @@ export const MobileNav: FC<NavBarProps> = (props) => {
       }))
     : [];
 
-  const [showNavContent, setShowNavContent] = useState<boolean>(false);
-  const iconName = showNavContent ? "RiCloseFill" : "RiMenuFill";
-
-  const toggleNavContent = () => {
-    setShowNavContent((prev) => !prev);
-  };
+  const iconName = props.isOpen ? "RiCloseFill" : "RiMenuFill";
 
   return (
     <div className="w-100">
@@ -43,12 +38,12 @@ export const MobileNav: FC<NavBarProps> = (props) => {
         <a href="/" aria-label="Redirect to homepage">
           <Image {...props.logo} className={styles["navbar-logo"]} />
         </a>
-        <button onClick={toggleNavContent} className={styles["navbar-button"]}>
+        <button onClick={props.onClick} className={styles["navbar-button"]}>
           <Icon iconName={iconName} className={styles["navbar-logo"]} />
         </button>
       </div>
       {/* Toggable content */}
-      {showNavContent && (
+      {props.isOpen && (
         <div className={clsx(styles["overlayed-mobile-menu"], "w-100")}>
           <div
             className={clsx("d-flex", "flex-column", "gap-3", "px-1", "py-3")}

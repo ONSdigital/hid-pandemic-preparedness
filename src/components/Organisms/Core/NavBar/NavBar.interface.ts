@@ -21,6 +21,11 @@ export interface DesktopNavProps extends NavBarProps {
   openItemId: string | null;
 }
 
+export interface MobileNavProps extends NavBarProps {
+  onClick: () => any; //
+  isOpen: boolean;
+}
+
 export interface NavAccordionItem {
   id: string;
   headerTitle: string;

@@ -24,8 +24,10 @@
 
 .navbar-bg {
   background-color: $color-brand-primary-500;
+  position: relative;
   color: $color-text-inverse;
   overflow: visible !important;
+  z-index: 3;
 }
 
 .navbar-button {
@@ -67,19 +69,28 @@ $border-bottom-width: 4px;
   }
 }
 
-.navbar-logo-link {
-  text-decoration: none;
-  cursor: pointer;
+.navbar-icon {
+  pointer-events: none;
 }
 
-.overlayed-menu {
-  z-index: 2; //Raise the megamenu above content underneath
+.overlayed-desktop-menu {
   position: absolute;
+  z-index: 2;
 }
 
 .overlayed-mobile-menu {
-  z-index: 2;
-  position: absolute;
-  left: 0;
   background: $gradient-brand-primary-1;
+  left: 0;
+  position: absolute;
+  z-index: 2;
+}
+
+.screen-dimmer {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: $navbar-height; //Prevent dimmer from dimming NavBar
+  width: 100vw;
+  z-index: 1;
 }
