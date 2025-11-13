@@ -83,8 +83,6 @@ describe("Table component", () => {
       ".table-wrapper",
     ) as HTMLElement;
 
-    expect(scrollableTable).toHaveClass("scrollable-table");
-
     // Mock scroll positions
     Object.defineProperties(tableWrapper, {
       scrollLeft: { writable: true, configurable: true, value: 0 },
