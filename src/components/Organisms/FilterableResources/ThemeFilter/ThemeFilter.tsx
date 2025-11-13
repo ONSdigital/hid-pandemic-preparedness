@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import type { ChangeEvent, FC, MouseEvent } from "react";
 import clsx from "clsx";
+import { useEffect, useMemo } from "react";
+import type { FC } from "react";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
-
-import type { Theme } from "@src/types/bloks/storyblok-components";
 
 import { IconAndTextLink } from "@src/components/IconAndTextLink/IconAndTextLink";
 
@@ -18,29 +17,30 @@ import styles from "./ThemeFilter.module.scss";
 
 // Reusuable component for a sub theme item
 const SubThemeItem: FC<SubThemeItemProps> = (props) => {
-  // Callback for when item has been checked/unchecked
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (props.onToggle) {
-      props.onToggle(props.subTheme._uid, e.target.checked);
-    }
-  };
-
   return (
     <li className={clsx("list-group-item")} key={props.subTheme._uid}>
       <div className={clsx("form-check")}>
-        <input
-          className={clsx("form-check-input")}
-          type="checkbox"
-          id={props.subTheme._uid}
-          onChange={handleChange}
-          checked={props.checked}
+        <Controller
+          control={props.control}
+          name={props.subTheme._uid}
+          render={({ field }) => (
+            <>
+              <input
+                className={clsx("form-check-input")}
+                type="checkbox"
+                id={props.subTheme._uid}
+                {...field}
+                checked={field.value || false}
+              />
+              <label
+                className={clsx("form-check-label")}
+                htmlFor={props.subTheme._uid}
+              >
+                {props.subTheme.title}
+              </label>
+            </>
+          )}
         />
-        <label
-          className={clsx("form-check-label")}
-          htmlFor={props.subTheme._uid}
-        >
-          {props.subTheme.title}
-        </label>
       </div>
     </li>
   );
@@ -50,49 +50,29 @@ const SubThemeItem: FC<SubThemeItemProps> = (props) => {
 const ThemeItem: FC<ThemeItemProps> = (props) => {
   const themeFilterStrings = strings.filterableResources.themeFilter;
 
-  const [selectAll, setSelectAll] = useState(false);
+  // Watch all subTheme checkbox values for this theme
+  const subThemeKeys = useMemo(() => {
+    return props.theme.subThemes?.map((subTheme) => subTheme._uid) ?? [];
+  }, [props.theme.subThemes, props.theme._uid]);
 
-  // State to track which subThemes are checked
-  const [checkedMap, setCheckedMap] = useState<Record<string, boolean>>({});
+  const values = useWatch({
+    control: props.control,
+    name: subThemeKeys,
+  });
 
-  // Initialize checkedMap when theme.subThemes changes
-  useEffect(() => {
-    if (props.theme.subThemes) {
-      const initialMap: Record<string, boolean> = {};
-      props.theme.subThemes.forEach((subTheme) => {
-        initialMap[subTheme._uid] = false;
-      });
-      setCheckedMap(initialMap);
-    }
-  }, [props.theme.subThemes]);
+  // Determine if all are selected
+  const allSelected = useMemo(() => {
+    if (!values || values.length === 0) return false;
+    return values.every(Boolean);
+  }, [values]);
 
-  // Callback for when item has been checked/unchecked
-  const handleSubThemeItemToggle = (uid: string, checked: boolean) => {
-    setCheckedMap((prev) => {
-      const newMap = { ...prev, [uid]: checked };
-      // Call onChange with filtered theme if needed
-      if (props.onChange && props.theme.subThemes) {
-        const filteredSubThemes = props.theme.subThemes.filter(
-          (sub) => newMap[sub._uid],
-        );
-        props.onChange({ ...props.theme, subThemes: filteredSubThemes });
-      }
-      return newMap;
-    });
-  };
-
-  // Handler for Select all / Select none click
-  const handleSelectAllToggle = (e: MouseEvent<HTMLAnchorElement>) => {
+  const handleSelectAllToggle = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const newSelectAll: boolean = !selectAll;
+    if (!props.theme.subThemes) return;
 
-    // Call handleSubThemeItemToggle for each subTheme to reflect the change
-    if (props.theme.subThemes) {
-      props.theme.subThemes.forEach((sub) => {
-        handleSubThemeItemToggle(sub._uid, newSelectAll);
-      });
-    }
-    setSelectAll(!selectAll);
+    subThemeKeys.forEach((key) => {
+      props.setValue(key, !allSelected);
+    });
   };
 
   return (
@@ -117,7 +97,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
           {props.theme.subThemes && (
             <>
               <a href="#" onClick={handleSelectAllToggle}>
-                {selectAll
+                {allSelected
                   ? themeFilterStrings.selectNone
                   : themeFilterStrings.selectAll}
               </a>
@@ -126,8 +106,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
                   <SubThemeItem
                     subTheme={subTheme}
                     key={subTheme._uid}
-                    onToggle={handleSubThemeItemToggle}
-                    checked={!!checkedMap[subTheme._uid]}
+                    control={props.control}
                   />
                 ))}
               </ul>
@@ -143,31 +122,44 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
   const accordionId = uuidv4();
   const themeFilterStrings = strings.filterableResources.themeFilter;
 
-  const [filteredThemes, setFilteredThemes] = useState<Theme[]>([]);
+  // Build a flat list of all subTheme IDs for easier form registration
+  const allSubThemeIds =
+    props.themes?.flatMap(
+      (theme) => theme.subThemes?.map((subTheme) => subTheme._uid) ?? [],
+    ) ?? [];
 
-  // Initialize filteredThemes when themes change
-  useEffect(() => {
-    if (props.themes) {
-      // Set the themes but clear the subThemes as they should all be unselected initially
-      const initialFilteredThemes: Theme[] = props.themes.map((theme) => ({
+  const { control, watch, setValue } = useForm<{ [key: string]: boolean }>({
+    defaultValues: allSubThemeIds.reduce(
+      (acc, id) => {
+        acc[id] = false;
+        return acc;
+      },
+      {} as Record<string, boolean>,
+    ),
+  });
+
+  // Watch all checkbox values
+  const formValues = watch();
+
+  // Compute filteredThemes whenever formValues or props.themes change
+  const filteredThemes = useMemo(() => {
+    if (!props.themes) return [];
+
+    return props.themes.map((theme) => {
+      const selectedSubThemes = (theme.subThemes ?? []).filter((subTheme) => {
+        return formValues[subTheme._uid];
+      });
+      return {
         ...theme,
-        subThemes: [],
-      }));
-      setFilteredThemes(initialFilteredThemes);
-      console.log(initialFilteredThemes);
-    }
-  }, [props.themes]);
+        subThemes: selectedSubThemes,
+      };
+    });
+  }, [formValues, props.themes]);
 
-  // Callback for when item has been checked/unchecked to show filtered themes
-  const handleThemeOnChange = (filteredTheme: Theme) => {
-    setFilteredThemes((prevThemes) =>
-      prevThemes.map((theme) =>
-        theme._uid === filteredTheme._uid
-          ? { ...theme, subThemes: filteredTheme.subThemes }
-          : theme,
-      ),
-    );
-  };
+  // Callback to update filteredThemes
+  useEffect(() => {
+    props.onFilteredThemesChange?.(filteredThemes);
+  }, [filteredThemes]);
 
   return (
     <div className="w-100">
@@ -188,9 +180,10 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
               >
                 {props.themes.map((theme) => (
                   <ThemeItem
-                    theme={theme}
                     key={theme._uid}
-                    onChange={handleThemeOnChange}
+                    theme={theme}
+                    control={control}
+                    setValue={setValue}
                   />
                 ))}
               </div>
