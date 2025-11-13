@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ToolsCarousel } from "./ToolsCarousel";
-import toolsCarouselData from "./toolsCarousel.json?raw";
+import type { ToolsCarouselProps } from "./ToolsCarousel.interface";
+import toolsCarouselData from "./toolsCarousel.json";
 
 const meta = {
   argTypes: {
@@ -19,5 +20,5 @@ type Story = StoryObj<typeof meta>;
 
 export const ToolsCarouselStory = {
   name: "ToolsCarousel",
-  args: JSON.parse(toolsCarouselData),
+  args: { ...(toolsCarouselData as ToolsCarouselProps) },
 } satisfies Story;
