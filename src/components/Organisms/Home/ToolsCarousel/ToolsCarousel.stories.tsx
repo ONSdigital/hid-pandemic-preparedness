@@ -4,7 +4,12 @@ import { ToolsCarousel } from "./ToolsCarousel";
 import toolsCarouselData from "./toolsCarousel.json?raw";
 
 const meta = {
-  argTypes: {},
+  argTypes: {
+    _uid: { table: { disable: true } },
+    Carousel: { table: { disable: true } },
+    link: { table: { disable: true } },
+    _editable: { table: { disable: true } },
+  },
   component: ToolsCarousel,
   title: "Organisms/Home/ToolsCarousel",
 } satisfies Meta<typeof ToolsCarousel>;
