@@ -25,8 +25,8 @@ export const ToolsCarousel: FC<ToolsCarouselProps> = (props) => {
         <Link
           asButton={true}
           buttonVariant="secondary"
-          label={props.link[0].label}
           {...props.link[0].link}
+          label={props.link[0].label}
         />
       </div>
     </div>

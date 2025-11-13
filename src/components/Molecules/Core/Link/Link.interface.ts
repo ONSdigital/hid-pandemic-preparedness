@@ -1,6 +1,6 @@
-import type { StoryblokMultilink } from "@/src/types/storyblok";
+import type { Link } from "@localTypes/Link";
 
-export interface LinkProps extends StoryblokMultilink {
+export interface LinkProps extends Link {
   asButton?: boolean;
   buttonVariant?:
     | "primary"
