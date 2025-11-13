@@ -41,8 +41,8 @@ vi.mock("./Table.module.scss", () => {
       "scrollable-table": "scrollable-table",
       "table-wrapper": "table-wrapper",
       "table-container": "table-container",
-      "can-scroll-left": "can-scroll-left:",
-      "can-scroll-right": "can-scroll-right:",
+      "can-scroll-left": "can-scroll-left",
+      "can-scroll-right": "can-scroll-right",
     },
   };
 });
