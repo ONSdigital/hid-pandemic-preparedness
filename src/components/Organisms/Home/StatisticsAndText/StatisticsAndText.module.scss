@@ -17,4 +17,14 @@
 
 .statistics-and-text__subtitle {
   letter-spacing: 0.2em;
+
+  &::before {
+    display: inline-block;
+    content: "";
+    width: 72px;
+    border-bottom: 2px solid;
+    margin-right: 1em;
+    vertical-align: top;
+    margin-top: 0.8em;
+  }
 }

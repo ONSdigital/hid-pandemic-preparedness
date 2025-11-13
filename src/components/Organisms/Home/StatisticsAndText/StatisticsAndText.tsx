@@ -14,16 +14,16 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
       <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row")}>
           <div className={clsx("col-lg-5", "pb-5")}>
-            <h1
+            <p
               className={clsx(
                 "fw-bold",
                 "text-uppercase",
                 styles["statistics-and-text__subtitle"],
               )}
             >
-              {props.title}
-            </h1>
-            <h2 className={clsx("heading-l")}>{props.subTitle}</h2>
+              {props.subTitle}
+            </p>
+            <h2 className={clsx("heading-l")}>{props.title}</h2>
             <p className={clsx("fst-italic", "heading-s", "mt-4")}>
               '{props.quotation}'
             </p>
