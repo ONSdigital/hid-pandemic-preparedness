@@ -11,6 +11,7 @@ export const Table: FC<TableProps> = (props) => {
 
   const tableContent = props.table.content;
 
+  // exit early if no content has been added to rich text editor
   if (!tableContent) return;
 
   const updateShadows = () => {
