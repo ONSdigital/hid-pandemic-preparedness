@@ -1,6 +1,5 @@
 import type { FC } from "react";
 
-import { Carousel } from "@src/components/Organisms/Core/Carousel/Carousel";
 import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
@@ -8,6 +7,7 @@ import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageA
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
+import { ToolsCarousel } from "@src/components/Organisms/Home/ToolsCarousel/ToolsCarousel";
 import { QuickLinks } from "@/src/components/Organisms/Home/QuickLinks/QuickLinks";
 import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
 import { UnitOverview } from "@/src/components/Organisms/Unit/UnitOverview/UnitOverview";
@@ -16,7 +16,7 @@ import { Video } from "@/src/components/Organisms/Core/Video/Video";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =
-  | "Carousel"
+  | "ToolsCarousel"
   | "CaseStudies"
   | "FullWidthRichText"
   | "Header"
@@ -31,7 +31,6 @@ type ComponentName =
   | "Video";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
-  Carousel,
   CaseStudies,
   FullWidthRichText,
   Header,
@@ -39,6 +38,7 @@ const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Impact,
   StatisticsAndText,
   StrategicPartners,
+  ToolsCarousel,
   QuickLinks,
   UnitChapter,
   UnitOverview,
