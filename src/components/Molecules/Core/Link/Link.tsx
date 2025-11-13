@@ -11,7 +11,6 @@ import { sanitizeUrl } from "@src/helpers/sanitizeUrl";
 import type { LinkProps } from "./Link.interface";
 
 export const Link: FC<LinkProps> = (props) => {
-  console.log("props", props);
   let classes: string[] = [];
   let Icon = null;
   const url = props.linktype === "story" ? props.cached_url : props.url;
