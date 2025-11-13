@@ -8,7 +8,7 @@ const meta = {
   component: Table,
   title: "Organisms/Core/Table",
   parameters: {
-    layout: "centeredd",
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof Table>;
 
