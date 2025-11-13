@@ -38,17 +38,13 @@ export const Table: FC<TableProps> = (props) => {
   }, []);
 
   return (
-    <div className={clsx(styles["scrollable-table"])}>
-      <div
-        aria-hidden="true"
-        className={clsx(styles["table-shadow"], styles["left"])}
-        style={{ opacity: Number(showLeftShadow) }}
-      />
-      <div
-        aria-hidden="true"
-        className={clsx(styles["table-shadow"], styles["right"])}
-        style={{ opacity: Number(showRightShadow) }}
-      />
+    <div
+      className={clsx(
+        styles["scrollable-table"],
+        showLeftShadow && styles["can-scroll-left"],
+        showRightShadow && styles["can-scroll-right"],
+      )}
+    >
       <div className={clsx(styles["table-wrapper"])} ref={tableRef}>
         <div
           className={clsx(styles["table-container"])}

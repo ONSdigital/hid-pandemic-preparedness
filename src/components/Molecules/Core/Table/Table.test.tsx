@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { Table } from "./Table";
 import type { TableProps } from "./Table.interface";
@@ -39,11 +39,10 @@ vi.mock("./Table.module.scss", () => {
   return {
     default: {
       "scrollable-table": "scrollable-table",
-      "table-shadow": "table-shadow",
-      left: "left",
-      right: "right",
       "table-wrapper": "table-wrapper",
       "table-container": "table-container",
+      "can-scroll-left": "can-scroll-left:",
+      "can-scroll-right": "can-scroll-right:",
     },
   };
 });
@@ -76,41 +75,39 @@ describe("Table component", () => {
   it("shows shadows correctly", () => {
     renderTable();
 
+    const scrollableTable = document.querySelector(
+      ".scrollable-table",
+    ) as HTMLElement;
+
     const tableWrapper = document.querySelector(
       ".table-wrapper",
     ) as HTMLElement;
 
-    const leftShadow = document.querySelector(
-      ".table-shadow.left",
-    ) as HTMLElement;
-
-    const rightShadow = document.querySelector(
-      ".table-shadow.right",
-    ) as HTMLElement;
+    expect(scrollableTable).toHaveClass("scrollable-table");
 
     // Mock scroll positions
     Object.defineProperties(tableWrapper, {
-      scrollLeft: { writable: true, value: 0 },
-      scrollWidth: { writable: true, value: 1000 },
-      clientWidth: { writable: true, value: 500 },
+      scrollLeft: { writable: true, configurable: true, value: 0 },
+      scrollWidth: { writable: true, configurable: true, value: 1000 },
+      clientWidth: { writable: true, configurable: true, value: 500 },
     });
 
     // only shows right shadow when you can scroll to right
     fireEvent.scroll(tableWrapper);
-    expect(leftShadow).toHaveStyle("opacity: 0");
-    expect(rightShadow).toHaveStyle("opacity: 1");
+    expect(scrollableTable.className).not.toContain("can-scroll-left");
+    expect(scrollableTable.className).toContain("can-scroll-right");
 
     // shows both shadows when you can scroll in both directions
     tableWrapper.scrollLeft = 10;
     fireEvent.scroll(tableWrapper);
-    expect(leftShadow).toHaveStyle("opacity: 1");
-    expect(rightShadow).toHaveStyle("opacity: 1");
+    expect(scrollableTable.className).toContain("can-scroll-left");
+    expect(scrollableTable.className).toContain("can-scroll-right");
 
-    // only shows left shadow when you can scroll to right
+    // only shows right shadow when you can scroll to left
     tableWrapper.scrollLeft = 500;
     fireEvent.scroll(tableWrapper);
-    expect(leftShadow).toHaveStyle("opacity: 1");
-    expect(rightShadow).toHaveStyle("opacity: 0");
+    expect(scrollableTable.className).toContain("can-scroll-left");
+    expect(scrollableTable.className).not.toContain("can-scroll-right");
   });
 
   it("adds and removes event listeners on mount and unmount", () => {
