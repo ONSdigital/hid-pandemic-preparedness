@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ToolsCarousel } from "./ToolsCarousel";
-import type { ToolsCarouselProps } from "./ToolsCarousel.interface";
 import toolsCarouselData from "./toolsCarousel.json?raw";
 
 const meta = {
