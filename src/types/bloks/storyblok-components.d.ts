@@ -750,6 +750,15 @@ export interface StrategicPartners {
   [k: string]: unknown;
 }
 
+
+export interface Table {
+  table: StoryblokRichtext;
+  minWidth?: string;
+  component: "Table";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface Tag {
   title?: string;
   type?: "" | "primary" | "secondary" | "gray";
