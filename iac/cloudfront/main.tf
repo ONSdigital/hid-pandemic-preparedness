@@ -63,6 +63,7 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
       }
     }
 
+    # Sets cache time to be one year
     viewer_protocol_policy = "allow-all"
     min_ttl                = 31536000
     default_ttl            = 31536000
