@@ -4,7 +4,7 @@ import type { FC, MouseEvent } from "react";
 import { Controller, useForm, useWatch } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 
-import { IconAndTextLink } from "@src/components/IconAndTextLink/IconAndTextLink";
+import { IconAndTextLink } from "@src/components/Molecules/Core/IconAndTextLink/IconAndTextLink";
 
 import strings from "@src/content/strings.json";
 
@@ -175,12 +175,11 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
       <div className={clsx(styles["learning-module-nav__container"])}>
         <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
           <IconAndTextLink
-            href="/"
+            asset={props.file}
             icon="download"
             label={themeFilterStrings.downloadAll}
           />
           <IconAndTextLink
-            href="/"
             icon="restart"
             label={themeFilterStrings.resetFilters}
             onClick={(e) => {

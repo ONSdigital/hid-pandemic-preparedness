@@ -1,5 +1,6 @@
 import type { Control } from "react-hook-form";
 
+import type { StoryblokAsset } from "@src/types/storyblok";
 import type { SubTheme, Theme } from "@src/types/bloks/storyblok-components";
 
 export interface SubThemeItemProps {
@@ -9,6 +10,7 @@ export interface SubThemeItemProps {
 
 export interface ThemeFilterProps {
   themes?: Theme[];
+  file?: StoryblokAsset;
   onFilteredThemesChange?: (filteredThemes: Theme[]) => void; // eslint-disable-line no-unused-vars
 }
 
