@@ -153,11 +153,14 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   };
 
   useEffect(() => {
-    // This runs on mount
-    setIsClient(true); // Now we know we're in the browser
+    // this hook only runs in the browser
+    // so createPortal (below) can safely be called
+    setIsClient(true);
+  }, []);
 
+  useEffect(() => {
+    // re-run search when landing on results page
     if (props.isResultsPage) {
-      // Read URL from the window
       const urlParams = new URLSearchParams(window.location.search);
       const queryFromUrl = urlParams.get("params") || "";
 
