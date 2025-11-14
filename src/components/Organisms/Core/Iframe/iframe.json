@@ -1,0 +1,7 @@
+{
+  "title": "Example iframe",
+  "source": {
+    "url": "https://example.com"
+  },
+  "defaultHeight": 600
+}

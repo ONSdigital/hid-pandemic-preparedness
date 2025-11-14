@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  variables:
+    ASTRO_OUTPUT: "static"
+    ASTRO_PREVIEW: false
+    ASTRO_USE_LOCAL_DATA: false
+    PROD_BUCKET_NAME: "hid-ppt-app-prod"
+  secrets-manager:
+    STORYBLOK_ACCESS_TOKEN: "storyblok-access-token:STORYBLOK_ACCESS_TOKEN"
+
+phases:
+  install:
+    on-failure: RETRY
+    commands:
+      - echo Installing project dependencies
+      - npm ci
+      - npm run build-bootstrap-js
+
+  build:
+    on-failure: RETRY
+    commands:
+      - echo Building project
+      - npm run build
+
+  post_build:
+    on-failure: RETRY
+    commands:
+      - echo Deleting existing files in deployment bucket before deployment stage
+      - aws s3 rm s3://${PROD_BUCKET_NAME} --recursive
+
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "dist"

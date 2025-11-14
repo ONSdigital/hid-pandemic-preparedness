@@ -197,4 +197,30 @@ To run all the tests using vitest:
 
 ```bash
 npm run test
+```
 
+## Storyblok CLI
+
+The [Storyblok CLI](https://www.storyblok.com/docs/packages/storyblok-cli) is used to autogenerate interfaces for Storyblok CMS bloks that can be used when building corresponding components in source code, see the `src/types/storyblok.d.ts` and `src/types/bloks/storyblok-components.d.ts` files and CLI commmands in [package.json](package.json).
+
+To use the Storyblok CLI you will need a Storyblok account for the project space. To autogenerate the interfaces follow the instructions below:
+
+1. Open a terminal in the project root directory
+2. Find the [Storyblok project space id](https://www.storyblok.com/faq/where-can-i-find-my-space-id) and export it as an environment variable
+
+```bash
+export STORYBLOK_SPACE_ID=<space id>
+```
+3. Login to the Storyblok CLI using either your username and password or a [personal access token](https://www.storyblok.com/docs/concepts/access-tokens#personal-access-token) using npm
+
+```bash
+npm run sb:login
+```
+
+4. Generate the interfaces using npm
+
+```bash
+npm run generate-storyblok-types
+```
+
+This will update the `src/types/storyblok.d.ts` and `src/types/bloks/storyblok-components.d.ts` files based on the current blok configurations on Storyblok.

@@ -1,0 +1,98 @@
+{
+  "_uid": "f306f683-e39b-4f66-b9a1-e3b4d1440d70",
+  "link": [
+    {
+      "_uid": "811a35a8-e47f-48f3-8e84-6bcd0c9dd2e5",
+      "link": {
+        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "home"
+      },
+      "label": "View all tools",
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"811a35a8-e47f-48f3-8e84-6bcd0c9dd2e5\", \"id\": \"102414283876191\"}--\u003E"
+    }
+  ],
+  "title": "Tools to guide planning and response efforts",
+  "Carousel": [
+    {
+      "_uid": "261b72e0-c423-4f7b-b471-c4eb58d88eff",
+      "cards": [
+        {
+          "_uid": "611d9d6e-22b0-4d64-9922-46781ab8b23d",
+          "icon": "report",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Try now",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "title": "Rumour report",
+          "subTitle": "A rumour report logs unverified claims or info in circulation",
+          "component": "ToolCard",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"611d9d6e-22b0-4d64-9922-46781ab8b23d\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "700b047c-cef8-427a-8b3e-8ed97e0e982d",
+          "icon": "dashboard",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Try now",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "title": "Modelling dashboard",
+          "subTitle": "An infectious disease modelling dashboard.",
+          "component": "ToolCard",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"700b047c-cef8-427a-8b3e-8ed97e0e982d\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "da8f84b4-9de2-405f-b9ed-db92166571b2",
+          "icon": "questionbank",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Try now",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "title": "Question Bank",
+          "subTitle": "Curated library of ready-to-use, evidence-backed questions.",
+          "component": "ToolCard",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"da8f84b4-9de2-405f-b9ed-db92166571b2\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "2ac49b9b-5770-4ea3-b7a6-cb681062fa2d",
+          "icon": "calculator",
+          "link": {
+            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "rel": "",
+            "url": "",
+            "title": "Try now",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "title": "Sample Size Calculator",
+          "subTitle": "Estimates required sample size for a study or survey",
+          "component": "ToolCard",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"2ac49b9b-5770-4ea3-b7a6-cb681062fa2d\", \"id\": \"102414283876191\"}--\u003E"
+        }
+      ],
+      "component": "Carousel",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Carousel\", \"space\": \"287525897740819\", \"uid\": \"261b72e0-c423-4f7b-b471-c4eb58d88eff\", \"id\": \"102414283876191\"}--\u003E"
+    }
+  ],
+  "component": "ToolsCarousel",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolsCarousel\", \"space\": \"287525897740819\", \"uid\": \"f306f683-e39b-4f66-b9a1-e3b4d1440d70\", \"id\": \"102414283876191\"}--\u003E"
+}

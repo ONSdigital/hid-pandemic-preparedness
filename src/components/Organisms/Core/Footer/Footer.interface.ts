@@ -1,20 +1,10 @@
-import type { Link } from "@localTypes/Link";
+import type {
+  Footer,
+  FooterColumn,
+} from "@src/types/bloks/storyblok-components";
 
-export interface FooterProps {
-  columns: FooterColumn[];
-  className?: string;
-}
+export interface FooterProps extends Footer {}
 
-interface FooterColumn {
-  _uid: string;
-  title?: string;
-  links: FooterColumnLink[];
-}
-
-interface FooterColumnLink {
-  _uid: string;
-  link: Link;
-}
 export type FooterColumnTitleProps = Pick<FooterColumn, "title">;
 
 export type FooterColumnLinksProps = Pick<FooterColumn, "links">;

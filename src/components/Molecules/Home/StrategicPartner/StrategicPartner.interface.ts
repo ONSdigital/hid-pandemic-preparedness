@@ -1,8 +1,3 @@
-import type { Asset } from "@src/types/Asset";
-import type { Link } from "@src/types/Link";
+import type { StrategicPartner } from "@src/types/bloks/storyblok-components";
 
-export interface StrategicPartnerProps {
-  _uid: string;
-  link: Link;
-  logo: Asset;
-}
+export interface StrategicPartnerProps extends StrategicPartner {}

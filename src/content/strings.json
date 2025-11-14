@@ -43,5 +43,8 @@
   "search": {
     "viewAllResults": "View all results",
     "numSearchResults": "search results"
+  },
+  "video": {
+    "transcript": "Download transcript"
   }
 }

@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import type { FilterItem } from "../../types/FilterItem";
-import type { NavItem } from "../../types/NavItem";
+import type { LinkList } from "@localTypes/LinkList";
 
 export interface ListGroupChecksProps {
   title?: string;
@@ -10,9 +10,6 @@ export interface ListGroupChecksProps {
   selectedIds?: string[];
 }
 
-export interface ListGroupLinksProps {
-  title?: string;
-  href?: string;
-  children?: NavItem[];
+export interface ListGroupLinksProps extends LinkList {
   inverse?: boolean;
 }

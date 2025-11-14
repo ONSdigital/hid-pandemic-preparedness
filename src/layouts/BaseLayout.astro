@@ -1,13 +1,10 @@
 ---
-import { getLiveStory } from "@storyblok/astro";
-
 // Components
 import { Footer } from "@components/Organisms/Core/Footer/Footer";
-import { NavBar } from "@components/NavBar/NavBar";
+import { NavBar } from "@components/Organisms/Core/NavBar/NavBar";
 
 // Content
 import strings from "@content/strings.json";
-import navBarData from "@content/base/navBarData.json";
 
 // Css and fonts
 import "@styles/index.scss";
@@ -16,24 +13,29 @@ import "@fontsource-variable/open-sans";
 // Helpers
 import { fetchStory } from "@helpers/fetchContent";
 import type { FooterProps } from "@components/Organisms/Core/Footer/Footer.interface";
+import type { NavBarProps } from "@components/Organisms/Core/NavBar/NavBar.interface";
 
 interface Props {
   title?: string;
 }
 const { title } = Astro.props;
 
-let story = null;
+let footerContent = null;
+let navBarContent = null;
 
-const liveStory = await getLiveStory(Astro);
-
-if (liveStory) {
-  story = liveStory;
-} else {
-  const { data } = await fetchStory("footer");
-  story = data?.story;
+try {
+  const footerResponse = await fetchStory("footer");
+  footerContent = footerResponse.data?.story?.content as FooterProps;
+} catch (error) {
+  console.error("Failed to fetch Footer story:", error);
 }
 
-const footerContent = story.content as FooterProps;
+try {
+  const navBarResponse = await fetchStory("navbar");
+  navBarContent = navBarResponse.data?.story?.content as NavBarProps;
+} catch (error) {
+  console.error("Failed to fetch NavBar story:", error);
+}
 ---§  1q
 
 
@@ -51,11 +53,11 @@ const footerContent = story.content as FooterProps;
   </head>
   <body class="d-flex flex-column min-vh-100">
     <header>
-      <NavBar {...navBarData} client:load />
+      {navBarContent && <NavBar {...navBarContent} client:load />}
     </header>
     <main class="flex-grow-1">
       <slot />
     </main>
-    <Footer {...footerContent} client:load />
+    {footerContent && <Footer {...footerContent} client:load />}
   </body>
 </html>

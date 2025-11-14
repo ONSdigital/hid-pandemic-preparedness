@@ -1,43 +1,52 @@
 import type { FC } from "react";
 
-import { Carousel } from "@src/components/Organisms/Core/Carousel/Carousel";
 import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
+import { Iframe } from "@/src/components/Organisms/Core/Iframe/Iframe";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
+import { QuickLinks } from "@/src/components/Organisms/Home/QuickLinks/QuickLinks";
 import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
-import { QuickLinks } from "@/src/components/Organisms/Home/QuickLinks/QuickLinks";
+import { Table } from "@src/components/Molecules/Core/Table/Table";
+import { ToolsCarousel } from "@src/components/Organisms/Home/ToolsCarousel/ToolsCarousel";
 import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
 import { UnitOverview } from "@/src/components/Organisms/Unit/UnitOverview/UnitOverview";
+import { Video } from "@/src/components/Organisms/Core/Video/Video";
 
 // List of components that we have corresponding bloks for in Storyblok
 type ComponentName =
-  | "Carousel"
   | "CaseStudies"
   | "FullWidthRichText"
   | "Header"
+  | "Iframe"
   | "ImageAndText"
   | "Impact"
+  | "Table"
+  | "QuickLinks"
   | "StatisticsAndText"
   | "StrategicPartners"
-  | "QuickLinks"
+  | "ToolsCarousel"
   | "UnitChapter"
-  | "UnitOverview";
+  | "UnitOverview"
+  | "Video";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
-  Carousel,
   CaseStudies,
   FullWidthRichText,
   Header,
+  Iframe,
   ImageAndText,
   Impact,
   StatisticsAndText,
   StrategicPartners,
+  Table,
   QuickLinks,
+  ToolsCarousel,
   UnitChapter,
   UnitOverview,
+  Video,
 };
 
 interface DynamicComponentProps {

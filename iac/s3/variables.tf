@@ -16,3 +16,9 @@ variable "force_destroy" {
   default     = false
   type        = bool
 }
+
+variable "versioning_configuration_status" {
+  description = "Versioning state of the bucket. Valid values: Enabled, Suspended, or Disabled. Disabled should only be used when creating or importing resources that correspond to unversioned S3 buckets."
+  default     = "Disabled"
+  type        = string
+}
