@@ -44,6 +44,7 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
           <div className={clsx("col-md-3", "mb-3")}>
             <ThemeFilter
               themes={props.resources}
+              file={props.file}
               onFilteredThemesChange={handleFilteredThemesChange}
             />
           </div>

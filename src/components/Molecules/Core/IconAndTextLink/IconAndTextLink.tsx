@@ -27,11 +27,15 @@ const linkIconMap: Record<string, ReactNode> = {
 
 export const IconAndTextLink: FC<IconAndTextLinkProps> = (props) => {
   // Set a default to make href isn't empty
-  let linkUrl = "#";
+  let download: boolean = false;
+  let linkUrl: string = "#";
+  let target: string = "_self";
 
-  // If supplied with an asset, set the link href to be the filename
+  // If supplied with an asset, set the link href to be the filename and add download attribute
   if (props.asset?.filename) {
+    download = true;
     linkUrl = props.asset.filename;
+    target = "_blank";
   } else {
     // If supplied with a link, set the link href to be either `url` or `cached_url`
     if (props.link) {
@@ -39,6 +43,10 @@ export const IconAndTextLink: FC<IconAndTextLinkProps> = (props) => {
       linkUrl = sanitizeUrl(
         props.link.url ? props.link.url : props.link.cached_url,
       );
+      // Only update target if its valid
+      if (props.link.target) {
+        target = props.link.target;
+      }
     }
   }
 
@@ -48,8 +56,9 @@ export const IconAndTextLink: FC<IconAndTextLinkProps> = (props) => {
       <a
         className={clsx(styles["icon-and-text-link__label"])}
         href={linkUrl}
-        target={props.link && props.link.target}
+        target={target}
         aria-disabled={props.disabled}
+        download={download}
         onClick={props.onClick}
       >
         {props.label}

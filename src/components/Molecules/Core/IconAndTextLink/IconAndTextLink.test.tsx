@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import { v4 as uuidv4 } from "uuid";
 import "@testing-library/jest-dom";
 
 import type { StoryblokAsset, StoryblokMultilink } from "@src/types/storyblok";
@@ -20,7 +19,11 @@ describe("IconAndTextLink component", () => {
     const link = screen.getByRole("link");
     // Should set href to a default value if not provided by a link or asset
     expect(link).toHaveAttribute("href", "#");
+    // Should not have download attribute
+    expect(link).not.toHaveAttribute("download");
     expect(link).toHaveTextContent(label);
+    // Should set target to _self as default
+    expect(link).toHaveAttribute("target", "_self");
   });
 
   test("renders successfully if provided with asset", () => {
@@ -51,6 +54,10 @@ describe("IconAndTextLink component", () => {
     const link = screen.getByRole("link");
     // Should set href to asset filename
     expect(link).toHaveAttribute("href", asset.filename);
+    // Should have download attribute
+    expect(link).toHaveAttribute("download");
+    // Should set target to _blank to open download in new tab
+    expect(link).toHaveAttribute("target", "_blank");
   });
 
   test("renders successfully if provided with link", () => {
@@ -67,5 +74,26 @@ describe("IconAndTextLink component", () => {
     const link = screen.getByRole("link");
     // Should set href to santized url
     expect(link).toHaveAttribute("href", `/${linkProp.cached_url}/`);
+    // Should not have download attribute
+    expect(link).not.toHaveAttribute("download");
+    // Should set target to _self as default
+    expect(link).toHaveAttribute("target", "_self");
+  });
+
+  test("renders successfully if provided with link and link target", () => {
+    const linkProp: StoryblokMultilink = {
+      id: "843daaab-ad93-455c-a8b9-97fe96bcb309",
+      rel: "",
+      url: "",
+      title: "About the platform",
+      linktype: "story",
+      fieldtype: "multilink",
+      cached_url: "about",
+      target: "_blank",
+    };
+    render(<IconAndTextLink {...baseProps} link={linkProp} />);
+    const link = screen.getByRole("link");
+    // Should set target to value provided
+    expect(link).toHaveAttribute("target", linkProp.target);
   });
 });
