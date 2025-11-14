@@ -23,7 +23,7 @@ export const ImageAndText: FC<ImageAndTextProps> = (props) => {
           >
             <Image className={styles["image-styles"]} {...props.image} />
           </div>
-          <div className={clsx("col-lg-7", "py-4")}>
+          <div className={clsx("col-lg-7", "py-5")}>
             <h3 className={clsx("heading-m", "py-2")}>{props.title}</h3>
             <p className={clsx("py-2", "fs-5")}>{props.subTitle}</p>
             <Link asButton={true} buttonVariant="secondary" {...props.link} />

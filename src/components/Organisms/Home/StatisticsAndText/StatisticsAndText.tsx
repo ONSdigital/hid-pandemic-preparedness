@@ -10,20 +10,20 @@ import styles from "./StatisticsAndText.module.scss";
 
 export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
   return (
-    <div className={clsx("w-100", styles["statistics-and-text-bg"])}>
-      <div className={clsx("container-lg", "py-4")}>
+    <div className={clsx("w-100", "py-lg-2", styles["statistics-and-text-bg"])}>
+      <div className={clsx("container-lg", "py-5")}>
         <div className={clsx("row")}>
-          <div className={clsx("col-lg-5", "pb-5")}>
-            <h1
+          <div className={clsx("col-xxl-5", "pb-5")}>
+            <p
               className={clsx(
                 "fw-bold",
                 "text-uppercase",
                 styles["statistics-and-text__subtitle"],
               )}
             >
-              {props.title}
-            </h1>
-            <h2 className={clsx("heading-l")}>{props.subTitle}</h2>
+              {props.subTitle}
+            </p>
+            <h2 className={clsx("heading-l")}>{props.title}</h2>
             <p className={clsx("fst-italic", "heading-s", "mt-4")}>
               '{props.quotation}'
             </p>
@@ -38,17 +38,10 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
               {...props.link}
             />
           </div>
-          <div className={clsx("col-lg-7")}>
-            <div className={clsx("row", "g-5", "justify-content-center")}>
+          <div className={clsx("col-xxl-7", "col-xl-10")}>
+            <div className={clsx("row", "g-5")}>
               {props.cards.map((card) => (
-                <div
-                  key={card._uid}
-                  className={clsx(
-                    "col-auto",
-                    "d-flex",
-                    "justify-content-center",
-                  )}
-                >
+                <div key={card._uid} className={clsx("col-md-6", "d-flex")}>
                   <StatisticsCard {...card} />
                 </div>
               ))}

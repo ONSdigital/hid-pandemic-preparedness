@@ -12,23 +12,23 @@ export const CaseStudies: FC<CaseStudiesProps> = (props) => {
     <div className={clsx("w-100", styles["case-studies-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row", "py-2")}>
-          <div className={clsx("col-md-4")}>
+          <div className={clsx("col-lg-5")}>
             <h4 className={clsx("heading-l")}>{props.title}</h4>
           </div>
         </div>
         <div className={clsx("row", "py-4")}>
-          <div className={clsx("col-md-4", "pb-4")}>
+          <div className={clsx("col-lg-5", "pb-4")}>
             {/* Mapping here as storyblok sends this data through as arrary even if we specify a single blok */}
             {props.mainCard.map((card) => (
               <CaseStudyCard key={card._uid} {...card} size="large" />
             ))}
           </div>
-          <div className={clsx("col-md-8")}>
+          <div className={clsx("col-lg-7")}>
             <div
               className={clsx(
                 "d-flex",
                 "flex-column",
-                "align-items-end",
+                "align-items-lg-end",
                 "gap-4",
               )}
             >
