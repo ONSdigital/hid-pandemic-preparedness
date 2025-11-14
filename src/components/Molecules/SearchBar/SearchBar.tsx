@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import clsx from "clsx";
 import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { createPortal } from "react-dom";
@@ -10,7 +9,6 @@ import type {
   SearchBarProps,
 } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
-import type { SearchResultItemProps } from "@components/Molecules/SearchResults/SearchResults.interface";
 import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
 import breakpoints from "@src/styles/global/overrides/_breakpoints.module.scss";
 import strings from "@src/content/strings.json";
@@ -19,6 +17,7 @@ import type { SearchResultData } from "@src/types/Search.ts";
 
 type PagefindModule = {
   init: () => Promise<void>;
+  /* eslint-disable no-unused-vars */ // avoids unused var 'term' in debouncedSearch function 
   debouncedSearch: (term: string) => Promise<{
     results: {
       data: () => Promise<PagefindResultsData>;
