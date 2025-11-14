@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useEffect, useMemo } from "react";
-import type { FC } from "react";
+import type { FC, MouseEvent } from "react";
 import { Controller, useForm, useWatch } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 
@@ -66,7 +66,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
     return values.every(Boolean);
   }, [values]);
 
-  const handleSelectAllToggle = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleSelectAllToggle = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (!props.theme.subThemes) return;
 
@@ -158,8 +158,10 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
 
   // Callback to update filteredThemes
   useEffect(() => {
-    props.onFilteredThemesChange?.(filteredThemes);
-  }, [filteredThemes]);
+    if (props.onFilteredThemesChange) {
+      props.onFilteredThemesChange(filteredThemes);
+    }
+  }, [filteredThemes, props.onFilteredThemesChange]);
 
   return (
     <div className="w-100">

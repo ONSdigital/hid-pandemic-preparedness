@@ -9,11 +9,11 @@ export interface SubThemeItemProps {
 
 export interface ThemeFilterProps {
   themes?: Theme[];
-  onFilteredThemesChange?: (filteredThemes: Theme[]) => void;
+  onFilteredThemesChange?: (filteredThemes: Theme[]) => void; // eslint-disable-line no-unused-vars
 }
 
 export interface ThemeItemProps {
   theme: Theme;
   control: Control<any>;
-  setValue: (name: string, value: boolean) => void;
+  setValue: (name: string, value: boolean) => void; // eslint-disable-line no-unused-vars
 }
