@@ -35,7 +35,9 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
       />
       {props.tag?.length ? (
         <div className="flex-start">
-          <Tag {...props.tag} />
+          {props.tag.map((tag) => (
+            <Tag key={tag.id} {...tag} />
+          ))}
         </div>
       ) : (
         <></>
