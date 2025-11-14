@@ -15,7 +15,8 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
         "d-flex",
         "flex-column",
         "gap-1",
-        "pb-1", "pb-md-4",
+        "pb-1",
+        "pb-md-4",
         !props.isLast && "border-bottom",
       )}
     >
@@ -53,11 +54,14 @@ export const SearchResults: FC<SearchResultsProps> = (props) => {
     : props.searchResults;
 
   return (
-   <div className={clsx("w-100", styles["search-results-bg"])}>
+    <div className={clsx("w-100", styles["search-results-bg"])}>
       <p className={clsx("fw-bold", styles["search-results-count"])}>
-        Showing {resultsToDisplay.length} of {props.searchResults.length} {numSearchResults}
+        Showing {resultsToDisplay.length} of {props.searchResults.length}{" "}
+        {numSearchResults}
       </p>
-      <div className={clsx("d-flex", "flex-column", "gap-2", "gap-md-4", "px-4")}>
+      <div
+        className={clsx("d-flex", "flex-column", "gap-2", "gap-md-4", "px-4")}
+      >
         {resultsToDisplay.map((searchResult, index) => (
           <SearchResultItem
             key={index}
