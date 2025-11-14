@@ -41,6 +41,7 @@ module "storybook_dev_cloudfront" {
   distribution_enabled        = true
   distribution_name           = "Dev storybook"
   default_root_object         = "index.html"
+  long_cache_path_pattern     = "assets/*"
 }
 
 # Create bucket for storybook main
@@ -60,6 +61,7 @@ module "storybook_main_cloudfront" {
   distribution_enabled        = true
   distribution_name           = "Main storybook"
   default_root_object         = "index.html"
+  long_cache_path_pattern     = "assets/*"
 }
 
 # Create bucket for app dev
@@ -84,6 +86,7 @@ module "app_dev_cloudfront" {
       function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
     }
   ]
+  long_cache_path_pattern = "_astro/*"
 }
 
 # Create bucket for app main
@@ -107,11 +110,12 @@ module "app_main_cloudfront" {
     event_type   = "viewer-request"
     function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
   }]
-  price_class = "PriceClass_All"
   geo_restriction = [{
     restriction_type = "none"
     locations        = []
   }]
+  long_cache_path_pattern = "_astro/*"
+  price_class             = "PriceClass_All"
 }
 
 # Create an s3 bucket for Storyblok preview SSR assets
@@ -130,6 +134,7 @@ module "app_preview_cloudfront" {
   distribution_enabled        = true
   distribution_name           = "Preview assets"
   default_root_object         = "index.html"
+  long_cache_path_pattern     = "_astro/*"
 }
 
 # Create an s3 bucket to contain app source files for CodePipeline build
@@ -162,11 +167,12 @@ module "app_prod_cloudfront" {
     event_type   = "viewer-request"
     function_arn = aws_cloudfront_function.aws_cloudfront_function.arn
   }]
-  price_class = "PriceClass_All"
   geo_restriction = [{
     restriction_type = "none"
     locations        = []
   }]
+  long_cache_path_pattern = "_astro/*"
+  price_class             = "PriceClass_All"
 }
 
 # IAM role for Lambda execution

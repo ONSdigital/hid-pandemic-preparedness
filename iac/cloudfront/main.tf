@@ -48,6 +48,28 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
     }
   }
 
+  # Set long cache time for files that have content hashed filename
+  ordered_cache_behavior {
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods   = ["GET", "HEAD"]
+    path_pattern     = var.long_cache_path_pattern
+    target_origin_id = local.s3_origin_id
+
+    forwarded_values {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
+
+    # Sets cache time to be one year
+    viewer_protocol_policy = "allow-all"
+    min_ttl                = 31536000
+    default_ttl            = 31536000
+    max_ttl                = 31536000
+  }
+
   price_class = var.price_class
 
   restrictions {
