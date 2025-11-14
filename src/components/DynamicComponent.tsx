@@ -9,6 +9,7 @@ import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { QuickLinks } from "@/src/components/Organisms/Home/QuickLinks/QuickLinks";
 import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
+import { Table } from "@src/components/Molecules/Core/Table/Table";
 import { ToolsCarousel } from "@src/components/Organisms/Home/ToolsCarousel/ToolsCarousel";
 import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
 import { UnitOverview } from "@/src/components/Organisms/Unit/UnitOverview/UnitOverview";
@@ -22,6 +23,7 @@ type ComponentName =
   | "Iframe"
   | "ImageAndText"
   | "Impact"
+  | "Table"
   | "QuickLinks"
   | "StatisticsAndText"
   | "StrategicPartners"
@@ -37,9 +39,10 @@ const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Iframe,
   ImageAndText,
   Impact,
-  QuickLinks,
   StatisticsAndText,
   StrategicPartners,
+  Table,
+  QuickLinks,
   ToolsCarousel,
   UnitChapter,
   UnitOverview,
