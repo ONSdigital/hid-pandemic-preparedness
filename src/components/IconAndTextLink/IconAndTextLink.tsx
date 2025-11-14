@@ -12,7 +12,7 @@ import {
 import { sanitizeUrl } from "@src/helpers/sanitizeUrl";
 
 import styles from "./IconAndTextLink.module.scss";
-import type { IconAndTextLinkInterface } from "./IconAndTextLink.interface";
+import type { IconAndTextLinkProps } from "./IconAndTextLink.interface";
 
 // Set size of icon here using icon component props
 const ICON_SIZE: string = "1.5rem";
@@ -25,17 +25,30 @@ const linkIconMap: Record<string, ReactNode> = {
   share: <RiShareBoxLine size={ICON_SIZE} />,
 };
 
-export const IconAndTextLink: FC<IconAndTextLinkInterface> = (props) => {
-  // Sanitize the url first just to make sure its in the correct format
-  const sanitizedUrl = sanitizeUrl(props.href);
+export const IconAndTextLink: FC<IconAndTextLinkProps> = (props) => {
+  // Set a default to make href isn't empty
+  let linkUrl = "#";
+
+  // If supplied with an asset, set the link href to be the filename
+  if (props.asset?.filename) {
+    linkUrl = props.asset.filename;
+  } else {
+    // If supplied with a link, set the link href to be either `url` or `cached_url`
+    if (props.link) {
+      // Try to sanitize
+      linkUrl = sanitizeUrl(
+        props.link.url ? props.link.url : props.link.cached_url,
+      );
+    }
+  }
 
   return (
     <div className={clsx("d-flex", "align-items-center", "gap-2")}>
       {linkIconMap[props.icon]}
       <a
         className={clsx(styles["icon-and-text-link__label"])}
-        href={sanitizedUrl}
-        target={props.target}
+        href={linkUrl}
+        target={props.link && props.link.target}
         aria-disabled={props.disabled}
         onClick={props.onClick}
       >
