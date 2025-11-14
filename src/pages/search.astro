@@ -2,18 +2,27 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Header } from "@/src/components/Organisms/Core/Header/Header";
-import headerData from "@content/search-results/header.json";
+import staticHeaderData from "@content/search-results/header.json";
 import SearchInput from "@components/Organisms/Core/Search/SearchInput.astro";
 import SearchResults from "@components/Organisms/Core/Search/SearchResults.astro";
+import strings from "@src/content/strings.json";
+import type { HeaderProps } from "@/src/components/Organisms/Core/Header/Header.interface";
 
-const urlParams = Astro.url.searchParams;
-const initialQuery = urlParams.get("params") || ""; // TODO: fix this, or remove it
-const pageTitle = initialQuery
-  ? `Search Results for "${initialQuery}"`
-  : "Site Search";
+const headerData: HeaderProps = {
+  title: staticHeaderData.title,
+  breadcrumbs: {
+    items: staticHeaderData.breadcrumbs.items.map((item) => ({
+      ...item,
+      // search result page uses static data, default values supplied to match storyblok type
+      fieldtype: "default",
+      linktype: "default",
+      cached_url: item.url,
+    })),
+  },
+};
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={strings.search.pageTitle}>
   <main>
     <Header {...headerData} />
 
