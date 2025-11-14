@@ -5,14 +5,61 @@
 @import "../../../../styles/bootstrap-5.3.8/scss/mixins";
 @import "../../../../styles/bootstrap-5.3.8/scss/variables";
 
-.navbar-bg {
-  background-color: $color-brand-primary-500;
-  color: $color-text-inverse;
-  overflow: visible !important;
+.navbar-accordion-heading {
+  background-color: transparent;
+
+  &.collapsed {
+    box-shadow: none !important;
+  }
+
+  &:not(.collapsed) {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  &::after {
+    filter: invert(1);
+  }
 }
 
+.navbar-bg {
+  background-color: $color-brand-primary-500;
+  position: relative;
+  color: $color-text-inverse;
+  overflow: visible !important;
+  z-index: 3;
+}
+
+.navbar-button {
+  background: none;
+  border: none; // To ensure correct specificity, this must be defined before any other border styles
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+$navbar-height: 4rem;
+$border-bottom-width: 4px;
+
 .navbar-height {
-  height: 4rem;
+  height: $navbar-height;
+}
+
+.nav-item {
+  border-bottom: $border-bottom-width solid transparent; //Avoid layout shift when border appears
+  box-sizing: border-box;
+  height: $navbar-height;
+
+  &:hover {
+    border-bottom: $border-bottom-width solid $color-brand-secondary-500;
+  }
+}
+
+// Active styling is applied conditionally, so is defined seperately
+.nav-item-active {
+  border-bottom: $border-bottom-width solid $color-brand-secondary-500;
 }
 
 .navbar-logo {
@@ -22,29 +69,28 @@
   }
 }
 
-.navbar-icon-button {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  margin: 0;
-  padding: 0;
+.navbar-icon {
+  pointer-events: none;
 }
 
-.overlayed-menu {
-  z-index: 2; //Raise the megamenu above content underneath
+.overlayed-desktop-menu {
   position: absolute;
+  z-index: 2;
 }
 
 .overlayed-mobile-menu {
-  z-index: 2;
-  position: absolute;
-  left: 0;
   background: $gradient-brand-primary-1;
+  left: 0;
+  position: absolute;
+  z-index: 2;
 }
 
-.navbar-logo-link {
-  text-decoration: none;
-  cursor: pointer;
+.screen-dimmer {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
 }
