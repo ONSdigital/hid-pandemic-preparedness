@@ -4,14 +4,11 @@
     "items": [
       {
         "url": "/",
-        "title": "Home",
-        "id": "0c6dd168-38da-4a09-b62c-971490cb80b4"
+        "title": "Home"
       },
       {
         "url": "/search-results",
-        "title": "Search Results",
-        "id": ""
-      }
+        "title": "Search Results"      }
     ]
   }
 }
