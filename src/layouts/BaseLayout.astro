@@ -34,7 +34,8 @@ if (liveStory) {
 }
 
 const footerContent = story.content as FooterProps;
----
+---§  1q
+
 
 <html lang="en">
   <head>
@@ -48,11 +49,13 @@ const footerContent = story.content as FooterProps;
       is:inline></script>
     <title>{title ? `${strings.title} | ${title}` : strings.title}</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <header>
       <NavBar {...navBarData} client:load />
     </header>
-    <slot />
+    <main class="flex-grow-1">
+      <slot />
+    </main>
     <Footer {...footerContent} client:load />
   </body>
 </html>
