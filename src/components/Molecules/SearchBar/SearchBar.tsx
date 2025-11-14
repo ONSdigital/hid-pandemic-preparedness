@@ -17,7 +17,7 @@ import type { SearchResultData } from "@src/types/Search.ts";
 
 type PagefindModule = {
   init: () => Promise<void>;
-  /* eslint-disable no-unused-vars */ // avoids unused var 'term' in debouncedSearch function 
+  /* eslint-disable no-unused-vars */ // avoids unused var 'term' in debouncedSearch function
   debouncedSearch: (term: string) => Promise<{
     results: {
       data: () => Promise<PagefindResultsData>;
