@@ -40,6 +40,11 @@
       "openGithub": "Open GITHUB"
     }
   },
+  "search": {
+    "viewAllResults": "View all results",
+    "numSearchResults": "search results",
+    "pageTitle": "Site search"
+  },
   "video": {
     "transcript": "Download transcript"
   }

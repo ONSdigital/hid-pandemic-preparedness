@@ -55,6 +55,11 @@ export default defineConfig({
     build: {
       cssCodeSplit: false,
       cssTarget: "es2015",
+      rollupOptions: {
+        // tells astro not to compile this file in the build;
+        // it is created AFTER the build, when astro-pagefind executes
+        external: ["/pagefind/pagefind.js"],
+      },
     },
     css: {
       preprocessorOptions: {

@@ -34,13 +34,20 @@ const FooterColumnTitleBlock: FC<FooterColumnTitleProps> = (props) => {
 };
 
 export const Footer: FC<FooterProps> = (props) => {
+  const { className, ...restOfProps } = props;
   const accordionId: string = "footerAccordion";
-  const firstColumns = props.columns.slice(0, 4);
-  const lastColumn = props.columns[props.columns.length - 1];
+  const firstColumns = restOfProps.columns.slice(0, 4);
+  const lastColumn = restOfProps.columns[restOfProps.columns.length - 1];
 
   return (
     <footer
-      className={clsx("w-100", styles["footer-bg"], "text-light", "py-4")}
+      className={clsx(
+        "w-100",
+        styles["footer-bg"],
+        "text-light",
+        "py-4",
+        className,
+      )}
     >
       <div className={clsx("container-lg")}>
         {/* Desktop columns */}

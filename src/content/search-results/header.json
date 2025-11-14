@@ -1,0 +1,15 @@
+{
+  "title": "Search Results",
+  "breadcrumbs": {
+    "items": [
+      {
+        "url": "/",
+        "title": "Home"
+      },
+      {
+        "url": "/search",
+        "title": "Search Results"
+      }
+    ]
+  }
+}
