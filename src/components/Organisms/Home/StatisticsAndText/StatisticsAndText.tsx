@@ -10,10 +10,10 @@ import styles from "./StatisticsAndText.module.scss";
 
 export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
   return (
-    <div className={clsx("w-100", styles["statistics-and-text-bg"])}>
-      <div className={clsx("container-lg", "py-4")}>
+    <div className={clsx("w-100", "py-lg-2", styles["statistics-and-text-bg"])}>
+      <div className={clsx("container-lg", "py-5")}>
         <div className={clsx("row")}>
-          <div className={clsx("col-lg-5", "pb-5")}>
+          <div className={clsx("col-xxl-5", "pb-5")}>
             <p
               className={clsx(
                 "fw-bold",
@@ -38,13 +38,14 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
               {...props.link}
             />
           </div>
-          <div className={clsx("col-lg-7")}>
-            <div className={clsx("row", "g-5", "justify-content-center")}>
+          <div className={clsx("col-xxl-7", "col-xl-10")}>
+            <div className={clsx("row", "g-5")}>
               {props.cards.map((card) => (
                 <div
                   key={card._uid}
                   className={clsx(
-                    "col-auto",
+                    "col-md-6",
+                    "col-sm-8",
                     "d-flex",
                     "justify-content-center",
                   )}

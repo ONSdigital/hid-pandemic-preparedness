@@ -15,12 +15,7 @@
   background-position: center;
   background-repeat: repeat;
   background-size: 10px 10px;
-  max-width: 18rem;
   width: 100%;
-
-  @include media-breakpoint-up(md) {
-    max-width: 20.25rem;
-  }
 }
 
 .card-stat-ref-link {
