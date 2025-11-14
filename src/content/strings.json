@@ -45,7 +45,9 @@
       "themeNavigation": "Theme navigation"
     },
     "themeFilter": {
+      "downloadAll": "Download all",
       "themes": "Themes",
+      "resetFilters": "Reset filters",
       "selectAll": "Select all",
       "selectNone": "Select none"
     }

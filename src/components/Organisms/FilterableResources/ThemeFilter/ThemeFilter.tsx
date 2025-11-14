@@ -163,12 +163,27 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
     }
   }, [filteredThemes, props.onFilteredThemesChange]);
 
+  // Reset all filters
+  const resetAllFilters = () => {
+    allSubThemeIds.forEach((id) => {
+      setValue(id, false);
+    });
+  };
+
   return (
     <div className="w-100">
       <div className={clsx(styles["learning-module-nav__container"])}>
         <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
-          <IconAndTextLink href="/" icon="pdf" label="Download all questions" />
-          <IconAndTextLink href="/" icon="feedback" label="Reset filters" />
+          <IconAndTextLink
+            href="/"
+            icon="download"
+            label={themeFilterStrings.downloadAll}
+          />
+          <IconAndTextLink
+            href="/"
+            icon="restart"
+            label={themeFilterStrings.resetFilters}
+          />
         </div>
         <div className={clsx("d-flex", "flex-column")}>
           {props.themes && (

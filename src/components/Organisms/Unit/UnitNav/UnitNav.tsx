@@ -55,7 +55,7 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
           )}
           <IconAndTextLink
             href="/"
-            icon="pdf"
+            icon="download"
             label={unitNavStrings.downloadPdf}
           />
           <IconAndTextLink

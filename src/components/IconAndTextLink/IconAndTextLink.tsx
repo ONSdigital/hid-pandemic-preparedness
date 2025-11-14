@@ -5,6 +5,7 @@ import {
   RiDownload2Line,
   RiGithubLine,
   RiLightbulbLine,
+  RiRestartLine,
   RiShareBoxLine,
 } from "@remixicon/react";
 
@@ -13,13 +14,15 @@ import { sanitizeUrl } from "@src/helpers/sanitizeUrl";
 import styles from "./IconAndTextLink.module.scss";
 import type { IconAndTextLinkInterface } from "./IconAndTextLink.interface";
 
+// Set size of icon here using icon component props
+const ICON_SIZE: string = "1.5rem";
+
 const linkIconMap: Record<string, ReactNode> = {
-  github: <RiGithubLine className={styles["icon-and-text-link__icon-size"]} />,
-  pdf: <RiDownload2Line className={styles["icon-and-text-link__icon-size"]} />,
-  feedback: (
-    <RiLightbulbLine className={styles["icon-and-text-link__icon-size"]} />
-  ),
-  share: <RiShareBoxLine className={styles["icon-and-text-link__icon-size"]} />,
+  github: <RiGithubLine size={ICON_SIZE} />,
+  download: <RiDownload2Line size={ICON_SIZE} />,
+  feedback: <RiLightbulbLine size={ICON_SIZE} />,
+  restart: <RiRestartLine size={ICON_SIZE} />,
+  share: <RiShareBoxLine size={ICON_SIZE} />,
 };
 
 export const IconAndTextLink: FC<IconAndTextLinkInterface> = (props) => {
