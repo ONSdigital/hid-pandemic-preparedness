@@ -41,15 +41,7 @@ export const StatisticsAndText: FC<StatisticsAndTextProps> = (props) => {
           <div className={clsx("col-xxl-7", "col-xl-10")}>
             <div className={clsx("row", "g-5")}>
               {props.cards.map((card) => (
-                <div
-                  key={card._uid}
-                  className={clsx(
-                    "col-md-6",
-                    "col-sm-8",
-                    "d-flex",
-                    "justify-content-center",
-                  )}
-                >
+                <div key={card._uid} className={clsx("col-md-6", "d-flex")}>
                   <StatisticsCard {...card} />
                 </div>
               ))}
