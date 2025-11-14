@@ -1,8 +1,10 @@
-@import "../../../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+@use "@src/styles/global/tokens" as *;
+@import "@src/styles/bootstrap-5.3.8/scss/functions";
+@import "@src/styles/bootstrap-5.3.8/scss/mixins";
+@import "@src/styles/bootstrap-5.3.8/scss/variables";
 
 .tools-carousel {
+  background-color: $color-grey-100;
   padding: 2.5rem 0;
 
   @include media-breakpoint-up(lg) {

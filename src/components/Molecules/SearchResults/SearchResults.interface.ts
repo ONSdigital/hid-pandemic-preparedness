@@ -1,14 +1,12 @@
-import type { LinkData } from "@localTypes/LinkData";
-import type { Tag } from "@src/types/Tag";
+import type { SearchResultData } from "@src/types/Search.ts";
 
-export interface SearchResultItemProps {
-  link: LinkData;
-  excerpt: string;
-  tag?: Tag[];
+export interface SearchResultItemProps extends SearchResultData {
   isLast: boolean;
+  isMobile: boolean;
 }
 
 export interface SearchResultsProps {
-  searchResults: SearchResultItemProps[];
+  searchResults: SearchResultData[];
   isMobile: boolean;
+  limit?: number;
 }

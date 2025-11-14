@@ -1,6 +1,5 @@
 import type { FC } from "react";
 import clsx from "clsx";
-
 import styles from "./SearchResults.module.scss";
 import type {
   SearchResultItemProps,
@@ -16,7 +15,7 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
         "d-flex",
         "flex-column",
         "gap-1",
-        "pb-4",
+        "pb-1", "pb-md-4",
         !props.isLast && "border-bottom",
       )}
     >
@@ -29,6 +28,7 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
         {props.link.label}
       </a>
       <p
+        className={clsx(props.isMobile && styles["truncate-excerpt"])}
         // subresults.excerpt is sanitised by Pagefind, ensuring it is safe to use
         dangerouslySetInnerHTML={{ __html: props.excerpt }}
       />
@@ -47,17 +47,23 @@ export const SearchResults: FC<SearchResultsProps> = (props) => {
   const {
     search: { numSearchResults },
   } = strings;
+
+  const resultsToDisplay = props.limit
+    ? props.searchResults.slice(0, props.limit)
+    : props.searchResults;
+
   return (
-    <div className={clsx("w-100", styles["search-results-bg"])}>
+   <div className={clsx("w-100", styles["search-results-bg"])}>
       <p className={clsx("fw-bold", styles["search-results-count"])}>
-        {props.searchResults.length} {numSearchResults}
+        Showing {resultsToDisplay.length} of {props.searchResults.length} {numSearchResults}
       </p>
-      <div className={clsx("d-flex", "flex-column", "gap-4", "px-4")}>
-        {props.searchResults.map((searchResult, index) => (
+      <div className={clsx("d-flex", "flex-column", "gap-2", "gap-md-4", "px-4")}>
+        {resultsToDisplay.map((searchResult, index) => (
           <SearchResultItem
             key={index}
             {...searchResult}
-            isLast={index === props.searchResults.length - 1}
+            isLast={index === resultsToDisplay.length - 1}
+            isMobile={props.isMobile}
           />
         ))}
       </div>

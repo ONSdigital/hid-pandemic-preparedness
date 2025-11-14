@@ -16,3 +16,10 @@
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
+
+.truncate-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

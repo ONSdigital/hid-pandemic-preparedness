@@ -15,7 +15,7 @@ import { SearchResults } from "@components/Molecules/SearchResults/SearchResults
 import breakpoints from "@src/styles/global/overrides/_breakpoints.module.scss";
 import strings from "@src/content/strings.json";
 import { Button } from "../../Button/Button";
-import { Link } from "../../Link/Link";
+import type { SearchResultData } from "@src/types/Search.ts";
 
 type PagefindModule = {
   init: () => Promise<void>;
@@ -52,7 +52,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   } = strings;
   const [searchInput, setSearchInput] = useState(props.initialQuery || "");
   const [isFocused, setIsFocused] = useState(false);
-  const [allResults, setAllResults] = useState<SearchResultItemProps[]>([]);
+  const [allResults, setAllResults] = useState<SearchResultData[]>([]);
   const [isClient, setIsClient] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
   const pagefind = useRef<PagefindModule | null>(null);
@@ -108,21 +108,20 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         search.results.map((r: any) => r.data()),
       );
 
-      const finalResults: SearchResultItemProps[] = loadedResults.flatMap(
+      const finalResults: SearchResultData[] = loadedResults.flatMap(
         (pagefindResults: PagefindResultsData) => {
           const tagObject = pagefindResults.meta?.tag
             ? { ...pagefindResults.meta.tag }
             : undefined;
 
           return pagefindResults.sub_results.map(
-            (subResult: PagefindSubResult, index: number, subResults) => {
-              const resultItem: SearchResultItemProps = {
+            (subResult: PagefindSubResult) => {
+              const resultItem: SearchResultData = {
                 link: {
                   href: subResult.url,
                   label: subResult.title,
                 },
                 excerpt: subResult.excerpt,
-                isLast: index === subResults.length - 1,
               };
 
               if (tagObject) {
@@ -197,7 +196,11 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         />
         {showDropdown && (
           <div className={clsx("mt-2", "w-100", styles["search-results"])}>
-            <SearchResults searchResults={allResults} isMobile={isMobile} />
+            <SearchResults
+              searchResults={allResults}
+              isMobile={isMobile}
+              limit={5}
+            />
             <div
               className={clsx(
                 "p-3",
