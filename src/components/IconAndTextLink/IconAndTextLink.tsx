@@ -37,6 +37,7 @@ export const IconAndTextLink: FC<IconAndTextLinkInterface> = (props) => {
         href={sanitizedUrl}
         target={props.target}
         aria-disabled={props.disabled}
+        onClick={props.onClick}
       >
         {props.label}
       </a>

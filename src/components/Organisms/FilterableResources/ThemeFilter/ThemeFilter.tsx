@@ -183,6 +183,10 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
             href="/"
             icon="restart"
             label={themeFilterStrings.resetFilters}
+            onClick={(e) => {
+              e.preventDefault();
+              resetAllFilters();
+            }}
           />
         </div>
         <div className={clsx("d-flex", "flex-column")}>
