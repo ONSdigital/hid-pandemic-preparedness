@@ -11,9 +11,10 @@ import type { HeaderProps } from "@/src/components/Organisms/Core/Header/Header.
 const headerData: HeaderProps = {
   title: staticHeaderData.title,
   breadcrumbs: {
-    items: staticHeaderData.breadcrumbs.items.map((item) => ({
+    items: staticHeaderData.breadcrumbs.items.map((item, index) => ({
       ...item,
       // search result page uses static data, default values supplied to match storyblok type
+      id: String(index),
       fieldtype: "default",
       linktype: "default",
       cached_url: item.url,
