@@ -11,7 +11,7 @@ import {
   type MockInstance,
 } from "vitest";
 import * as ReactDOM from "react-dom";
-
+import React from "react";
 import type { SearchResultData } from "@src/types/Search.ts";
 import { SearchBar } from "./SearchBar";
 
