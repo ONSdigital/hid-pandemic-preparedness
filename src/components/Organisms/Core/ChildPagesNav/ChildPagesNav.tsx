@@ -70,6 +70,7 @@ export const ChildPagesNav: FC<ChildPagesNavProps> = (props) => {
                 fieldtype="multilink"
                 hideIcon={true}
                 linktype="url"
+                key={link.id}
               />
             ))}
           </nav>
