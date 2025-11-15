@@ -16,17 +16,15 @@ interface PageNavAttributes {
 export const NavigationRow: FC<NavigationRowProps> = (props) => {
   let links: PageNavAttributes[] | undefined = [];
 
-  if (props.stories) {
-    // Build the links from input stories
-    props.stories.map((story) =>
-      links.push({
-        cached_url: story.full_slug,
-        id: story.uuid,
-        label: story.name,
-        url: story.full_slug,
-      }),
-    );
-  }
+  // Build the links from input stories
+  props.resolvedLinks.map((link) =>
+    links.push({
+      cached_url: link.full_slug,
+      id: link.uuid,
+      label: link.name,
+      url: link.full_slug,
+    }),
+  );
 
   return (
     <div className={clsx("w-100", styles["child-pages-nav-bg"])}>
@@ -36,7 +34,8 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
             <p>{props.subTitle}</p>
           </div>
         )}
-        {links && (
+        {/* Only show the links if we have more than one */}
+        {links.length > 1 && (
           <nav className={clsx("d-flex", "flex-row", "gap-4")}>
             {links.map((link) => (
               <Link

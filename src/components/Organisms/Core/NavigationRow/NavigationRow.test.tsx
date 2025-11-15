@@ -4,11 +4,12 @@ import "@testing-library/jest-dom";
 
 import type { NavigationRowProps } from "./NavigationRow.interface";
 import { NavigationRow } from "./NavigationRow";
-import storiesJson from "./stories.json?raw";
+import resolvedLinksJson from "./resolvedLinks.json?raw";
 
 describe("NavigationRow component", () => {
   const baseProps: NavigationRowProps = {
     currentFullSlug: "learning-resources/data-analysis/",
+    resolvedLinks: JSON.parse(resolvedLinksJson),
   };
 
   test("renders component without error", () => {
@@ -29,17 +30,5 @@ describe("NavigationRow component", () => {
     const subTitleParagraph = screen.getByRole("paragraph");
     // Inner text should be set to subtitle
     expect(subTitleParagraph).toHaveTextContent(subTitle);
-  });
-
-  test("renders buttons with links if stories supplied", () => {
-    const props: NavigationRowProps = {
-      ...baseProps,
-      stories: JSON.parse(storiesJson),
-    };
-
-    render(<NavigationRow {...props} />);
-    const storiesNav = screen.getByRole("navigation");
-    // Nav should contain buttons for each story
-    // expect(storiesNav).toHaveTextContent(subTitle);
   });
 });

@@ -1,0 +1,45 @@
+---
+import type { ISbStoryData } from "@storyblok/js";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Types
+import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
+
+// Components
+import DynamicComponent from "@src/components/DynamicComponent.astro";
+import { Header } from "@src/components/Organisms/Core/Header/Header";
+import { NavigationRow } from "@/src/components/Organisms/Core/NavigationRow/NavigationRow";
+
+// Helpers
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+import { fetchStories, fetchStory } from "@src/helpers/fetchContent";
+
+interface Props {
+  story: ISbStoryData;
+}
+const { story } = Astro.props;
+
+let resolvedLinks = null;
+
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+
+// Get story with resolved links
+const { data } = await fetchStory(story.id, { resolve_links: "url" });
+resolvedLinks = data?.links as unknown as StoryblokMultilinkUrl[];
+---
+
+<BaseLayout title={story.name}>
+  <main>
+    <Header title={story.name} breadcrumbs={breadcrumbs} />
+    <NavigationRow
+      currentFullSlug={story.full_slug}
+      resolvedLinks={resolvedLinks}
+    />
+    {
+      story.content.Body &&
+        story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
+    }
+  </main>
+</BaseLayout>

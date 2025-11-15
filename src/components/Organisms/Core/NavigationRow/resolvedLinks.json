@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Question bank",
+    "id": 112432501216167,
+    "uuid": "04ff3f56-07d8-4b9b-a844-aeaee5ea6b8e",
+    "slug": "question-bank",
+    "url": "tools/question-bank/",
+    "full_slug": "tools/question-bank/"
+  },
+  {
+    "name": "Related survey references",
+    "id": 111392608415105,
+    "uuid": "2700b39d-7a20-4cd1-ba4d-33822675a65e",
+    "slug": "related-survey-references",
+    "url": "tools/question-bank/related-survey-references",
+    "full_slug": "tools/question-bank/related-survey-references"
+  },
+  {
+    "name": "About the question bank",
+    "id": 111392427945344,
+    "uuid": "ca48961e-b59b-4b15-868f-3ba34e834819",
+    "slug": "about-the-question-bank",
+    "url": "tools/question-bank/about-the-question-bank",
+    "full_slug": "tools/question-bank/about-the-question-bank"
+  }
+]

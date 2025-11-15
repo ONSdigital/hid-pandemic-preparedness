@@ -1,7 +1,7 @@
-import type { ISbStoryData } from "@storyblok/js";
+import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
 
 export interface NavigationRowProps {
   currentFullSlug: string;
-  stories?: ISbStoryData[];
+  resolvedLinks: StoryblokMultilinkUrl[];
   subTitle?: string;
 }

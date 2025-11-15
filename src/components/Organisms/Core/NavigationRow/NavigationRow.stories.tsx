@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ISbStoryData } from "@storyblok/js";
 
-import storiesJson from "./stories.json?raw";
+import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
 
 import { NavigationRow } from "./NavigationRow";
 import type { NavigationRowProps } from "./NavigationRow.interface";
+import resolvedLinksJson from "./resolvedLinks.json?raw";
 
-const stories: ISbStoryData[] = JSON.parse(storiesJson);
+const resolvedLinks: StoryblokMultilinkUrl[] = JSON.parse(resolvedLinksJson);
 
 const meta = {
   component: NavigationRow,
@@ -16,14 +16,14 @@ const meta = {
       control: {
         type: "select",
       },
-      options: [...stories.map((story) => story.full_slug)],
+      options: [...resolvedLinks.map((link) => link.full_slug)],
     },
-    subTitle: {
+    resolvedLinks: {
       table: {
         disable: true,
       },
     },
-    stories: {
+    subTitle: {
       table: {
         disable: true,
       },
@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>;
 
 const childPagesNavProps: NavigationRowProps = {
   currentFullSlug: "learning-resources/data-analysis/",
-  stories: stories,
+  resolvedLinks: resolvedLinks,
 };
 
 export const NavigationRowStory = {
