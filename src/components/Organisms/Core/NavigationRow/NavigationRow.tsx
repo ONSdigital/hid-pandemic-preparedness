@@ -3,8 +3,8 @@ import type { FC } from "react";
 
 import { Link } from "@src/components/Molecules/Core/Link/Link";
 
-import styles from "./ChildPagesNav.module.scss";
-import type { ChildPagesNavProps } from "./NavigationRow.interface";
+import styles from "./NavigationRow.module.scss";
+import type { NavigationRowProps } from "./NavigationRow.interface";
 
 interface PageNavAttributes {
   cached_url: string;
@@ -13,7 +13,7 @@ interface PageNavAttributes {
   url: string;
 }
 
-export const ChildPagesNav: FC<ChildPagesNavProps> = (props) => {
+export const NavigationRow: FC<NavigationRowProps> = (props) => {
   let links: PageNavAttributes[] | undefined = [];
 
   // Arrange the stories and build data for links if required

@@ -3,14 +3,14 @@ import type { ISbStoryData } from "@storyblok/js";
 
 import storiesJson from "./stories.json?raw";
 
-import { ChildPagesNav } from "./NavigationRow";
-import type { ChildPagesNavProps } from "./NavigationRow.interface";
+import { NavigationRow } from "./NavigationRow";
+import type { NavigationRowProps } from "./NavigationRow.interface";
 
 const stories: ISbStoryData[] = JSON.parse(storiesJson);
 
 const meta = {
-  component: ChildPagesNav,
-  title: "Organisms/Core/ChildPagesNav",
+  component: NavigationRow,
+  title: "Organisms/Core/NavigationRow",
   argTypes: {
     currentFullSlug: {
       control: {
@@ -29,23 +29,23 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof ChildPagesNav>;
+} satisfies Meta<typeof NavigationRow>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const childPagesNavProps: ChildPagesNavProps = {
+const childPagesNavProps: NavigationRowProps = {
   currentFullSlug: "learning-resources/data-analysis/",
   parentFullSlug: "learning-resources/data-analysis/",
   stories: stories,
 };
 
-export const ChildPagesNavStory = {
+export const NavigationRowStory = {
   name: "Rendered without sub-title",
   args: childPagesNavProps,
 } satisfies Story;
 
-export const ChildPagesNavStoryWithSubTitle = {
+export const NavigationRowStoryWithSubTitle = {
   name: "Rendered with sub-title",
   args: {
     ...childPagesNavProps,
