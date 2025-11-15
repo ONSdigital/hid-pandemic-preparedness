@@ -16,35 +16,16 @@ interface PageNavAttributes {
 export const NavigationRow: FC<NavigationRowProps> = (props) => {
   let links: PageNavAttributes[] | undefined = [];
 
-  // Arrange the stories and build data for links if required
   if (props.stories) {
-    // Find the parent story first
-    const parentStory = props.stories.find(
-      (story) => story.full_slug === props.parentFullSlug,
-    );
-
-    // If the parent page story exists, save the data we need to a new object as first link
-    if (parentStory) {
+    // Build the links from input stories
+    props.stories.map((story) =>
       links.push({
-        cached_url: parentStory.full_slug,
-        id: parentStory.uuid,
-        label: parentStory.name,
-        url: parentStory.full_slug,
-      });
-
-      // Build the remaining links sorted alphabetically
-      props.stories
-        .filter((story) => story.name !== parentStory.name)
-        .sort((a, b) => a.name.localeCompare(b.name))
-        .map((story) =>
-          links.push({
-            cached_url: story.full_slug,
-            id: story.uuid,
-            label: story.name,
-            url: story.full_slug,
-          }),
-        );
-    }
+        cached_url: story.full_slug,
+        id: story.uuid,
+        label: story.name,
+        url: story.full_slug,
+      }),
+    );
   }
 
   return (
@@ -55,8 +36,7 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
             <p>{props.subTitle}</p>
           </div>
         )}
-        {/* Only render links if we've got a least one child */}
-        {links.length > 1 && (
+        {links && (
           <nav className={clsx("d-flex", "flex-row", "gap-4")}>
             {links.map((link) => (
               <Link

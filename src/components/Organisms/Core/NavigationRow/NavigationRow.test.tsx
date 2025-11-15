@@ -9,7 +9,6 @@ import storiesJson from "./stories.json?raw";
 describe("NavigationRow component", () => {
   const baseProps: NavigationRowProps = {
     currentFullSlug: "learning-resources/data-analysis/",
-    parentFullSlug: "learning-resources/data-analysis/",
   };
 
   test("renders component without error", () => {

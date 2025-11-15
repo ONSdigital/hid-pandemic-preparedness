@@ -18,7 +18,7 @@ const meta = {
       },
       options: [...stories.map((story) => story.full_slug)],
     },
-    parentFullSlug: {
+    subTitle: {
       table: {
         disable: true,
       },
@@ -36,7 +36,6 @@ type Story = StoryObj<typeof meta>;
 
 const childPagesNavProps: NavigationRowProps = {
   currentFullSlug: "learning-resources/data-analysis/",
-  parentFullSlug: "learning-resources/data-analysis/",
   stories: stories,
 };
 
