@@ -4,7 +4,7 @@ import type { FC } from "react";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
 
 import styles from "./ChildPagesNav.module.scss";
-import type { ChildPagesNavProps } from "./ChildPagesNav.interface";
+import type { ChildPagesNavProps } from "./NavigationRow.interface";
 
 interface PageNavAttributes {
   cached_url: string;

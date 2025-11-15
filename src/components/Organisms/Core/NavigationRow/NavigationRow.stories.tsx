@@ -3,8 +3,8 @@ import type { ISbStoryData } from "@storyblok/js";
 
 import storiesJson from "./stories.json?raw";
 
-import { ChildPagesNav } from "./ChildPagesNav";
-import type { ChildPagesNavProps } from "./ChildPagesNav.interface";
+import { ChildPagesNav } from "./NavigationRow";
+import type { ChildPagesNavProps } from "./NavigationRow.interface";
 
 const stories: ISbStoryData[] = JSON.parse(storiesJson);
 

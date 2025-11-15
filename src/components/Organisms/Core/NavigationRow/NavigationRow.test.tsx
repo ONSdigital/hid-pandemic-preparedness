@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import "@testing-library/jest-dom";
 
-import type { ChildPagesNavProps } from "./ChildPagesNav.interface";
-import { ChildPagesNav } from "./ChildPagesNav";
+import type { ChildPagesNavProps } from "./NavigationRow.interface";
+import { ChildPagesNav } from "./NavigationRow";
 import storiesJson from "./stories.json?raw";
 
 describe("ChildPagesNav component", () => {
