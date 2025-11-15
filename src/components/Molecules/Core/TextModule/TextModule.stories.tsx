@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DOMPurify from "dompurify";
 
-import markdownContent from "@src/content/text-module-content.md?raw";
 import { parseMarkdown } from "@src/helpers/parseMarkdown";
 
 import { TextModule } from "./TextModule";
 import type { TextModuleProps } from "./TextModule.interface";
+import markdownContent from "./text-module-content.md?raw";
 
 const meta = {
   component: TextModule,

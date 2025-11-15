@@ -1,4 +1,10 @@
 {
+  "core": {
+    "copyButton": {
+      "copied": "Copied!",
+      "copy": "Copy"
+    }
+  },
   "levels": {
     "advanced": "Advanced",
     "beginner": "Beginner",
