@@ -185,6 +185,14 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
     });
   };
 
+  // Callback to update onNoSubThemeSelected
+  useEffect(() => {
+    if (props.onSubThemesSelected) {
+      const anyTrue = Object.values(formValues).some((value) => value === true);
+      props.onSubThemesSelected(anyTrue);
+    }
+  }, [formValues]);
+
   return (
     <div className="w-100">
       <div className={clsx(styles["theme-filter-container"])}>
