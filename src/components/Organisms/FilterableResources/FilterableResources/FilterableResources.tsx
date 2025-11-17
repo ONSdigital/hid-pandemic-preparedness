@@ -2,13 +2,14 @@ import clsx from "clsx";
 import { useState } from "react";
 import type { FC } from "react";
 
+import type { FilterableResourcesProps } from "@src/components/Organisms/FilterableResources/FilterableResources/FilterableResources.interface";
+import type { PaginatorItem } from "@src/components/Molecules/Core/Paginator/Paginator.interface";
+import type { Theme } from "@src/types/bloks/storyblok-components";
+
 import { Paginator } from "@src/components/Molecules/Core/Paginator/Paginator";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 import { Theme as ThemeComponent } from "@src/components/Organisms/FilterableResources/Theme/Theme";
 import { ThemeFilter } from "@src/components/Organisms/FilterableResources/ThemeFilter/ThemeFilter";
-
-import type { FilterableResourcesProps } from "@src/components/Organisms/FilterableResources/FilterableResources/FilterableResources.interface";
-import type { Theme } from "@src/types/bloks/storyblok-components";
 
 import strings from "@src/content/strings.json";
 
@@ -43,6 +44,8 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
   const [filteredThemes, setFilteredThemes] = useState<Theme[]>(
     props.resources ?? [],
   );
+  // Initialise selectedThem with first filtered theme
+  const [selectedTheme, setSelectedTheme] = useState<Theme | undefined>();
 
   // Handler to updated filteredThemes, with check to ensure they've been updated to avoid
   // recursive rendering loop
@@ -53,6 +56,10 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
       }
       return updatedThemes;
     });
+  };
+
+  const handlePaginatorClick = (selectedItem: PaginatorItem) => {
+    setSelectedTheme(selectedItem as Theme);
   };
 
   return (
@@ -86,16 +93,16 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
               </div>
             )}
 
-            {filteredThemes &&
-              filteredThemes.map((theme) => (
-                <ThemeComponent {...theme} key={theme._uid} />
-              ))}
+            {filteredThemes && <ThemeComponent {...(selectedTheme as Theme)} />}
             {filteredThemes && (
-              <Paginator
-                ariaLabel={filterableResourcesStrings.themeNavigation}
-                items={[]}
-                perPage={1}
-              />
+              <div className={clsx("d-flex", "justify-content-center", "py-2")}>
+                <Paginator
+                  ariaLabel={filterableResourcesStrings.themeNavigation}
+                  items={filteredThemes}
+                  perPage={1}
+                  onSelect={handlePaginatorClick}
+                />
+              </div>
             )}
           </div>
         </div>

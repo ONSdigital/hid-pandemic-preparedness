@@ -5,5 +5,5 @@ export interface ArrowButtonProps {
   onClick?: () => any;
   selected?: boolean;
   type: "button" | "submit" | "reset";
-  variant: "primary" | "secondary";
+  variant: "primary" | "primary-inverse" | "secondary" | "secondary-inverse";
 }

@@ -8,6 +8,9 @@ const meta = {
   title: "Organisms/FilterableResources/FilterableResources",
   parameters: {
     layout: "fullscreen",
+    controls: {
+      disable: true,
+    },
   },
 } satisfies Meta<typeof FilterableResources>;
 
