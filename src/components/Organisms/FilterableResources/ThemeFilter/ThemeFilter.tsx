@@ -33,7 +33,7 @@ const SubThemeItem: FC<SubThemeItemProps> = (props) => {
                 checked={field.value || false}
               />
               <label
-                className={clsx("form-check-label")}
+                className={clsx("form-check-label", field.value && "fw-bold")}
                 htmlFor={props.subTheme._uid}
               >
                 {props.subTheme.title}
@@ -79,24 +79,39 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
     <div className={clsx("accordion-item")}>
       <h2 className={clsx("accordion-header")}>
         <button
-          className="accordion-button"
+          className={clsx(
+            "accordion-button",
+            "py-2",
+            "border-bottom",
+            styles["theme-filter-accordion-button"],
+          )}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target={`#collapse${props.theme._uid}`}
           aria-expanded="true"
           aria-controls={`collapse${props.theme._uid}`}
         >
-          {props.theme.title}
+          {props.theme.title}{" "}
+          {props.theme.subThemes && <>({props.theme.subThemes.length})</>}
         </button>
       </h2>
       <div
         id={`collapse${props.theme._uid}`}
         className={clsx("accordion-collapse", "collapse", "show")}
       >
-        <div className={clsx("accordion-body")}>
+        <div className={clsx("accordion-body", "px-1")}>
           {props.theme.subThemes && (
             <>
-              <a href="#" onClick={handleSelectAllToggle}>
+              <a
+                className={clsx(
+                  "link-underline",
+                  "link-underline-opacity-0",
+                  "link-underline-opacity-100-hover",
+                  "fw-bold",
+                )}
+                href="#"
+                onClick={handleSelectAllToggle}
+              >
                 {allSelected
                   ? themeFilterStrings.selectNone
                   : themeFilterStrings.selectAll}
@@ -172,7 +187,7 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
 
   return (
     <div className="w-100">
-      <div className={clsx(styles["learning-module-nav__container"])}>
+      <div className={clsx(styles["theme-filter-container"])}>
         <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
           <IconAndTextLink
             asset={props.file}

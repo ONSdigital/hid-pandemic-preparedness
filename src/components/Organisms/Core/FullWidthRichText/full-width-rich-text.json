@@ -1,155 +1,419 @@
 {
-  "type": "doc",
-  "content": [
-    {
-      "type": "heading",
-      "attrs": {
-        "level": 1,
-        "textAlign": null
-      },
-      "content": [
-        {
-          "text": "H1 test",
-          "type": "text",
-          "marks": [
-            {
-              "type": "bold"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": null
-      },
-      "content": [
-        {
-          "text": "Paragraph test",
-          "type": "text"
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "attrs": {
-        "level": 2,
-        "textAlign": null
-      },
-      "content": [
-        {
-          "text": "H2 test",
-          "type": "text",
-          "marks": [
-            {
-              "type": "bold"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": null
-      },
-      "content": [
-        {
-          "text": "This guidance introduces the principles and practices of mortality analysis. It is designed for professionals working in public health, statistics, policy, or research who need to interpret mortality trends and use them to inform decisions. ",
-          "type": "text",
-          "marks": [
-            {
-              "type": "textStyle",
-              "attrs": {
-                "color": "#212529"
-              }
-            }
-          ]
+  "_uid": "ff54d85f-587e-4363-bce6-9f18a6d7fb31",
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
         },
-        {
-          "text": "The guidance introduces key concepts, methods, and tools used globally, with examples drawn from the UK’s Office for National Statistics (ONS).",
-          "type": "text",
-          "marks": [
-            {
-              "type": "bold"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "attrs": {
-        "level": 3,
-        "textAlign": null
-      },
-      "content": [
-        {
-          "text": "H3 test",
-          "type": "text",
-          "marks": [
-            {
-              "type": "bold"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": null
-      },
-      "content": [
-        {
-          "text": "This guidance introduces the principles and practices of mortality analysis. It is designed for professionals working in public health, statistics, policy, or research who need to interpret mortality trends and use them to inform decisions. ",
-          "type": "text",
-          "marks": [
-            {
-              "type": "textStyle",
-              "attrs": {
-                "color": "#212529"
-              }
-            }
-          ]
-        },
-        {
-          "text": "The guidance introduces key concepts, methods, and tools used globally, with examples drawn from the UK’s Office for National Statistics (ONS).",
-          "type": "text",
-          "marks": [
-            {
-              "type": "bold"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": null
-      },
-      "content": [
-        {
-          "type": "image",
-          "attrs": {
-            "id": 101005805638972,
-            "alt": "",
-            "src": "./images/group-of-medical-professionals.jpeg",
-            "title": "",
-            "source": "",
-            "copyright": "",
-            "meta_data": {}
+        "content": [
+          {
+            "text": "The Question Bank is a resource designed to support National Statistical Offices (NSOs) in LMICs to support rapid survey development during infectious disease outbreaks. It contains a curated selection of tested questions, organised by theme, with multiple variations and response options. Each question includes references to the studies in which it was used, along with relevant notes to guide application.",
+            "type": "text"
           }
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": null
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "This tool aims to:",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "- Provide a reliable set of questions that generate high-quality data.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "- Accelerate the process of designing new surveys in outbreak settings.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "- Offer flexibility in how questions are phrased and answered.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "It provides a standardised set of questions that can be adapted for use in household surveys, phone interviews, or rapid assessments. The goal is to enable evidence-based decision-making and effective public health responses by capturing key indicators related to health, behaviour, socio-economic impact, and access to services.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 3,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step by step guide",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "horizontal_rule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 1: Define Your Objectives",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Start by clarifying the purpose of your survey or assessment.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Ask yourself:",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bullet_list",
+        "content": [
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "What is the main goal of the survey?",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Which topic areas are most relevant (e.g., health, well-being, demographics)?",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "text": "Who is your target population or audience?",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Once you have this in mind, move to Step 2.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 2: Begin with Demographics",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Most surveys start by collecting demographic information. Use the Demographic Information theme to select relevant questions.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "!TIP Tip: If you're surveying students or children, check the specific demographic themes tailored to those groups.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 3: Select Relevant Themes",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Next, choose the themes that align with your objectives. You can use all available themes or just a subset, depending on your survey’s scope.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 4: Choose Questions and Responses",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Go through your first selected theme and copy the most appropriate questions and response options.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "!TIP Tip: Some questions offer multiple response formats, choose the one that best fits your context.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 5: Repeat for Other Themes",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Repeat the process from Step 4 for any additional themes that support your objectives. Again, copy the most suitable questions and responses.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 6: Adapt and Refine",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Now that you've selected your questions, adapt them as needed to suit your specific context or population.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 7: Add Custom Questions",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "If needed, include additional questions that are not in the Question Bank but are important for your survey.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4,
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Step 8: Add Closing Questions",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Wrap up your survey with appropriate closing questions to thank participants or gather final thoughts.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "text": "Thank you for using the Question Bank! Please see the Helpful tips! section for further clarification.",
+            "type": "text"
+          }
+        ]
       }
-    }
-  ]
+    ]
+  },
+  "component": "FullWidthRichText",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"FullWidthRichText\", \"space\": \"287525897740819\", \"uid\": \"ff54d85f-587e-4363-bce6-9f18a6d7fb31\", \"id\": \"111392427945344\"}--\u003E"
 }
