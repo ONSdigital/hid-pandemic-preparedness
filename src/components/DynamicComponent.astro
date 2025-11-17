@@ -48,7 +48,7 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
     ) : componentName === "Header" ? (
       <Header {...blok} />
     ) : componentName === "Iframe" ? (
-      <Iframe {...blok} />
+      <Iframe {...blok} client:visible />
     ) : componentName === "ImageAndText" ? (
       <ImageAndText {...blok} />
     ) : componentName === "Impact" ? (
@@ -64,7 +64,7 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
     ) : componentName === "ToolsCarousel" ? (
       <ToolsCarousel {...blok} client:visible />
     ) : componentName === "Video" ? (
-      <Video {...blok} />
+      <Video {...blok} client:visible />
     ) : null
   ) : null
 }
