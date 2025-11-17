@@ -55,8 +55,31 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const [isClient, setIsClient] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
   const pagefind = useRef<PagefindModule | null>(null);
-
+  const initPromise = useRef<Promise<void> | null>(null);
   const isMobile = useMediaQuery();
+
+  const initPagefind = () => {
+    if (initPromise.current) {
+      return initPromise.current;
+    }
+
+    initPromise.current = (async () => {
+      if (!isClient) return;
+
+      const pagefindPath = "/pagefind/pagefind.js";
+      try {
+        // @ts-ignore
+        const pf = await import(/* @vite-ignore */ pagefindPath);
+        await pf.init();
+        pagefind.current = pf; // Set the module ref on success
+      } catch (e) {
+        console.error("Failed to initialise Pagefind", e);
+        initPromise.current = null; // Reset on failure
+      }
+    })();
+
+    return initPromise.current;
+  };
 
   useEffect(() => {
     // Check for clicks outside the referenced element (search container)
@@ -77,23 +100,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const runSearch = async (term: string) => {
     if (!isClient) return;
 
-    if (!pagefind.current) {
-      // standard Pagefind implementation requires ts-ignore because pagefind.js does not
-      // exist at build time (astro-pagefind creates the pagefind directory from the build output),
-      // causing compilation errors for TS
-      const pagefindPath = "/pagefind/pagefind.js";
-
-      try {
-        // @ts-ignore
-        const pf = await import(pagefindPath);
-        await pf.init();
-        pagefind.current = pf;
-        if (!pagefind.current) return;
-      } catch (e) {
-        console.error("Failed to initialise Pagefind", e);
-        return;
-      }
-    }
+    await initPagefind();
+    if (!pagefind.current) return;
 
     if (!term) {
       setAllResults([]);
@@ -145,8 +153,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   const handleFocus = () => {
     setIsFocused(true);
-    if (!pagefind.current) {
-      runSearch(searchInput);
+    if (isClient) {
+      initPagefind();
     }
   };
 
@@ -164,7 +172,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   useEffect(() => {
     // re-run search when landing on results page
-    if (props.isResultsPage) {
+    // We must wait for isClient to be true before running
+    if (props.isResultsPage && isClient) {
       const urlParams = new URLSearchParams(window.location.search);
       const queryFromUrl = urlParams.get("params") || "";
 
@@ -173,7 +182,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         runSearch(queryFromUrl);
       }
     }
-  }, [props.isResultsPage]);
+  }, [props.isResultsPage, isClient]);
 
   const showDropdown =
     searchInput && isFocused && allResults.length > 0 && !props.isResultsPage;

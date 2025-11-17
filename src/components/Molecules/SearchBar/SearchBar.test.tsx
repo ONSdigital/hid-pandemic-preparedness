@@ -137,9 +137,10 @@ describe("SearchBar (Dropdown Mode, isResultsPage={false})", () => {
       await user.type(input, "hello");
     });
 
+    const resultsMock = await screen.findByTestId("search-results-mock");
+
     expect(screen.getByText("View all results")).toBeInTheDocument();
 
-    const resultsMock = screen.getByTestId("search-results-mock");
     expect(resultsMock).toBeInTheDocument();
 
     const props = JSON.parse(resultsMock.textContent || "{}");
@@ -155,7 +156,9 @@ describe("SearchBar (Dropdown Mode, isResultsPage={false})", () => {
     await act(async () => {
       await user.type(input, "hello");
     });
-    expect(screen.getByText("View all results")).toBeInTheDocument();
+
+    const viewAllResultsLink = await screen.findByText("View all results");
+    expect(viewAllResultsLink).toBeInTheDocument();
 
     await act(async () => {
       await user.click(document.body);
@@ -172,7 +175,9 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
       search: "?params=urlquery",
     });
 
-    render(<SearchBar placeholder="Search" isResultsPage={true} />);
+    await act(async () => {
+      render(<SearchBar placeholder="Search" isResultsPage={true} />);
+    });
 
     await waitFor(() => {
       expect(mockDebouncedSearch).toHaveBeenCalledWith("urlquery");
@@ -205,7 +210,10 @@ describe("SearchBar (useMediaQuery)", () => {
     windowWidthSpy.mockReturnValue(300); // mobile
     const user = userEvent.setup();
 
-    render(<SearchBar placeholder="Search" isResultsPage={false} />);
+    await act(async () => {
+      render(<SearchBar placeholder="Search" isResultsPage={false} />);
+    });
+
     const input = screen.getByPlaceholderText("Search");
 
     await act(async () => {
