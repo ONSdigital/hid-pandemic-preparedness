@@ -1,6 +1,6 @@
 @use "../../styles/global/tokens" as *;
 
-$list-group-border-bottom: 2px solid $color-brand-primary-500 !important;
+$list-group-border-bottom: 1px solid $color-brand-primary-500 !important;
 
 .list-group {
   &:hover {

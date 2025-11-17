@@ -47,6 +47,12 @@ variable "geo_restriction" {
   ]
 }
 
+variable "long_cache_path_pattern" {
+  description = "Pattern (for example, images/*.jpg) that specifies which requests you want a long cache behavior to apply to."
+  type        = string
+}
+
+
 variable "price_class" {
   description = "Price class for this distribution. See https://aws.amazon.com/cloudfront/features/?icmpid=docs_console_unmapped#Global_Edge_Network"
   type        = string
