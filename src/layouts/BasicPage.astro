@@ -24,9 +24,7 @@ const breadcrumbs = await buildBreadcrumbs(story.full_slug);
     <Header title={story.name} breadcrumbs={breadcrumbs} />
     {
       story.content.Body &&
-        story.content.Body.map((blok: any) => (
-          <DynamicComponent blok={blok} client:visible />
-        ))
+        story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
     }
   </main>
 </BaseLayout>
