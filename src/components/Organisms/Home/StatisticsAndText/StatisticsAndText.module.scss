@@ -6,9 +6,6 @@
 
 .statistics-and-text-bg {
   background-color: $color-brand-secondary-100;
-  @include media-breakpoint-up(lg) {
-    padding: 5rem 0;
-  }
 }
 
 .statistics-and-text__ref-link {
@@ -17,4 +14,14 @@
 
 .statistics-and-text__subtitle {
   letter-spacing: 0.2em;
+
+  &::before {
+    display: inline-block;
+    content: "";
+    width: 72px;
+    border-bottom: 2px solid;
+    margin-right: 1em;
+    vertical-align: top;
+    margin-top: 0.5em;
+  }
 }
