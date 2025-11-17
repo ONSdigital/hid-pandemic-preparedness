@@ -1,0 +1,11 @@
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+
+.tools-carousel {
+  padding: 2.5rem 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 4rem 0;
+  }
+}

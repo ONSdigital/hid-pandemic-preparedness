@@ -39,5 +39,8 @@
       "feedback": "Feedback",
       "openGithub": "Open GITHUB"
     }
+  },
+  "video": {
+    "transcript": "Download transcript"
   }
 }

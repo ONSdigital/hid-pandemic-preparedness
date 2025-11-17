@@ -25,7 +25,7 @@ export const Link: FC<LinkProps> = (props) => {
   } else if (props.textInverse) {
     classes = ["link-light", "link-underline", "link-underline-opacity-0"];
   } else {
-    classes = ["link-dark", "link-underline", "link-underline-opacity-0"];
+    classes = ["link-underline", "link-underline-opacity-0"];
   }
 
   if (props.disabled) {
