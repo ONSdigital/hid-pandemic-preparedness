@@ -4,7 +4,7 @@ import type { ISbStoryData } from "storyblok-js-client";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Components
-import { DynamicComponent } from "@src/components/DynamicComponent";
+import DynamicComponent from "@src/components/DynamicComponent.astro";
 import { Header } from "@src/components/Organisms/Core/Header/Header";
 
 // Helpers
@@ -24,9 +24,7 @@ const breadcrumbs = await buildBreadcrumbs(story.full_slug);
     <Header title={story.name} breadcrumbs={breadcrumbs} />
     {
       story.content.Body &&
-        story.content.Body.map((blok: any) => (
-          <DynamicComponent blok={blok} client:visible />
-        ))
+        story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
     }
   </main>
 </BaseLayout>
