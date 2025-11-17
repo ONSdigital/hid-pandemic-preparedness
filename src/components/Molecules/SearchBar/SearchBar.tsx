@@ -75,13 +75,17 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   }, []);
 
   const runSearch = async (term: string) => {
+    if (!isClient) return;
+
     if (!pagefind.current) {
       // standard Pagefind implementation requires ts-ignore because pagefind.js does not
       // exist at build time (astro-pagefind creates the pagefind directory from the build output),
       // causing compilation errors for TS
+      const pagefindPath = "/pagefind/pagefind.js";
+
       try {
         // @ts-ignore
-        const pf = await import("/pagefind/pagefind.js");
+        const pf = await import(pagefindPath);
         await pf.init();
         pagefind.current = pf;
         if (!pagefind.current) return;
