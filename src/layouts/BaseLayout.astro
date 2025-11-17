@@ -50,11 +50,11 @@ try {
       is:inline></script>
     <title>{title ? `${strings.title} | ${title}` : strings.title}</title>
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body>
     <header>
       {navBarContent && <NavBar {...navBarContent} client:load />}
     </header>
-    <main class="flex-grow-1">
+    <main>
       <slot />
     </main>
     {footerContent && <Footer {...footerContent} client:load />}

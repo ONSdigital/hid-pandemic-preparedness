@@ -12,7 +12,7 @@ import styles from "./SearchBar.module.scss";
 import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
 import breakpoints from "@src/styles/global/overrides/_breakpoints.module.scss";
 import strings from "@src/content/strings.json";
-import { Button } from "../../Button/Button";
+import { Button } from "@src/components/Button/Button";
 import type { SearchResultData } from "@src/types/Search.ts";
 
 type PagefindModule = {
