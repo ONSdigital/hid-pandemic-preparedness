@@ -57,5 +57,8 @@
       "selectAll": "Select all",
       "selectNone": "Select none"
     }
+  },
+  "video": {
+    "transcript": "Download transcript"
   }
 }

@@ -55,6 +55,7 @@ export interface BasicPage {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -118,6 +119,7 @@ export interface CardBlock {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -207,6 +209,7 @@ export interface ExpandableItem {
 export interface FilterableResources {
   resourceName?: string;
   explanation?: StoryblokRichtext;
+  file?: StoryblokAsset;
   resources?: Theme[];
   component: "FilterableResources";
   _uid: string;
@@ -346,6 +349,7 @@ export interface HomePage {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -401,6 +405,7 @@ export interface HomePage {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -456,6 +461,7 @@ export interface HomePage {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -564,6 +570,7 @@ export interface Landing {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -619,6 +626,7 @@ export interface Landing {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -674,6 +682,7 @@ export interface Landing {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -729,6 +738,7 @@ export interface Landing {
     | TextModule
     | Theme
     | ToolCard
+    | ToolsCarousel
     | Unit
     | UnitChapter
     | UnitOverview
@@ -741,7 +751,7 @@ export interface Landing {
 }
 
 export interface Link {
-  link?: Exclude<
+  link: Exclude<
     StoryblokMultilink,
     { linktype?: "email" } | { linktype?: "asset" }
   >;
@@ -814,7 +824,7 @@ export interface QuickLinksItem {
 export interface Reference {
   accessedDate?: string;
   yearPublished?: string;
-  websiteAuthor?: string;
+  websiteAuthor: string;
   websiteTitle?: string;
   websiteUrl?: string;
   component: "Reference";
@@ -826,12 +836,12 @@ export interface StatisticsAndText {
   title?: string;
   subTitle?: string;
   quotation?: string;
-  reference?: Reference[];
+  reference: Reference[];
   link?: Exclude<
     StoryblokMultilink,
     { linktype?: "email" } | { linktype?: "asset" }
   >;
-  cards?: StatisticsCard[];
+  cards: StatisticsCard[];
   component: "StatisticsAndText";
   _uid: string;
   [k: string]: unknown;
@@ -876,13 +886,70 @@ export interface SubTheme {
 
 export interface SupportingInformation {
   content?: StoryblokRichtext;
+  Body?: (
+    | BasicPage
+    | CardBlock
+    | CardCaseStudy
+    | CardStatistics
+    | Carousel
+    | CaseStudies
+    | CaseStudyCard
+    | Chart
+    | Code
+    | ExpandableItem
+    | FilterableResources
+    | FilterableResourcesItem
+    | Footer
+    | FooterColumn
+    | FooterColumnLink
+    | Formula
+    | FullWidthRichText
+    | Header
+    | HeaderInternalPages
+    | Hero
+    | Home
+    | HomePage
+    | Iframe
+    | ImageAndText
+    | ImageText
+    | Impact
+    | ImpactCard
+    | Landing
+    | Link
+    | MegaMenu
+    | MegaMenuColumn
+    | NavBar
+    | Page
+    | QuickLinks
+    | QuickLinksItem
+    | Reference
+    | StatisticsAndText
+    | StatisticsCard
+    | StrategicPartner
+    | StrategicPartners
+    | SubTheme
+    | SupportingInformation
+    | Table
+    | Tag
+    | TerryCode
+    | TextModule
+    | Theme
+    | ToolCard
+    | ToolsCarousel
+    | Unit
+    | UnitChapter
+    | UnitOverview
+    | UnitSection
+    | Video
+  )[];
   component: "SupportingInformation";
   _uid: string;
   [k: string]: unknown;
 }
 
 export interface Table {
-  table?: StoryblokRichtext;
+  table: StoryblokRichtext;
+  minWidth?: string;
   component: "Table";
   _uid: string;
   [k: string]: unknown;
@@ -929,6 +996,15 @@ export interface ToolCard {
   >;
   icon?: "" | "calculator" | "dashboard" | "questionbank" | "report";
   component: "ToolCard";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface ToolsCarousel {
+  title: string;
+  Carousel: Carousel[];
+  link: Link[];
+  component: "ToolsCarousel";
   _uid: string;
   [k: string]: unknown;
 }

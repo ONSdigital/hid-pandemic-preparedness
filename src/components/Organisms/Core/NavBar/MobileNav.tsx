@@ -1,16 +1,15 @@
-import { useState, type FC } from "react";
+import type { FC } from "react";
 import clsx from "clsx";
 
 import { Image } from "@components/Molecules/Core/Image/Image";
 import { MegaMenu } from "@components/MegaMenu/MegaMenu";
-import { Accordion } from "@components/Molecules/Core/Accordion/Accordion";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
-import type { NavBarProps } from "./NavBar.interface";
+import type { NavAccordionProps, MobileNavProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 
-export const MobileNav: FC<NavBarProps> = (props) => {
+export const MobileNav: FC<MobileNavProps> = (props) => {
   const hasExpandableItems =
     props.expandableItems && props.expandableItems.length > 0;
   const hasLinks = props.links && props.links.length > 0;
@@ -23,12 +22,7 @@ export const MobileNav: FC<NavBarProps> = (props) => {
       }))
     : [];
 
-  const [showNavContent, setShowNavContent] = useState<boolean>(false);
-  const iconName = showNavContent ? "RiCloseFill" : "RiMenuFill";
-
-  const toggleNavContent = () => {
-    setShowNavContent((prev) => !prev);
-  };
+  const iconName = props.isOpen ? "RiCloseFill" : "RiMenuFill";
 
   return (
     <div className="w-100">
@@ -45,25 +39,23 @@ export const MobileNav: FC<NavBarProps> = (props) => {
           <Image {...props.logo} className={styles["navbar-logo"]} />
         </a>
         <button
-          onClick={toggleNavContent}
-          className={styles["navbar-icon-button"]}
+          onClick={props.onClick}
+          className={clsx(
+            styles["navbar-button"],
+            styles["nav-item"],
+            props.isOpen && styles["nav-item-active"],
+          )}
         >
           <Icon iconName={iconName} className={styles["navbar-logo"]} />
         </button>
       </div>
       {/* Toggable content */}
-      {showNavContent && (
+      {props.isOpen && (
         <div className={clsx(styles["overlayed-mobile-menu"], "w-100")}>
           <div
             className={clsx("d-flex", "flex-column", "gap-3", "px-1", "py-3")}
           >
-            {hasExpandableItems && (
-              <Accordion
-                id="mobileNavAccordion"
-                items={accordionItems}
-                variant="primary"
-              />
-            )}
+            {hasExpandableItems && <NavAccordion items={accordionItems} />}
             <div className={clsx("d-flex", "flex-column", "gap-3", "px-4")}>
               {hasLinks &&
                 props.links.map((navBarLink) => (
@@ -79,6 +71,46 @@ export const MobileNav: FC<NavBarProps> = (props) => {
           </div>
         </div>
       )}
+    </div>
+  );
+};
+
+export const NavAccordion: FC<NavAccordionProps> = (props) => {
+  const accordionId = "navAccordion";
+
+  return (
+    <div className={clsx("accordion", "accordion-flush")} id={accordionId}>
+      {props.items.map((item) => (
+        <div className={clsx("accordion-item", "border-bottom")} key={item.id}>
+          <h2 className="accordion-header">
+            <button
+              id={`heading-${item.id}`}
+              aria-expanded="false"
+              aria-controls={item.id}
+              className={clsx(
+                "accordion-button",
+                "heading-s",
+                "text-light",
+                "collapsed",
+                styles["navbar-accordion-heading"],
+              )}
+              data-bs-target={`#${item.id}`}
+              data-bs-toggle="collapse"
+              type="button"
+            >
+              {item.headerTitle}
+            </button>
+          </h2>
+          <div
+            id={item.id}
+            aria-labelledby={`heading-${item.id}`}
+            className={clsx("accordion-collapse", "collapse")}
+            data-bs-parent={`#${accordionId}`}
+          >
+            <div>{item.bodyContent}</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

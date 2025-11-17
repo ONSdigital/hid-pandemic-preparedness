@@ -1,11 +1,24 @@
 @import "../global/tokens";
 
 .table-ppt {
-  border-collapse: separate;
-  border-spacing: 1rem 0.5rem;
+  border-collapse: collapse;
+  border-spacing: 0;
+  vertical-align: middle;
 
-  td {
+  th {
     background-color: $color-brand-primary-200;
-    border-radius: 0.5rem;
+  }
+
+  tr:not(:has(th)) {
+    border-bottom: 1px solid $color-grey-500;
+  }
+
+  th,
+  td {
+    padding: 1em;
+  }
+
+  p {
+    margin-bottom: 0;
   }
 }

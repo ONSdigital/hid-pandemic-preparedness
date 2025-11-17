@@ -1,5 +1,13 @@
 @use "../../styles/global/variables" as *;
 
+@import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../styles/bootstrap-5.3.8/scss/variables";
 .mega-menu {
   background-color: $color-surface-subtle;
+  padding: 1.5rem 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 5rem 0;
+  }
 }
