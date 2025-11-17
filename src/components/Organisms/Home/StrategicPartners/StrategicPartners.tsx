@@ -9,9 +9,14 @@ import styles from "./StrategicPartners.module.scss";
 
 export const StrategicPartners: FC<StrategicPartnersProps> = (props) => {
   return (
-    <div className={clsx("w-100", "py-4")}>
+    <div className={clsx("w-100", "py-2")}>
       <div
-        className={clsx("container-lg", "text-center", styles["text-color"])}
+        className={clsx(
+          "container-lg",
+          "py-5",
+          "text-center",
+          styles["text-color"],
+        )}
       >
         <div className={clsx("row")}>
           <h3 role="strategic-partners-title" className={clsx("heading-m")}>
