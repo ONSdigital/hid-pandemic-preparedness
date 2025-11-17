@@ -22,27 +22,31 @@ interface Props {
 }
 const { story } = Astro.props;
 
-let resolvedLinks = null;
+let links: StoryblokMultilinkUrl[] = [];
 
 // Build breadcrumbs
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 
-// Get related stories with resolved links
+// Get related stories
 const { data } = await fetchStories({
   starts_with: story.full_slug,
-  resolve_links: "link",
 });
-resolvedLinks = data?.links as unknown as StoryblokMultilinkUrl[];
+const stories = data?.stories;
+
+// Build the links from stories
+stories.map((story) =>
+  links.push({
+    ...story,
+    url: story.full_slug,
+  }),
+);
 ---
 
 <BaseLayout title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
     <!-- Include the current story first, then child stories -->
-    <NavigationRow
-      currentFullSlug={story.full_slug}
-      resolvedLinks={resolvedLinks}
-    />
+    <NavigationRow currentFullSlug={story.full_slug} links={links} />
     <FilterableResourcesComponent
       {...story.content as FilterableResources}
       client:visible

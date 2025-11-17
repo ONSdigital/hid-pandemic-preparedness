@@ -40,12 +40,19 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
   const filterableResourcesStrings =
     strings.filterableResources.filterableResources;
 
+  let firstThemeId: string | undefined = undefined;
+  if (props.resources) {
+    firstThemeId = props.resources[0]._uid;
+  }
+
   // Initialize filteredThemes state with all themes initially
   const [filteredThemes, setFilteredThemes] = useState<Theme[]>(
     props.resources ?? [],
   );
-  // Initialise selectedThem with first filtered theme
-  const [selectedTheme, setSelectedTheme] = useState<Theme | undefined>();
+  // Initialise selectedTheme with first theme id
+  const [selectedThemeId, setSelectedThemeId] = useState<string | undefined>(
+    firstThemeId,
+  );
 
   // Handler to updated filteredThemes, with check to ensure they've been updated to avoid
   // recursive rendering loop
@@ -58,8 +65,10 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
     });
   };
 
+  // Handler to update `selectedThemeId`, which we can use to show the correct theme based on the
+  // number selected by the paginator
   const handlePaginatorClick = (selectedItem: PaginatorItem) => {
-    setSelectedTheme(selectedItem as Theme);
+    setSelectedThemeId(selectedItem._uid);
   };
 
   return (
@@ -92,8 +101,14 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
                 </div>
               </div>
             )}
-
-            {filteredThemes && <ThemeComponent {...(selectedTheme as Theme)} />}
+            {/* Show the theme selected by the paginator */}
+            {selectedThemeId && filteredThemes && (
+              <ThemeComponent
+                {...(filteredThemes.find(
+                  (theme) => theme._uid === selectedThemeId,
+                ) as Theme)}
+              />
+            )}
             {filteredThemes && (
               <div className={clsx("d-flex", "justify-content-center", "py-2")}>
                 <Paginator

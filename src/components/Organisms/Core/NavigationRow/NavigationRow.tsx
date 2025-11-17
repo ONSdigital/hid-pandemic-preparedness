@@ -17,7 +17,7 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
   let links: PageNavAttributes[] | undefined = [];
 
   // Build the links from input stories
-  props.resolvedLinks.map((link) =>
+  props.links.map((link) =>
     links.push({
       cached_url: link.full_slug,
       id: link.uuid,

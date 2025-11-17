@@ -4,9 +4,9 @@ import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
 
 import { NavigationRow } from "./NavigationRow";
 import type { NavigationRowProps } from "./NavigationRow.interface";
-import resolvedLinksJson from "./resolvedLinks.json?raw";
+import linksJson from "./links.json?raw";
 
-const resolvedLinks: StoryblokMultilinkUrl[] = JSON.parse(resolvedLinksJson);
+const links: StoryblokMultilinkUrl[] = JSON.parse(linksJson);
 
 const meta = {
   component: NavigationRow,
@@ -16,9 +16,9 @@ const meta = {
       control: {
         type: "select",
       },
-      options: [...resolvedLinks.map((link) => link.full_slug)],
+      options: [...links.map((link) => link.full_slug)],
     },
-    resolvedLinks: {
+    links: {
       table: {
         disable: true,
       },
@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>;
 
 const childPagesNavProps: NavigationRowProps = {
   currentFullSlug: "learning-resources/data-analysis/",
-  resolvedLinks: resolvedLinks,
+  links: links,
 };
 
 export const NavigationRowStory = {

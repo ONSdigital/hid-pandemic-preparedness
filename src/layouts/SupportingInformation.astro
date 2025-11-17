@@ -13,30 +13,43 @@ import { NavigationRow } from "@/src/components/Organisms/Core/NavigationRow/Nav
 
 // Helpers
 import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
-import { fetchStory } from "@src/helpers/fetchContent";
+import { fetchStories } from "@src/helpers/fetchContent";
 
 interface Props {
   story: ISbStoryData;
 }
 const { story } = Astro.props;
 
-let resolvedLinks = null;
+let links: StoryblokMultilinkUrl[] = [];
 
 // Build breadcrumbs
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 
-// Get story with resolved links
-const { data } = await fetchStory(story.id, { resolve_links: "url" });
-resolvedLinks = data?.links as unknown as StoryblokMultilinkUrl[];
+// Get parent slug
+const fullSlugParts: string[] = story.full_slug.split("/");
+const parentFullSlug: string = fullSlugParts
+  .slice(0, fullSlugParts.length - 1)
+  .join("/");
+
+// Get related stories
+const { data } = await fetchStories({
+  starts_with: parentFullSlug,
+});
+const stories = data?.stories;
+
+// Build the links from stories
+stories.map((story) =>
+  links.push({
+    ...story,
+    url: story.full_slug,
+  }),
+);
 ---
 
 <BaseLayout title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
-    <NavigationRow
-      currentFullSlug={story.full_slug}
-      resolvedLinks={resolvedLinks}
-    />
+    <NavigationRow currentFullSlug={story.full_slug} links={links} />
     {
       story.content.Body &&
         story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)

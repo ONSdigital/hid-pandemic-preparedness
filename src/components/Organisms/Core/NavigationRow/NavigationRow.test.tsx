@@ -4,12 +4,12 @@ import "@testing-library/jest-dom";
 
 import type { NavigationRowProps } from "./NavigationRow.interface";
 import { NavigationRow } from "./NavigationRow";
-import resolvedLinksJson from "./resolvedLinks.json?raw";
+import linksJson from "./links.json?raw";
 
 describe("NavigationRow component", () => {
   const baseProps: NavigationRowProps = {
     currentFullSlug: "learning-resources/data-analysis/",
-    resolvedLinks: JSON.parse(resolvedLinksJson),
+    links: JSON.parse(linksJson),
   };
 
   test("renders component without error", () => {
