@@ -1,9 +1,21 @@
 ---
+import { SearchBar } from "@/src/components/Molecules/SearchBar/SearchBar";
 import styles from "./SearchInput.module.scss";
+import strings from "@/src/content/strings.json";
 ---
 
 <div class={styles.section}>
   <div class="container mx-auto px-4 md:px-6">
-    <slot />
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="col-xl-9">
+          <SearchBar
+            placeholder={strings.search.placeholderText}
+            isResultsPage={true}
+            client:load
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>

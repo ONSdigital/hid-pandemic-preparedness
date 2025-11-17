@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
+// import { SearchBar } from "@components/Molecules/SearchBar/SearchBar";
 import { Header } from "@/src/components/Organisms/Core/Header/Header";
 import staticHeaderData from "@content/search-results/header.json";
 import SearchInput from "@components/Organisms/Core/Search/SearchInput.astro";
@@ -27,19 +27,7 @@ const headerData: HeaderProps = {
   <main>
     <Header {...headerData} />
 
-    <SearchInput>
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="col-xl-9">
-            <SearchBar
-              placeholder="Search the site..."
-              isResultsPage={true}
-              client:load
-            />
-          </div>
-        </div>
-      </div>
-    </SearchInput>
+    <SearchInput />
 
     <SearchResults />
   </main>
