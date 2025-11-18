@@ -36,8 +36,8 @@ export const Paginator: FC<PaginatorProps> = (props) => {
 
   return (
     <nav aria-label={props.ariaLabel}>
-      <ul className={clsx("pagination", "d-flex", "align-items-center")}>
-        <li className={clsx("page-item", "mx-2")}>
+      <ul className={clsx("pagination", "justify-content-center", "gap-4")}>
+        <li className={clsx("page-item", "px-1")}>
           <ArrowButton
             ariaLabel="Previous"
             direction="left"
@@ -48,7 +48,7 @@ export const Paginator: FC<PaginatorProps> = (props) => {
         </li>
         {props.items.map((item, i) => (
           <li
-            className={clsx("page-item", "mx-2", currentPage === i && "active")}
+            className={clsx("page-item", currentPage === i && "active")}
             key={item._uid}
           >
             <a
@@ -60,7 +60,7 @@ export const Paginator: FC<PaginatorProps> = (props) => {
             </a>
           </li>
         ))}
-        <li className="page-item">
+        <li className={clsx("page-item", "px-1")}>
           <ArrowButton
             ariaLabel="Next"
             direction="right"
