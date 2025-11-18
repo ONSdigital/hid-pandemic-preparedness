@@ -1,7 +1,7 @@
-@use "@src/styles/global/tokens" as *;
-@import "@src/styles/bootstrap-5.3.8/scss/functions";
-@import "@src/styles/bootstrap-5.3.8/scss/variables";
-@import "@src/styles/bootstrap-5.3.8/scss/mixins";
+@use "../../../../../src/styles/global/tokens" as *;
+@import "../../../../../src/styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../../src/styles/bootstrap-5.3.8/scss/variables";
+@import "../../../../../src/styles/bootstrap-5.3.8/scss/mixins";
 
 .section {
   background-color: $color-brand-secondary-100;
