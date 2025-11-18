@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FC, MouseEvent } from "react";
 import clsx from "clsx";
 
@@ -9,19 +9,28 @@ import styles from "./Paginator.module.scss";
 
 export const Paginator: FC<PaginatorProps> = (props) => {
   const totalItems = props.items.length;
-  const [currentPage, setCurrentPage] = useState(0);
 
-  // Handler for clicking a page number
-  const handleItemClick = (page: number, e?: MouseEvent) => {
-    if (e) {
-      e.preventDefault(); // Prevent default anchor behavior
+  // Find index of selected item by uid
+  const selectedIndex = props.selectedUid
+    ? props.items.findIndex((item) => item._uid === props.selectedUid)
+    : -1;
+
+  const [currentPage, setCurrentPage] = useState(
+    selectedIndex >= 0 ? selectedIndex : 0,
+  );
+
+  // Sync internal currentPage when selectedUid changes
+  useEffect(() => {
+    if (selectedIndex >= 0 && selectedIndex !== currentPage) {
+      setCurrentPage(selectedIndex);
     }
+  }, [selectedIndex, currentPage]);
 
+  const handleItemClick = (page: number, e?: MouseEvent) => {
+    if (e) e.preventDefault();
     if (page >= 0 && page < totalItems) {
       setCurrentPage(page);
-      if (props.onSelect) {
-        props.onSelect(props.items[page]);
-      }
+      if (props.onSelect) props.onSelect(props.items[page]);
     }
   };
 
