@@ -54,7 +54,9 @@ try {
     <header>
       {navBarContent && <NavBar {...navBarContent} client:load />}
     </header>
-    <slot />
+    <main>
+      <slot />
+    </main>
     {footerContent && <Footer {...footerContent} client:load />}
   </body>
 </html>

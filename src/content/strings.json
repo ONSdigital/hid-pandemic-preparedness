@@ -58,6 +58,12 @@
       "selectNone": "Select none"
     }
   },
+  "search": {
+    "viewAllResults": "View all results",
+    "numSearchResults": "search results",
+    "pageTitle": "Site search",
+    "placeholderText": "Search the site..."
+  },
   "video": {
     "transcript": "Download transcript"
   }
