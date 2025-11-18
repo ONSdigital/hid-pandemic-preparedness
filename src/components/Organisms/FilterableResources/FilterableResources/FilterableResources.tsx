@@ -53,8 +53,6 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
   const [selectedThemeId, setSelectedThemeId] = useState<string | undefined>(
     firstThemeId,
   );
-  // Initialise subThemesSelected to false
-  const [subThemesSelected, setSubThemesSelected] = useState<boolean>(false);
 
   // Handler to updated filteredThemes, with check to ensure they've been updated to avoid
   // recursive rendering loop
@@ -65,11 +63,6 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
       }
       return updatedThemes;
     });
-  };
-
-  // Handler to update subThemesSelected
-  const handleSubThemesSelected = (selected: boolean) => {
-    setSubThemesSelected(selected);
   };
 
   // Handler to update `selectedThemeId`, which we can use to show the correct theme based on the
@@ -87,11 +80,10 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
               themes={props.resources}
               file={props.file}
               onFilteredThemesChange={handleFilteredThemesChange}
-              onSubThemesSelected={handleSubThemesSelected}
             />
           </div>
           <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
-            {props.explanation && !subThemesSelected && (
+            {props.explanation && filteredThemes.length === 0 && (
               <div
                 className={clsx(
                   "p-4",
@@ -110,23 +102,26 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
               </div>
             )}
             {/* Show the theme selected by the paginator */}
-            {subThemesSelected && filteredThemes && (
+            {filteredThemes.length > 0 && (
               <>
                 <ThemeComponent
                   {...(filteredThemes.find(
                     (theme) => theme._uid === selectedThemeId,
                   ) as Theme)}
                 />
-                <div
-                  className={clsx("d-flex", "justify-content-center", "py-2")}
-                >
-                  <Paginator
-                    ariaLabel={filterableResourcesStrings.themeNavigation}
-                    items={filteredThemes}
-                    perPage={1}
-                    onSelect={handlePaginatorClick}
-                  />
-                </div>
+                {/* Only show the paginator if we have more than one theme available */}
+                {filteredThemes.length > 1 && (
+                  <div
+                    className={clsx("d-flex", "justify-content-center", "py-2")}
+                  >
+                    <Paginator
+                      ariaLabel={filterableResourcesStrings.themeNavigation}
+                      items={filteredThemes}
+                      perPage={1}
+                      onSelect={handlePaginatorClick}
+                    />
+                  </div>
+                )}
               </>
             )}
           </div>

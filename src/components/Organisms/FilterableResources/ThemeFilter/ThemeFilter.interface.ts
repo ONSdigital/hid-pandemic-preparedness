@@ -12,7 +12,6 @@ export interface ThemeFilterProps {
   themes?: Theme[];
   file?: StoryblokAsset;
   onFilteredThemesChange?: (filteredThemes: Theme[]) => void; // eslint-disable-line no-unused-vars
-  onSubThemesSelected?: (selected: boolean) => void; // eslint-disable-line no-unused-vars
 }
 
 export interface ThemeItemProps {

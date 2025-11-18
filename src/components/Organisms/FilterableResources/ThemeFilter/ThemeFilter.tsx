@@ -4,6 +4,8 @@ import type { FC, MouseEvent } from "react";
 import { Controller, useForm, useWatch } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 
+import type { Theme } from "@src/types/bloks/storyblok-components";
+
 import { IconAndTextLink } from "@src/components/Molecules/Core/IconAndTextLink/IconAndTextLink";
 
 import strings from "@src/content/strings.json";
@@ -60,10 +62,10 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
     name: subThemeKeys,
   });
 
-  // Determine if all are selected
-  const allSelected = useMemo(() => {
+  // Determine if any are selected
+  const anySelected = useMemo(() => {
     if (!values || values.length === 0) return false;
-    return values.every(Boolean);
+    return values.some(Boolean);
   }, [values]);
 
   const handleSelectAllToggle = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -71,24 +73,28 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
     if (!props.theme.subThemes) return;
 
     subThemeKeys.forEach((key) => {
-      props.setValue(key, !allSelected);
+      props.setValue(key, !anySelected);
     });
   };
 
   return (
     <div className={clsx("accordion-item")}>
-      <h2 className={clsx("accordion-header")}>
+      <h2
+        className={clsx("accordion-header")}
+        id={`heading${props.theme._uid}`}
+      >
         <button
           className={clsx(
             "accordion-button",
             "py-2",
             "border-bottom",
+            "collapsed",
             styles["theme-filter-accordion-button"],
           )}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target={`#collapse${props.theme._uid}`}
-          aria-expanded="true"
+          aria-expanded={false}
           aria-controls={`collapse${props.theme._uid}`}
         >
           {props.theme.title}{" "}
@@ -97,7 +103,8 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
       </h2>
       <div
         id={`collapse${props.theme._uid}`}
-        className={clsx("accordion-collapse", "collapse", "show")}
+        className={clsx("accordion-collapse", "collapse")}
+        aria-labelledby={`heading${props.theme._uid}`}
       >
         <div className={clsx("accordion-body", "px-1")}>
           {props.theme.subThemes && (
@@ -112,7 +119,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
                 href="#"
                 onClick={handleSelectAllToggle}
               >
-                {allSelected
+                {anySelected
                   ? themeFilterStrings.selectNone
                   : themeFilterStrings.selectAll}
               </a>
@@ -160,15 +167,22 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
   const filteredThemes = useMemo(() => {
     if (!props.themes) return [];
 
-    return props.themes.map((theme) => {
+    let filteredThemes: Theme[] = [];
+
+    // Loop through each theme, and if any subThemes are selected add to filteredThemes
+    props.themes.map((theme) => {
       const selectedSubThemes = (theme.subThemes ?? []).filter((subTheme) => {
         return formValues[subTheme._uid];
       });
-      return {
-        ...theme,
-        subThemes: selectedSubThemes,
-      };
+
+      if (selectedSubThemes.length > 0) {
+        filteredThemes.push({
+          ...theme,
+          subThemes: selectedSubThemes,
+        });
+      }
     });
+    return filteredThemes;
   }, [formValues, props.themes]);
 
   // Callback to update filteredThemes
@@ -184,14 +198,6 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
       setValue(id, false);
     });
   };
-
-  // Callback to update onNoSubThemeSelected
-  useEffect(() => {
-    if (props.onSubThemesSelected) {
-      const anyTrue = Object.values(formValues).some((value) => value === true);
-      props.onSubThemesSelected(anyTrue);
-    }
-  }, [formValues]);
 
   return (
     <div className="w-100">
