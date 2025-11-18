@@ -7,4 +7,5 @@ export interface PaginatorProps {
   items: PaginatorItem[];
   perPage: number;
   onSelect?: (selectedItem: PaginatorItem) => void; // eslint-disable-line no-unused-vars
+  selectedUid?: string;
 }
