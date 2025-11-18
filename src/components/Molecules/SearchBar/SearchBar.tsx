@@ -18,11 +18,11 @@ import type { SearchResultData } from "@src/types/Search.ts";
 type PagefindModule = {
   init: () => Promise<void>;
   /* eslint-disable no-unused-vars */ // avoids unused var 'term' in debouncedSearch function
-  debouncedSearch: (term: string) => Promise<{
+  search: (term: string) => Promise<{
     results: {
       data: () => Promise<PagefindResultsData>;
     }[];
-  } | null>;
+  }>;
 };
 
 const breakpointMd = parseInt(breakpoints.breakpointMd);
@@ -57,6 +57,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const pagefind = useRef<PagefindModule | null>(null);
   const initPromise = useRef<Promise<void> | null>(null);
   const isMobile = useMediaQuery();
+  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const initPagefind = () => {
     if (initPromise.current) {
@@ -111,12 +112,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     }
 
     try {
-      const search = await pagefind.current.debouncedSearch(term);
+      const search = await pagefind.current.search(term);
 
-      // pagefind drops debounced searches resolving them to null, so the following line closes these
-      if (!search) return;
-
-      // only the non-debounced search (within a 300ms window) will execute and resolve to results
       const loadedResults: PagefindResultsData[] = await Promise.all(
         search.results.map((r: any) => r.data()),
       );
@@ -163,7 +160,14 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
     setSearchInput(inputText);
-    runSearch(inputText);
+
+    if (debounceTimer.current) {
+      clearTimeout(debounceTimer.current);
+    }
+
+    debounceTimer.current = setTimeout(() => {
+      runSearch(inputText);
+    }, 300); // Wait 300ms before sending the request
   };
 
   useEffect(() => {
