@@ -1,0 +1,11 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.item-bg {
+  background-color: $color-surface-subtle;
+  border-color: $color-brand-secondary-200 !important;
+}
+
+.copy-btn-space {
+  padding-right: 130px;
+}

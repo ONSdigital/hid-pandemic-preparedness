@@ -1,0 +1,12 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.page-link {
+  border: 1px solid $color-brand-secondary-300;
+  border-radius: 0.5rem;
+  color: $color-text-default;
+  height: 3rem;
+  // justify-content: center;
+  text-align: center;
+  width: 3rem;
+}

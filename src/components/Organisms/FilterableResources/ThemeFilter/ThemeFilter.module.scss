@@ -1,0 +1,11 @@
+@use "../../../../styles/global/tokens" as *;
+
+.theme-filter-container {
+  background-color: $color-brand-secondary-100;
+  max-width: 20rem;
+}
+
+.theme-filter-accordion-button {
+  background-color: $color-brand-secondary-200 !important;
+  border-color: $color-brand-secondary-500 !important;
+}

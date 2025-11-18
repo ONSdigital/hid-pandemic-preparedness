@@ -1,7 +1,7 @@
-import type { StoryblokRichTextNode } from "@storyblok/richtext";
+import type { StoryblokRichtext } from "@src/types/storyblok";
 
 export interface TextModuleProps {
   className?: string;
   htmlContent?: string;
-  richText?: StoryblokRichTextNode;
+  richText?: StoryblokRichtext;
 }

@@ -1,0 +1,8 @@
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+
+.icon-and-text-link__label {
+  color: $blue;
+  cursor: pointer;
+}

@@ -1,0 +1,58 @@
+---
+import type { ISbStoryData } from "@storyblok/js";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Types
+import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
+
+// Components
+import DynamicComponent from "@src/components/DynamicComponent.astro";
+import { Header } from "@src/components/Organisms/Core/Header/Header";
+import { NavigationRow } from "@/src/components/Organisms/Core/NavigationRow/NavigationRow";
+
+// Helpers
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+import { fetchStories } from "@src/helpers/fetchContent";
+
+interface Props {
+  story: ISbStoryData;
+}
+const { story } = Astro.props;
+
+let links: StoryblokMultilinkUrl[] = [];
+
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+
+// Get parent slug
+const fullSlugParts: string[] = story.full_slug.split("/");
+const parentFullSlug: string = fullSlugParts
+  .slice(0, fullSlugParts.length - 1)
+  .join("/");
+
+// Get related stories
+const { data } = await fetchStories({
+  starts_with: parentFullSlug,
+});
+const stories = data?.stories;
+
+// Build the links from stories
+stories.map((story) =>
+  links.push({
+    ...story,
+    url: story.full_slug,
+  }),
+);
+---
+
+<BaseLayout title={story.name}>
+  <main>
+    <Header title={story.name} breadcrumbs={breadcrumbs} />
+    <NavigationRow currentFullSlug={story.full_slug} links={links} />
+    {
+      story.content.Body &&
+        story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
+    }
+  </main>
+</BaseLayout>
