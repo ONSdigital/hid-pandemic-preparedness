@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import imageAndTextData from "./image-and-text.json";
 import { ImageAndText } from "./ImageAndText";

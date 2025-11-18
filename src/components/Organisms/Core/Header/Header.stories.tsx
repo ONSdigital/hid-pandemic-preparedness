@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/header.json";
 

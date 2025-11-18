@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import DOMPurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
 

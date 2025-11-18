@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { ListGroupLinks } from "./ListGroup";
 import listGroupLinksData from "./listGroupLinks.json?raw";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
 

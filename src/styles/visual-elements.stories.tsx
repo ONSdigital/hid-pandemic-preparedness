@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { FC } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta = {
   title: "Styles/Visual elements",

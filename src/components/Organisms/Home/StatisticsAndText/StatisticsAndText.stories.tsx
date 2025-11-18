@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { StatisticsAndText } from "./StatisticsAndText";
 import statisticsAndTextData from "./statistics-and-text.json";

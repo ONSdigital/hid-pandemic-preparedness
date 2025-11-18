@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import DOMPurify from "dompurify";
 
 import markdownContent from "@src/content/text-module-content.md?raw";

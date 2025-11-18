@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import iframeData from "./iframe.json?raw";
 import { Iframe } from "./Iframe";

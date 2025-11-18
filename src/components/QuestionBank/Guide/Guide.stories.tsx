@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import DOMPurify from "dompurify";
 
 import topMarkdownContent from "@content/tools/question-bank/guide/top-content.md?raw";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import SearchResultsData from "@content/searchResults.json";
 import { SearchResults } from "./SearchResults";

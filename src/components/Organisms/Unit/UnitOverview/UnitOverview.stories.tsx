@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { v4 as uuidv4 } from "uuid";
 
 import type { Tag } from "@src/types/Tag";
@@ -33,7 +33,7 @@ const tags: Tag[] = [
   },
 ];
 
-export const unitOverviewStory = {
+export const UnitOverviewStory = {
   args: { ...JSON.parse(overviewDataJson), tags: tags },
   name: "UnitOverview",
 } satisfies Story;

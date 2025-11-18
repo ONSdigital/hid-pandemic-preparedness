@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 // import menuItems from "../../../content/menuItems.json";
 import quickLinksData from "./quicklinks.json?raw";

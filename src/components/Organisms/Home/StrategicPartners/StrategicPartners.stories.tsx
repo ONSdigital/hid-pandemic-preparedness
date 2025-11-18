@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import strategicPartnersProps from "./strategic-partners.json";
 import { StrategicPartners } from "./StrategicPartners";
