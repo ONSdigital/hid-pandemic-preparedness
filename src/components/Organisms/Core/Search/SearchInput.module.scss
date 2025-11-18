@@ -1,13 +1,13 @@
 @use "@src/styles/global/tokens" as *;
 @import "@src/styles/bootstrap-5.3.8/scss/functions";
-@import "@src/styles/bootstrap-5.3.8/scss/mixins";
 @import "@src/styles/bootstrap-5.3.8/scss/variables";
+@import "@src/styles/bootstrap-5.3.8/scss/mixins";
 
-.tools-carousel {
-  background-color: $color-grey-100;
-  padding: 2.5rem 0;
+.section {
+  background-color: $color-brand-secondary-100;
+  padding: 1.5rem 0;
 
   @include media-breakpoint-up(lg) {
-    padding: 4rem 0;
+    padding: 4.5rem 0;
   }
 }

@@ -9,7 +9,7 @@ import styles from "./StrategicPartners.module.scss";
 
 export const StrategicPartners: FC<StrategicPartnersProps> = (props) => {
   return (
-    <div className={clsx("w-100", "py-2")}>
+    <div className={clsx("w-100", "py-2", styles["background-color"])}>
       <div
         className={clsx(
           "container-lg",

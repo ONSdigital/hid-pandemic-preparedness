@@ -11,4 +11,15 @@
   position: absolute;
   top: 100%;
   z-index: 1;
+  max-height: 40rem;
+  overflow-y: auto;
+}
+
+.sticky-link-container {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
