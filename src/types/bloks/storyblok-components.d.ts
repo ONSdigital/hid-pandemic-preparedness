@@ -824,7 +824,7 @@ export interface QuickLinksItem {
 export interface Reference {
   accessedDate?: string;
   yearPublished?: string;
-  websiteAuthor?: string;
+  websiteAuthor: string;
   websiteTitle?: string;
   websiteUrl?: string;
   component: "Reference";
@@ -836,12 +836,12 @@ export interface StatisticsAndText {
   title?: string;
   subTitle?: string;
   quotation?: string;
-  reference?: Reference[];
+  reference: Reference[];
   link?: Exclude<
     StoryblokMultilink,
     { linktype?: "email" } | { linktype?: "asset" }
   >;
-  cards?: StatisticsCard[];
+  cards: StatisticsCard[];
   component: "StatisticsAndText";
   _uid: string;
   [k: string]: unknown;
@@ -886,6 +886,7 @@ export interface SubTheme {
 
 export interface SupportingInformation {
   content?: StoryblokRichtext;
+  Body?: unknown[];
   component: "SupportingInformation";
   _uid: string;
   [k: string]: unknown;
@@ -1000,3 +1001,14 @@ export interface Video {
   _uid: string;
   [k: string]: unknown;
 }
+
+export type ContentType =
+  | BasicPage
+  | CardBlock
+  | FilterableResources
+  | Footer
+  | Home
+  | HomePage
+  | Landing
+  | SupportingInformation
+  | Unit;

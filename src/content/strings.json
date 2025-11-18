@@ -1,4 +1,10 @@
 {
+  "core": {
+    "copyButton": {
+      "copied": "Copied!",
+      "copy": "Copy"
+    }
+  },
   "levels": {
     "advanced": "Advanced",
     "beginner": "Beginner",
@@ -38,6 +44,18 @@
       "downloadPdf": "Download PDF",
       "feedback": "Feedback",
       "openGithub": "Open GITHUB"
+    }
+  },
+  "filterableResources": {
+    "filterableResources": {
+      "themeNavigation": "Theme navigation"
+    },
+    "themeFilter": {
+      "downloadAll": "Download all",
+      "themes": "Themes",
+      "resetFilters": "Reset filters",
+      "selectAll": "Select all",
+      "selectNone": "Select none"
     }
   },
   "search": {

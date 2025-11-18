@@ -3,3 +3,8 @@
 .full-width-bg {
   background-color: $color-brand-secondary-100;
 }
+
+.container {
+  background-color: $color-grey-100;
+  border-color: $color-brand-secondary-200 !important;
+}
