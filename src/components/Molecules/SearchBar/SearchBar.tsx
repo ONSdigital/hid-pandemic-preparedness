@@ -66,6 +66,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     initPromise.current = (async () => {
       if (!isClient) return;
 
+      // pagefind directory created by astro-pagefind post-build, so search
+      // data on local dev server will be stale until build step is re-run
       const pagefindPath = "/pagefind/pagefind.js";
       try {
         // @ts-ignore
