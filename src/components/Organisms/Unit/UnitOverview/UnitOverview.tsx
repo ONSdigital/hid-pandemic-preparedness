@@ -27,6 +27,7 @@ export const UnitOverview: FC<UnitOverviewProps> = (props) => {
         "border",
         "rounded",
         "p-4",
+        "p-lg-5",
         styles["container-bg"],
       )}
     >
@@ -49,8 +50,8 @@ export const UnitOverview: FC<UnitOverviewProps> = (props) => {
         </div>
       </div>
       <div className={clsx("row")}>
-        <h3 className={clsx("heading-m")}>{props.title}</h3>
-        <hr />
+        <h3 className={clsx("heading-m", "mt-4", "mb-0")}>{props.title}</h3>
+        <hr className={clsx(styles["hr-m"])} />
         <div className={clsx("col-12")}>
           {props.overviewRichText && (
             <TextModule richText={props.overviewRichText} />
