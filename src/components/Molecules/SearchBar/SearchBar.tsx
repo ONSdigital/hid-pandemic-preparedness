@@ -216,7 +216,12 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
           value={searchInput}
         />
         {showDropdown && (
-          <div className={clsx("mt-2", "w-100", styles["search-results"])}>
+          <div
+            className={clsx(
+              "mt-2",
+              "w-100",
+              props.isInline ? styles["search-results-inline"] : styles["search-results"]
+            )}>
             <SearchResults
               searchResults={allResults}
               isMobile={isMobile}
