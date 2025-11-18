@@ -886,62 +886,7 @@ export interface SubTheme {
 
 export interface SupportingInformation {
   content?: StoryblokRichtext;
-  Body?: (
-    | BasicPage
-    | CardBlock
-    | CardCaseStudy
-    | CardStatistics
-    | Carousel
-    | CaseStudies
-    | CaseStudyCard
-    | Chart
-    | Code
-    | ExpandableItem
-    | FilterableResources
-    | FilterableResourcesItem
-    | Footer
-    | FooterColumn
-    | FooterColumnLink
-    | Formula
-    | FullWidthRichText
-    | Header
-    | HeaderInternalPages
-    | Hero
-    | Home
-    | HomePage
-    | Iframe
-    | ImageAndText
-    | ImageText
-    | Impact
-    | ImpactCard
-    | Landing
-    | Link
-    | MegaMenu
-    | MegaMenuColumn
-    | NavBar
-    | Page
-    | QuickLinks
-    | QuickLinksItem
-    | Reference
-    | StatisticsAndText
-    | StatisticsCard
-    | StrategicPartner
-    | StrategicPartners
-    | SubTheme
-    | SupportingInformation
-    | Table
-    | Tag
-    | TerryCode
-    | TextModule
-    | Theme
-    | ToolCard
-    | ToolsCarousel
-    | Unit
-    | UnitChapter
-    | UnitOverview
-    | UnitSection
-    | Video
-  )[];
+  Body?: unknown[];
   component: "SupportingInformation";
   _uid: string;
   [k: string]: unknown;
@@ -1056,3 +1001,14 @@ export interface Video {
   _uid: string;
   [k: string]: unknown;
 }
+
+export type ContentType =
+  | BasicPage
+  | CardBlock
+  | FilterableResources
+  | Footer
+  | Home
+  | HomePage
+  | Landing
+  | SupportingInformation
+  | Unit;
