@@ -50,3 +50,19 @@
 .text-link {
   color: $color-blue;
 }
+
+// Rich text overrides
+.text-module {
+  .heading-m,
+  .heading-s {
+    margin-bottom: 0.75em;
+  }
+
+  li p {
+    margin-bottom: 0;
+  }
+
+  hr {
+    margin: 1.75rem 0;
+  }
+}
