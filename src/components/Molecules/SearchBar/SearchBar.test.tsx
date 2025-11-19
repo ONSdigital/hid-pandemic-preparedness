@@ -16,7 +16,7 @@ import type { SearchResultData } from "@src/types/Search.ts";
 import { SearchBar } from "./SearchBar";
 
 const mockInitPagefind = vi.fn().mockResolvedValue(undefined);
-const onRunSearchSpy = vi.fn(); 
+const onRunSearchSpy = vi.fn();
 const onSetSearchInputSpy = vi.fn();
 
 // Mock Pagefind Hook
@@ -27,9 +27,9 @@ vi.mock("@src/hooks/usePagefind", () => ({
 
     const runSearch = async (term: string) => {
       onRunSearchSpy(term);
-      
+
       await Promise.resolve();
-      
+
       if (term) {
         setAllResults(createMockResults(6));
       } else {
@@ -38,8 +38,8 @@ vi.mock("@src/hooks/usePagefind", () => ({
     };
 
     const wrappedSetSearchInput = (input: string) => {
-        onSetSearchInputSpy(input);
-        setSearchInput(input);
+      onSetSearchInputSpy(input);
+      setSearchInput(input);
     };
 
     return {
@@ -54,9 +54,12 @@ vi.mock("@src/hooks/usePagefind", () => ({
 
 // Mock Styles
 vi.mock("./SearchBar.module.scss", () => ({
-  default: new Proxy({}, {
-    get: (target, prop) => String(prop),
-  }),
+  default: new Proxy(
+    {},
+    {
+      get: (target, prop) => String(prop),
+    },
+  ),
 }));
 
 // Mock createPortal
@@ -130,7 +133,6 @@ afterEach(() => {
 });
 
 describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
-  
   it("calls runSearch immediately on input change", async () => {
     const user = userEvent.setup();
     render(<SearchBar placeholder="Search" isResultsPage={false} />);
@@ -139,11 +141,11 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
     await user.click(input);
 
     await user.type(input, "t");
-    
+
     await waitFor(() => {
       expect(onRunSearchSpy).toHaveBeenCalledWith("t");
     });
-    
+
     await user.type(input, "e");
     await waitFor(() => {
       expect(onRunSearchSpy).toHaveBeenCalledWith("te");
@@ -155,10 +157,10 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
     render(<SearchBar placeholder="Search" isResultsPage={false} />);
 
     const input = screen.getByPlaceholderText("Search");
-    await user.click(input); 
+    await user.click(input);
 
     await user.type(input, "hello");
-    
+
     const resultsMock = await screen.findByTestId("search-results-mock");
 
     expect(screen.getByText("View all results")).toBeInTheDocument();
@@ -174,7 +176,7 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
     const input = screen.getByPlaceholderText("Search");
     await user.click(input);
     await user.type(input, "hello");
-    
+
     await screen.findByText("View all results");
 
     await user.click(document.body);
@@ -191,13 +193,13 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
     });
 
     render(<SearchBar placeholder="Search" isResultsPage={true} />);
-    
+
     await waitFor(() => {
       expect(onSetSearchInputSpy).toHaveBeenCalledWith("urlquery");
       expect(onRunSearchSpy).toHaveBeenCalledWith("urlquery");
     });
-    
-    await screen.findByTestId("search-results-mock"); 
+
+    await screen.findByTestId("search-results-mock");
     const input = screen.getByPlaceholderText("Search") as HTMLInputElement;
     expect(input.value).toBe("urlquery");
   });
@@ -213,7 +215,7 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
     const resultsMock = await screen.findByTestId("search-results-mock");
 
     const props = JSON.parse(resultsMock.textContent || "{}");
-    expect(props.limit).toBeUndefined(); 
+    expect(props.limit).toBeUndefined();
     expect(props.searchResults.length).toBe(6);
     expect(screen.queryByText("View all results")).not.toBeInTheDocument();
   });
@@ -222,15 +224,17 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
 describe("SearchBar (Inline Mode)", () => {
   it("applies 'search-results-inline' class when isInline={true}", async () => {
     const user = userEvent.setup();
-    render(<SearchBar placeholder="Search" isResultsPage={false} isInline={true} />);
+    render(
+      <SearchBar placeholder="Search" isResultsPage={false} isInline={true} />,
+    );
 
     const input = screen.getByPlaceholderText("Search");
-    await user.click(input); 
+    await user.click(input);
     await user.type(input, "test");
-    
+
     const resultsMock = await screen.findByTestId("search-results-mock");
     const dropdownWrapper = resultsMock.closest(".search-results-inline");
-    
+
     expect(dropdownWrapper).toBeInTheDocument();
     expect(dropdownWrapper).toHaveClass("search-results-inline");
   });
@@ -238,12 +242,12 @@ describe("SearchBar (Inline Mode)", () => {
 
 describe("SearchBar (useMediaQuery)", () => {
   it("passes isMobile={true} when window is small", async () => {
-    windowWidthSpy.mockReturnValue(300); 
+    windowWidthSpy.mockReturnValue(300);
     const user = userEvent.setup();
     render(<SearchBar placeholder="Search" isResultsPage={false} />);
 
     const input = screen.getByPlaceholderText("Search");
-    await user.click(input); 
+    await user.click(input);
     await user.type(input, "hello");
 
     const resultsMock = await screen.findByTestId("search-results-mock");
@@ -257,7 +261,7 @@ describe("SearchBar (useMediaQuery)", () => {
     render(<SearchBar placeholder="Search" isResultsPage={false} />);
 
     const input = screen.getByPlaceholderText("Search");
-    await user.click(input); 
+    await user.click(input);
     await user.type(input, "hello");
 
     const resultsMock = await screen.findByTestId("search-results-mock");

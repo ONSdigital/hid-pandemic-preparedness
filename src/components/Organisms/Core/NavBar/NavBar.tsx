@@ -5,7 +5,7 @@ import { MegaMenu } from "@/src/components/MegaMenu/MegaMenu";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { SearchBar } from "@/src/components/Molecules/SearchBar/SearchBar";
-import strings from "@/src/content/strings.json"; 
+import strings from "@/src/content/strings.json";
 
 import type { MegaMenu as MegaMenuData } from "@localTypes/MegaMenu";
 import type { ExpandableItemData, NavBarProps } from "./NavBar.interface";
@@ -18,7 +18,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const navBarContainerRef = useRef<HTMLDivElement | null>(null);
-  
+
   handleClickOutside(navBarContainerRef, () => {
     closeMegamenu();
     setIsMobileNavOpen(false);
@@ -106,7 +106,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
                 <div className="row justify-content-center">
                   <div className="col-lg-6">
                     <div className="col-xl-9 mx-auto">
-                      <SearchBar 
+                      <SearchBar
                         placeholder={strings.search.placeholderText}
                         isInline={true}
                       />
@@ -117,9 +117,8 @@ export const NavBar: FC<NavBarProps> = (props) => {
             </div>
           </div>
         )}
-
       </div>
-      
+
       {/* Screen dimmer */}
       {(megaMenuData || isMobileNavOpen || isSearchOpen) && (
         <div className={styles["screen-dimmer"]} />

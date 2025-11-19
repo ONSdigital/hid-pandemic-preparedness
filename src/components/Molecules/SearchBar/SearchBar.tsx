@@ -3,9 +3,7 @@ import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { RiArrowRightLine, RiSearchLine } from "@remixicon/react";
 
-import type {
-  SearchBarProps,
-} from "./SearchBar.interface";
+import type { SearchBarProps } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
 import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
 import breakpoints from "@src/styles/global/overrides/_breakpoints.module.scss";
@@ -41,15 +39,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const [isClient, setIsClient] = useState(false);
   const searchContainerRef = useRef<HTMLFormElement | null>(null);
   const isMobile = useMediaQuery();
-  const { 
-    searchInput, 
-    setSearchInput, 
-    allResults,
-    runSearch, 
-    initPagefind 
-  } = usePagefind(isClient, props.initialQuery);
-
-
+  const { searchInput, setSearchInput, allResults, runSearch, initPagefind } =
+    usePagefind(isClient, props.initialQuery);
 
   useEffect(() => {
     // Check for clicks outside the referenced element (search container)
@@ -76,8 +67,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
-    setSearchInput(inputText); 
-    runSearch(inputText); 
+    setSearchInput(inputText);
+    runSearch(inputText);
   };
 
   useEffect(() => {
@@ -100,7 +91,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     }
   }, [props.isResultsPage, isClient, runSearch, setSearchInput]);
 
-const showDropdown =
+  const showDropdown =
     searchInput && isFocused && allResults.length > 0 && !props.isResultsPage;
 
   const resultsPortalContainer = isClient
@@ -110,7 +101,7 @@ const showDropdown =
   return (
     <form
       role="search"
-      ref={searchContainerRef} 
+      ref={searchContainerRef}
       className={clsx("text-dark", styles["input-bg"])}
       action="/search"
       method="GET"
@@ -126,7 +117,7 @@ const showDropdown =
           name="params"
           value={searchInput}
         />
-        
+
         <Button type="submit" variant="secondary" ariaLabel="Search">
           <RiSearchLine />
         </Button>
@@ -137,7 +128,9 @@ const showDropdown =
           className={clsx(
             "mt-2",
             "w-100",
-            props.isInline ? styles["search-results-inline"] : styles["search-results"]
+            props.isInline
+              ? styles["search-results-inline"]
+              : styles["search-results"],
           )}
         >
           <SearchResults

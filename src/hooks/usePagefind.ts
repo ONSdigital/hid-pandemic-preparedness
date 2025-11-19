@@ -19,14 +19,17 @@ export interface PagefindUtils {
   searchInput: string;
   allResults: SearchResultData[];
   setSearchInput: (input: string) => void;
-  initPagefind: () => Promise<void>; 
-  runSearch: (term: string) => Promise<void>; 
+  initPagefind: () => Promise<void>;
+  runSearch: (term: string) => Promise<void>;
 }
 
-export const usePagefind = (isClient: boolean, initialQuery: string | undefined): PagefindUtils => {
+export const usePagefind = (
+  isClient: boolean,
+  initialQuery: string | undefined,
+): PagefindUtils => {
   const [searchInput, setSearchInput] = useState(initialQuery || "");
   const [allResults, setAllResults] = useState<SearchResultData[]>([]);
-  
+
   const pagefind = useRef<PagefindModule | null>(null);
   const initPromise = useRef<Promise<void> | null>(null);
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -103,7 +106,7 @@ export const usePagefind = (isClient: boolean, initialQuery: string | undefined)
           );
         },
       );
-      
+
       setAllResults(finalResults);
     } catch (e) {
       console.error("Pagefind search failed:", e);
@@ -111,11 +114,11 @@ export const usePagefind = (isClient: boolean, initialQuery: string | undefined)
     }
   };
 
-  return { 
-    searchInput, 
-    allResults, 
-    setSearchInput, 
-    initPagefind, 
-    runSearch 
+  return {
+    searchInput,
+    allResults,
+    setSearchInput,
+    initPagefind,
+    runSearch,
   };
 };

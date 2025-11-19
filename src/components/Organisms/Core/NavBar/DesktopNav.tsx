@@ -70,15 +70,15 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
         ))}
 
       <div className={clsx("d-flex", "align-items-center", styles["nav-item"])}>
-        <Button 
-          type="button" 
-          variant="search-bar" 
+        <Button
+          type="button"
+          variant="search-bar"
           ariaLabel={props.isSearchOpen ? "Close search" : "Open search"}
           onClick={props.onSearchToggle}
         >
           {props.isSearchOpen ? <RiCloseLine /> : <RiSearchLine />}
         </Button>
-      </div>  
+      </div>
     </div>
   );
 };
