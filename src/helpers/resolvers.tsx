@@ -11,6 +11,7 @@ import type { FC } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { Formula } from "@src/components/Molecules/Core/Formula/Formula";
+import { Table } from "@src/components/Molecules/Core/Table/Table";
 import { Tip } from "@src/components/Molecules/Core/Tip/Tip";
 
 // Copied from https://github.com/storyblok/monoblok/packages/richtext/src/types/index.ts as these are not exported
@@ -95,10 +96,11 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
 };
 
 // List of components that we support being added to rich text
-type ComponentName = "Formula" | "Tip";
+type ComponentName = "Formula" | "Table" | "Tip";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Formula,
+  Table,
   Tip,
 };
 

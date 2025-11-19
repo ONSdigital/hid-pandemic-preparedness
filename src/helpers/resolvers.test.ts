@@ -50,72 +50,6 @@ describe.each([
 );
 
 describe("componentResolver", () => {
-  // Valid node data
-  const formulaText: string = "Mₖ = (dₖ / pₖ) × 1,000";
-  const componentNode = {
-    type: "blok",
-    attrs: {
-      id: "be0bd86d-84f1-4b47-9ffd-6a5f0a7c9b01",
-      body: [
-        {
-          _uid: "i-778e58f1-ca30-4549-8e9e-9fe9e3716cd9",
-          text: {
-            type: "doc",
-            content: [
-              {
-                type: "paragraph",
-                attrs: {
-                  textAlign: null,
-                },
-                content: [
-                  {
-                    text: "Mₖ = (dₖ / pₖ) × 1,000",
-                    type: "text",
-                    marks: [
-                      {
-                        type: "bold",
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-          richText: {
-            type: "doc",
-            content: [
-              {
-                type: "paragraph",
-                attrs: {
-                  textAlign: null,
-                },
-                content: [
-                  {
-                    text: formulaText,
-                    type: "text",
-                    marks: [
-                      {
-                        type: "textStyle",
-                        attrs: {
-                          color: "#212529",
-                        },
-                      },
-                      {
-                        type: "bold",
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-          component: "Formula",
-        },
-      ],
-    },
-    content: [],
-  } as StoryblokRichTextNode<T>;
-
   test("Renders formula when called with valid node", () => {
     const formulaText = "Mₖ = (dₖ / pₖ) × 1,000";
     const node = {
@@ -160,7 +94,8 @@ describe("componentResolver", () => {
           },
         ],
       },
-    } as unknown as StoryblokRichTextNode<T>;
+      content: [],
+    } as StoryblokRichTextNode<T>;
 
     const context = createMockContext();
     // Valid node should return rendered `Formula` component
@@ -169,7 +104,6 @@ describe("componentResolver", () => {
   });
 
   test("copes with weird data coming from node", () => {
-    const formulaText: string = "";
     const node = {
       type: "blok",
       attrs: {
@@ -233,7 +167,8 @@ describe("componentResolver", () => {
           },
         ],
       },
-    } as unknown as StoryblokRichTextNode<T>;
+      content: [],
+    } as StoryblokRichTextNode<T>;
 
     const context = createMockContext();
     // Invalid node should be caught by try catch and just return default implementation
@@ -262,7 +197,8 @@ describe("componentResolver", () => {
           },
         ],
       },
-    } as unknown as StoryblokRichTextNode<T>;
+      content: [],
+    } as StoryblokRichTextNode<T>;
 
     const context = createMockContext();
     // Valid node should return rendered `Tip` component
@@ -270,18 +206,510 @@ describe("componentResolver", () => {
     expect(component).toContain(tipText);
   });
 
-  test("Renders with default values when called with unrecognised component type", () => {
+  test("Renders table when called with valid node", () => {
+    const cellText =
+      "Central mortality rate: average number of deaths at age x divided by the average population at that age";
     const node = {
-      ...componentNode,
+      type: "blok",
       attrs: {
-        ...componentNode.attrs,
+        id: "37765be8-f610-40ff-a192-4e91d1391e4b",
         body: [
           {
-            ...componentNode?.attrs?.body[0],
+            _uid: "i-ab4c4a1f-e75c-42ef-97c8-e541b2d9a916",
+            table: {
+              type: "doc",
+              content: [
+                {
+                  type: "table",
+                  content: [
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableHeader",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Symbol Description",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableHeader",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Description",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "mx",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: cellText,
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "qx",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Probability of dying between age x and x+1",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "lx",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Number of survivors to exact age x from a cohort of 100,000 live births",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "dx",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Number of deaths between age x and x+1 (dx = lx − lx+1)",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Lx",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Person-years lived between age x and x+1",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Tx",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Total person-years lived from age x onward",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "ex",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableCell",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                            backgroundColor: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Life expectancy at exact age x (ex = Tx / lx)",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: "tableRow",
+                      content: [
+                        {
+                          type: "tableHeader",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Symbol Description",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          type: "tableHeader",
+                          attrs: {
+                            colspan: 1,
+                            rowspan: 1,
+                            colwidth: null,
+                          },
+                          content: [
+                            {
+                              type: "paragraph",
+                              attrs: {
+                                textAlign: null,
+                              },
+                              content: [
+                                {
+                                  text: "Description",
+                                  type: "text",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            minWidth: "",
+            component: "Table",
+            _editable:
+              '\u003C!--#storyblok#{"name": "Table", "space": "287525897740819", "uid": "i-ab4c4a1f-e75c-42ef-97c8-e541b2d9a916", "id": "104958153601090"}--\u003E',
+          },
+        ],
+      },
+      content: [],
+    } as StoryblokRichTextNode<T>;
+
+    const context = createMockContext();
+    // Valid node should return rendered `Table` component
+    const component = componentResolver(node, context);
+    expect(component).toContain(cellText);
+  });
+
+  test("Renders with default values when called with unrecognised component type", () => {
+    const node = {
+      type: "blok",
+      attrs: {
+        id: "be0bd86d-84f1-4b47-9ffd-6a5f0a7c9b01",
+        body: [
+          {
+            _uid: "i-778e58f1-ca30-4549-8e9e-9fe9e3716cd9",
             component: "Unrecognised",
           },
         ],
       },
+      content: [],
     } as StoryblokRichTextNode<T>;
 
     const context = createMockContext();
