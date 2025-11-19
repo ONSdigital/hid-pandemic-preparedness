@@ -58,23 +58,24 @@ export async function fetchStories(
 ): Promise<ISbStories> {
   const response = await client.get("cdn/stories/", {
     version: VERSION,
+    per_page: 100,
     ...params,
   });
   return response;
 }
 
-// Fetches story content from input `fullSlug` and returns just the content
+// Fetches story content from input `pathParam` and returns just the content
 export async function fetchStory(
-  fullSlug: string,
+  pathParam: string | number,
   params?: ISbStoriesParams,
 ): Promise<ISbStory> {
-  // If input `fullSlug` is `/`, this is the path for the homepage but we can't return the story
+  // If input `pathParam` is `/`, this is the path for the homepage but we can't return the story
   // using this so update to just `home`
-  if (fullSlug === "/") {
-    fullSlug = "home";
+  if (pathParam === "/") {
+    pathParam = "home";
   }
 
-  const response = await client.get(`cdn/stories/${fullSlug}`, {
+  const response = await client.get(`cdn/stories/${pathParam}`, {
     version: VERSION,
     resolve_links: "story",
     ...params,

@@ -1,0 +1,55 @@
+---
+import type { ISbStoryData } from "@storyblok/js";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Types
+import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
+import type { FilterableResources } from "@src/types/bloks/storyblok-components";
+
+// Components
+
+import { FilterableResources as FilterableResourcesComponent } from "@src/components/Organisms/FilterableResources/FilterableResources/FilterableResources";
+import { Header } from "@src/components/Organisms/Core/Header/Header";
+import { NavigationRow } from "@/src/components/Organisms/Core/NavigationRow/NavigationRow";
+
+// Helpers
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+import { fetchStories } from "@src/helpers/fetchContent";
+
+interface Props {
+  story: ISbStoryData;
+}
+const { story } = Astro.props;
+
+let links: StoryblokMultilinkUrl[] = [];
+
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+
+// Get related stories
+const { data } = await fetchStories({
+  starts_with: story.full_slug,
+});
+const stories = data?.stories;
+
+// Build the links from stories
+stories.map((story) =>
+  links.push({
+    ...story,
+    url: story.full_slug,
+  }),
+);
+---
+
+<BaseLayout title={story.name}>
+  <main>
+    <Header title={story.name} breadcrumbs={breadcrumbs} />
+    <!-- Include the current story first, then child stories -->
+    <NavigationRow currentFullSlug={story.full_slug} links={links} />
+    <FilterableResourcesComponent
+      {...story.content as FilterableResources}
+      client:visible
+    />
+  </main>
+</BaseLayout>

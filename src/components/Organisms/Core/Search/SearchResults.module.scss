@@ -1,0 +1,7 @@
+@use "../../../../../src/styles/global/tokens" as *;
+
+.wrapper {
+  background-color: $color-brand-secondary-100;
+  border-radius: 0.5rem;
+  padding-bottom: 80px;
+}

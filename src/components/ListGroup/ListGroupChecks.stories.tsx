@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ListGroupChecks } from "./ListGroup";
-import listGroupCheckData from "@content/listGroupCheckData.json";
+import listGroupCheckData from "./listGroupCheckData.json";
 const meta = {
   argTypes: {
     checkItems: {

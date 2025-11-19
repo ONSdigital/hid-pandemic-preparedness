@@ -2,8 +2,24 @@
 
 .search-results-bg {
   background-color: $color-grey-100;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .search-results-link {
   color: $color-blue;
+}
+
+.search-results-count {
+  background-color: inherit;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.truncate-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }

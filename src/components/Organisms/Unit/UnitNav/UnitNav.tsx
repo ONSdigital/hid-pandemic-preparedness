@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { Accordion } from "@src/components/Molecules/Core/Accordion/Accordion";
 import { ChapterList } from "@src/components/Molecules/Core/ChapterList/ChapterList";
-import { IconAndTextLink } from "@src/components/IconAndTextLink/IconAndTextLink";
+import { IconAndTextLink } from "@src/components/Molecules/Core/IconAndTextLink/IconAndTextLink";
 
 import strings from "@src/content/strings.json";
 
@@ -48,7 +48,7 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
         <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
           {props.githubLink && (
             <IconAndTextLink
-              href={props.githubLink.url}
+              link={props.githubLink}
               icon="github"
               label={unitNavStrings.openGithub}
             />
