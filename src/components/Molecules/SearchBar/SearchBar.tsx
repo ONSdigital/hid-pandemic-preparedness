@@ -109,6 +109,19 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     if (isClient) initPagefind();
   };
 
+  const handlePageChange = (pageIndex: number) => {
+    const pageNumber = pageIndex + 1;
+    updateUrl({ page: pageNumber });
+
+    if (resultsTopRef.current) {
+      resultsTopRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       // Check for clicks outside the referenced element (search container)
@@ -206,18 +219,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
                     ariaLabel="Search results pagination"
                     totalPages={totalPages}
                     currentPage={currentPage}
-                    onPageChange={(pageIndex) => {
-                      const pageNumber = pageIndex + 1;
-                      updateUrl({ page: pageNumber });
-
-                      if (resultsTopRef.current) {
-                        resultsTopRef.current.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                      } else {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
-                    }}
+                    onPageChange={handlePageChange}
                   />
                 </div>
               )}
