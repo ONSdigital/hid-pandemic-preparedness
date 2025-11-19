@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {
   afterEach,
@@ -223,14 +223,16 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
 
 describe("SearchBar (Inline Mode)", () => {
   it("applies 'search-results-inline' class when isInline={true}", async () => {
-    const user = userEvent.setup();
     render(
       <SearchBar placeholder="Search" isResultsPage={false} isInline={true} />,
     );
 
     const input = screen.getByPlaceholderText("Search");
-    await user.click(input);
-    await user.type(input, "test");
+
+    // set state and fire event synchronously to ensure dropdown is
+    // rendered when findBy runs in test env
+    fireEvent.focus(input);
+    fireEvent.change(input, { target: { value: "test" } });
 
     const resultsMock = await screen.findByTestId("search-results-mock");
     const dropdownWrapper = resultsMock.closest(".search-results-inline");

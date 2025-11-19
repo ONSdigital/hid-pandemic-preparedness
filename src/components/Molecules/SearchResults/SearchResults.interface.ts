@@ -9,4 +9,5 @@ export interface SearchResultsProps {
   searchResults: SearchResultData[];
   isMobile: boolean;
   limit?: number;
+  totalResults?: number;
 }
