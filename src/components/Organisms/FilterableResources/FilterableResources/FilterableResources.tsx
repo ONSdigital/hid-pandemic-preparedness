@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FC } from "react";
 
 import type { FilterableResourcesProps } from "@src/components/Organisms/FilterableResources/FilterableResources/FilterableResources.interface";
@@ -71,6 +71,21 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
     setSelectedThemeId(selectedItem._uid);
   };
 
+  // Sync selectedThemeId if it no longer exists in filteredThemes
+  useEffect(() => {
+    if (filteredThemes.length === 0) {
+      setSelectedThemeId(undefined);
+      return;
+    }
+
+    const stillExists = filteredThemes.some(
+      (theme) => theme._uid === selectedThemeId,
+    );
+    if (!stillExists) {
+      setSelectedThemeId(filteredThemes[0]._uid);
+    }
+  }, [filteredThemes, selectedThemeId]);
+
   return (
     <div className={clsx("w-100", styles["filterable-resources-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
@@ -119,6 +134,7 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
                       items={filteredThemes}
                       perPage={1}
                       onSelect={handlePaginatorClick}
+                      selectedUid={selectedThemeId}
                     />
                   </div>
                 )}

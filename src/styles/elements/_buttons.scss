@@ -1,0 +1,41 @@
+@import "../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../styles/bootstrap-5.3.8/scss/variables";
+
+@import "../global/tokens";
+
+// Custom button variants for the project
+.btn-navigation-tab {
+  @include button-variant(
+    $background: $color-brand-primary-500,
+    $border: transparent,
+    $color: $color-brand-secondary-300,
+    $active-background: $color-brand-primary-500,
+    $active-color: $color-brand-secondary-300
+  );
+
+  @include button-size(
+    $padding-y: 0.5rem,
+    $padding-x: 1rem,
+    $font-size: 1.125rem,
+    $border-radius: 0.5rem
+  );
+}
+
+.btn-navigation-tab-inverse {
+  @include button-variant(
+    $background: $color-grey-100,
+    $border: transparent,
+    $color: $color-brand-primary-600,
+    $hover-background: $color-brand-primary-200,
+    $active-background: $color-brand-primary-500,
+    $active-color: $color-brand-secondary-300
+  );
+
+  @include button-size(
+    $padding-y: 0.5rem,
+    $padding-x: 1rem,
+    $font-size: 1.125rem,
+    $border-radius: 0.5rem
+  );
+}
