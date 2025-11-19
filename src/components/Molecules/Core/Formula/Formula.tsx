@@ -18,7 +18,7 @@ export const Formula: FC<FormulaProps> = (props) => {
         "align-items-center",
         "ps-4",
         "py-3",
-        // "my-4",
+        "my-4",
         "gap-2",
         styles["formula-container"],
       )}
@@ -26,7 +26,7 @@ export const Formula: FC<FormulaProps> = (props) => {
       <div className={clsx("fw-bold")} ref={contentElement}>
         {props.text}
       </div>
-      <div>
+      <div className={clsx("ms-auto")}>
         <CopyButton contentElement={contentElement} />
       </div>
     </div>

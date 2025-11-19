@@ -115,10 +115,16 @@ export const componentResolver: StoryblokRichTextNodeResolver<T> = (
     if (Object.keys(COMPONENT_MAP).includes(componentName)) {
       const Component = COMPONENT_MAP[componentName as ComponentName];
 
-      // Return the rendered component
-      return renderToStaticMarkup(
-        <Component key={blok._uid} {...blok} />,
-      ) as unknown as T;
+      try {
+        return renderToStaticMarkup(
+          <Component key={blok._uid} {...blok} />,
+        ) as unknown as T;
+      } catch (error) {
+        // If rendering fails for whatever reason, log a warning
+        console.warn(
+          `componentResolver warning: Error rendering "${componentName}" Component; ${error}`,
+        );
+      }
     } else {
       // If we are trying to render a blok we don't have a corresponding component for, log a warning
       console.warn(
