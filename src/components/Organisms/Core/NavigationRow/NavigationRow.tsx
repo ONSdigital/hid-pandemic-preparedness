@@ -36,7 +36,9 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
         )}
         {/* Only show the links if we have more than one */}
         {links.length > 1 && (
-          <nav className={clsx("d-flex", "flex-row", "gap-4")}>
+          <nav
+            className={clsx("d-flex", "flex-row", "gap-4", "overflow-x-scroll")}
+          >
             {links.map((link) => (
               <Link
                 {...link}
@@ -46,6 +48,7 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
                     ? "navigation-tab"
                     : "navigation-tab-inverse"
                 }
+                className="text-nowrap"
                 fieldtype="multilink"
                 hideIcon={true}
                 linktype="url"
