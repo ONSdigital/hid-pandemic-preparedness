@@ -10,6 +10,7 @@ import { clsx } from "clsx";
 import type { FC } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
+import { Formula } from "@src/components/Molecules/Core/Formula/Formula";
 import { Tip } from "@src/components/Molecules/Core/Tip/Tip";
 
 // Copied from https://github.com/storyblok/monoblok/packages/richtext/src/types/index.ts as these are not exported
@@ -94,9 +95,10 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
 };
 
 // List of components that we support being added to rich text
-type ComponentName = "Tip";
+type ComponentName = "Formula" | "Tip";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
+  Formula,
   Tip,
 };
 
@@ -105,32 +107,32 @@ export const componentResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
-  const body = node.attrs?.body;
-  return body.map((blok: any) => {
-    let Component = null;
+  const blok = node.attrs?.body?.[0];
 
+  if (blok) {
     const componentName: string = blok.component;
 
     if (Object.keys(COMPONENT_MAP).includes(componentName)) {
-      Component = COMPONENT_MAP[componentName as ComponentName];
+      const Component = COMPONENT_MAP[componentName as ComponentName];
+
+      // Return the rendered component
+      return renderToStaticMarkup(
+        <Component key={blok._uid} {...blok} />,
+      ) as unknown as T;
     } else {
       // If we are trying to render a blok we don't have a corresponding component for, log a warning
       console.warn(
         `componentResolver warning: Component "${componentName}" not found in COMPONENT_MAP.`,
       );
     }
+  }
 
-    if (Component) {
-      return renderToStaticMarkup(<Component key={blok._uid} {...blok} />);
-    } else {
-      // If not found component will be null so just return default implementation
-      return context.render("span", {
-        blok: blok && blok,
-        id: node.attrs?.id,
-        style: "display: none",
-      }) as T;
-    }
-  });
+  // If not found component will be null so just return default implementation
+  return context.render("span", {
+    blok: blok && blok,
+    id: node.attrs?.id,
+    style: "display: none",
+  }) as T;
 };
 
 // Custom heading resolver that adds our custom styling based on heading level

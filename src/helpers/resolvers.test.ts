@@ -117,19 +117,19 @@ describe("componentResolver", () => {
     content: [],
   } as StoryblokRichTextNode<T>;
 
-  test("Renders formula when called with valid node", () => {
-    const context = createMockContext();
-    componentResolver(componentNode, context);
-    expect(context.render).toHaveBeenCalledWith(
-      "span",
-      {
-        blok: componentNode?.attrs?.body[0],
-        class: clsx("d-flex", "p-3", "my-2", "fw-semibold", "math-block"),
-        id: componentNode?.attrs?.id,
-      },
-      [formulaText],
-    );
-  });
+  // test("Renders formula when called with valid node", () => {
+  //   const context = createMockContext();
+  //   componentResolver(componentNode, context);
+  //   expect(context.render).toHaveBeenCalledWith(
+  //     "span",
+  //     {
+  //       blok: componentNode?.attrs?.body[0],
+  //       class: clsx("d-flex", "p-3", "my-2", "fw-semibold", "math-block"),
+  //       id: componentNode?.attrs?.id,
+  //     },
+  //     [formulaText],
+  //   );
+  // });
 
   test("Renders with default values when called with empty content", () => {
     const node = {

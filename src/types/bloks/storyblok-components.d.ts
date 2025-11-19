@@ -252,6 +252,7 @@ export interface FooterColumnLink {
 
 export interface Formula {
   richText?: StoryblokRichtext;
+  text?: string;
   component: "Formula";
   _uid: string;
   [k: string]: unknown;
