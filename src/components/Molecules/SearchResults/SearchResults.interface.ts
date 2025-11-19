@@ -10,4 +10,5 @@ export interface SearchResultsProps {
   isMobile: boolean;
   limit?: number;
   totalResults?: number;
+  startingItemIndex?: number;
 }

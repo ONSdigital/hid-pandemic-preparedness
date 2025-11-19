@@ -62,7 +62,7 @@
     "viewAllResults": "View all results",
     "pageTitle": "Site search",
     "placeholderText": "Search the site...",
-    "resultsCount": "Showing {shown} of {total} results"
+    "resultsCount": "Showing {start}–{end} of {total} results"
   },
   "video": {
     "transcript": "Download transcript"

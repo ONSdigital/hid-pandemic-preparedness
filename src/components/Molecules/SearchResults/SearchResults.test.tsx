@@ -7,7 +7,7 @@ import styles from "./SearchResults.module.scss"; // Import styles to check clas
 vi.mock("@src/content/strings.json", () => ({
   default: {
     search: {
-      resultsCount: "Showing {shown} of {total} results",
+      resultsCount: "Showing {start}-{end} of {total} results",
     },
   },
 }));
@@ -56,7 +56,7 @@ describe("SearchResults component", () => {
     expect(screen.getByText("Page 5")).toBeInTheDocument();
     expect(screen.getByText("Page 6")).toBeInTheDocument();
 
-    expect(screen.getByText(`Showing 6 of 6 results`)).toBeInTheDocument();
+    expect(screen.getByText("Showing 1-6 of 6 results")).toBeInTheDocument();
   });
 
   it("obeys the 'limit' prop and updates count", () => {
@@ -72,7 +72,7 @@ describe("SearchResults component", () => {
     expect(screen.queryByText("Page 5")).not.toBeInTheDocument();
     expect(screen.queryByText("Page 6")).not.toBeInTheDocument();
 
-    expect(screen.getByText(`Showing 2 of 6 results`)).toBeInTheDocument();
+    expect(screen.getByText("Showing 1-2 of 6 results")).toBeInTheDocument();
   });
 
   it("correctly applies 'isLast' (border) when limited", () => {

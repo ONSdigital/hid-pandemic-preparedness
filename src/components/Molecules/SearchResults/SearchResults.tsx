@@ -51,6 +51,7 @@ export const SearchResults: FC<SearchResultsProps> = ({
   isMobile,
   limit,
   totalResults,
+  startingItemIndex = 0,
 }) => {
   const {
     search: { resultsCount },
@@ -62,8 +63,16 @@ export const SearchResults: FC<SearchResultsProps> = ({
 
   const countToDisplay = totalResults ?? searchResults.length;
 
+  // find results range
+  const startCount = resultsToDisplay.length > 0 ? startingItemIndex + 1 : 0;
+  const endCount =
+    resultsToDisplay.length > 0
+      ? startingItemIndex + resultsToDisplay.length
+      : 0;
+
   const resultsText = resultsCount
-    .replace("{shown}", resultsToDisplay.length.toString())
+    .replace("{start}", startCount.toString())
+    .replace("{end}", endCount.toString())
     .replace("{total}", countToDisplay.toString());
 
   return (
