@@ -53,11 +53,7 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
               label={unitNavStrings.openGithub}
             />
           )}
-          <IconAndTextLink
-            href="/"
-            icon="pdf"
-            label={unitNavStrings.downloadPdf}
-          />
+          <IconAndTextLink icon="download" label={unitNavStrings.downloadPdf} />
         </div>
 
         {/*  Mobile view: chapterList inside accordian */}
