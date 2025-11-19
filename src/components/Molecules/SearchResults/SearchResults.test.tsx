@@ -7,7 +7,7 @@ import styles from "./SearchResults.module.scss"; // Import styles to check clas
 vi.mock("@src/content/strings.json", () => ({
   default: {
     search: {
-      numSearchResults: "results",
+      resultsCount: "Showing {shown} of {total} results"
     },
   },
 }));

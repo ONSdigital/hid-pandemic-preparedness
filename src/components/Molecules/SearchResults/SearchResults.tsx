@@ -53,7 +53,7 @@ export const SearchResults: FC<SearchResultsProps> = ({
   totalResults,
 }) => {
   const {
-    search: { numSearchResults },
+    search: { resultsCount },
   } = strings;
 
   const resultsToDisplay = limit
@@ -62,10 +62,14 @@ export const SearchResults: FC<SearchResultsProps> = ({
 
   const countToDisplay = totalResults ?? searchResults.length;
 
+  const resultsText = resultsCount
+    .replace("{shown}", resultsToDisplay.length.toString())
+    .replace("{total}", countToDisplay.toString());
+
   return (
     <div className={clsx("w-100", styles["search-results-bg"])}>
       <p className={clsx("fw-bold", styles["search-results-count"])}>
-        Showing {resultsToDisplay.length} of {countToDisplay} {numSearchResults}
+        {resultsText}
       </p>
       <div
         className={clsx("d-flex", "flex-column", "gap-2", "gap-md-4", "px-4")}
