@@ -6,7 +6,7 @@ import { MegaMenu } from "@components/MegaMenu/MegaMenu";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
-import type { NavAccordionProps, MobileNavProps } from "./NavBar.interface";
+import type { NavAccordionsProps, MobileNavProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 
 export const MobileNav: FC<MobileNavProps> = (props) => {
@@ -75,7 +75,7 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
   );
 };
 
-export const NavAccordion: FC<NavAccordionProps> = (props) => {
+export const NavAccordion: FC<NavAccordionsProps> = (props) => {
   const accordionId = "navAccordion";
 
   return (
