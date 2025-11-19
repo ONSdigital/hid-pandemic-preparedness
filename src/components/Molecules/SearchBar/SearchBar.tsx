@@ -132,7 +132,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         setIsFocused(false);
       }
     };
-    document.addEventListener("click", handleClickOutside); // If click isn't inside
+    document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside); // Clean up - remove listener on unmount
   }, []);
 

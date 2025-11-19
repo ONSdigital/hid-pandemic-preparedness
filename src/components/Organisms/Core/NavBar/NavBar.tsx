@@ -139,7 +139,6 @@ export const NavBar: FC<NavBarProps> = (props) => {
   );
 };
 
-// ... handleClickOutside remains the same
 function handleClickOutside(
   ref: RefObject<HTMLElement | null>,
   callback: () => void,

@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen, within } from "@testing-library/react";
 import { vi, describe, it, expect } from "vitest";
 import { SearchResults } from "./SearchResults";
-import styles from "./SearchResults.module.scss"; // Import styles to check class names
+import styles from "./SearchResults.module.scss";
 
 vi.mock("@src/content/strings.json", () => ({
   default: {
