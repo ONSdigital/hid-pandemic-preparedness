@@ -5,12 +5,30 @@
 @import "../global/tokens";
 
 // Custom button variants for the project
+.btn-primary {
+  @include button-variant(
+    $background: $color-brand-primary-500,
+    $border: transparent,
+    $hover-background: shade-color($color-brand-primary-500, 20%),
+    $hover-border: transparent,
+    $active-background: $color-brand-primary-600,
+    $active-border: transparent,
+    $disabled-background: tint-color($color-brand-primary-500, 50%),
+    $disabled-border: transparent
+  );
+
+  &:focus-visible {
+    background-color: $color-brand-primary-500;
+    box-shadow: 0 0 0 3px $color-brand-secondary-500;
+  }
+}
+
 .btn-secondary {
   @include button-variant(
     $background: $color-brand-secondary-500,
     $border: transparent,
     $hover-background: shade-color($color-brand-secondary-500, 20%),
-    $hover-border: shade-color($color-brand-secondary-500, 20%),
+    $hover-border: transparent,
     $active-background: $color-brand-secondary-600,
     $active-border: transparent,
     $disabled-background: tint-color($color-brand-secondary-500, 50%),
@@ -19,7 +37,24 @@
 
   &:focus-visible {
     background-color: $color-brand-secondary-600;
-    border-color: $color-brand-secondary-500;
+    box-shadow: 0 0 0 3px $color-brand-secondary-500;
+  }
+}
+
+.btn-inverse {
+  @include button-variant(
+    $background: $color-brand-secondary-100,
+    $border: transparent,
+    $hover-background: shade-color($color-brand-secondary-100, 20%),
+    $hover-border: transparent,
+    $active-background: $color-brand-secondary-200,
+    $active-border: transparent,
+    $disabled-background: tint-color($color-brand-secondary-100, 50%),
+    $disabled-border: transparent
+  );
+
+  &:focus-visible {
+    background-color: $color-brand-secondary-200;
     box-shadow: 0 0 0 3px $color-brand-secondary-500;
   }
 }
