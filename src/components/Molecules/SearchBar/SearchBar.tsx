@@ -4,8 +4,6 @@ import { createPortal } from "react-dom";
 import { RiArrowRightLine, RiSearchLine } from "@remixicon/react";
 
 import type {
-  PagefindResultsData,
-  PagefindSubResult,
   SearchBarProps,
 } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
@@ -13,17 +11,7 @@ import { SearchResults } from "@components/Molecules/SearchResults/SearchResults
 import breakpoints from "@src/styles/global/overrides/_breakpoints.module.scss";
 import strings from "@src/content/strings.json";
 import { Button } from "@src/components/Button/Button";
-import type { SearchResultData } from "@src/types/Search.ts";
-
-type PagefindModule = {
-  init: () => Promise<void>;
-  /* eslint-disable no-unused-vars */ // avoids unused var 'term' in debouncedSearch function
-  search: (term: string) => Promise<{
-    results: {
-      data: () => Promise<PagefindResultsData>;
-    }[];
-  }>;
-};
+import { usePagefind } from "@src/hooks/usePagefind";
 
 const breakpointMd = parseInt(breakpoints.breakpointMd);
 
@@ -49,40 +37,19 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const {
     search: { viewAllResults },
   } = strings;
-  const [searchInput, setSearchInput] = useState(props.initialQuery || "");
   const [isFocused, setIsFocused] = useState(false);
-  const [allResults, setAllResults] = useState<SearchResultData[]>([]);
   const [isClient, setIsClient] = useState(false);
   const searchContainerRef = useRef<HTMLFormElement | null>(null);
-  const pagefind = useRef<PagefindModule | null>(null);
-  const initPromise = useRef<Promise<void> | null>(null);
   const isMobile = useMediaQuery();
-  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { 
+    searchInput, 
+    setSearchInput, 
+    allResults,
+    runSearch, 
+    initPagefind 
+  } = usePagefind(isClient, props.initialQuery);
 
-  const initPagefind = () => {
-    if (initPromise.current) {
-      return initPromise.current;
-    }
 
-    initPromise.current = (async () => {
-      if (!isClient) return;
-
-      // pagefind directory created by astro-pagefind post-build, so search
-      // data on local dev server will be stale until build step is re-run
-      const pagefindPath = "/pagefind/pagefind.js";
-      try {
-        // @ts-ignore
-        const pf = await import(/* @vite-ignore */ pagefindPath);
-        await pf.init();
-        pagefind.current = pf; // Set the module ref on success
-      } catch (e) {
-        console.error("Failed to initialise Pagefind", e);
-        initPromise.current = null; // Reset on failure
-      }
-    })();
-
-    return initPromise.current;
-  };
 
   useEffect(() => {
     // Check for clicks outside the referenced element (search container)
@@ -100,56 +67,6 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     };
   }, []);
 
-  const runSearch = async (term: string) => {
-    if (!isClient) return;
-
-    await initPagefind();
-    if (!pagefind.current) return;
-
-    if (!term) {
-      setAllResults([]);
-      return;
-    }
-
-    try {
-      const search = await pagefind.current.search(term);
-
-      const loadedResults: PagefindResultsData[] = await Promise.all(
-        search.results.map((r: any) => r.data()),
-      );
-
-      const finalResults: SearchResultData[] = loadedResults.flatMap(
-        (pagefindResults: PagefindResultsData) => {
-          const tagObject = pagefindResults.meta?.tag
-            ? { ...pagefindResults.meta.tag }
-            : undefined;
-
-          return pagefindResults.sub_results.map(
-            (subResult: PagefindSubResult) => {
-              const resultItem: SearchResultData = {
-                link: {
-                  href: subResult.url,
-                  label: subResult.title,
-                },
-                excerpt: subResult.excerpt,
-              };
-
-              if (tagObject) {
-                resultItem.tag = tagObject;
-              }
-
-              return resultItem;
-            },
-          );
-        },
-      );
-
-      setAllResults(finalResults);
-    } catch (e) {
-      console.error("Pagefind search failed:", e);
-    }
-  };
-
   const handleFocus = () => {
     setIsFocused(true);
     if (isClient) {
@@ -159,15 +76,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
-    setSearchInput(inputText);
-
-    if (debounceTimer.current) {
-      clearTimeout(debounceTimer.current);
-    }
-
-    debounceTimer.current = setTimeout(() => {
-      runSearch(inputText);
-    }, 300); // Wait 300ms before sending the request
+    setSearchInput(inputText); 
+    runSearch(inputText); 
   };
 
   useEffect(() => {
@@ -188,7 +98,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         runSearch(queryFromUrl);
       }
     }
-  }, [props.isResultsPage, isClient]);
+  }, [props.isResultsPage, isClient, runSearch, setSearchInput]);
 
 const showDropdown =
     searchInput && isFocused && allResults.length > 0 && !props.isResultsPage;
