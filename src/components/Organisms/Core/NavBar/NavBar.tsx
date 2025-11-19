@@ -35,6 +35,18 @@ export const NavBar: FC<NavBarProps> = (props) => {
   }
 
   const toggleSearch = () => {
+    const isOnResultsPage = window.location.pathname.startsWith("/search");
+
+    // on search results page, focus search input on page rather than triggering search dropdown from navbar
+    if (isOnResultsPage) {
+      const resultsPageInput = document.querySelector(
+        'form[role="search"] input[type="search"]',
+      ) as HTMLInputElement;
+      if (resultsPageInput) resultsPageInput.focus();
+      setIsSearchOpen(false);
+      return;
+    }
+
     if (isSearchOpen) {
       setIsSearchOpen(false);
     } else {
