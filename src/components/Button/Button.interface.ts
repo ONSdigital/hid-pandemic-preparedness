@@ -6,13 +6,7 @@ export interface ButtonProps {
   disabled?: boolean;
   selected?: boolean;
   type: "button" | "submit" | "reset";
-  variant:
-    | "primary"
-    | "primary-inverse"
-    | "secondary"
-    | "secondary-inverse"
-    | "search-bar"
-    | "link";
+  variant: "primary" | "primary-inverse" | "secondary" | "secondary-inverse";
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
 }
