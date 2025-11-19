@@ -3,6 +3,9 @@
     "copyButton": {
       "copied": "Copied!",
       "copy": "Copy"
+    },
+    "tip": {
+      "tip": "Tip"
     }
   },
   "levels": {
