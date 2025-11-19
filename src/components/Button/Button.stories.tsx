@@ -77,16 +77,15 @@ const meta = {
       options: Object.keys(childrenOptions),
       mapping: childrenOptions,
     },
-    disabled: {
-      control: { type: "boolean" },
-      name: "Disabled",
-    },
     onClick: {
-      control: { type: "boolean" },
-      name: "Disabled",
+      table: {
+        disable: true,
+      },
     },
     selected: {
-      name: "Selected",
+      table: {
+        disable: true,
+      },
     },
     type: {
       name: "Type",
@@ -112,7 +111,6 @@ export const PrimaryButtonStory = {
     ariaLabel: "Search",
     children: childrenOptions.IconLeftAndRight,
     disabled: false,
-    selected: false,
     type: "button",
     variant: "primary",
   },
@@ -130,4 +128,17 @@ export const SecondaryButtonStory = {
   },
 
   name: "Secondary",
+} satisfies Story;
+
+export const InverseButtonStory = {
+  args: {
+    ariaLabel: "Search",
+    children: childrenOptions.IconLeftAndRight,
+    disabled: false,
+    selected: false,
+    type: "button",
+    variant: "inverse",
+  },
+
+  name: "Inverse",
 } satisfies Story;
