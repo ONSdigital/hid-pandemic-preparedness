@@ -20,7 +20,10 @@ import styles from "./ThemeFilter.module.scss";
 // Reusuable component for a sub theme item
 const SubThemeItem: FC<SubThemeItemProps> = (props) => {
   return (
-    <li className={clsx("list-group-item")} key={props.subTheme._uid}>
+    <li
+      className={clsx("list-group-item", styles["list-group-item"])}
+      key={props.subTheme._uid}
+    >
       <div className={clsx("form-check")}>
         <Controller
           control={props.control}
@@ -68,6 +71,12 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
     return values.some(Boolean);
   }, [values]);
 
+  // Count number selected
+  const numberSelected = useMemo(() => {
+    if (!values || values.length === 0) return 0;
+    return values.filter(Boolean).length;
+  }, [values]);
+
   const handleSelectAllToggle = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (!props.theme.subThemes) return;
@@ -78,7 +87,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
   };
 
   return (
-    <div className={clsx("accordion-item")}>
+    <div className={clsx("accordion-item", "py-2", "border", "border-0")}>
       <h2
         className={clsx("accordion-header")}
         id={`heading${props.theme._uid}`}
@@ -89,7 +98,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
             "py-2",
             "border-bottom",
             "collapsed",
-            styles["theme-filter-accordion-button"],
+            styles["accordion-button"],
           )}
           type="button"
           data-bs-toggle="collapse"
@@ -97,8 +106,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
           aria-expanded={false}
           aria-controls={`collapse${props.theme._uid}`}
         >
-          {props.theme.title}{" "}
-          {props.theme.subThemes && <>({props.theme.subThemes.length})</>}
+          {props.theme.title} {numberSelected > 0 && <>({numberSelected})</>}
         </button>
       </h2>
       <div
@@ -201,7 +209,7 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
 
   return (
     <div className="w-100">
-      <div className={clsx(styles["theme-filter-container"])}>
+      <div className={clsx(styles["container"])}>
         <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
           <IconAndTextLink
             asset={props.file}
