@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     ASTRO_OUTPUT: "static"
-    ASTRO_PREVIEW: false
+    ASTRO_PREVIEW: true
     ASTRO_USE_LOCAL_DATA: false
     PROD_BUCKET_NAME: "hid-ppt-app-prod"
   secrets-manager:
