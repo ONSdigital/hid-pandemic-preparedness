@@ -7,6 +7,10 @@ import type {
   StoryblokRichTextNodeResolver,
 } from "@storyblok/richtext";
 import { clsx } from "clsx";
+import type { FC } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+
+import { Tip } from "@src/components/Molecules/Core/Tip/Tip";
 
 // Copied from https://github.com/storyblok/monoblok/packages/richtext/src/types/index.ts as these are not exported
 enum BlockTypes {
@@ -89,39 +93,44 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
   });
 };
 
+// List of components that we support being added to rich text
+type ComponentName = "Tip";
+
+const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
+  Tip,
+};
+
 // Override to include formula stylings if applicable
 export const componentResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
-  const blok = node.attrs?.body?.[0];
+  const body = node.attrs?.body;
+  return body.map((blok: any) => {
+    let Component = null;
 
-  if (blok) {
-    if (blok.component === "Formula") {
-      // Only try and render if the formula text is where we expect it to be
-      const formulaText =
-        blok?.richText?.content?.[0]?.content?.[0]?.text ?? null;
+    const componentName: string = blok.component;
 
-      if (formulaText) {
-        return context.render(
-          "span",
-          {
-            blok: node?.attrs?.body[0],
-            class: clsx("d-flex", "p-3", "my-2", "fw-semibold", "math-block"),
-            id: node.attrs?.id,
-          },
-          [blok.richText.content[0].content[0].text] as unknown as T,
-        ) as T;
-      }
+    if (Object.keys(COMPONENT_MAP).includes(componentName)) {
+      Component = COMPONENT_MAP[componentName as ComponentName];
+    } else {
+      // If we are trying to render a blok we don't have a corresponding component for, log a warning
+      console.warn(
+        `componentResolver warning: Component "${componentName}" not found in COMPONENT_MAP.`,
+      );
     }
-  }
 
-  // If not recognised just return default implementation
-  return context.render("span", {
-    blok: blok && blok,
-    id: node.attrs?.id,
-    style: "display: none",
-  }) as T;
+    if (Component) {
+      return renderToStaticMarkup(<Component key={blok._uid} {...blok} />);
+    } else {
+      // If not found component will be null so just return default implementation
+      return context.render("span", {
+        blok: blok && blok,
+        id: node.attrs?.id,
+        style: "display: none",
+      }) as T;
+    }
+  });
 };
 
 // Custom heading resolver that adds our custom styling based on heading level

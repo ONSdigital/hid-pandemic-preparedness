@@ -18,6 +18,7 @@ export const Tip: FC<TipProps> = (props) => {
         "flex-row",
         "px-4",
         "py-3",
+        "my-4",
         "gap-2",
         styles["tip-container"],
       )}

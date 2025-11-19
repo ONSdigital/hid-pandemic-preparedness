@@ -1,3 +1,4 @@
+import type { StoryblokRichTextNode } from "@storyblok/astro";
 import { renderRichText } from "@storyblok/astro";
 import clsx from "clsx";
 import type { FC } from "react";
@@ -12,7 +13,7 @@ export const TextModule: FC<TextModuleProps> = (props) => {
   let html = null;
 
   if (props.richText) {
-    html = renderRichText(props.richText, {
+    html = renderRichText(props.richText as StoryblokRichTextNode, {
       optimizeImages: {
         class: "img-fluid",
         loading: "lazy",
