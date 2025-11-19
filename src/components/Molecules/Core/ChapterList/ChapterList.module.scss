@@ -8,6 +8,9 @@
 .chapter-list__list-group-item {
   border-left: 3px solid $color-grey-600;
   list-style-type: none;
+  &:hover {
+    border-left: 3px solid $color-brand-secondary-500;
+  }
 }
 
 .active {
