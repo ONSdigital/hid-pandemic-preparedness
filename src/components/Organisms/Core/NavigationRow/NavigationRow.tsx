@@ -43,8 +43,8 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
                 asButton={true}
                 buttonVariant={
                   link.url === props.currentFullSlug
-                    ? "primary"
-                    : "primary-inverse"
+                    ? "navigation-tab"
+                    : "navigation-tab-inverse"
                 }
                 fieldtype="multilink"
                 hideIcon={true}
