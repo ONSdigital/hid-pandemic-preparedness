@@ -142,6 +142,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     ? document.getElementById("search-results-portal")
     : null;
 
+  const resultsPageStartingIndex = currentPage * RESULTS_PER_PAGE;
+
   return (
     <form
       role="search"
@@ -180,6 +182,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
             searchResults={allResults}
             isMobile={isMobile}
             limit={5}
+            startingItemIndex={0}
           />
           <div
             className={clsx(
@@ -211,6 +214,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
                 searchResults={currentItems}
                 isMobile={isMobile}
                 totalResults={allResults.length}
+                startingItemIndex={resultsPageStartingIndex}
               />
 
               {totalPages > 1 && (
