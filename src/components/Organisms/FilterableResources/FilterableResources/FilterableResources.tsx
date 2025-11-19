@@ -42,7 +42,7 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
 
   let firstThemeId: string | undefined = undefined;
   if (props.resources) {
-    firstThemeId = props.resources[0]._uid;
+    firstThemeId = props.resources?.[0]?._uid;
   }
 
   // Initialize filteredThemes state with all themes initially
