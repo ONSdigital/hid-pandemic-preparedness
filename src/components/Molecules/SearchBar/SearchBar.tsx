@@ -53,7 +53,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const [allResults, setAllResults] = useState<SearchResultData[]>([]);
   const [isClient, setIsClient] = useState(false);
-  const searchContainerRef = useRef<HTMLDivElement | null>(null);
+  const searchContainerRef = useRef<HTMLFormElement | null>(null);
   const pagefind = useRef<PagefindModule | null>(null);
   const initPromise = useRef<Promise<void> | null>(null);
   const isMobile = useMediaQuery();
@@ -190,7 +190,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     }
   }, [props.isResultsPage, isClient]);
 
-  const showDropdown =
+const showDropdown =
     searchInput && isFocused && allResults.length > 0 && !props.isResultsPage;
 
   const resultsPortalContainer = isClient
@@ -200,11 +200,12 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   return (
     <form
       role="search"
+      ref={searchContainerRef} 
       className={clsx("text-dark", styles["input-bg"])}
       action="/search"
       method="GET"
     >
-      <div ref={searchContainerRef} className={clsx("input-group", "mb-3")}>
+      <div className={clsx("input-group", "mb-3")}>
         <input
           aria-label={props.placeholder}
           className={clsx("form-control", styles["input-sizing"])}
@@ -215,41 +216,43 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
           name="params"
           value={searchInput}
         />
-        {showDropdown && (
-          <div
-            className={clsx(
-              "mt-2",
-              "w-100",
-              props.isInline ? styles["search-results-inline"] : styles["search-results"]
-            )}>
-            <SearchResults
-              searchResults={allResults}
-              isMobile={isMobile}
-              limit={5}
-            />
-            <div
-              className={clsx(
-                "p-3",
-                "bg-light",
-                "d-flex",
-                "justify-content-center",
-                styles["sticky-link-container"],
-              )}
-            >
-              <a
-                href={`/search?params=${encodeURIComponent(searchInput)}`}
-                className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
-              >
-                {viewAllResults} <RiArrowRightLine />
-              </a>
-            </div>
-          </div>
-        )}
-
+        
         <Button type="submit" variant="secondary" ariaLabel="Search">
           <RiSearchLine />
         </Button>
       </div>
+
+      {showDropdown && (
+        <div
+          className={clsx(
+            "mt-2",
+            "w-100",
+            props.isInline ? styles["search-results-inline"] : styles["search-results"]
+          )}
+        >
+          <SearchResults
+            searchResults={allResults}
+            isMobile={isMobile}
+            limit={5}
+          />
+          <div
+            className={clsx(
+              "p-3",
+              "bg-light",
+              "d-flex",
+              "justify-content-center",
+              styles["sticky-link-container"],
+            )}
+          >
+            <a
+              href={`/search?params=${encodeURIComponent(searchInput)}`}
+              className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
+            >
+              {viewAllResults} <RiArrowRightLine />
+            </a>
+          </div>
+        </div>
+      )}
 
       {props.isResultsPage &&
         isClient &&

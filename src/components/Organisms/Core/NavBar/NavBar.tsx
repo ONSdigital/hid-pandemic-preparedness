@@ -98,6 +98,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
           </div>
         )}
 
+        {/* Desktop Search */}
         {isSearchOpen && (
           <div className={clsx(styles["overlayed-search"], "w-100")}>
             <div className={clsx(styles["navbar-search-panel"])}>
