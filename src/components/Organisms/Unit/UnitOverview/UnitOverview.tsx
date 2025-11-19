@@ -22,8 +22,6 @@ export const UnitOverview: FC<UnitOverviewProps> = (props) => {
   return (
     <div
       className={clsx(
-        "container",
-        "w-100",
         "border",
         "rounded",
         "p-4",
