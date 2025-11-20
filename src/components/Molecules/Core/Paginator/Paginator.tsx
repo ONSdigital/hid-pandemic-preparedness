@@ -41,7 +41,7 @@ export const Paginator: FC<PaginatorProps> = (props) => {
           <ArrowButton
             ariaLabel="Previous"
             direction="left"
-            variant="secondary-inverse"
+            variant="inverse"
             type="button"
             onClick={() => handleItemClick(currentPage - 1)}
           />
@@ -64,7 +64,7 @@ export const Paginator: FC<PaginatorProps> = (props) => {
           <ArrowButton
             ariaLabel="Next"
             direction="right"
-            variant="secondary-inverse"
+            variant="inverse"
             type="button"
             onClick={() => handleItemClick(currentPage + 1)}
           />
