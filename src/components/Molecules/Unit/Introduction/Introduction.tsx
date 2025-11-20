@@ -8,19 +8,17 @@ export const Introduction: FC<IntroductionProps> = (props) => {
   return (
     <div
       className={clsx(
-        "container",
-        "px-2",
-        "py-4",
-        "p-lg-4",
+        "p-4",
+        "p-lg-5",
         "border",
         "rounded-4",
         styles["introduction__container"],
       )}
     >
       <div className={clsx("row")}>
-        <h3 className={clsx("heading-m")}>{props.title}</h3>
+        <h3 className={clsx("heading-m", "mb-0")}>{props.title}</h3>
       </div>
-      <hr />
+      <hr className={clsx(styles["hr-m"])} />
       <div className={clsx("row")}>
         <p>{props.subTitle}</p>
       </div>

@@ -38,14 +38,7 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
 
   return (
     <div
-      className={clsx(
-        "container",
-        "w-100",
-        "col-md-9",
-        "d-flex",
-        "flex-column",
-        "gap-4",
-      )}
+      className={clsx("w-100", "col-md-9", "d-flex", "flex-column", "gap-2")}
     >
       <Introduction
         title={props.title}
