@@ -1,8 +1,17 @@
 @use "../../../../styles/global/tokens" as *;
 
-.introduction__container {
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+
+.introduction-container {
   background-color: $color-grey-100;
   border-color: $color-brand-secondary-200 !important;
+  padding: 2.5rem 1rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 2.5rem;
+  }
 }
 
 .hr-m {
