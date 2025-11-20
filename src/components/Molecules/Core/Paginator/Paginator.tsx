@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { ArrowButton } from "@src/components/ArrowButton/ArrowButton";
 import type { PaginatorProps } from "./Paginator.interface";
 import styles from "./Paginator.module.scss";
+import { useTruncatedPagination } from "@/src/hooks/useTruncatedPagination";
 
 export const Paginator: FC<PaginatorProps> = ({
   ariaLabel,
@@ -19,13 +20,21 @@ export const Paginator: FC<PaginatorProps> = ({
     }
   };
 
+  const truncatedPagination = useTruncatedPagination(currentPage, totalPages);
+
   if (totalPages <= 1) return null;
 
-  const pages = Array.from({ length: totalPages }, (_, i) => i);
-
-  return (
+ return (
     <nav aria-label={ariaLabel}>
-      <ul className={clsx("pagination", "justify-content-center", "gap-4")}>
+      <ul className={clsx(
+        "pagination",
+        "justify-content-center",
+        "justify-content-between", 
+        "justify-content-md-center",
+        "align-items-center",
+        "gap-2", 
+        "gap-md-4"
+      )}>
         <li className={clsx("page-item", "px-1")}>
           <ArrowButton
             ariaLabel="Previous"
@@ -37,23 +46,43 @@ export const Paginator: FC<PaginatorProps> = ({
           />
         </li>
 
-        {pages.map((pageIndex) => (
-          <li
-            className={clsx(
-              "page-item",
-              safeCurrentPage === pageIndex && "active",
-            )}
-            key={pageIndex}
-          >
-            <a
-              className={clsx("page-link", "fw-bold", styles["page-link"])}
-              href="#"
-              onClick={(e) => handlePageClick(pageIndex, e)}
+        {/* Mobile view
+        <li className={clsx("page-item", "d-md-none")}>
+          <span className={clsx("fw-bold", styles["mobile-counter"])}>
+            Page {safeCurrentPage + 1} of {totalPages}
+          </span>
+        </li> */}
+
+        {/* Desktop View */}
+        {truncatedPagination.map((pageIndex) => {
+          if (pageIndex === null) {
+            return (
+              <li key={`dots-${pageIndex}`} className={clsx("page-item", styles["mobile-view"])}>
+                <span className={clsx("fw-bold", styles["mobile-counter"])}>
+                  Page {safeCurrentPage + 1} of {totalPages}
+                </span>
+              </li>
+            );
+          }
+
+          return (
+            <li
+              className={clsx(
+                "page-item",
+                safeCurrentPage === pageIndex && "active",
+              )}
+              key={pageIndex}
             >
-              {pageIndex + 1}
-            </a>
-          </li>
-        ))}
+              <a
+                className={clsx("page-link", "fw-bold", styles["page-link"])}
+                href="#"
+                onClick={(e) => handlePageClick(pageIndex, e)}
+              >
+                {pageIndex + 1}
+              </a>
+            </li>
+          );
+        })}
 
         <li className={clsx("page-item", "px-1")}>
           <ArrowButton
