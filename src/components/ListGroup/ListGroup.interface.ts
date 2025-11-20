@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
-import type { FilterItem } from "../../types/FilterItem";
+import type { FilterItem } from "@localTypes/FilterItem";
+import type { LinkComponent } from "@localTypes/LinkComponent";
 import type { LinkList } from "@localTypes/LinkList";
 
 export interface ListGroupChecksProps {
