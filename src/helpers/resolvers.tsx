@@ -98,32 +98,40 @@ export const componentResolver: StoryblokRichTextNodeResolver<T> = (
   context,
 ): T => {
   const body = node.attrs?.body;
+  let outputHtml = "";
 
   if (body && Array.isArray(body)) {
     const renderedComponents = body.map((blok) => {
       try {
         return renderToStaticMarkup(
           <RichTextComponent blok={blok} key={blok._uid} />,
-        );
+        ) as unknown as T;
       } catch (error) {
-        // If rendering fails for whatever reason, log a warning
+        // If rendering fails for whatever reason, log a warning and return default implementation
         console.warn(
           `componentResolver warning: Error rendering "${blok.component}" Component; ${error}`,
         );
-        return "";
+        return context.render("span", {
+          blok: blok,
+          id: node.attrs?.id,
+          style: "display: none",
+        });
       }
     });
 
-    // Concatenate all rendered HTML strings
-    return renderedComponents.join("") as unknown as T;
+    outputHtml = renderedComponents.join("");
   }
 
-  // If not found component will be null so just return default implementation
-  return context.render("span", {
-    blok: {},
-    id: node.attrs?.id,
-    style: "display: none",
-  }) as T;
+  if (outputHtml !== "") {
+    return outputHtml as unknown as T;
+  } else {
+    // If anythings gone wrong just return default implementation
+    return context.render("span", {
+      blok: {},
+      id: node.attrs?.id,
+      style: "display: none",
+    }) as T;
+  }
 };
 
 // Custom heading resolver that adds our custom styling based on heading level

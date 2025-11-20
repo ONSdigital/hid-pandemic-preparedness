@@ -715,7 +715,7 @@ describe("componentResolver", () => {
     const context = createMockContext();
     componentResolver(node, context);
     expect(context.render).toHaveBeenCalledWith("span", {
-      blok: node.attrs?.body[0],
+      blok: {},
       id: node.attrs?.id,
       style: "display: none",
     });
@@ -731,7 +731,7 @@ describe("componentResolver", () => {
     const context = createMockContext();
     componentResolver(node, context);
     expect(context.render).toHaveBeenCalledWith("span", {
-      blok: undefined,
+      blok: {},
       id: node.attrs?.id,
       style: "display: none",
     });
