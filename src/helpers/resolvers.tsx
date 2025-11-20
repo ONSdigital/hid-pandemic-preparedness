@@ -11,7 +11,6 @@ import type { FC } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { Formula } from "@src/components/Molecules/Core/Formula/Formula";
-import { Image } from "@src/components/Molecules/Core/Image/Image";
 import { Table } from "@src/components/Molecules/Core/Table/Table";
 import { Tip } from "@src/components/Molecules/Core/Tip/Tip";
 import { Video } from "@src/components/Organisms/Core/Video/Video";
@@ -98,11 +97,10 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
 };
 
 // List of components that we support being added to rich text
-type ComponentName = "Formula" | "Image" | "Table" | "Tip" | "Video";
+type ComponentName = "Formula" | "Table" | "Tip" | "Video";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Formula,
-  Image,
   Table,
   Tip,
   Video,
