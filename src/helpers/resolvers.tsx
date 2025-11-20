@@ -7,13 +7,9 @@ import type {
   StoryblokRichTextNodeResolver,
 } from "@storyblok/richtext";
 import { clsx } from "clsx";
-import type { FC } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import { Formula } from "@src/components/Molecules/Core/Formula/Formula";
-import { Table } from "@src/components/Molecules/Core/Table/Table";
-import { Tip } from "@src/components/Molecules/Core/Tip/Tip";
-import { Video } from "@src/components/Organisms/Core/Video/Video";
+import { RichTextComponent } from "@src/components/RichTextComponent";
 
 // Copied from https://github.com/storyblok/monoblok/packages/richtext/src/types/index.ts as these are not exported
 enum BlockTypes {
@@ -96,50 +92,35 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
   });
 };
 
-// List of components that we support being added to rich text
-type ComponentName = "Formula" | "Table" | "Tip" | "Video";
-
-const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
-  Formula,
-  Table,
-  Tip,
-  Video,
-};
-
-// Override to include formula stylings if applicable
+// Override to include supported blok rendering from `RichTextComponent`
 export const componentResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
-  const blok = node.attrs?.body?.[0];
+  const body = node.attrs?.body;
 
-  if (blok) {
-    const componentName: string = blok.component;
-
-    if (Object.keys(COMPONENT_MAP).includes(componentName)) {
-      const Component = COMPONENT_MAP[componentName as ComponentName];
-
+  if (body && Array.isArray(body)) {
+    const renderedComponents = body.map((blok) => {
       try {
         return renderToStaticMarkup(
-          <Component key={blok._uid} {...blok} />,
-        ) as unknown as T;
+          <RichTextComponent blok={blok} key={blok._uid} />,
+        );
       } catch (error) {
         // If rendering fails for whatever reason, log a warning
         console.warn(
-          `componentResolver warning: Error rendering "${componentName}" Component; ${error}`,
+          `componentResolver warning: Error rendering "${blok.component}" Component; ${error}`,
         );
+        return "";
       }
-    } else {
-      // If we are trying to render a blok we don't have a corresponding component for, log a warning
-      console.warn(
-        `componentResolver warning: Component "${componentName}" not found in COMPONENT_MAP.`,
-      );
-    }
+    });
+
+    // Concatenate all rendered HTML strings
+    return renderedComponents.join("") as unknown as T;
   }
 
   // If not found component will be null so just return default implementation
   return context.render("span", {
-    blok: blok && blok,
+    blok: {},
     id: node.attrs?.id,
     style: "display: none",
   }) as T;
