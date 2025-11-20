@@ -31,7 +31,9 @@ export const Introduction: FC<IntroductionProps> = (props) => {
           <ul className={clsx("ps-5")}>
             {props.sectionLinks.map((link) => (
               <li key={link.id}>
-                <a href={`#${link.url}`}>{link.title}</a>
+                <a href={`#${link.url}`} className={clsx("text-link")}>
+                  {link.title}
+                </a>
               </li>
             ))}
           </ul>
