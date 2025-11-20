@@ -8,7 +8,7 @@ const meta = {
   title: "Molecules/Core/Paginator",
   parameters: {
     layout: "centered",
-    actions: { argTypesRegex: "^on.*" }, 
+    actions: { argTypesRegex: "^on.*" },
   },
   argTypes: {
     totalPages: { control: { type: "number", min: 0, max: 20 } },
