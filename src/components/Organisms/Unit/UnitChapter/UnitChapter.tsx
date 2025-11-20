@@ -19,7 +19,7 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
   if (props.sections) {
     accordionItems = props.sections.map((section) => ({
       id: section._uid,
-      headerTitle: section.title ?? "",
+      headerTitle: section.title,
       bodyContent: <TextModule richText={section.contentRichText} />,
     }));
 
@@ -53,7 +53,7 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
         sectionLinks={sectionLinks}
       />
       <div className={clsx(styles["container"])}>
-        <div className={clsx("px-2", "py-4", "p-lg-4")}>
+        <div className={clsx(styles["accordion-container"])}>
           {accordionItems && <ChaptersAccordion items={accordionItems} />}
         </div>
       </div>
@@ -72,6 +72,7 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
 
 export const ChaptersAccordion: FC<ChaptersAccordionsProps> = (props) => {
   const accordionId = "chaptersAccordions";
+  const maxOpenedAccordions = 6;
   return (
     <div
       className={clsx(
@@ -83,38 +84,44 @@ export const ChaptersAccordion: FC<ChaptersAccordionsProps> = (props) => {
       )}
       id={accordionId}
     >
-      {props.items.map((item) => (
-        <div className={clsx("accordion-item")} key={item.id}>
-          <h2 className="accordion-header">
-            <button
-              id={`heading-${item.id}`}
-              aria-expanded="false"
-              aria-controls={item.id}
+      {props.items.map((item, index) => {
+        const isInitiallyOpen = index + 1 <= maxOpenedAccordions;
+        return (
+          <div className={clsx("accordion-item")} key={item.id}>
+            <h2 className="accordion-header">
+              <button
+                id={`heading-${item.id}`}
+                aria-expanded={isInitiallyOpen}
+                aria-controls={item.id}
+                className={clsx(
+                  "accordion-button",
+                  "heading-s",
+                  "text-light",
+                  isInitiallyOpen ? "" : "collapsed",
+                  "mb-0",
+                  styles["chapters-accordion-heading"],
+                )}
+                data-bs-target={`#${item.id}`}
+                data-bs-toggle="collapse"
+                type="button"
+              >
+                {item.headerTitle}
+              </button>
+            </h2>
+            <div
+              id={item.id}
+              aria-labelledby={`heading-${item.id}`}
               className={clsx(
-                "accordion-button",
-                "heading-s",
-                "text-light",
-                "collapsed",
-                "mb-0",
-                styles["chapters-accordion-heading"],
+                "accordion-collapse",
+                isInitiallyOpen ? "collapse show" : "collapse",
+                "pt-4",
               )}
-              data-bs-target={`#${item.id}`}
-              data-bs-toggle="collapse"
-              type="button"
             >
-              {item.headerTitle}
-            </button>
-          </h2>
-          <div
-            id={item.id}
-            aria-labelledby={`heading-${item.id}`}
-            className={clsx("accordion-collapse", "collapse")}
-            data-bs-parent={`#${accordionId}`}
-          >
-            <div>{item.bodyContent}</div>
+              <div>{item.bodyContent}</div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

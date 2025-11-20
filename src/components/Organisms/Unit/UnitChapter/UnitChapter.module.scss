@@ -1,6 +1,10 @@
 @use "../../../../styles/global/tokens" as *;
 @use "../../../../styles/global/variables" as *;
 
+@import "../../../../styles/bootstrap-5.3.8/scss/functions";
+@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
+@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+
 .container {
   background-color: $color-grey-100;
   border: 1px solid $color-brand-secondary-300;
@@ -22,5 +26,13 @@
 
   &::after {
     filter: invert(1);
+  }
+}
+
+.accordion-container {
+  padding: 2.5rem 1rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 2.5rem 1.5rem;
   }
 }
