@@ -8,3 +8,7 @@
 .icon-bg {
   background-color: $color-brand-secondary-100;
 }
+
+.hr-m {
+  margin: 1.75rem calc(var(--bs-gutter-x) * 0.5);
+}

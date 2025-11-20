@@ -29,7 +29,7 @@ export const TextModule: FC<TextModuleProps> = (props) => {
 
   return (
     <div
-      className={clsx(props.className && props.className)}
+      className={clsx("text-module", props.className && props.className)}
       data-testid="text-module"
       dangerouslySetInnerHTML={{ __html: html ?? "" }}
     />
