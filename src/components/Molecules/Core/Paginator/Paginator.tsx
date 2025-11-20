@@ -7,7 +7,7 @@ import styles from "./Paginator.module.scss";
 export const Paginator: FC<PaginatorProps> = (props) => {
   const items = props.items;
 
-  const totalPages = items ? items.length : props.totalPages || 0;
+  const totalPages = items?.length || props.totalPages || 0;
 
   let activeIndex = 0;
 
