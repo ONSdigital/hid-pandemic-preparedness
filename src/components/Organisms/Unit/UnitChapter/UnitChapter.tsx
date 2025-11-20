@@ -107,10 +107,9 @@ export const ChaptersAccordion: FC<ChaptersAccordionsProps> = (props) => {
               className={clsx(
                 "accordion-collapse",
                 isInitiallyOpen ? "collapse show" : "collapse",
-                "pt-4",
               )}
             >
-              <div>{item.bodyContent}</div>
+              <div className="pt-4">{item.bodyContent}</div>
             </div>
           </div>
         );
