@@ -147,8 +147,8 @@ export const Unit: FC<UnitProps> = ({ story }) => {
       className={clsx("w-100", styles["container-bg"])}
       data-testid={"unit-container"}
     >
-      <div className={clsx("container-lg", "py-4")}>
-        <div className={clsx("row")}>
+      <div className={clsx("container-lg", "py-4", "py-lg-5")}>
+        <div className={clsx("row", "py-md-4")}>
           <div className={clsx("col-md-3")}>
             {unitNavProps && <UnitNav {...unitNavProps} />}
           </div>

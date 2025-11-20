@@ -54,16 +54,15 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
             />
           )}
           <IconAndTextLink icon="download" label={unitNavStrings.downloadPdf} />
-          <IconAndTextLink icon="feedback" label={unitNavStrings.feedback} />
         </div>
 
         {/*  Mobile view: chapterList inside accordian */}
-        <div className={clsx("d-block", "d-lg-none")}>
+        <div className={clsx("d-block", "d-md-none", "mb-4")}>
           <Accordion {...accordionProps} />
         </div>
 
         {/* Desktop view: there is no accordian */}
-        <div className={clsx("d-lg-block", "d-none")}>
+        <div className={clsx("d-md-block", "d-none")}>
           <h1 className={clsx("heading-xs", "fw-bold", "mb-3")}>
             {headingText}
           </h1>

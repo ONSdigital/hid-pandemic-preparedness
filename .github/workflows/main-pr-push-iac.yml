@@ -1,4 +1,6 @@
 name: "Pull request and push integration (iac)"
+permissions:
+  contents: read
 
 on:
   push:

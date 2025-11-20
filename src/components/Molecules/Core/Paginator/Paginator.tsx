@@ -49,7 +49,7 @@ export const Paginator: FC<PaginatorProps> = (props) => {
           <ArrowButton
             ariaLabel="Previous"
             direction="left"
-            variant="secondary-inverse"
+            variant="inverse"
             type="button"
             onClick={() => handlePageClick(activeIndex - 1)}
             disabled={activeIndex === 0}
@@ -75,7 +75,7 @@ export const Paginator: FC<PaginatorProps> = (props) => {
           <ArrowButton
             ariaLabel="Next"
             direction="right"
-            variant="secondary-inverse"
+            variant="inverse"
             type="button"
             onClick={() => handlePageClick(activeIndex + 1)}
             disabled={activeIndex === totalPages - 1}
