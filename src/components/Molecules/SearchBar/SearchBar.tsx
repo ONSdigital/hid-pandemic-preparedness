@@ -163,7 +163,12 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
           name="params"
           value={searchInput}
         />
-        <Button type="submit" variant="secondary" ariaLabel="Search">
+        <Button
+          type="submit"
+          variant="secondary"
+          ariaLabel="Search"
+          className={styles["search-btn"]}
+        >
           <RiSearchLine />
         </Button>
       </div>
