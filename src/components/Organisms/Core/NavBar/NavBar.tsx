@@ -42,7 +42,10 @@ export const NavBar: FC<NavBarProps> = (props) => {
       const resultsPageInput = document.querySelector(
         'form[role="search"] input[type="search"]',
       ) as HTMLInputElement;
-      if (resultsPageInput) resultsPageInput.focus();
+      if (resultsPageInput) {
+        closeMegamenu();
+        resultsPageInput.focus();
+      }
       setIsSearchOpen(false);
       return;
     }
