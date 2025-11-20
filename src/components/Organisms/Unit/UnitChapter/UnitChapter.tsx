@@ -81,26 +81,26 @@ export const ChaptersAccordion: FC<ChaptersAccordionsProps> = (props) => {
         const isInitiallyOpen = index + 1 <= maxOpenedAccordions;
         return (
           <div className={clsx("accordion-item")} key={item.id}>
-            <h2 className="accordion-header">
+            <h4 className="accordion-header">
               <button
                 id={`heading-${item.id}`}
                 aria-expanded={isInitiallyOpen}
                 aria-controls={item.id}
                 className={clsx(
                   "accordion-button",
-                  "heading-s",
                   "text-light",
                   isInitiallyOpen ? "" : "collapsed",
-                  "mb-0",
                   styles["chapters-accordion-heading"],
                 )}
                 data-bs-target={`#${item.id}`}
                 data-bs-toggle="collapse"
                 type="button"
               >
-                {item.headerTitle}
+                <span className={clsx("heading-s", "mb-0", "pe-3")}>
+                  {item.headerTitle}
+                </span>
               </button>
-            </h2>
+            </h4>
             <div
               id={item.id}
               aria-labelledby={`heading-${item.id}`}

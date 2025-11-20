@@ -82,7 +82,7 @@ export const NavAccordion: FC<NavAccordionsProps> = (props) => {
     <div className={clsx("accordion", "accordion-flush")} id={accordionId}>
       {props.items.map((item) => (
         <div className={clsx("accordion-item", "border-bottom")} key={item.id}>
-          <h2 className="accordion-header">
+          <h4 className="accordion-header">
             <button
               id={`heading-${item.id}`}
               aria-expanded="false"
@@ -100,7 +100,7 @@ export const NavAccordion: FC<NavAccordionsProps> = (props) => {
             >
               {item.headerTitle}
             </button>
-          </h2>
+          </h4>
           <div
             id={item.id}
             aria-labelledby={`heading-${item.id}`}
