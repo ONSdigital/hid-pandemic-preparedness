@@ -11,4 +11,5 @@ export interface SearchResultsProps {
   limit?: number;
   totalResults?: number;
   startingItemIndex?: number;
+  searchInput?: string;
 }

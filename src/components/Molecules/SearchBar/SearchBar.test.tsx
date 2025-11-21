@@ -15,11 +15,20 @@ import React, { useState } from "react";
 import type { SearchResultData } from "@src/types/Search.ts";
 import { SearchBar } from "./SearchBar";
 
+// --- Global Spies ---
 const mockInitPagefind = vi.fn().mockResolvedValue(undefined);
 const onRunSearchSpy = vi.fn();
 const onSetSearchInputSpy = vi.fn();
 
-// Mock Pagefind Hook
+// --- Helper: Create Mock Data ---
+const createMockResults = (count: number): SearchResultData[] => {
+  return Array.from({ length: count }, (_, i) => ({
+    link: { href: `/page-${i + 1}`, label: `Page ${i + 1}` },
+    excerpt: `Excerpt ${i + 1}`,
+  }));
+};
+
+// --- Mock: Pagefind Hook ---
 vi.mock("@src/hooks/usePagefind", () => ({
   usePagefind: (isClient: boolean, initialQuery: string | undefined) => {
     const [searchInput, setSearchInput] = useState(initialQuery || "");
@@ -27,10 +36,10 @@ vi.mock("@src/hooks/usePagefind", () => ({
 
     const runSearch = async (term: string) => {
       onRunSearchSpy(term);
-
       await Promise.resolve();
 
-      if (term) {
+      // If term exists, return mock results, otherwise empty
+      if (term && term.trim().length > 0) {
         setAllResults(createMockResults(6));
       } else {
         setAllResults([]);
@@ -52,7 +61,7 @@ vi.mock("@src/hooks/usePagefind", () => ({
   },
 }));
 
-// Mock Styles
+// --- Mock: CSS Modules ---
 vi.mock("./SearchBar.module.scss", () => ({
   default: new Proxy(
     {},
@@ -62,7 +71,7 @@ vi.mock("./SearchBar.module.scss", () => ({
   ),
 }));
 
-// Mock createPortal
+// --- Mock: ReactDOM createPortal ---
 vi.mock("react-dom", async (importOriginal) => {
   const original = await importOriginal<typeof ReactDOM>();
   return {
@@ -71,27 +80,28 @@ vi.mock("react-dom", async (importOriginal) => {
   };
 });
 
-// Mock SearchResults
+// --- Mock: SearchResults Component ---
 vi.mock("@components/Molecules/SearchResults/SearchResults", () => ({
-  SearchResults: (props: {
-    searchResults: SearchResultData[];
-    isMobile: boolean;
-    limit?: number;
-  }) => (
+  SearchResults: (props: any) => (
     <div data-testid="search-results-mock">
       <pre>{JSON.stringify(props)}</pre>
     </div>
   ),
 }));
 
-// Mock breakpointMd
+// --- Mock: Paginator Component ---
+vi.mock("@src/components/Molecules/Core/Paginator/Paginator", () => ({
+  Paginator: () => <div data-testid="paginator-mock">Paginator</div>,
+}));
+
+// --- Mock: Breakpoints ---
 vi.mock("@src/styles/global/overrides/_breakpoints.module.scss", () => ({
   default: {
     breakpointMd: "768",
   },
 }));
 
-// MOck string.json
+// --- Mock: Strings Content ---
 vi.mock("@src/content/strings.json", () => ({
   default: {
     search: {
@@ -100,16 +110,10 @@ vi.mock("@src/content/strings.json", () => ({
   },
 }));
 
-// Mock Pagefind data
-const createMockResults = (count: number): SearchResultData[] => {
-  return Array.from({ length: count }, (_, i) => ({
-    link: { href: `/page-${i + 1}`, label: `Page ${i + 1}` },
-    excerpt: `Excerpt ${i + 1}`,
-  }));
-};
-
+// --- Setup & Teardown ---
 let windowWidthSpy: MockInstance;
 let windowLocationSpy: MockInstance;
+let scrollToSpy: MockInstance;
 
 beforeEach(() => {
   const portalEl = document.createElement("div");
@@ -120,6 +124,12 @@ beforeEach(() => {
   windowLocationSpy = vi
     .spyOn(window, "location", "get")
     .mockReturnValue({ ...window.location, search: "" });
+
+  scrollToSpy = vi.fn();
+  Object.defineProperty(window, "scrollTo", {
+    value: scrollToSpy,
+    writable: true,
+  });
 
   vi.clearAllMocks();
   mockInitPagefind.mockResolvedValue(undefined);
@@ -132,6 +142,8 @@ afterEach(() => {
   vi.clearAllMocks();
 });
 
+// --- TESTS ---
+
 describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
   it("calls runSearch immediately on input change", async () => {
     const user = userEvent.setup();
@@ -141,7 +153,6 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
     await user.click(input);
 
     await user.type(input, "t");
-
     await waitFor(() => {
       expect(onRunSearchSpy).toHaveBeenCalledWith("t");
     });
@@ -158,18 +169,20 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
 
     const input = screen.getByPlaceholderText("Search");
     await user.click(input);
+    fireEvent.change(input, { target: { value: "hello" } });
 
-    await user.type(input, "hello");
+    await waitFor(() => {
+      const resultsMock = screen.getByTestId("search-results-mock");
+      const props = JSON.parse(resultsMock.textContent || "{}");
 
-    const resultsMock = await screen.findByTestId("search-results-mock");
-
-    expect(screen.getByText("View all results")).toBeInTheDocument();
-    const props = JSON.parse(resultsMock.textContent || "{}");
-    expect(props.limit).toBe(5);
-    expect(props.searchResults.length).toBe(6);
+      expect(screen.getByText("View all results")).toBeInTheDocument();
+      expect(props.limit).toBe(5);
+      expect(props.searchResults.length).toBe(6);
+      expect(props.searchInput).toBe("hello");
+    });
   });
 
-  it("closes dropdown on outside click (ref on form)", async () => {
+  it("closes dropdown on outside click", async () => {
     const user = userEvent.setup();
     render(<SearchBar placeholder="Search" isResultsPage={false} />);
 
@@ -186,6 +199,21 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
 });
 
 describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
+  it("does NOT render portal (white box) when query is empty", async () => {
+    windowLocationSpy.mockReturnValue({
+      ...window.location,
+      search: "",
+    });
+
+    render(<SearchBar placeholder="Search" isResultsPage={true} />);
+
+    const resultsMock = screen.queryByTestId("search-results-mock");
+    const paginatorMock = screen.queryByTestId("paginator-mock");
+
+    expect(resultsMock).not.toBeInTheDocument();
+    expect(paginatorMock).not.toBeInTheDocument();
+  });
+
   it("runs search on mount using query from URL", async () => {
     windowLocationSpy.mockReturnValue({
       ...window.location,
@@ -199,12 +227,11 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
       expect(onRunSearchSpy).toHaveBeenCalledWith("urlquery");
     });
 
-    await screen.findByTestId("search-results-mock");
     const input = screen.getByPlaceholderText("Search") as HTMLInputElement;
     expect(input.value).toBe("urlquery");
   });
 
-  it("renders all results to portal (no limit)", async () => {
+  it("renders all results to portal with correct props", async () => {
     windowLocationSpy.mockReturnValue({
       ...window.location,
       search: "?params=urlquery",
@@ -215,9 +242,11 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
     const resultsMock = await screen.findByTestId("search-results-mock");
 
     const props = JSON.parse(resultsMock.textContent || "{}");
+
     expect(props.limit).toBeUndefined();
     expect(props.searchResults.length).toBe(6);
     expect(screen.queryByText("View all results")).not.toBeInTheDocument();
+    expect(props.searchInput).toBe("urlquery");
   });
 });
 
@@ -228,9 +257,6 @@ describe("SearchBar (Inline Mode)", () => {
     );
 
     const input = screen.getByPlaceholderText("Search");
-
-    // set state and fire event synchronously to ensure dropdown is
-    // rendered when findBy runs in test env
     fireEvent.focus(input);
     fireEvent.change(input, { target: { value: "test" } });
 
@@ -238,7 +264,6 @@ describe("SearchBar (Inline Mode)", () => {
     const dropdownWrapper = resultsMock.closest(".search-results-inline");
 
     expect(dropdownWrapper).toBeInTheDocument();
-    expect(dropdownWrapper).toHaveClass("search-results-inline");
   });
 });
 

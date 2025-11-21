@@ -188,6 +188,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
             isMobile={isMobile}
             limit={5}
             startingItemIndex={0}
+            searchInput={searchInput}
           />
           <div
             className={clsx(
@@ -209,9 +210,9 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       )}
 
       {props.isResultsPage &&
+        searchInput.trim().length > 0 &&
         isClient &&
         resultsPortalContainer &&
-        allResults.length > 0 &&
         createPortal(
           <div className="container-lg">
             <div ref={resultsTopRef} className="bg-white rounded-3 p-4 p-md-5">
@@ -220,6 +221,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
                 isMobile={isMobile}
                 totalResults={allResults.length}
                 startingItemIndex={resultsPageStartingIndex}
+                searchInput={searchInput}
               />
 
               {totalPages > 1 && (
