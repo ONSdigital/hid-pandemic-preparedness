@@ -55,6 +55,7 @@ const referenceProps: ReferenceProps = {
   websiteTitle: "COVID-19: Make it the Last Pandemic",
   websiteUrl:
     "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
+  label: "1",
 };
 
 export const ReferenceStory = {
