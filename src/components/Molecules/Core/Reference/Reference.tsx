@@ -59,7 +59,7 @@ export const Reference: FC<ReferenceProps> = (props) => {
         "link-underline",
         "link-underline-opacity-0",
       )}
-      href={"javascript:void(0);"}
+      href={"#!"}
       data-bs-toggle="popover"
       data-bs-placement="top"
       data-bs-html="true"
