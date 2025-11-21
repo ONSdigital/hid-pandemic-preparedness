@@ -6,9 +6,8 @@ export interface LinkProps extends StoryblokMultilink {
     | "navigation-tab"
     | "navigation-tab-inverse"
     | "primary"
-    | "primary-inverse"
     | "secondary"
-    | "secondary-inverse";
+    | "inverse";
   className?: string;
   disabled?: boolean;
   goBack?: boolean;

@@ -1,8 +1,7 @@
-import type { ReactNode } from "react";
-
 import type { Asset } from "@localTypes/Asset";
 import type { LinkComponent } from "@localTypes/LinkComponent";
 import type { MegaMenu } from "@localTypes/MegaMenu";
+import type { Accordions } from "@localTypes/Accordions";
 
 export interface NavBarProps {
   logo: Asset;
@@ -19,6 +18,8 @@ export interface ExpandableItemData {
 export interface DesktopNavProps extends NavBarProps {
   onClick: (item: ExpandableItemData) => any; // eslint-disable-line no-unused-vars
   openItemId: string | null;
+  onSearchToggle: () => void;
+  isSearchOpen: boolean;
 }
 
 export interface MobileNavProps extends NavBarProps {
@@ -26,12 +27,4 @@ export interface MobileNavProps extends NavBarProps {
   isOpen: boolean;
 }
 
-export interface NavAccordionItem {
-  id: string;
-  headerTitle: string;
-  bodyContent: ReactNode;
-}
-
-export interface NavAccordionProps {
-  items: NavAccordionItem[];
-}
+export interface NavAccordionsProps extends Accordions {}

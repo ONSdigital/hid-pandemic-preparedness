@@ -8,13 +8,7 @@ import styles from "./Introduction.module.scss";
 export const Introduction: FC<IntroductionProps> = (props) => {
   return (
     <div
-      className={clsx(
-        "p-4",
-        "p-lg-5",
-        "border",
-        "rounded-4",
-        styles["introduction__container"],
-      )}
+      className={clsx("border", "rounded-4", styles["introduction-container"])}
     >
       <div className={clsx("row")}>
         <h4 className={clsx("heading-m", "mb-0")}>{props.title}</h4>
