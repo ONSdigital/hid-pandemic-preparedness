@@ -7,6 +7,9 @@ import type {
   StoryblokRichTextNodeResolver,
 } from "@storyblok/richtext";
 import { clsx } from "clsx";
+import { renderToStaticMarkup } from "react-dom/server";
+
+import { RichTextComponent } from "@src/components/RichTextComponent";
 
 // Copied from https://github.com/storyblok/monoblok/packages/richtext/src/types/index.ts as these are not exported
 enum BlockTypes {
@@ -89,39 +92,46 @@ const processAttributes = (attrs: BlockAttributes = {}): BlockAttributes => {
   });
 };
 
-// Override to include formula stylings if applicable
+// Override to include supported blok rendering from `RichTextComponent`
 export const componentResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
-  const blok = node.attrs?.body?.[0];
+  const body = node.attrs?.body;
+  let outputHtml = "";
 
-  if (blok) {
-    if (blok.component === "Formula") {
-      // Only try and render if the formula text is where we expect it to be
-      const formulaText =
-        blok?.richText?.content?.[0]?.content?.[0]?.text ?? null;
-
-      if (formulaText) {
-        return context.render(
-          "span",
-          {
-            blok: node?.attrs?.body[0],
-            class: clsx("d-flex", "p-3", "my-2", "fw-semibold", "math-block"),
-            id: node.attrs?.id,
-          },
-          [blok.richText.content[0].content[0].text] as unknown as T,
-        ) as T;
+  if (body && Array.isArray(body)) {
+    const renderedComponents = body.map((blok) => {
+      try {
+        return renderToStaticMarkup(
+          <RichTextComponent blok={blok} key={blok._uid} />,
+        ) as unknown as T;
+      } catch (error) {
+        // If rendering fails for whatever reason, log a warning and return default implementation
+        console.warn(
+          `componentResolver warning: Error rendering "${blok.component}" Component; ${error}`,
+        );
+        return context.render("span", {
+          blok: blok,
+          id: node.attrs?.id,
+          style: "display: none",
+        });
       }
-    }
+    });
+
+    outputHtml = renderedComponents.join("");
   }
 
-  // If not recognised just return default implementation
-  return context.render("span", {
-    blok: blok && blok,
-    id: node.attrs?.id,
-    style: "display: none",
-  }) as T;
+  if (outputHtml !== "") {
+    return outputHtml as unknown as T;
+  } else {
+    // If anythings gone wrong just return default implementation
+    return context.render("span", {
+      blok: {},
+      id: node.attrs?.id,
+      style: "display: none",
+    }) as T;
+  }
 };
 
 // Custom heading resolver that adds our custom styling based on heading level
