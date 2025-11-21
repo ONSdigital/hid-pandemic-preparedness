@@ -1,3 +1,4 @@
+import jp from "jsonpath";
 import type { ISbStoryData } from "storyblok-js-client";
 import { describe, expect, test } from "vitest";
 
@@ -239,5 +240,31 @@ describe("updateStoryReferences helper", () => {
       REFERENCES_DATA,
     );
     expect(returnedStory).not.toEqual(referencesStory);
+  });
+
+  test("modified story references should include additional label field and values", () => {
+    // Json story contains reference data
+    const referencesStory: ISbStoryData = {
+      ...JSON.parse(story).story,
+    };
+
+    const returnedStory = updateStoryReferences(
+      referencesStory,
+      REFERENCES_DATA,
+    );
+
+    // Use jp.query to get the references out of the returnedStory
+    const updatedReferences: ReferenceProps[] = jp.query(
+      returnedStory.content,
+      "$..[?(@.component=='Reference')]",
+    );
+
+    // Story content contains 10 references
+    expect(updatedReferences).toHaveLength(10);
+
+    // Check each reference contains a valid `label` key/value pair
+    updatedReferences.map((ref) => {
+      expect(ref.label).toBeDefined;
+    });
   });
 });
