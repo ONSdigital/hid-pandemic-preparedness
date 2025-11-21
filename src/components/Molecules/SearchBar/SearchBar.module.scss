@@ -7,12 +7,28 @@
   border-radius: 1rem;
 }
 
+.search-btn {
+  z-index: 1 !important;
+}
+
 .search-results {
   position: absolute;
   top: 100%;
   z-index: 1;
   max-height: 40rem;
   overflow-y: auto;
+}
+
+.search-results-inline {
+  position: relative;
+  top: auto;
+  z-index: 1;
+  max-height: 40rem;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+
+  background-color: white;
+  border-radius: 1rem;
 }
 
 .sticky-link-container {

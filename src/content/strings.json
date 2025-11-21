@@ -3,6 +3,9 @@
     "copyButton": {
       "copied": "Copied!",
       "copy": "Copy"
+    },
+    "tip": {
+      "tip": "Tip"
     }
   },
   "levels": {
@@ -60,9 +63,9 @@
   },
   "search": {
     "viewAllResults": "View all results",
-    "numSearchResults": "search results",
     "pageTitle": "Site search",
-    "placeholderText": "Search the site..."
+    "placeholderText": "Search the site...",
+    "resultsCount": "Showing {start}–{end} of {total} results"
   },
   "video": {
     "transcript": "Download transcript"

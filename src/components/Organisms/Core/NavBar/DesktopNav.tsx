@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 import { Image } from "@components/Molecules/Core/Image/Image";
+import { Button } from "@src/components/Button/Button";
+import { RiSearchLine, RiCloseLine } from "@remixicon/react";
 
 import styles from "./NavBar.module.scss";
 import type { DesktopNavProps } from "./NavBar.interface";
@@ -66,6 +68,17 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
             className={clsx("d-flex", "align-items-center", styles["nav-item"])}
           />
         ))}
+
+      <div className={clsx("d-flex", "align-items-center", styles["nav-item"])}>
+        <Button
+          type="button"
+          variant="search-bar"
+          ariaLabel={props.isSearchOpen ? "Close search" : "Open search"}
+          onClick={props.onSearchToggle}
+        >
+          {props.isSearchOpen ? <RiCloseLine /> : <RiSearchLine />}
+        </Button>
+      </div>
     </div>
   );
 };

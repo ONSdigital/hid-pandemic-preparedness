@@ -1,0 +1,7 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.tip-container {
+  background-color: $color-brand-primary-200;
+  border-radius: 1rem;
+}
