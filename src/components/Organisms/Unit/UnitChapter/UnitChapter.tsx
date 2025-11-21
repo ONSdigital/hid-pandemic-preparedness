@@ -30,8 +30,8 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
         fieldtype: "multilink",
         linktype: "url",
         title: section.title,
-        cached_url: slug,
-        url: slug,
+        cached_url: `heading-${slug}`,
+        url: `heading-${slug}`,
       };
     });
   }
