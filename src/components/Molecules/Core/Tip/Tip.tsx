@@ -23,7 +23,7 @@ export const Tip: FC<TipProps> = (props) => {
         styles["tip-container"],
       )}
     >
-      <div>
+      <div className={clsx("d-flex", "align-items-center")}>
         <Icon iconName="RiInformationLine" />
       </div>
       <div>
