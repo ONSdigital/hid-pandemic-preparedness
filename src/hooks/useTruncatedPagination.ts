@@ -6,9 +6,9 @@ export const useTruncatedPagination = (
   siblingCount: number = 1,
 ) => {
   return useMemo(() => {
-    const totalPageNumbers = totalPages + siblingCount * 2;
+    const maxPageNumbers = siblingCount * 2 + 5;
 
-    if (totalPageNumbers >= totalPages) {
+    if (maxPageNumbers >= totalPages) {
       return Array.from({ length: totalPages }, (_, i) => i);
     }
 

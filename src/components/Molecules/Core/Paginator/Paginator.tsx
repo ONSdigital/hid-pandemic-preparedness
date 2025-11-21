@@ -63,9 +63,7 @@ export const Paginator: FC<PaginatorProps> = ({
                 key={`dots-${pageIndex}`}
                 className={clsx("page-item", "d-none", "d-md-block")}
               >
-                <span className={clsx("fw-bold", styles["mobile-counter"])}>
-                  Page {safeCurrentPage + 1} of {totalPages}
-                </span>
+                <span className={styles["ellipsis"]}>&hellip;</span>
               </li>
             );
           }
