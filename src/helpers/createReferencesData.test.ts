@@ -11,7 +11,7 @@ import { createReferencesData } from "./createReferencesData";
 describe("createReferencesData helper", () => {
   test("returns empty array if input story contains no content", () => {
     const emptyContentStory: ISbStoryData = {
-      ...JSON.parse(story),
+      ...JSON.parse(story).story,
       content: {},
     };
 
@@ -22,7 +22,7 @@ describe("createReferencesData helper", () => {
 
   test("returns empty array if input story contains no references as part of the content", () => {
     const emptyReferencesStory: ISbStoryData = {
-      ...JSON.parse(story),
+      ...JSON.parse(story).story,
       // Just some placeholder content that doesn't include references
       content: {
         Body: [
@@ -68,7 +68,7 @@ describe("createReferencesData helper", () => {
   test("returns array of `ReferenceProps` items if input story contains references as part of the content", () => {
     // Json story contains reference data
     const referencesStory: ISbStoryData = {
-      ...JSON.parse(story),
+      ...JSON.parse(story).story,
     };
 
     const expectedReferences: ReferenceProps[] = [
