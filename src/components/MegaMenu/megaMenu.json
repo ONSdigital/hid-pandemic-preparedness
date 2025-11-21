@@ -9,11 +9,11 @@
         {
           "_uid": "61ab9c4f-0ca5-420d-9f02-29c82fff9180",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "e87851bb-3248-441b-80a0-7e10a5b6c47b",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/data-collection/sampling/"
           },
           "type": "",
           "label": "Sampling",
@@ -23,11 +23,11 @@
         {
           "_uid": "09ffb75e-d820-4f56-aac6-f3feec523763",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "f96c5165-47f5-400e-afcf-eaeca59da8b4",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/data-collection/survey-design/survey-design"
           },
           "type": "",
           "label": "Survey design",
@@ -37,11 +37,11 @@
         {
           "_uid": "2700807e-30c4-4288-9816-2958f25128dd",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "46932005-6936-47ec-90e5-08219cce24fa",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/data-collection/data-collection-mode/"
           },
           "type": "",
           "label": "Data collection mode ",
@@ -51,11 +51,11 @@
         {
           "_uid": "7836c121-0c59-4b6f-b9ae-3e7aff3bfff5",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "35e24e83-d819-48d5-a57d-9e89d5080278",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/data-collection/administrative-data/"
           },
           "type": "",
           "label": "Administrative data",
@@ -65,6 +65,21 @@
       ],
       "title": "Data collection",
       "component": "MegaMenuColumn",
+      "titleLink": [
+        {
+          "_uid": "494c6672-1a71-4da7-b647-19aa68d8a636",
+          "link": {
+            "id": "1c426e1f-4ed1-4414-8dbf-e0cb65a2988a",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-collection/"
+          },
+          "label": "Data Collection",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"494c6672-1a71-4da7-b647-19aa68d8a636\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
       "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"e6220bea-d0b2-4b84-b613-9fcdbafd1d66\", \"id\": \"108543027842071\"}--\u003E"
     },
     {
@@ -74,11 +89,11 @@
         {
           "_uid": "4d78bd14-9aa1-4283-9500-d8f0f37f2fed",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "375d17b0-523a-4df4-b8d4-fd7211dade77",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/data-analysis/data-preparation/"
           },
           "type": "",
           "label": "Data preparation",
@@ -88,11 +103,11 @@
         {
           "_uid": "14b58996-acbf-46d9-a1aa-393ef8047b75",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "749b826e-787a-4cd0-a518-8561d460fb60",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/data-analysis/reproducible-analytical-pipelines/"
           },
           "type": "",
           "label": "Reproducible analytical pipelines",
@@ -102,11 +117,11 @@
         {
           "_uid": "abed85b2-b09e-4613-82fc-afb9b17058c4",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "87076f3e-9fae-4606-ad8d-e709bc04ff4f",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/data-analysis/epidemiological-analysis/"
           },
           "type": "",
           "label": "Epidemiological analysis",
@@ -116,7 +131,71 @@
       ],
       "title": "Data analysis",
       "component": "MegaMenuColumn",
+      "titleLink": [
+        {
+          "_uid": "ad03c7f5-9f82-4436-9536-19b5a7bcaa57",
+          "link": {
+            "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-analysis/"
+          },
+          "label": "Data Analysis",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"ad03c7f5-9f82-4436-9536-19b5a7bcaa57\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
       "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"fc2530ea-c3a3-4a93-8474-58857468636f\", \"id\": \"108543027842071\"}--\u003E"
+    },
+    {
+      "_uid": "2349f75f-61e6-40b7-aa21-0be704c96e0c",
+      "links": [
+        {
+          "_uid": "6ad82992-04d3-45c3-85de-e5a188b522b4",
+          "link": {
+            "id": "51a2432e-4eaf-4497-bf9d-d99fdd3c13a2",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-governance/implementing-legislation/"
+          },
+          "label": "Implementation legislation",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"6ad82992-04d3-45c3-85de-e5a188b522b4\", \"id\": \"108543027842071\"}--\u003E"
+        },
+        {
+          "_uid": "6c07cc63-100d-4f80-946f-0ca4df590566",
+          "link": {
+            "id": "cf02e0ab-add0-453e-81b3-bfc58fe383de",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-governance/data-protection-and-user-privacy/"
+          },
+          "label": "Data protection and user privacy",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"6c07cc63-100d-4f80-946f-0ca4df590566\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
+      "title": "Data governance",
+      "component": "MegaMenuColumn",
+      "titleLink": [
+        {
+          "_uid": "095e4df7-5c21-4a9d-bee3-97c6209fd370",
+          "link": {
+            "id": "73f88e9a-20a0-4971-ad42-2590afee3acd",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/data-governance/"
+          },
+          "label": "Data governance",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"095e4df7-5c21-4a9d-bee3-97c6209fd370\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
+      "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"2349f75f-61e6-40b7-aa21-0be704c96e0c\", \"id\": \"108543027842071\"}--\u003E"
     },
     {
       "_uid": "2129b780-38c0-4f2b-ae44-c68e84341a83",
@@ -125,11 +204,11 @@
         {
           "_uid": "d23611e7-583b-498f-8e89-a8c00148758e",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "290a32e8-fba0-4e88-a39f-49e5a2711323",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/outputs-and-reporting/data-visualisation/data-visualisation"
           },
           "type": "",
           "label": "Data visualisation",
@@ -139,11 +218,11 @@
         {
           "_uid": "5705bf89-1a79-4643-b995-f3acf4683c4c",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "4b12ffff-aedb-40c4-831c-61a1d42ba6de",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/outputs-and-reporting/written-and-verbal-communication/"
           },
           "type": "",
           "label": "Written and verbal communication",
@@ -153,6 +232,21 @@
       ],
       "title": "Outputs and reporting",
       "component": "MegaMenuColumn",
+      "titleLink": [
+        {
+          "_uid": "600810d9-6eb1-4dce-87e5-5854908d15c2",
+          "link": {
+            "id": "966ae3c4-43f7-4df4-93b1-614264e8457d",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/outputs-and-reporting/"
+          },
+          "label": "Outputs and reporting",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"600810d9-6eb1-4dce-87e5-5854908d15c2\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
       "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"2129b780-38c0-4f2b-ae44-c68e84341a83\", \"id\": \"108543027842071\"}--\u003E"
     },
     {
@@ -162,11 +256,11 @@
         {
           "_uid": "5c065605-5b7f-4f3b-bd79-b40b4551a907",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "a3a1f718-d49b-4db3-b585-a0f919b405e7",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/stakeholder-engagement/stakeholder-mapping/"
           },
           "type": "",
           "label": "Stakeholder mapping ",
@@ -176,11 +270,11 @@
         {
           "_uid": "cfafe5c1-3268-4d94-bc51-7eecb2f5a8b8",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "60a01600-2068-430a-86f1-7abfb7a44102",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/stakeholder-engagement/leadership/leadership"
           },
           "type": "",
           "label": "Leadership",
@@ -190,11 +284,11 @@
         {
           "_uid": "d00b1edf-d914-4203-8067-3ea0bc2c86f4",
           "link": {
-            "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+            "id": "977602b8-6b50-421d-abef-b8446f109f95",
             "url": "",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "home"
+            "cached_url": "learning-resources/stakeholder-engagement/public-acceptablity-of-pandemic-surveillance/"
           },
           "type": "",
           "label": "Public acceptability",
@@ -204,6 +298,21 @@
       ],
       "title": "Stakeholder engagement",
       "component": "MegaMenuColumn",
+      "titleLink": [
+        {
+          "_uid": "dded8cb3-d431-469d-bb9b-f8445cbfc424",
+          "link": {
+            "id": "a1aaf5ae-be5c-4674-ad31-fb85d21e4d1e",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/stakeholder-engagement/"
+          },
+          "label": "Stakeholder engagement",
+          "component": "Link",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"dded8cb3-d431-469d-bb9b-f8445cbfc424\", \"id\": \"108543027842071\"}--\u003E"
+        }
+      ],
       "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"3c039564-44f3-4faf-8a4a-8b1f8fa1a904\", \"id\": \"108543027842071\"}--\u003E"
     }
   ],
@@ -223,8 +332,8 @@
               {
                 "type": "link",
                 "attrs": {
-                  "href": "/",
-                  "uuid": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                  "href": "/learning-resources/",
+                  "uuid": "e5337d90-ad03-4bf1-9a64-3994fc990820",
                   "anchor": null,
                   "target": "_self",
                   "linktype": "story"

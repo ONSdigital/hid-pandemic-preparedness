@@ -5,11 +5,11 @@
     {
       "_uid": "61ab9c4f-0ca5-420d-9f02-29c82fff9180",
       "link": {
-        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+        "id": "e87851bb-3248-441b-80a0-7e10a5b6c47b",
         "url": "",
         "linktype": "story",
         "fieldtype": "multilink",
-        "cached_url": "home"
+        "cached_url": "learning-resources/data-collection/sampling/"
       },
       "type": "",
       "label": "Sampling",
@@ -19,19 +19,62 @@
     {
       "_uid": "09ffb75e-d820-4f56-aac6-f3feec523763",
       "link": {
-        "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+        "id": "f96c5165-47f5-400e-afcf-eaeca59da8b4",
         "url": "",
         "linktype": "story",
         "fieldtype": "multilink",
-        "cached_url": "home"
+        "cached_url": "learning-resources/data-collection/survey-design/survey-design"
       },
       "type": "",
       "label": "Survey design",
       "component": "Link",
       "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"09ffb75e-d820-4f56-aac6-f3feec523763\", \"id\": \"108543027842071\"}--\u003E"
+    },
+    {
+      "_uid": "2700807e-30c4-4288-9816-2958f25128dd",
+      "link": {
+        "id": "46932005-6936-47ec-90e5-08219cce24fa",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "learning-resources/data-collection/data-collection-mode/"
+      },
+      "type": "",
+      "label": "Data collection mode ",
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"2700807e-30c4-4288-9816-2958f25128dd\", \"id\": \"108543027842071\"}--\u003E"
+    },
+    {
+      "_uid": "7836c121-0c59-4b6f-b9ae-3e7aff3bfff5",
+      "link": {
+        "id": "35e24e83-d819-48d5-a57d-9e89d5080278",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "learning-resources/data-collection/administrative-data/"
+      },
+      "type": "",
+      "label": "Administrative data",
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"7836c121-0c59-4b6f-b9ae-3e7aff3bfff5\", \"id\": \"108543027842071\"}--\u003E"
     }
   ],
   "title": "Data collection",
   "component": "MegaMenuColumn",
+  "titleLink": [
+    {
+      "_uid": "494c6672-1a71-4da7-b647-19aa68d8a636",
+      "link": {
+        "id": "1c426e1f-4ed1-4414-8dbf-e0cb65a2988a",
+        "url": "",
+        "linktype": "story",
+        "fieldtype": "multilink",
+        "cached_url": "learning-resources/data-collection/"
+      },
+      "label": "Data Collection",
+      "component": "Link",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"494c6672-1a71-4da7-b647-19aa68d8a636\", \"id\": \"108543027842071\"}--\u003E"
+    }
+  ],
   "_editable": "\u003C!--#storyblok#{\"name\": \"MegaMenuColumn\", \"space\": \"287525897740819\", \"uid\": \"e6220bea-d0b2-4b84-b613-9fcdbafd1d66\", \"id\": \"108543027842071\"}--\u003E"
 }
