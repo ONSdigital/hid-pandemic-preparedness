@@ -6,7 +6,7 @@ import { MegaMenu } from "@components/MegaMenu/MegaMenu";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
-import type { NavAccordionProps, MobileNavProps } from "./NavBar.interface";
+import type { NavAccordionsProps, MobileNavProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 import { SearchBar } from "@/src/components/Molecules/SearchBar/SearchBar";
 import strings from "@src/content/strings.json";
@@ -78,14 +78,14 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
   );
 };
 
-export const NavAccordion: FC<NavAccordionProps> = (props) => {
+export const NavAccordion: FC<NavAccordionsProps> = (props) => {
   const accordionId = "navAccordion";
 
   return (
     <div className={clsx("accordion", "accordion-flush")} id={accordionId}>
       {props.items.map((item) => (
         <div className={clsx("accordion-item", "border-bottom")} key={item.id}>
-          <h2 className="accordion-header">
+          <h4 className="accordion-header">
             <button
               id={`heading-${item.id}`}
               aria-expanded="false"
@@ -103,7 +103,7 @@ export const NavAccordion: FC<NavAccordionProps> = (props) => {
             >
               {item.headerTitle}
             </button>
-          </h2>
+          </h4>
           <div
             id={item.id}
             aria-labelledby={`heading-${item.id}`}
