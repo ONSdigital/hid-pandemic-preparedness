@@ -18,7 +18,7 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
   // Build accordion props and section links only if sections exist
   if (props.sections) {
     accordionItems = props.sections.map((section) => ({
-      id: section._uid,
+      id: slugify(section.title, { lower: true }),
       headerTitle: section.title,
       bodyContent: <TextModule richText={section.contentRichText} />,
     }));
