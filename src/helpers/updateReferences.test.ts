@@ -6,7 +6,7 @@ import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Re
 // Story contains reference data
 import story from "@src/content/stories/home.json?raw";
 
-import { createReferencesData } from "./createReferencesData";
+import { createReferencesData } from "./updateReferences";
 
 describe("createReferencesData helper", () => {
   test("returns empty array if input story contains no content", () => {

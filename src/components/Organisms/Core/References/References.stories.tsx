@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 // Home story contains some references we can use
 import story from "@src/content/stories/home.json?raw";
 
-import { createReferencesData } from "@src/helpers/createReferencesData";
+import { createReferencesData } from "@/src/helpers/updateReferences";
 
 import { References } from "./References";
 import type { ReferencesProps } from "./References.interface";
