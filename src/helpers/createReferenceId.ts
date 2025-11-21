@@ -7,8 +7,8 @@ import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Re
 // page
 export function createReferenceId(referenceProps: ReferenceProps): string {
   if (referenceProps.label) {
-    return `#ref-${slugify(referenceProps.label, { lower: true })}`;
+    return `ref-${slugify(referenceProps.label, { lower: true })}`;
   } else {
-    return `#${referenceProps._uid}`;
+    return referenceProps._uid;
   }
 }

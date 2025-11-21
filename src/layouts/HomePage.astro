@@ -10,7 +10,10 @@ import DynamicComponent from "@src/components/DynamicComponent.astro";
 // Helpers
 import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
 import { fetchStory } from "@src/helpers/fetchContent";
-import { createReferencesData } from "@/src/helpers/updateReferences";
+import {
+  createReferencesData,
+  updateStoryReferences,
+} from "@/src/helpers/updateReferences";
 
 let story = null;
 
@@ -27,6 +30,10 @@ if (liveStory) {
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 // Build references
 const referencesData = createReferencesData(story);
+// Update story with new references if applicable
+if (referencesData) {
+  story = updateStoryReferences(story, referencesData);
+}
 ---
 
 <BaseLayout>
@@ -37,10 +44,6 @@ const referencesData = createReferencesData(story);
       client:visible
     />
     {story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)}
-    {
-      referencesData && (
-        <References references={referencesData} client:visible />
-      )
-    }
+    {referencesData && <References references={referencesData} />}
   </main>
 </BaseLayout>

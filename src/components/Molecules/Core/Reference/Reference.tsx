@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import type { FC } from "react";
-import slugify from "slugify";
+
+import { createReferenceId } from "@src/helpers/createReferenceId";
 
 import type { ReferenceProps } from "./Reference.interface";
-
 import styles from "./Reference.module.scss";
 
 export const Reference: FC<ReferenceProps> = (props) => {
@@ -11,9 +11,10 @@ export const Reference: FC<ReferenceProps> = (props) => {
   const label: string = props.label ? props.label : "REF!";
   // Make the link href to include the label if it exists so we can use this to jump to the references
   // section at the foot of the page
-  const url: string = props.label
-    ? `#ref-${slugify(props.label, { lower: true })}`
-    : "#";
+  let url: string = "#";
+  if (props.label) {
+    url += createReferenceId(props);
+  }
 
   return (
     <a

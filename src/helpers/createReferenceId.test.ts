@@ -20,7 +20,7 @@ describe("createReferenceId helper", () => {
 
   test("returns id using `_uid` if input props contains no label", () => {
     const idString: string = createReferenceId(defaultProps);
-    expect(idString).toEqual(`#${defaultProps._uid}`);
+    expect(idString).toEqual(defaultProps._uid);
   });
 
   test("returns id using `label` if input props contains label", () => {
@@ -30,7 +30,7 @@ describe("createReferenceId helper", () => {
     };
 
     const idString: string = createReferenceId(updatedProps);
-    expect(idString).toEqual(`#ref-${updatedProps.label}`);
+    expect(idString).toEqual(`ref-${updatedProps.label}`);
   });
 
   test("id should be slugified if `label` is a space separated string", () => {
@@ -40,6 +40,6 @@ describe("createReferenceId helper", () => {
     };
 
     const idString: string = createReferenceId(updatedProps);
-    expect(idString).toEqual(`#ref-my-space-separated-string`);
+    expect(idString).toEqual(`ref-my-space-separated-string`);
   });
 });

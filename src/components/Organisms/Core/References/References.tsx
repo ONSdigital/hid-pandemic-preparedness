@@ -4,13 +4,15 @@ import { v4 as uuidv4 } from "uuid";
 
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
 
+import { createReferenceId } from "@src/helpers/createReferenceId";
+
 import type { ReferencesProps } from "./References.interface";
 import styles from "./References.module.scss";
 
 // Formatting a reference as per harvard reference style see https://libguides.ucd.ie/harvardstyle/harvardwebsite
 const ReferenceItem: FC<ReferenceProps> = (props) => {
   return (
-    <p id={props._uid}>
+    <p id={createReferenceId(props)}>
       <small>
         {/* Set reference number to be a default value if `label` doesn't exist */}
         ({props.label ? props.label : "#REF!"}) {props.websiteAuthor} (
