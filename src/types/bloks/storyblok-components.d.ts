@@ -54,6 +54,7 @@ export interface BasicPage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -118,6 +119,7 @@ export interface CardBlock {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -249,7 +251,7 @@ export interface FooterColumnLink {
 }
 
 export interface Formula {
-  richText?: StoryblokRichtext;
+  text?: string;
   component: "Formula";
   _uid: string;
   [k: string]: unknown;
@@ -348,6 +350,7 @@ export interface HomePage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -404,6 +407,7 @@ export interface HomePage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -460,6 +464,7 @@ export interface HomePage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -569,6 +574,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -625,6 +631,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -681,6 +688,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -737,6 +745,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -770,8 +779,8 @@ export interface MegaMenu {
 }
 
 export interface MegaMenuColumn {
-  title?: string;
-  links?: Link[];
+  titleLink: Link[];
+  links: Link[];
   component: "MegaMenuColumn";
   _uid: string;
   [k: string]: unknown;
@@ -822,11 +831,11 @@ export interface QuickLinksItem {
 }
 
 export interface Reference {
-  accessedDate?: string;
-  yearPublished?: string;
+  accessedDate: string;
+  yearPublished: string;
   websiteAuthor: string;
-  websiteTitle?: string;
-  websiteUrl?: string;
+  websiteTitle: string;
+  websiteUrl: string;
   component: "Reference";
   _uid: string;
   [k: string]: unknown;
@@ -928,6 +937,13 @@ export interface Theme {
   subTitle?: string;
   subThemes?: SubTheme[];
   component: "Theme";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Tip {
+  text?: string;
+  component: "Tip";
   _uid: string;
   [k: string]: unknown;
 }

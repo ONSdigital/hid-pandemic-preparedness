@@ -2,18 +2,19 @@ import clsx from "clsx";
 import type { FC } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import type {
-  ReferenceItemProps,
-  ReferencesProps,
-} from "./References.interface";
+import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
+
+import type { ReferencesProps } from "./References.interface";
 import styles from "./References.module.scss";
 
 // Formatting a reference as per harvard reference style see https://libguides.ucd.ie/harvardstyle/harvardwebsite
-const ReferenceItem: FC<ReferenceItemProps> = (props) => {
+const ReferenceItem: FC<ReferenceProps> = (props) => {
   return (
     <p>
       <small>
-        ({props.id}) {props.websiteAuthor} ({props.yearPublished}){" "}
+        {/* Set reference number to be a default value if `label` doesn't exist */}
+        ({props.label ? props.label : "#REF!"}) {props.websiteAuthor} (
+        {props.yearPublished}){" "}
         <span className="fst-italic">{props.websiteTitle}</span>. Available at:{" "}
         <a
           className={clsx("text-break", "link-light")}

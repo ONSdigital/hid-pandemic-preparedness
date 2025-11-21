@@ -1,7 +1,5 @@
-import type { ReferenceData } from "@/src/types/ReferenceData";
-
-export interface ReferenceItemProps extends ReferenceData {}
+import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
 
 export interface ReferencesProps {
-  references?: ReferenceData[];
+  references?: ReferenceProps[];
 }
