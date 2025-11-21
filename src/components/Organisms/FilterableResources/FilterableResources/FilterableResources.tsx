@@ -9,7 +9,7 @@ import { Paginator } from "@src/components/Molecules/Core/Paginator/Paginator";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 import { Theme as ThemeComponent } from "@src/components/Organisms/FilterableResources/Theme/Theme";
 import { ThemeFilter } from "@src/components/Organisms/FilterableResources/ThemeFilter/ThemeFilter";
-import { usePagination } from "@src/hooks/usePagination"; // Import the hook
+import { usePagination } from "@src/hooks/usePagination";
 
 import strings from "@src/content/strings.json";
 
