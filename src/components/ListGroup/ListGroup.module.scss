@@ -11,3 +11,8 @@ $list-group-border-bottom: 1px solid $color-brand-primary-500 !important;
     font-weight: bold;
   }
 }
+
+.list-group-links-title {
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+}
