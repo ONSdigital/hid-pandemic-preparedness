@@ -10,6 +10,9 @@
       background-color: $color-brand-primary-500;
       border-bottom: 1px solid $color-brand-secondary-600;
     }
+    &:focus {
+      box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+    }
   }
 
   &:global(:not(.collapsed)) {
@@ -20,6 +23,9 @@
     &:hover {
       background-color: $color-brand-primary-500;
       border-bottom: 1px solid $color-brand-secondary-600;
+    }
+    &:focus {
+      box-shadow: var(--bs-accordion-btn-focus-box-shadow);
     }
   }
 
