@@ -2,6 +2,7 @@ export interface SearchBarProps {
   placeholder: string;
   initialQuery?: string;
   isResultsPage?: boolean;
+  isInline?: boolean;
 }
 
 export interface PagefindResultsData {
