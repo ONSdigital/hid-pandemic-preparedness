@@ -54,6 +54,7 @@ export interface BasicPage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -118,6 +119,7 @@ export interface CardBlock {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -250,6 +252,7 @@ export interface FooterColumnLink {
 
 export interface Formula {
   richText?: StoryblokRichtext;
+  text?: string;
   component: "Formula";
   _uid: string;
   [k: string]: unknown;
@@ -348,6 +351,7 @@ export interface HomePage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -404,6 +408,7 @@ export interface HomePage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -460,6 +465,7 @@ export interface HomePage {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -569,6 +575,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -625,6 +632,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -681,6 +689,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -737,6 +746,7 @@ export interface Landing {
     | TerryCode
     | TextModule
     | Theme
+    | Tip
     | ToolCard
     | ToolsCarousel
     | Unit
@@ -928,6 +938,13 @@ export interface Theme {
   subTitle?: string;
   subThemes?: SubTheme[];
   component: "Theme";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Tip {
+  text?: string;
+  component: "Tip";
   _uid: string;
   [k: string]: unknown;
 }

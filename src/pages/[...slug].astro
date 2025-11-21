@@ -1,5 +1,5 @@
 ---
-import type { ISbStoryData } from "storyblok-js-client";
+import type { ISbStoryData } from "@storyblok/astro";
 
 import { LAYOUT_MAP } from "@/src/layouts/layoutMap";
 import type { LayoutName } from "@/src/layouts/layoutMap";
@@ -37,7 +37,7 @@ if (Astro.isPrerendered) {
 
 // Load the correct layout based on the content component. Return 404 if it isn't there
 let Layout = null;
-const layoutName = story.content.component;
+const layoutName = story.content?.component;
 
 if (layoutName) {
   Layout = LAYOUT_MAP[layoutName as LayoutName];
