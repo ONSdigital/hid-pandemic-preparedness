@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { v4 as uuidv4 } from "uuid";
 
 import { Paginator } from "./Paginator";
 
@@ -10,37 +9,57 @@ const meta = {
     layout: "centered",
     actions: { argTypesRegex: "^on.*" },
   },
+  args: {
+    onPageChange: (pageIndex) => console.log("Page changed to:", pageIndex),
+  },
   argTypes: {
-    totalPages: { control: { type: "number", min: 0, max: 20 } },
-    currentPage: { control: { type: "number", min: 0, max: 20 } },
+    totalPages: { control: { type: "number", min: 0, max: 50 } },
+    currentPage: { control: { type: "number", min: 0, max: 50 } },
   },
 } satisfies Meta<typeof Paginator>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ItemMode: Story = {
-  name: "Item Mode (CMS)",
+export const Standard: Story = {
+  name: "Standard (Few Pages)",
   args: {
-    ariaLabel: "CMS page navigation",
-    items: Array.from({ length: 7 }, () => ({ _uid: uuidv4() })),
+    ariaLabel: "Standard navigation",
+    totalPages: 5,
+    currentPage: 0,
   },
 };
 
-export const NumericMode: Story = {
-  name: "Numeric Mode (Search)",
+export const MiddlePage: Story = {
+  name: "Middle of Range",
   args: {
     ariaLabel: "Search results navigation",
     totalPages: 15,
-    currentPage: 0, // Start at page 1 (index 0)
+    currentPage: 7,
   },
 };
 
-export const ManyPages: Story = {
-  name: "Numeric Mode (Many Pages)",
+export const LastPage: Story = {
+  name: "Last Page",
   args: {
     ariaLabel: "Large dataset navigation",
     totalPages: 50,
-    currentPage: 24, // Start in the middle
+    currentPage: 49,
+  },
+};
+
+export const MobileViewSimulator: Story = {
+  name: "Mobile Context (Narrow Container)",
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: "375px", border: "1px dashed #ccc" }}>
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    ariaLabel: "Mobile navigation",
+    totalPages: 10,
+    currentPage: 0,
   },
 };

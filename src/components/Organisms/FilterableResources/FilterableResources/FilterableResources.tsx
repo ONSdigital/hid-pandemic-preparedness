@@ -1,15 +1,15 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { FC } from "react";
 
 import type { FilterableResourcesProps } from "@src/components/Organisms/FilterableResources/FilterableResources/FilterableResources.interface";
-import type { PaginatorItem } from "@src/components/Molecules/Core/Paginator/Paginator.interface";
 import type { Theme } from "@src/types/bloks/storyblok-components";
 
 import { Paginator } from "@src/components/Molecules/Core/Paginator/Paginator";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 import { Theme as ThemeComponent } from "@src/components/Organisms/FilterableResources/Theme/Theme";
 import { ThemeFilter } from "@src/components/Organisms/FilterableResources/ThemeFilter/ThemeFilter";
+import { usePagination } from "@src/hooks/usePagination";
 
 import strings from "@src/content/strings.json";
 
@@ -40,53 +40,27 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
   const filterableResourcesStrings =
     strings.filterableResources.filterableResources;
 
-  let firstThemeId: string | undefined = undefined;
-  if (props.resources) {
-    if (props.resources.length > 0) {
-      firstThemeId = props.resources[0]._uid;
-    }
-  }
-
   // Initialize filteredThemes state with all themes initially
   const [filteredThemes, setFilteredThemes] = useState<Theme[]>(
     props.resources ?? [],
   );
-  // Initialise selectedTheme with first theme id
-  const [selectedThemeId, setSelectedThemeId] = useState<string | undefined>(
-    firstThemeId,
-  );
 
-  // Handler to updated filteredThemes, with check to ensure they've been updated to avoid
-  // recursive rendering loop
+  const { currentItems, currentPage, totalPages, goToPage } = usePagination({
+    data: filteredThemes,
+    itemsPerPage: 1,
+  });
+
+  const activeTheme = currentItems.length > 0 ? currentItems[0] : null;
+
   const handleFilteredThemesChange = (updatedThemes: Theme[]) => {
     setFilteredThemes((current) => {
       if (themesAreEqual(current, updatedThemes)) {
         return current;
       }
+
       return updatedThemes;
     });
   };
-
-  // Handler to update `selectedThemeId`, which we can use to show the correct theme based on the
-  // number selected by the paginator
-  const handlePaginatorClick = (selectedItem: PaginatorItem) => {
-    setSelectedThemeId(selectedItem._uid);
-  };
-
-  // Sync selectedThemeId if it no longer exists in filteredThemes
-  useEffect(() => {
-    if (filteredThemes.length === 0) {
-      setSelectedThemeId(undefined);
-      return;
-    }
-
-    const stillExists = filteredThemes.some(
-      (theme) => theme._uid === selectedThemeId,
-    );
-    if (!stillExists) {
-      setSelectedThemeId(filteredThemes[0]._uid);
-    }
-  }, [filteredThemes, selectedThemeId]);
 
   return (
     <div className={clsx("w-100", styles["filterable-resources-bg"])}>
@@ -100,6 +74,7 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
             />
           </div>
           <div className={clsx("col-md-9", "d-flex", "flex-column", "gap-4")}>
+            {/* Empty State */}
             {props.explanation && filteredThemes.length === 0 && (
               <div
                 className={clsx(
@@ -118,25 +93,22 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
                 </div>
               </div>
             )}
-            {/* Show the theme selected by the paginator */}
-            {filteredThemes.length > 0 && (
+
+            {/* Active Theme Content */}
+            {activeTheme && (
               <>
-                <ThemeComponent
-                  {...(filteredThemes.find(
-                    (theme) => theme._uid === selectedThemeId,
-                  ) as Theme)}
-                />
-                {/* Only show the paginator if we have more than one theme available */}
-                {filteredThemes.length > 1 && (
+                <ThemeComponent {...activeTheme} />
+
+                {/* Paginator */}
+                {totalPages > 1 && (
                   <div
                     className={clsx("d-flex", "justify-content-center", "py-2")}
                   >
                     <Paginator
                       ariaLabel={filterableResourcesStrings.themeNavigation}
-                      items={filteredThemes}
-                      perPage={1}
-                      onSelect={handlePaginatorClick}
-                      selectedUid={selectedThemeId}
+                      totalPages={totalPages}
+                      currentPage={currentPage}
+                      onPageChange={goToPage}
                     />
                   </div>
                 )}
