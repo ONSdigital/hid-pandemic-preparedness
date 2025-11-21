@@ -13,15 +13,31 @@
 }
 
 .chapters-accordion-heading {
-  background-color: $color-brand-primary-500;
-
-  &.collapsed {
-    box-shadow: none !important;
+  border-bottom: 1px solid $color-brand-secondary-400;
+  &:hover {
+    border-bottom: 1px solid $color-brand-secondary-600;
   }
 
-  &:not(.collapsed) {
-    background-color: $color-brand-primary-500 !important;
-    box-shadow: none !important;
+  &:global(.collapsed) {
+    background-color: $color-brand-primary-600;
+    box-shadow: none;
+    &:hover {
+      background-color: $color-brand-primary-500;
+    }
+    &:focus {
+      box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+    }
+  }
+
+  &:global(:not(.collapsed)) {
+    background-color: $color-brand-primary-600;
+    box-shadow: none;
+    &:hover {
+      background-color: $color-brand-primary-500;
+    }
+    &:focus {
+      box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+    }
   }
 
   &::after {
