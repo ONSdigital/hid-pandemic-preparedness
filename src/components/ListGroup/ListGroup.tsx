@@ -56,8 +56,8 @@ export const ListGroupLinks: FC<ListGroupLinksProps> = (props) => {
       {props.titleLink && (
         <Link
           hideIcon={true}
-          label={props.titleLink.label}
-          {...props.titleLink.link}
+          label={props.titleLink[0].label}
+          {...props.titleLink[0].link}
         />
       )}
       <div className={clsx("list-group", "list-group-flush")}>
