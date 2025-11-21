@@ -137,7 +137,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   }, []);
 
   const showDropdown =
-    searchInput && isFocused && allResults.length > 0 && !props.isResultsPage;
+    searchInput.trim().length > 0 && isFocused && !props.isResultsPage;
   const resultsPortalContainer = isClient
     ? document.getElementById("search-results-portal")
     : null;
@@ -174,6 +174,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       </div>
 
       {showDropdown && (
+        // search input entered
         <div
           className={clsx(
             "mt-2",
@@ -183,29 +184,42 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
               : styles["search-results"],
           )}
         >
-          <SearchResults
-            searchResults={allResults}
-            isMobile={isMobile}
-            limit={5}
-            startingItemIndex={0}
-            searchInput={searchInput}
-          />
-          <div
-            className={clsx(
-              "p-3",
-              "bg-light",
-              "d-flex",
-              "justify-content-center",
-              styles["sticky-link-container"],
-            )}
-          >
-            <a
-              href={`/search?params=${encodeURIComponent(searchInput)}`}
-              className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
-            >
-              {viewAllResults} <RiArrowRightLine />
-            </a>
-          </div>
+          {allResults.length > 0 ? (
+            // search results found
+            <>
+              <SearchResults
+                searchResults={allResults}
+                isMobile={isMobile}
+                limit={5}
+                startingItemIndex={0}
+                searchInput={searchInput}
+              />
+              <div
+                className={clsx(
+                  "p-3",
+                  "bg-light",
+                  "d-flex",
+                  "justify-content-center",
+                  styles["sticky-link-container"],
+                )}
+              >
+                <a
+                  href={`/search?params=${encodeURIComponent(searchInput)}`}
+                  className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
+                >
+                  {viewAllResults} <RiArrowRightLine />
+                </a>
+              </div>
+            </>
+          ) : (
+            // searchInput entered but no results found
+            <div className="p-4 text-center">
+              <p className="text-secondary mb-0">
+                No results found for{" "}
+                <span className="text-dark fw-semibold">"{searchInput}"</span>
+              </p>
+            </div>
+          )}
         </div>
       )}
 

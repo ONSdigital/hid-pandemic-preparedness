@@ -182,6 +182,25 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
     });
   });
 
+  it("shows 'No results found' message in dropdown when no results match", async () => {
+    const user = userEvent.setup();
+    render(<SearchBar placeholder="Search" isResultsPage={false} />);
+
+    const input = screen.getByPlaceholderText("Search");
+    await user.click(input);
+
+    fireEvent.change(input, { target: { value: "noresults" } });
+
+    await waitFor(() => {
+      expect(
+        screen.queryByTestId("search-results-mock"),
+      ).not.toBeInTheDocument();
+      expect(screen.queryByText("View all results")).not.toBeInTheDocument();
+      expect(screen.getByText(/No results found for/i)).toBeInTheDocument();
+      expect(screen.getByText(/"noresults"/)).toBeInTheDocument();
+    });
+  });
+
   it("closes dropdown on outside click", async () => {
     const user = userEvent.setup();
     render(<SearchBar placeholder="Search" isResultsPage={false} />);
