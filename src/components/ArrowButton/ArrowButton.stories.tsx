@@ -20,6 +20,16 @@ const meta = {
       control: { type: "select" },
       options: Object.values(directionOptions),
     },
+    onClick: {
+      table: {
+        disable: true,
+      },
+    },
+    selected: {
+      table: {
+        disable: true,
+      },
+    },
     variant: {
       table: {
         disable: true,
@@ -56,4 +66,16 @@ export const SecondaryArrowButtonStory = {
     variant: "secondary",
   },
   name: "Secondary",
+} satisfies Story;
+
+export const InverseArrowButtonStory = {
+  args: {
+    ariaLabel: "Arrow",
+    disabled: false,
+    direction: "right",
+    selected: false,
+    type: "button",
+    variant: "inverse",
+  },
+  name: "Inverse",
 } satisfies Story;

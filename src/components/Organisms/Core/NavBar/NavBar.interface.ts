@@ -18,6 +18,8 @@ export interface ExpandableItemData {
 export interface DesktopNavProps extends NavBarProps {
   onClick: (item: ExpandableItemData) => any; // eslint-disable-line no-unused-vars
   openItemId: string | null;
+  onSearchToggle: () => void;
+  isSearchOpen: boolean;
 }
 
 export interface MobileNavProps extends NavBarProps {

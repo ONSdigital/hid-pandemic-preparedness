@@ -3,165 +3,79 @@ import { useState, useRef, type ChangeEvent, type FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { RiArrowRightLine, RiSearchLine } from "@remixicon/react";
 
-import type {
-  PagefindResultsData,
-  PagefindSubResult,
-  SearchBarProps,
-} from "./SearchBar.interface";
+import type { SearchBarProps } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
 import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
-import breakpoints from "@src/styles/global/overrides/_breakpoints.module.scss";
+
+import { Paginator } from "@src/components/Molecules/Core/Paginator/Paginator";
+
 import strings from "@src/content/strings.json";
 import { Button } from "@src/components/Button/Button";
-import type { SearchResultData } from "@src/types/Search.ts";
+import { usePagefind } from "@src/hooks/usePagefind";
+import { usePagination } from "@src/hooks/usePagination";
+import { useMediaQuery } from "@/src/hooks/useMediaQuery";
 
-type PagefindModule = {
-  init: () => Promise<void>;
-  /* eslint-disable no-unused-vars */ // avoids unused var 'term' in debouncedSearch function
-  debouncedSearch: (term: string) => Promise<{
-    results: {
-      data: () => Promise<PagefindResultsData>;
-    }[];
-  } | null>;
-};
-
-const breakpointMd = parseInt(breakpoints.breakpointMd);
-
-const useMediaQuery = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      return setIsMobile(window.innerWidth < breakpointMd);
-    };
-
-    checkIsMobile(); // run once on component mount
-
-    window.addEventListener("resize", checkIsMobile);
-
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
-
-  return isMobile;
-};
+const RESULTS_PER_PAGE = 10;
 
 export const SearchBar: FC<SearchBarProps> = (props) => {
   const {
     search: { viewAllResults },
   } = strings;
-  const [searchInput, setSearchInput] = useState(props.initialQuery || "");
   const [isFocused, setIsFocused] = useState(false);
-  const [allResults, setAllResults] = useState<SearchResultData[]>([]);
   const [isClient, setIsClient] = useState(false);
-  const searchContainerRef = useRef<HTMLDivElement | null>(null);
-  const pagefind = useRef<PagefindModule | null>(null);
-  const initPromise = useRef<Promise<void> | null>(null);
+  const [urlPageIndex, setUrlPageIndex] = useState(0);
+
+  const searchContainerRef = useRef<HTMLFormElement | null>(null);
+  const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useMediaQuery();
 
-  const initPagefind = () => {
-    if (initPromise.current) {
-      return initPromise.current;
-    }
+  const { searchInput, setSearchInput, allResults, runSearch, initPagefind } =
+    usePagefind(isClient, props.initialQuery);
 
-    initPromise.current = (async () => {
-      if (!isClient) return;
+  const { currentPage, totalPages, currentItems } = usePagination({
+    data: allResults,
+    itemsPerPage: RESULTS_PER_PAGE,
+    initialPage: urlPageIndex,
+  });
 
-      const pagefindPath = "/pagefind/pagefind.js";
-      try {
-        // @ts-ignore
-        const pf = await import(/* @vite-ignore */ pagefindPath);
-        await pf.init();
-        pagefind.current = pf; // Set the module ref on success
-      } catch (e) {
-        console.error("Failed to initialise Pagefind", e);
-        initPromise.current = null; // Reset on failure
-      }
-    })();
-
-    return initPromise.current;
-  };
-
-  useEffect(() => {
-    // Check for clicks outside the referenced element (search container)
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        searchContainerRef.current &&
-        !searchContainerRef.current.contains(event.target as Node) // If click isn't inside
-      ) {
-        setIsFocused(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside); // Clean up - remove listener on unmount
-    };
-  }, []);
-
-  const runSearch = async (term: string) => {
+  const updateUrl = (params: { term?: string; page?: number }) => {
     if (!isClient) return;
+    const url = new URL(window.location.href);
 
-    await initPagefind();
-    if (!pagefind.current) return;
-
-    if (!term) {
-      setAllResults([]);
-      return;
+    if (params.term !== undefined) {
+      if (params.term) url.searchParams.set("params", params.term);
+      else url.searchParams.delete("params");
     }
 
-    try {
-      const search = await pagefind.current.debouncedSearch(term);
+    const newPage = params.term !== undefined ? 1 : params.page;
 
-      // pagefind drops debounced searches resolving them to null, so the following line closes these
-      if (!search) return;
-
-      // only the non-debounced search (within a 300ms window) will execute and resolve to results
-      const loadedResults: PagefindResultsData[] = await Promise.all(
-        search.results.map((r: any) => r.data()),
-      );
-
-      const finalResults: SearchResultData[] = loadedResults.flatMap(
-        (pagefindResults: PagefindResultsData) => {
-          const tagObject = pagefindResults.meta?.tag
-            ? { ...pagefindResults.meta.tag }
-            : undefined;
-
-          return pagefindResults.sub_results.map(
-            (subResult: PagefindSubResult) => {
-              const resultItem: SearchResultData = {
-                link: {
-                  href: subResult.url,
-                  label: subResult.title,
-                },
-                excerpt: subResult.excerpt,
-              };
-
-              if (tagObject) {
-                resultItem.tag = tagObject;
-              }
-
-              return resultItem;
-            },
-          );
-        },
-      );
-
-      setAllResults(finalResults);
-    } catch (e) {
-      console.error("Pagefind search failed:", e);
+    if (newPage && newPage > 1) {
+      url.searchParams.set("page", newPage.toString());
+    } else {
+      url.searchParams.delete("page");
     }
+
+    if (params.term !== undefined) {
+      window.history.replaceState({}, "", url);
+    } else {
+      window.history.pushState({}, "", url);
+    }
+
+    parseUrlAndSync();
   };
 
-  const handleFocus = () => {
-    setIsFocused(true);
-    if (isClient) {
-      initPagefind();
-    }
-  };
+  const parseUrlAndSync = () => {
+    const urlParams = new URLSearchParams(window.location.search);
 
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const inputText = event.target.value;
-    setSearchInput(inputText);
-    runSearch(inputText);
+    const pageParam = parseInt(urlParams.get("page") || "1", 10);
+    const targetIndex = pageParam > 0 ? pageParam - 1 : 0;
+    setUrlPageIndex(targetIndex);
+
+    const queryParam = urlParams.get("params") || "";
+    if (queryParam !== searchInput) {
+      setSearchInput(queryParam);
+      if (queryParam) runSearch(queryParam);
+    }
   };
 
   useEffect(() => {
@@ -171,34 +85,74 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    // re-run search when landing on results page
-    // We must wait for isClient to be true before running
-    if (props.isResultsPage && isClient) {
-      const urlParams = new URLSearchParams(window.location.search);
-      const queryFromUrl = urlParams.get("params") || "";
+    window.addEventListener("popstate", parseUrlAndSync);
+    return () => window.removeEventListener("popstate", parseUrlAndSync);
+  }, [searchInput]);
 
-      if (queryFromUrl) {
-        setSearchInput(queryFromUrl);
-        runSearch(queryFromUrl);
-      }
+  useEffect(() => {
+    // re-run search when landing on results page
+    // isClient must be true to run search
+    if (props.isResultsPage && isClient) {
+      parseUrlAndSync();
     }
   }, [props.isResultsPage, isClient]);
 
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputText = event.target.value;
+    setSearchInput(inputText);
+    runSearch(inputText);
+    updateUrl({ term: inputText });
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    if (isClient) initPagefind();
+  };
+
+  const handlePageChange = (pageIndex: number) => {
+    const pageNumber = pageIndex + 1;
+    updateUrl({ page: pageNumber });
+
+    if (resultsTopRef.current) {
+      resultsTopRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Check for clicks outside the referenced element (search container)
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target as Node)
+      ) {
+        setIsFocused(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside); // Clean up - remove listener on unmount
+  }, []);
+
   const showDropdown =
     searchInput && isFocused && allResults.length > 0 && !props.isResultsPage;
-
   const resultsPortalContainer = isClient
     ? document.getElementById("search-results-portal")
     : null;
 
+  const resultsPageStartingIndex = currentPage * RESULTS_PER_PAGE;
+
   return (
     <form
       role="search"
+      ref={searchContainerRef}
       className={clsx("text-dark", styles["input-bg"])}
       action="/search"
       method="GET"
     >
-      <div ref={searchContainerRef} className={clsx("input-group", "mb-3")}>
+      <div className={clsx("input-group", "mb-3")}>
         <input
           aria-label={props.placeholder}
           className={clsx("form-control", styles["input-sizing"])}
@@ -209,36 +163,50 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
           name="params"
           value={searchInput}
         />
-        {showDropdown && (
-          <div className={clsx("mt-2", "w-100", styles["search-results"])}>
-            <SearchResults
-              searchResults={allResults}
-              isMobile={isMobile}
-              limit={5}
-            />
-            <div
-              className={clsx(
-                "p-3",
-                "bg-light",
-                "d-flex",
-                "justify-content-center",
-                styles["sticky-link-container"],
-              )}
-            >
-              <a
-                href={`/search?params=${encodeURIComponent(searchInput)}`}
-                className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
-              >
-                {viewAllResults} <RiArrowRightLine />
-              </a>
-            </div>
-          </div>
-        )}
-
-        <Button type="submit" variant="secondary" ariaLabel="Search">
+        <Button
+          type="submit"
+          variant="secondary"
+          ariaLabel="Search"
+          className={styles["search-btn"]}
+        >
           <RiSearchLine />
         </Button>
       </div>
+
+      {showDropdown && (
+        <div
+          className={clsx(
+            "mt-2",
+            "w-100",
+            props.isInline
+              ? styles["search-results-inline"]
+              : styles["search-results"],
+          )}
+        >
+          <SearchResults
+            searchResults={allResults}
+            isMobile={isMobile}
+            limit={5}
+            startingItemIndex={0}
+          />
+          <div
+            className={clsx(
+              "p-3",
+              "bg-light",
+              "d-flex",
+              "justify-content-center",
+              styles["sticky-link-container"],
+            )}
+          >
+            <a
+              href={`/search?params=${encodeURIComponent(searchInput)}`}
+              className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
+            >
+              {viewAllResults} <RiArrowRightLine />
+            </a>
+          </div>
+        </div>
+      )}
 
       {props.isResultsPage &&
         isClient &&
@@ -246,8 +214,24 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         allResults.length > 0 &&
         createPortal(
           <div className="container-lg">
-            <div className="bg-white rounded-3 p-4 p-md-5">
-              <SearchResults searchResults={allResults} isMobile={isMobile} />
+            <div ref={resultsTopRef} className="bg-white rounded-3 p-4 p-md-5">
+              <SearchResults
+                searchResults={currentItems}
+                isMobile={isMobile}
+                totalResults={allResults.length}
+                startingItemIndex={resultsPageStartingIndex}
+              />
+
+              {totalPages > 1 && (
+                <div className="mt-5 d-flex justify-content-center">
+                  <Paginator
+                    ariaLabel="Search results pagination"
+                    totalPages={totalPages}
+                    currentPage={currentPage}
+                    onPageChange={handlePageChange}
+                  />
+                </div>
+              )}
             </div>
           </div>,
           resultsPortalContainer,

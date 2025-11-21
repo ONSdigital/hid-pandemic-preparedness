@@ -46,20 +46,39 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
   );
 };
 
-export const SearchResults: FC<SearchResultsProps> = (props) => {
+export const SearchResults: FC<SearchResultsProps> = ({
+  searchResults,
+  isMobile,
+  limit,
+  totalResults,
+  startingItemIndex = 0,
+}) => {
   const {
-    search: { numSearchResults },
+    search: { resultsCount },
   } = strings;
 
-  const resultsToDisplay = props.limit
-    ? props.searchResults.slice(0, props.limit)
-    : props.searchResults;
+  const resultsToDisplay = limit
+    ? searchResults.slice(0, limit)
+    : searchResults;
+
+  const countToDisplay = totalResults ?? searchResults.length;
+
+  // find results range
+  const startCount = resultsToDisplay.length > 0 ? startingItemIndex + 1 : 0;
+  const endCount =
+    resultsToDisplay.length > 0
+      ? startingItemIndex + resultsToDisplay.length
+      : 0;
+
+  const resultsText = resultsCount
+    .replace("{start}", startCount.toString())
+    .replace("{end}", endCount.toString())
+    .replace("{total}", countToDisplay.toString());
 
   return (
     <div className={clsx("w-100", styles["search-results-bg"])}>
       <p className={clsx("fw-bold", styles["search-results-count"])}>
-        Showing {resultsToDisplay.length} of {props.searchResults.length}{" "}
-        {numSearchResults}
+        {resultsText}
       </p>
       <div
         className={clsx("d-flex", "flex-column", "gap-2", "gap-md-4", "px-4")}
@@ -69,7 +88,7 @@ export const SearchResults: FC<SearchResultsProps> = (props) => {
             key={index}
             {...searchResult}
             isLast={index === resultsToDisplay.length - 1}
-            isMobile={props.isMobile}
+            isMobile={isMobile}
           />
         ))}
       </div>

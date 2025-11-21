@@ -8,6 +8,8 @@ import { Icon } from "@components/Molecules/Core/Icon/Icon";
 
 import type { NavAccordionsProps, MobileNavProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
+import { SearchBar } from "@/src/components/Molecules/SearchBar/SearchBar";
+import strings from "@src/content/strings.json";
 
 export const MobileNav: FC<MobileNavProps> = (props) => {
   const hasExpandableItems =
@@ -55,6 +57,7 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
           <div
             className={clsx("d-flex", "flex-column", "gap-3", "px-1", "py-3")}
           >
+            <SearchBar placeholder={strings.search.placeholderText} />
             {hasExpandableItems && <NavAccordion items={accordionItems} />}
             <div className={clsx("d-flex", "flex-column", "gap-3", "px-4")}>
               {hasLinks &&
