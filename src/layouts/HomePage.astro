@@ -4,15 +4,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Components
 import { Header } from "@components/Organisms/Home/Header/Header";
-import { References } from "@components/Core/References/References";
+import { References } from "@components/Organisms/Core/References/References";
 import DynamicComponent from "@src/components/DynamicComponent.astro";
 
 // Helpers
-import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
-import { fetchStory } from "@/src/helpers/fetchContent";
-
-// Content
-import referencesData from "@content/Home/references.json";
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+import { fetchStory } from "@src/helpers/fetchContent";
+import { createReferencesData } from "@src/helpers/createReferencesData";
 
 let story = null;
 
@@ -27,6 +25,8 @@ if (liveStory) {
 
 // Build breadcrumbs
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+// Build references
+const referencesData = createReferencesData(story);
 ---
 
 <BaseLayout>
@@ -37,6 +37,10 @@ const breadcrumbs = await buildBreadcrumbs(story.full_slug);
       client:visible
     />
     {story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)}
-    <References {...referencesData} client:visible />
+    {
+      referencesData && (
+        <References references={referencesData} client:visible />
+      )
+    }
   </main>
 </BaseLayout>

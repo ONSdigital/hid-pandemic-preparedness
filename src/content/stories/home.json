@@ -1489,9 +1489,7 @@
     "full_slug": "home",
     "sort_by_date": null,
     "position": -40,
-    "tag_list": [
-      "Malawi"
-    ],
+    "tag_list": ["Malawi"],
     "is_startpage": false,
     "parent_id": null,
     "meta_data": null,

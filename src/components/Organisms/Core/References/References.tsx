@@ -10,7 +10,7 @@ import styles from "./References.module.scss";
 // Formatting a reference as per harvard reference style see https://libguides.ucd.ie/harvardstyle/harvardwebsite
 const ReferenceItem: FC<ReferenceProps> = (props) => {
   return (
-    <p>
+    <p id={props._uid}>
       <small>
         {/* Set reference number to be a default value if `label` doesn't exist */}
         ({props.label ? props.label : "#REF!"}) {props.websiteAuthor} (
@@ -78,7 +78,7 @@ export const References: FC<ReferencesProps> = (props) => {
                     {props.references.map((refItem) => (
                       <div
                         className={clsx("col", "text-light")}
-                        key={refItem.id}
+                        key={refItem._uid}
                       >
                         <ReferenceItem {...refItem} />
                       </div>

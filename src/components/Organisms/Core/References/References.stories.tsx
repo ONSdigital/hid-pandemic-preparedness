@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import referenceData from "@content/Home/references.json";
+// Home story contains some references we can use
+import story from "@src/content/stories/home.json?raw";
+
+import { createReferencesData } from "@src/helpers/createReferencesData";
 
 import { References } from "./References";
 import type { ReferencesProps } from "./References.interface";
@@ -14,7 +17,7 @@ interface ReferencesOptions {
 // Define refences options
 const referencesOptions: ReferencesOptions = {
   None: { references: undefined },
-  References: { references: referenceData.references },
+  References: { references: createReferencesData(JSON.parse(story).story) },
 };
 
 const meta = {
