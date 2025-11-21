@@ -11,7 +11,7 @@ export const Introduction: FC<IntroductionProps> = (props) => {
       className={clsx("border", "rounded-4", styles["introduction-container"])}
     >
       <div className={clsx("row")}>
-        <h4 className={clsx("heading-m", "mb-0")}>{props.title}</h4>
+        <h3 className={clsx("heading-m", "mb-0")}>{props.title}</h3>
       </div>
       <hr className={clsx(styles["hr-m"])} />
       <div className={clsx("row")}>
