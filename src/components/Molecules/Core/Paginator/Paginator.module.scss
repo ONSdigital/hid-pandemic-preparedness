@@ -6,7 +6,27 @@
   border-radius: 0.5rem;
   color: $color-text-default;
   height: 3rem;
-  // justify-content: center;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
+  text-decoration: none;
+}
+
+.mobile-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  color: $color-text-default;
+  white-space: nowrap;
+}
+
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 2rem;
+  color: $color-text-default;
 }

@@ -6,7 +6,7 @@ export const useTruncatedPagination = (
   siblingCount: number = 1,
 ) => {
   return useMemo(() => {
-    const totalPageNumbers = totalPages + siblingCount * 2
+    const totalPageNumbers = totalPages + siblingCount * 2;
 
     if (totalPageNumbers >= totalPages) {
       return Array.from({ length: totalPages }, (_, i) => i);
@@ -14,7 +14,10 @@ export const useTruncatedPagination = (
 
     // Define range
     const leftSiblingIndex = Math.max(currentPage - siblingCount, 0);
-    const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPages - 1);
+    const rightSiblingIndex = Math.min(
+      currentPage + siblingCount,
+      totalPages - 1,
+    );
 
     // use left/right ELLIPSIS
     const shouldShowLeftEllipsis = leftSiblingIndex > 1;
@@ -33,16 +36,22 @@ export const useTruncatedPagination = (
     // only displaying lower ellipsis
     if (shouldShowLeftEllipsis && !shouldShowRightEllipsis) {
       let rightItemCount = 3 + 2 * siblingCount;
-      let rightRange = Array.from({ length: rightItemCount }, (_, i) => totalPages - rightItemCount + i);
+      let rightRange = Array.from(
+        { length: rightItemCount },
+        (_, i) => totalPages - rightItemCount + i,
+      );
       return [firstPageIndex, null, ...rightRange];
     }
 
     // both higher and lower ellipsis showing
     if (shouldShowLeftEllipsis && shouldShowRightEllipsis) {
-      let middleRange = Array.from({ length: rightSiblingIndex - leftSiblingIndex + 1 }, (_, i) => leftSiblingIndex + i);
+      let middleRange = Array.from(
+        { length: rightSiblingIndex - leftSiblingIndex + 1 },
+        (_, i) => leftSiblingIndex + i,
+      );
       return [firstPageIndex, null, ...middleRange, null, lastPageIndex];
     }
-    
+
     return [];
   }, [currentPage, totalPages, siblingCount]);
 };

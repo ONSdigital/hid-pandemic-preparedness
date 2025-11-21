@@ -24,17 +24,19 @@ export const Paginator: FC<PaginatorProps> = ({
 
   if (totalPages <= 1) return null;
 
- return (
+  return (
     <nav aria-label={ariaLabel}>
-      <ul className={clsx(
-        "pagination",
-        "justify-content-center",
-        "justify-content-between", 
-        "justify-content-md-center",
-        "align-items-center",
-        "gap-2", 
-        "gap-md-4"
-      )}>
+      <ul
+        className={clsx(
+          "pagination",
+          "justify-content-center",
+          "justify-content-between",
+          "justify-content-md-center",
+          "align-items-center",
+          "gap-2",
+          "gap-md-4",
+        )}
+      >
         <li className={clsx("page-item", "px-1")}>
           <ArrowButton
             ariaLabel="Previous"
@@ -46,18 +48,21 @@ export const Paginator: FC<PaginatorProps> = ({
           />
         </li>
 
-        {/* Mobile view
+        {/* Mobile view*/}
         <li className={clsx("page-item", "d-md-none")}>
           <span className={clsx("fw-bold", styles["mobile-counter"])}>
             Page {safeCurrentPage + 1} of {totalPages}
           </span>
-        </li> */}
+        </li>
 
         {/* Desktop View */}
         {truncatedPagination.map((pageIndex) => {
           if (pageIndex === null) {
             return (
-              <li key={`dots-${pageIndex}`} className={clsx("page-item", styles["mobile-view"])}>
+              <li
+                key={`dots-${pageIndex}`}
+                className={clsx("page-item", "d-none", "d-md-block")}
+              >
                 <span className={clsx("fw-bold", styles["mobile-counter"])}>
                   Page {safeCurrentPage + 1} of {totalPages}
                 </span>
@@ -69,6 +74,8 @@ export const Paginator: FC<PaginatorProps> = ({
             <li
               className={clsx(
                 "page-item",
+                "d-none",
+                "d-md-block",
                 safeCurrentPage === pageIndex && "active",
               )}
               key={pageIndex}
