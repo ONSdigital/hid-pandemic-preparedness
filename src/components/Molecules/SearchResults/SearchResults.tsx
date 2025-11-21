@@ -85,11 +85,8 @@ export const SearchResults: FC<SearchResultsProps> = ({
         <h3 className="h5 fw-bold text-dark mb-2">No results found</h3>
 
         <p className="text-secondary mb-0" style={{ maxWidth: "400px" }}>
-          We couldn't find any matches for{" "}
+          We couldn't find any matches for <br />
           <span className="fw-semibold text-dark">"{searchInput}"</span>.
-        </p>
-        <p className="text-secondary small">
-          Try checking for typos or using more general keywords.
         </p>
       </div>
     );
