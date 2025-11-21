@@ -5,6 +5,28 @@ import { createReferenceId } from "@src/helpers/createReferenceId";
 
 import type { ReferenceProps } from "./Reference.interface";
 import styles from "./Reference.module.scss";
+import { renderToStaticMarkup } from "react-dom/server";
+
+// Formatting a reference as per harvard reference style see https://libguides.ucd.ie/harvardstyle/harvardwebsite
+const Popover: FC<ReferenceProps> = (props) => {
+  return (
+    <p>
+      <small>
+        {props.websiteAuthor} ({props.yearPublished}){" "}
+        <span className="fst-italic">{props.websiteTitle}</span>. Available at:{" "}
+        <a
+          className={clsx("text-break")}
+          href={props.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {props.websiteUrl}
+        </a>{" "}
+        (Accessed {props.accessedDate}).
+      </small>
+    </p>
+  );
+};
 
 export const Reference: FC<ReferenceProps> = (props) => {
   // Set label to a placeholder if its not provided
@@ -25,6 +47,9 @@ export const Reference: FC<ReferenceProps> = (props) => {
         "link-underline-opacity-0",
       )}
       href={url}
+      data-bs-toggle="popover"
+      data-bs-html="true"
+      data-bs-content={renderToStaticMarkup(<Popover {...props} />)}
     >
       ({label})
     </a>
