@@ -50,7 +50,7 @@ export const Paginator: FC<PaginatorProps> = ({
 
         {/* Mobile view*/}
         <li className={clsx("page-item", "d-md-none")}>
-          <span className={clsx("fw-bold", styles["mobile-counter"])}>
+          <span className={clsx("fw-bold", styles["mobile-paginator"])}>
             Page {safeCurrentPage + 1} of {totalPages}
           </span>
         </li>
