@@ -57,6 +57,19 @@ try {
     <main>
       <slot />
     </main>
-    {footerContent && <Footer {...footerContent} client:load />}
+    {footerContent && <Footer {...footerContent} />}
+    <script>
+      // For popover functionality
+      document.addEventListener("DOMContentLoaded", () => {
+        const popoverTriggerList = Array.from(
+          document.querySelectorAll('[data-bs-toggle="popover"]'),
+        );
+        popoverTriggerList.forEach((popoverTriggerEl) => {
+          new window.bootstrap.Popover(popoverTriggerEl, {
+            trigger: "focus",
+          });
+        });
+      });
+    </script>
   </body>
 </html>
