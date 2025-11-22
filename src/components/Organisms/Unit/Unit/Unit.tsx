@@ -96,6 +96,7 @@ export const Unit: FC<UnitProps> = ({ story }) => {
     if (chapterIds) {
       if (selectedIndex >= 0 && selectedIndex < chapterIds.length - 1) {
         setSelectedChapterId(chapterIds[selectedIndex + 1]);
+        window.scrollTo({ top: 0, behavior: "instant" });
       }
     }
   };
