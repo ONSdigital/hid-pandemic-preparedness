@@ -1,4 +1,3 @@
-import type { ISbStoryData } from "storyblok-js-client";
 import { describe, expect, test } from "vitest";
 
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";

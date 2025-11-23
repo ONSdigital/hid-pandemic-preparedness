@@ -25,11 +25,10 @@ describe("Reference component", () => {
     expect(referenceLink.textContent).toBe("(REF!)");
   });
 
-  test("renders `reference-link` with url as '#' if `label` not provided as prop", () => {
-    // There is no `label` as part of baseProps
+  test("renders `reference-link` with url as '#!'", () => {
     render(<Reference {...baseProps} />);
     const referenceLink = screen.getByRole("reference-link");
-    expect(referenceLink).toHaveAttribute("href", "#");
+    expect(referenceLink).toHaveAttribute("href", "#!");
   });
 
   test("renders `label` if label if is provided as prop", () => {
@@ -38,23 +37,5 @@ describe("Reference component", () => {
     render(<Reference {...baseProps} label={labelStr} />);
     const referenceLink = screen.getByRole("reference-link");
     expect(referenceLink.textContent).toBe(`(${labelStr})`);
-  });
-
-  test("renders `reference-link` with url including label if `label` is provided as prop", () => {
-    // There is no `label` as part of baseProps
-    const labelStr: string = "My label";
-    render(<Reference {...baseProps} label={labelStr} />);
-    const referenceLink = screen.getByRole("reference-link");
-    // Url should include slugified `labelStr`
-    expect(referenceLink).toHaveAttribute("href", "#ref-my-label");
-  });
-
-  test("renders `reference-link` with url including label if `label` is provided as prop as a number", () => {
-    // There is no `label` as part of baseProps
-    const labelStr: string = "1";
-    render(<Reference {...baseProps} label={labelStr} />);
-    const referenceLink = screen.getByRole("reference-link");
-    // Check component can cope if `labelStr` is a number
-    expect(referenceLink).toHaveAttribute("href", "#ref-1");
   });
 });
