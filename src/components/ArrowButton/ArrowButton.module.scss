@@ -2,7 +2,7 @@
 @import "../../styles/bootstrap-5.3.8/scss/mixins";
 @import "../../styles/bootstrap-5.3.8/scss/variables";
 
-.btn-arrow {
+.btn-arrow:global(.btn) {
   @include button-size(
     $padding-y: map-get($spacers, 1),
     $padding-x: map-get($spacers, 1),
