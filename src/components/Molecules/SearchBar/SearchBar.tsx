@@ -155,6 +155,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       <div className={clsx("input-group", "mb-3")}>
         <input
           aria-label={props.placeholder}
+          autoFocus={props.isInline}
           className={clsx("form-control", styles["input-sizing"])}
           onChange={onChange}
           onFocus={handleFocus}
