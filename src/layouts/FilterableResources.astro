@@ -1,31 +1,31 @@
 ---
 import type { ISbStoryData } from "@storyblok/js";
 
-import BaseLayout from "@layouts/BaseLayout.astro";
-
-// Types
-import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
-import type { FilterableResources } from "@src/types/bloks/storyblok-components";
-
 // Components
-
 import { FilterableResources as FilterableResourcesComponent } from "@src/components/Organisms/FilterableResources/FilterableResources/FilterableResources";
 import { Header } from "@src/components/Organisms/Core/Header/Header";
 import { NavigationRow } from "@/src/components/Organisms/Core/NavigationRow/NavigationRow";
 
 // Helpers
-import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
 import { fetchStories } from "@src/helpers/fetchContent";
 
+// Layouts
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Types
+import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
+import type { StoryblokMultilinkUrl } from "@src/types/storyblok";
+import type { FilterableResources } from "@src/types/bloks/storyblok-components";
+import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
+
 interface Props {
+  breadcrumbs: BreadcrumbProps;
+  referencesData?: ReferenceProps[];
   story: ISbStoryData;
 }
-const { story } = Astro.props;
+const { breadcrumbs, referencesData, story } = Astro.props;
 
 let links: StoryblokMultilinkUrl[] = [];
-
-// Build breadcrumbs
-const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 
 // Get related stories
 const { data } = await fetchStories({
@@ -42,7 +42,7 @@ stories.map((story) =>
 );
 ---
 
-<BaseLayout title={story.name}>
+<BaseLayout referencesData={referencesData} title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
     <!-- Include the current story first, then child stories -->

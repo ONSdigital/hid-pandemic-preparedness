@@ -88,18 +88,18 @@ const REFERENCES_DATA: ReferenceProps[] = [
 ];
 
 describe("createReferencesData helper", () => {
-  test("returns empty array if input story contains no content", () => {
+  test("returns undefined if input story contains no content", () => {
     const emptyContentStory: ISbStoryData = {
       ...JSON.parse(story).story,
       content: {},
     };
 
-    const references: ReferenceProps[] =
+    const references: ReferenceProps[] | undefined =
       createReferencesData(emptyContentStory);
-    expect(references).toEqual([]);
+    expect(references).toEqual(undefined);
   });
 
-  test("returns empty array if input story contains no references as part of the content", () => {
+  test("returns undefined if input story contains no references as part of the content", () => {
     const emptyReferencesStory: ISbStoryData = {
       ...JSON.parse(story).story,
       // Just some placeholder content that doesn't include references
@@ -139,9 +139,9 @@ describe("createReferencesData helper", () => {
       },
     };
 
-    const references: ReferenceProps[] =
+    const references: ReferenceProps[] | undefined =
       createReferencesData(emptyReferencesStory);
-    expect(references).toEqual([]);
+    expect(references).toEqual(undefined);
   });
 
   test("returns array of unique `ReferenceProps` items if input story contains references as part of the content", () => {
@@ -150,7 +150,8 @@ describe("createReferencesData helper", () => {
       ...JSON.parse(story).story,
     };
 
-    const references: ReferenceProps[] = createReferencesData(referencesStory);
+    const references: ReferenceProps[] | undefined =
+      createReferencesData(referencesStory);
     // Story content contains 10 references in today, duplicates should have been removed to return 5
     expect(references).toHaveLength(5);
   });
@@ -163,8 +164,8 @@ describe("createReferencesData helper", () => {
 
     // References should be unique, and they should include an updated `label` key with an number
     // corresponding to the index of the reference in the array
-
-    const references: ReferenceProps[] = createReferencesData(referencesStory);
+    const references: ReferenceProps[] | undefined =
+      createReferencesData(referencesStory);
     expect(references).toEqual(REFERENCES_DATA);
   });
 });

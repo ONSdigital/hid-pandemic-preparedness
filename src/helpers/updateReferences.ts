@@ -15,9 +15,12 @@ const TARGET_MATCH_KEYS: string[] = [
 ];
 
 // Function extracts all `Reference` component data from input `story` and returns as an array of
-// `ReferenceProps` objects including numbered label
-export function createReferencesData(story: ISbStoryData): ReferenceProps[] {
-  let returnReferences: ReferenceProps[] = [];
+// `ReferenceProps` objects including numbered label if references are found, otherwise returns
+// undefined
+export function createReferencesData(
+  story: ISbStoryData,
+): ReferenceProps[] | undefined {
+  let returnReferences = undefined;
 
   // Find any references as part of the content data
   const references: ReferenceProps[] = jp.query(
@@ -25,7 +28,7 @@ export function createReferencesData(story: ISbStoryData): ReferenceProps[] {
     "$..[?(@.component=='Reference')]",
   );
 
-  if (references) {
+  if (references.length > 0) {
     // Remove any duplicates that might be present based on a subset of keys
     const duplicatesSet = new Set();
 
