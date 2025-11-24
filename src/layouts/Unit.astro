@@ -6,6 +6,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 // Components
 import { Header } from "@src/components/Organisms/Core/Header/Header";
 import { Unit as UnitComponent } from "@src/components/Organisms/Unit/Unit/Unit";
+import { extractStoryblokPageContent } from '@src/helpers/extractStoryblokPageContent';
 
 // Helpers
 import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
@@ -15,13 +16,54 @@ interface Props {
 }
 const { story } = Astro.props;
 
+// const rawContentText = extractStoryblokPageContent(story.content);
+
 // Build breadcrumbs
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+
+// const searchableText = `${story.name} ${rawContentText}`;
+const searchableText = JSON.stringify(story);
 ---
 
 <BaseLayout title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
-    <UnitComponent story={story} client:visible />
+    <div data-pagefind-ignore>
+      <UnitComponent story={story} client:visible />
+    </div>
+    <div class="pf-ghost-content">
+      <p><strong>DEBUG: PAGEFIND INDEXABLE CONTENT</strong></p>
+      <p>{searchableText}</p>
+    </div>
+
   </main>
 </BaseLayout>
+
+<style>
+  /* DEBUG CSS:  */
+  
+   .pf-ghost-content {
+    display: block; 
+    background: #ffcccc;
+    border: 5px solid red;
+    padding: 20px;
+    color: black;
+    z-index: 9999;
+    position: relative;
+    margin: 20px;
+  }
+
+
+  /* PRODUCTION CSS:*/
+     /* .pf-ghost-content {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+     } */
+</style>
