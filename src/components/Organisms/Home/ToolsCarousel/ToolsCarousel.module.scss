@@ -1,7 +1,8 @@
 @use "../../../../../src/styles/global/tokens" as *;
-@import "../../../../../src/styles/bootstrap-5.3.8/scss/functions";
-@import "../../../../../src/styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../../../src/styles/bootstrap-5.3.8/scss/variables";
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/variables";
 
 .tools-carousel {
   background-color: $color-grey-100;

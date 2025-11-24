@@ -1,7 +1,4 @@
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "./bootstrap-5.3.8/scss/functions";
-
-// 2. Include any default variable overrides here
+// 1. Include any default variable overrides here (before importing Bootstrap core – https://getbootstrap.com/docs/4.0/getting-started/theming/)
 @import "./global/overrides/theme";
 @import "./global/overrides/buttons";
 @import "./global/overrides/typography";
@@ -13,40 +10,10 @@
 @import "./global/overrides/breakpoints.module";
 @import "./global/overrides/pagination";
 
-// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
-@import "./bootstrap-5.3.8/scss/variables";
-@import "./bootstrap-5.3.8/scss/variables-dark";
+// 2. Import Bootstrap main SCSS entry point from npm package
+@import "bootstrap/scss/bootstrap";
 
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
-@import "./bootstrap-5.3.8/scss/maps";
-@import "./bootstrap-5.3.8/scss/mixins";
-@import "./bootstrap-5.3.8/scss/root";
-
-// 6. Include any other optional stylesheet partials as desired; list below is not inclusive of all available stylesheets
-@import "./bootstrap-5.3.8/scss/utilities";
-@import "./bootstrap-5.3.8/scss/reboot";
-@import "./bootstrap-5.3.8/scss/type";
-@import "./bootstrap-5.3.8/scss/images";
-@import "./bootstrap-5.3.8/scss/containers";
-@import "./bootstrap-5.3.8/scss/grid";
-@import "./bootstrap-5.3.8/scss/helpers";
-@import "./bootstrap-5.3.8/scss/buttons";
-@import "./bootstrap-5.3.8/scss/forms";
-@import "./bootstrap-5.3.8/scss/list-group";
-@import "./bootstrap-5.3.8/scss/accordion";
-@import "./bootstrap-5.3.8/scss/transitions";
-@import "./bootstrap-5.3.8/scss/card";
-@import "./bootstrap-5.3.8/scss/breadcrumb";
-@import "./bootstrap-5.3.8/scss/tables";
-@import "./bootstrap-5.3.8/scss/pagination";
-// ...
-
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "./bootstrap-5.3.8/scss/utilities/api";
-
-// 8. Add additional custom code here
+// 3. Additional custom code that relies on Boostrap being loaded
 @import "./elements/buttons";
 @import "./elements/math";
 @import "./elements/tables";

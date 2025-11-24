@@ -34,7 +34,6 @@ storybook-static
 # IDE
 .vscode/
 
-src/styles/bootstrap-5.3.8/node_modules/
 app-source.zip
 astro-ssr-lambda.zip
 

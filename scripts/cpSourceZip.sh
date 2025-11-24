@@ -12,7 +12,7 @@ fi
 
 BUCKET_NAME="$1"
 ZIP_FILENAME="app-source.zip"
-ZIP_IGNORE_DIRS=(".git/**" ".github/**" ".storybook/**" "dist/**" "doc/**" "iac/**" "node_modules/**" "src/styles/bootstrap-5.3.8/node_modules/**")
+ZIP_IGNORE_DIRS=(".git/**" ".github/**" ".storybook/**" "dist/**" "doc/**" "iac/**" "node_modules/**")
 
 # Zip up the source files
 echo "Creating '$ZIP_FILENAME' zip archive..."

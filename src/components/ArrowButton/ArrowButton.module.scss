@@ -1,6 +1,6 @@
-@import "../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../styles/bootstrap-5.3.8/scss/variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/variables";
 
 .btn-arrow {
   @include button-size(
