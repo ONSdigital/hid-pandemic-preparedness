@@ -1,12 +1,33 @@
 @use "../../../../styles/global/tokens" as *;
 @use "../../../../styles/global/variables" as *;
 
-.page-link {
+// chaining increases specificity to ensure module styles win in all environments
+.page-link:global(.page-link) {
   border: 1px solid $color-brand-secondary-300;
   border-radius: 0.5rem;
   color: $color-text-default;
   height: 3rem;
-  // justify-content: center;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
+  text-decoration: none;
+}
+
+.mobile-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  color: $color-text-default;
+  white-space: nowrap;
+}
+
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 2rem;
+  color: $color-text-default;
 }

@@ -48,7 +48,7 @@ $border-bottom-width: 4px;
 }
 
 .nav-item {
-  border-bottom: $border-bottom-width solid transparent; //Avoid layout shift when border appears
+  border-bottom: $border-bottom-width solid transparent;
   box-sizing: border-box;
   height: $navbar-height;
 
