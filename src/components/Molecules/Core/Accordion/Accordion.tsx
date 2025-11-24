@@ -15,7 +15,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
             <button
               className={clsx(
                 "accordion-button",
-                "collapsed",
+                { collapsed: !props.expandAll },
                 props.variant === "primary" &&
                   styles["accordion-button-primary"],
               )}
