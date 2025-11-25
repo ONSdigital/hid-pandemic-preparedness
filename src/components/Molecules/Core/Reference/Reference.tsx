@@ -5,7 +5,6 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { createReferenceId } from "@src/helpers/createReferenceId";
 
 import type { ReferenceProps } from "./Reference.interface";
-import styles from "./Reference.module.scss";
 
 // Formatting a reference as per harvard reference style see https://libguides.ucd.ie/harvardstyle/harvardwebsite
 // If popover we want to be able to link to the item at the foot of the page, otherwise render
@@ -30,11 +29,7 @@ export const ReferenceItem: FC<ReferenceProps> = (props) => {
       <small>
         {renderAsPopover ? (
           <a
-            className={clsx(
-              styles["ref-link"],
-              "link-underline",
-              "link-underline-opacity-0",
-            )}
+            className={clsx("link-underline", "link-underline-opacity-0")}
             href={`#${referenceId}`}
           >
             ({label})
@@ -68,11 +63,7 @@ export const Reference: FC<ReferenceProps> = (props) => {
   return (
     <a
       role="reference-link"
-      className={clsx(
-        styles["ref-link"],
-        "link-underline",
-        "link-underline-opacity-0",
-      )}
+      className={clsx("link-underline", "link-underline-opacity-0")}
       href={"#!"}
       data-bs-toggle="popover"
       data-bs-placement="top"
