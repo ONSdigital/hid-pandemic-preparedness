@@ -185,7 +185,7 @@ export const linkResolver: StoryblokRichTextNodeResolver<T> = (
 ): T => {
   // // Add styling to the attributes
   let attributes = processAttributes(node.attrs);
-  attributes.class = clsx(attributes.class, "text-link");
+  attributes.class = clsx(attributes.class);
 
   const children = node.children || node.text || (null as any);
 

@@ -3,8 +3,6 @@ import type { FC } from "react";
 
 import type { ReferenceProps } from "./Reference.interface";
 
-import styles from "./Reference.module.scss";
-
 export const Reference: FC<ReferenceProps> = (props) => {
   // Set label to a placeholder if its not provided
   const label: string = props.label ? props.label : "REF!";
@@ -15,11 +13,7 @@ export const Reference: FC<ReferenceProps> = (props) => {
   return (
     <a
       role="reference-link"
-      className={clsx(
-        styles["ref-link"],
-        "link-underline",
-        "link-underline-opacity-0",
-      )}
+      className={clsx("link-underline", "link-underline-opacity-0")}
       href={url}
     >
       ({label})
