@@ -93,12 +93,7 @@ const slugify = (text: string) => {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-    
-    /* CRITICAL: Position the ghost wrapper at the top of the relative container (main).
-       This ensures that when a user clicks a search result anchor (#overview),
-       the browser scrolls to the TOP of the content area, not the bottom.
-    */
-   top: 0;
-    left: 0;
+    top: 0;
+      left: 0;
   }
 </style>
