@@ -7,7 +7,7 @@ import type { UnitBlockProps } from "./UnitBlock.interface";
 
 const meta = {
   component: UnitBlock,
-  title: "Organisms/Core/UnitBlock",
+  title: "Organisms/Unit/UnitBlock",
   parameters: {
     layout: "fullscreen",
   },
