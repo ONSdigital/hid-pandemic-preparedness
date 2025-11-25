@@ -26,6 +26,8 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const [urlPageIndex, setUrlPageIndex] = useState(0);
 
   const searchContainerRef = useRef<HTMLFormElement | null>(null);
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useMediaQuery();
 
@@ -102,6 +104,28 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   }, []);
 
   useEffect(() => {
+    if (props.isInline && inputRef.current) {
+      // delay to ensure painted and interactive before focus
+      const timer = setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+
+          if (document.activeElement === inputRef.current) {
+            // handles autofocus
+            setIsFocused(true);
+
+            // Ensure Pagefind is ready since we are focused
+            if (isClient) initPagefind();
+          }
+        }
+      }, 50);
+
+      // clean up
+      return () => clearTimeout(timer);
+    }
+  }, [props.isInline, isClient, initPagefind]);
+
+  useEffect(() => {
     window.addEventListener("popstate", parseUrlAndSync);
     return () => window.removeEventListener("popstate", parseUrlAndSync);
   }, [searchInput]);
@@ -116,6 +140,9 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
+
+    if (inputText && !isFocused) setIsFocused(true);
+
     setSearchInput(inputText);
     runSearch(inputText);
   };
@@ -140,7 +167,6 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Check for clicks outside the referenced element (search container)
       if (
         searchContainerRef.current &&
         !searchContainerRef.current.contains(event.target as Node)
@@ -148,8 +174,17 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         setIsFocused(false);
       }
     };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside); // Clean up - remove listener on unmount
+
+    // prevents navbar click that opens search bubbling up and triggering the close listener immediately
+    const timer = setTimeout(() => {
+      document.addEventListener("click", handleClickOutside);
+    }, 0);
+
+    // Clean up - remove listener on unmount
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   const showDropdown =
@@ -170,6 +205,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     >
       <div className={clsx("input-group", "mb-3")}>
         <input
+          ref={inputRef}
           aria-label={props.placeholder}
           className={clsx("form-control", styles["input-sizing"])}
           onChange={onChange}
