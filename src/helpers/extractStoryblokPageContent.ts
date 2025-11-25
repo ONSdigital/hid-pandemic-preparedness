@@ -1,44 +1,52 @@
-export const extractStoryblokPageContent = (node: any): string => {
+// We only need recursion here because Rich Text is nested (lists, paragraphs, bold, etc.)
+const parseRichText = (node: any): string => {
   if (!node) return "";
 
-  if (typeof node === "string") {
-    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}/.test(node);
-    const isDate = /^\d{4}-\d{2}-\d{2}T/.test(node);
-    
-    if (isUUID || isDate) return "";
-    return node;
+  // Found the actual text leaf
+  if (node.type === "text" && node.text) {
+    return node.text;
   }
 
-  if (Array.isArray(node)) {
-    return node.map(extractStoryblokPageContent).join(" ");
-  }
-
-  if (typeof node === "object") {
-    
-    if (node.type === "text" && node.text) {
-      return node.text;
-    }
-
-    const ignoredKeys = [
-      "_uid", 
-      "uuid", 
-      "id", 
-      "component", 
-      "_editable", 
-      "fieldtype", 
-      "linktype", 
-      "type",
-      "attrs",
-      "marks",
-      "rel",
-      "target"
-    ];
-
-    return Object.keys(node)
-      .filter((key) => !ignoredKeys.includes(key))
-      .map((key) => extractStoryblokPageContent(node[key]))
-      .join(" ");
+  // If it has children (content array), map and join them
+  if (node.content && Array.isArray(node.content)) {
+    return node.content.map(parseRichText).join(" ");
   }
 
   return "";
-}
+};
+
+// 2. Main function to Transform the Story Object
+export const getSearchableChapters = (story: any) => {
+  // Guard clause: if data is missing, return empty array
+  if (!story?.content?.chapters) return [];
+
+  return story.content.chapters.map((chapter: any) => {
+    
+    // A. Capture Chapter Title
+    const chapterTitle = chapter.title || "";
+
+    // B. Capture "Overview" Text (e.g., Chapter 1 has this, but no sections)
+    const overviewText = parseRichText(chapter.overviewRichText);
+
+    // C. Capture "Sections" Text (e.g., Chapter 2 has sections)
+    const sectionsText = (chapter.sections || [])
+      .map((section: any) => {
+        // We include the section title to make it searchable too
+        const secTitle = section.title || "";
+        const secBody = parseRichText(section.contentRichText);
+        return `${secTitle} ${secBody}`;
+      })
+      .join(" ");
+
+    // D. Combine and Clean
+    // Join title + overview + sections, remove double spaces
+    const fullText = `${chapterTitle} ${overviewText} ${sectionsText}`
+      .replace(/\s+/g, " ")
+      .trim();
+
+    return {
+      title: chapterTitle, // The identifier for the search result
+      text: fullText       // The content Pagefind will index
+    };
+  });
+};

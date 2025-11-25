@@ -1,48 +1,77 @@
 ---
 import type { ISbStoryData } from "storyblok-js-client";
-
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Components
 import { Header } from "@src/components/Organisms/Core/Header/Header";
 import { Unit as UnitComponent } from "@src/components/Organisms/Unit/Unit/Unit";
-import { extractStoryblokPageContent } from '@src/helpers/extractStoryblokPageContent';
 
 // Helpers
 import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+import { getSearchableChapters } from '@src/helpers/extractStoryblokPageContent';
 
 interface Props {
   story: ISbStoryData;
 }
 const { story } = Astro.props;
 
-// const rawContentText = extractStoryblokPageContent(story.content);
+// Indexes Unit contents (learning resources) according to chapters
+const indexedChapterContent = getSearchableChapters(story);
 
-// Build breadcrumbs
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
 
-// const searchableText = `${story.name} ${rawContentText}`;
-const searchableText = JSON.stringify(story);
+// Simple slugify for generating chapter links
+const slugify = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
+};
 ---
 
 <BaseLayout title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
+    
     <div data-pagefind-ignore>
       <UnitComponent story={story} client:visible />
     </div>
-    <div class="pf-ghost-content">
-      <p><strong>DEBUG: PAGEFIND INDEXABLE CONTENT</strong></p>
-      <p>{searchableText}</p>
+
+    <!-- GHOST CONTENT INDEX -->
+    <div class="pf-ghost-wrapper">
+      
+      <!-- Main Page Title -->
+      <div class="pf-ghost-chapter">
+        <h1>{story.name}</h1>
+      </div>
+
+      {indexedChapterContent.map((chapter: any) => {
+        // Create the ID for url linking from search: "How does RAP..." -> "how-does-rap..."
+        const chapterId = slugify(chapter.title);
+        
+        return (
+          <div class="pf-ghost-chapter">
+            <!-- 
+               1. ID: Allows Pagefind to link to individual chapters (e.g., #how-does-rap)
+            -->
+            <h2 id={chapterId}>
+              {chapter.title}
+            </h2>
+            <p>{chapter.text}</p>
+          </div>
+        );
+      })}
     </div>
 
   </main>
 </BaseLayout>
 
 <style>
-  /* DEBUG CSS:  */
-  
-   .pf-ghost-content {
+  /* DEBUG CSS: Red box to verify content exists */
+  /* .pf-ghost-wrapper {
     display: block; 
     background: #ffcccc;
     border: 5px solid red;
@@ -51,19 +80,25 @@ const searchableText = JSON.stringify(story);
     z-index: 9999;
     position: relative;
     margin: 20px;
+  } */
+
+  /* PRODUCTION CSS: Uncomment when ready */
+  .pf-ghost-wrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    
+    /* CRITICAL: Position the ghost wrapper at the top of the relative container (main).
+       This ensures that when a user clicks a search result anchor (#overview),
+       the browser scrolls to the TOP of the content area, not the bottom.
+    */
+   top: 0;
+    left: 0;
   }
-
-
-  /* PRODUCTION CSS:*/
-     /* .pf-ghost-content {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-     } */
 </style>
