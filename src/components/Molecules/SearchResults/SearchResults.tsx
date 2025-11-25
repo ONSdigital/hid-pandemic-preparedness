@@ -51,6 +51,7 @@ export const SearchResults: FC<SearchResultsProps> = ({
   limit,
   totalResults,
   startingItemIndex = 0,
+  searchInput = "",
 }) => {
   const {
     search: { resultsCount },
@@ -62,12 +63,42 @@ export const SearchResults: FC<SearchResultsProps> = ({
 
   const countToDisplay = totalResults ?? searchResults.length;
 
-  // find results range
-  const startCount = resultsToDisplay.length > 0 ? startingItemIndex + 1 : 0;
-  const endCount =
-    resultsToDisplay.length > 0
-      ? startingItemIndex + resultsToDisplay.length
-      : 0;
+  const hasSearchTerm = searchInput && searchInput.trim().length > 0;
+  const hasResults = resultsToDisplay.length > 0;
+
+  // Search found nothing
+  if (hasSearchTerm && !hasResults) {
+    return (
+      <div
+        className={clsx(
+          "w-100",
+          "d-flex",
+          "flex-column",
+          "align-items-center",
+          "justify-content-center",
+          "text-center",
+          "py-5",
+          styles["search-results-bg"],
+        )}
+      >
+        <h3 className="h5 fw-bold text-dark mb-2">No results found</h3>
+
+        <p className="text-secondary mb-0" style={{ maxWidth: "400px" }}>
+          We couldn't find any matches for <br />
+          <span className="fw-semibold text-dark">"{searchInput}"</span>.
+        </p>
+      </div>
+    );
+  }
+
+  // No search term entered
+  if (!hasResults) {
+    return null;
+  }
+
+  // search found results
+  const startCount = startingItemIndex + 1;
+  const endCount = startingItemIndex + resultsToDisplay.length;
 
   const resultsText = resultsCount
     .replace("{start}", startCount.toString())
