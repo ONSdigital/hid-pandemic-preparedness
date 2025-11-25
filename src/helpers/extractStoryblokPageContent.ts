@@ -19,7 +19,6 @@ export const getSearchableChapters = (story: any) => {
   if (!story?.content?.chapters) return [];
 
   return story.content.chapters.map((chapter: any) => {
-    
     const chapterTitle = chapter.title || "";
 
     const overviewText = parseRichText(chapter.overviewRichText);
@@ -41,7 +40,7 @@ export const getSearchableChapters = (story: any) => {
 
     return {
       title: chapterTitle, // Identifier for the search result
-      text: fullText       // Content Pagefind indexes (includes title)
+      text: fullText, // Content Pagefind indexes (includes title)
     };
   });
 };

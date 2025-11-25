@@ -9,6 +9,7 @@ import { Unit as UnitComponent } from "@src/components/Organisms/Unit/Unit/Unit"
 // Helpers
 import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
 import { getSearchableChapters } from '@src/helpers/extractStoryblokPageContent';
+import { slugifyChapterTitle } from "@src/helpers/slugifyChapterTitle";
 
 interface Props {
   story: ISbStoryData;
@@ -19,17 +20,6 @@ const { story } = Astro.props;
 const indexedChapterContent = getSearchableChapters(story);
 
 const breadcrumbs = await buildBreadcrumbs(story.full_slug);
-
-// Simple slugify for generating chapter links
-const slugify = (text: string) => {
-  return text
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-');
-};
 ---
 
 <BaseLayout title={story.name}>
@@ -50,7 +40,7 @@ const slugify = (text: string) => {
 
       {indexedChapterContent.map((chapter: any) => {
         // Create the ID for url linking from search: "How does RAP..." -> "how-does-rap..."
-        const chapterId = slugify(chapter.title);
+        const chapterId = slugifyChapterTitle(chapter.title);
         
         return (
           <div class="pf-ghost-chapter">
