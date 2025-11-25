@@ -9,7 +9,7 @@ import { Unit as UnitComponent } from "@src/components/Organisms/Unit/Unit/Unit"
 // Types
 import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
-import { getSearchableChapters } from '@src/helpers/extractStoryblokPageContent';
+import { getSearchableChapters } from "@src/helpers/extractStoryblokPageContent";
 import { slugifyChapterTitle } from "@src/helpers/slugifyChapterTitle";
 
 interface Props {
@@ -19,41 +19,38 @@ interface Props {
 }
 const { breadcrumbs, referencesData, story } = Astro.props;
 const indexedChapterContent = getSearchableChapters(story);
-
 ---
 
 <BaseLayout referencesData={referencesData} title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
-    
+
     <div data-pagefind-ignore>
       <UnitComponent story={story} client:visible />
     </div>
 
     <!-- GHOST CONTENT INDEX -->
     <div class="pf-ghost-wrapper">
-      
       <!-- Main Page Title -->
       <div class="pf-ghost-chapter">
         <h1>{story.name}</h1>
       </div>
 
-      {indexedChapterContent.map((chapter: any) => {
-        // Create the ID for url linking from search: "How does RAP..." -> "how-does-rap..."
-        const chapterId = slugifyChapterTitle(chapter.title);
-        
-        return (
-          <div class="pf-ghost-chapter">
-            {/* ID: Allows Pagefind to link to individual chapters (e.g., #how-does-rap) */}
-            <h2 id={chapterId}>
-              {chapter.title}
-            </h2>
-            <p>{chapter.text}</p>
-          </div>
-        );
-      })}
-    </div>
+      {
+        indexedChapterContent.map((chapter: any) => {
+          // Create the ID for url linking from search: "How does RAP..." -> "how-does-rap..."
+          const chapterId = slugifyChapterTitle(chapter.title);
 
+          return (
+            <div class="pf-ghost-chapter">
+              {/* ID: Allows Pagefind to link to individual chapters (e.g., #how-does-rap) */}
+              <h2 id={chapterId}>{chapter.title}</h2>
+              <p>{chapter.text}</p>
+            </div>
+          );
+        })
+      }
+    </div>
   </main>
 </BaseLayout>
 
