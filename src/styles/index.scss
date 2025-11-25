@@ -1,4 +1,7 @@
-// 1. Include any default variable overrides here (before importing Bootstrap core – https://getbootstrap.com/docs/4.0/getting-started/theming/)
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides – https://getbootstrap.com/docs/4.0/getting-started/theming/
 @import "./global/overrides/theme";
 @import "./global/overrides/buttons";
 @import "./global/overrides/typography";
@@ -10,10 +13,36 @@
 @import "./global/overrides/breakpoints.module";
 @import "./global/overrides/pagination";
 
-// 2. Import Bootstrap main SCSS entry point from npm package
-@import "bootstrap/scss/bootstrap";
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
 
-// 3. Additional custom code that relies on Boostrap being loaded
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// 4. Include all other stylesheets partials as desired; list below is not inclusive of all available stylesheets
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/pagination";
+
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "bootstrap/scss/utilities/api";
+
+// 8. Add additional custom scss code here
 @import "./elements/buttons";
 @import "./elements/math";
 @import "./elements/tables";
