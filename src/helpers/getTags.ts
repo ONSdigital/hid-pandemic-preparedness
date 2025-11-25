@@ -8,7 +8,7 @@ export function getTags<T extends { tag_list?: string[] }>(obj: T): Tag[] {
 
   if (!obj.tag_list) return returnTags;
 
-  if (obj.tag_list.length > 1) {
+  if (obj.tag_list.length > 0) {
     // Loop through stories and create a `Tag` object for each one including an id
     obj.tag_list.map((tag) => {
       returnTags.push({ id: uuidv4(), title: tag });
