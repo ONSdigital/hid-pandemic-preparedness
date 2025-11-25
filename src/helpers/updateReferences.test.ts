@@ -1,4 +1,4 @@
-import jp from "jsonpath";
+import { JSONPath } from "jsonpath-plus";
 import type { ISbStoryData } from "storyblok-js-client";
 import { describe, expect, test } from "vitest";
 
@@ -9,6 +9,7 @@ import story from "@src/content/stories/home.json?raw";
 
 import {
   createReferencesData,
+  TARGET_EXPRESSION,
   updateStoryReferences,
 } from "./updateReferences";
 
@@ -88,6 +89,17 @@ const REFERENCES_DATA: ReferenceProps[] = [
 ];
 
 describe("createReferencesData helper", () => {
+  test("returns undefined if input story has no content attribute", () => {
+    const emptyContentStory: ISbStoryData = {
+      ...JSON.parse(story).story,
+      content: {},
+    };
+
+    const references: ReferenceProps[] | undefined =
+      createReferencesData(emptyContentStory);
+    expect(references).toEqual(undefined);
+  });
+
   test("returns undefined if input story contains no content", () => {
     const emptyContentStory: ISbStoryData = {
       ...JSON.parse(story).story,
@@ -166,6 +178,9 @@ describe("createReferencesData helper", () => {
     // corresponding to the index of the reference in the array
     const references: ReferenceProps[] | undefined =
       createReferencesData(referencesStory);
+
+    console.log(references);
+
     expect(references).toEqual(REFERENCES_DATA);
   });
 });
@@ -255,10 +270,10 @@ describe("updateStoryReferences helper", () => {
     );
 
     // Use jp.query to get the references out of the returnedStory
-    const updatedReferences: ReferenceProps[] = jp.query(
-      returnedStory.content,
-      "$..[?(@.component=='Reference')]",
-    );
+    const updatedReferences: ReferenceProps[] = JSONPath({
+      path: TARGET_EXPRESSION,
+      json: returnedStory.content,
+    });
 
     // Story content contains 10 references
     expect(updatedReferences).toHaveLength(10);

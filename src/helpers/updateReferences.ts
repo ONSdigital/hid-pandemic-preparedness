@@ -1,8 +1,12 @@
-import jp from "jsonpath";
+import { JSONPath } from "jsonpath-plus";
 
 import type { ISbStoryData } from "storyblok-js-client";
 
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
+
+// The JSONPath expression as a (normalized or unnormalized) string or array
+export const TARGET_EXPRESSION: string =
+  "$..[?(@ && @.component=='Reference')]";
 
 // List of `ReferenceProps` keys we target to match a reference. If all values associated with these
 // keys are the same, the reference is a duplicate
@@ -14,6 +18,12 @@ const TARGET_MATCH_KEYS: string[] = [
   "websiteUrl",
 ];
 
+// Interface for the data returned when fetching matching json nodes using JSONPath
+interface JsonPathNode<T = any> {
+  path: (string | number)[];
+  value: T;
+}
+
 // Function extracts all `Reference` component data from input `story` and returns as an array of
 // `ReferenceProps` objects including numbered label if references are found, otherwise returns
 // undefined
@@ -23,10 +33,10 @@ export function createReferencesData(
   let returnReferences = undefined;
 
   // Find any references as part of the content data
-  const references: ReferenceProps[] = jp.query(
-    story.content,
-    "$..[?(@.component=='Reference')]",
-  );
+  const references: ReferenceProps[] = JSONPath({
+    path: TARGET_EXPRESSION,
+    json: story.content,
+  });
 
   if (references.length > 0) {
     // Remove any duplicates that might be present based on a subset of keys
@@ -73,10 +83,11 @@ export function updateStoryReferences(
     });
 
     // Find any existing references in the story content
-    const existingReferences = jp.nodes(
-      returnedStory.content,
-      "$..[?(@.component=='Reference')]",
-    );
+    const existingReferences: JsonPathNode[] = JSONPath({
+      path: TARGET_EXPRESSION,
+      json: returnedStory.content,
+      resultType: "all",
+    });
 
     // If there any existing references to update, do so
     if (existingReferences.length > 0) {
