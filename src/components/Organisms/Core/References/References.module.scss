@@ -1,11 +1,11 @@
-@use "../../../styles/global/tokens" as *;
+@use "../../../../styles/global/tokens" as *;
 
 .references-bg {
   background-color: $color-brand-primary-700;
 }
 
 .button-bg {
-  background-color: transparent;
+  background-color: transparent !important;
 
   &:not(.collapsed) {
     background-color: transparent;
