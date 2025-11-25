@@ -6,23 +6,21 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { Header } from "@src/components/Organisms/Core/Header/Header";
 import { Unit as UnitComponent } from "@src/components/Organisms/Unit/Unit/Unit";
 
-// Helpers
-import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+// Types
+import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
+import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
 import { getSearchableChapters } from '@src/helpers/extractStoryblokPageContent';
 import { slugifyChapterTitle } from "@src/helpers/slugifyChapterTitle";
 
 interface Props {
+  breadcrumbs: BreadcrumbProps;
+  referencesData?: ReferenceProps[];
   story: ISbStoryData;
 }
-const { story } = Astro.props;
-
-// Indexes Unit contents (learning resources) according to chapters
-const indexedChapterContent = getSearchableChapters(story);
-
-const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+const { breadcrumbs, referencesData, story } = Astro.props;
 ---
 
-<BaseLayout title={story.name}>
+<BaseLayout referencesData={referencesData} title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
     

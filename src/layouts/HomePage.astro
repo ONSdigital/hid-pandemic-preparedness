@@ -1,35 +1,26 @@
 ---
-import { getLiveStory } from "@storyblok/astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import type { ISbStoryData } from "storyblok-js-client";
 
 // Components
 import { Header } from "@components/Organisms/Home/Header/Header";
-import { References } from "@components/Core/References/References";
 import DynamicComponent from "@src/components/DynamicComponent.astro";
 
-// Helpers
-import { buildBreadcrumbs } from "@/src/helpers/buildBreadcrumbs";
-import { fetchStory } from "@/src/helpers/fetchContent";
+// Layouts
+import BaseLayout from "@layouts/BaseLayout.astro";
 
-// Content
-import referencesData from "@content/Home/references.json";
+// Types
+import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
+import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
 
-let story = null;
-
-const liveStory = await getLiveStory(Astro);
-
-if (liveStory) {
-  story = liveStory;
-} else {
-  const { data } = await fetchStory("home");
-  story = data?.story;
+interface Props {
+  breadcrumbs: BreadcrumbProps;
+  referencesData?: ReferenceProps[];
+  story: ISbStoryData;
 }
-
-// Build breadcrumbs
-const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+const { breadcrumbs, referencesData, story } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout referencesData={referencesData}>
   <main>
     <Header
       {...story.content.Header[0]}
@@ -37,6 +28,5 @@ const breadcrumbs = await buildBreadcrumbs(story.full_slug);
       client:visible
     />
     {story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)}
-    <References {...referencesData} client:visible />
   </main>
 </BaseLayout>

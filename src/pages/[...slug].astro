@@ -1,10 +1,15 @@
 ---
 import type { ISbStoryData } from "@storyblok/astro";
 
-import { LAYOUT_MAP } from "@/src/layouts/layoutMap";
-import type { LayoutName } from "@/src/layouts/layoutMap";
+import { LAYOUT_MAP } from "@src/layouts/layoutMap";
+import type { LayoutName } from "@src/layouts/layoutMap";
 
-import { fetchStories, fetchStory } from "@/src/helpers/fetchContent";
+import { buildBreadcrumbs } from "@src/helpers/buildBreadcrumbs";
+import { fetchStories, fetchStory } from "@src/helpers/fetchContent";
+import {
+  createReferencesData,
+  updateStoryReferences,
+} from "@src/helpers/updateReferences";
 
 // SSG paths
 export async function getStaticPaths() {
@@ -35,6 +40,16 @@ if (Astro.isPrerendered) {
   if (!story) return Astro.redirect("/404");
 }
 
+// Build breadcrumbs
+const breadcrumbs = await buildBreadcrumbs(story.full_slug);
+// Build references
+const referencesData = createReferencesData(story);
+
+// Update story with new references if applicable
+if (referencesData) {
+  story = updateStoryReferences(story, referencesData);
+}
+
 // Load the correct layout based on the content component. Return 404 if it isn't there
 let Layout = null;
 const layoutName = story.content?.component;
@@ -44,4 +59,12 @@ if (layoutName) {
 }
 ---
 
-{Layout && <Layout story={story} />}
+{
+  Layout && (
+    <Layout
+      breadcrumbs={breadcrumbs}
+      story={story}
+      referencesData={referencesData}
+    />
+  )
+}
