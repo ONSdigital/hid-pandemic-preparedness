@@ -18,6 +18,8 @@ interface Props {
   story: ISbStoryData;
 }
 const { breadcrumbs, referencesData, story } = Astro.props;
+const indexedChapterContent = getSearchableChapters(story);
+
 ---
 
 <BaseLayout referencesData={referencesData} title={story.name}>
@@ -57,20 +59,8 @@ const { breadcrumbs, referencesData, story } = Astro.props;
   </main>
 </BaseLayout>
 
+<!-- Local styles hide HTML content created purely for pagefind's indexing -->
 <style>
-  /* DEBUG CSS: Red box to verify content exists */
-  /* .pf-ghost-wrapper {
-    display: block; 
-    background: #ffcccc;
-    border: 5px solid red;
-    padding: 20px;
-    color: black;
-    z-index: 9999;
-    position: relative;
-    margin: 20px;
-  } */
-
-  /* PRODUCTION CSS: Uncomment when ready */
   .pf-ghost-wrapper {
     position: absolute;
     width: 1px;
@@ -82,6 +72,6 @@ const { breadcrumbs, referencesData, story } = Astro.props;
     white-space: nowrap;
     border-width: 0;
     top: 0;
-      left: 0;
+    left: 0;
   }
 </style>
