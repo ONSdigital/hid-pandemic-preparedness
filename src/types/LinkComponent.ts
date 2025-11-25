@@ -1,7 +1,7 @@
-import type { Link } from "./Link";
+import type { StoryblokMultilink } from "@src/types/storyblok";
 
 export interface LinkComponent {
   _uid: string;
   label?: string;
-  link: Link;
+  link: StoryblokMultilink;
 }
