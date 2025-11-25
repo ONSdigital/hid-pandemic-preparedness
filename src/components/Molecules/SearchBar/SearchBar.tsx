@@ -26,7 +26,6 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const [urlPageIndex, setUrlPageIndex] = useState(0);
 
   const searchContainerRef = useRef<HTMLFormElement | null>(null);
-
   const inputRef = useRef<HTMLInputElement | null>(null);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useMediaQuery();
@@ -103,27 +102,22 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     setIsClient(true);
   }, []);
 
+  // Replaces 'autoFocus' to ensure we control the timing.
   useEffect(() => {
     if (props.isInline && inputRef.current) {
-      // delay to ensure painted and interactive before focus
-      const timer = setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-
-          if (document.activeElement === inputRef.current) {
-            // handles autofocus
-            setIsFocused(true);
-
-            // Ensure Pagefind is ready since we are focused
-            if (isClient) initPagefind();
-          }
-        }
-      }, 50);
-
-      // clean up
-      return () => clearTimeout(timer);
+      inputRef.current.focus();
+      if (document.activeElement === inputRef.current) {
+        setIsFocused(true);
+      }
     }
-  }, [props.isInline, isClient, initPagefind]);
+  }, [props.isInline]);
+
+  // Initialize Pagefind only when focused
+  useEffect(() => {
+    if (isClient && isFocused) {
+      initPagefind();
+    }
+  }, [props.isInline, isClient]);
 
   useEffect(() => {
     window.addEventListener("popstate", parseUrlAndSync);
