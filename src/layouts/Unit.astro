@@ -44,9 +44,7 @@ const indexedChapterContent = getSearchableChapters(story);
         
         return (
           <div class="pf-ghost-chapter">
-            <!-- 
-               1. ID: Allows Pagefind to link to individual chapters (e.g., #how-does-rap)
-            -->
+            {/* ID: Allows Pagefind to link to individual chapters (e.g., #how-does-rap) */}
             <h2 id={chapterId}>
               {chapter.title}
             </h2>
