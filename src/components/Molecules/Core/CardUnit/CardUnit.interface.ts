@@ -1,10 +1,3 @@
-import type { LinkData } from "@localTypes/LinkData";
-import type { Tag } from "@src/types/Tag";
+import type { UnitCard } from "@src/types/bloks/storyblok-components";
 
-export interface CardUnitProps {
-  id: string;
-  link: LinkData;
-  subTitle: string;
-  tags: Tag[];
-  readingTime: string;
-}
+export interface CardUnitProps extends UnitCard {}

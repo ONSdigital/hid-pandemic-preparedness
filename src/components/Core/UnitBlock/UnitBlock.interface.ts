@@ -1,6 +1,3 @@
-import type { CardUnitProps } from "@components/Molecules/Core/CardUnit/CardUnit.interface";
+import type { UnitBlock } from "@src/types/bloks/storyblok-components";
 
-export interface UnitBlockProps {
-  title: string;
-  units: CardUnitProps[];
-}
+export interface UnitBlockProps extends UnitBlock {}

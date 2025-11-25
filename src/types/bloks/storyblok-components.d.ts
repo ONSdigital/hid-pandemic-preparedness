@@ -58,6 +58,8 @@ export interface BasicPage {
     | ToolCard
     | ToolsCarousel
     | Unit
+    | UnitBlock
+    | UnitCard
     | UnitChapter
     | UnitOverview
     | UnitSection
@@ -123,6 +125,8 @@ export interface CardBlock {
     | ToolCard
     | ToolsCarousel
     | Unit
+    | UnitBlock
+    | UnitCard
     | UnitChapter
     | UnitOverview
     | UnitSection
@@ -251,7 +255,6 @@ export interface FooterColumnLink {
 }
 
 export interface Formula {
-  richText?: StoryblokRichtext;
   text?: string;
   component: "Formula";
   _uid: string;
@@ -302,121 +305,6 @@ export interface Home {
 }
 
 export interface HomePage {
-  Header?: Header[];
-  Middle?: (
-    | BasicPage
-    | CardBlock
-    | CardCaseStudy
-    | CardStatistics
-    | Carousel
-    | CaseStudies
-    | CaseStudyCard
-    | Chart
-    | Code
-    | ExpandableItem
-    | FilterableResources
-    | FilterableResourcesItem
-    | Footer
-    | FooterColumn
-    | FooterColumnLink
-    | Formula
-    | FullWidthRichText
-    | Header
-    | HeaderInternalPages
-    | Hero
-    | Home
-    | HomePage
-    | Iframe
-    | ImageAndText
-    | ImageText
-    | Impact
-    | ImpactCard
-    | Landing
-    | Link
-    | MegaMenu
-    | MegaMenuColumn
-    | NavBar
-    | Page
-    | QuickLinks
-    | QuickLinksItem
-    | Reference
-    | StatisticsAndText
-    | StatisticsCard
-    | StrategicPartner
-    | StrategicPartners
-    | SubTheme
-    | SupportingInformation
-    | Table
-    | Tag
-    | TerryCode
-    | TextModule
-    | Theme
-    | Tip
-    | ToolCard
-    | ToolsCarousel
-    | Unit
-    | UnitChapter
-    | UnitOverview
-    | UnitSection
-    | Video
-  )[];
-  Bottom?: (
-    | BasicPage
-    | CardBlock
-    | CardCaseStudy
-    | CardStatistics
-    | Carousel
-    | CaseStudies
-    | CaseStudyCard
-    | Chart
-    | Code
-    | ExpandableItem
-    | FilterableResources
-    | FilterableResourcesItem
-    | Footer
-    | FooterColumn
-    | FooterColumnLink
-    | Formula
-    | FullWidthRichText
-    | Header
-    | HeaderInternalPages
-    | Hero
-    | Home
-    | HomePage
-    | Iframe
-    | ImageAndText
-    | ImageText
-    | Impact
-    | ImpactCard
-    | Landing
-    | Link
-    | MegaMenu
-    | MegaMenuColumn
-    | NavBar
-    | Page
-    | QuickLinks
-    | QuickLinksItem
-    | Reference
-    | StatisticsAndText
-    | StatisticsCard
-    | StrategicPartner
-    | StrategicPartners
-    | SubTheme
-    | SupportingInformation
-    | Table
-    | Tag
-    | TerryCode
-    | TextModule
-    | Theme
-    | Tip
-    | ToolCard
-    | ToolsCarousel
-    | Unit
-    | UnitChapter
-    | UnitOverview
-    | UnitSection
-    | Video
-  )[];
   Body?: (
     | BasicPage
     | CardBlock
@@ -469,6 +357,8 @@ export interface HomePage {
     | ToolCard
     | ToolsCarousel
     | Unit
+    | UnitBlock
+    | UnitCard
     | UnitChapter
     | UnitOverview
     | UnitSection
@@ -579,6 +469,8 @@ export interface Landing {
     | ToolCard
     | ToolsCarousel
     | Unit
+    | UnitBlock
+    | UnitCard
     | UnitChapter
     | UnitOverview
     | UnitSection
@@ -636,6 +528,8 @@ export interface Landing {
     | ToolCard
     | ToolsCarousel
     | Unit
+    | UnitBlock
+    | UnitCard
     | UnitChapter
     | UnitOverview
     | UnitSection
@@ -693,6 +587,8 @@ export interface Landing {
     | ToolCard
     | ToolsCarousel
     | Unit
+    | UnitBlock
+    | UnitCard
     | UnitChapter
     | UnitOverview
     | UnitSection
@@ -750,6 +646,8 @@ export interface Landing {
     | ToolCard
     | ToolsCarousel
     | Unit
+    | UnitBlock
+    | UnitCard
     | UnitChapter
     | UnitOverview
     | UnitSection
@@ -780,8 +678,8 @@ export interface MegaMenu {
 }
 
 export interface MegaMenuColumn {
-  title?: string;
-  links?: Link[];
+  titleLink: Link[];
+  links: Link[];
   component: "MegaMenuColumn";
   _uid: string;
   [k: string]: unknown;
@@ -832,11 +730,11 @@ export interface QuickLinksItem {
 }
 
 export interface Reference {
-  accessedDate?: string;
-  yearPublished?: string;
+  accessedDate: string;
+  yearPublished: string;
   websiteAuthor: string;
-  websiteTitle?: string;
-  websiteUrl?: string;
+  websiteTitle: string;
+  websiteUrl: string;
   component: "Reference";
   _uid: string;
   [k: string]: unknown;
@@ -978,6 +876,25 @@ export interface Unit {
   [k: string]: unknown;
 }
 
+export interface UnitBlock {
+  title?: string;
+  units: UnitCard[];
+  component: "UnitBlock";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface UnitCard {
+  link: Exclude<
+    StoryblokMultilink,
+    { linktype?: "email" } | { linktype?: "asset" }
+  >;
+  subTitle: string;
+  component: "UnitCard";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface UnitChapter {
   title?: string;
   subTitle?: string;
@@ -1028,4 +945,5 @@ export type ContentType =
   | HomePage
   | Landing
   | SupportingInformation
-  | Unit;
+  | Unit
+  | UnitCard;
