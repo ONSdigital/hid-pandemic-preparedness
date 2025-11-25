@@ -1,31 +1,343 @@
 {
   "story": {
     "name": "Home",
-    "created_at": "2025-10-01T13:40:10.376Z",
-    "published_at": "2025-10-13T11:31:06.004Z",
-    "updated_at": "2025-10-13T11:52:11.409Z",
-    "id": 96814736940977,
-    "uuid": "e26bc65c-c83e-4d04-a5da-114fec6ce981",
+    "created_at": "2025-10-17T09:24:47.203Z",
+    "published_at": "2025-11-18T17:32:08.957Z",
+    "updated_at": "2025-11-20T09:15:24.382Z",
+    "id": 102414283876191,
+    "uuid": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
     "content": {
-      "Body": [],
-      "_uid": "22f30891-bfa3-45eb-9a81-937b6fedfd9c",
-      "Bottom": [
+      "Body": [
         {
-          "_uid": "9503511e-423c-47e3-a26a-d0eec5fa87bc",
+          "_uid": "8a0c53ae-a462-4b4f-b550-82cdb8ddafb4",
+          "link": {
+            "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+            "rel": "",
+            "url": "",
+            "title": "About the platform",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "about"
+          },
+          "image": {
+            "id": 103889953934268,
+            "alt": "",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/854x523/7e271c55b4/aa-image.png",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {},
+            "is_external_url": false
+          },
+          "title": "What is Analysis for Action?",
+          "subTitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
+          "component": "ImageAndText",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ImageAndText\", \"space\": \"287525897740819\", \"uid\": \"8a0c53ae-a462-4b4f-b550-82cdb8ddafb4\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "dcd65672-f49f-431c-86a4-1b86bf16f871",
+          "link": {
+            "id": "e5337d90-ad03-4bf1-9a64-3994fc990820",
+            "rel": "",
+            "url": "",
+            "title": "Learning resources",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "learning-resources/"
+          },
+          "cards": [
+            {
+              "_uid": "ef74b96a-c0ab-42ae-a8b1-fe78448620c7",
+              "type": "",
+              "image": {
+                "id": 99213522516826,
+                "alt": "A graph to show significant pandemic instances and the number of deaths as a result",
+                "name": "",
+                "focus": "",
+                "title": "deaths from all respiratory disease 1980-2021",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/244x158/53f0bff783/14-8million.svg",
+                "copyright": "ONS",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "A graph to show significant pandemic instances and the number of deaths as a result",
+                  "title": "deaths from all respiratory disease 1980-2021",
+                  "source": "",
+                  "copyright": "ONS"
+                },
+                "is_external_url": false
+              },
+              "title": "14.8 million+",
+              "subTitle": "deaths from all respiratory disease 1980-2021.",
+              "component": "StatisticsCard",
+              "reference": [
+                {
+                  "_uid": "60c14c86-23a5-4301-917d-d755f5d7afd1",
+                  "type": "",
+                  "component": "Reference",
+                  "websiteUrl": "https://archive.ourworldindata.org/20250624-125417/grapher/deaths-from-infectious-diseases.html ",
+                  "accessedDate": "26th August 2025",
+                  "websiteTitle": "Global Burden of Disease (2024)– with minor processing by Our World in Data. Deaths from infectious diseases [dataset]. In: Global Burden of Disease - Deaths and DALYs [original data]",
+                  "websiteAuthor": "Institute for Health Metrics and Evaluation (IHME)",
+                  "yearPublished": "2024",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"60c14c86-23a5-4301-917d-d755f5d7afd1\", \"id\": \"102414283876191\"}--\u003E"
+                }
+              ],
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"ef74b96a-c0ab-42ae-a8b1-fe78448620c7\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "267b7f18-7486-4b36-9761-596da5fc6c09",
+              "type": "",
+              "image": {
+                "id": 99213522369368,
+                "alt": "A graph to show 7 million + deaths from Covid-19 as of August 2025",
+                "name": "",
+                "focus": "",
+                "title": "Deaths from Covid as of August 2025",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/246x163/b86a31251b/7million.svg",
+                "copyright": "ONS",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "A graph to show 7 million + deaths from Covid-19 as of August 2025",
+                  "title": "Deaths from Covid as of August 2025",
+                  "source": "",
+                  "copyright": "ONS"
+                },
+                "is_external_url": false
+              },
+              "title": "7 million+",
+              "subTitle": "deaths from COVID-19 as of August 2025.",
+              "component": "StatisticsCard",
+              "reference": [
+                {
+                  "_uid": "d2749648-d92c-4b85-8d86-993af8a4715b",
+                  "type": "",
+                  "component": "Reference",
+                  "websiteUrl": "https://data.who.int/dashboards/covid19/deaths",
+                  "accessedDate": "26th August 2025",
+                  "websiteTitle": "WHO COVID-19 dashboard",
+                  "websiteAuthor": "World Health Organisation",
+                  "yearPublished": "2025",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"d2749648-d92c-4b85-8d86-993af8a4715b\", \"id\": \"102414283876191\"}--\u003E"
+                }
+              ],
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"267b7f18-7486-4b36-9761-596da5fc6c09\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "edaef7c8-d680-413d-9c6a-11b1db8f2717",
+              "type": "",
+              "image": {
+                "id": 99213522099030,
+                "alt": "A graph to show that 88 million+ people have been pushed into extreme poverty due to COVID-19",
+                "name": "",
+                "focus": "",
+                "title": "People pushed into extreme poverty",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/244x161/4f04a5f39f/88million.svg",
+                "copyright": "ONS",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "A graph to show that 88 million+ people have been pushed into extreme poverty due to COVID-19",
+                  "title": "People pushed into extreme poverty",
+                  "source": "",
+                  "copyright": "ONS"
+                },
+                "is_external_url": false
+              },
+              "title": "88 million+",
+              "subTitle": "people pushed into extreme poverty due to COVID-19.",
+              "component": "StatisticsCard",
+              "reference": [
+                {
+                  "_uid": "81701d24-1567-4995-81a1-d9c08fc3016f",
+                  "type": "",
+                  "component": "Reference",
+                  "websiteUrl": " https://www.worldbank.org/en/publication/poverty-and-shared-prosperity",
+                  "accessedDate": "26th August 2025",
+                  "websiteTitle": "Washington, DC: World Bank Group",
+                  "websiteAuthor": "The World Bank Group. Poverty and Shared Prosperity",
+                  "yearPublished": "2020",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"81701d24-1567-4995-81a1-d9c08fc3016f\", \"id\": \"102414283876191\"}--\u003E"
+                }
+              ],
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"edaef7c8-d680-413d-9c6a-11b1db8f2717\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "0c56a3a4-0252-4411-bf55-5e2952b4e366",
+              "type": "",
+              "image": {
+                "id": 99213522430809,
+                "alt": "A graphical representation of diseases with pandemic potential.",
+                "name": "",
+                "focus": "",
+                "title": "Pathogen Dots",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/247x151/670eca417c/34pathogens.svg",
+                "copyright": "ONS",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "A graphical representation of diseases with pandemic potential.",
+                  "title": "Pathogen Dots",
+                  "source": "",
+                  "copyright": "ONS"
+                },
+                "is_external_url": false
+              },
+              "title": "34 pathogens",
+              "subTitle": "identified as diseases with pandemic potential.",
+              "component": "StatisticsCard",
+              "reference": [
+                {
+                  "_uid": "6de82ce6-830c-4a8a-a138-edac384eebfc",
+                  "type": "",
+                  "component": "Reference",
+                  "websiteUrl": "https://cdn.who.int/media/docs/default-source/consultation-rdb/prioritization-pathogens-v6final.pdf",
+                  "accessedDate": "26th August 2025",
+                  "websiteTitle": "Pathogens Prioritization",
+                  "websiteAuthor": "World Health Organisation",
+                  "yearPublished": "2019",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"6de82ce6-830c-4a8a-a138-edac384eebfc\", \"id\": \"102414283876191\"}--\u003E"
+                }
+              ],
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"0c56a3a4-0252-4411-bf55-5e2952b4e366\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "title": "The statistics",
+          "subTitle": "Preparedness saves lives",
+          "component": "StatisticsAndText",
+          "quotation": "Invest in preparedness now to create fully functional capacities at the national, regional and global level",
+          "reference": [
+            {
+              "_uid": "d9df2510-e104-41cc-92e0-0d645e5b9003",
+              "type": "",
+              "component": "Reference",
+              "websiteUrl": " https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
+              "accessedDate": "19th August 2025",
+              "websiteTitle": "COVID-19: Make it the Last Pandemic",
+              "websiteAuthor": "The Independent Panel for Pandemic Preparedness & Response",
+              "yearPublished": "2021",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"d9df2510-e104-41cc-92e0-0d645e5b9003\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsAndText\", \"space\": \"287525897740819\", \"uid\": \"dcd65672-f49f-431c-86a4-1b86bf16f871\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "f86cc2aa-247b-4ece-a62e-1fd6518fd15b",
+          "link": [
+            {
+              "_uid": "d8500433-3a2d-4c75-ad10-a58e2e4be289",
+              "link": {
+                "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "home"
+              },
+              "label": "View all tools",
+              "component": "Link",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"d8500433-3a2d-4c75-ad10-a58e2e4be289\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "title": "Tools to guide planning and response efforts",
+          "Carousel": [
+            {
+              "_uid": "84ec7e78-9919-4c9a-99ca-019832b781c7",
+              "cards": [
+                {
+                  "_uid": "1e852d22-112a-4202-9377-41a44f1db6e7",
+                  "icon": "report",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "title": "Rumour report",
+                  "subTitle": "A rumour report logs unverified claims or info in circulation",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"1e852d22-112a-4202-9377-41a44f1db6e7\", \"id\": \"102414283876191\"}--\u003E"
+                },
+                {
+                  "_uid": "5e7d508b-bd1e-4f9b-bfab-7c5e2b78f033",
+                  "icon": "dashboard",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "title": "Modelling dashboard",
+                  "subTitle": "An infectious disease modelling dashboard.",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"5e7d508b-bd1e-4f9b-bfab-7c5e2b78f033\", \"id\": \"102414283876191\"}--\u003E"
+                },
+                {
+                  "_uid": "d0e10efd-be0e-416d-b710-98141064c152",
+                  "icon": "questionbank",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "title": "Question Bank",
+                  "subTitle": "Curated library of ready-to-use, evidence-backed questions.",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"d0e10efd-be0e-416d-b710-98141064c152\", \"id\": \"102414283876191\"}--\u003E"
+                },
+                {
+                  "_uid": "b4d6cd2f-9c79-4459-9f1f-b1d4e15c04f3",
+                  "icon": "calculator",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "title": "Sample Size Calculator",
+                  "subTitle": "Estimates required sample size for a study or survey",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"b4d6cd2f-9c79-4459-9f1f-b1d4e15c04f3\", \"id\": \"102414283876191\"}--\u003E"
+                }
+              ],
+              "component": "Carousel",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"Carousel\", \"space\": \"287525897740819\", \"uid\": \"84ec7e78-9919-4c9a-99ca-019832b781c7\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "component": "ToolsCarousel",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ToolsCarousel\", \"space\": \"287525897740819\", \"uid\": \"f86cc2aa-247b-4ece-a62e-1fd6518fd15b\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "e4777c37-4533-4d39-b9e0-5bc5fc756341",
           "title": "Case Studies",
           "mainCard": [
             {
-              "_uid": "14ae3b15-cf49-41d4-94d6-8fc9ce88159c",
+              "_uid": "bbbf3df1-0e9a-435d-9fe5-c31617c829d0",
               "link": {
-                "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+                "id": "e5337d90-ad03-4bf1-9a64-3994fc990820",
                 "rel": "",
                 "url": "",
                 "title": "View all case studies",
                 "linktype": "story",
                 "fieldtype": "multilink",
-                "cached_url": "about"
+                "cached_url": "learning-resources/"
               },
-              "size": "large",
               "type": "",
               "image": {
                 "id": 101005805741375,
@@ -43,21 +355,20 @@
               "title": "Working with the Ministry of Health",
               "subTitle": "Strengthening data-driven health strategies through close collaboration.",
               "component": "CaseStudyCard",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"14ae3b15-cf49-41d4-94d6-8fc9ce88159c\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"bbbf3df1-0e9a-435d-9fe5-c31617c829d0\", \"id\": \"102414283876191\"}--\u003E"
             }
           ],
           "component": "CaseStudies",
           "smallCards": [
             {
-              "_uid": "d46fb445-44ef-4527-b5a2-65ae9f5b29e9",
+              "_uid": "587a5031-29ab-438e-9a22-eb9bf1d095b3",
               "link": {
-                "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+                "id": "e5337d90-ad03-4bf1-9a64-3994fc990820",
                 "url": "",
                 "linktype": "story",
                 "fieldtype": "multilink",
-                "cached_url": "about"
+                "cached_url": "learning-resources/"
               },
-              "size": "small",
               "type": "",
               "image": {
                 "id": 101005805638972,
@@ -75,18 +386,17 @@
               "title": "Using administrative data during COVID-19",
               "subTitle": "Leveraging existing administrative datasets to monitor trends.",
               "component": "CaseStudyCard",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"d46fb445-44ef-4527-b5a2-65ae9f5b29e9\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"587a5031-29ab-438e-9a22-eb9bf1d095b3\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "87bfb5b0-7278-4e31-9b88-171cf07ed38b",
+              "_uid": "723ce7e3-ef2c-46b9-9087-c614ee1c95e6",
               "link": {
-                "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+                "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
                 "url": "",
                 "linktype": "story",
                 "fieldtype": "multilink",
-                "cached_url": "about"
+                "cached_url": "4e550841-b98a-40c0-8278-04cddb1d0524"
               },
-              "size": "small",
               "type": "",
               "image": {
                 "id": 101005805724990,
@@ -104,18 +414,17 @@
               "title": "Implementing a new statistical law",
               "subTitle": "Understanding how statistical laws are developed and implemented.",
               "component": "CaseStudyCard",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"87bfb5b0-7278-4e31-9b88-171cf07ed38b\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"723ce7e3-ef2c-46b9-9087-c614ee1c95e6\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "1a13e2c3-0313-4dd2-b161-b7ac672f689b",
+              "_uid": "4d0da286-e2d6-4709-9a48-531ab64ecb84",
               "link": {
-                "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
+                "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
                 "url": "",
                 "linktype": "story",
                 "fieldtype": "multilink",
-                "cached_url": "about"
+                "cached_url": "4e550841-b98a-40c0-8278-04cddb1d0524"
               },
-              "size": "",
               "type": "",
               "image": {
                 "id": 101005805643069,
@@ -130,56 +439,55 @@
                 "meta_data": {},
                 "is_external_url": false
               },
-              "title": "Working with international organisations",
+              "title": " Working with international organisations",
               "subTitle": "Coordinating efforts with global partners.",
               "component": "CaseStudyCard",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"1a13e2c3-0313-4dd2-b161-b7ac672f689b\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"4d0da286-e2d6-4709-9a48-531ab64ecb84\", \"id\": \"102414283876191\"}--\u003E"
             }
           ],
-          "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudies\", \"space\": \"287525897740819\", \"uid\": \"9503511e-423c-47e3-a26a-d0eec5fa87bc\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudies\", \"space\": \"287525897740819\", \"uid\": \"e4777c37-4533-4d39-b9e0-5bc5fc756341\", \"id\": \"102414283876191\"}--\u003E"
         },
         {
-          "_uid": "09e63ac3-0d6c-4846-8ca4-76dff382330f",
-          "type": "",
+          "_uid": "480b805d-06bb-4bf2-9f7f-930b8693f468",
           "cards": [
             {
-              "_uid": "6001fb64-204b-4b45-a477-c63ca9e937c7",
+              "_uid": "c95ebf64-db22-4dde-bc44-7101b0a7df81",
               "icon": "experts",
               "type": "",
-              "title": "50+ experts",
+              "title": "50 experts",
               "subTitle": "internationally have contributed to content for Analysis for Action",
               "component": "ImpactCard",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"6001fb64-204b-4b45-a477-c63ca9e937c7\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"c95ebf64-db22-4dde-bc44-7101b0a7df81\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "62445555-12e3-44ef-83f4-08ad7ea29f06",
+              "_uid": "e8e28b02-f701-4234-9211-e95a4426ab77",
               "icon": "countries",
               "type": "",
               "title": "48 countries",
               "subTitle": "have joined the Analysis for Action global network",
               "component": "ImpactCard",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"62445555-12e3-44ef-83f4-08ad7ea29f06\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"e8e28b02-f701-4234-9211-e95a4426ab77\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "877160ce-7225-4a14-9441-3f9739ba3334",
+              "_uid": "911af374-0e43-415d-808a-5d7f56d7e622",
               "icon": "users",
               "type": "",
-              "title": "100,000+ users",
+              "title": "100,000 users",
               "subTitle": "of Analysis for Action resources so far",
               "component": "ImpactCard",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"877160ce-7225-4a14-9441-3f9739ba3334\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"911af374-0e43-415d-808a-5d7f56d7e622\", \"id\": \"102414283876191\"}--\u003E"
             }
           ],
-          "title": "global impact",
+          "title": "Global impact",
           "component": "Impact",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"Impact\", \"space\": \"287525897740819\", \"uid\": \"09e63ac3-0d6c-4846-8ca4-76dff382330f\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Impact\", \"space\": \"287525897740819\", \"uid\": \"480b805d-06bb-4bf2-9f7f-930b8693f468\", \"id\": \"102414283876191\"}--\u003E"
         },
         {
-          "_uid": "004bb095-f6df-44e6-b402-ac18ce09cb47",
+          "_uid": "75c958b5-025f-40aa-aad8-0ca2f03589c0",
           "title": "Strategic partners",
           "partners": [
             {
-              "_uid": "a5649004-cdf7-46ac-857f-cd3527b24093",
+              "_uid": "ca027611-83d4-460d-b89d-504076afc2e2",
               "link": {
                 "id": "",
                 "url": "https://www.ons.gov.uk/",
@@ -206,10 +514,10 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"a5649004-cdf7-46ac-857f-cd3527b24093\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"ca027611-83d4-460d-b89d-504076afc2e2\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "445940d6-ac8b-4855-a733-58d53e2be390",
+              "_uid": "44786d91-30db-4b8c-93f9-4a70028ce5a1",
               "link": {
                 "id": "",
                 "url": "#",
@@ -236,16 +544,16 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"445940d6-ac8b-4855-a733-58d53e2be390\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"44786d91-30db-4b8c-93f9-4a70028ce5a1\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "2e78b20f-61d8-4656-aeb5-c1abf2776fb2",
+              "_uid": "1f9b964c-fb09-4ce1-926e-f370b6cff500",
               "link": {
                 "id": "",
-                "url": "https://www.nsomalawi.mw",
+                "url": "https://www.nsomalawi.mw/",
                 "linktype": "url",
                 "fieldtype": "multilink",
-                "cached_url": "https://www.nsomalawi.mw"
+                "cached_url": "https://www.nsomalawi.mw/"
               },
               "logo": {
                 "id": 99913190487346,
@@ -266,10 +574,10 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"2e78b20f-61d8-4656-aeb5-c1abf2776fb2\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"1f9b964c-fb09-4ce1-926e-f370b6cff500\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "d88b4ebb-6543-4185-bc77-c810046889cc",
+              "_uid": "b4ba5a7a-b1dd-4db2-a79d-d5bbafa6dcb1",
               "link": {
                 "id": "",
                 "url": "https://www.indec.gob.ar/",
@@ -296,10 +604,10 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"d88b4ebb-6543-4185-bc77-c810046889cc\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"b4ba5a7a-b1dd-4db2-a79d-d5bbafa6dcb1\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "b8a634ad-cd0f-4136-b280-5b8c41111afe",
+              "_uid": "2e71b78a-f475-4425-a91b-5829ef0ebf2a",
               "link": {
                 "id": "",
                 "url": "https://wellcome.org/",
@@ -326,10 +634,10 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"b8a634ad-cd0f-4136-b280-5b8c41111afe\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"2e71b78a-f475-4425-a91b-5829ef0ebf2a\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "390bfb69-f58a-4343-b114-f7fc76788f51",
+              "_uid": "9f12a1d9-4a46-4461-a684-ce973cbe503f",
               "link": {
                 "id": "",
                 "url": "https://herdint.com/",
@@ -356,10 +664,10 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"390bfb69-f58a-4343-b114-f7fc76788f51\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"9f12a1d9-4a46-4461-a684-ce973cbe503f\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "2f7a8034-c784-4ea3-8c13-63735d12bf44",
+              "_uid": "15c64f14-31c2-4461-b475-b460c7e5416e",
               "link": {
                 "id": "",
                 "url": "https://lukeinternational.no/",
@@ -386,10 +694,10 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"2f7a8034-c784-4ea3-8c13-63735d12bf44\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"15c64f14-31c2-4461-b475-b460c7e5416e\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "dc8582b2-b942-419d-894e-7010ff00e1fa",
+              "_uid": "dc32caa6-6186-40dd-b23f-5f818ecf0bac",
               "link": {
                 "id": "",
                 "url": "https://www.cemic.edu.ar/",
@@ -416,134 +724,467 @@
                 "is_external_url": false
               },
               "component": "StrategicPartner",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"dc8582b2-b942-419d-894e-7010ff00e1fa\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"dc32caa6-6186-40dd-b23f-5f818ecf0bac\", \"id\": \"102414283876191\"}--\u003E"
             }
           ],
           "component": "StrategicPartners",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartners\", \"space\": \"287525897740819\", \"uid\": \"004bb095-f6df-44e6-b402-ac18ce09cb47\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartners\", \"space\": \"287525897740819\", \"uid\": \"75c958b5-025f-40aa-aad8-0ca2f03589c0\", \"id\": \"102414283876191\"}--\u003E"
+        }
+      ],
+      "_uid": "3ee03a3a-b88a-4c91-bf05-18e854802f1c",
+      "Bottom": [
+        {
+          "_uid": "175daf91-a9c6-45b6-b9b4-1b56b6b8075d",
+          "title": "Case Studies",
+          "mainCard": [
+            {
+              "_uid": "ef4a2d40-3a6a-4bfe-b0f1-807a14a07b52",
+              "link": {
+                "id": "e5337d90-ad03-4bf1-9a64-3994fc990820",
+                "rel": "",
+                "url": "",
+                "title": "View all case studies",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "learning-resources/"
+              },
+              "type": "",
+              "image": {
+                "id": 101005805741375,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/1024x683/c705a9fb14/two-ladies-in-face-mask-chat.jpeg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {},
+                "is_external_url": false
+              },
+              "title": "Working with the Ministry of Health",
+              "subTitle": "Strengthening data-driven health strategies through close collaboration.",
+              "component": "CaseStudyCard",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"ef4a2d40-3a6a-4bfe-b0f1-807a14a07b52\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "component": "CaseStudies",
+          "smallCards": [
+            {
+              "_uid": "06cf4018-cd6a-4333-8332-e4fdbf92b437",
+              "link": {
+                "id": "e5337d90-ad03-4bf1-9a64-3994fc990820",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "learning-resources/"
+              },
+              "type": "",
+              "image": {
+                "id": 101005805638972,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/945x700/0c2679dec3/group-of-medical-professionals.jpeg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {},
+                "is_external_url": false
+              },
+              "title": "Using administrative data during COVID-19",
+              "subTitle": "Leveraging existing administrative datasets to monitor trends.",
+              "component": "CaseStudyCard",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"06cf4018-cd6a-4333-8332-e4fdbf92b437\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "38ee33d2-61ee-41ed-ade9-1e9a6f8cde31",
+              "link": {
+                "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "4e550841-b98a-40c0-8278-04cddb1d0524"
+              },
+              "type": "",
+              "image": {
+                "id": 101005805724990,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/1024x683/c0c73e9de5/info-on-phone-screen.jpeg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {},
+                "is_external_url": false
+              },
+              "title": "Implementing a new statistical law",
+              "subTitle": "Understanding how statistical laws are developed and implemented.",
+              "component": "CaseStudyCard",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"38ee33d2-61ee-41ed-ade9-1e9a6f8cde31\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "c9f71a76-dbbf-4cc5-b4a2-7ff19af2deec",
+              "link": {
+                "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "4e550841-b98a-40c0-8278-04cddb1d0524"
+              },
+              "type": "",
+              "image": {
+                "id": 101005805643069,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/1024x683/5a3174ec8d/consultation-occurring.jpeg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {},
+                "is_external_url": false
+              },
+              "title": " Working with international organisations",
+              "subTitle": "Coordinating efforts with global partners.",
+              "component": "CaseStudyCard",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudyCard\", \"space\": \"287525897740819\", \"uid\": \"c9f71a76-dbbf-4cc5-b4a2-7ff19af2deec\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "_editable": "\u003C!--#storyblok#{\"name\": \"CaseStudies\", \"space\": \"287525897740819\", \"uid\": \"175daf91-a9c6-45b6-b9b4-1b56b6b8075d\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "00b33309-bedd-46bb-93c2-a8b3df600198",
+          "cards": [
+            {
+              "_uid": "0669de10-34c6-4ab3-8cff-95ca852d72af",
+              "icon": "experts",
+              "type": "",
+              "title": "50 experts",
+              "subTitle": "internationally have contributed to content for Analysis for Action",
+              "component": "ImpactCard",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"0669de10-34c6-4ab3-8cff-95ca852d72af\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "cfd41978-ebec-4118-ac9e-6f4612dff545",
+              "icon": "countries",
+              "type": "",
+              "title": "48 countries",
+              "subTitle": "have joined the Analysis for Action global network",
+              "component": "ImpactCard",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"cfd41978-ebec-4118-ac9e-6f4612dff545\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "dff92c29-2b33-4ee1-a232-6c000b9afbe2",
+              "icon": "users",
+              "type": "",
+              "title": "100,000 users",
+              "subTitle": "of Analysis for Action resources so far",
+              "component": "ImpactCard",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"ImpactCard\", \"space\": \"287525897740819\", \"uid\": \"dff92c29-2b33-4ee1-a232-6c000b9afbe2\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "title": "Global impact",
+          "component": "Impact",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Impact\", \"space\": \"287525897740819\", \"uid\": \"00b33309-bedd-46bb-93c2-a8b3df600198\", \"id\": \"102414283876191\"}--\u003E"
+        },
+        {
+          "_uid": "558a7713-d7ce-4a56-9d59-87d49e91f238",
+          "title": "Strategic partners",
+          "partners": [
+            {
+              "_uid": "166467e3-0b95-4dff-8313-11f5fa427825",
+              "link": {
+                "id": "",
+                "url": "https://www.ons.gov.uk/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.ons.gov.uk/"
+              },
+              "logo": {
+                "id": 99913190454577,
+                "alt": "Office for National Statistics logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/192x41/34742c4c8c/ons_logo_digital_colour_english_rgb.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "Office for National Statistics logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"166467e3-0b95-4dff-8313-11f5fa427825\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "f6b6c12d-99b2-4029-9fca-2151f59d1ada",
+              "link": {
+                "id": "",
+                "url": "#",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "#"
+              },
+              "logo": {
+                "id": 99913190069550,
+                "alt": "Emblem of Nepal",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/113x95/1360a341e0/emblem_of_nepal.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "Emblem of Nepal",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"f6b6c12d-99b2-4029-9fca-2151f59d1ada\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "b04c81c4-15d1-4b23-9de2-9d3984f8d288",
+              "link": {
+                "id": "",
+                "url": "https://www.nsomalawi.mw/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.nsomalawi.mw/"
+              },
+              "logo": {
+                "id": 99913190487346,
+                "alt": "National Statistical Office of Malawi",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/212x87/cb68830c18/malawi-national-statistical-office.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "National Statistical Office of Malawi",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"b04c81c4-15d1-4b23-9de2-9d3984f8d288\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "8b3bc11b-ba5d-4e25-9fcc-e03c22b3b523",
+              "link": {
+                "id": "",
+                "url": "https://www.indec.gob.ar/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.indec.gob.ar/"
+              },
+              "logo": {
+                "id": 99913190434096,
+                "alt": "INDEC logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/100x52/86e7c3fa5a/logo_indec.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "INDEC logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"8b3bc11b-ba5d-4e25-9fcc-e03c22b3b523\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "fa1430d0-9523-443d-a995-d2b7da61cdd9",
+              "link": {
+                "id": "",
+                "url": "https://wellcome.org/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://wellcome.org/"
+              },
+              "logo": {
+                "id": 99913190552884,
+                "alt": "Wellcome",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/132x49/61a31698bc/wellcome.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "Wellcome",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"fa1430d0-9523-443d-a995-d2b7da61cdd9\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "efd6de2d-acb1-4bf8-bbe9-80c14575f0a4",
+              "link": {
+                "id": "",
+                "url": "https://herdint.com/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://herdint.com/"
+              },
+              "logo": {
+                "id": 99913190274351,
+                "alt": "HERD International logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/135x59/5b1b1f8c4a/herdi_nepal.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "HERD International logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"efd6de2d-acb1-4bf8-bbe9-80c14575f0a4\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "ddeb14d7-2541-4440-a839-05b4d7776312",
+              "link": {
+                "id": "",
+                "url": "https://lukeinternational.no/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://lukeinternational.no/"
+              },
+              "logo": {
+                "id": 99913190499635,
+                "alt": "LUKE International logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/145x47/999f5c6c1e/lin-luke-logo.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "LUKE International logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"ddeb14d7-2541-4440-a839-05b4d7776312\", \"id\": \"102414283876191\"}--\u003E"
+            },
+            {
+              "_uid": "3ca53f16-8ed6-432c-ac47-4a98c6920260",
+              "link": {
+                "id": "",
+                "url": "https://www.cemic.edu.ar/",
+                "linktype": "url",
+                "fieldtype": "multilink",
+                "cached_url": "https://www.cemic.edu.ar/"
+              },
+              "logo": {
+                "id": 99913189991725,
+                "alt": "CEMIC logo",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/287525897740819/134x41/4c1231f443/cemic-logo.svg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "CEMIC logo",
+                  "title": "",
+                  "source": "",
+                  "copyright": ""
+                },
+                "is_external_url": false
+              },
+              "component": "StrategicPartner",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartner\", \"space\": \"287525897740819\", \"uid\": \"3ca53f16-8ed6-432c-ac47-4a98c6920260\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "component": "StrategicPartners",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"StrategicPartners\", \"space\": \"287525897740819\", \"uid\": \"558a7713-d7ce-4a56-9d59-87d49e91f238\", \"id\": \"102414283876191\"}--\u003E"
         }
       ],
       "Header": [
         {
-          "_uid": "e2107683-0038-4079-b074-a11fd8345326",
+          "_uid": "cb7e01a1-27c1-4756-a9b1-d2fa2eef7d13",
           "type": "",
-          "title": "Resilience through data",
-          "subTitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
-          "component": "Header",
-          "searchPlaceholderText": "Search learning resources",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"Header\", \"space\": \"287525897740819\", \"uid\": \"e2107683-0038-4079-b074-a11fd8345326\", \"id\": \"96814736940977\"}--\u003E"
-        }
-      ],
-      "Impact": [],
-      "Middle": [
-        {
-          "_uid": "a9ce75d3-7d2f-4369-9824-96b524179a68",
-          "links": [
-            {
-              "_uid": "f25fb7c9-db3d-446e-99b1-c4bb59c7106d",
-              "icon": "RiCollageLine",
-              "link": {
-                "id": "b504093b-0d5e-4c6e-961f-8a2a2f33924e",
-                "url": "",
-                "linktype": "story",
-                "fieldtype": "multilink",
-                "cached_url": "#",
-                "story": {
-                  "name": "Data collection"
-                }
-              },
-              "type": "",
-              "component": "QuickLinksItem"
-            },
-            {
-              "_uid": "5d5cb5b6-e5b1-4561-a1a3-50c0561988da",
-              "icon": "RiShapeLine",
-              "link": {
-                "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
-                "url": "",
-                "linktype": "story",
-                "fieldtype": "multilink",
-                "cached_url": "#",
-                "story": {
-                  "name": "Data analysis"
-                }
-              },
-              "type": "",
-              "component": "QuickLinksItem"
-            },
-            {
-              "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
-              "icon": "RiGovernmentLine",
-              "link": {
-                "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
-                "url": "",
-                "linktype": "story",
-                "fieldtype": "multilink",
-                "cached_url": "#",
-                "story": {
-                  "name": "Data governance"
-                }
-              },
-              "type": "",
-              "component": "QuickLinksItem"
-            },
-            {
-              "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
-              "icon": "RiFilePaperLine",
-              "link": {
-                "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
-                "url": "",
-                "linktype": "story",
-                "fieldtype": "multilink",
-                "cached_url": "#",
-                "story": {
-                  "name": "Outputs and reporting"
-                }
-              },
-              "type": "",
-              "component": "QuickLinksItem"
-            },
-            {
-              "_uid": "bfc962b6-1f86-4abd-9e5e-8d8b4ed257a5",
-              "icon": "RiGroupLine",
-              "link": {
-                "id": "f68305ec-d8a4-4e59-b2b2-f059df46fc05",
-                "url": "",
-                "linktype": "story",
-                "fieldtype": "multilink",
-                "cached_url": "#",
-                "story": {
-                  "name": "Stakeholder engagement"
-                }
-              },
-              "type": "",
-              "component": "QuickLinksItem"
-            }
-          ],
-          "title": "Learning Resources",
-          "subTitle": "Materials to support skills development, grouped into the following themes:",
-          "component": "QuickLinks",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"QuickLinks\", \"space\": \"287525897740819\", \"uid\": \"a9ce75d3-7d2f-4369-9824-96b524179a68\", \"id\": \"102414283876191\"}--\u003E"
-        },
-        {
-          "_uid": "9be51354-1986-473d-bbec-a970b12a9786",
-          "link": {
-            "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
-            "rel": "",
-            "url": "",
-            "title": "About",
-            "linktype": "story",
-            "fieldtype": "multilink",
-            "cached_url": "about"
-          },
           "image": {
-            "id": 101034835114964,
+            "id": 104260223171818,
             "alt": "",
             "name": "",
             "focus": "",
             "title": "",
             "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/854x550/bd906c11a9/two-professionals-discussing-statistics.png",
+            "filename": "https://a.storyblok.com/f/287525897740819/830x606/920f1c8450/home-header-world-of-data.jpg",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {},
+            "is_external_url": false
+          },
+          "title": "Resilience through data",
+          "subTitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
+          "component": "Header",
+          "searchPlaceholderText": "Search learning resources",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"Header\", \"space\": \"287525897740819\", \"uid\": \"cb7e01a1-27c1-4756-a9b1-d2fa2eef7d13\", \"id\": \"102414283876191\"}--\u003E"
+        }
+      ],
+      "Middle": [
+        {
+          "_uid": "209f45db-77bb-4f7c-9a46-b3b001d64051",
+          "link": {
+            "id": "843daaab-ad93-455c-a8b9-97fe96bcb309",
+            "rel": "",
+            "url": "",
+            "title": "About the platform",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "about"
+          },
+          "image": {
+            "id": 103889953934268,
+            "alt": "",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/287525897740819/854x523/7e271c55b4/aa-image.png",
             "copyright": "",
             "fieldtype": "asset",
             "meta_data": {},
@@ -552,23 +1193,22 @@
           "title": "What is Analysis for Action?",
           "subTitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
           "component": "ImageAndText",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"ImageAndText\", \"space\": \"287525897740819\", \"uid\": \"9be51354-1986-473d-bbec-a970b12a9786\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ImageAndText\", \"space\": \"287525897740819\", \"uid\": \"209f45db-77bb-4f7c-9a46-b3b001d64051\", \"id\": \"102414283876191\"}--\u003E"
         },
         {
-          "_uid": "844bd75a-300a-4049-93f6-375babd3f7bf",
+          "_uid": "d4c3a20d-9f03-4526-bd8a-10782eb28896",
           "link": {
-            "id": "38295d19-bc78-46f5-a9a0-c92866de7545",
+            "id": "e5337d90-ad03-4bf1-9a64-3994fc990820",
             "rel": "",
             "url": "",
-            "title": "Learning Resources",
+            "title": "Learning resources",
             "linktype": "story",
             "fieldtype": "multilink",
-            "cached_url": "learning-resources"
+            "cached_url": "learning-resources/"
           },
-          "type": "",
           "cards": [
             {
-              "_uid": "bcdeca89-8165-4ff5-8320-e10d19fa5fcd",
+              "_uid": "65246ac7-533f-4af7-9cc0-35c482a86d7a",
               "type": "",
               "image": {
                 "id": 99213522516826,
@@ -593,21 +1233,21 @@
               "component": "StatisticsCard",
               "reference": [
                 {
-                  "_uid": "1bd069cd-0fec-46f0-aab8-5c8fcfa136df",
+                  "_uid": "2fad1e62-3bb9-4d77-9675-77b65c8a724d",
                   "type": "",
                   "component": "Reference",
-                  "websiteUrl": " https://archive.ourworldindata.org/20250624-125417/grapher/deaths-from-infectious-diseases.html",
+                  "websiteUrl": "https://archive.ourworldindata.org/20250624-125417/grapher/deaths-from-infectious-diseases.html ",
                   "accessedDate": "26th August 2025",
                   "websiteTitle": "Global Burden of Disease (2024)– with minor processing by Our World in Data. Deaths from infectious diseases [dataset]. In: Global Burden of Disease - Deaths and DALYs [original data]",
-                  "websiteAuthor": "Institute for Health Metrics and Evaluation (IHME) ",
+                  "websiteAuthor": "Institute for Health Metrics and Evaluation (IHME)",
                   "yearPublished": "2024",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"1bd069cd-0fec-46f0-aab8-5c8fcfa136df\", \"id\": \"96814736940977\"}--\u003E"
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"2fad1e62-3bb9-4d77-9675-77b65c8a724d\", \"id\": \"102414283876191\"}--\u003E"
                 }
               ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"bcdeca89-8165-4ff5-8320-e10d19fa5fcd\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"65246ac7-533f-4af7-9cc0-35c482a86d7a\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "6fc7c1ef-4af3-413a-8cea-a2da3cde6c31",
+              "_uid": "f6dec764-7607-43cd-ae3d-fc8381e9b787",
               "type": "",
               "image": {
                 "id": 99213522369368,
@@ -632,21 +1272,21 @@
               "component": "StatisticsCard",
               "reference": [
                 {
-                  "_uid": "4e1ac8e5-27cf-41d7-9313-a13be1d63793",
+                  "_uid": "b6abf8b4-0590-482e-8993-f4055984a4fc",
                   "type": "",
                   "component": "Reference",
-                  "websiteUrl": "https://www.worldbank.org/en/publication/poverty-and-shared-prosperity",
+                  "websiteUrl": "https://data.who.int/dashboards/covid19/deaths",
                   "accessedDate": "26th August 2025",
-                  "websiteTitle": "Washington, DC: World Bank Group",
-                  "websiteAuthor": "The World Bank Group. Poverty and Shared Prosperity ",
-                  "yearPublished": "2020",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"4e1ac8e5-27cf-41d7-9313-a13be1d63793\", \"id\": \"96814736940977\"}--\u003E"
+                  "websiteTitle": "WHO COVID-19 dashboard",
+                  "websiteAuthor": "World Health Organisation",
+                  "yearPublished": "2025",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"b6abf8b4-0590-482e-8993-f4055984a4fc\", \"id\": \"102414283876191\"}--\u003E"
                 }
               ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"6fc7c1ef-4af3-413a-8cea-a2da3cde6c31\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"f6dec764-7607-43cd-ae3d-fc8381e9b787\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "e8c4c3f2-db03-495a-94c1-f3933da40135",
+              "_uid": "0bda8ab9-6c10-48eb-8ab4-25f65a670bb0",
               "type": "",
               "image": {
                 "id": 99213522099030,
@@ -671,21 +1311,21 @@
               "component": "StatisticsCard",
               "reference": [
                 {
-                  "_uid": "f7fe92ba-ab86-4bcb-ac93-8aa22fdc9488",
+                  "_uid": "569cf90b-e8d9-4437-babe-26c3d612eacb",
                   "type": "",
                   "component": "Reference",
-                  "websiteUrl": " https://data.who.int/dashboards/covid19/deaths",
+                  "websiteUrl": " https://www.worldbank.org/en/publication/poverty-and-shared-prosperity",
                   "accessedDate": "26th August 2025",
-                  "websiteTitle": "WHO COVID-19 dashboard",
-                  "websiteAuthor": "World Health Organisation",
-                  "yearPublished": "2025",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"f7fe92ba-ab86-4bcb-ac93-8aa22fdc9488\", \"id\": \"96814736940977\"}--\u003E"
+                  "websiteTitle": "Washington, DC: World Bank Group",
+                  "websiteAuthor": "The World Bank Group. Poverty and Shared Prosperity",
+                  "yearPublished": "2020",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"569cf90b-e8d9-4437-babe-26c3d612eacb\", \"id\": \"102414283876191\"}--\u003E"
                 }
               ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"e8c4c3f2-db03-495a-94c1-f3933da40135\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"0bda8ab9-6c10-48eb-8ab4-25f65a670bb0\", \"id\": \"102414283876191\"}--\u003E"
             },
             {
-              "_uid": "9bc17782-fd56-4d91-8365-e73c123df002",
+              "_uid": "82d61781-a38b-4c54-9f6a-51ac6f488545",
               "type": "",
               "image": {
                 "id": 99213522430809,
@@ -710,550 +1350,151 @@
               "component": "StatisticsCard",
               "reference": [
                 {
-                  "_uid": "510e7049-934e-457b-b1c3-c35bce834f07",
+                  "_uid": "98497269-d5c8-4f98-afc4-6045b5f159ea",
                   "type": "",
                   "component": "Reference",
-                  "websiteUrl": " https://cdn.who.int/media/docs/default-source/consultation-rdb/prioritization-pathogens-v6final.pdf ",
+                  "websiteUrl": "https://cdn.who.int/media/docs/default-source/consultation-rdb/prioritization-pathogens-v6final.pdf",
                   "accessedDate": "26th August 2025",
                   "websiteTitle": "Pathogens Prioritization",
                   "websiteAuthor": "World Health Organisation",
                   "yearPublished": "2019",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"510e7049-934e-457b-b1c3-c35bce834f07\", \"id\": \"96814736940977\"}--\u003E"
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"98497269-d5c8-4f98-afc4-6045b5f159ea\", \"id\": \"102414283876191\"}--\u003E"
                 }
               ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"9bc17782-fd56-4d91-8365-e73c123df002\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"82d61781-a38b-4c54-9f6a-51ac6f488545\", \"id\": \"102414283876191\"}--\u003E"
             }
           ],
-          "title": "The statistics",
-          "subTitle": "Preparedness saves lives",
+          "title": "Preparedness saves lives",
+          "subTitle": "The statistics",
           "component": "StatisticsAndText",
           "quotation": "Invest in preparedness now to create fully functional capacities at the national, regional and global level",
           "reference": [
             {
-              "_uid": "eb31c2ca-f6a8-40fb-8fc8-19a4365e00cc",
+              "_uid": "03b7c24c-c82e-4513-a567-1680f1911c5e",
               "type": "",
               "component": "Reference",
-              "websiteUrl": "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
-              "accessedDate": "26th August 2025",
-              "websiteTitle": "COVID-19: Make it the Last Pandemic.",
+              "websiteUrl": " https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
+              "accessedDate": "19th August 2025",
+              "websiteTitle": "COVID-19: Make it the Last Pandemic",
               "websiteAuthor": "The Independent Panel for Pandemic Preparedness & Response",
               "yearPublished": "2021",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"eb31c2ca-f6a8-40fb-8fc8-19a4365e00cc\", \"id\": \"96814736940977\"}--\u003E"
+              "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"03b7c24c-c82e-4513-a567-1680f1911c5e\", \"id\": \"102414283876191\"}--\u003E"
             }
           ],
-          "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsAndText\", \"space\": \"287525897740819\", \"uid\": \"844bd75a-300a-4049-93f6-375babd3f7bf\", \"id\": \"96814736940977\"}--\u003E"
-        }
-      ],
-      "header": [
-        {
-          "_uid": "caa6844a-8069-4b70-8320-5ff850d15674",
-          "type": "",
-          "title": "Resilience through data",
-          "subTitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
-          "component": "header",
-          "searchPlaceholderText": "",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"header\", \"space\": \"287525897740819\", \"uid\": \"caa6844a-8069-4b70-8320-5ff850d15674\", \"id\": \"96814736940977\"}--\u003E"
-        }
-      ],
-      "Partners": [
-        {
-          "_uid": "d51ef85a-d743-4adb-ab08-8eefb576ef67",
-          "link": {
-            "id": "",
-            "url": "https://www.ons.gov.uk/",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "https://www.ons.gov.uk/"
-          },
-          "logo": {
-            "id": 99913190454577,
-            "alt": "Office for National Statistics logo",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/192x41/34742c4c8c/ons_logo_digital_colour_english_rgb.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "Office for National Statistics logo",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"d51ef85a-d743-4adb-ab08-8eefb576ef67\", \"id\": \"96814736940977\"}--\u003E"
+          "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsAndText\", \"space\": \"287525897740819\", \"uid\": \"d4c3a20d-9f03-4526-bd8a-10782eb28896\", \"id\": \"102414283876191\"}--\u003E"
         },
         {
-          "_uid": "81f0be87-b732-4c13-b08b-73bd959635b3",
-          "link": {
-            "id": "",
-            "url": "#",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "#"
-          },
-          "logo": {
-            "id": 99913190069550,
-            "alt": "Emblem of Nepal",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/113x95/1360a341e0/emblem_of_nepal.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "Emblem of Nepal",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"81f0be87-b732-4c13-b08b-73bd959635b3\", \"id\": \"96814736940977\"}--\u003E"
-        },
-        {
-          "_uid": "4d1d2e16-a6ff-427a-861b-e3061c008218",
-          "link": {
-            "id": "",
-            "url": "https://www.nsomalawi.mw/",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "https://www.nsomalawi.mw/"
-          },
-          "logo": {
-            "id": 99913190487346,
-            "alt": "National Statistical Office of Malawi",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/212x87/cb68830c18/malawi-national-statistical-office.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "National Statistical Office of Malawi",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"4d1d2e16-a6ff-427a-861b-e3061c008218\", \"id\": \"96814736940977\"}--\u003E"
-        },
-        {
-          "_uid": "a4ca5440-da24-4396-a8eb-e92fb091e199",
-          "link": {
-            "id": "",
-            "url": "https://www.indec.gob.ar/",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "https://www.indec.gob.ar/"
-          },
-          "logo": {
-            "id": 99913190434096,
-            "alt": "INDEC logo",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/100x52/86e7c3fa5a/logo_indec.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "INDEC logo",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"a4ca5440-da24-4396-a8eb-e92fb091e199\", \"id\": \"96814736940977\"}--\u003E"
-        },
-        {
-          "_uid": "540f715c-2d81-47f7-8789-2294cc3e8396",
-          "link": {
-            "id": "",
-            "url": "https://wellcome.org/",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "https://wellcome.org/"
-          },
-          "logo": {
-            "id": 99913190552884,
-            "alt": "Wellcome",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/132x49/61a31698bc/wellcome.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "Wellcome",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"540f715c-2d81-47f7-8789-2294cc3e8396\", \"id\": \"96814736940977\"}--\u003E"
-        },
-        {
-          "_uid": "8f778847-51af-450c-aa1c-7909387a5367",
-          "link": {
-            "id": "",
-            "url": "https://herdint.com/",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "https://herdint.com/"
-          },
-          "logo": {
-            "id": 99913190274351,
-            "alt": "HERD International logo",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/135x59/5b1b1f8c4a/herdi_nepal.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "HERD International logo",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"8f778847-51af-450c-aa1c-7909387a5367\", \"id\": \"96814736940977\"}--\u003E"
-        },
-        {
-          "_uid": "a57f9160-2758-4dbf-90d3-d7222e3c0dc0",
-          "link": {
-            "id": "",
-            "url": "https://lukeinternational.no/",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "https://lukeinternational.no/"
-          },
-          "logo": {
-            "id": 99913190499635,
-            "alt": "LUKE International logo",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/145x47/999f5c6c1e/lin-luke-logo.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "LUKE International logo",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"a57f9160-2758-4dbf-90d3-d7222e3c0dc0\", \"id\": \"96814736940977\"}--\u003E"
-        },
-        {
-          "_uid": "4696bc7a-1c04-4817-9a37-21e516dad1a7",
-          "link": {
-            "id": "",
-            "url": "https://www.cemic.edu.ar/",
-            "linktype": "url",
-            "fieldtype": "multilink",
-            "cached_url": "https://www.cemic.edu.ar/"
-          },
-          "logo": {
-            "id": 99913189991725,
-            "alt": "CEMIC logo",
-            "name": "",
-            "focus": "",
-            "title": "",
-            "source": "",
-            "filename": "https://a.storyblok.com/f/287525897740819/134x41/4c1231f443/cemic-logo.svg",
-            "copyright": "",
-            "fieldtype": "asset",
-            "meta_data": {
-              "alt": "CEMIC logo",
-              "title": "",
-              "source": "",
-              "copyright": ""
-            },
-            "is_external_url": false
-          },
-          "type": "",
-          "component": "strategicPartner",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"strategicPartner\", \"space\": \"287525897740819\", \"uid\": \"4696bc7a-1c04-4817-9a37-21e516dad1a7\", \"id\": \"96814736940977\"}--\u003E"
+          "_uid": "f306f683-e39b-4f66-b9a1-e3b4d1440d70",
+          "link": [
+            {
+              "_uid": "811a35a8-e47f-48f3-8e84-6bcd0c9dd2e5",
+              "link": {
+                "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                "url": "",
+                "linktype": "story",
+                "fieldtype": "multilink",
+                "cached_url": "home"
+              },
+              "label": "View all tools",
+              "component": "Link",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"Link\", \"space\": \"287525897740819\", \"uid\": \"811a35a8-e47f-48f3-8e84-6bcd0c9dd2e5\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "title": "Tools to guide planning and response efforts",
+          "Carousel": [
+            {
+              "_uid": "261b72e0-c423-4f7b-b471-c4eb58d88eff",
+              "cards": [
+                {
+                  "_uid": "611d9d6e-22b0-4d64-9922-46781ab8b23d",
+                  "icon": "report",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "title": "Rumour report",
+                  "subTitle": "A rumour report logs unverified claims or info in circulation",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"611d9d6e-22b0-4d64-9922-46781ab8b23d\", \"id\": \"102414283876191\"}--\u003E"
+                },
+                {
+                  "_uid": "700b047c-cef8-427a-8b3e-8ed97e0e982d",
+                  "icon": "dashboard",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "title": "Modelling dashboard",
+                  "subTitle": "An infectious disease modelling dashboard.",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"700b047c-cef8-427a-8b3e-8ed97e0e982d\", \"id\": \"102414283876191\"}--\u003E"
+                },
+                {
+                  "_uid": "da8f84b4-9de2-405f-b9ed-db92166571b2",
+                  "icon": "questionbank",
+                  "link": {
+                    "id": "04ff3f56-07d8-4b9b-a844-aeaee5ea6b8e",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "tools/question-bank/"
+                  },
+                  "title": "Question Bank",
+                  "subTitle": "Curated library of ready-to-use, evidence-backed questions.",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"da8f84b4-9de2-405f-b9ed-db92166571b2\", \"id\": \"102414283876191\"}--\u003E"
+                },
+                {
+                  "_uid": "2ac49b9b-5770-4ea3-b7a6-cb681062fa2d",
+                  "icon": "calculator",
+                  "link": {
+                    "id": "9d1f5e5b-538f-4ea2-967b-1d05e0e02336",
+                    "rel": "",
+                    "url": "",
+                    "title": "Try now",
+                    "linktype": "story",
+                    "fieldtype": "multilink",
+                    "cached_url": "home"
+                  },
+                  "title": "Sample Size Calculator",
+                  "subTitle": "Estimates required sample size for a study or survey",
+                  "component": "ToolCard",
+                  "_editable": "\u003C!--#storyblok#{\"name\": \"ToolCard\", \"space\": \"287525897740819\", \"uid\": \"2ac49b9b-5770-4ea3-b7a6-cb681062fa2d\", \"id\": \"102414283876191\"}--\u003E"
+                }
+              ],
+              "component": "Carousel",
+              "_editable": "\u003C!--#storyblok#{\"name\": \"Carousel\", \"space\": \"287525897740819\", \"uid\": \"261b72e0-c423-4f7b-b471-c4eb58d88eff\", \"id\": \"102414283876191\"}--\u003E"
+            }
+          ],
+          "component": "ToolsCarousel",
+          "_editable": "\u003C!--#storyblok#{\"name\": \"ToolsCarousel\", \"space\": \"287525897740819\", \"uid\": \"f306f683-e39b-4f66-b9a1-e3b4d1440d70\", \"id\": \"102414283876191\"}--\u003E"
         }
       ],
       "component": "HomePage",
-      "header_title": "Resilience through data",
-      "imageAndText": [
-        {
-          "_uid": "fa817014-c4ca-488a-9609-d60ee4bd419e",
-          "link": {
-            "id": "8b47038f-84ab-4845-9040-d22bb68f8727",
-            "rel": "",
-            "url": "",
-            "title": "About",
-            "linktype": "story",
-            "fieldtype": "multilink",
-            "cached_url": "about"
-          },
-          "type": "",
-          "title": "What is Analysis for Action? MY BLAH",
-          "subTitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
-          "component": "imageAndText",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"imageAndText\", \"space\": \"287525897740819\", \"uid\": \"fa817014-c4ca-488a-9609-d60ee4bd419e\", \"id\": \"96814736940977\"}--\u003E"
-        }
-      ],
-      "case_study_main": [
-        {
-          "_uid": "0014b4ae-c712-4e47-8dac-b64305abe761",
-          "link": {
-            "id": "",
-            "url": "",
-            "linktype": "story",
-            "fieldtype": "multilink",
-            "cached_url": ""
-          },
-          "image": "",
-          "title": "",
-          "subtitle": "",
-          "component": "card_case_study",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"card_case_study\", \"space\": \"287525897740819\", \"uid\": \"0014b4ae-c712-4e47-8dac-b64305abe761\", \"id\": \"96814736940977\"}--\u003E"
-        }
-      ],
-      "header_subtitle": "Equipping National Statistical Offices with skills and tools to support evidence-based preparedness and response to emergencies, such as infectious disease outbreaks.",
-      "statisticsCards": [],
-      "what_is_aa_title": "What is Analysis for Action?",
-      "StatisticsAndText": [
-        {
-          "_uid": "fbb4837a-db1d-484c-aa34-ee35e0c57f59",
-          "link": {
-            "id": "38295d19-bc78-46f5-a9a0-c92866de7545",
-            "rel": "",
-            "url": "",
-            "title": "Learning Resources",
-            "linktype": "story",
-            "fieldtype": "multilink",
-            "cached_url": "learning-resources"
-          },
-          "type": "",
-          "cards": [
-            {
-              "_uid": "95be2a75-2018-4b05-a9b3-3b717ed6c590",
-              "type": "",
-              "image": {
-                "id": 99213522516826,
-                "alt": "A graph to show significant pandemic instances and the number of deaths as a result",
-                "name": "",
-                "focus": "",
-                "title": "deaths from all respiratory disease 1980-2021",
-                "source": "",
-                "filename": "https://a.storyblok.com/f/287525897740819/244x158/53f0bff783/14-8million.svg",
-                "copyright": "ONS",
-                "fieldtype": "asset",
-                "meta_data": {
-                  "alt": "A graph to show significant pandemic instances and the number of deaths as a result",
-                  "title": "deaths from all respiratory disease 1980-2021",
-                  "source": "",
-                  "copyright": "ONS"
-                },
-                "is_external_url": false
-              },
-              "title": "14.8 million+",
-              "subTitle": "deaths from all respiratory disease 1980-2021.",
-              "component": "StatisticsCard",
-              "reference": [
-                {
-                  "_uid": "ecbbcbc8-541f-40f5-bb86-5e8488318563",
-                  "type": "",
-                  "component": "Reference",
-                  "websiteUrl": " https://archive.ourworldindata.org/20250624-125417/grapher/deaths-from-infectious-diseases.html",
-                  "accessedDate": "26th August 2025",
-                  "websiteTitle": "Global Burden of Disease (2024)– with minor processing by Our World in Data. Deaths from infectious diseases [dataset]. In: Global Burden of Disease - Deaths and DALYs [original data]",
-                  "websiteAuthor": "Institute for Health Metrics and Evaluation (IHME) ",
-                  "yearPublished": "2024",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"ecbbcbc8-541f-40f5-bb86-5e8488318563\", \"id\": \"96814736940977\"}--\u003E"
-                }
-              ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"95be2a75-2018-4b05-a9b3-3b717ed6c590\", \"id\": \"96814736940977\"}--\u003E"
-            },
-            {
-              "_uid": "7b655725-7ef6-4b6d-8096-36d9ab0a29db",
-              "type": "",
-              "image": {
-                "id": 99213522369368,
-                "alt": "A graph to show 7 million + deaths from Covid-19 as of August 2025",
-                "name": "",
-                "focus": "",
-                "title": "Deaths from Covid as of August 2025",
-                "source": "",
-                "filename": "https://a.storyblok.com/f/287525897740819/246x163/b86a31251b/7million.svg",
-                "copyright": "ONS",
-                "fieldtype": "asset",
-                "meta_data": {
-                  "alt": "A graph to show 7 million + deaths from Covid-19 as of August 2025",
-                  "title": "Deaths from Covid as of August 2025",
-                  "source": "",
-                  "copyright": "ONS"
-                },
-                "is_external_url": false
-              },
-              "title": "7 million+",
-              "subTitle": "deaths from COVID-19 as of August 2025.",
-              "component": "StatisticsCard",
-              "reference": [
-                {
-                  "_uid": "0acfdcb7-2935-4fed-bcbb-8a7bf0ebf7cf",
-                  "type": "",
-                  "component": "Reference",
-                  "websiteUrl": "https://www.worldbank.org/en/publication/poverty-and-shared-prosperity",
-                  "accessedDate": "26th August 2025",
-                  "websiteTitle": "Washington, DC: World Bank Group",
-                  "websiteAuthor": "The World Bank Group. Poverty and Shared Prosperity ",
-                  "yearPublished": "2020",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"0acfdcb7-2935-4fed-bcbb-8a7bf0ebf7cf\", \"id\": \"96814736940977\"}--\u003E"
-                }
-              ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"7b655725-7ef6-4b6d-8096-36d9ab0a29db\", \"id\": \"96814736940977\"}--\u003E"
-            },
-            {
-              "_uid": "7f350369-b413-478e-a506-0901b7c55475",
-              "type": "",
-              "image": {
-                "id": 99213522099030,
-                "alt": "A graph to show that 88 million+ people have been pushed into extreme poverty due to COVID-19",
-                "name": "",
-                "focus": "",
-                "title": "People pushed into extreme poverty",
-                "source": "",
-                "filename": "https://a.storyblok.com/f/287525897740819/244x161/4f04a5f39f/88million.svg",
-                "copyright": "ONS",
-                "fieldtype": "asset",
-                "meta_data": {
-                  "alt": "A graph to show that 88 million+ people have been pushed into extreme poverty due to COVID-19",
-                  "title": "People pushed into extreme poverty",
-                  "source": "",
-                  "copyright": "ONS"
-                },
-                "is_external_url": false
-              },
-              "title": "88 million+",
-              "subTitle": "people pushed into extreme poverty due to COVID-19.",
-              "component": "StatisticsCard",
-              "reference": [
-                {
-                  "_uid": "ff58d682-bf38-468e-b738-9ce1b17131cc",
-                  "type": "",
-                  "component": "Reference",
-                  "websiteUrl": " https://data.who.int/dashboards/covid19/deaths",
-                  "accessedDate": "26th August 2025",
-                  "websiteTitle": "WHO COVID-19 dashboard",
-                  "websiteAuthor": "World Health Organisation",
-                  "yearPublished": "2025",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"ff58d682-bf38-468e-b738-9ce1b17131cc\", \"id\": \"96814736940977\"}--\u003E"
-                }
-              ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"7f350369-b413-478e-a506-0901b7c55475\", \"id\": \"96814736940977\"}--\u003E"
-            },
-            {
-              "_uid": "c33ccfda-8ae4-40ce-ac5e-5d5bb3820c98",
-              "type": "",
-              "image": {
-                "id": 99213522430809,
-                "alt": "A graphical representation of diseases with pandemic potential.",
-                "name": "",
-                "focus": "",
-                "title": "Pathogen Dots",
-                "source": "",
-                "filename": "https://a.storyblok.com/f/287525897740819/247x151/670eca417c/34pathogens.svg",
-                "copyright": "ONS",
-                "fieldtype": "asset",
-                "meta_data": {
-                  "alt": "A graphical representation of diseases with pandemic potential.",
-                  "title": "Pathogen Dots",
-                  "source": "",
-                  "copyright": "ONS"
-                },
-                "is_external_url": false
-              },
-              "title": "34 pathogens",
-              "subTitle": "identified as diseases with pandemic potential.",
-              "component": "StatisticsCard",
-              "reference": [
-                {
-                  "_uid": "c35b5c7c-ac58-4ee3-a9b2-03467600589d",
-                  "type": "",
-                  "component": "Reference",
-                  "websiteUrl": " https://cdn.who.int/media/docs/default-source/consultation-rdb/prioritization-pathogens-v6final.pdf ",
-                  "accessedDate": "26th August 2025",
-                  "websiteTitle": "Pathogens Prioritization",
-                  "websiteAuthor": "World Health Organisation",
-                  "yearPublished": "2019",
-                  "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"c35b5c7c-ac58-4ee3-a9b2-03467600589d\", \"id\": \"96814736940977\"}--\u003E"
-                }
-              ],
-              "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsCard\", \"space\": \"287525897740819\", \"uid\": \"c33ccfda-8ae4-40ce-ac5e-5d5bb3820c98\", \"id\": \"96814736940977\"}--\u003E"
-            }
-          ],
-          "title": "The statistics",
-          "subTitle": "Preparedness saves lives",
-          "component": "StatisticsAndText",
-          "quotation": "Invest in preparedness now to create fully functional capacities at the national, regional and global level",
-          "reference": [
-            {
-              "_uid": "2fd742cd-77ab-4e2f-8e09-fb37c49d6ba5",
-              "type": "",
-              "component": "Reference",
-              "websiteUrl": "https://theindependentpanel.org/wp-content/uploads/2021/05/COVID-19-Make-it-the-Last-Pandemic_final.pdf",
-              "accessedDate": "26th August 2025",
-              "websiteTitle": "COVID-19: Make it the Last Pandemic.",
-              "websiteAuthor": "The Independent Panel for Pandemic Preparedness & Response",
-              "yearPublished": "2021",
-              "_editable": "\u003C!--#storyblok#{\"name\": \"Reference\", \"space\": \"287525897740819\", \"uid\": \"2fd742cd-77ab-4e2f-8e09-fb37c49d6ba5\", \"id\": \"96814736940977\"}--\u003E"
-            }
-          ],
-          "_editable": "\u003C!--#storyblok#{\"name\": \"StatisticsAndText\", \"space\": \"287525897740819\", \"uid\": \"fbb4837a-db1d-484c-aa34-ee35e0c57f59\", \"id\": \"96814736940977\"}--\u003E"
-        }
-      ],
-      "StrategicPartners": [],
-      "strategicPartners": [],
-      "caseStudiesMainCard": [],
-      "what_is_aa_subtitle": "Analysis for Action is a free-to-use global platform designed for National Statistical Offices and public health stakeholders. Developed by an international team of experts, the platform provides quality assured tools, guidance, and training to strengthen preparedness and support evidence-based decision-making during emergencies, such as infectious disease outbreaks. By building sustainable capacity across five key areas, Analysis for Action strives to ensure that countries are better equipped to respond effectively and confidently when it matters most.",
-      "caseStudiesSmallCards": [],
-      "_editable": "\u003C!--#storyblok#{\"name\": \"page\", \"space\": \"287525897740819\", \"uid\": \"22f30891-bfa3-45eb-9a81-937b6fedfd9c\", \"id\": \"96814736940977\"}--\u003E"
+      "_editable": "\u003C!--#storyblok#{\"name\": \"HomePage\", \"space\": \"287525897740819\", \"uid\": \"3ee03a3a-b88a-4c91-bf05-18e854802f1c\", \"id\": \"102414283876191\"}--\u003E"
     },
     "slug": "home",
     "full_slug": "home",
     "sort_by_date": null,
-    "position": 0,
-    "tag_list": [],
+    "position": -40,
+    "tag_list": ["Malawi"],
     "is_startpage": false,
-    "parent_id": 0,
+    "parent_id": null,
     "meta_data": null,
-    "group_id": "9c5b5151-ba7f-495b-9d07-63124a320481",
-    "first_published_at": "2025-10-01T16:12:04.472Z",
+    "group_id": "a81b0c1d-3375-42ce-9468-22d36f584d16",
+    "first_published_at": "2025-10-21T13:36:41.470Z",
     "release_id": null,
     "lang": "default",
     "path": "/",
@@ -1261,7 +1502,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1760356331,
+  "cv": 1763714564,
   "rels": [],
   "links": []
 }

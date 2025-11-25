@@ -4,6 +4,7 @@ import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
 // Components
 import { Footer } from "@components/Organisms/Core/Footer/Footer";
 import { NavBar } from "@components/Organisms/Core/NavBar/NavBar";
+import { References } from "@components/Organisms/Core/References/References";
 
 // Content
 import strings from "@content/strings.json";
@@ -14,13 +15,17 @@ import "@fontsource-variable/open-sans";
 
 // Helpers
 import { fetchStory } from "@helpers/fetchContent";
+
+// Types
 import type { FooterProps } from "@components/Organisms/Core/Footer/Footer.interface";
 import type { NavBarProps } from "@components/Organisms/Core/NavBar/NavBar.interface";
+import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
 
 interface Props {
   title?: string;
+  referencesData?: ReferenceProps[];
 }
-const { title } = Astro.props;
+const { title, referencesData } = Astro.props;
 
 let footerContent = null;
 let navBarContent = null;
@@ -56,6 +61,20 @@ try {
     <main>
       <slot />
     </main>
-    {footerContent && <Footer {...footerContent} client:load />}
+    {referencesData && <References references={referencesData} />}
+    {footerContent && <Footer {...footerContent} />}
+    <script>
+      // For popover functionality
+      document.addEventListener("DOMContentLoaded", () => {
+        const popoverTriggerList = Array.from(
+          document.querySelectorAll('[data-bs-toggle="popover"]'),
+        );
+        popoverTriggerList.forEach((popoverTriggerEl) => {
+          new window.bootstrap.Popover(popoverTriggerEl, {
+            trigger: "focus",
+          });
+        });
+      });
+    </script>
   </body>
 </html>

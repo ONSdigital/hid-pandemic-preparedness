@@ -2,7 +2,8 @@
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/variables";
 
-.btn-arrow {
+// chaining increases specificity to ensure module styles win in all environments
+.btn-arrow:global(.btn) {
   @include button-size(
     $padding-y: map-get($spacers, 1),
     $padding-x: map-get($spacers, 1),
