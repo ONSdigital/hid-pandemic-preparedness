@@ -1,0 +1,45 @@
+{
+  "title": "All units within Epidemiological Analysis",
+  "units": [
+    {
+      "_uid": "abc123",
+      "link": {
+        "url": "/",
+        "cached_url": "/",
+        "label": "Basic Data Visualisation",
+        "story": {
+          "name": "Data collection",
+          "tag_list": ["Beginner", "Reports"],
+          "content": {
+            "chapters": [
+              {
+                "readingTime": "5-10 minutes"
+              }
+            ]
+          }
+        }
+      },
+      "subTitle": "Using 7-1-7 to Strengthen Uganda’s Health Security."
+    },
+    {
+      "_uid": "abc321",
+      "link": {
+        "url": "/",
+        "cached_url": "/",
+        "label": "Risk factors",
+        "story": {
+          "name": "Data collection",
+          "tag_list": ["Beginner"],
+          "content": {
+            "chapters": [
+              {
+                "readingTime": "5-10 minutes"
+              }
+            ]
+          }
+        }
+      },
+      "subTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mi."
+    }
+  ]
+}
