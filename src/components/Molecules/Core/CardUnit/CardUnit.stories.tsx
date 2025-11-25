@@ -6,7 +6,7 @@ import cardUnitData from "./cardUnit.json?raw";
 
 const meta = {
   component: CardUnit,
-  title: "Components/Cards/CardUnit",
+  title: "Molecules/Core/CardUnit",
   parameters: {
     layout: "centered",
   },
