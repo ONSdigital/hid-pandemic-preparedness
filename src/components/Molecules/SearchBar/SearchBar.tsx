@@ -79,8 +79,10 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   };
 
   useEffect(() => {
+    // only inject query string params when on search results page
     if (!props.isResultsPage || !isClient) return;
 
+    // debounce updates while user still typing
     const timer = setTimeout(() => {
       const currentUrlParam =
         new URLSearchParams(window.location.search).get("params") || "";
@@ -89,6 +91,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
       }
     }, 300);
 
+    // clean up
     return () => clearTimeout(timer);
   }, [searchInput, props.isResultsPage, isClient]);
 

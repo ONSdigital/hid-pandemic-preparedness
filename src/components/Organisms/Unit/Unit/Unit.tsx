@@ -82,6 +82,8 @@ export const Unit: FC<UnitProps> = ({ story }) => {
 
     // Run on navigation
     window.addEventListener("hashchange", handleHashChange);
+
+    // clean up
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, [chapters]);
 

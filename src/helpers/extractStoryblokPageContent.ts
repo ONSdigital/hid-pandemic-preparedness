@@ -1,12 +1,12 @@
 const parseRichText = (node: any): string => {
   if (!node) return "";
 
-  // Find the actual text leaf
+  // Find the actual text leaf on node
   if (node.type === "text" && node.text) {
     return node.text;
   }
 
-  // If it has children (content array), map and join them
+  // If node has children recursively look for text, map and join them
   if (node.content && Array.isArray(node.content)) {
     return node.content.map(parseRichText).join(" ");
   }
