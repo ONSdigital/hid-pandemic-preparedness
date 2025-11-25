@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { CardUnit } from "@/src/components/Molecules/Core/CardUnit/CardUnit";
+import { UnitCard } from "@/src/components/Molecules/Core/UnitCard/UnitCard";
 import type { UnitBlockProps } from "./UnitBlock.interface";
 import styles from "./UnitBlock.module.scss";
 
@@ -24,7 +24,7 @@ export const UnitBlock: FC<UnitBlockProps> = (props) => {
           )}
         >
           {props.units.map((unit) => (
-            <CardUnit key={unit._uid} {...unit} />
+            <UnitCard key={unit._uid} {...unit} />
           ))}
         </div>
       </div>

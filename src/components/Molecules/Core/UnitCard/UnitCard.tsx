@@ -3,8 +3,8 @@ import { RiTimerLine } from "@remixicon/react";
 import clsx from "clsx";
 import type { FC } from "react";
 
-import type { CardUnitProps } from "./CardUnit.interface";
-import styles from "../CardUnit/CardUnit.module.scss";
+import type { UnitCardProps } from "./UnitCard.interface";
+import styles from "../UnitCard/UnitCard.module.scss";
 import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
 import { Link } from "@components/Molecules/Core/Link/Link";
 import { getTags } from "@src/helpers/getTags";
@@ -12,7 +12,7 @@ import { getTags } from "@src/helpers/getTags";
 // Set size of icon here using icon component props
 const iconSize: string = "1.5rem";
 
-export const CardUnit: FC<CardUnitProps> = (props) => {
+export const UnitCard: FC<UnitCardProps> = (props) => {
   const story = props.link?.story;
 
   if (!story) return;
