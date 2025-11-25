@@ -79,6 +79,20 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   };
 
   useEffect(() => {
+    if (!props.isResultsPage || !isClient) return;
+
+    const timer = setTimeout(() => {
+      const currentUrlParam =
+        new URLSearchParams(window.location.search).get("params") || "";
+      if (searchInput !== currentUrlParam) {
+        updateUrl({ term: searchInput });
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchInput, props.isResultsPage, isClient]);
+
+  useEffect(() => {
     // this hook only runs in the browser
     // so createPortal (below) can safely be called
     setIsClient(true);
@@ -101,7 +115,6 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     const inputText = event.target.value;
     setSearchInput(inputText);
     runSearch(inputText);
-    updateUrl({ term: inputText });
   };
 
   const handleFocus = () => {

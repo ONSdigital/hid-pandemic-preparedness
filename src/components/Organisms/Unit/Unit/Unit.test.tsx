@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { describe, expect, test, vi, beforeEach, afterEach } from "vitest";
 import "@testing-library/jest-dom";
 
 // Importing raw here to avoid typescript errors when parsing strings to enums
@@ -13,6 +13,20 @@ describe("Unit component", () => {
     githubLink: null,
     startLink: null,
   };
+
+  beforeEach(() => {
+    Object.defineProperty(window, "scrollTo", {
+      value: vi.fn(),
+      writable: true,
+    });
+
+    window.location.hash = "";
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    window.location.hash = "";
+  });
 
   test("renders successfully if chapters are empty", () => {
     render(<Unit {...baseProps} />);
@@ -44,15 +58,8 @@ describe("Unit component", () => {
                 content: [
                   {
                     type: "paragraph",
-                    attrs: {
-                      textAlign: null,
-                    },
-                    content: [
-                      {
-                        text: "By the end of this learning you should know react.",
-                        type: "text",
-                      },
-                    ],
+                    attrs: { textAlign: null },
+                    content: [{ text: "Intro text", type: "text" }],
                   },
                 ],
               },
@@ -66,7 +73,10 @@ describe("Unit component", () => {
     expect(screen.getByTestId("unit-container")).toBeInTheDocument();
   });
 
-  test("renders successfully if chapters just contain a chapter", () => {
+  test("automatically selects chapter if URL hash matches slug", async () => {
+    const chapterTitle = "Key parts of react";
+    const expectedSlug = "key-parts-of-react";
+
     // Update props to include a single chapter
     const props: UnitProps = {
       story: {
@@ -75,10 +85,24 @@ describe("Unit component", () => {
           ...baseProps.story.content,
           chapters: [
             {
-              _uid: "716cfc89-83fa-48c4-9922-23333d705885",
-              title: "Key parts of react",
+              _uid: "overview-uid-123",
+              title: "Overview",
+              component: "UnitOverview",
+              githubLink: {
+                id: "gh-link-1",
+                url: "https://github.com",
+                linktype: "url",
+                fieldtype: "multilink",
+                cached_url: "https://github.com",
+              },
+              readingTime: "5m",
+              overviewRichText: { type: "doc", content: [] },
+            },
+            {
+              _uid: "chapter-uid-456",
+              title: chapterTitle,
               sections: [],
-              subTitle: "Oooooooh",
+              subTitle: "Deep linked content",
               component: "UnitChapter",
             },
           ],
@@ -86,7 +110,17 @@ describe("Unit component", () => {
       },
     };
 
+    window.location.hash = `#${expectedSlug}`;
+
     render(<Unit {...props} />);
-    expect(screen.getByTestId("unit-container")).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByText("Deep linked content")).toBeInTheDocument();
+    });
+
+    expect(window.scrollTo).toHaveBeenCalledWith({
+      top: 0,
+      behavior: "smooth",
+    });
   });
 });
