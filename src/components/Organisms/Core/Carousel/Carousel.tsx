@@ -14,17 +14,17 @@ import breakpoints from "../../../../styles/global/overrides/_breakpoints.module
 
 import { ArrowButton } from "@components/ArrowButton/ArrowButton";
 import { ToolCard } from "@/src/components/Molecules/Core/ToolCard/ToolCard";
-import { UnitCard } from "@/src/components/Molecules/Core/UnitCard/UnitCard";
+import { CardUnit } from "@/src/components/Molecules/Core/CardUnit/CardUnit";
 import type {
   CarouselProps,
   DynamicCarouselItemComponentProps,
 } from "./Carousel.interface";
 
 // List of components that we allow the Carousel to render
-type ComponentName = "ToolCard" | "UnitCard";
+type ComponentName = "ToolCard" | "CardUnit";
 export const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   ToolCard,
-  UnitCard,
+  CardUnit,
 };
 
 export const DynamicCarouselItemComponent: FC<

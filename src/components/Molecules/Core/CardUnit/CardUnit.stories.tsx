@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CardUnit } from "./UnitCard";
-import type { CardUnitProps } from "./UnitCard.interface";
+import { CardUnit } from "./CardUnit";
+import type { CardUnitProps } from "./CardUnit.interface";
 import cardUnitData from "./cardUnit.json?raw";
 
 const meta = {
