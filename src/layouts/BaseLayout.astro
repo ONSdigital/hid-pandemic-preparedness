@@ -1,6 +1,4 @@
 ---
-import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
-
 // Components
 import { Footer } from "@components/Organisms/Core/Footer/Footer";
 import { NavBar } from "@components/Organisms/Core/NavBar/NavBar";
@@ -51,7 +49,7 @@ try {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <script src={bootstrap} defer is:inline></script>
+    <script src="/js/bootstrap.bundle.min.js" defer is:inline></script>
     <title>{title ? `${strings.title} | ${title}` : strings.title}</title>
   </head>
   <body>
