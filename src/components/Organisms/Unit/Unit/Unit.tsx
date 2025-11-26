@@ -25,7 +25,7 @@ import strings from "@src/content/strings.json";
 
 import type { UnitProps } from "./Unit.interface";
 import styles from "./Unit.module.scss";
-import { slugifyChapterTitle } from "@/src/helpers/slugifyChapterTitle";
+import slugify from "slugify";
 
 export const Unit: FC<UnitProps> = ({ story }) => {
   // Initialize vars
@@ -69,7 +69,7 @@ export const Unit: FC<UnitProps> = ({ story }) => {
 
       // Find match
       const targetChapter = chapters.find(
-        (ch: Chapter) => slugifyChapterTitle(ch.title) === hash,
+        (ch: Chapter) => slugify(ch.title, { lower: true }) === hash,
       );
 
       if (targetChapter && targetChapter._uid !== selectedChapterId) {
@@ -119,7 +119,11 @@ export const Unit: FC<UnitProps> = ({ story }) => {
 
         const chapter = chapters.find((c: Chapter) => c._uid === id);
         if (chapter) {
-          history.pushState(null, "", `#${slugifyChapterTitle(chapter.title)}`);
+          history.pushState(
+            null,
+            "",
+            `#${slugify(chapter.title, { lower: true })}`,
+          );
         }
       },
     };
@@ -138,7 +142,7 @@ export const Unit: FC<UnitProps> = ({ story }) => {
           history.pushState(
             null,
             "",
-            `#${slugifyChapterTitle(nextChapter.title)}`,
+            `#${slugify(nextChapter.title, { lower: true })}`,
           );
         }
       }

@@ -10,7 +10,9 @@ import { Unit as UnitComponent } from "@src/components/Organisms/Unit/Unit/Unit"
 import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
 import { getSearchableChapters } from "@src/helpers/extractStoryblokPageContent";
-import { slugifyChapterTitle } from "@src/helpers/slugifyChapterTitle";
+
+// helpers
+import slugify from "slugify";
 
 interface Props {
   breadcrumbs: BreadcrumbProps;
@@ -39,7 +41,7 @@ const indexedChapterContent = getSearchableChapters(story);
       {
         indexedChapterContent.map((chapter: any) => {
           // Create the ID for url linking from search: "How does RAP..." -> "how-does-rap..."
-          const chapterId = slugifyChapterTitle(chapter.title);
+          const chapterId = slugify(chapter.title, { lower: true });
 
           return (
             <div class="pf-ghost-chapter">
