@@ -49,11 +49,8 @@ provider "aws" {
 # Set up ssl certificate for api gateway endpoints distributions
 resource "aws_acm_certificate" "api_gateway_certificate" {
   # Needs to be same region as api gateway
-  provider    = aws.eu_west_2
-  domain_name = var.domain_name
-  subject_alternative_names = [
-    "preview.${var.domain_name}"
-  ]
+  provider          = aws.eu_west_2
+  domain_name       = "preview.${var.domain_name}"
   validation_method = "DNS"
 }
 
@@ -345,7 +342,7 @@ resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "HEAD"]
-    allowed_origins = [aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint]
+    allowed_origins = [aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id]
     expose_headers  = []
     max_age_seconds = 3000
   }
