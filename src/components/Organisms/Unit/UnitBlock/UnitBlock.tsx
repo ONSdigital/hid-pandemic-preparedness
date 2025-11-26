@@ -24,7 +24,7 @@ export const UnitBlock: FC<UnitBlockProps> = (props) => {
           )}
         >
           {props.units.map((unit) => (
-            <CardUnit key={unit.id} {...unit} />
+            <CardUnit key={unit._uid} {...unit} />
           ))}
         </div>
       </div>

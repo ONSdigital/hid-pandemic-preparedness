@@ -10,6 +10,7 @@ import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndT
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 import { Table } from "@src/components/Molecules/Core/Table/Table";
 import { ToolsCarousel } from "@src/components/Organisms/Home/ToolsCarousel/ToolsCarousel";
+import { UnitBlock } from "@/src/components/Organisms/Unit/UnitBlock/UnitBlock";
 import { Video } from "@/src/components/Organisms/Core/Video/Video";
 
 // List of components that we have corresponding bloks for in Storyblok
@@ -26,6 +27,7 @@ const COMPONENT_NAMES: string[] = [
   "Table",
   "ToolsCarousel",
   "Video",
+  "UnitBlock",
   "Carousel",
 ];
 
@@ -42,7 +44,9 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
 
 {
   componentName ? (
-    componentName === "CaseStudies" ? (
+    componentName === "UnitBlock" ? (
+      <UnitBlock {...blok} />
+    ) : componentName === "CaseStudies" ? (
       <CaseStudies {...blok} />
     ) : componentName === "FullWidthRichText" ? (
       <FullWidthRichText {...blok} />
