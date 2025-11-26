@@ -5,4 +5,5 @@ This folder contains documentation for the application. This documentation is re
 The documentation is split into the following sections:
 - [Architectural Decision Records](./architectural-decision-records/README.md) - A record of the technical decisions made during the application design and build, mapped to requirements
 - [Non-functional Requirements](./non-functional-requirements/README.md) - The requirements the application is designed and built to meet
+- [Security](./security/README.md) - Documentation showing how the application has met security requirements
 - [Spike outputs](./spike-outputs/README.md) - A record of research done during the project either to inform technical decisions or to generate requirements
