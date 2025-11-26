@@ -26,6 +26,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const [urlPageIndex, setUrlPageIndex] = useState(0);
 
   const searchContainerRef = useRef<HTMLFormElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useMediaQuery();
 
@@ -79,10 +80,44 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   };
 
   useEffect(() => {
+    // only inject query string params when on search results page
+    if (!props.isResultsPage || !isClient) return;
+
+    // debounce updates while user still typing
+    const timer = setTimeout(() => {
+      const currentUrlParam =
+        new URLSearchParams(window.location.search).get("params") || "";
+      if (searchInput !== currentUrlParam) {
+        updateUrl({ term: searchInput });
+      }
+    }, 300);
+
+    // clean up
+    return () => clearTimeout(timer);
+  }, [searchInput, props.isResultsPage, isClient]);
+
+  useEffect(() => {
     // this hook only runs in the browser
     // so createPortal (below) can safely be called
     setIsClient(true);
   }, []);
+
+  // Replaces 'autoFocus' to ensure we control the timing.
+  useEffect(() => {
+    if (props.isInline && inputRef.current) {
+      inputRef.current.focus();
+      if (document.activeElement === inputRef.current) {
+        setIsFocused(true);
+      }
+    }
+  }, [props.isInline]);
+
+  // Initialize Pagefind only when focused
+  useEffect(() => {
+    if (isClient && isFocused) {
+      initPagefind();
+    }
+  }, [props.isInline, isClient]);
 
   useEffect(() => {
     window.addEventListener("popstate", parseUrlAndSync);
@@ -99,9 +134,11 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
+
+    if (inputText && !isFocused) setIsFocused(true);
+
     setSearchInput(inputText);
     runSearch(inputText);
-    updateUrl({ term: inputText });
   };
 
   const handleFocus = () => {
@@ -124,7 +161,6 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Check for clicks outside the referenced element (search container)
       if (
         searchContainerRef.current &&
         !searchContainerRef.current.contains(event.target as Node)
@@ -132,8 +168,17 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         setIsFocused(false);
       }
     };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside); // Clean up - remove listener on unmount
+
+    // prevents navbar click that opens search bubbling up and triggering the close listener immediately
+    const timer = setTimeout(() => {
+      document.addEventListener("click", handleClickOutside);
+    }, 0);
+
+    // Clean up - remove listener on unmount
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   const showDropdown =
@@ -154,6 +199,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     >
       <div className={clsx("input-group", "mb-3")}>
         <input
+          ref={inputRef}
           aria-label={props.placeholder}
           className={clsx("form-control", styles["input-sizing"])}
           onChange={onChange}
