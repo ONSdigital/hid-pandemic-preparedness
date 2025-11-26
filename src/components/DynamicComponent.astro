@@ -45,7 +45,7 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
 {
   componentName ? (
     componentName === "UnitBlock" ? (
-      <UnitBlock {...blok} client:visible />
+      <UnitBlock {...blok} />
     ) : componentName === "CaseStudies" ? (
       <CaseStudies {...blok} />
     ) : componentName === "FullWidthRichText" ? (
