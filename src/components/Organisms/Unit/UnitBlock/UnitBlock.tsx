@@ -7,7 +7,7 @@ import styles from "./UnitBlock.module.scss";
 
 export const UnitBlock: FC<UnitBlockProps> = (props) => {
   return (
-    <div className={clsx("w-100", styles["unit-block-bg"])}>
+    <div className={clsx("w-100", "pb-4", styles["unit-block-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row", "py-4")}>
           <h3 className={clsx("heading-m")}>{props.title}</h3>
