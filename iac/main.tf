@@ -342,7 +342,10 @@ resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "HEAD"]
-    allowed_origins = [aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id]
+    allowed_origins = [
+      aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint,
+      "https://${aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id}"
+    ]
     expose_headers  = []
     max_age_seconds = 3000
   }
