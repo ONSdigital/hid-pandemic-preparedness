@@ -24,6 +24,39 @@ resource "aws_cloudfront_function" "aws_cloudfront_function" {
   code    = file("${path.module}/appendRequest.js")
 }
 
+provider "aws" {
+  alias  = "us_east_1"
+  region = "us-east-1"
+}
+
+# Set up ssl certificate for cloudfront distributions
+resource "aws_acm_certificate" "cloudfront_certificate" {
+  # Needs to be us-east-1 region for certificates attached to cloudfront
+  provider    = aws.us_east_1
+  domain_name = var.domain_name
+  subject_alternative_names = [
+    "www.${var.domain_name}",
+    "staging.${var.domain_name}"
+  ]
+  validation_method = "DNS"
+}
+
+provider "aws" {
+  alias  = "eu_west_2"
+  region = "eu-west-2"
+}
+
+# Set up ssl certificate for api gateway endpoints distributions
+resource "aws_acm_certificate" "api_gateway_certificate" {
+  # Needs to be same region as api gateway
+  provider    = aws.eu_west_2
+  domain_name = var.domain_name
+  subject_alternative_names = [
+    "preview.${var.domain_name}"
+  ]
+  validation_method = "DNS"
+}
+
 # Create bucket for storybook dev
 module "storybook_dev_s3" {
   source                     = "./s3"
@@ -42,6 +75,9 @@ module "storybook_dev_cloudfront" {
   distribution_name           = "Dev storybook"
   default_root_object         = "index.html"
   long_cache_path_pattern     = "assets/*"
+  viewer_certificate = {
+    cloudfront_default_certificate = true
+  }
 }
 
 # Create bucket for storybook main
@@ -62,6 +98,9 @@ module "storybook_main_cloudfront" {
   distribution_name           = "Main storybook"
   default_root_object         = "index.html"
   long_cache_path_pattern     = "assets/*"
+  viewer_certificate = {
+    cloudfront_default_certificate = true
+  }
 }
 
 # Create bucket for app dev
@@ -87,6 +126,9 @@ module "app_dev_cloudfront" {
     }
   ]
   long_cache_path_pattern = "_astro/*"
+  viewer_certificate = {
+    cloudfront_default_certificate = true
+  }
 }
 
 # Create bucket for app main
@@ -116,6 +158,11 @@ module "app_main_cloudfront" {
   }]
   long_cache_path_pattern = "_astro/*"
   price_class             = "PriceClass_All"
+  viewer_certificate = {
+    acm_certificate_arn      = aws_acm_certificate.cloudfront_certificate.arn
+    minimum_protocol_version = "TLSv1.2_2021"
+    ssl_support_method       = "sni-only"
+  }
 }
 
 # Create an s3 bucket for Storyblok preview SSR assets
@@ -135,6 +182,9 @@ module "app_preview_cloudfront" {
   distribution_name           = "Preview assets"
   default_root_object         = "index.html"
   long_cache_path_pattern     = "_astro/*"
+  viewer_certificate = {
+    cloudfront_default_certificate = true
+  }
 }
 
 # Create an s3 bucket to contain app source files for CodePipeline build
@@ -173,6 +223,11 @@ module "app_prod_cloudfront" {
   }]
   long_cache_path_pattern = "_astro/*"
   price_class             = "PriceClass_All"
+  viewer_certificate = {
+    acm_certificate_arn      = aws_acm_certificate.cloudfront_certificate.arn
+    minimum_protocol_version = "TLSv1.2_2021"
+    ssl_support_method       = "sni-only"
+  }
 }
 
 # IAM role for Lambda execution
@@ -254,6 +309,22 @@ resource "aws_apigatewayv2_stage" "aws_apigatewayv2_stage" {
   api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
   name        = "$default"
   auto_deploy = true
+}
+
+resource "aws_apigatewayv2_domain_name" "aws_apigatewayv2_domain_name" {
+  domain_name = "preview.${var.domain_name}"
+
+  domain_name_configuration {
+    certificate_arn = aws_acm_certificate.api_gateway_certificate.arn
+    endpoint_type   = "REGIONAL"
+    security_policy = "TLS_1_2"
+  }
+}
+
+resource "aws_apigatewayv2_api_mapping" "aws_apigatewayv2_api_mapping" {
+  api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  domain_name = aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id
+  stage       = aws_apigatewayv2_stage.aws_apigatewayv2_stage.id
 }
 
 # Permission for API Gateway to invoke Lambda

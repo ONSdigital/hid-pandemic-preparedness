@@ -1,3 +1,9 @@
+variable "acm_certificate_arn" {
+  description = "ARN of the AWS Certificate Manager certificate that you wish to use with this distribution."
+  type        = string
+  default     = null
+}
+
 variable "bucket_name" {
   description = "The name of the bucket we're using as the origin of the cloudfront distribution."
   type        = string
@@ -57,4 +63,15 @@ variable "price_class" {
   description = "Price class for this distribution. See https://aws.amazon.com/cloudfront/features/?icmpid=docs_console_unmapped#Global_Edge_Network"
   type        = string
   default     = "PriceClass_100"
+}
+
+
+variable "viewer_certificate" {
+  description = "The SSL configuration for this distribution (maximum one)."
+  type = object({
+    acm_certificate_arn            = optional(string)
+    cloudfront_default_certificate = optional(bool, false)
+    minimum_protocol_version       = optional(string)
+    ssl_support_method             = optional(string)
+  })
 }

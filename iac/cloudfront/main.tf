@@ -83,7 +83,9 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn            = var.viewer_certificate.acm_certificate_arn
+    cloudfront_default_certificate = var.viewer_certificate.cloudfront_default_certificate
+    ssl_support_method             = var.viewer_certificate.ssl_support_method
   }
 }
 
