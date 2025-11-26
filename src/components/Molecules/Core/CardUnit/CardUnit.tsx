@@ -71,15 +71,7 @@ export const CardUnit: FC<CardUnitProps> = (props) => {
 
         {readingTime && (
           <div
-            className={clsx(
-              "align-items-center",
-              "card-footer",
-              "d-inline-flex",
-              "justify-content-start",
-              "gap-2",
-              "py-3",
-              styles["unit-card-footer"],
-            )}
+            className={clsx("align-items-center", "d-flex", "gap-2", "py-3")}
           >
             <div
               className={clsx(
