@@ -36,7 +36,6 @@ export const CardUnit: FC<CardUnitProps> = (props) => {
         "shadow",
         "p-2",
         "rounded-4",
-        // "col-3",
       )}
     >
       <div className={clsx("card-body")}>
