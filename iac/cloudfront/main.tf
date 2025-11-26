@@ -20,6 +20,8 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
   comment             = var.distribution_name
   default_root_object = var.default_root_object
 
+  aliases = var.aliases
+
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
@@ -85,6 +87,7 @@ resource "aws_cloudfront_distribution" "aws_cloudfront_distribution" {
   viewer_certificate {
     acm_certificate_arn            = var.viewer_certificate.acm_certificate_arn
     cloudfront_default_certificate = var.viewer_certificate.cloudfront_default_certificate
+    minimum_protocol_version       = var.viewer_certificate.minimum_protocol_version
     ssl_support_method             = var.viewer_certificate.ssl_support_method
   }
 }

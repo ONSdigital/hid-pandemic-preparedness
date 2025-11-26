@@ -4,6 +4,12 @@ variable "acm_certificate_arn" {
   default     = null
 }
 
+variable "aliases" {
+  description = "Extra CNAMEs (alternate domain names), if any, for this distribution."
+  type        = list(string)
+  default     = []
+}
+
 variable "bucket_name" {
   description = "The name of the bucket we're using as the origin of the cloudfront distribution."
   type        = string

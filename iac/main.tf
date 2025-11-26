@@ -144,6 +144,7 @@ module "app_main_s3" {
 # Price class and restrictions are set to ensure worldwide availability
 module "app_main_cloudfront" {
   source                      = "./cloudfront"
+  aliases                     = ["staging.${var.domain_name}"]
   bucket_name                 = module.app_main_s3.id
   bucket_regional_domain_name = module.app_main_s3.bucket_regional_domain_name
   distribution_enabled        = true
@@ -209,6 +210,7 @@ module "app_prod_s3" {
 # Price class and restrictions are set to ensure worldwide availability
 module "app_prod_cloudfront" {
   source                      = "./cloudfront"
+  aliases                     = [var.domain_name, "www.${var.domain_name}"]
   bucket_name                 = module.app_prod_s3.id
   bucket_regional_domain_name = module.app_prod_s3.bucket_regional_domain_name
   distribution_enabled        = true
