@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { v4 as uuidv4 } from "uuid";
 
 import { CardUnit } from "./CardUnit";
 import type { CardUnitProps } from "./CardUnit.interface";
+import cardUnitData from "./cardUnit.json?raw";
 
 const meta = {
   component: CardUnit,
-  title: "Components/Cards/CardUnit",
+  title: "Molecules/Core/CardUnit",
   parameters: {
     layout: "centered",
   },
@@ -18,7 +18,16 @@ const meta = {
     },
     link: {
       table: {
-        disable: true,
+        disable: false, // allow table to show
+      },
+      // Nested properties
+      label: {
+        control: "text", // user can edit the label
+      },
+      url: {
+        table: {
+          disable: true, // hide other properties
+        },
       },
     },
     tags: {
@@ -32,25 +41,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const cardUnitProps: CardUnitProps = {
-  id: uuidv4(),
-  link: {
-    href: "/",
-    label: "Basic Data Visualisation",
-  },
-  subTitle: "Using 7-1-7 to Strengthen Uganda’s Health Security.",
-  tags: [
-    {
-      title: "Reports",
-    },
-    {
-      title: "Beginner",
-    },
-  ],
-  readingTime: "3 min",
-};
-
 export const CardUnitStory = {
-  args: cardUnitProps,
+  args: JSON.parse(cardUnitData) as CardUnitProps,
   name: "CardUnit",
 } satisfies Story;
