@@ -32,21 +32,21 @@ enum BlockTypes {
   TABLE_HEADER = "tableHeader", // eslint-disable-line no-unused-vars
 }
 
-enum MarkTypes {
-  // BOLD = "bold",
-  // STRONG = "strong",
-  // STRIKE = "strike",
-  // UNDERLINE = "underline",
-  // ITALIC = "italic",
-  // CODE = "code",
-  LINK = "link", // eslint-disable-line no-unused-vars
-  // ANCHOR = "anchor",
-  // STYLED = "styled",
-  // SUPERSCRIPT = "superscript",
-  // SUBSCRIPT = "subscript",
-  // TEXT_STYLE = "textStyle",
-  // HIGHLIGHT = "highlight",
-}
+// enum MarkTypes {
+// BOLD = "bold",
+// STRONG = "strong",
+// STRIKE = "strike",
+// UNDERLINE = "underline",
+// ITALIC = "italic",
+// CODE = "code",
+// LINK = "link",
+// ANCHOR = "anchor",
+// STYLED = "styled",
+// SUPERSCRIPT = "superscript",
+// SUBSCRIPT = "subscript",
+// TEXT_STYLE = "textStyle",
+// HIGHLIGHT = "highlight",
+// }
 
 // enum TextTypes {
 //   TEXT = "text",
@@ -178,20 +178,6 @@ export const tableResolver: StoryblokRichTextNodeResolver<T> = (
   ) as T;
 };
 
-// Custom link resolver that adds our custom styling
-export const linkResolver: StoryblokRichTextNodeResolver<T> = (
-  node: StoryblokRichTextNode<T>,
-  context,
-): T => {
-  // // Add styling to the attributes
-  let attributes = processAttributes(node.attrs);
-  attributes.class = clsx(attributes.class);
-
-  const children = node.children || node.text || (null as any);
-
-  return context.render("a", attributes, children) as T;
-};
-
 // Create some overrides for our resolvers so we can add custom styles
 export const overiddenResolvers: Record<
   string,
@@ -211,7 +197,7 @@ export const overiddenResolvers: Record<
   // [BlockTypes.QUOTE, nodeResolver("blockquote")],
   [BlockTypes.COMPONENT]: componentResolver,
   // [TextTypes.TEXT, textResolver],
-  [MarkTypes.LINK]: linkResolver,
+  // [MarkTypes.LINK, linkResolver],
   // [MarkTypes.ANCHOR, linkResolver],
   // [MarkTypes.STYLED, markResolver("span", true)],
   // [MarkTypes.BOLD, markResolver("strong")],
