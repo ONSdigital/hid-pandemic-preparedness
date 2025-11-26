@@ -27,3 +27,8 @@
   /* Fallback for older browsers */
   height: calc(1.2em * 2); // the number of lines
 }
+
+.unit-card-footer {
+  background-color: transparent;
+  border-top: none;
+}

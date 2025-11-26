@@ -73,11 +73,12 @@ export const CardUnit: FC<CardUnitProps> = (props) => {
         <div
           className={clsx(
             "align-items-center",
-            "card-body",
+            "card-footer",
             "d-inline-flex",
             "justify-content-start",
             "gap-2",
             "py-3",
+            styles["unit-card-footer"],
           )}
         >
           <div
