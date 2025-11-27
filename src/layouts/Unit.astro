@@ -1,6 +1,5 @@
 ---
 import type { ISbStoryData } from "storyblok-js-client";
-
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Components
@@ -10,6 +9,10 @@ import { Unit as UnitComponent } from "@src/components/Organisms/Unit/Unit/Unit"
 // Types
 import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
+import { getSearchableChapters } from "@src/helpers/extractStoryblokPageContent";
+
+// helpers
+import slugify from "slugify";
 
 interface Props {
   breadcrumbs: BreadcrumbProps;
@@ -17,11 +20,55 @@ interface Props {
   story: ISbStoryData;
 }
 const { breadcrumbs, referencesData, story } = Astro.props;
+const indexedChapterContent = getSearchableChapters(story);
 ---
 
 <BaseLayout referencesData={referencesData} title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
-    <UnitComponent story={story} client:visible />
+
+    <div data-pagefind-ignore>
+      <UnitComponent story={story} client:visible />
+    </div>
+
+    <!-- GHOST CONTENT INDEX -->
+    <div class="pf-ghost-wrapper" aria-hidden="true">
+      <!-- Main Page Title -->
+      <div class="pf-ghost-chapter">
+        <h1>{story.name}</h1>
+      </div>
+
+      {
+        indexedChapterContent.map((chapter: any) => {
+          // Create the ID for url linking from search: "How does RAP..." -> "how-does-rap..."
+          const chapterId = slugify(chapter.title, { lower: true });
+
+          return (
+            <div class="pf-ghost-chapter">
+              {/* ID: Allows Pagefind to link to individual chapters (e.g., #how-does-rap) */}
+              <h2 id={chapterId}>{chapter.title}</h2>
+              <p>{chapter.text}</p>
+            </div>
+          );
+        })
+      }
+    </div>
   </main>
 </BaseLayout>
+
+<!-- Local styles hide HTML content created purely for pagefind's indexing -->
+<style>
+  .pf-ghost-wrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    top: 0;
+    left: 0;
+  }
+</style>

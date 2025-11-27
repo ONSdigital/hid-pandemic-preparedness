@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import unitBlockData from "@content/learning-resources/data-analysis/epidemiological-analysis/unitBlock.json";
+import unitBlockData from "./unitBlock.json?raw";
 
 import { UnitBlock } from "./UnitBlock";
 import type { UnitBlockProps } from "./UnitBlock.interface";
 
 const meta = {
   component: UnitBlock,
-  title: "Organisms/Core/UnitBlock",
+  title: "Organisms/Unit/UnitBlock",
   parameters: {
     layout: "fullscreen",
   },
@@ -25,5 +25,5 @@ type Story = StoryObj<typeof meta>;
 
 export const UnitBlockStory = {
   name: "UnitBlock",
-  args: unitBlockData as UnitBlockProps,
+  args: JSON.parse(unitBlockData) as UnitBlockProps,
 } satisfies Story;

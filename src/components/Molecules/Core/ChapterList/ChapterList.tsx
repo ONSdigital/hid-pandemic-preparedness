@@ -38,7 +38,7 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
         >
           <a
             role="button"
-            className={clsx("text-decoration-none")}
+            className={clsx("text-decoration-none", styles["link-color"])}
             href={void 0}
             onClick={handleClick(chapter._uid)}
           >

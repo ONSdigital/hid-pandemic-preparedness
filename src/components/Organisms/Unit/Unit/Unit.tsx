@@ -1,7 +1,7 @@
 import { RiArrowRightLine } from "@remixicon/react";
 import clsx from "clsx";
 import type { FC } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import type { ButtonProps } from "@src/components/Button/Button.interface";
@@ -25,6 +25,7 @@ import strings from "@src/content/strings.json";
 
 import type { UnitProps } from "./Unit.interface";
 import styles from "./Unit.module.scss";
+import slugify from "slugify";
 
 export const Unit: FC<UnitProps> = ({ story }) => {
   // Initialize vars
@@ -58,6 +59,34 @@ export const Unit: FC<UnitProps> = ({ story }) => {
     overviewChapter ? overviewChapter._uid : "",
   );
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const rawHash = window.location.hash.substring(1);
+      if (!rawHash || !chapters) return;
+
+      // Decode where browser encoding may cause mismatch
+      const hash = decodeURIComponent(rawHash);
+
+      // Find match
+      const targetChapter = chapters.find(
+        (ch: Chapter) => slugify(ch.title, { lower: true }) === hash,
+      );
+
+      if (targetChapter && targetChapter._uid !== selectedChapterId) {
+        setSelectedChapterId(targetChapter._uid);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+
+    handleHashChange();
+
+    // Run on navigation
+    window.addEventListener("hashchange", handleHashChange);
+
+    // clean up
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [chapters]);
+
   if (chapterIds) {
     // Find index of the selected chapter
     selectedIndex = selectedChapterId
@@ -87,6 +116,15 @@ export const Unit: FC<UnitProps> = ({ story }) => {
       })),
       onSelect: (id: string) => {
         setSelectedChapterId(id);
+
+        const chapter = chapters.find((c: Chapter) => c._uid === id);
+        if (chapter) {
+          history.pushState(
+            null,
+            "",
+            `#${slugify(chapter.title, { lower: true })}`,
+          );
+        }
       },
     };
   }
@@ -95,8 +133,18 @@ export const Unit: FC<UnitProps> = ({ story }) => {
   const handleNext = () => {
     if (chapterIds) {
       if (selectedIndex >= 0 && selectedIndex < chapterIds.length - 1) {
-        setSelectedChapterId(chapterIds[selectedIndex + 1]);
+        const nextId = chapterIds[selectedIndex + 1];
+        setSelectedChapterId(nextId);
         window.scrollTo({ top: 0, behavior: "instant" });
+
+        const nextChapter = chapters.find((c: Chapter) => c._uid === nextId);
+        if (nextChapter) {
+          history.pushState(
+            null,
+            "",
+            `#${slugify(nextChapter.title, { lower: true })}`,
+          );
+        }
       }
     }
   };

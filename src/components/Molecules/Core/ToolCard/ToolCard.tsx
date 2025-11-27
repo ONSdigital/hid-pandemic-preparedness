@@ -7,9 +7,9 @@ import {
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 
+import { Link } from "@components/Molecules/Core/Link/Link";
 import type { ToolCardProps } from "./ToolCard.interface";
 import styles from "./ToolCard.module.scss";
-import { Link } from "@components/Molecules/Core/Link/Link";
 
 // Set size of icon here using icon component props
 const iconSize: string = "2.375rem";
@@ -43,7 +43,10 @@ export const ToolCard: FC<ToolCardProps> = (props) => {
           {props.title}
         </h4>
         <p className={clsx("card-text")}>{props.subTitle}</p>
-        <Link {...props.link} />
+        <Link
+          {...props.link}
+          className={clsx("fw-semibold", styles["link-color"])}
+        />
       </div>
     </div>
   );

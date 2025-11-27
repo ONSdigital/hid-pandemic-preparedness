@@ -13,5 +13,12 @@
 }
 
 .title-height {
-  height: 3rem;
+  // Prevents the title being longer than 2 lines long
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  /* Fallback for older browsers */
+  height: calc(1.2em * 2); // the number of lines
 }

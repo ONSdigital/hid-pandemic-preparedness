@@ -59,6 +59,7 @@ export async function fetchStories(
   const response = await client.get("cdn/stories/", {
     version: VERSION,
     per_page: 100,
+    resolve_links: "story",
     ...params,
   });
   return response;
