@@ -43,10 +43,11 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
   // Initialize filteredThemes state with all themes initially
   const [filteredThemes, setFilteredThemes] = useState<Theme[]>([]);
 
-  const { currentItems, currentPage, totalPages, goToPage } = usePagination({
-    data: filteredThemes,
-    itemsPerPage: 1,
-  });
+  const { currentPageIndex, totalPages, currentItems, goToPage } =
+    usePagination({
+      data: filteredThemes,
+      itemsPerPage: 1,
+    });
 
   const activeTheme = currentItems.length > 0 ? currentItems[0] : null;
 
@@ -105,7 +106,7 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
                     <Paginator
                       ariaLabel={filterableResourcesStrings.themeNavigation}
                       totalPages={totalPages}
-                      currentPage={currentPage}
+                      currentPage={currentPageIndex}
                       onPageChange={goToPage}
                     />
                   </div>

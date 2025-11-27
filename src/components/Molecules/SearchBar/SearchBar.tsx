@@ -48,7 +48,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     props.initialQuery,
   );
 
-  const { currentPage, totalPages, currentItems } = usePagination({
+  const { currentPageIndex, totalPages, currentItems } = usePagination({
     data: allResults,
     itemsPerPage: RESULTS_PER_PAGE,
     initialPageIndex: urlPageIndex,
@@ -139,7 +139,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     ? document.getElementById("search-results-portal")
     : null;
 
-  const resultsPageStartingIndex = currentPage * RESULTS_PER_PAGE;
+  const resultsPageStartingIndex = currentPageIndex * RESULTS_PER_PAGE;
 
   return (
     <form
@@ -241,7 +241,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
                   <Paginator
                     ariaLabel="Search results pagination"
                     totalPages={totalPages}
-                    currentPage={currentPage}
+                    currentPage={currentPageIndex}
                     onPageChange={handlePageChange}
                     scrollTopRef={resultsTopRef}
                   />

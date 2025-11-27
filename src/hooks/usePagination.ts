@@ -39,7 +39,7 @@ export const usePagination = <T>({
   };
 
   return {
-    currentPage: currentPageIndex,
+    currentPageIndex,
     totalPages,
     currentItems,
     goToPage,
