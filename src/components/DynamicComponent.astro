@@ -1,4 +1,6 @@
 ---
+import ContentArea from "@src/components/ContentArea.astro";
+
 import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
@@ -12,6 +14,7 @@ import { Table } from "@src/components/Molecules/Core/Table/Table";
 import { ToolsCarousel } from "@src/components/Organisms/Home/ToolsCarousel/ToolsCarousel";
 import { UnitBlock } from "@/src/components/Organisms/Unit/UnitBlock/UnitBlock";
 import { Video } from "@/src/components/Organisms/Core/Video/Video";
+import { Formula } from "./Molecules/Core/Formula/Formula";
 
 // List of components that we have corresponding bloks for in Storyblok
 const COMPONENT_NAMES: string[] = [
@@ -29,6 +32,7 @@ const COMPONENT_NAMES: string[] = [
   "Video",
   "UnitBlock",
   "Carousel",
+  "Formula",
 ];
 
 const { blok } = Astro.props;
@@ -68,6 +72,10 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
       <Table {...blok} />
     ) : componentName === "ToolsCarousel" ? (
       <ToolsCarousel {...blok} client:visible />
+    ) : componentName === "Formula" ? (
+      <Formula {...blok} client:visible />
+    ) : componentName === "ContentArea" ? (
+      <ContentArea {...blok} />
     ) : componentName === "Video" ? (
       <Video {...blok} client:visible />
     ) : null

@@ -12,6 +12,17 @@ export const TextModule: FC<TextModuleProps> = (props) => {
   // Either render rich text or pass through html content depending on what is provided via props
   let html = null;
 
+  // console.log("----START----");
+  // console.log(props.richText);
+  // // console.log("blok", props.richText.content);
+  // // console.log("body", props.richText?.content?.[2].attrs.body);
+  // console.log("----END----");
+  // console.log("");
+  // console.log("");
+  // console.log("");
+  // console.log("");
+  // console.log("");
+
   if (props.richText) {
     html = renderRichText(props.richText as StoryblokRichTextNode, {
       optimizeImages: {
