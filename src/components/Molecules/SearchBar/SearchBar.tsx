@@ -14,6 +14,7 @@ import { Button } from "@src/components/Button/Button";
 import { usePagefind } from "@src/hooks/usePagefind";
 import { usePagination } from "@src/hooks/usePagination";
 import { useMediaQuery } from "@/src/hooks/useMediaQuery";
+import { useSearchPageQueryParams } from "@/src/hooks/useSearchPageQueryParams";
 
 const RESULTS_PER_PAGE = 10;
 
@@ -21,64 +22,39 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   const {
     search: { viewAllResults },
   } = strings;
+
   const [isFocused, setIsFocused] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [urlPageIndex, setUrlPageIndex] = useState(0);
 
   const searchContainerRef = useRef<HTMLFormElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const resultsTopRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery();
 
-  const { searchInput, setSearchInput, allResults, runSearch, initPagefind } =
-    usePagefind(isClient, props.initialQuery);
+  const [urlState, updateUrl] = useSearchPageQueryParams(isClient);
+  const { term: urlSearchTerm, pageIndex: urlPageIndex } = urlState;
+
+  const [searchInput, setSearchInput] = useState(urlSearchTerm);
+
+  // Sync local input if URL changes externally (e.g. Back button)
+  useEffect(() => {
+    if (urlSearchTerm !== searchInput) {
+      setSearchInput(urlSearchTerm);
+    }
+  }, [urlSearchTerm]);
+
+  const { allResults, runSearch, initPagefind } = usePagefind(
+    isClient,
+    props.initialQuery,
+  );
 
   const { currentPage, totalPages, currentItems } = usePagination({
     data: allResults,
     itemsPerPage: RESULTS_PER_PAGE,
-    initialPage: urlPageIndex,
+    initialPageIndex: urlPageIndex,
   });
 
-  const updateUrl = (params: { term?: string; page?: number }) => {
-    if (!isClient) return;
-    const url = new URL(window.location.href);
-
-    if (params.term !== undefined) {
-      if (params.term) url.searchParams.set("params", params.term);
-      else url.searchParams.delete("params");
-    }
-
-    const newPage = params.term !== undefined ? 1 : params.page;
-
-    if (newPage && newPage > 1) {
-      url.searchParams.set("page", newPage.toString());
-    } else {
-      url.searchParams.delete("page");
-    }
-
-    if (params.term !== undefined) {
-      window.history.replaceState({}, "", url);
-    } else {
-      window.history.pushState({}, "", url);
-    }
-
-    parseUrlAndSync();
-  };
-
-  const parseUrlAndSync = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    const pageParam = parseInt(urlParams.get("page") || "1", 10);
-    const targetIndex = pageParam > 0 ? pageParam - 1 : 0;
-    setUrlPageIndex(targetIndex);
-
-    const queryParam = urlParams.get("params") || "";
-    if (queryParam !== searchInput) {
-      setSearchInput(queryParam);
-      if (queryParam) runSearch(queryParam);
-    }
-  };
-
+  // Update URL (Only if on results page)
   useEffect(() => {
     // only inject query string params when on search results page
     if (!props.isResultsPage || !isClient) return;
@@ -117,26 +93,11 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
     if (isClient && isFocused) {
       initPagefind();
     }
-  }, [props.isInline, isClient]);
-
-  useEffect(() => {
-    window.addEventListener("popstate", parseUrlAndSync);
-    return () => window.removeEventListener("popstate", parseUrlAndSync);
-  }, [searchInput]);
-
-  useEffect(() => {
-    // re-run search when landing on results page
-    // isClient must be true to run search
-    if (props.isResultsPage && isClient) {
-      parseUrlAndSync();
-    }
-  }, [props.isResultsPage, isClient]);
+  }, [props.isInline, isClient, isFocused, initPagefind]);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
-
     if (inputText && !isFocused) setIsFocused(true);
-
     setSearchInput(inputText);
     runSearch(inputText);
   };
@@ -147,16 +108,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   };
 
   const handlePageChange = (pageIndex: number) => {
-    const pageNumber = pageIndex + 1;
-    updateUrl({ page: pageNumber });
-
-    if (resultsTopRef.current) {
-      resultsTopRef.current.scrollIntoView({
-        behavior: "smooth",
-      });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    updateUrl({ pageIndex });
   };
 
   useEffect(() => {
@@ -291,6 +243,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
                     totalPages={totalPages}
                     currentPage={currentPage}
                     onPageChange={handlePageChange}
+                    scrollTopRef={resultsTopRef}
                   />
                 </div>
               )}

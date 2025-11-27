@@ -1,43 +1,45 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 interface UsePaginationProps<T> {
   data: T[];
   itemsPerPage: number;
-  initialPage?: number;
+  initialPageIndex?: number;
 }
 
 export const usePagination = <T>({
   data,
   itemsPerPage,
-  initialPage = 0,
+  initialPageIndex = 0,
 }: UsePaginationProps<T>) => {
-  const [currentPage, setCurrentPage] = useState(initialPage);
-
-  useEffect(() => {
-    setCurrentPage(initialPage);
-  }, [initialPage]);
-
-  useEffect(() => {
-    if (initialPage === 0) {
-      setCurrentPage(0);
-    }
-  }, [data, initialPage]);
-
+  const [currentPageIndex, setCurrentPageIndex] = useState(initialPageIndex);
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
+  useEffect(() => {
+    const safeIndex = Math.max(0, Math.min(initialPageIndex, totalPages - 1));
+    setCurrentPageIndex(safeIndex);
+  }, [initialPageIndex, totalPages]);
+
+  useEffect(() => {
+    const safeIndex = Math.max(0, Math.min(currentPageIndex, totalPages - 1));
+    if (currentPageIndex !== safeIndex) {
+      setCurrentPageIndex(safeIndex);
+    }
+  }, [data.length, totalPages]);
+
   const currentItems = useMemo(() => {
-    const start = currentPage * itemsPerPage;
+    const start = currentPageIndex * itemsPerPage;
     const end = start + itemsPerPage;
     return data.slice(start, end);
-  }, [currentPage, data, itemsPerPage]);
+  }, [currentPageIndex, data, itemsPerPage]);
 
   const goToPage = (pageIndex: number) => {
-    const pageNumber = Math.max(0, Math.min(pageIndex, totalPages - 1));
-    setCurrentPage(pageNumber);
+    const newIndex = Math.max(0, Math.min(pageIndex, totalPages - 1));
+    setCurrentPageIndex(newIndex);
+    return newIndex;
   };
 
   return {
-    currentPage,
+    currentPage: currentPageIndex,
     totalPages,
     currentItems,
     goToPage,

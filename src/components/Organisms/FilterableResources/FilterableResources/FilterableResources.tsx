@@ -41,9 +41,7 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
     strings.filterableResources.filterableResources;
 
   // Initialize filteredThemes state with all themes initially
-  const [filteredThemes, setFilteredThemes] = useState<Theme[]>(
-    props.resources ?? [],
-  );
+  const [filteredThemes, setFilteredThemes] = useState<Theme[]>([]);
 
   const { currentItems, currentPage, totalPages, goToPage } = usePagination({
     data: filteredThemes,

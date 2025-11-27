@@ -1,10 +1,20 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import "@testing-library/jest-dom";
 
 import headerProps from "./header.json";
 import type { HeaderProps } from "./Header.interface";
 import { Header } from "./Header";
+
+vi.mock("@src/hooks/usePagefind", () => ({
+  usePagefind: () => ({
+    searchInput: "",
+    setSearchInput: vi.fn(),
+    allResults: [],
+    runSearch: vi.fn(),
+    initPagefind: vi.fn(),
+  }),
+}));
 
 describe("Header component", () => {
   const baseProps: HeaderProps = {

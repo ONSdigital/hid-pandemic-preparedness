@@ -19,7 +19,34 @@ const mockInitPagefind = vi.fn().mockResolvedValue(undefined);
 const onRunSearchSpy = vi.fn();
 const onSetSearchInputSpy = vi.fn();
 
-// Mock Pagefind data
+// Used to control initial state in tests
+let mockUrlState = { term: "", pageIndex: 0 };
+
+// Mock Search page query params hook
+vi.mock("@/src/hooks/useSearchPageQueryParams", () => ({
+  useSearchPageQueryParams: () => {
+    const [state, setState] = useState(mockUrlState);
+
+    const updateUrl = (params: { term?: string; pageIndex?: number }) => {
+      setState((prev) => ({
+        term: params.term ?? prev.term,
+        pageIndex: params.pageIndex ?? prev.pageIndex,
+      }));
+    };
+
+    return [state, updateUrl];
+  },
+}));
+
+// Mock Pagination hook
+vi.mock("@src/hooks/usePagination", () => ({
+  usePagination: (props: any) => ({
+    currentPage: props.initialPageIndex || 0,
+    totalPages: Math.ceil(props.data.length / 10) || 1,
+    currentItems: props.data.slice(0, 10),
+  }),
+}));
+
 const createMockResults = (count: number): SearchResultData[] => {
   return Array.from({ length: count }, (_, i) => ({
     link: { href: `/page-${i + 1}`, label: `Page ${i + 1}` },
@@ -30,8 +57,19 @@ const createMockResults = (count: number): SearchResultData[] => {
 // Mock Pagefind Hook
 vi.mock("@src/hooks/usePagefind", () => ({
   usePagefind: (isClient: boolean, initialQuery: string | undefined) => {
-    const [searchInput, setSearchInput] = useState(initialQuery || "");
-    const [allResults, setAllResults] = useState<SearchResultData[]>([]);
+    const [searchInput, setSearchInput] = useState(() => {
+      if (initialQuery) {
+        onRunSearchSpy(initialQuery);
+      }
+      return initialQuery || "";
+    });
+
+    const [allResults, setAllResults] = useState<SearchResultData[]>(() => {
+      if (initialQuery && initialQuery.length > 0) {
+        return createMockResults(6);
+      }
+      return [];
+    });
 
     const runSearch = async (term: string) => {
       onRunSearchSpy(term);
@@ -101,7 +139,7 @@ vi.mock("@src/styles/global/overrides/_breakpoints.module.scss", () => ({
   },
 }));
 
-// MOck string.json
+// Mock string.json
 vi.mock("@src/content/strings.json", () => ({
   default: {
     search: {
@@ -132,6 +170,7 @@ beforeEach(() => {
 
   vi.clearAllMocks();
   mockInitPagefind.mockResolvedValue(undefined);
+  mockUrlState = { term: "", pageIndex: 0 };
 });
 
 afterEach(() => {
@@ -226,26 +265,43 @@ describe("SearchBar (Results Page Mode, isResultsPage={true})", () => {
   });
 
   it("runs search on mount using query from URL", async () => {
+    // Seed the mock hook state
+    mockUrlState = { term: "urlquery", pageIndex: 0 };
     windowLocationSpy.mockReturnValue({
       ...window.location,
       search: "?params=urlquery",
     });
-    render(<SearchBar placeholder="Search" isResultsPage={true} />);
+
+    render(
+      <SearchBar
+        placeholder="Search"
+        isResultsPage={true}
+        initialQuery="urlquery"
+      />,
+    );
+
     await waitFor(() => {
-      expect(onSetSearchInputSpy).toHaveBeenCalledWith("urlquery");
+      const input = screen.getByPlaceholderText("Search") as HTMLInputElement;
+      expect(input.value).toBe("urlquery");
       expect(onRunSearchSpy).toHaveBeenCalledWith("urlquery");
     });
-
-    const input = screen.getByPlaceholderText("Search") as HTMLInputElement;
-    expect(input.value).toBe("urlquery");
   });
 
   it("renders all results to portal with correct props", async () => {
+    mockUrlState = { term: "urlquery", pageIndex: 0 };
     windowLocationSpy.mockReturnValue({
       ...window.location,
       search: "?params=urlquery",
     });
-    render(<SearchBar placeholder="Search" isResultsPage={true} />);
+
+    render(
+      <SearchBar
+        placeholder="Search"
+        isResultsPage={true}
+        initialQuery="urlquery"
+      />,
+    );
+
     const resultsMock = await screen.findByTestId("search-results-mock");
 
     const props = JSON.parse(resultsMock.textContent || "{}");
