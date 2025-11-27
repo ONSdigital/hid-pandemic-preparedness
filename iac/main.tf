@@ -161,6 +161,8 @@ module "app_main_cloudfront" {
     minimum_protocol_version = "TLSv1.2_2021"
     ssl_support_method       = "sni-only"
   }
+
+  depends_on = [aws_acm_certificate.cloudfront_certificate]
 }
 
 # Create an s3 bucket for Storyblok preview SSR assets
@@ -227,6 +229,8 @@ module "app_prod_cloudfront" {
     minimum_protocol_version = "TLSv1.2_2021"
     ssl_support_method       = "sni-only"
   }
+
+  depends_on = [aws_acm_certificate.cloudfront_certificate]
 }
 
 # IAM role for Lambda execution
@@ -318,6 +322,8 @@ resource "aws_apigatewayv2_domain_name" "aws_apigatewayv2_domain_name" {
     endpoint_type   = "REGIONAL"
     security_policy = "TLS_1_2"
   }
+
+  depends_on = [aws_acm_certificate.api_gateway_certificate]
 }
 
 resource "aws_apigatewayv2_api_mapping" "aws_apigatewayv2_api_mapping" {
