@@ -64,15 +64,18 @@ vi.mock("@src/hooks/usePagefind", () => ({
       return initialQuery || "";
     });
 
-    const [allResults, setAllResults] = useState<SearchResultData[]>(() => {
-      if (initialQuery && initialQuery.length > 0) {
-        return createMockResults(6);
-      }
-      return [];
-    });
+    const [allResults, setAllResults] = useState<SearchResultData[] | null>(
+      () => {
+        if (initialQuery && initialQuery.length > 0) {
+          return createMockResults(6);
+        }
+        return null;
+      },
+    );
 
     const runSearch = async (term: string) => {
       onRunSearchSpy(term);
+      setAllResults(null);
       await Promise.resolve();
 
       if (term === "noresults") {
@@ -80,7 +83,7 @@ vi.mock("@src/hooks/usePagefind", () => ({
       } else if (term && term.trim().length > 0) {
         setAllResults(createMockResults(6));
       } else {
-        setAllResults([]);
+        setAllResults(null);
       }
     };
 
@@ -216,7 +219,7 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
     });
   });
 
-  it("shows 'No results found' message in dropdown when no results match", async () => {
+  it("renders SearchResults with empty array when no results match", async () => {
     const user = userEvent.setup();
     render(<SearchBar placeholder="Search" isResultsPage={false} />);
 
@@ -226,12 +229,12 @@ describe("SearchBar (Immediate Search Mode, isResultsPage={false})", () => {
     fireEvent.change(input, { target: { value: "noresults" } });
 
     await waitFor(() => {
-      expect(
-        screen.queryByTestId("search-results-mock"),
-      ).not.toBeInTheDocument();
-      expect(screen.queryByText("View all results")).not.toBeInTheDocument();
-      expect(screen.getByText(/No results found for/i)).toBeInTheDocument();
-      expect(screen.getByText(/"noresults"/)).toBeInTheDocument();
+      const resultsMock = screen.getByTestId("search-results-mock");
+      const props = JSON.parse(resultsMock.textContent || "{}");
+
+      expect(resultsMock).toBeInTheDocument();
+      expect(props.searchResults).toEqual([]);
+      expect(props.searchInput).toBe("noresults");
     });
   });
 

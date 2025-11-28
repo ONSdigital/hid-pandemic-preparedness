@@ -49,7 +49,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   );
 
   const { currentPageIndex, totalPages, currentItems } = usePagination({
-    data: allResults,
+    data: allResults || [],
     itemsPerPage: RESULTS_PER_PAGE,
     initialPageIndex: urlPageIndex,
   });
@@ -182,40 +182,29 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
               : styles["search-results"],
           )}
         >
-          {allResults.length > 0 ? (
-            // search results found
-            <>
-              <SearchResults
-                searchResults={allResults}
-                isMobile={isMobile}
-                limit={5}
-                startingItemIndex={0}
-                searchInput={searchInput}
-              />
-              <div
-                className={clsx(
-                  "p-3",
-                  "bg-light",
-                  "d-flex",
-                  "justify-content-center",
-                  styles["sticky-link-container"],
-                )}
+          <SearchResults
+            searchResults={allResults}
+            isMobile={isMobile}
+            limit={5}
+            startingItemIndex={0}
+            searchInput={searchInput}
+          />
+          {allResults && allResults.length > 0 && (
+            <div
+              className={clsx(
+                "p-3",
+                "bg-light",
+                "d-flex",
+                "justify-content-center",
+                styles["sticky-link-container"],
+              )}
+            >
+              <a
+                href={`/search?params=${encodeURIComponent(searchInput)}`}
+                className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
               >
-                <a
-                  href={`/search?params=${encodeURIComponent(searchInput)}`}
-                  className="link-dark link-underline-opacity-0 link-underline-opacity-100-hover fw-medium"
-                >
-                  {viewAllResults} <RiArrowRightLine />
-                </a>
-              </div>
-            </>
-          ) : (
-            // searchInput entered but no results found
-            <div className="p-4 text-center">
-              <p className="text-secondary mb-0">
-                No results found for{" "}
-                <span className="text-dark fw-semibold">"{searchInput}"</span>
-              </p>
+                {viewAllResults} <RiArrowRightLine />
+              </a>
             </div>
           )}
         </div>
@@ -229,9 +218,9 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
           <div className="container-lg">
             <div ref={resultsToRef} className="bg-white rounded-3 p-4 p-md-5">
               <SearchResults
-                searchResults={currentItems}
+                searchResults={allResults === null ? null : currentItems}
                 isMobile={isMobile}
-                totalResults={allResults.length}
+                totalResults={allResults?.length || 0}
                 startingItemIndex={resultsPageStartingIndex}
                 searchInput={searchInput}
               />

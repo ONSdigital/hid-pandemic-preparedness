@@ -17,7 +17,7 @@ type PagefindModule = {
 
 export interface PagefindUtils {
   searchInput: string;
-  allResults: SearchResultData[];
+  allResults: SearchResultData[] | null;
   setSearchInput: (input: string) => void;
   initPagefind: () => Promise<void>;
   runSearch: (term: string) => Promise<void>;
@@ -28,11 +28,10 @@ export const usePagefind = (
   initialQuery: string | undefined,
 ): PagefindUtils => {
   const [searchInput, setSearchInput] = useState(initialQuery || "");
-  const [allResults, setAllResults] = useState<SearchResultData[]>([]);
+  const [allResults, setAllResults] = useState<SearchResultData[] | null>(null);
 
   const pagefind = useRef<PagefindModule | null>(null);
   const initPromise = useRef<Promise<void> | null>(null);
-  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const initPagefind = () => {
     if (initPromise.current) {
@@ -58,10 +57,9 @@ export const usePagefind = (
   };
 
   const runSearch = async (term: string): Promise<void> => {
-    if (!isClient) {
-      setAllResults([]);
-      return;
-    }
+    if (!isClient) return;
+
+    setAllResults(null);
 
     await initPagefind();
     if (!pagefind.current) {
@@ -70,7 +68,7 @@ export const usePagefind = (
     }
 
     if (!term) {
-      setAllResults([]);
+      setAllResults(null);
       return;
     }
 

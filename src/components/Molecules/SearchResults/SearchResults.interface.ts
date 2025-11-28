@@ -6,7 +6,7 @@ export interface SearchResultItemProps extends SearchResultData {
 }
 
 export interface SearchResultsProps {
-  searchResults: SearchResultData[];
+  searchResults: SearchResultData[] | null;
   isMobile: boolean;
   limit?: number;
   totalResults?: number;
