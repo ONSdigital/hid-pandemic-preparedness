@@ -74,7 +74,7 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
     ) : componentName === "QuickLinks" ? (
       <QuickLinks {...blok} />
     ) : componentName === "Table" ? (
-      <Table {...blok} />
+      <Table {...blok} client:visible />
     ) : componentName === "ToolsCarousel" ? (
       <ToolsCarousel {...blok} client:visible />
     ) : componentName === "Formula" ? (
