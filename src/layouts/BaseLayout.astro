@@ -18,7 +18,6 @@ import { fetchStory } from "@helpers/fetchContent";
 import type { FooterProps } from "@components/Organisms/Core/Footer/Footer.interface";
 import type { NavBarProps } from "@components/Organisms/Core/NavBar/NavBar.interface";
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
-import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -55,7 +54,6 @@ try {
       defer
       is:inline></script>
     <title>{title ? `${strings.title} | ${title}` : strings.title}</title>
-    <ClientRouter />
   </head>
   <body>
     <header>
