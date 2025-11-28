@@ -10,6 +10,7 @@ import { Header } from "@src/components/Organisms/Core/Header/Header";
 // Types
 import type { BreadcrumbProps } from "@src/components/Molecules/Core/Breadcrumb/Breadcrumb.interface";
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
+import clsx from "clsx";
 
 interface Props {
   breadcrumbs: BreadcrumbProps;
@@ -17,16 +18,22 @@ interface Props {
   story: ISbStoryData;
 }
 const { breadcrumbs, referencesData, story } = Astro.props;
-console.log(story.content.Body.length);
+console.log(Astro.props);
 ---
 
-<BaseLayout referencesData={referencesData} title={story.name}>
-  <main>
-    <Header title={story.name} breadcrumbs={breadcrumbs} />
-    {story.content.Body.length === 0 && <h1>Under construction</h1>}
-    {
-      story.content.Body &&
-        story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
-    }
-  </main>
-</BaseLayout>
+<div class={clsx("w-100", "py-4")} style="background-color:#f8f5f1">
+  <div
+    class="container-lg border rounded p-4"
+    style="background-color:#ffffff"
+    ;
+    border-color:#f0e6d8
+  >
+    <div class="row">
+      {
+        Astro.props.textarea.map((blok: any) => (
+          <DynamicComponent blok={blok} />
+        ))
+      }
+    </div>
+  </div>
+</div>

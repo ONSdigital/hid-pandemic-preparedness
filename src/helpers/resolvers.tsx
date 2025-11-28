@@ -166,6 +166,7 @@ export const tableResolver: StoryblokRichTextNodeResolver<T> = (
   node: StoryblokRichTextNode<T>,
   context,
 ): T => {
+  // console.log("node: ", node);
   let attributes = processAttributes(node.attrs);
   // Add styling to the attributes
   attributes.class = clsx("table", "table-borderless", "table-ppt");
