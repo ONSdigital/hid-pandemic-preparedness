@@ -16,6 +16,7 @@ export interface BasicPage {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -43,6 +44,7 @@ export interface BasicPage {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -83,6 +85,7 @@ export interface CardBlock {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -110,6 +113,7 @@ export interface CardBlock {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -200,6 +204,13 @@ export interface Chart {
 export interface Code {
   Code?: unknown;
   component: "Code";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface ContentArea {
+  textarea?: (FullWidthRichText | Formula | Table | RichText | Iframe)[];
+  component: "ContentArea";
   _uid: string;
   [k: string]: unknown;
 }
@@ -315,6 +326,7 @@ export interface HomePage {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -342,6 +354,7 @@ export interface HomePage {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -427,6 +440,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -454,6 +468,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -486,6 +501,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -513,6 +529,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -545,6 +562,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -572,6 +590,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -604,6 +623,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -631,6 +651,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -736,6 +757,13 @@ export interface Reference {
   websiteTitle: string;
   websiteUrl: string;
   component: "Reference";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface RichText {
+  content?: StoryblokRichtext;
+  component: "RichText";
   _uid: string;
   [k: string]: unknown;
 }
@@ -939,6 +967,7 @@ export interface Video {
 export type ContentType =
   | BasicPage
   | CardBlock
+  | ContentArea
   | FilterableResources
   | Footer
   | Home
