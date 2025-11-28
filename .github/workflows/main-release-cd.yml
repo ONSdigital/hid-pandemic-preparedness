@@ -26,9 +26,6 @@ jobs:
           cache: "npm"
       - name: install dependencies
         run: npm ci
-      - name: build bootstrap javascript
-        run: npm run build-bootstrap-js
-        shell: bash
       - name: deploy preview site as lambda
         run: npm run deploy-app-preview
         shell: bash

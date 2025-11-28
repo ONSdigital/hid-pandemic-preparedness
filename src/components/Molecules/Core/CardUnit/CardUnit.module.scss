@@ -1,14 +1,13 @@
 @use "../../../../styles/global/tokens" as *;
 
-@import "../../../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../../styles/bootstrap-5.3.8/scss/variables";
-
-// Sets width based on viewport size
-.card-width {
+.card-unit {
   aspect-ratio: 1;
   border-color: $color-brand-secondary-200;
-  max-width: 22.5rem;
+  width: 100%;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 .time-box {
@@ -26,4 +25,17 @@
 
   /* Fallback for older browsers */
   height: calc(1.2em * 2); // the number of lines
+}
+
+.unit-card-footer {
+  background-color: transparent;
+  border-top: none;
+}
+
+.card-unit-link {
+  color: $color-brand-primary-500;
+  &:hover {
+    text-decoration-color: inherit !important;
+    text-decoration: underline;
+  }
 }

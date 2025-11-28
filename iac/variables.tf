@@ -1,3 +1,8 @@
+variable "domain_name" {
+  description = "Domain name for which certificates are issued"
+  type        = string
+}
+
 variable "project_name_prefix" {
   description = "The prefix we use whenever we're naming resources to ensure a unique name"
   default     = "hid-ppt"

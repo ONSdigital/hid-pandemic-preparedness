@@ -15,7 +15,6 @@ phases:
     commands:
       - echo Installing project dependencies
       - npm ci
-      - npm run build-bootstrap-js
 
   build:
     on-failure: RETRY

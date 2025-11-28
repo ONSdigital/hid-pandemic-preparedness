@@ -40,7 +40,13 @@ To install dependencies and configure the IaC for first use, follow the instruct
    $ aws configure
    ```
 
-7. The IaC code requires an input variable `storyblok_space_id` to set up the Codepipeline webhook. This is available from the Storyblok project space and should be made available to Terraform using an environment variable
+7. The IaC code requires an input variable `domain_name` to set up SSL certificates and CloudFront distributions. This is available from project documentation and should be made available to Terraform using an environment variable
+
+   ```
+   $ export TF_VAR_domain_name=<domain_name>
+   ```
+
+8. The IaC code requires an input variable `storyblok_space_id` to set up the Codepipeline webhook. This is available from the Storyblok project space and should be made available to Terraform using an environment variable
 
    ```
    $ export TF_VAR_storyblok_space_id=<storyblok_space_id>
@@ -54,9 +60,10 @@ To provision resources on aws, run either `terraform plan`, `terraform apply` or
 
 This infrastructure is configured to do the following:
 
-- Create a Cloudfront function to use with Astro app deployments
+- Create a CloudFront function to use with Astro app deployments
+- Create SSL certificates to attach domain names to CloudFront deployments and an API Gateway endpoint
 - Create S3 buckets for Astro app and Storybook deployments
-- Create Cloudfront distributions to serve Astro app and storybook deployments
+- Create CloudFront distributions to serve Astro app and storybook deployments
 - Create Lambda function to host Astro Server-side Rendering (SSR) node.js app for CMS preview
 - Create API Gateway to provide endpoint to invoke lambda function
 - Create an IAM user and policies to allow Github actions workflows to build and sync Astro app and Storybook files to S3 buckets and update lambda function code
