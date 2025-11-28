@@ -10,7 +10,7 @@ export const Paginator: FC<PaginatorProps> = ({
   totalPages,
   currentPage,
   onPageChange,
-  scrollTopRef,
+  scrollToRef,
 }) => {
   const safeCurrentPage = Math.max(0, Math.min(currentPage, totalPages - 1));
 
@@ -20,8 +20,8 @@ export const Paginator: FC<PaginatorProps> = ({
       onPageChange(pageIndex);
     }
 
-    if (scrollTopRef?.current) {
-      scrollTopRef.current.scrollIntoView({
+    if (scrollToRef?.current) {
+      scrollToRef.current.scrollIntoView({
         behavior: "smooth",
       });
     } else {

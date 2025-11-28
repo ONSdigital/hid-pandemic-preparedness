@@ -28,7 +28,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
 
   const searchContainerRef = useRef<HTMLFormElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const resultsTopRef = useRef<HTMLDivElement>(null);
+  const resultsToRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery();
 
   const [urlState, updateUrl] = useSearchPageQueryParams(isClient);
@@ -227,7 +227,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
         resultsPortalContainer &&
         createPortal(
           <div className="container-lg">
-            <div ref={resultsTopRef} className="bg-white rounded-3 p-4 p-md-5">
+            <div ref={resultsToRef} className="bg-white rounded-3 p-4 p-md-5">
               <SearchResults
                 searchResults={currentItems}
                 isMobile={isMobile}
@@ -243,7 +243,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
                     totalPages={totalPages}
                     currentPage={currentPageIndex}
                     onPageChange={handlePageChange}
-                    scrollTopRef={resultsTopRef}
+                    scrollToRef={resultsToRef}
                   />
                 </div>
               )}
