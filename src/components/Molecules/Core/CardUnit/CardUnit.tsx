@@ -21,7 +21,11 @@ export const CardUnit: FC<CardUnitProps> = (props) => {
   let readingTime = undefined;
 
   if ("tag_list" in story) {
-    tags = story.tag_list && getTags(story);
+    tags =
+      story.tag_list &&
+      getTags(story).sort((a, b) =>
+        a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
+      );
   }
 
   if ("content" in story) {
