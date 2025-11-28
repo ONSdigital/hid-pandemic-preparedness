@@ -17,11 +17,13 @@ interface Props {
   story: ISbStoryData;
 }
 const { breadcrumbs, referencesData, story } = Astro.props;
+console.log(story.content.Body.length);
 ---
 
 <BaseLayout referencesData={referencesData} title={story.name}>
   <main>
     <Header title={story.name} breadcrumbs={breadcrumbs} />
+    {story.content.Body.length === 0 && <h1>Under construction</h1>}
     {
       story.content.Body &&
         story.content.Body.map((blok: any) => <DynamicComponent blok={blok} />)
