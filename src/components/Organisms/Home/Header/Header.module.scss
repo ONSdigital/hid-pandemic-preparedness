@@ -1,9 +1,9 @@
 @use "../../../../styles/global/tokens" as *;
 @use "../../../../styles/global/variables" as *;
 
-@import "../../../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/variables";
 
 .header-bg {
   background: $color-darker-olive-green;

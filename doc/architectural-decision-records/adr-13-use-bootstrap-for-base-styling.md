@@ -16,7 +16,7 @@ The application frontend needs to meet accessibility requirements \[[1]\] \[[2]\
 
 At the time of project initiation, [Bootstrap 5.3.8](https://github.com/twbs/bootstrap/releases/tag/v5.3.8) is the latest stable version available.
 
-The minor version of this Bootstrap version will be incremented during development as and when new versions are available. See the [styles folder](../../src/styles/) for the current version used.
+The minor version of this Bootstrap version will be incremented during development as and when new versions are available. The current version used is managed via the project's `package.json` dependencies.
 
 [1]: ../non-functional-requirements/accessibility.md#accessibility-1
 [2]: ../non-functional-requirements/accessibility.md#accessibility-2

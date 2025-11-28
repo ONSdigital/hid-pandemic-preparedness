@@ -1,8 +1,8 @@
 @use "../../../../styles/global/tokens" as *;
 
-@import "../../../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../../styles/bootstrap-5.3.8/scss/variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/variables";
 
 // Sets width based on viewport size and background dots
 .card-stat {
@@ -17,10 +17,6 @@
   background-size: 10px 10px;
   max-width: 40rem;
   width: 100%;
-}
-
-.card-stat-ref-link {
-  color: $color-blue;
 }
 
 .short-border-bottom {

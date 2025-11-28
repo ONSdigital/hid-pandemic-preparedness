@@ -21,7 +21,6 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
       )}
     >
       <a
-        className={clsx(styles["search-results-link"])}
         href={props.link.href}
         target={props.link.target}
         aria-disabled={props.link.disabled}

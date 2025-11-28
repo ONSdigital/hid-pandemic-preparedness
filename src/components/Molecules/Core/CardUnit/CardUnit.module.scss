@@ -1,10 +1,5 @@
 @use "../../../../styles/global/tokens" as *;
 
-@import "../../../../styles/bootstrap-5.3.8/scss/functions";
-@import "../../../../styles/bootstrap-5.3.8/scss/mixins";
-@import "../../../../styles/bootstrap-5.3.8/scss/variables";
-
-// Sets width based on viewport size
 .card-unit {
   aspect-ratio: 1;
   border-color: $color-brand-secondary-200;

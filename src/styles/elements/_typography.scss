@@ -1,5 +1,6 @@
 @import "../../styles/global/tokens";
-@import "../../styles/bootstrap-5.3.8/scss/variables";
+
+@import "bootstrap/scss/variables";
 
 .heading-xl {
   @extend .h1;
@@ -45,10 +46,6 @@
   line-height: 115%;
   font-size: 1.25rem;
   font-weight: $font-weight-bold;
-}
-
-.text-link {
-  color: $color-blue;
 }
 
 // Rich text overrides

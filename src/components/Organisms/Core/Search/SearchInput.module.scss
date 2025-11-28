@@ -1,8 +1,9 @@
 @use "../../../../../src/styles/global/tokens" as *;
 @use "../../../../../src/styles/global/variables" as *;
-@import "../../../../../src/styles/bootstrap-5.3.8/scss/functions";
-@import "../../../../../src/styles/bootstrap-5.3.8/scss/variables";
-@import "../../../../../src/styles/bootstrap-5.3.8/scss/mixins";
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/variables";
 
 .section {
   background-color: $color-brand-secondary-100;

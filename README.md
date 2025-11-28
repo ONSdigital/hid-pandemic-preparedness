@@ -138,11 +138,10 @@ The [main-push-cd.yml workflow](./.github/workflows/main-push-cd.yml) is configu
 
 The styling of the project is laid out such that:
 
-- [Inverted Triangle CSS (ITCSS)](https://www.freecodecamp.org/news/managing-large-s-css-projects-using-the-inverted-triangle-architecture-3c03e4b1e6df/) principles are followed
 - Global and element styles are loaded on every page
 - Component-level styles are loaded and scoped to their respective components
 
-[Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) is used as the base CSS framework. [Bootstrap SCSS](./src/styles/bootstrap-5.3.8/) is included as part of the styles source code and component scss is imported as required into the application [index.scss](./src/styles/index.scss).
+The project uses [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) as the base CSS framework and is installed via npm. Bootstap's SCSS source files are imported directly from the `bootstrap` npm package into the application [index.scss](./src/styles/index.scss). Customizations to the Bootstrap variables are achieved through override files defined locally within `./src/styles/global/overrides/...`.
 
 ## Linting and code formatting
 

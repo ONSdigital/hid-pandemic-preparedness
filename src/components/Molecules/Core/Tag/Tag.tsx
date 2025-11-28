@@ -21,7 +21,6 @@ export const Tag: FC<TagProps> = (props) => {
   return (
     <span
       className={clsx(
-        "badge",
         "rounded-pill",
         styles[`tag-${type}`],
         "px-3",

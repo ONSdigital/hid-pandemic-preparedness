@@ -1,11 +1,12 @@
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "./bootstrap-5.3.8/scss/functions";
+@import "bootstrap/scss/functions";
 
-// 2. Include any default variable overrides here
+// 2. Include any default variable overrides – https://getbootstrap.com/docs/4.0/getting-started/theming/
 @import "./global/overrides/theme";
 @import "./global/overrides/buttons";
 @import "./global/overrides/typography";
 @import "./global/overrides/forms";
+@import "./global/overrides/links";
 @import "./global/overrides/list-group";
 @import "./global/overrides/accordion";
 @import "./global/overrides/breadcrumb";
@@ -15,40 +16,36 @@
 @import "./global/overrides/popover";
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
-@import "./bootstrap-5.3.8/scss/variables";
-@import "./bootstrap-5.3.8/scss/variables-dark";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
 
-// 4. Include any default map overrides here
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
 
-// 5. Include remainder of required parts
-@import "./bootstrap-5.3.8/scss/maps";
-@import "./bootstrap-5.3.8/scss/mixins";
-@import "./bootstrap-5.3.8/scss/root";
+// 4. Include all other stylesheets partials as desired; list below is not inclusive of all available stylesheets
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/popover";
 
-// 6. Include any other optional stylesheet partials as desired; list below is not inclusive of all available stylesheets
-@import "./bootstrap-5.3.8/scss/utilities";
-@import "./bootstrap-5.3.8/scss/reboot";
-@import "./bootstrap-5.3.8/scss/type";
-@import "./bootstrap-5.3.8/scss/images";
-@import "./bootstrap-5.3.8/scss/containers";
-@import "./bootstrap-5.3.8/scss/grid";
-@import "./bootstrap-5.3.8/scss/helpers";
-@import "./bootstrap-5.3.8/scss/buttons";
-@import "./bootstrap-5.3.8/scss/forms";
-@import "./bootstrap-5.3.8/scss/list-group";
-@import "./bootstrap-5.3.8/scss/accordion";
-@import "./bootstrap-5.3.8/scss/transitions";
-@import "./bootstrap-5.3.8/scss/card";
-@import "./bootstrap-5.3.8/scss/breadcrumb";
-@import "./bootstrap-5.3.8/scss/tables";
-@import "./bootstrap-5.3.8/scss/pagination";
-@import "./bootstrap-5.3.8/scss/popover";
-// ...
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "bootstrap/scss/utilities/api";
 
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "./bootstrap-5.3.8/scss/utilities/api";
-
-// 8. Add additional custom code here
+// 8. Add additional custom scss code here
 @import "./elements/buttons";
 @import "./elements/math";
 @import "./elements/tables";

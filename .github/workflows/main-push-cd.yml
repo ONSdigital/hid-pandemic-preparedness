@@ -24,8 +24,6 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "npm"
       - run: npm ci
-      - run: npm run build-bootstrap-js
-        shell: bash
       - run: npm run deploy-app-main
         shell: bash
         env:
