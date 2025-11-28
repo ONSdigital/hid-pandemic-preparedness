@@ -9,9 +9,6 @@ dist/
 # dependencies
 /node_modules
 
-# Assets
-public/js/
-
 # misc
 .DS_Store
 

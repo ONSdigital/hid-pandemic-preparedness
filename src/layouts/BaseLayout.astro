@@ -7,9 +7,10 @@ import { References } from "@components/Organisms/Core/References/References";
 // Content
 import strings from "@content/strings.json";
 
-// Css and fonts
+// Css, fonts and js
 import "@styles/index.scss";
 import "@fontsource-variable/open-sans";
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
 
 // Helpers
 import { fetchStory } from "@helpers/fetchContent";
@@ -49,7 +50,7 @@ try {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <script src="/js/bootstrap.bundle.min.js" defer is:inline></script>
+    <script src={bootstrap} defer is:inline></script>
     <title>{title ? `${strings.title} | ${title}` : strings.title}</title>
   </head>
   <body>

@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run copy-bootstrap-js-asset && astro dev",
-    "build": "npm run copy-bootstrap-js-asset && astro build",
+    "dev": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "storybook": "storybook dev -p 6006",
@@ -23,8 +23,7 @@
     "sb:login": "npx storyblok login",
     "sb:components-pull": "npx storyblok components pull --space $STORYBLOK_SPACE_ID",
     "sb:types-generate": "npx storyblok types generate --space $STORYBLOK_SPACE_ID",
-    "generate-storyblok-types": "bash ./scripts/generateTypes.sh",
-    "copy-bootstrap-js-asset": "mkdir -p public/js && cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js public/js/"
+    "generate-storyblok-types": "bash ./scripts/generateTypes.sh"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.1",
