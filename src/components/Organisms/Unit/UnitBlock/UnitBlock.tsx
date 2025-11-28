@@ -14,8 +14,11 @@ export const UnitBlock: FC<UnitBlockProps> = (props) => {
         </div>
         <div className={clsx("row", "g-4")}>
           {props.units.map((unit) => (
-            <div className={clsx("col-sm-6", "col-lg-5", "col-xl-3", "d-flex")}>
-              <CardUnit key={unit._uid} {...unit} />
+            <div
+              key={unit._uid}
+              className={clsx("col-sm-6", "col-lg-5", "col-xl-3", "d-flex")}
+            >
+              <CardUnit {...unit} />
             </div>
           ))}
         </div>
