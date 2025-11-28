@@ -78,7 +78,7 @@ export const DynamicResults: Story = {
   args: {
     searchResults: [],
     isMobile: false,
-    // limit: 5,
+    searchInput: "page",
   },
 };
 
@@ -94,7 +94,17 @@ export const DynamicWithLimit: Story = {
 export const EmptyState: Story = {
   name: "Empty State",
   args: {
-    searchResults: [],
+    searchResults: [], // Empty array triggers "No results"
     isMobile: false,
+    searchInput: "missing term",
+  },
+};
+
+export const LoadingState: Story = {
+  name: "Loading State",
+  args: {
+    searchResults: null, // Null triggers "Searching..."
+    isMobile: false,
+    searchInput: "loading...",
   },
 };
