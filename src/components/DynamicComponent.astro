@@ -1,7 +1,11 @@
 ---
+import ContentArea from "@src/components/ContentArea.astro";
+
 import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
+import { Formula } from "./Molecules/Core/Formula/Formula";
 import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
+import { RichText } from "@src/components/Organisms/Core/RichText/RichText";
 import { Iframe } from "@/src/components/Organisms/Core/Iframe/Iframe";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
@@ -29,6 +33,7 @@ const COMPONENT_NAMES: string[] = [
   "Video",
   "UnitBlock",
   "Carousel",
+  "Formula",
 ];
 
 const { blok } = Astro.props;
@@ -44,12 +49,16 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
 
 {
   componentName ? (
-    componentName === "UnitBlock" ? (
+    componentName === "ContentArea" ? (
+      <ContentArea {...blok} />
+    ) : componentName === "UnitBlock" ? (
       <UnitBlock {...blok} />
     ) : componentName === "CaseStudies" ? (
       <CaseStudies {...blok} />
     ) : componentName === "FullWidthRichText" ? (
       <FullWidthRichText {...blok} />
+    ) : componentName === "RichText" ? (
+      <RichText {...blok} />
     ) : componentName === "Header" ? (
       <Header {...blok} />
     ) : componentName === "Iframe" ? (
@@ -65,9 +74,11 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
     ) : componentName === "QuickLinks" ? (
       <QuickLinks {...blok} />
     ) : componentName === "Table" ? (
-      <Table {...blok} />
+      <Table {...blok} client:visible />
     ) : componentName === "ToolsCarousel" ? (
       <ToolsCarousel {...blok} client:visible />
+    ) : componentName === "Formula" ? (
+      <Formula {...blok} client:visible />
     ) : componentName === "Video" ? (
       <Video {...blok} client:visible />
     ) : null

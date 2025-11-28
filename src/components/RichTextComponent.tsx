@@ -4,15 +4,17 @@ import { Formula } from "@src/components/Molecules/Core/Formula/Formula";
 import { Table } from "@src/components/Molecules/Core/Table/Table";
 import { Tip } from "@src/components/Molecules/Core/Tip/Tip";
 import { Video } from "@src/components/Organisms/Core/Video/Video";
+import { Iframe } from "@src/components/Organisms/Core/Iframe/Iframe";
 
 // List of components that we have corresponding bloks for in Storyblok
-type ComponentName = "Formula" | "Table" | "Tip" | "Video";
+type ComponentName = "Formula" | "Table" | "Tip" | "Video" | "Iframe";
 
 const COMPONENT_MAP: Record<ComponentName, FC<any>> = {
   Formula,
   Table,
   Tip,
   Video,
+  Iframe,
 };
 
 interface DynamicComponentProps {
