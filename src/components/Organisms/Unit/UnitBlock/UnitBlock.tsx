@@ -7,24 +7,19 @@ import styles from "./UnitBlock.module.scss";
 
 export const UnitBlock: FC<UnitBlockProps> = (props) => {
   return (
-    <div className={clsx("w-100", styles["unit-block-bg"])}>
+    <div className={clsx("w-100", "pb-4", styles["unit-block-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
         <div className={clsx("row", "py-4")}>
           <h3 className={clsx("heading-m")}>{props.title}</h3>
         </div>
-        <div
-          className={clsx(
-            "d-flex",
-            "flex-row",
-            "flex-wrap",
-            "gap-4",
-            "py-4",
-            "justify-content-center",
-            "justify-content-md-start",
-          )}
-        >
+        <div className={clsx("row", "g-4")}>
           {props.units.map((unit) => (
-            <CardUnit key={unit._uid} {...unit} />
+            <div
+              key={unit._uid}
+              className={clsx("col-sm-6", "col-lg-5", "col-xl-3", "d-flex")}
+            >
+              <CardUnit {...unit} />
+            </div>
           ))}
         </div>
       </div>
