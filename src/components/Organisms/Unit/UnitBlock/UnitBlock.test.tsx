@@ -1,16 +1,13 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { UnitBlock } from "./UnitBlock";
-import mockData from "./unitBlock.json";
+import mockData from "./unitBlock.json?raw";
 
-import type { UnitBlockProps } from "./UnitBlock.interface";
-const defaultProps: UnitBlockProps = mockData as UnitBlockProps;
+const defaultProps = JSON.parse(mockData);
 
 describe("UnitBlock", () => {
   it("renders without crashing", () => {
     render(<UnitBlock {...defaultProps} />);
-    expect(
-      screen.getByText("All units within Epidemiological Analysis"),
-    ).toBeDefined();
+    expect(screen.getByText(defaultProps.title)).toBeDefined();
   });
 });
