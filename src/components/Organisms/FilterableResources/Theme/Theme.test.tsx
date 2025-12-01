@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
-import { SubTheme } from "@/src/components/Organisms/FilterableResources/SubTheme/SubTheme";
+import { SubTheme } from "@src/components/Organisms/FilterableResources/SubTheme/SubTheme";
 
 import { Theme } from "./Theme";
 import type { ThemeProps } from "./Theme.interface";
@@ -10,7 +10,7 @@ import themeJson from "./theme.json?raw";
 
 // Mock the child components
 vi.mock(
-  "@/src/components/Organisms/FilterableResources/SubTheme/SubTheme",
+  "@src/components/Organisms/FilterableResources/SubTheme/SubTheme",
   () => ({
     SubTheme: vi.fn(() => <div data-testid="sub-theme">Mock Sub Theme</div>),
   }),

@@ -1,4 +1,4 @@
-import type { LinkData } from "@localTypes/LinkData";
+import type { LinkData } from "@src/types/LinkData";
 import type { Tag } from "@src/types/Tag";
 
 export interface SearchResultData {

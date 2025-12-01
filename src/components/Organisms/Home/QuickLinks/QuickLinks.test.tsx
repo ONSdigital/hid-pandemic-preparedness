@@ -9,7 +9,7 @@ import quickLinksData from "./quicklinks.json";
 const defaultProps: QuickLinksProps = quickLinksData as QuickLinksProps;
 
 // Mock the Link component
-vi.mock("@components/Molecules/Core/Link/Link", () => ({
+vi.mock("@src/components/Molecules/Core/Link/Link", () => ({
   Link: ({
     id,
     text,

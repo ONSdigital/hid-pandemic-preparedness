@@ -2,8 +2,8 @@ import clsx from "clsx";
 import type { FC } from "react";
 import slugify from "slugify";
 
-import { Introduction } from "@components/Molecules/Unit/Introduction/Introduction";
-import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
+import { Introduction } from "@src/components/Molecules/Unit/Introduction/Introduction";
+import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 
 import styles from "./UnitChapter.module.scss";
 import type {

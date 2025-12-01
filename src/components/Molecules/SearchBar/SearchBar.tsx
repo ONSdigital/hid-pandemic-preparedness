@@ -5,7 +5,7 @@ import { RiArrowRightLine, RiSearchLine } from "@remixicon/react";
 
 import type { SearchBarProps } from "./SearchBar.interface";
 import styles from "./SearchBar.module.scss";
-import { SearchResults } from "@components/Molecules/SearchResults/SearchResults";
+import { SearchResults } from "@src/components/Molecules/SearchResults/SearchResults";
 
 import { Paginator } from "@src/components/Molecules/Core/Paginator/Paginator";
 
@@ -13,7 +13,7 @@ import strings from "@src/content/strings.json";
 import { Button } from "@src/components/Button/Button";
 import { usePagefind } from "@src/hooks/usePagefind";
 import { usePagination } from "@src/hooks/usePagination";
-import { useMediaQuery } from "@/src/hooks/useMediaQuery";
+import { useMediaQuery } from "@src/hooks/useMediaQuery";
 
 const RESULTS_PER_PAGE = 10;
 

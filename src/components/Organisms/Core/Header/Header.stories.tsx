@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import headerData from "@content/learning-resources/data-analysis/epidemiological-analysis/header.json";
+import headerData from "@src/content/learning-resources/data-analysis/epidemiological-analysis/header.json";
 
 import { Header } from "./Header";
 import type { HeaderProps } from "./Header.interface";

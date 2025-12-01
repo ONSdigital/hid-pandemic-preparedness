@@ -10,14 +10,7 @@
       "@/*": ["*"],
       "@public/*": ["public/*"],
       "@src/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@content/*": ["src/content/*"],
-      "@helpers/*": ["src/helpers/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
-      // Calling this alias `localTypes` here to avoid namespace clashing with `@types`
-      "@localTypes/*": ["src/types/*"]
     },
     "plugins": [
       {

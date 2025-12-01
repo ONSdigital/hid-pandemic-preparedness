@@ -1,11 +1,11 @@
 ---
 // Components
-import { Footer } from "@components/Organisms/Core/Footer/Footer";
-import { NavBar } from "@components/Organisms/Core/NavBar/NavBar";
-import { References } from "@components/Organisms/Core/References/References";
+import { Footer } from "@src/components/Organisms/Core/Footer/Footer";
+import { NavBar } from "@src/components/Organisms/Core/NavBar/NavBar";
+import { References } from "@src/components/Organisms/Core/References/References";
 
 // Content
-import strings from "@content/strings.json";
+import strings from "@src/content/strings.json";
 
 // Css, fonts and js
 import "@styles/index.scss";
@@ -13,11 +13,11 @@ import "@fontsource-variable/open-sans";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
 
 // Helpers
-import { fetchStory } from "@helpers/fetchContent";
+import { fetchStory } from "@src/helpers/fetchContent";
 
 // Types
-import type { FooterProps } from "@components/Organisms/Core/Footer/Footer.interface";
-import type { NavBarProps } from "@components/Organisms/Core/NavBar/NavBar.interface";
+import type { FooterProps } from "@src/components/Organisms/Core/Footer/Footer.interface";
+import type { NavBarProps } from "@src/components/Organisms/Core/NavBar/NavBar.interface";
 import type { ReferenceProps } from "@src/components/Molecules/Core/Reference/Reference.interface";
 
 interface Props {

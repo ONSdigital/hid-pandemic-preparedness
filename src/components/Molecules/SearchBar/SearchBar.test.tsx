@@ -81,7 +81,7 @@ vi.mock("react-dom", async (importOriginal) => {
 });
 
 // Mock SearchResults
-vi.mock("@components/Molecules/SearchResults/SearchResults", () => ({
+vi.mock("@src/components/Molecules/SearchResults/SearchResults", () => ({
   SearchResults: (props: any) => (
     <div data-testid="search-results-mock">
       <pre>{JSON.stringify(props)}</pre>

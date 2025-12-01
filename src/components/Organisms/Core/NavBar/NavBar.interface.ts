@@ -1,7 +1,7 @@
-import type { Asset } from "@localTypes/Asset";
-import type { LinkComponent } from "@localTypes/LinkComponent";
-import type { MegaMenu } from "@localTypes/MegaMenu";
-import type { Accordions } from "@localTypes/Accordions";
+import type { Asset } from "@src/types/Asset";
+import type { LinkComponent } from "@src/types/LinkComponent";
+import type { MegaMenu } from "@src/types/MegaMenu";
+import type { Accordions } from "@src/types/Accordions";
 
 export interface NavBarProps {
   logo: Asset;

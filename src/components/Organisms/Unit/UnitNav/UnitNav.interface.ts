@@ -1,4 +1,4 @@
-import type { Chapter } from "@localTypes/Chapter";
+import type { Chapter } from "@src/types/Chapter";
 
 import type { StoryblokMultilink } from "@src/types/storyblok";
 

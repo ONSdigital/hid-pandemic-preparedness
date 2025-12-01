@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
-import { StatisticsCard } from "@/src/components/Molecules/Core/StatisticsCard/StatisticsCard";
+import { StatisticsCard } from "@src/components/Molecules/Core/StatisticsCard/StatisticsCard";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
 import { Reference } from "@src/components/Molecules/Core/Reference/Reference";
 

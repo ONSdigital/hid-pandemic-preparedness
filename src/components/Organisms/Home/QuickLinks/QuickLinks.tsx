@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Link } from "@components/Molecules/Core/Link/Link";
-import { Icon } from "@components/Molecules/Core/Icon/Icon";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
+import { Icon } from "@src/components/Molecules/Core/Icon/Icon";
 import type { QuickLinksProps } from "./QuickLinks.interface";
 
 import styles from "./QuickLinks.module.scss";

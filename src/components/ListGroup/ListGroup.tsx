@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Link } from "@components/Molecules/Core/Link/Link";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
 
 import type {
   ListGroupChecksProps,

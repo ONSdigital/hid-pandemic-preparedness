@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
-import { ListGroupLinks } from "@components/ListGroup/ListGroup";
+import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
+import { ListGroupLinks } from "@src/components/ListGroup/ListGroup";
 
 import type { MegaMenuProps } from "./MegaMenu.interface";
 import styles from "./MegaMenu.module.scss";

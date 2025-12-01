@@ -7,7 +7,7 @@ import {
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 
-import { Link } from "@components/Molecules/Core/Link/Link";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
 import type { ToolCardProps } from "./ToolCard.interface";
 import styles from "./ToolCard.module.scss";
 

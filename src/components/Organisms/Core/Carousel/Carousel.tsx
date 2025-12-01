@@ -12,9 +12,9 @@ import "swiper/css/pagination";
 import styles from "./Carousel.module.scss";
 import breakpoints from "../../../../styles/global/overrides/_breakpoints.module.scss";
 
-import { ArrowButton } from "@components/ArrowButton/ArrowButton";
-import { ToolCard } from "@/src/components/Molecules/Core/ToolCard/ToolCard";
-import { CardUnit } from "@/src/components/Molecules/Core/CardUnit/CardUnit";
+import { ArrowButton } from "@src/components/ArrowButton/ArrowButton";
+import { ToolCard } from "@src/components/Molecules/Core/ToolCard/ToolCard";
+import { CardUnit } from "@src/components/Molecules/Core/CardUnit/CardUnit";
 import type {
   CarouselProps,
   DynamicCarouselItemComponentProps,

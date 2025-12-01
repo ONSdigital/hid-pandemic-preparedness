@@ -2,8 +2,8 @@ import type { FC } from "react";
 import clsx from "clsx";
 
 import type { ToolsCarouselProps } from "./ToolsCarousel.interface";
-import { Carousel } from "@components/Organisms/Core/Carousel/Carousel";
-import { Link } from "@components/Molecules/Core/Link/Link";
+import { Carousel } from "@src/components/Organisms/Core/Carousel/Carousel";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
 
 import styles from "./ToolsCarousel.module.scss";
 

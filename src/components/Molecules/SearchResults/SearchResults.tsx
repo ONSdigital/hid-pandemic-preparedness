@@ -5,7 +5,7 @@ import type {
   SearchResultItemProps,
   SearchResultsProps,
 } from "./SearchResults.interface";
-import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
+import { Tag } from "@src/components/Molecules/Core/Tag/Tag";
 import strings from "@src/content/strings.json";
 
 const SearchResultItem: FC<SearchResultItemProps> = (props) => {

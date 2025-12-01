@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Video } from "./Video";
-import type { StoryblokAsset } from "@localTypes/storyblok";
+import type { StoryblokAsset } from "@src/types/storyblok";
 
 import type { VideoProps } from "./Video.interface";
 

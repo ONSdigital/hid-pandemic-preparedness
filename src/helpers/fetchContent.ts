@@ -3,8 +3,8 @@ import "dotenv/config";
 import { useStoryblokApi } from "@storyblok/astro";
 import type { ISbStories, ISbStoriesParams, ISbStory } from "@storyblok/astro";
 
-import { LocalClient } from "@helpers/LocalClient";
-import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
+import { LocalClient } from "@src/helpers/LocalClient";
+import type { DatasourceEntry } from "@src/types/DatasourceEntry";
 
 // Read config env vars from the environment
 const ASTRO_PREVIEW = process.env.ASTRO_PREVIEW || "false";

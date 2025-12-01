@@ -2,7 +2,7 @@ import clsx from "clsx";
 import type { FC } from "react";
 import { sentenceCase } from "sentence-case";
 
-import { ImpactCard } from "@/src/components/Molecules/Home/ImpactCard/ImpactCard";
+import { ImpactCard } from "@src/components/Molecules/Home/ImpactCard/ImpactCard";
 
 import type { ImpactProps } from "./Impact.interface";
 import styles from "./Impact.module.scss";

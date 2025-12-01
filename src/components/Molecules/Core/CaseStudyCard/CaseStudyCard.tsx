@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Image } from "@components/Molecules/Core/Image/Image";
-import { Link } from "@components/Molecules/Core/Link/Link";
+import { Image } from "@src/components/Molecules/Core/Image/Image";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
 
 import type { CaseStudyCardProps } from "./CaseStudyCard.interface";
 import styles from "./CaseStudyCard.module.scss";
-import { Tag } from "@components/Molecules/Core/Tag/Tag";
+import { Tag } from "@src/components/Molecules/Core/Tag/Tag";
 
 export const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
   return (

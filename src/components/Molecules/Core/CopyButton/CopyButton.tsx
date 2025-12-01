@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import type { CopyButtonProps } from "./CopyButton.interface";
 import { copyToClipboard } from "./copyToClipboard";
 import strings from "@src/content/strings.json";
-import { Button } from "@/src/components/Button/Button";
+import { Button } from "@src/components/Button/Button";
 
 export const CopyButton: FC<CopyButtonProps> = (props: CopyButtonProps) => {
   const copyButtonStrings = strings.core.copyButton;

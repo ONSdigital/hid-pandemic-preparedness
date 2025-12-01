@@ -2,8 +2,8 @@ import clsx from "clsx";
 import type { FC } from "react";
 import { useRef } from "react";
 
-import { CopyButton } from "@components/Molecules/Core/CopyButton/CopyButton";
-import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
+import { CopyButton } from "@src/components/Molecules/Core/CopyButton/CopyButton";
+import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 
 import type { FilterableResourcesItemProps } from "./FilterableResourcesItem.interface";
 import styles from "./FilterableResourcesItem.module.scss";

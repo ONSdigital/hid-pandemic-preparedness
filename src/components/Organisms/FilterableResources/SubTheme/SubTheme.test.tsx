@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
-import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
+import { Tag } from "@src/components/Molecules/Core/Tag/Tag";
 import { FilterableResourcesItem } from "@src/components/Molecules/FilterableResources/FilterableResourcesItem/FilterableResourcesItem";
 
 import { SubTheme } from "./SubTheme";
@@ -10,7 +10,7 @@ import type { SubThemeProps } from "./SubTheme.interface";
 import subThemeJson from "./subTheme.json?raw";
 
 // Mock the child components
-vi.mock("@/src/components/Molecules/Core/Tag/Tag", () => ({
+vi.mock("@src/components/Molecules/Core/Tag/Tag", () => ({
   Tag: vi.fn(() => <div data-testid="tag">Mock Tag</div>),
 }));
 

@@ -1,14 +1,14 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
-import { Image } from "@components/Molecules/Core/Image/Image";
-import { MegaMenu } from "@components/MegaMenu/MegaMenu";
-import { Link } from "@components/Molecules/Core/Link/Link";
-import { Icon } from "@components/Molecules/Core/Icon/Icon";
+import { Image } from "@src/components/Molecules/Core/Image/Image";
+import { MegaMenu } from "@src/components/MegaMenu/MegaMenu";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
+import { Icon } from "@src/components/Molecules/Core/Icon/Icon";
 
 import type { NavAccordionsProps, MobileNavProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
-import { SearchBar } from "@/src/components/Molecules/SearchBar/SearchBar";
+import { SearchBar } from "@src/components/Molecules/SearchBar/SearchBar";
 import strings from "@src/content/strings.json";
 
 export const MobileNav: FC<MobileNavProps> = (props) => {

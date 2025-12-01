@@ -1,5 +1,5 @@
-import type { QuestionData } from "@localTypes/QuestionData";
-import type { TagData } from "@localTypes/TagData";
+import type { QuestionData } from "@src/types/QuestionData";
+import type { TagData } from "@src/types/TagData";
 
 export interface QuestionBlock {
   id: string;

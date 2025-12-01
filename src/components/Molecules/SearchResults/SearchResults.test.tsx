@@ -12,7 +12,7 @@ vi.mock("@src/content/strings.json", () => ({
   },
 }));
 
-vi.mock("@/src/components/Molecules/Core/Tag/Tag", () => ({
+vi.mock("@src/components/Molecules/Core/Tag/Tag", () => ({
   Tag: ({ label }: { label: string }) => <div>{label}</div>,
 }));
 

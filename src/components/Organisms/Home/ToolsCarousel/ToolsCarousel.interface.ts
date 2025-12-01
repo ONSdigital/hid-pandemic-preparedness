@@ -1,3 +1,3 @@
-import type { ToolsCarousel } from "@localTypes/bloks/storyblok-components";
+import type { ToolsCarousel } from "@src/types/bloks/storyblok-components";
 
 export interface ToolsCarouselProps extends ToolsCarousel {}

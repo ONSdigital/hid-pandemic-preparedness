@@ -1,5 +1,5 @@
-import type { Accordions } from "@localTypes/Accordions";
-import type { UnitChapter } from "@localTypes/bloks/storyblok-components";
+import type { Accordions } from "@src/types/Accordions";
+import type { UnitChapter } from "@src/types/bloks/storyblok-components";
 
 export interface UnitChapterProps extends UnitChapter {}
 

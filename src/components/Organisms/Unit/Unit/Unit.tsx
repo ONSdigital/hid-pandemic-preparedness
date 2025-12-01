@@ -6,17 +6,17 @@ import { v4 as uuidv4 } from "uuid";
 
 import type { ButtonProps } from "@src/components/Button/Button.interface";
 import type { Chapter } from "@src/types/Chapter";
-import type { CongratulationsProps } from "@/src/components/Molecules/Unit/Congratulations/Congratulations.interface";
+import type { CongratulationsProps } from "@src/components/Molecules/Unit/Congratulations/Congratulations.interface";
 import type { LinkProps } from "@src/components/Molecules/Core/Link/Link.interface";
 import type { Tag } from "@src/types/Tag";
-import type { UnitNavProps } from "@components/Organisms/Unit/UnitNav/UnitNav.interface";
+import type { UnitNavProps } from "@src/components/Organisms/Unit/UnitNav/UnitNav.interface";
 
 import { Button } from "@src/components/Button/Button";
-import { Congratulations } from "@/src/components/Molecules/Unit/Congratulations/Congratulations";
+import { Congratulations } from "@src/components/Molecules/Unit/Congratulations/Congratulations";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
-import { UnitChapter } from "@components/Organisms/Unit/UnitChapter/UnitChapter";
-import { UnitNav } from "@components/Organisms/Unit/UnitNav/UnitNav";
-import { UnitOverview } from "@components/Organisms/Unit/UnitOverview/UnitOverview";
+import { UnitChapter } from "@src/components/Organisms/Unit/UnitChapter/UnitChapter";
+import { UnitNav } from "@src/components/Organisms/Unit/UnitNav/UnitNav";
+import { UnitOverview } from "@src/components/Organisms/Unit/UnitOverview/UnitOverview";
 
 import { getTags } from "@src/helpers/getTags";
 

@@ -2,19 +2,19 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
-import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
-import { CopyButton } from "@components/Molecules/Core/CopyButton/CopyButton";
+import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
+import { CopyButton } from "@src/components/Molecules/Core/CopyButton/CopyButton";
 
 import { FilterableResourcesItem } from "./FilterableResourcesItem";
 import type { FilterableResourcesItemProps } from "./FilterableResourcesItem.interface";
 import filterableResourcesJson from "./filterableResourcesItem.json?raw";
 
 // Mock the child components
-vi.mock("@components/Molecules/Core/TextModule/TextModule", () => ({
+vi.mock("@src/components/Molecules/Core/TextModule/TextModule", () => ({
   TextModule: vi.fn(() => <div data-testid="text-module">Mock TextModule</div>),
 }));
 
-vi.mock("@components/Molecules/Core/CopyButton/CopyButton", () => ({
+vi.mock("@src/components/Molecules/Core/CopyButton/CopyButton", () => ({
   CopyButton: vi.fn(() => <button data-testid="copy-button">Mock Copy</button>),
 }));
 

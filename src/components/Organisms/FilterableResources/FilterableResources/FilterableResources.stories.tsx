@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FilterableResources } from "@components/Organisms/FilterableResources/FilterableResources/FilterableResources";
-import filterableResourcesJson from "@components/Organisms/FilterableResources/FilterableResources/filterableResources.json?raw";
+import { FilterableResources } from "@src/components/Organisms/FilterableResources/FilterableResources/FilterableResources";
+import filterableResourcesJson from "@src/components/Organisms/FilterableResources/FilterableResources/filterableResources.json?raw";
 
 const meta = {
   component: FilterableResources,

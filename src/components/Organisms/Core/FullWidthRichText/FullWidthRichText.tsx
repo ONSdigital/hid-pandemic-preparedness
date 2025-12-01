@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { TextModule } from "@/src/components/Molecules/Core/TextModule/TextModule";
+import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 
 import styles from "./FullWidthRichText.module.scss";
 import type { FullWidthRichTextProps } from "./FullWidthRichText.interface";

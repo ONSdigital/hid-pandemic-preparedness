@@ -1,11 +1,11 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { Header } from "@/src/components/Organisms/Core/Header/Header";
-import staticHeaderData from "@content/search-results/header.json";
-import SearchInput from "@components/Organisms/Core/Search/SearchInput.astro";
-import SearchResults from "@components/Organisms/Core/Search/SearchResults.astro";
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+import { Header } from "@src/components/Organisms/Core/Header/Header";
+import staticHeaderData from "@src/content/search-results/header.json";
+import SearchInput from "@src/components/Organisms/Core/Search/SearchInput.astro";
+import SearchResults from "@src/components/Organisms/Core/Search/SearchResults.astro";
 import strings from "@src/content/strings.json";
-import type { HeaderProps } from "@/src/components/Organisms/Core/Header/Header.interface";
+import type { HeaderProps } from "@src/components/Organisms/Core/Header/Header.interface";
 
 const headerData: HeaderProps = {
   title: staticHeaderData.title,

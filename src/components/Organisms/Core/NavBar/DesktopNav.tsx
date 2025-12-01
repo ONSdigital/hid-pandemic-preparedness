@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import clsx from "clsx";
 
-import { Link } from "@components/Molecules/Core/Link/Link";
-import { Icon } from "@components/Molecules/Core/Icon/Icon";
-import { Image } from "@components/Molecules/Core/Image/Image";
+import { Link } from "@src/components/Molecules/Core/Link/Link";
+import { Icon } from "@src/components/Molecules/Core/Icon/Icon";
+import { Image } from "@src/components/Molecules/Core/Image/Image";
 import { Button } from "@src/components/Button/Button";
 import { RiSearchLine, RiCloseLine } from "@remixicon/react";
 

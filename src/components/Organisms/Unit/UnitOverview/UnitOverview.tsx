@@ -5,7 +5,7 @@ import type { FC } from "react";
 
 import { Button } from "@src/components/Button/Button";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
-import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
+import { Tag } from "@src/components/Molecules/Core/Tag/Tag";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 
 import strings from "@src/content/strings.json";

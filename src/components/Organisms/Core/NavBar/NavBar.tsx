@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState, type FC, type RefObject } from "react";
 import clsx from "clsx";
 
-import { MegaMenu } from "@/src/components/MegaMenu/MegaMenu";
+import { MegaMenu } from "@src/components/MegaMenu/MegaMenu";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
-import { SearchBar } from "@/src/components/Molecules/SearchBar/SearchBar";
-import strings from "@/src/content/strings.json";
+import { SearchBar } from "@src/components/Molecules/SearchBar/SearchBar";
+import strings from "@src/content/strings.json";
 
-import type { MegaMenu as MegaMenuData } from "@localTypes/MegaMenu";
+import type { MegaMenu as MegaMenuData } from "@src/types/MegaMenu";
 import type { ExpandableItemData, NavBarProps } from "./NavBar.interface";
 import styles from "./NavBar.module.scss";
 

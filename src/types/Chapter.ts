@@ -1,4 +1,4 @@
-import type { Link } from "@localTypes/Link";
+import type { Link } from "@src/types/Link";
 
 export interface Chapter {
   _uid: string;

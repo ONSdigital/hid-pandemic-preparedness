@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { ArrowButton } from "@src/components/ArrowButton/ArrowButton";
 import type { PaginatorProps } from "./Paginator.interface";
 import styles from "./Paginator.module.scss";
-import { useTruncatedPagination } from "@/src/hooks/useTruncatedPagination";
+import { useTruncatedPagination } from "@src/hooks/useTruncatedPagination";
 
 export const Paginator: FC<PaginatorProps> = ({
   ariaLabel,

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
+import { Tag } from "@src/components/Molecules/Core/Tag/Tag";
 import { FilterableResourcesItem } from "@src/components/Molecules/FilterableResources/FilterableResourcesItem/FilterableResourcesItem";
 
 import type { SubThemeProps } from "./SubTheme.interface";
