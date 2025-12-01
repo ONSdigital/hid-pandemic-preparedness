@@ -61,7 +61,6 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
                   "gap-1",
                   styles["navbar-button"],
                   styles["nav-item"],
-                  
                 )}
               >
                 <p className="m-0">{expandableItem.label}</p>
@@ -96,7 +95,14 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
           </div>
         ))}
 
-      <div className={clsx("d-flex", "align-items-center", styles["nav-item"], styles["nav-border-bottom"])}>
+      <div
+        className={clsx(
+          "d-flex",
+          "align-items-center",
+          styles["nav-item"],
+          styles["nav-border-bottom"],
+        )}
+      >
         <Button
           type="button"
           variant="primary"
