@@ -8,7 +8,7 @@ import type { StrategicPartnerProps } from "./StrategicPartner.interface";
 export const StrategicPartner: FC<StrategicPartnerProps> = (props) => {
   return (
     <div className={clsx("col", "py-4")}>
-      <a role={"partner-link"} href={props.link.url}>
+      <a role={"partner-link"} href={props.link.url} className="d-inline-block">
         <Image {...props.logo} />
       </a>
     </div>

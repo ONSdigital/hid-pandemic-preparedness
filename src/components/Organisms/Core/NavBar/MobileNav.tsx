@@ -32,20 +32,21 @@ export const MobileNav: FC<MobileNavProps> = (props) => {
       <div
         className={clsx(
           "d-flex",
-          "align-items-center",
+          "align-items-stretch",
           "justify-content-between",
           styles["navbar-height"],
         )}
       >
-        <a href="/" aria-label="Redirect to homepage">
+        <a href="/" aria-label="Redirect to homepage" className={clsx("d-flex", "align-items-center")}> 
           <Image {...props.logo} className={styles["navbar-logo"]} />
         </a>
+        
         <button
           onClick={props.onClick}
           className={clsx(
             styles["navbar-button"],
             styles["nav-item"],
-            props.isOpen && styles["nav-item-active"],
+            props.isOpen && styles["nav-item-selected"],
           )}
         >
           <Icon iconName={iconName} className={styles["navbar-logo"]} />

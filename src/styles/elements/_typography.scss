@@ -64,8 +64,13 @@
   }
 }
 
+// *:focus-visible {
+//   outline: 2px solid $color-brand-secondary-500;
+//   outline-offset: 4px;
+//   box-shadow: none;
+// }
+
 *:focus-visible {
-  border-color: rgb(159, 164.5, 155);
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(63, 74, 55, 0.25);
+  box-shadow: 0 0 0 2px $color-brand-secondary-500;
+  outline: none;
 }
