@@ -63,14 +63,3 @@
     margin: 1.75rem 0;
   }
 }
-
-// *:focus-visible {
-//   outline: 2px solid $color-brand-secondary-500;
-//   outline-offset: 4px;
-//   box-shadow: none;
-// }
-
-*:focus-visible {
-  box-shadow: 0 0 0 2px $color-brand-secondary-500;
-  outline: none;
-}

@@ -66,3 +66,8 @@ main {
   background-color: $color-brand-secondary-100;
   flex-grow: 1;
 }
+
+*:focus-visible {
+  box-shadow: 0 0 0 2px $color-brand-secondary-500;
+  outline: none;
+}
