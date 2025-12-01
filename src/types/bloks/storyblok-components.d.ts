@@ -209,7 +209,7 @@ export interface Code {
 }
 
 export interface ContentArea {
-  textarea?: (FullWidthRichText | Formula | Table | RichText | Iframe)[];
+  textarea?: (Formula | Table | RichText | Iframe | Tip | Video)[];
   component: "ContentArea";
   _uid: string;
   [k: string]: unknown;
@@ -934,6 +934,7 @@ export interface UnitChapter {
 
 export interface UnitOverview {
   title?: string;
+  content: (RichText | Table | Iframe | Video | Formula | Tip)[];
   overviewRichText?: StoryblokRichtext;
   githubLink?: Exclude<
     StoryblokMultilink,
@@ -946,8 +947,9 @@ export interface UnitOverview {
 }
 
 export interface UnitSection {
-  title?: string;
+  title: string;
   contentRichText?: StoryblokRichtext;
+  content: (Formula | Iframe | RichText | Table | Video | Tip)[];
   component: "UnitSection";
   _uid: string;
   [k: string]: unknown;
