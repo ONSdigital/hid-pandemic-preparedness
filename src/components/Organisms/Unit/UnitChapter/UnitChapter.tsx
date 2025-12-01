@@ -5,7 +5,6 @@ import slugify from "slugify";
 import { Introduction } from "@components/Molecules/Unit/Introduction/Introduction";
 import { Dynamic } from "@src/components/Organisms/Dynamic/Dynamic";
 
-
 import styles from "./UnitChapter.module.scss";
 import type {
   ChaptersAccordionsProps,
