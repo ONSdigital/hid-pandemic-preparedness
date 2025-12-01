@@ -1,0 +1,8 @@
+@import "../global/tokens";
+
+.form-control,
+.form-check-input {
+  &:focus {
+    box-shadow: 0 0 0 3px $color-brand-secondary-500;
+  }
+}

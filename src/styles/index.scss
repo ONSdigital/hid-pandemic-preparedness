@@ -46,7 +46,9 @@
 @import "bootstrap/scss/utilities/api";
 
 // 8. Add additional custom scss code here
+@import "./elements/accordions";
 @import "./elements/buttons";
+@import "./elements/forms";
 @import "./elements/math";
 @import "./elements/tables";
 @import "./elements/typography";
