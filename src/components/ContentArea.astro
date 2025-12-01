@@ -5,11 +5,20 @@ import clsx from "clsx";
 const { textarea } = Astro.props;
 ---
 
-<div class={clsx("w-100", "py-4")} style="background-color:#f8f5f1">
-  <div
-    class="container-lg border rounded p-4"
-    style="background-color:#ffffff; border-color:#f0e6d8"
-  >
+<div class={clsx("w-100", "py-4", "wrapper-colors")}>
+  <div class="container-lg border rounded p-4 container-colors">
     {textarea.map((blok: any) => <DynamicComponent blok={blok} />)}
   </div>
 </div>
+
+<style lang="scss">
+  @import "@styles/index.scss";
+  .wrapper-colors {
+    background-color: $color-brand-secondary-100;
+  }
+
+  .container-colors {
+    background-color: $color-grey-100;
+    border-color: $color-brand-secondary-200 !important;
+  }
+</style>
