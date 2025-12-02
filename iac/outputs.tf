@@ -1,7 +1,7 @@
 # Output the api gateway invoke url
-output "api_gateway_invoke_url" {
-  value       = aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint
-  description = "Invoke URL for the API Gateway HTTP API"
+output "app_preview_api_gateway_invoke_url" {
+  value       = module.app_preview_api_gateway.api_endpoint
+  description = "Invoke URL for the App Preview API Gateway HTTP API"
 }
 
 output "aws_codepipeline_webhook_url" {

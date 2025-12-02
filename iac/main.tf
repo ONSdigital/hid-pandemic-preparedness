@@ -15,13 +15,22 @@ terraform {
   required_version = "~> 1.12.2"
 }
 
+# Create cloudfront function key value store so we can store a secret key for cookie validation
+resource "aws_cloudfront_key_value_store" "aws_cloudfront_key_value_store" {
+  name    = "${var.project_name_prefix}-key-value-store"
+  comment = "Store for cookie validation key"
+}
+
 # Create cloudfront function required for astro app deployments
 resource "aws_cloudfront_function" "aws_cloudfront_function" {
-  name    = "append-request"
-  runtime = "cloudfront-js-2.0"
-  comment = "Appends index.html to request uri so astro static site folder structure can be used for navigation"
-  publish = true
-  code    = file("${path.module}/appendRequest.js")
+  name                         = "append-request"
+  runtime                      = "cloudfront-js-2.0"
+  comment                      = "Appends index.html to request uri so astro static site folder structure can be used for navigation"
+  publish                      = true
+  code                         = file("${path.module}/appendRequest.js")
+  key_value_store_associations = [aws_cloudfront_key_value_store.aws_cloudfront_key_value_store.arn]
+
+  depends_on = [aws_cloudfront_key_value_store.aws_cloudfront_key_value_store]
 }
 
 provider "aws" {
@@ -343,63 +352,14 @@ resource "aws_lambda_function" "aws_lambda_function_preview" {
 }
 
 # Api gateway for CMS preview deployment
-resource "aws_apigatewayv2_api" "aws_apigatewayv2_api" {
-  name          = "${var.project_name_prefix}-api-storyblok-preview"
-  description   = "Provides endpoint for Astro SSR CMS preview"
-  protocol_type = "HTTP"
-}
-
-resource "aws_apigatewayv2_integration" "aws_apigatewayv2_integration" {
-  api_id             = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  integration_type   = "AWS_PROXY"
-  description        = "Integration to invoke storyblok preview lambda"
-  integration_method = "POST"
-  integration_uri    = aws_lambda_function.aws_lambda_function_preview.invoke_arn
-}
-
-resource "aws_apigatewayv2_route" "aws_apigatewayv2_route" {
-  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  route_key = "ANY /{proxy+}"
-  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
-}
-
-resource "aws_apigatewayv2_route" "aws_apigatewayv2_route_2" {
-  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  route_key = "ANY /"
-  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
-}
-
-resource "aws_apigatewayv2_stage" "aws_apigatewayv2_stage" {
-  api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  name        = "$default"
-  auto_deploy = true
-}
-
-resource "aws_apigatewayv2_domain_name" "aws_apigatewayv2_domain_name" {
-  domain_name = "preview.${var.domain_name}"
-
-  domain_name_configuration {
-    certificate_arn = aws_acm_certificate.api_gateway_certificate.arn
-    endpoint_type   = "REGIONAL"
-    security_policy = "TLS_1_2"
-  }
-
-  depends_on = [aws_acm_certificate.api_gateway_certificate]
-}
-
-resource "aws_apigatewayv2_api_mapping" "aws_apigatewayv2_api_mapping" {
-  api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  domain_name = aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id
-  stage       = aws_apigatewayv2_stage.aws_apigatewayv2_stage.id
-}
-
-# Permission for API Gateway to invoke Lambda
-resource "aws_lambda_permission" "aws_lambda_permission" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.aws_lambda_function_preview.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_apigatewayv2_api.aws_apigatewayv2_api.execution_arn}/*/*"
+module "app_preview_api_gateway" {
+  source          = "./apigatewayv2"
+  name            = "${var.project_name_prefix}-api-storyblok-preview"
+  certificate_arn = aws_acm_certificate.api_gateway_certificate.arn
+  description     = "Provides endpoint for Astro SSR CMS preview"
+  domain_name     = "preview.${var.domain_name}"
+  function_name   = aws_lambda_function.aws_lambda_function_preview.function_name
+  integration_uri = aws_lambda_function.aws_lambda_function_preview.invoke_arn
 }
 
 # Attach cors policy to preview s3 bucket so assets can be requested from the deployed site
@@ -410,8 +370,8 @@ resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "HEAD"]
     allowed_origins = [
-      aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint,
-      "https://${aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id}"
+      module.app_preview_api_gateway.api_endpoint,
+      "https://${module.app_preview_api_gateway.domain_name_id}"
     ]
     expose_headers  = []
     max_age_seconds = 3000
