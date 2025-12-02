@@ -821,7 +821,6 @@ export interface SubTheme {
 }
 
 export interface SupportingInformation {
-  content?: StoryblokRichtext;
   Body?: unknown[];
   component: "SupportingInformation";
   _uid: string;
