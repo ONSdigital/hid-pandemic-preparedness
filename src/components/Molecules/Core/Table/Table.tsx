@@ -48,7 +48,6 @@ export const Table: FC<TableProps> = (props) => {
     >
       <div className={clsx(styles["table-wrapper"])} ref={tableRef}>
         <div
-          className={clsx(styles["table-container"])}
           style={
             props.minWidth !== ""
               ? { minWidth: `${props.minWidth}px` }

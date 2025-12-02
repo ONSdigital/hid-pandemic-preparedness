@@ -3,7 +3,7 @@ import type { FC } from "react";
 import slugify from "slugify";
 
 import { Introduction } from "@components/Molecules/Unit/Introduction/Introduction";
-import { TextModule } from "@components/Molecules/Core/TextModule/TextModule";
+import { Dynamic } from "@src/components/Organisms/Dynamic/Dynamic";
 
 import styles from "./UnitChapter.module.scss";
 import type {
@@ -20,7 +20,7 @@ export const UnitChapter: FC<UnitChapterProps> = (props) => {
     accordionItems = props.sections.map((section) => ({
       id: slugify(section.title, { lower: true }),
       headerTitle: section.title,
-      bodyContent: <TextModule richText={section.contentRichText} />,
+      bodyContent: <Dynamic content={section.content} />,
     }));
 
     sectionLinks = props.sections.map((section) => {
