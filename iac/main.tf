@@ -252,7 +252,31 @@ resource "aws_iam_role" "aws_iam_role_lambda" {
   assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_lambda_execution.json
 }
 
-# Package the Lambda function code
+# Get the zipped auth Lambda function code
+data "local_file" "auth_deployment_zip" {
+  filename = "${path.module}/../auth-lambda.zip"
+}
+
+# Lamba function for environment authentication
+resource "aws_lambda_function" "aws_lambda_function_auth" {
+  filename         = data.local_file.auth_deployment_zip.filename
+  function_name    = "${var.project_name_prefix}-lambda-environment-auth"
+  role             = aws_iam_role.aws_iam_role_lambda.arn
+  handler          = "handler.handler"
+  source_code_hash = data.local_file.auth_deployment_zip.content_base64sha256
+
+  runtime     = "nodejs22.x"
+  memory_size = 1024
+  timeout     = 30
+}
+
+# A dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests
+resource "aws_lambda_function_url" "aws_lambda_function_url" {
+  function_name      = aws_lambda_function.aws_lambda_function_auth.function_name
+  authorization_type = "NONE"
+}
+
+# Package the preview Lambda function code
 data "archive_file" "astro_ssr_deployment_zip" {
   type        = "zip"
   source_dir  = "${path.module}/../dist/"
@@ -260,7 +284,7 @@ data "archive_file" "astro_ssr_deployment_zip" {
 }
 
 # Lambda function for CMS preview deployment
-resource "aws_lambda_function" "aws_lambda_function" {
+resource "aws_lambda_function" "aws_lambda_function_preview" {
   filename         = data.archive_file.astro_ssr_deployment_zip.output_path
   function_name    = "${var.project_name_prefix}-lambda-storyblok-preview"
   role             = aws_iam_role.aws_iam_role_lambda.arn
@@ -293,7 +317,7 @@ resource "aws_apigatewayv2_integration" "aws_apigatewayv2_integration" {
   integration_type   = "AWS_PROXY"
   description        = "Integration to invoke storyblok preview lambda"
   integration_method = "POST"
-  integration_uri    = aws_lambda_function.aws_lambda_function.invoke_arn
+  integration_uri    = aws_lambda_function.aws_lambda_function_preview.invoke_arn
 }
 
 resource "aws_apigatewayv2_route" "aws_apigatewayv2_route" {
@@ -336,7 +360,7 @@ resource "aws_apigatewayv2_api_mapping" "aws_apigatewayv2_api_mapping" {
 resource "aws_lambda_permission" "aws_lambda_permission" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.aws_lambda_function.function_name
+  function_name = aws_lambda_function.aws_lambda_function_preview.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.aws_apigatewayv2_api.execution_arn}/*/*"
 }
@@ -430,7 +454,7 @@ data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
       "lambda:UpdateFunctionCode"
     ]
     resources = [
-      aws_lambda_function.aws_lambda_function.arn
+      aws_lambda_function.aws_lambda_function_preview.arn
     ]
   }
 }
@@ -448,8 +472,14 @@ resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda
 
 # Create the secret for Storyblok access token
 # Note that the secret version should be created manually in the AWS console
-resource "aws_secretsmanager_secret" "aws_secretsmanager_secret" {
+resource "aws_secretsmanager_secret" "aws_secretsmanager_storyblok_access_token" {
   name = "storyblok-access-token"
+}
+
+# Create the secret for auth wrapper password
+# Note that the secret version should be created manually in the AWS console
+resource "aws_secretsmanager_secret" "aws_secretsmanager_environment_auth_password" {
+  name = "environment-auth-password"
 }
 
 # IAM role for Code build and Codepipeline execution
@@ -560,7 +590,7 @@ data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" 
       "secretsmanager:GetSecretValue"
     ]
     resources = [
-      aws_secretsmanager_secret.aws_secretsmanager_secret.arn
+      aws_secretsmanager_secret.aws_secretsmanager_storyblok_access_token.arn
     ]
   }
 }
