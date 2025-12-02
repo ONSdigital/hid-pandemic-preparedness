@@ -7,7 +7,7 @@
 
 BUCKET_NAME="hid-ppt-app-preview"
 BUILD_FOLDER="dist"
-LAMBDA_FOLDER="lambda"
+LAMBDA_FOLDER="lambda/preview"
 LAMBDA_FUNCTION_NAME="hid-ppt-lambda-storyblok-preview"
 ZIP_FILENAME="astro-ssr-lambda.zip"
 

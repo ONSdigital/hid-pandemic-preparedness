@@ -13,22 +13,24 @@
   <main>
     <div class="w-100 py-4">
       <div class="container-lg p-4">
-
         <div class="row justify-content-center">
           <div class="col-md-4">
             <h1>Please enter your password to continue</h1>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-4 py-2">
-            <form method="post">
-              <div class="input-group mb-3">
-                <input class="form-control" type="password" name="password" placeholder="password" aria-label="password"
-                  aria-describedby="submit-button">
-                <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
+          <form class="col-md-4 py-2" action="/" method="post">
+            <div class="input-group has-validation mb-3">
+              <input
+                class="form-control {% if wasValidated and isValid %}is-valid{% elif wasValidated and not isValid %}is-invalid{% endif %}"
+                type="password" name="password" placeholder="password" aria-label="password"
+                aria-describedby="submit-button" required>
+              <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
+              <div class="invalid-feedback">
+                Please enter a valid password.
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
   </main>

@@ -76,4 +76,9 @@ The infrastructure creates the IAM user, but does not create the access key and 
 - [Create access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) for the github actions IAM user
 - Add these keys as [secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-secrets-in-github-actions). The access key should be stored as `AWS_ACCESS_KEY` and the secret key should be stored as `AWS_SECRET_ACCESS_KEY`
 
-The infrastructure creates the Secret Manager secret, but does not create the secret value that can be used by the Codepipeline to build the deployment. Once the infrastructure has created the Secret Manager secret, this step must be done manually. To do this follow the [AWS docs](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) to create a secret value with the `STORYBLOK_ACCESS_TOKEN` key and a value corresponding with the access token available from the Storyblok project space.
+The infrastructure creates Secret Manager secrets, but does not create secret values. Once the infrastructure has created Secret Manager secrets, values must be created manually. To do this follow the [AWS docs](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) to create secret values according to the table below.
+
+| Secret manager id | Used by | Secret value |
+| - | - | - |
+| environment-auth-password | Authorization lambda to authenticate an input password before allowing a user to view development environments | A `ENVIRONMENT_AUTH_PASSWORD` key and a value to be used as the password |
+| storyblok-access-token | Codepipeline to build the deployment | A `STORYBLOK_ACCESS_TOKEN` key and a value corresponding with the access token available from the Storyblok project space |

@@ -1,80 +1,67 @@
-const CLOUDFRONT_URL = process.env.CLOUDFRONT_URL || 'https://your-cloudfront-domain.example.com';
-const SECRET_ARN = process.env.SECRET_ARN; // ARN of secret in Secrets Manager
-const VALID_PASSWORD = process.env.VALID_PASSWORD || 'your-password';
+import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
 
+import nunjucks from 'nunjucks';
+import path from 'path';
+import querystring from "querystring"
+
+const AWS_REGION = process.env.AWS_REGION;
+const SECRET_ID = process.env.SECRET_ID;
+
+// Configure nunjucks templates
+nunjucks.configure(path.resolve('./templates'), { autoescape: true });
+
+// Fetch the secret from secret manager
+const client = new SecretsManagerClient({region: AWS_REGION});
+
+let smClientResponse;
+
+try {
+  smClientResponse = await client.send(
+    new GetSecretValueCommand({
+      SecretId: SECRET_ID,
+      VersionStage: "AWSCURRENT",
+    })
+  );
+} catch (error) {
+  // For a list of exceptions thrown, see
+  // https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+  throw error;
+}
+
+const PW_SECRET = smClientResponse.SecretString;
 
 export async function handler(event) {
-  const request = event.Records[0].cf.request;
+  const method = event.requestContext?.http?.method || event.httpMethod || 'GET';
 
-  const headers = request.headers;
-  const method = request.method.toUpperCase();
-
-
-
-  if (method === 'GET') {
-    const params = querystring.parse(request.querystring || '');
-    const errorMsg = params.error === '1' ? 'Invalid password, please try again.' : '';
-    const html = renderLoginPage(errorMsg);
-
-    return {
-      status: '200',
-      statusDescription: 'OK',
-      headers: {
-        'content-type': [{ key: 'Content-Type', value: 'text/html' }],
-      },
-      body: html,
-    };
-  }
+  let isValid = false;
+  let secretObj = JSON.parse(PW_SECRET)
+  let submittedPassword = ""
+  let wasValidated = false;
 
   if (method === 'POST') {
-    if (!request.body || request.body.encoding !== 'base64' || !request.body.data) {
-      return {
-        status: '400',
-        statusDescription: 'Bad Request',
-        headers: {
-          'content-type': [{ key: 'Content-Type', value: 'text/plain' }],
-        },
-        body: 'Missing or invalid request body',
-      };
+    if (event.body !== null && event.body !== undefined) {
+      // Decode base64 if needed
+      const bodyStr = event.isBase64Encoded
+        ? Buffer.from(event.body, 'base64').toString('utf8')
+        : event.body;
+
+      // Parse URL-encoded form data
+      const parsedBody = querystring.parse(bodyStr);
+
+      submittedPassword = parsedBody.password.trim() || '';
+
+      if (submittedPassword === secretObj.ENVIRONMENT_AUTH_PASSWORD) {
+        isValid = true;
+      }
     }
-
-    const bodyStr = Buffer.from(request.body.data, 'base64').toString('utf8');
-    const formData = querystring.parse(bodyStr);
-
-    if (formData.password === VALID_PASSWORD) {
-      const token = 'authenticated';
-      const signature = signToken(token, secretKey);
-      const cookieValue = `${token}|${signature}`;
-
-      return {
-        status: '302',
-        statusDescription: 'Found',
-        headers: {
-          'set-cookie': [{
-            key: 'Set-Cookie',
-            value: `${TOKEN_COOKIE_NAME}=${cookieValue}; HttpOnly; Secure; Path=/; Max-Age=${COOKIE_MAX_AGE_SECONDS}`,
-          }],
-          location: [{ key: 'Location', value: CLOUDFRONT_URL }],
-        },
-      };
-    } else {
-      return {
-        status: '302',
-        statusDescription: 'Found',
-        headers: {
-          location: [{ key: 'Location', value: '/login?error=1' }],
-        },
-      };
-    }
+    wasValidated = true;
   }
 
   return {
-    status: '405',
-    statusDescription: 'Method Not Allowed',
+    statusCode: 200,
     headers: {
-      allow: [{ key: 'Allow', value: 'GET, POST' }],
-      'content-type': [{ key: 'Content-Type', value: 'text/plain' }],
+      "Content-Type": "text/html",
     },
-    body: 'Method Not Allowed',
+    body: nunjucks.render('login.html', {isValid: isValid, wasValidated: wasValidated}),
   };
 }

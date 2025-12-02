@@ -252,6 +252,36 @@ resource "aws_iam_role" "aws_iam_role_lambda" {
   assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_lambda_execution.json
 }
 
+# Create the secret for auth wrapper password
+# Note that the secret version should be created manually in the AWS console
+resource "aws_secretsmanager_secret" "aws_secretsmanager_environment_auth_password" {
+  name = "environment-auth-password"
+}
+
+# Update permissions to allow lambda role to read secrets from secrets manager
+data "aws_iam_policy_document" "aws_iam_policy_document_auth_lambda" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "secretsmanager:GetSecretValue"
+    ]
+    resources = [
+      aws_secretsmanager_secret.aws_secretsmanager_environment_auth_password.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "aws_iam_policy_auth_lambda" {
+  name        = "lambda-environment-auth-permissions"
+  description = "Allow environment auth lambda to get secrets from secret manager"
+  policy      = data.aws_iam_policy_document.aws_iam_policy_document_auth_lambda.json
+}
+
+resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachmentauth_lambda" {
+  role       = aws_iam_role.aws_iam_role_lambda.name
+  policy_arn = aws_iam_policy.aws_iam_policy_auth_lambda.arn
+}
+
 # Get the zipped auth Lambda function code
 data "local_file" "auth_deployment_zip" {
   filename = "${path.module}/../auth-lambda.zip"
@@ -268,6 +298,13 @@ resource "aws_lambda_function" "aws_lambda_function_auth" {
   runtime     = "nodejs22.x"
   memory_size = 1024
   timeout     = 30
+
+  environment {
+    variables = {
+      LOG_LEVEL = "info"
+      SECRET_ID = aws_secretsmanager_secret.aws_secretsmanager_environment_auth_password.name
+    }
+  }
 }
 
 # A dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests
@@ -474,12 +511,6 @@ resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda
 # Note that the secret version should be created manually in the AWS console
 resource "aws_secretsmanager_secret" "aws_secretsmanager_storyblok_access_token" {
   name = "storyblok-access-token"
-}
-
-# Create the secret for auth wrapper password
-# Note that the secret version should be created manually in the AWS console
-resource "aws_secretsmanager_secret" "aws_secretsmanager_environment_auth_password" {
-  name = "environment-auth-password"
 }
 
 # IAM role for Code build and Codepipeline execution
