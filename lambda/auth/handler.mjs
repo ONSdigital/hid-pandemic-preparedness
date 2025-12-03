@@ -3,7 +3,7 @@ import {
   GetSecretValueCommand,
 } from "@aws-sdk/client-secrets-manager";
 
-import crypto from "crypto";
+import jwt from "jsonwebtoken";
 import nunjucks from "nunjucks";
 import path from "path";
 import querystring from "querystring";
@@ -38,25 +38,45 @@ async function fetchSecret(client, secret_id) {
   return smClientResponse.SecretString;
 }
 
-// Generates a token that expires in 3 days
-function generateToken(secret_key) {
-  const expiry = Math.floor(Date.now() / 1000) + THREE_DAYS;
-  const data = `expiry=${expiry}`;
-  const signature = crypto
-    .createHmac("sha256", secret_key)
-    .update(data)
-    .digest("hex");
-  return `${data}&sig=${signature}`;
+const PW_SECRET = await fetchSecret(client, SECRET_ID);
+const SECRET_OBJ = JSON.parse(PW_SECRET);
+
+// Creates the `set-cookie` string
+function setCookieStr(cookieValue, maxAge) {
+  return `auth_token=${cookieValue}; HttpOnly; Secure; Path=/; Max-Age=${maxAge}; SameSite=Lax`;
 }
 
-const PW_SECRET = await fetchSecret(client, SECRET_ID);
+// Returns `true` if cookie is valid, otherwise `false`
+function validateCookie(event) {
+  const headers = event.headers || {};
+  // Header keys in API Gateway are case-insensitive but often lowercase
+  const cookieHeader = headers.cookie || headers.Cookie || "";
+
+  if (cookieHeader) {
+    // Extract auth_token cookie value
+    const match = cookieHeader.match(/auth_token=([^;]+)/);
+
+    if (match) {
+      const token = decodeURIComponent(match[1]);
+
+      try {
+        jwt.verify(token, SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD);
+        return true;
+      } catch (err) {
+        // Will throw error if invalid or expired
+      }
+    }
+  }
+
+  return false;
+}
 
 export async function handler(event) {
   const method =
     event.requestContext?.http?.method || event.httpMethod || "GET";
+  const queryParams = event.queryStringParameters || {};
 
   let isValid = false;
-  let secretObj = JSON.parse(PW_SECRET);
   let submittedPassword = "";
   let wasValidated = false;
 
@@ -72,17 +92,17 @@ export async function handler(event) {
 
       submittedPassword = parsedBody.password.trim() || "";
 
-      if (submittedPassword === secretObj.ENVIRONMENT_AUTH_PASSWORD) {
-        // Generate a value for auth cookie
-        const cookieValue = generateToken(secretObj.ENVIRONMENT_AUTH_PASSWORD);
-        // Set-Cookie header value with attributes
-        const setCookie = `auth_token=${cookieValue}; HttpOnly; Secure; Path=/; Max-Age=${THREE_DAYS}; SameSite=Lax`;
+      if (submittedPassword === SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD) {
+        // Generate a jwt value for auth cookie
+        const cookieValue = jwt.sign({}, SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD, {
+          expiresIn: THREE_DAYS,
+        });
 
         return {
           statusCode: 200,
           headers: {
             "Content-Type": "text/html",
-            "Set-Cookie": setCookie,
+            "Set-Cookie": setCookieStr(cookieValue, THREE_DAYS),
           },
           body: nunjucks.render("success.html"),
         };
@@ -91,12 +111,43 @@ export async function handler(event) {
     wasValidated = true;
   }
 
+  // Handle request to delete the cookie if querystring param is present
+  const deleteCookie = queryParams["delete-cookie"];
+
+  if (deleteCookie === "true") {
+    // Reset the cookie
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "text/html",
+        "Set-Cookie": setCookieStr("", 0),
+      },
+      body: nunjucks.render("deleted.html", {
+        isValid: isValid,
+        wasValidated: wasValidated,
+      }),
+    };
+  }
+
+  // Check for presence of valid cookie
+  const cookieValid = validateCookie(event);
+
+  if (cookieValid) {
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "text/html",
+      },
+      body: nunjucks.render("success.html"),
+    };
+  }
+
   return {
     statusCode: 200,
     headers: {
       "Content-Type": "text/html",
     },
-    body: nunjucks.render("login.html", {
+    body: nunjucks.render("enter-password.html", {
       isValid: isValid,
       wasValidated: wasValidated,
     }),
