@@ -6,7 +6,7 @@ import type { FC } from "react";
 import { Button } from "@src/components/Button/Button";
 import { Link } from "@src/components/Molecules/Core/Link/Link";
 import { Tag } from "@/src/components/Molecules/Core/Tag/Tag";
-import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
+import { Dynamic } from "@src/components/Organisms/Dynamic/Dynamic";
 
 import strings from "@src/content/strings.json";
 
@@ -51,9 +51,7 @@ export const UnitOverview: FC<UnitOverviewProps> = (props) => {
         <h3 className={clsx("heading-m", "mt-4", "mb-0")}>{props.title}</h3>
         <hr className={clsx(styles["hr-m"])} />
         <div className={clsx("col-12")}>
-          {props.overviewRichText && (
-            <TextModule richText={props.overviewRichText} />
-          )}
+          <Dynamic content={props.content} />
         </div>
       </div>
       <div className={clsx("row")}>

@@ -57,6 +57,25 @@ export const SearchResults: FC<SearchResultsProps> = ({
     search: { resultsCount },
   } = strings;
 
+  if (searchResults === null) {
+    return (
+      <div
+        className={clsx(
+          "w-100",
+          "d-flex",
+          "flex-column",
+          "align-items-center",
+          "justify-content-center",
+          "text-center",
+          "py-5",
+          styles["search-results-bg"],
+        )}
+      >
+        <p className="text-secondary mb-0">Searching...</p>
+      </div>
+    );
+  }
+
   const resultsToDisplay = limit
     ? searchResults.slice(0, limit)
     : searchResults;

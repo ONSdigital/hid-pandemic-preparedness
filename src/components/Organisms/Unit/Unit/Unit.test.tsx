@@ -63,6 +63,7 @@ describe("Unit component", () => {
                   },
                 ],
               },
+              content: [],
             },
           ],
         },
@@ -97,6 +98,7 @@ describe("Unit component", () => {
               },
               readingTime: "5m",
               overviewRichText: { type: "doc", content: [] },
+              content: [],
             },
             {
               _uid: "chapter-uid-456",
@@ -104,6 +106,7 @@ describe("Unit component", () => {
               sections: [],
               subTitle: "Deep linked content",
               component: "UnitChapter",
+              content: [],
             },
           ],
         },

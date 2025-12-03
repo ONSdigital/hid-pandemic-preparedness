@@ -46,6 +46,34 @@ const mockResults = [
 ];
 
 describe("SearchResults component", () => {
+  it("renders 'Searching...' when searchResults is null (Loading State)", () => {
+    render(<SearchResults searchResults={null} isMobile={false} />);
+
+    expect(screen.getByText("Searching...")).toBeInTheDocument();
+    expect(screen.queryByText("No results found")).not.toBeInTheDocument();
+  });
+
+  it("renders 'No results found' when searchResults is empty array with input", () => {
+    render(
+      <SearchResults
+        searchResults={[]}
+        isMobile={false}
+        searchInput="testing"
+      />,
+    );
+
+    expect(screen.getByText("No results found")).toBeInTheDocument();
+    expect(screen.getByText(/"testing"/)).toBeInTheDocument();
+  });
+
+  it("renders nothing when searchResults is empty and no input provided", () => {
+    const { container } = render(
+      <SearchResults searchResults={[]} isMobile={false} searchInput="" />,
+    );
+
+    expect(container).toBeEmptyDOMElement();
+  });
+
   it("renders all results and the correct count when no limit is given", () => {
     render(<SearchResults searchResults={mockResults} isMobile={false} />);
 

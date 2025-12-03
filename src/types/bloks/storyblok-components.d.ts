@@ -16,6 +16,7 @@ export interface BasicPage {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -43,6 +44,7 @@ export interface BasicPage {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -83,6 +85,7 @@ export interface CardBlock {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -110,6 +113,7 @@ export interface CardBlock {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -200,6 +204,13 @@ export interface Chart {
 export interface Code {
   Code?: unknown;
   component: "Code";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface ContentArea {
+  textarea?: (Formula | Table | RichText | Iframe | Tip | Video)[];
+  component: "ContentArea";
   _uid: string;
   [k: string]: unknown;
 }
@@ -315,6 +326,7 @@ export interface HomePage {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -342,6 +354,7 @@ export interface HomePage {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -427,6 +440,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -454,6 +468,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -486,6 +501,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -513,6 +529,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -545,6 +562,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -572,6 +590,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -604,6 +623,7 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | ContentArea
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -631,6 +651,7 @@ export interface Landing {
     | QuickLinks
     | QuickLinksItem
     | Reference
+    | RichText
     | StatisticsAndText
     | StatisticsCard
     | StrategicPartner
@@ -740,6 +761,13 @@ export interface Reference {
   [k: string]: unknown;
 }
 
+export interface RichText {
+  content?: StoryblokRichtext;
+  component: "RichText";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface StatisticsAndText {
   title?: string;
   subTitle?: string;
@@ -793,7 +821,6 @@ export interface SubTheme {
 }
 
 export interface SupportingInformation {
-  content?: StoryblokRichtext;
   Body?: unknown[];
   component: "SupportingInformation";
   _uid: string;
@@ -906,6 +933,7 @@ export interface UnitChapter {
 
 export interface UnitOverview {
   title?: string;
+  content: (RichText | Table | Iframe | Video | Formula | Tip)[];
   overviewRichText?: StoryblokRichtext;
   githubLink?: Exclude<
     StoryblokMultilink,
@@ -918,8 +946,9 @@ export interface UnitOverview {
 }
 
 export interface UnitSection {
-  title?: string;
+  title: string;
   contentRichText?: StoryblokRichtext;
+  content: (Formula | Iframe | RichText | Table | Video | Tip)[];
   component: "UnitSection";
   _uid: string;
   [k: string]: unknown;
@@ -939,6 +968,7 @@ export interface Video {
 export type ContentType =
   | BasicPage
   | CardBlock
+  | ContentArea
   | FilterableResources
   | Footer
   | Home
