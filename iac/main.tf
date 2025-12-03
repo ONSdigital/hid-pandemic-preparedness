@@ -15,12 +15,6 @@ terraform {
   required_version = "~> 1.12.2"
 }
 
-# Create cloudfront function key value store so we can store a secret key for cookie validation
-resource "aws_cloudfront_key_value_store" "aws_cloudfront_key_value_store" {
-  name    = "${var.project_name_prefix}-key-value-store"
-  comment = "Store for cookie validation key"
-}
-
 # Create cloudfront function required for astro app deployments
 resource "aws_cloudfront_function" "aws_cloudfront_function" {
   name                         = "append-request"
@@ -28,9 +22,6 @@ resource "aws_cloudfront_function" "aws_cloudfront_function" {
   comment                      = "Appends index.html to request uri so astro static site folder structure can be used for navigation"
   publish                      = true
   code                         = file("${path.module}/appendRequest.js")
-  key_value_store_associations = [aws_cloudfront_key_value_store.aws_cloudfront_key_value_store.arn]
-
-  depends_on = [aws_cloudfront_key_value_store.aws_cloudfront_key_value_store]
 }
 
 provider "aws" {

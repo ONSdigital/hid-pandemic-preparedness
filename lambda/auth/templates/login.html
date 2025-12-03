@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="container-lg p-4">
   <div class="row justify-content-center">
     <div class="col-md-4">
@@ -12,13 +10,19 @@
       <div class="input-group has-validation mb-3">
         <input
           class="form-control {% if wasValidated and isValid %}is-valid{% elif wasValidated and not isValid %}is-invalid{% endif %}"
-          type="password" name="password" placeholder="password" aria-label="password" aria-describedby="submit-button"
-          required>
-        <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
-        <div class="invalid-feedback">
-          Please enter a valid password.
-        </div>
+          type="password"
+          name="password"
+          placeholder="password"
+          aria-label="password"
+          aria-describedby="submit-button"
+          required
+        />
+        <button class="btn btn-primary" type="submit" id="submit-button">
+          Submit
+        </button>
+        <div class="invalid-feedback">Please enter a valid password.</div>
       </div>
     </form>
   </div>
   {% endblock %}
+</div>
