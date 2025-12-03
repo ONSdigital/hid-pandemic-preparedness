@@ -1,39 +1,24 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-
-<body>
-  <main>
-    <div class="w-100 py-4">
-      <div class="container-lg p-4">
-        <div class="row justify-content-center">
-          <div class="col-md-4">
-            <h1>Please enter your password to continue</h1>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <form class="col-md-4 py-2" action="/" method="post">
-            <div class="input-group has-validation mb-3">
-              <input
-                class="form-control {% if wasValidated and isValid %}is-valid{% elif wasValidated and not isValid %}is-invalid{% endif %}"
-                type="password" name="password" placeholder="password" aria-label="password"
-                aria-describedby="submit-button" required>
-              <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
-              <div class="invalid-feedback">
-                Please enter a valid password.
-              </div>
-            </div>
-          </form>
+{% block content %}
+<div class="container-lg p-4">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h1>Please enter your password to continue</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <form class="col-md-4 py-2" action="/" method="post">
+      <div class="input-group has-validation mb-3">
+        <input
+          class="form-control {% if wasValidated and isValid %}is-valid{% elif wasValidated and not isValid %}is-invalid{% endif %}"
+          type="password" name="password" placeholder="password" aria-label="password" aria-describedby="submit-button"
+          required>
+        <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
+        <div class="invalid-feedback">
+          Please enter a valid password.
         </div>
       </div>
-  </main>
-</body>
-
-</html>
+    </form>
+  </div>
+  {% endblock %}
