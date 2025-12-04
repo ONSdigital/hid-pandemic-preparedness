@@ -17,11 +17,11 @@ terraform {
 
 # Create cloudfront function required for astro app deployments
 resource "aws_cloudfront_function" "aws_cloudfront_function" {
-  name                         = "append-request"
-  runtime                      = "cloudfront-js-2.0"
-  comment                      = "Appends index.html to request uri so astro static site folder structure can be used for navigation"
-  publish                      = true
-  code                         = file("${path.module}/appendRequest.js")
+  name    = "append-request"
+  runtime = "cloudfront-js-2.0"
+  comment = "Appends index.html to request uri so astro static site folder structure can be used for navigation"
+  publish = true
+  code    = file("${path.module}/appendRequest.js")
 }
 
 provider "aws" {
@@ -49,8 +49,11 @@ provider "aws" {
 # Set up ssl certificate for api gateway endpoints distributions
 resource "aws_acm_certificate" "api_gateway_certificate" {
   # Needs to be same region as api gateway
-  provider          = aws.eu_west_2
-  domain_name       = "preview.${var.domain_name}"
+  provider    = aws.eu_west_2
+  domain_name = "preview.${var.domain_name}"
+  subject_alternative_names = [
+    "auth.${var.domain_name}"
+  ]
   validation_method = "DNS"
 }
 
@@ -307,10 +310,15 @@ resource "aws_lambda_function" "aws_lambda_function_auth" {
   }
 }
 
-# A dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests
-resource "aws_lambda_function_url" "aws_lambda_function_url" {
-  function_name      = aws_lambda_function.aws_lambda_function_auth.function_name
-  authorization_type = "NONE"
+# Api gateway for environment authentication
+module "environment_auth_api_gateway" {
+  source          = "./apigatewayv2"
+  name            = "${var.project_name_prefix}-api-environment-auth"
+  certificate_arn = aws_acm_certificate.api_gateway_certificate.arn
+  description     = "Provides endpoint for environment auth lambda"
+  domain_name     = "auth.${var.domain_name}"
+  function_name   = aws_lambda_function.aws_lambda_function_auth.function_name
+  integration_uri = aws_lambda_function.aws_lambda_function_auth.invoke_arn
 }
 
 # Package the preview Lambda function code
@@ -362,7 +370,7 @@ resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
     allowed_methods = ["GET", "HEAD"]
     allowed_origins = [
       module.app_preview_api_gateway.api_endpoint,
-      "https://${module.app_preview_api_gateway.domain_name_id}"
+      "https://preview.${var.domain_name}"
     ]
     expose_headers  = []
     max_age_seconds = 3000
