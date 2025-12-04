@@ -147,7 +147,7 @@ export async function handler(event) {
       statusCode: 200,
       headers: {
         "Content-Type": "text/html",
-        "Set-Cookie": setCookieStr("", "", 0),
+        "Set-Cookie": setCookieStr("", parentDomain, 0),
       },
       body: nunjucks.render("deleted.html", {
         isValid: isValid,
