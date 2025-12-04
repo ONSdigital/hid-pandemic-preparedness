@@ -24,12 +24,12 @@ export interface BasicPage {
     | FooterColumn
     | FooterColumnLink
     | Formula
-    | FullWidthRichText
     | Header
     | HeaderInternalPages
     | Hero
     | Home
     | HomePage
+    | IconButton
     | Iframe
     | ImageAndText
     | ImageText
@@ -93,12 +93,12 @@ export interface CardBlock {
     | FooterColumn
     | FooterColumnLink
     | Formula
-    | FullWidthRichText
     | Header
     | HeaderInternalPages
     | Hero
     | Home
     | HomePage
+    | IconButton
     | Iframe
     | ImageAndText
     | ImageText
@@ -202,14 +202,16 @@ export interface Chart {
 }
 
 export interface Code {
-  Code?: unknown;
+  title?: string;
+  pythonCode?: string;
+  rustCode?: string;
   component: "Code";
   _uid: string;
   [k: string]: unknown;
 }
 
 export interface ContentArea {
-  textarea?: (Formula | Table | RichText | Iframe | Tip | Video)[];
+  textarea?: (Formula | Table | RichText | Iframe | Tip | Video | Code)[];
   component: "ContentArea";
   _uid: string;
   [k: string]: unknown;
@@ -272,13 +274,6 @@ export interface Formula {
   [k: string]: unknown;
 }
 
-export interface FullWidthRichText {
-  content?: StoryblokRichtext;
-  component: "FullWidthRichText";
-  _uid: string;
-  [k: string]: unknown;
-}
-
 export interface Header {
   title?: string;
   subTitle?: string;
@@ -334,12 +329,12 @@ export interface HomePage {
     | FooterColumn
     | FooterColumnLink
     | Formula
-    | FullWidthRichText
     | Header
     | HeaderInternalPages
     | Hero
     | Home
     | HomePage
+    | IconButton
     | Iframe
     | ImageAndText
     | ImageText
@@ -378,6 +373,20 @@ export interface HomePage {
     | Video
   )[];
   component: "HomePage";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface IconButton {
+  buttonText: string;
+  icon?: "" | "RiCodeSSlashLine" | "RiDownload2Line";
+  link?: Exclude<
+    StoryblokMultilink,
+    { linktype?: "email" } | { linktype?: "asset" }
+  >;
+  isDownloadable?: boolean;
+  downloadableContent?: StoryblokAsset;
+  component: "IconButton";
   _uid: string;
   [k: string]: unknown;
 }
@@ -448,12 +457,12 @@ export interface Landing {
     | FooterColumn
     | FooterColumnLink
     | Formula
-    | FullWidthRichText
     | Header
     | HeaderInternalPages
     | Hero
     | Home
     | HomePage
+    | IconButton
     | Iframe
     | ImageAndText
     | ImageText
@@ -509,12 +518,12 @@ export interface Landing {
     | FooterColumn
     | FooterColumnLink
     | Formula
-    | FullWidthRichText
     | Header
     | HeaderInternalPages
     | Hero
     | Home
     | HomePage
+    | IconButton
     | Iframe
     | ImageAndText
     | ImageText
@@ -570,12 +579,12 @@ export interface Landing {
     | FooterColumn
     | FooterColumnLink
     | Formula
-    | FullWidthRichText
     | Header
     | HeaderInternalPages
     | Hero
     | Home
     | HomePage
+    | IconButton
     | Iframe
     | ImageAndText
     | ImageText
@@ -631,12 +640,12 @@ export interface Landing {
     | FooterColumn
     | FooterColumnLink
     | Formula
-    | FullWidthRichText
     | Header
     | HeaderInternalPages
     | Hero
     | Home
     | HomePage
+    | IconButton
     | Iframe
     | ImageAndText
     | ImageText
@@ -934,7 +943,6 @@ export interface UnitChapter {
 export interface UnitOverview {
   title?: string;
   content: (RichText | Table | Iframe | Video | Formula | Tip)[];
-  overviewRichText?: StoryblokRichtext;
   githubLink?: Exclude<
     StoryblokMultilink,
     { linktype?: "email" } | { linktype?: "asset" }
@@ -947,7 +955,6 @@ export interface UnitOverview {
 
 export interface UnitSection {
   title: string;
-  contentRichText?: StoryblokRichtext;
   content: (Formula | Iframe | RichText | Table | Video | Tip)[];
   component: "UnitSection";
   _uid: string;
