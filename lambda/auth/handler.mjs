@@ -42,8 +42,8 @@ const PW_SECRET = await fetchSecret(client, SECRET_ID);
 const SECRET_OBJ = JSON.parse(PW_SECRET);
 
 // Creates the `set-cookie` string
-function setCookieStr(cookieValue, maxAge) {
-  return `auth_token=${cookieValue}; HttpOnly; Secure; Path=/; Max-Age=${maxAge}; SameSite=Lax`;
+function setCookieStr(cookieValue, domainName, maxAge) {
+  return `auth_token=${cookieValue}; Domain=${domainName}; Path=/; Secure; HttpOnly; Max-Age=${maxAge}; SameSite=Lax`;
 }
 
 // Returns `true` if cookie is valid, otherwise `false`
@@ -72,8 +72,11 @@ function validateCookie(event) {
 }
 
 export async function handler(event) {
+  const domainName = event.requestContext.domainName;
+  const domainPrefix = event.requestContext.domainPrefix;
   const method =
     event.requestContext?.http?.method || event.httpMethod || "GET";
+  const parentDomain = domainName.slice(domainPrefix.length, domainName.length);
   const queryParams = event.queryStringParameters || {};
 
   let isValid = false;
@@ -107,7 +110,7 @@ export async function handler(event) {
         const cookieValue = jwt.sign({}, SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD, {
           expiresIn: SEVEN_DAYS,
         });
-        const cookieString = setCookieStr(cookieValue, SEVEN_DAYS);
+        const cookieString = setCookieStr(cookieValue, parentDomain, SEVEN_DAYS);
 
         // If there is a valid refererUrl as part of posted data, redirect to this site otherwise
         // return success message
@@ -144,7 +147,7 @@ export async function handler(event) {
       statusCode: 200,
       headers: {
         "Content-Type": "text/html",
-        "Set-Cookie": setCookieStr("", 0),
+        "Set-Cookie": setCookieStr("", "", 0),
       },
       body: nunjucks.render("deleted.html", {
         isValid: isValid,
