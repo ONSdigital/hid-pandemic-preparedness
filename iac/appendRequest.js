@@ -3,13 +3,14 @@ import crypto from "crypto";
 var AUTH_COOKIE_NAME = "auth_token";
 // Set to false by default. Update this value to `true` when deployed to enable auth
 var AUTH_ENABLED = false;
-var AUTH_URL = "https://auth.analysisforaction.org";
+// Set to empty string for security. Update this value to the correct url when deployed.
+var AUTH_URL = "";
 // Set to empty string for security. Update this value to the correct key when deployed.
 var SECRET_KEY = "";
 var SCHEME = "https";
 
 // Function from https://github.com/aws-samples/amazon-cloudfront-functions/blob/main/kvs-jwt-verify/verify-jwt.js
-function jwt_decode(token, key, noVerify, algorithm) {
+function jwt_decode(token, key, noVerify) {
   // check token
   if (!token) {
     throw new Error("No token supplied");
