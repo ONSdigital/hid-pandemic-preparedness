@@ -56,7 +56,7 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
             </button>
           );
         })}
- 
+
       {hasLinks &&
         props.links.map((navBarLink) => (
           <Link
@@ -66,8 +66,8 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
             textInverse={true}
             hideIcon={true}
             className={clsx("d-flex", "align-items-center", styles["nav-item"])}
-          /> 
-        ))} 
+          />
+        ))}
 
       <div className={clsx("d-flex", "align-items-center", styles["nav-item"])}>
         <Button
