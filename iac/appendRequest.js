@@ -1,5 +1,6 @@
 import crypto from "crypto";
 
+var AUTH_COOKIE_NAME = "auth_token";
 // Set to false by default. Update this value to `true` when deployed to enable auth
 var AUTH_ENABLED = false;
 var AUTH_URL = "https://auth.analysisforaction.org";
@@ -83,6 +84,22 @@ function _base64urlDecode(str) {
   return Buffer.from(str, "base64url");
 }
 
+function _isEmptyObject(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) return false;
+  }
+  return true;
+}
+
+function _containsAuthTokenCookie(cookies) {
+  for (var key in cookies) {
+    if (key === AUTH_COOKIE_NAME) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // Builds absolute url using request e.g. 'https://www.analysisforaction.org/kljasdas/asdasd'
 function buildRefererUrl(request) {
   var host = request.headers.host && request.headers.host.value;
@@ -91,8 +108,19 @@ function buildRefererUrl(request) {
 
   // Construct full URL
   var refererUrl = SCHEME + "://" + host + uri;
-  if (querystring) {
-    refererUrl += "?" + querystring;
+  if (!_isEmptyObject(querystring)) {
+    var qs = [];
+    for (var key in request.querystring) {
+      if (request.querystring[key].multiValue) {
+        request.querystring[key].multiValue.forEach((mv) => {
+          qs.push(key + "=" + mv.value);
+        });
+      } else {
+        qs.push(key + "=" + request.querystring[key].value);
+      }
+    }
+
+    refererUrl += "?" + qs.sort().join("&");
   }
 
   return refererUrl;
@@ -107,29 +135,30 @@ function handler(event) {
   var uri = request.uri;
 
   if (AUTH_ENABLED) {
-    var cookieHeader = request.headers.cookie && request.headers.cookie.value;
+    var cookies = request.cookies;
+    var refererUrl = buildRefererUrl(request);
+    var authenticatedRequest = false;
 
-    if (cookieHeader) {
+    if (_containsAuthTokenCookie(cookies)) {
       // Extract auth_token cookie value
-      var match = cookieHeader.match(/auth_token=([^;]+)/);
+      var jwtToken = decodeURIComponent(cookies[AUTH_COOKIE_NAME].value);
 
-      if (match) {
-        var jwtToken = decodeURIComponent(match[1]);
-
-        try {
-          jwt_decode(jwtToken, SECRET_KEY);
-        } catch (err) {
-          // Will throw error if invalid or expired so redirect to auth
-          var refererUrl = buildRefererUrl(request);
-          return {
-            statusCode: 302,
-            statusDescription: "Found",
-            headers: {
-              location: { value: `${AUTH_URL}?referer=${refererUrl}` },
-            },
-          };
-        }
+      try {
+        jwt_decode(jwtToken, SECRET_KEY);
+        authenticatedRequest = true;
+      } catch (err) {
+        // Will throw error if invalid or expired so just fall through
       }
+    }
+
+    if (!authenticatedRequest) {
+      return {
+        statusCode: 302,
+        statusDescription: "Found",
+        headers: {
+          location: { value: `${AUTH_URL}?referer=${refererUrl}` },
+        },
+      };
     }
   }
 

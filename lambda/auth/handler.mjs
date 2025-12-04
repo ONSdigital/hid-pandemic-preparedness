@@ -10,7 +10,7 @@ import querystring from "querystring";
 
 const AWS_REGION = process.env.AWS_REGION;
 const SECRET_ID = process.env.SECRET_ID;
-const THREE_DAYS = 3600 * 24 * 3; // Three days in seconds used for cookie expiry
+const SEVEN_DAYS = 3600 * 24 * 7; // Seven days in seconds used for cookie expiry
 
 // Configure nunjucks templates
 nunjucks.configure(path.resolve("./templates"), { autoescape: true });
@@ -95,14 +95,14 @@ export async function handler(event) {
       if (submittedPassword === SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD) {
         // Generate a jwt value for auth cookie
         const cookieValue = jwt.sign({}, SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD, {
-          expiresIn: THREE_DAYS,
+          expiresIn: SEVEN_DAYS,
         });
 
         return {
           statusCode: 200,
           headers: {
             "Content-Type": "text/html",
-            "Set-Cookie": setCookieStr(cookieValue, THREE_DAYS),
+            "Set-Cookie": setCookieStr(cookieValue, SEVEN_DAYS),
           },
           body: nunjucks.render("success.html"),
         };
