@@ -35,8 +35,9 @@ resource "aws_acm_certificate" "cloudfront_certificate" {
   provider    = aws.us_east_1
   domain_name = var.domain_name
   subject_alternative_names = [
-    "www.${var.domain_name}",
-    "staging.${var.domain_name}"
+    "dev.${var.domain_name}",
+    "staging.${var.domain_name}",
+    "www.${var.domain_name}"
   ]
   validation_method = "DNS"
 }
@@ -115,6 +116,7 @@ module "app_dev_s3" {
 # Function association is enabled to enable astro static site folder based navigation
 module "app_dev_cloudfront" {
   source                      = "./cloudfront"
+  aliases                     = ["dev.${var.domain_name}"]
   bucket_name                 = module.app_dev_s3.id
   bucket_regional_domain_name = module.app_dev_s3.bucket_regional_domain_name
   distribution_enabled        = true
@@ -127,8 +129,12 @@ module "app_dev_cloudfront" {
   ]
   long_cache_path_pattern = "_astro/*"
   viewer_certificate = {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = aws_acm_certificate.cloudfront_certificate.arn
+    minimum_protocol_version = "TLSv1.2_2021"
+    ssl_support_method       = "sni-only"
   }
+
+  depends_on = [aws_acm_certificate.cloudfront_certificate]
 }
 
 # Create bucket for app main
@@ -354,9 +360,7 @@ resource "aws_lambda_function" "aws_lambda_function_preview" {
 module "app_preview_api_gateway" {
   source          = "./apigatewayv2"
   name            = "${var.project_name_prefix}-api-storyblok-preview"
-  certificate_arn = aws_acm_certificate.api_gateway_certificate.arn
   description     = "Provides endpoint for Astro SSR CMS preview"
-  domain_name     = "preview.${var.domain_name}"
   function_name   = aws_lambda_function.aws_lambda_function_preview.function_name
   integration_uri = aws_lambda_function.aws_lambda_function_preview.invoke_arn
 }
@@ -369,8 +373,7 @@ resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "HEAD"]
     allowed_origins = [
-      module.app_preview_api_gateway.api_endpoint,
-      "https://preview.${var.domain_name}"
+      module.app_preview_api_gateway.api_endpoint
     ]
     expose_headers  = []
     max_age_seconds = 3000

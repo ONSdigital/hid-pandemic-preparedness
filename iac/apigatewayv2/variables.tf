@@ -1,6 +1,7 @@
 variable "certificate_arn" {
   description = "ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source."
   type        = string
+  default     = ""
 }
 
 variable "description" {
@@ -11,6 +12,7 @@ variable "description" {
 variable "domain_name" {
   description = "Domain name. Must be between 1 and 512 characters in length."
   type        = string
+  default     = ""
 }
 
 variable "function_name" {

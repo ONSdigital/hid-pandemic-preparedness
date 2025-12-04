@@ -5,5 +5,5 @@ output "api_endpoint" {
 
 output "domain_name_id" {
   description = "Domain name identifier."
-  value       = aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id
+  value       = (var.domain_name != "" && var.certificate_arn != "") ? aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name[0].id : null
 }

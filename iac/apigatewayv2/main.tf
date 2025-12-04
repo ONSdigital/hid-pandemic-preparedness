@@ -32,6 +32,8 @@ resource "aws_apigatewayv2_stage" "aws_apigatewayv2_stage" {
 }
 
 resource "aws_apigatewayv2_domain_name" "aws_apigatewayv2_domain_name" {
+  count = var.domain_name != "" && var.certificate_arn != "" ? 1 : 0
+
   domain_name = var.domain_name
 
   domain_name_configuration {
@@ -42,8 +44,10 @@ resource "aws_apigatewayv2_domain_name" "aws_apigatewayv2_domain_name" {
 }
 
 resource "aws_apigatewayv2_api_mapping" "aws_apigatewayv2_api_mapping" {
+  count = var.domain_name != "" && var.certificate_arn != "" ? 1 : 0
+
   api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  domain_name = aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id
+  domain_name = aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name[0].id
   stage       = aws_apigatewayv2_stage.aws_apigatewayv2_stage.id
 }
 
