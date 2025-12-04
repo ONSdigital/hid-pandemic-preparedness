@@ -21,6 +21,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         "gap-2",
       )}
       download={props.isDownloadable}
+      target={props.isDownloadable ?  undefined : "_blank" }
     >
       {props.buttonText}
       {props.icon && <Icon iconName={props.icon} className={clsx("ms-2")} />}
