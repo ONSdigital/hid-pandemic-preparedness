@@ -97,15 +97,31 @@ export async function handler(event) {
         const cookieValue = jwt.sign({}, SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD, {
           expiresIn: SEVEN_DAYS,
         });
+        const cookieString = setCookieStr(cookieValue, SEVEN_DAYS);
 
-        return {
-          statusCode: 200,
-          headers: {
-            "Content-Type": "text/html",
-            "Set-Cookie": setCookieStr(cookieValue, SEVEN_DAYS),
-          },
-          body: nunjucks.render("success.html"),
-        };
+        // If there is a valid referer querystring param, redirect to this site otherwise return
+        // success message
+        try {
+          var url = new URL(queryParams["referer"]);
+
+          return {
+            statusCode: 302,
+            headers: {
+              "Content-Type": "text/html",
+              Location: url.toString(),
+              "Set-Cookie": cookieString,
+            },
+          };
+        } catch {
+          return {
+            statusCode: 200,
+            headers: {
+              "Content-Type": "text/html",
+              "Set-Cookie": cookieString,
+            },
+            body: nunjucks.render("success.html"),
+          };
+        }
       }
     }
     wasValidated = true;
