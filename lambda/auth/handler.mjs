@@ -77,8 +77,17 @@ export async function handler(event) {
   const queryParams = event.queryStringParameters || {};
 
   let isValid = false;
+  let refererUrl = "";
   let submittedPassword = "";
   let wasValidated = false;
+
+  // See whether we have a valid refererUrl as part of querystring params
+  try {
+    var url = new URL(queryParams["referer"]);
+    refererUrl = url.toString();
+  } catch {
+    // Do nothing
+  }
 
   if (method === "POST") {
     if (event.body !== null && event.body !== undefined) {
@@ -90,6 +99,7 @@ export async function handler(event) {
       // Parse URL-encoded form data
       const parsedBody = querystring.parse(bodyStr);
 
+      refererUrl = parsedBody.refererUrl.trim() || "";
       submittedPassword = parsedBody.password.trim() || "";
 
       if (submittedPassword === SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD) {
@@ -99,20 +109,18 @@ export async function handler(event) {
         });
         const cookieString = setCookieStr(cookieValue, SEVEN_DAYS);
 
-        // If there is a valid referer querystring param, redirect to this site otherwise return
-        // success message
-        try {
-          var url = new URL(queryParams["referer"]);
-
+        // If there is a valid refererUrl as part of posted data, redirect to this site otherwise
+        // return success message
+        if (refererUrl !== "") {
           return {
             statusCode: 302,
             headers: {
               "Content-Type": "text/html",
-              Location: url.toString(),
+              Location: refererUrl,
               "Set-Cookie": cookieString,
             },
           };
-        } catch {
+        } else {
           return {
             statusCode: 200,
             headers: {
@@ -165,6 +173,7 @@ export async function handler(event) {
     },
     body: nunjucks.render("enter-password.html", {
       isValid: isValid,
+      refererUrl: refererUrl,
       wasValidated: wasValidated,
     }),
   };
