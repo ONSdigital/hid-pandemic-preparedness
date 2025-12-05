@@ -110,7 +110,11 @@ export async function handler(event) {
         const cookieValue = jwt.sign({}, SECRET_OBJ.ENVIRONMENT_AUTH_PASSWORD, {
           expiresIn: SEVEN_DAYS,
         });
-        const cookieString = setCookieStr(cookieValue, parentDomain, SEVEN_DAYS);
+        const cookieString = setCookieStr(
+          cookieValue,
+          parentDomain,
+          SEVEN_DAYS,
+        );
 
         // If there is a valid refererUrl as part of posted data, redirect to this site otherwise
         // return success message

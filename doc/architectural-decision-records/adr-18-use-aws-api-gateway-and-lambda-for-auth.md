@@ -2,8 +2,6 @@
 
 ## Related NFRs
 
-
-
 ## Rationale
 
 The application is designed to be [deployed as a static site](./adr-7-deploy-as-a-static-site.md) and uses the [Astro web framework](./adr-11-use-the-astrojs-web-framework.md) to do this. The project environments are deployed either as CloudFront distributions or as a [Lambda using API Gateway](./architectural-decision-records/adr-16-use-aws-api-gateway-and-lambda-for-storyblok-preview.md).
