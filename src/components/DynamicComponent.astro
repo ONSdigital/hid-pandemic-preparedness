@@ -1,5 +1,6 @@
 ---
 import ContentArea from "@src/components/ContentArea.astro";
+import ContentHighlight from "@src/components/ContentHighlight.astro";
 
 import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
@@ -53,6 +54,8 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
   componentName ? (
     componentName === "ContentArea" ? (
       <ContentArea {...blok} />
+    ) : componentName === "ContentHighlight" ? (
+      <ContentHighlight {...blok} />
     ) : componentName === "UnitBlock" ? (
       <UnitBlock {...blok} />
     ) : componentName === "CaseStudies" ? (
