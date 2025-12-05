@@ -8,6 +8,7 @@ dist/
 
 # dependencies
 /node_modules
+**/node_modules
 
 # misc
 .DS_Store
@@ -36,5 +37,6 @@ storybook-static
 
 app-source.zip
 astro-ssr-lambda.zip
+auth-lambda.zip
 
 .storyblok/
