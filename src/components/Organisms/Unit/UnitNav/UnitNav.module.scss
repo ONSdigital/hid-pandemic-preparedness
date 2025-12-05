@@ -7,7 +7,7 @@
 // Note that sticky will only work if:
 //    (1) Scrollable parents have "height: 100%" (or some height for it to move it)
 //    (2) Any ancester parents do not have overflow applied (e.g. "overflow: hidden")
-.sticky-chapters{
+.sticky-chapters {
   position: sticky;
   top: 50px;
 }
