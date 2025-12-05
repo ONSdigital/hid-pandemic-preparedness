@@ -57,7 +57,7 @@
 // https://stackoverflow.com/questions/25887927/bootstrap-some-kind-of-margin-on-mobile-devices-only-right-side
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
