@@ -1,13 +1,23 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
-import { Icon } from "@components/Molecules/Core/Icon/Icon";
+import { sanitizeUrl } from "@src/helpers/sanitizeUrl";
 
+import { Icon } from "@components/Molecules/Core/Icon/Icon";
 import type { IconButtonProps } from "./IconButton.interface";
 
 export const IconButton: FC<IconButtonProps> = (props) => {
-  const href =  props.link?.url || props.downloadableContent?.filename || "";
-  const isDownloadable = Boolean(props.downloadableContent?.filename);
+  let href = ""
+  let isDownloadable = false 
+
+  if (props.link?.url || props.link?.cached_url){
+    href = sanitizeUrl(props.link?.url || props.link?.cached_url);
+  } else if (props.downloadableContent?.filename) {
+    href = props.downloadableContent?.filename
+    isDownloadable = true
+  }
+
+  const opensNewTab = Boolean(href) && !isDownloadable
 
   return (
     <a
@@ -20,7 +30,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         "gap-2",
       )}
       download={isDownloadable}
-      target={isDownloadable ? undefined : "_blank"}
+      target={opensNewTab ? "_blank" : undefined}
     >
       {props.buttonText}
       {props.icon && <Icon iconName={props.icon} className={clsx("ms-2")} />}
