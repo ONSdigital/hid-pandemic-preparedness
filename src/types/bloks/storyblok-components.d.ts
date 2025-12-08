@@ -239,7 +239,8 @@ export interface ContentArea {
 }
 
 export interface ContentHighlight {
-  textarea?: (Table | RichText)[];
+  highlightTitle?: string;
+  textarea?: (RichText | ContentArea | Table)[];
   component: "ContentHighlight";
   _uid: string;
   [k: string]: unknown;
