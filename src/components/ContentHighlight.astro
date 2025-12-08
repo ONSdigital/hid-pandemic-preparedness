@@ -5,18 +5,18 @@ import clsx from "clsx";
 const { highlightTitle, textarea } = Astro.props;
 ---
 
-<div class={clsx("w-100", "py-4", "container-lg",)}>
-  <div class={clsx( "rounded-top","content-title" )}>
-    <h4 class={clsx("heading-s", "m-0")}>{highlightTitle}</h1>
+<div class={clsx("w-100", "py-4", "container-lg")}>
+  <div class={clsx("rounded-top", "content-title")}>
+    <h4 class={clsx("heading-s", "m-0")}>{highlightTitle}</h4>
   </div>
-  <div class={clsx( "rounded-bottom", "content-container")}>
+  <div class={clsx("rounded-bottom", "content-container")}>
     {textarea.map((blok: any) => <DynamicComponent blok={blok} />)}
   </div>
 </div>
 
 <style lang="scss">
   @import "@styles/index.scss";
- .content-title {
+  .content-title {
     background-color: $color-brand-primary-200;
     padding: 1rem 2rem;
   }
