@@ -22,22 +22,26 @@ import { Video } from "@/src/components/Organisms/Core/Video/Video";
 
 // List of components that we have corresponding bloks for in Storyblok
 const COMPONENT_NAMES: string[] = [
+  "ContentArea",
+  "ContentHighlight",
+  "Carousel",
   "CaseStudies",
   "FullWidthRichText",
+  "Formula",
   "Header",
+  "IconButton",
   "Iframe",
   "ImageAndText",
   "Impact",
+  "QuickLinks",
+  "RichText",
   "StatisticsAndText",
   "StrategicPartners",
-  "QuickLinks",
   "Table",
   "Tip",
   "ToolsCarousel",
-  "Video",
   "UnitBlock",
-  "Carousel",
-  "Formula",
+  "Video"
 ];
 
 const { blok } = Astro.props;
@@ -46,7 +50,7 @@ const componentName: string = blok.component;
 // If we are trying to render a blok we don't have a corresponding component for, log a warning
 if (!COMPONENT_NAMES.includes(blok.component)) {
   console.warn(
-    `DynamicComponent warning: Component "${componentName}" not found in COMPONENT_MAP.`,
+    `DynamicComponent warning: Component "${componentName}" not found in COMPONENT_NAMES.`,
   );
 }
 ---
