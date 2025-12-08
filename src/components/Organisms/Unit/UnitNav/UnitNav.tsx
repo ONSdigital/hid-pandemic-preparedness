@@ -22,6 +22,7 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
   const handleChapterSelect = (id: string) => {
     if (props.onSelect) {
       props.onSelect(id);
+      window.scrollTo({ top: 0, behavior: "instant" }); //Move to the top of the screen when chapter is selected
     }
   };
 
