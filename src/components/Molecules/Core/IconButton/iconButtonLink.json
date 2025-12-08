@@ -10,7 +10,6 @@
   },
   "component": "IconButton",
   "buttonText": "Github button",
-  "isDownloadable": false,
   "downloadableContent": {
     "id": null,
     "alt": null,

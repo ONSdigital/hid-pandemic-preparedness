@@ -16,7 +16,9 @@ export interface BasicPage {
     | CaseStudyCard
     | Chart
     | Code
+    | CodeLanguage
     | ContentArea
+    | ContentHighlight
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -85,7 +87,9 @@ export interface CardBlock {
     | CaseStudyCard
     | Chart
     | Code
+    | CodeLanguage
     | ContentArea
+    | ContentHighlight
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -203,16 +207,41 @@ export interface Chart {
 
 export interface Code {
   title?: string;
-  pythonCode?: string;
-  rustCode?: string;
+  languages: CodeLanguage[];
   component: "Code";
   _uid: string;
   [k: string]: unknown;
 }
 
+export interface CodeLanguage {
+  language: "" | "Python" | "R" | "YAML" | "Bash" | "Text";
+  label?: string;
+  code: string;
+  component: "Code Language";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface ContentArea {
-  textarea?: (Formula | Table | RichText | Iframe | Tip | Video | Code)[];
+  textarea?: (
+    | Formula
+    | Table
+    | RichText
+    | Iframe
+    | Tip
+    | Video
+    | Code
+    | IconButton
+  )[];
   component: "ContentArea";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface ContentHighlight {
+  highlightTitle?: string;
+  textarea?: (RichText | ContentArea)[];
+  component: "ContentHighlight";
   _uid: string;
   [k: string]: unknown;
 }
@@ -321,7 +350,9 @@ export interface HomePage {
     | CaseStudyCard
     | Chart
     | Code
+    | CodeLanguage
     | ContentArea
+    | ContentHighlight
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -384,7 +415,6 @@ export interface IconButton {
     StoryblokMultilink,
     { linktype?: "email" } | { linktype?: "asset" }
   >;
-  isDownloadable?: boolean;
   downloadableContent?: StoryblokAsset;
   component: "IconButton";
   _uid: string;
@@ -449,7 +479,9 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | CodeLanguage
     | ContentArea
+    | ContentHighlight
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -510,7 +542,9 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | CodeLanguage
     | ContentArea
+    | ContentHighlight
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -571,7 +605,9 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | CodeLanguage
     | ContentArea
+    | ContentHighlight
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem
@@ -632,7 +668,9 @@ export interface Landing {
     | CaseStudyCard
     | Chart
     | Code
+    | CodeLanguage
     | ContentArea
+    | ContentHighlight
     | ExpandableItem
     | FilterableResources
     | FilterableResourcesItem

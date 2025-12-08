@@ -6,9 +6,8 @@ import { Icon } from "@components/Molecules/Core/Icon/Icon";
 import type { IconButtonProps } from "./IconButton.interface";
 
 export const IconButton: FC<IconButtonProps> = (props) => {
-  const href = props.isDownloadable
-    ? (props.downloadableContent?.filename ?? undefined)
-    : props.link?.url;
+  const href =  props.link?.url || props.downloadableContent?.filename || "";
+  const isDownloadable = Boolean(props.downloadableContent?.filename);
 
   return (
     <a
@@ -20,8 +19,8 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         "align-items-center",
         "gap-2",
       )}
-      download={props.isDownloadable}
-      target={props.isDownloadable ? undefined : "_blank"}
+      download={isDownloadable}
+      target={isDownloadable ? undefined : "_blank"}
     >
       {props.buttonText}
       {props.icon && <Icon iconName={props.icon} className={clsx("ms-2")} />}

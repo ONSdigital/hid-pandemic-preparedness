@@ -10,7 +10,6 @@
   },
   "component": "IconButton",
   "buttonText": "Download button",
-  "isDownloadable": true,
   "downloadableContent": {
     "id": 114461866301576,
     "alt": "",
