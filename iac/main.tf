@@ -35,8 +35,9 @@ resource "aws_acm_certificate" "cloudfront_certificate" {
   provider    = aws.us_east_1
   domain_name = var.domain_name
   subject_alternative_names = [
-    "www.${var.domain_name}",
-    "staging.${var.domain_name}"
+    "dev.${var.domain_name}",
+    "staging.${var.domain_name}",
+    "www.${var.domain_name}"
   ]
   validation_method = "DNS"
 }
@@ -49,8 +50,11 @@ provider "aws" {
 # Set up ssl certificate for api gateway endpoints distributions
 resource "aws_acm_certificate" "api_gateway_certificate" {
   # Needs to be same region as api gateway
-  provider          = aws.eu_west_2
-  domain_name       = "preview.${var.domain_name}"
+  provider    = aws.eu_west_2
+  domain_name = "preview.${var.domain_name}"
+  subject_alternative_names = [
+    "auth.${var.domain_name}"
+  ]
   validation_method = "DNS"
 }
 
@@ -112,6 +116,7 @@ module "app_dev_s3" {
 # Function association is enabled to enable astro static site folder based navigation
 module "app_dev_cloudfront" {
   source                      = "./cloudfront"
+  aliases                     = ["dev.${var.domain_name}"]
   bucket_name                 = module.app_dev_s3.id
   bucket_regional_domain_name = module.app_dev_s3.bucket_regional_domain_name
   distribution_enabled        = true
@@ -124,8 +129,12 @@ module "app_dev_cloudfront" {
   ]
   long_cache_path_pattern = "_astro/*"
   viewer_certificate = {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = aws_acm_certificate.cloudfront_certificate.arn
+    minimum_protocol_version = "TLSv1.2_2021"
+    ssl_support_method       = "sni-only"
   }
+
+  depends_on = [aws_acm_certificate.cloudfront_certificate]
 }
 
 # Create bucket for app main
@@ -252,7 +261,73 @@ resource "aws_iam_role" "aws_iam_role_lambda" {
   assume_role_policy = data.aws_iam_policy_document.aws_iam_policy_document_lambda_execution.json
 }
 
-# Package the Lambda function code
+# Create the secret for auth wrapper password
+# Note that the secret version should be created manually in the AWS console
+resource "aws_secretsmanager_secret" "aws_secretsmanager_environment_auth_password" {
+  name = "environment-auth-password"
+}
+
+# Update permissions to allow lambda role to read secrets from secrets manager
+data "aws_iam_policy_document" "aws_iam_policy_document_auth_lambda" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "secretsmanager:GetSecretValue"
+    ]
+    resources = [
+      aws_secretsmanager_secret.aws_secretsmanager_environment_auth_password.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "aws_iam_policy_auth_lambda" {
+  name        = "lambda-environment-auth-permissions"
+  description = "Allow environment auth lambda to get secrets from secret manager"
+  policy      = data.aws_iam_policy_document.aws_iam_policy_document_auth_lambda.json
+}
+
+resource "aws_iam_role_policy_attachment" "aws_iam_role_policy_attachmentauth_lambda" {
+  role       = aws_iam_role.aws_iam_role_lambda.name
+  policy_arn = aws_iam_policy.aws_iam_policy_auth_lambda.arn
+}
+
+# Get the zipped auth Lambda function code
+data "local_file" "auth_deployment_zip" {
+  filename = "${path.module}/../auth-lambda.zip"
+}
+
+# Lamba function for environment authentication
+resource "aws_lambda_function" "aws_lambda_function_auth" {
+  filename         = data.local_file.auth_deployment_zip.filename
+  function_name    = "${var.project_name_prefix}-lambda-environment-auth"
+  role             = aws_iam_role.aws_iam_role_lambda.arn
+  handler          = "handler.handler"
+  source_code_hash = data.local_file.auth_deployment_zip.content_base64sha256
+
+  runtime     = "nodejs22.x"
+  memory_size = 1024
+  timeout     = 30
+
+  environment {
+    variables = {
+      LOG_LEVEL = "info"
+      SECRET_ID = aws_secretsmanager_secret.aws_secretsmanager_environment_auth_password.name
+    }
+  }
+}
+
+# Api gateway for environment authentication
+module "environment_auth_api_gateway" {
+  source          = "./apigatewayv2"
+  name            = "${var.project_name_prefix}-api-environment-auth"
+  certificate_arn = aws_acm_certificate.api_gateway_certificate.arn
+  description     = "Provides endpoint for environment auth lambda"
+  domain_name     = "auth.${var.domain_name}"
+  function_name   = aws_lambda_function.aws_lambda_function_auth.function_name
+  integration_uri = aws_lambda_function.aws_lambda_function_auth.invoke_arn
+}
+
+# Package the preview Lambda function code
 data "archive_file" "astro_ssr_deployment_zip" {
   type        = "zip"
   source_dir  = "${path.module}/../dist/"
@@ -260,7 +335,7 @@ data "archive_file" "astro_ssr_deployment_zip" {
 }
 
 # Lambda function for CMS preview deployment
-resource "aws_lambda_function" "aws_lambda_function" {
+resource "aws_lambda_function" "aws_lambda_function_preview" {
   filename         = data.archive_file.astro_ssr_deployment_zip.output_path
   function_name    = "${var.project_name_prefix}-lambda-storyblok-preview"
   role             = aws_iam_role.aws_iam_role_lambda.arn
@@ -282,63 +357,12 @@ resource "aws_lambda_function" "aws_lambda_function" {
 }
 
 # Api gateway for CMS preview deployment
-resource "aws_apigatewayv2_api" "aws_apigatewayv2_api" {
-  name          = "${var.project_name_prefix}-api-storyblok-preview"
-  description   = "Provides endpoint for Astro SSR CMS preview"
-  protocol_type = "HTTP"
-}
-
-resource "aws_apigatewayv2_integration" "aws_apigatewayv2_integration" {
-  api_id             = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  integration_type   = "AWS_PROXY"
-  description        = "Integration to invoke storyblok preview lambda"
-  integration_method = "POST"
-  integration_uri    = aws_lambda_function.aws_lambda_function.invoke_arn
-}
-
-resource "aws_apigatewayv2_route" "aws_apigatewayv2_route" {
-  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  route_key = "ANY /{proxy+}"
-  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
-}
-
-resource "aws_apigatewayv2_route" "aws_apigatewayv2_route_2" {
-  api_id    = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  route_key = "ANY /"
-  target    = "integrations/${aws_apigatewayv2_integration.aws_apigatewayv2_integration.id}"
-}
-
-resource "aws_apigatewayv2_stage" "aws_apigatewayv2_stage" {
-  api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  name        = "$default"
-  auto_deploy = true
-}
-
-resource "aws_apigatewayv2_domain_name" "aws_apigatewayv2_domain_name" {
-  domain_name = "preview.${var.domain_name}"
-
-  domain_name_configuration {
-    certificate_arn = aws_acm_certificate.api_gateway_certificate.arn
-    endpoint_type   = "REGIONAL"
-    security_policy = "TLS_1_2"
-  }
-
-  depends_on = [aws_acm_certificate.api_gateway_certificate]
-}
-
-resource "aws_apigatewayv2_api_mapping" "aws_apigatewayv2_api_mapping" {
-  api_id      = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-  domain_name = aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id
-  stage       = aws_apigatewayv2_stage.aws_apigatewayv2_stage.id
-}
-
-# Permission for API Gateway to invoke Lambda
-resource "aws_lambda_permission" "aws_lambda_permission" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.aws_lambda_function.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_apigatewayv2_api.aws_apigatewayv2_api.execution_arn}/*/*"
+module "app_preview_api_gateway" {
+  source          = "./apigatewayv2"
+  name            = "${var.project_name_prefix}-api-storyblok-preview"
+  description     = "Provides endpoint for Astro SSR CMS preview"
+  function_name   = aws_lambda_function.aws_lambda_function_preview.function_name
+  integration_uri = aws_lambda_function.aws_lambda_function_preview.invoke_arn
 }
 
 # Attach cors policy to preview s3 bucket so assets can be requested from the deployed site
@@ -349,8 +373,7 @@ resource "aws_s3_bucket_cors_configuration" "aws_s3_bucket_cors_configuration" {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "HEAD"]
     allowed_origins = [
-      aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint,
-      "https://${aws_apigatewayv2_domain_name.aws_apigatewayv2_domain_name.id}"
+      module.app_preview_api_gateway.api_endpoint
     ]
     expose_headers  = []
     max_age_seconds = 3000
@@ -430,7 +453,7 @@ data "aws_iam_policy_document" "aws_iam_policy_document_lambda" {
       "lambda:UpdateFunctionCode"
     ]
     resources = [
-      aws_lambda_function.aws_lambda_function.arn
+      aws_lambda_function.aws_lambda_function_preview.arn
     ]
   }
 }
@@ -448,7 +471,7 @@ resource "aws_iam_user_policy_attachment" "aws_iam_user_policy_attachment_lambda
 
 # Create the secret for Storyblok access token
 # Note that the secret version should be created manually in the AWS console
-resource "aws_secretsmanager_secret" "aws_secretsmanager_secret" {
+resource "aws_secretsmanager_secret" "aws_secretsmanager_storyblok_access_token" {
   name = "storyblok-access-token"
 }
 
@@ -560,7 +583,7 @@ data "aws_iam_policy_document" "aws_iam_policy_document_codepipeline_execution" 
       "secretsmanager:GetSecretValue"
     ]
     resources = [
-      aws_secretsmanager_secret.aws_secretsmanager_secret.arn
+      aws_secretsmanager_secret.aws_secretsmanager_storyblok_access_token.arn
     ]
   }
 }
