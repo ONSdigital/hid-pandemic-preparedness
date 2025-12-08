@@ -1,0 +1,24 @@
+{
+  "_uid": "35956bd7-6885-4596-b2cf-d8e098931708",
+  "title": "My Code Block",
+  "component": "Code",
+  "languages": [
+    {
+      "_uid": "90e3a53e-dde8-414c-91f3-26a917cd90ab",
+      "code": "# This program adds two numbers\n\nnum1 = 1.5\nnum2 = 6.3\n\n# Add two numbers\nsum = num1 + num2\n\n# Display the sum\nprint('The sum of {0} and {1} is {2}'.format(num1, num2, sum))",
+      "label": "",
+      "language": "Python",
+      "component": "Code Language",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Code Language\", \"space\": \"287525897740819\", \"uid\": \"90e3a53e-dde8-414c-91f3-26a917cd90ab\", \"id\": \"119071041436488\"}--\u003E"
+    },
+    {
+      "_uid": "425090fd-dcbb-438c-9ed4-28e440f5fa52",
+      "code": "data \u003C- c(5, 10, 15, 20, 25, 30, 35, 40, 45, 50)\n\nmean_data \u003C- mean(data)\nprint(paste(\"Mean: \", mean_data))\n\nstd_dev \u003C- sd(data)\nprint(paste(\"Standard Deviation: \", std_dev))",
+      "label": "",
+      "language": "R",
+      "component": "Code Language",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Code Language\", \"space\": \"287525897740819\", \"uid\": \"425090fd-dcbb-438c-9ed4-28e440f5fa52\", \"id\": \"119071041436488\"}--\u003E"
+    }
+  ],
+  "_editable": "\u003C!--#storyblok#{\"name\": \"Code\", \"space\": \"287525897740819\", \"uid\": \"35956bd7-6885-4596-b2cf-d8e098931708\", \"id\": \"119071041436488\"}--\u003E"
+}
