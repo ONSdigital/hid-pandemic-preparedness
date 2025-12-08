@@ -1,0 +1,37 @@
+@use "../../../../styles/global/tokens" as *;
+@use "../../../../styles/global/variables" as *;
+
+.toggle {
+  position: relative;
+  background-color: $color-brand-primary-200;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid $color-brand-primary-600;
+
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.slider {
+  position: absolute;
+  height: 100%;
+  background-color: $color-brand-primary-600;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  border: 1px solid $color-brand-primary-200;
+}
+
+.button {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.3s ease;
+  padding: 0.5em 2em; 
+
+  &.active {
+    color: #fff;
+  }
+}
