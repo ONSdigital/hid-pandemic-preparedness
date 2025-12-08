@@ -10,11 +10,11 @@ export const IconButton: FC<IconButtonProps> = (props) => {
   let href = ""
   let isDownloadable = false 
 
-  if (props.link?.url || props.link?.cached_url){
-    href = sanitizeUrl(props.link?.url || props.link?.cached_url);
-  } else if (props.downloadableContent?.filename) {
+  if (props.downloadableContent?.filename){
     href = props.downloadableContent?.filename
     isDownloadable = true
+  } else if (props.link?.url || props.link?.cached_url){
+    href = sanitizeUrl(props.link?.url || props.link?.cached_url);
   }
 
   const opensNewTab = Boolean(href) && !isDownloadable
