@@ -15,23 +15,21 @@ import styles from "./Code.module.scss";
 
 const ToggleSwitch: FC<ToggleSwitchProps> = (props) => {
   const sliderWidth = `calc(100% / ${props.languages.length})`;
-  
+
   const sliderTransform = `translateX(calc(100% * ${props.selectedId})`;
-  
+
   const handleLanguageSelection = (index: number) => {
-    props.toggle(index)
-  }
-  
+    props.toggle(index);
+  };
+
   return (
-    <div className={clsx('text-center')}>
+    <div className={clsx("text-center")}>
       <hr />
-      
+
       <div className={clsx(styles["toggle"])}>
         <div
-          className={clsx(
-            styles["slider"],
-          )}
-          style={{width: sliderWidth, transform: sliderTransform}}
+          className={clsx(styles["slider"])}
+          style={{ width: sliderWidth, transform: sliderTransform }}
         />
 
         {props.languages.map((languageEl, index: number) => (
@@ -76,9 +74,13 @@ export const Code: FC<CodeProps> = (props) => {
     <div>
       <h3>{props.title}</h3>
 
-      <ToggleSwitch toggle={toggle} languages={languages} selectedId={selectedId} />
+      <ToggleSwitch
+        toggle={toggle}
+        languages={languages}
+        selectedId={selectedId}
+      />
 
-      <div className={clsx('text-end')}>
+      <div className={clsx("text-end")}>
         <CopyButton contentElement={contentElement} />
       </div>
 
@@ -86,7 +88,13 @@ export const Code: FC<CodeProps> = (props) => {
         style={colorTheme}
         language={language.toLowerCase()}
         showLineNumbers={true}
-        codeTagProps={{ style: { fontFamily: "monospace", fontSize: "1em", background: "transparent"} }}
+        codeTagProps={{
+          style: {
+            fontFamily: "monospace",
+            fontSize: "1em",
+            background: "transparent",
+          },
+        }}
       >
         {code.trim()}
       </SyntaxHighlighter>
@@ -97,4 +105,4 @@ export const Code: FC<CodeProps> = (props) => {
       </div>
     </div>
   );
-};  
+};
