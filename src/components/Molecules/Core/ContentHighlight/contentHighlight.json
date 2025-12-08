@@ -1,351 +1,356 @@
 {
-    "_uid": "3152dfd4-556e-4d31-b897-fb7c1161d525",
-    "textarea": [
-      {
-        "_uid": "66882fc8-27f0-4753-9a6d-0ab33352739b",
-        "content": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "heading",
-              "attrs": {
-                "level": 2,
-                "textAlign": null
-              },
-              "content": [
-                {
-                  "text": "ContentHighlight",
-                  "type": "text"
-                }
-              ]
+  "_uid": "3152dfd4-556e-4d31-b897-fb7c1161d525",
+  "textarea": [
+    {
+      "_uid": "66882fc8-27f0-4753-9a6d-0ab33352739b",
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
             },
-            {
-              "type": "paragraph",
-              "attrs": { 
-                "textAlign": null
-              },
-              "content": [ 
-                {
-                  "text": "This is an example of a ContentHighlight blok, a component that enables a content editor to highlight parts of text",
-                  "type": "text"
-                }
-              ]
-            }
-          ]
-        },
-        "component": "RichText",
-        "_editable": "\u003C!--#storyblok#{\"name\": \"RichText\", \"space\": \"287525897740819\", \"uid\": \"66882fc8-27f0-4753-9a6d-0ab33352739b\", \"id\": \"119404545359362\"}--\u003E"
+            "content": [
+              {
+                "text": "ContentHighlight StoryBlok blok",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "This is an example of a ContentHighlight blok, a component that enables a content editor to highlight parts of text",
+                "type": "text"
+              }
+            ]
+          }
+        ]
       },
-      {
-        "_uid": "d29d214c-fd58-46d3-ac47-e3516fbc802f",
-        "table": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "table",
-              "content": [
-                {
-                  "type": "tableRow",
-                  "content": [
-                    {
-                      "type": "tableHeader",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "Heading 1",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+      "component": "RichText",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"RichText\", \"space\": \"287525897740819\", \"uid\": \"66882fc8-27f0-4753-9a6d-0ab33352739b\", \"id\": \"119404545359362\"}--\u003E"
+    },
+    {
+      "_uid": "d29d214c-fd58-46d3-ac47-e3516fbc802f",
+      "table": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "table",
+            "content": [
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
                     },
-                    {
-                      "type": "tableHeader",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "Heading 2",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "Heading 1",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
                     },
-                    {
-                      "type": "tableHeader",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "Heading 3",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "tableRow",
-                  "content": [
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 1",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "Heading 2",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
                     },
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 2",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "Heading 3",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
                     },
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 3",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "tableRow",
-                  "content": [
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 4",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 1",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
                     },
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 5",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 2",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
                     },
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 6 ",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "tableRow",
-                  "content": [
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 7",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 3",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
                     },
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 8",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 4",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
                     },
-                    {
-                      "type": "tableCell",
-                      "attrs": {
-                        "colspan": 1,
-                        "rowspan": 1,
-                        "colwidth": null,
-                        "backgroundColor": null
-                      },
-                      "content": [
-                        {
-                          "type": "paragraph",
-                          "attrs": {
-                            "textAlign": null
-                          },
-                          "content": [
-                            {
-                              "text": "cell 9",
-                              "type": "text"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "minWidth": "",
-        "component": "Table",
-        "_editable": "\u003C!--#storyblok#{\"name\": \"Table\", \"space\": \"287525897740819\", \"uid\": \"d29d214c-fd58-46d3-ac47-e3516fbc802f\", \"id\": \"119404545359362\"}--\u003E"
-      }
-    ],
-    "component": "ContentHighlight",
-    "_editable": "\u003C!--#storyblok#{\"name\": \"ContentHighlight\", \"space\": \"287525897740819\", \"uid\": \"3152dfd4-556e-4d31-b897-fb7c1161d525\", \"id\": \"119404545359362\"}--\u003E"
-  }
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 5",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 6 ",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 7",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 8",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null,
+                      "backgroundColor": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": null
+                        },
+                        "content": [
+                          {
+                            "text": "cell 9",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "minWidth": "",
+      "component": "Table",
+      "_editable": "\u003C!--#storyblok#{\"name\": \"Table\", \"space\": \"287525897740819\", \"uid\": \"d29d214c-fd58-46d3-ac47-e3516fbc802f\", \"id\": \"119404545359362\"}--\u003E"
+    }
+  ],
+  "component": "ContentHighlight",
+  "highlightTitle": "Example ContentHighlight title",
+  "_editable": "\u003C!--#storyblok#{\"name\": \"ContentHighlight\", \"space\": \"287525897740819\", \"uid\": \"3152dfd4-556e-4d31-b897-fb7c1161d525\", \"id\": \"119404545359362\"}--\u003E"
+}

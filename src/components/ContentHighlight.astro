@@ -2,10 +2,11 @@
 import DynamicComponent from "@src/components/DynamicComponent.astro";
 import clsx from "clsx";
 
-const { textarea } = Astro.props;
+const { highlightTitle, textarea } = Astro.props;
 ---
 
 <div class={clsx("w-100", "py-4", "wrapper-colors")}>
+  <h1>{highlightTitle}</h1>
   <div class="container-lg border rounded p-4 container-colors">
     {textarea.map((blok: any) => <DynamicComponent blok={blok} />)}
   </div>
