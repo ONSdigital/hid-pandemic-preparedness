@@ -53,25 +53,25 @@ export async function fetchDatasourceEntries(
 }
 
 // Fetches stores
-// export async function fetchStoriesOld(
-//   params?: ISbStoriesParams,
-// ): Promise<ISbStories> {
-//   const response = await client.get("cdn/stories/", {
-//     version: VERSION,
-//     per_page: 100,
-//     resolve_links: "story",
-//     ...params,
-//   });
-//   console.log('')
-//   console.log('')
-//   console.log('')
-//   console.log("Number of stories: ", response.data.stories.length);
-//   console.log("Total number of stories: ", response.total);
-//   console.log('')
-//   console.log('')
-//   console.log('')
-//   return response;
-// }
+export async function fetchStoriesOld(
+  params?: ISbStoriesParams,
+): Promise<ISbStories> {
+  const response = await client.get("cdn/stories/", {
+    version: VERSION,
+    per_page: 100,
+    resolve_links: "story",
+    ...params,
+  });
+  console.log('')
+  console.log('')
+  console.log('')
+  console.log("Number of stories: ", response.data.stories.length);
+  console.log("Total number of stories: ", response.total);
+  console.log('')
+  console.log('')
+  console.log('')
+  return response;
+}
 
 export async function fetchStories(
   params?: ISbStoriesParams,
