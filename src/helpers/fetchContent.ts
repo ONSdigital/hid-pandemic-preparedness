@@ -1,7 +1,11 @@
 import "dotenv/config";
 
 import { useStoryblokApi } from "@storyblok/astro";
-import type { ISbStories, ISbStoriesParams, ISbStory, ISbStoryData } from "@storyblok/astro";
+import type {
+  ISbStoriesParams,
+  ISbStory,
+  ISbStoryData,
+} from "@storyblok/astro";
 
 import { LocalClient } from "@helpers/LocalClient";
 import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
@@ -60,7 +64,7 @@ export async function fetchStories(
   let page = 1;
   let allStories: ISbStoryData[] = [];
   let totalStories = 0;
-  let hasReceivedAllResults = false
+  let hasReceivedAllResults = false;
 
   do {
     try {
@@ -74,16 +78,14 @@ export async function fetchStories(
       allStories = allStories.concat(response.data.stories);
       totalStories = response.total;
       page++;
-      
-      if(allStories.length >= totalStories) {
+
+      if (allStories.length >= totalStories) {
         hasReceivedAllResults = true;
       }
-
     } catch (error) {
       console.error(`Error fetching page ${page}:`, error);
       hasReceivedAllResults = true;
     }
-
   } while (!hasReceivedAllResults);
 
   return allStories;
