@@ -60,22 +60,32 @@ export async function fetchStories(
   let page = 1;
   let allStories: ISbStoryData[] = [];
   let totalStories = 0;
+  let hasReceivedAllResults = false
 
   do {
-    const response = await client.get("cdn/stories/", {
-      version: VERSION,
-      per_page: perPage,
-      page,
-      resolve_links: "story",
-      ...params,
-    });
-    allStories = allStories.concat(response.data.stories);
-    totalStories = response.total;
-    page++;
+    try {
+      const response = await client.get("cdn/stories/", {
+        version: VERSION,
+        per_page: perPage,
+        page,
+        resolve_links: "story",
+        ...params,
+      });
+      allStories = allStories.concat(response.data.stories);
+      totalStories = response.total;
+      page++;
+      
+      if(allStories.length >= totalStories) {
+        hasReceivedAllResults = true;
+      }
 
-  } while (allStories.length < totalStories);
+    } catch (error) {
+      console.error(`Error fetching page ${page}:`, error);
+      hasReceivedAllResults = true;
+    }
 
-  // return allStories
+  } while (!hasReceivedAllResults);
+
   return allStories;
 }
 
