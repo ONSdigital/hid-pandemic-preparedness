@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 import { useStoryblokApi } from "@storyblok/astro";
-import type { ISbStories, ISbStoriesParams, ISbStory } from "@storyblok/astro";
+import type { ISbStories, ISbStoriesParams, ISbStory, ISbStoryData } from "@storyblok/astro";
 
 import { LocalClient } from "@helpers/LocalClient";
 import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
@@ -75,10 +75,10 @@ export async function fetchStoriesOld(
 
 export async function fetchStories(
   params?: ISbStoriesParams,
-): Promise<ISbStories> {
+): Promise<ISbStoryData[]> {
   const perPage = 100;
   let page = 1;
-  let allStories: ISbStories["stories"] = [];
+  let allStories: ISbStoryData[] = [];
   let totalStories = 0;
 
   do {
