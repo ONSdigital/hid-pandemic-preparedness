@@ -55,12 +55,6 @@ const stories = [
 describe("buildBreadcrumbs with link hierarchy", () => {
   test("builds breadcrumbs when input `fullSlug` is empty", async () => {
     // Arrange: define the mock return value
-    // (fetchStories as Mock).mockResolvedValue({
-    //   data: {
-    //     // Corresponds to just the home story
-    //     stories: [stories[1]],
-    //   },
-    // });
     (fetchStories as Mock).mockResolvedValue([stories[1]]);
     const result = await buildBreadcrumbs("home");
 
