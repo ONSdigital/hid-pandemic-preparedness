@@ -1,0 +1,5 @@
+@import "../global/tokens";
+
+.accordion-button:focus-visible {
+  box-shadow: 0 0 0 3px $color-brand-secondary-500;
+}

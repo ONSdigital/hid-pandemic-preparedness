@@ -40,17 +40,16 @@
   padding: 0;
 }
 
-$navbar-height: 4rem;
 $border-bottom-width: 4px;
 
 .navbar-height {
-  height: $navbar-height;
+  height: 4rem;
 }
 
-.nav-item {
+.nav-border-bottom {
+  border-top: $border-bottom-width solid transparent;
   border-bottom: $border-bottom-width solid transparent;
   box-sizing: border-box;
-  height: $navbar-height;
 
   &:hover {
     border-bottom: $border-bottom-width solid $color-brand-secondary-500;
@@ -58,7 +57,7 @@ $border-bottom-width: 4px;
 }
 
 // Active styling is applied conditionally, so is defined seperately
-.nav-item-active {
+.nav-item-selected {
   border-bottom: $border-bottom-width solid $color-brand-secondary-500;
 }
 

@@ -25,7 +25,7 @@
       background-color: $color-brand-primary-500;
     }
     &:focus {
-      box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+      box-shadow: 0 0 0 3px $color-brand-secondary-500;
     }
   }
 
@@ -36,7 +36,7 @@
       background-color: $color-brand-primary-500;
     }
     &:focus {
-      box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+      box-shadow: 0 0 0 3px $color-brand-secondary-500;
     }
   }
 

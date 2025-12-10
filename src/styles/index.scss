@@ -46,7 +46,9 @@
 @import "bootstrap/scss/utilities/api";
 
 // 8. Add additional custom scss code here
+@import "./elements/accordions";
 @import "./elements/buttons";
+@import "./elements/forms";
 @import "./elements/math";
 @import "./elements/tables";
 @import "./elements/typography";
@@ -55,7 +57,7 @@
 // https://stackoverflow.com/questions/25887927/bootstrap-some-kind-of-margin-on-mobile-devices-only-right-side
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -63,4 +65,9 @@ body {
 main {
   background-color: $color-brand-secondary-100;
   flex-grow: 1;
+}
+
+*:focus-visible {
+  box-shadow: 0 0 0 2px $color-brand-secondary-500;
+  outline: none;
 }

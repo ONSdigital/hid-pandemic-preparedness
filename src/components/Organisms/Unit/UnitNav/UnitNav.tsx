@@ -22,6 +22,7 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
   const handleChapterSelect = (id: string) => {
     if (props.onSelect) {
       props.onSelect(id);
+      window.scrollTo({ top: 0, behavior: "instant" }); //Move to the top of the screen when chapter is selected
     }
   };
 
@@ -43,8 +44,8 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
   };
 
   return (
-    <div className="w-100">
-      <div className={clsx(styles["learning-module-nav__container"])}>
+    <div className={clsx("w-100", "h-100")}>
+      <div className={clsx("h-100", styles["learning-module-nav__container"])}>
         <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
           {props.githubLink && (
             <IconAndTextLink
@@ -62,7 +63,9 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
         </div>
 
         {/* Desktop view: there is no accordian */}
-        <div className={clsx("d-md-block", "d-none")}>
+        <div
+          className={clsx("d-md-block", "d-none", styles["sticky-chapters"])}
+        >
           <h1 className={clsx("heading-xs", "fw-bold", "mb-3")}>
             {headingText}
           </h1>

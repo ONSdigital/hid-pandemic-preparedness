@@ -19,14 +19,18 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
     <div
       className={clsx(
         "d-flex",
-        "align-items-center",
+        "align-items-stretch",
         "justify-content-between",
         "gap-4",
         styles["navbar-height"],
       )}
     >
       {/* Logo */}
-      <a href="/" aria-label="Redirect to homepage">
+      <a
+        href="/"
+        aria-label="Redirect to homepage"
+        className={clsx("d-flex", "align-items-center")}
+      >
         <Image {...props.logo} className={styles["navbar-logo"]} />
       </a>
 
@@ -35,41 +39,70 @@ export const DesktopNav: FC<DesktopNavProps> = (props) => {
           const isOpen = props.openItemId === expandableItem._uid;
           const iconName = isOpen ? "RiArrowUpSLine" : "RiArrowDownSLine"; // When expanded, the arrow icon direction will point down
           return (
-            <button
-              aria-controls={`mega-menu-${expandableItem._uid}`}
-              aria-expanded={isOpen}
-              aria-label="Toggle nav bar expandable item"
-              key={expandableItem._uid}
-              onClick={() => props.onClick(expandableItem)}
+            <div
               className={clsx(
                 "d-flex",
                 "justify-content-center",
                 "align-items-center",
-                "gap-1",
-                styles["navbar-button"],
-                styles["nav-item"],
-                isOpen && styles["nav-item-active"],
+                styles["nav-border-bottom"],
+                isOpen && styles["nav-item-selected"],
               )}
             >
-              <p className="m-0">{expandableItem.label}</p>
-              <Icon iconName={iconName} className={styles["navbar-icon"]} />
-            </button>
+              <button
+                aria-controls={`mega-menu-${expandableItem._uid}`}
+                aria-expanded={isOpen}
+                aria-label="Toggle nav bar expandable item"
+                key={expandableItem._uid}
+                onClick={() => props.onClick(expandableItem)}
+                className={clsx(
+                  "d-flex",
+                  "justify-content-center",
+                  "align-items-center",
+                  "gap-1",
+                  styles["navbar-button"],
+                  styles["nav-item"],
+                )}
+              >
+                <p className="m-0">{expandableItem.label}</p>
+                <Icon iconName={iconName} className={styles["navbar-icon"]} />
+              </button>
+            </div>
           );
         })}
 
       {hasLinks &&
         props.links.map((navBarLink) => (
-          <Link
-            key={navBarLink._uid}
-            {...navBarLink.link}
-            label={navBarLink.label}
-            textInverse={true}
-            hideIcon={true}
-            className={clsx("d-flex", "align-items-center", styles["nav-item"])}
-          />
+          <div
+            className={clsx(
+              "d-flex",
+              "justify-content-center",
+              "align-items-center",
+              styles["nav-border-bottom"],
+            )}
+          >
+            <Link
+              key={navBarLink._uid}
+              {...navBarLink.link}
+              label={navBarLink.label}
+              textInverse={true}
+              hideIcon={true}
+              className={clsx(
+                "d-flex",
+                "align-items-center",
+                styles["nav-item"],
+              )}
+            />
+          </div>
         ))}
 
-      <div className={clsx("d-flex", "align-items-center", styles["nav-item"])}>
+      <div
+        className={clsx(
+          "d-flex",
+          "align-items-center",
+          styles["nav-item"],
+          styles["nav-border-bottom"],
+        )}
+      >
         <Button
           type="button"
           variant="primary"
