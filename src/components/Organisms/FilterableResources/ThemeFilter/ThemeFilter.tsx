@@ -209,13 +209,15 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
   };
 
   const filterContent = (
-    <>
+    <> 
       <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
-        <IconAndTextLink
-          asset={props.file}
-          icon="download"
-          label={themeFilterStrings.downloadAll}
-        />
+        {props.file?.filename && (
+          <IconAndTextLink
+            asset={props.file}
+            icon="download"
+            label={themeFilterStrings.downloadAll}
+          />
+        )}
         <IconAndTextLink
           icon="restart"
           label={themeFilterStrings.resetFilters}
