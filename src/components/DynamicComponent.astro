@@ -2,6 +2,7 @@
 import ContentArea from "@src/components/ContentArea.astro";
 
 import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
+import { Code } from "@src/components/Molecules/Core/Code/Code";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
 import { Formula } from "./Molecules/Core/Formula/Formula";
 import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
@@ -53,6 +54,8 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
   componentName ? (
     componentName === "ContentArea" ? (
       <ContentArea {...blok} />
+    ) : componentName === "Code" ? (
+      <Code {...blok} client:visible />
     ) : componentName === "UnitBlock" ? (
       <UnitBlock {...blok} />
     ) : componentName === "CaseStudies" ? (
