@@ -55,12 +55,7 @@ const stories = [
 describe("buildBreadcrumbs with link hierarchy", () => {
   test("builds breadcrumbs when input `fullSlug` is empty", async () => {
     // Arrange: define the mock return value
-    (fetchStories as Mock).mockResolvedValue({
-      data: {
-        // Corresponds to just the home story
-        stories: [stories[1]],
-      },
-    });
+    (fetchStories as Mock).mockResolvedValue([stories[1]]);
     const result = await buildBreadcrumbs("home");
 
     expect(fetchStories).toHaveBeenCalledWith({
@@ -75,12 +70,7 @@ describe("buildBreadcrumbs with link hierarchy", () => {
 
   test("builds breadcrumbs when input `fullSlug` can be split into two", async () => {
     // Arrange: define the mock return value
-    (fetchStories as Mock).mockResolvedValue({
-      data: {
-        // Corresponds to just the home and child story
-        stories: stories.slice(1, 3),
-      },
-    });
+    (fetchStories as Mock).mockResolvedValue(stories.slice(1, 3));
     const result = await buildBreadcrumbs("/learning-resources/");
 
     expect(fetchStories).toHaveBeenCalledWith({
@@ -99,12 +89,7 @@ describe("buildBreadcrumbs with link hierarchy", () => {
 
   test("builds breadcrumbs when input `fullSlug` can be split into four", async () => {
     // Arrange: define the mock return value
-    (fetchStories as Mock).mockResolvedValue({
-      data: {
-        // Corresponds to all stories
-        stories: stories,
-      },
-    });
+    (fetchStories as Mock).mockResolvedValue(stories);
     const result = await buildBreadcrumbs(
       "/learning-resources/data-analysis/epidemiological-analysis/",
     );

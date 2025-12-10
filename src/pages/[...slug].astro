@@ -14,8 +14,7 @@ import {
 // SSG paths
 export async function getStaticPaths() {
   // Fetch all the stories for this folder
-  const { data } = await fetchStories();
-  const stories: ISbStoryData[] = data.stories;
+  const stories: ISbStoryData[] = await fetchStories();
 
   // Build pages based on stories returned for this folder
   return stories.map((story) => {
