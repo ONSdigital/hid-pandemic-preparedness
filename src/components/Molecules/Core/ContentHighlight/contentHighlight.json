@@ -377,12 +377,6 @@
           "minWidth": "",
           "component": "Table",
           "_editable": "\u003C!--#storyblok#{\"name\": \"Table\", \"space\": \"287525897740819\", \"uid\": \"76c23bfb-a0f1-4235-9042-b8bf0b833c88\", \"id\": \"119404545359362\"}--\u003E"
-        },
-        {
-          "_uid": "d3669a81-3e35-40bf-acd1-390d98080227",
-          "text": "helllo ",
-          "component": "Formula",
-          "_editable": "\u003C!--#storyblok#{\"name\": \"Formula\", \"space\": \"287525897740819\", \"uid\": \"d3669a81-3e35-40bf-acd1-390d98080227\", \"id\": \"119404545359362\"}--\u003E"
         }
       ],
       "component": "ContentArea",
