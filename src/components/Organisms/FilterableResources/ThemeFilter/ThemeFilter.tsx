@@ -95,7 +95,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
         <button
           className={clsx(
             "accordion-button",
-            "py-2",
+            "py-3",
             "border-bottom",
             "collapsed",
             styles["accordion-button"],
