@@ -1,0 +1,25 @@
+{
+  "_uid": "4421064e-2a0b-4cad-aa0a-515a19b6bfe5",
+  "icon": "RiDownload2Line",
+  "link": {
+    "id": "",
+    "url": "",
+    "linktype": "story",
+    "fieldtype": "multilink",
+    "cached_url": ""
+  },
+  "component": "IconButton",
+  "buttonText": "Download button",
+  "downloadableContent": {
+    "id": 114461866301576,
+    "alt": "",
+    "name": "",
+    "focus": "",
+    "title": "",
+    "source": "",
+    "filename": "/images/logos/analysis-for-action-logo.png",
+    "copyright": "",
+    "fieldtype": "asset",
+    "meta_data": {}
+  }
+}

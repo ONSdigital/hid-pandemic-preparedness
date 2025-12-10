@@ -1,7 +1,11 @@
 import "dotenv/config";
 
 import { useStoryblokApi } from "@storyblok/astro";
-import type { ISbStories, ISbStoriesParams, ISbStory } from "@storyblok/astro";
+import type {
+  ISbStoriesParams,
+  ISbStory,
+  ISbStoryData,
+} from "@storyblok/astro";
 
 import { LocalClient } from "@helpers/LocalClient";
 import type { DatasourceEntry } from "@/src/types/DatasourceEntry";
@@ -55,14 +59,36 @@ export async function fetchDatasourceEntries(
 // Fetches stores
 export async function fetchStories(
   params?: ISbStoriesParams,
-): Promise<ISbStories> {
-  const response = await client.get("cdn/stories/", {
-    version: VERSION,
-    per_page: 100,
-    resolve_links: "story",
-    ...params,
-  });
-  return response;
+): Promise<ISbStoryData[]> {
+  const perPage = 100;
+  let page = 1;
+  let allStories: ISbStoryData[] = [];
+  let totalStories = 0;
+  let hasReceivedAllResults = false;
+
+  do {
+    try {
+      const response = await client.get("cdn/stories/", {
+        version: VERSION,
+        per_page: perPage,
+        page,
+        resolve_links: "story",
+        ...params,
+      });
+      allStories = allStories.concat(response.data.stories);
+      totalStories = response.total;
+      page++;
+
+      if (allStories.length >= totalStories) {
+        hasReceivedAllResults = true;
+      }
+    } catch (error) {
+      console.error(`Error fetching page ${page}:`, error);
+      hasReceivedAllResults = true;
+    }
+  } while (!hasReceivedAllResults);
+
+  return allStories;
 }
 
 // Fetches story content from input `pathParam` and returns just the content

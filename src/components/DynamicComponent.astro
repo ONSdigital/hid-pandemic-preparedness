@@ -7,6 +7,7 @@ import { ContentHighlight } from "@/src/components/Molecules/Core/ContentHighlig
 import { Formula } from "./Molecules/Core/Formula/Formula";
 import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
 import { Header } from "@src/components/Organisms/Home/Header/Header";
+import { IconButton } from "./Molecules/Core/IconButton/IconButton";
 import { Iframe } from "@/src/components/Organisms/Core/Iframe/Iframe";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
@@ -26,9 +27,11 @@ const COMPONENT_NAMES: string[] = [
   "ContentHighlight",
   "Carousel",
   "CaseStudies",
+  "Formula",
   "FullWidthRichText",
   "Formula",
   "Header",
+  "IconButton",
   "IconButton",
   "Iframe",
   "ImageAndText",
@@ -41,6 +44,7 @@ const COMPONENT_NAMES: string[] = [
   "Tip",
   "ToolsCarousel",
   "UnitBlock",
+  "Video",
   "Video",
 ];
 
@@ -73,6 +77,8 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
       <RichText {...blok} />
     ) : componentName === "Header" ? (
       <Header {...blok} />
+    ) : componentName === "IconButton" ? (
+      <IconButton {...blok} client:visible />
     ) : componentName === "Iframe" ? (
       <Iframe {...blok} client:visible />
     ) : componentName === "ImageAndText" ? (
