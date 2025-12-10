@@ -232,6 +232,7 @@ export interface ContentArea {
     | Video
     | Code
     | IconButton
+    | ContentHighlight
   )[];
   component: "ContentArea";
   _uid: string;

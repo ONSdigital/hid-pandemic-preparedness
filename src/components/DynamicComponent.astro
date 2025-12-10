@@ -25,13 +25,10 @@ import { Video } from "@/src/components/Organisms/Core/Video/Video";
 const COMPONENT_NAMES: string[] = [
   "ContentArea",
   "ContentHighlight",
-  "Carousel",
   "CaseStudies",
   "Formula",
   "FullWidthRichText",
-  "Formula",
   "Header",
-  "IconButton",
   "IconButton",
   "Iframe",
   "ImageAndText",
@@ -44,7 +41,6 @@ const COMPONENT_NAMES: string[] = [
   "Tip",
   "ToolsCarousel",
   "UnitBlock",
-  "Video",
   "Video",
 ];
 
@@ -66,7 +62,7 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
     ) : componentName === "Code" ? (
       <Code {...blok} client:visible />
     ) : componentName === "ContentHighlight" ? (
-      <ContentHighlight {...blok} />
+      <ContentHighlight {...blok} client:visible />
     ) : componentName === "UnitBlock" ? (
       <UnitBlock {...blok} />
     ) : componentName === "CaseStudies" ? (
