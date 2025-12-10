@@ -42,10 +42,9 @@ export async function buildBreadcrumbs(
 
   // See
   // https://www.storyblok.com/docs/api/content-delivery/v2/stories/retrieve-multiple-stories
-  const { data } = await fetchStories({
+  stories = await fetchStories({
     by_slugs: bySlugsItems.join(","),
   });
-  stories = data?.stories;
 
   // Sort the stories ourselves by shortest full_slug to longest. There is no reliable way to get
   // the stories in this order using the api

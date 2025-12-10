@@ -33,10 +33,9 @@ const parentFullSlug: string = fullSlugParts
   .join("/");
 
 // Get related stories
-const { data } = await fetchStories({
+const stories = await fetchStories({
   starts_with: parentFullSlug,
 });
-const stories = data?.stories;
 
 // Build the links from stories
 stories.map((story) =>

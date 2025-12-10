@@ -28,10 +28,9 @@ const { breadcrumbs, referencesData, story } = Astro.props;
 let links: StoryblokMultilinkUrl[] = [];
 
 // Get related stories
-const { data } = await fetchStories({
+const stories = await fetchStories({
   starts_with: story.full_slug,
 });
-const stories = data?.stories;
 
 // Build the links from stories
 stories.map((story) =>
