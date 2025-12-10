@@ -7,17 +7,17 @@ import { Icon } from "@components/Molecules/Core/Icon/Icon";
 import type { IconButtonProps } from "./IconButton.interface";
 
 export const IconButton: FC<IconButtonProps> = (props) => {
-  let href = ""
-  let isDownloadable = false 
+  let href = "";
+  let isDownloadable = false;
 
-  if (props.downloadableContent?.filename){
-    href = props.downloadableContent?.filename
-    isDownloadable = true
-  } else if (props.link?.url || props.link?.cached_url){
+  if (props.downloadableContent?.filename) {
+    href = props.downloadableContent?.filename;
+    isDownloadable = true;
+  } else if (props.link?.url || props.link?.cached_url) {
     href = sanitizeUrl(props.link?.url || props.link?.cached_url);
   }
 
-  const opensNewTab = Boolean(href) && !isDownloadable
+  const opensNewTab = Boolean(href) && !isDownloadable;
 
   return (
     <a
