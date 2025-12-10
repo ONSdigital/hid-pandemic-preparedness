@@ -20,7 +20,6 @@ const meta = {
         disable: true,
       },
     },
-
     component: {
       table: {
         disable: true,

@@ -27,12 +27,14 @@ const EmbeddedContentArea: FC<ContentHighlightProps> = (props) => {
 export const ContentHighlight: FC<ContentHighlightProps> = (props) => {
   return (
     <div className={clsx("w-100", "py-4", "container-lg")}>
-      <div className={clsx("rounded-top", styles["content-title"])}>
-        <h4 className={clsx("heading-s", "m-0")}>{props.highlightTitle}</h4>
-      </div>
+      {props.highlightTitle && (
+        <div className={clsx("rounded-top", styles["content-title"])}>
+          <h4 className={clsx("heading-s", "m-0")}>{props.highlightTitle}</h4>
+        </div>
+      )}
+
       <div className={clsx("rounded-bottom", styles["content-container"])}>
         {props.textarea?.map((blok: any) => {
-          console.log(blok);
           if (blok.component === "ContentArea") {
             return <EmbeddedContentArea {...blok} />;
           } else {
