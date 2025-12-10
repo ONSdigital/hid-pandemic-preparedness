@@ -8,9 +8,9 @@ $list-group-border-bottom: 1px solid $color-brand-primary-500 !important;
   }
   &:active {
     border-bottom: $list-group-border-bottom;
-    text-shadow: 
-    -0.03em 0 0 currentColor,
-     0.03em 0 0 currentColor;
+    text-shadow:
+      -0.03em 0 0 currentColor,
+      0.03em 0 0 currentColor;
   }
 }
 
