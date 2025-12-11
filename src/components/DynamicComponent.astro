@@ -55,7 +55,7 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
     componentName === "ContentArea" ? (
       <ContentArea {...blok} />
     ) : componentName === "Code" ? (
-      <Code {...blok} client:visible />
+      <Code {...blok} client:only />
     ) : componentName === "UnitBlock" ? (
       <UnitBlock {...blok} />
     ) : componentName === "CaseStudies" ? (
