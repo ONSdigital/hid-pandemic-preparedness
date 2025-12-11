@@ -13,6 +13,8 @@ import { CopyButton } from "@src/components/Molecules/Core/CopyButton/CopyButton
 import type { CodeProps, ToggleSwitchProps } from "./Code.interface";
 import styles from "./Code.module.scss";
 
+console.log(SyntaxHighlighter);
+
 const ToggleSwitch: FC<ToggleSwitchProps> = (props) => {
   const sliderWidth = `calc(100% / ${props.languages.length})`;
 
