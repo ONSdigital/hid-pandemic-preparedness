@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useRef, useEffect, useState, type FC } from "react";
 
-// import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 // import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
 // import r from "react-syntax-highlighter/dist/esm/languages/prism/r";
 // import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
