@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ContentHighlight } from "./ContentHighlight";
-import contentHighlightData from "./ContentHighlight.json?raw";
+import contentHighlightData from "./contentHighlight.json?raw";
 
 const meta = {
   component: ContentHighlight,
