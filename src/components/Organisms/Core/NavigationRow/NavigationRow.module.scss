@@ -1,5 +1,17 @@
 @use "../../../../styles/global/tokens" as *;
 
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/variables";
+
 .child-pages-nav-bg {
   background-color: $color-brand-secondary-100;
+}
+
+.nav-buttons-scroll {
+  overflow-x: scroll;
+
+  @include media-breakpoint-up(sm) {
+    overflow-x: visible;
+  }
 }

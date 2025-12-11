@@ -37,7 +37,12 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
         {/* Only show the links if we have more than one */}
         {links.length > 1 && (
           <nav
-            className={clsx("d-flex", "flex-row", "gap-4", "overflow-x-scroll")}
+            className={clsx(
+              "d-flex",
+              "flex-row",
+              "gap-4",
+              styles["nav-buttons-scroll"],
+            )}
           >
             {links.map((link) => (
               <Link

@@ -74,6 +74,10 @@
     $font-size: 1.125rem,
     $border-radius: 0.5rem
   );
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px $color-brand-secondary-500;
+  }
 }
 
 .btn-navigation-tab-inverse {
@@ -92,4 +96,8 @@
     $font-size: 1.125rem,
     $border-radius: 0.5rem
   );
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px $color-brand-secondary-500;
+  }
 }
