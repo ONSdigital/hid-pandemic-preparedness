@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useRef, useEffect, useState, type FC } from "react";
 
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 // import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
 // import r from "react-syntax-highlighter/dist/esm/languages/prism/r";
 // import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
@@ -61,7 +61,7 @@ export const Code: FC<CodeProps> = (props) => {
   };
 
   const languages = props.languages;
-  const language = languages[selectedId].language;
+  // const language = languages[selectedId].language;
   const code = languages[selectedId].code;
 
   // useEffect(() => {
@@ -84,7 +84,7 @@ export const Code: FC<CodeProps> = (props) => {
         <CopyButton contentElement={contentElement} />
       </div>
 
-      <SyntaxHighlighter
+      {/* <SyntaxHighlighter
         // style={colorTheme}
         language={language.toLowerCase()}
         showLineNumbers={true}
@@ -97,7 +97,7 @@ export const Code: FC<CodeProps> = (props) => {
         }}
       >
         {code.trim()}
-      </SyntaxHighlighter>
+      </SyntaxHighlighter> */}
 
       {/* Required for copy functionality to work */}
       <div className={clsx("d-none")} ref={contentElement}>
