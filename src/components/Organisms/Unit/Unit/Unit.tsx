@@ -136,6 +136,10 @@ export const Unit: FC<UnitProps> = ({ story }) => {
         const nextId = chapterIds[selectedIndex + 1];
         setSelectedChapterId(nextId);
         window.scrollTo({ top: 0, behavior: "instant" });
+        
+        // Make the body focusable and set focus to it to reset focus when changing chapters
+        document.body.tabIndex = -1;
+        document.body.focus()
 
         const nextChapter = chapters.find((c: Chapter) => c._uid === nextId);
         if (nextChapter) {
