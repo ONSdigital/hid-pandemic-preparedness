@@ -29,6 +29,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
   useEffect(() => {
     const handleHashChange = () => {
       setIsSearchOpen(false);
+      setIsMobileNavOpen(false);
     };
 
     window.addEventListener("hashchange", handleHashChange);
