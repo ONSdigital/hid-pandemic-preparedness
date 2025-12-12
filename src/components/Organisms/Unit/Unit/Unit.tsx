@@ -67,12 +67,11 @@ export const Unit: FC<UnitProps> = ({ story }) => {
       // Decode where browser encoding may cause mismatch
       const hash = decodeURIComponent(rawHash);
 
-      // Find match
       const targetChapter = chapters.find(
         (ch: Chapter) => slugify(ch.title, { lower: true }) === hash,
       );
 
-      if (targetChapter && targetChapter._uid !== selectedChapterId) {
+      if (targetChapter) {
         setSelectedChapterId(targetChapter._uid);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }

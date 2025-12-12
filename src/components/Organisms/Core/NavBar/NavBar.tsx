@@ -25,6 +25,19 @@ export const NavBar: FC<NavBarProps> = (props) => {
     setIsSearchOpen(false);
   });
 
+  // Unfocus Search if the search result directs to a different section of a page the user is already on
+  useEffect(() => {
+    const handleHashChange = () => {
+      setIsSearchOpen(false);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   function toggleDesktopNav(expandableItem: ExpandableItemData) {
     if (expandableItem._uid === openId) {
       closeMegamenu();
@@ -148,8 +161,16 @@ function handleClickOutside(
 ) {
   useEffect(() => {
     const triggerClickOutside = (event: MouseEvent | TouchEvent) => {
+      // console.log(event.target.classList)
       if (ref.current && !ref.current.contains(event.target as Node)) {
         callback();
+      }
+
+      // Unfocus Search if the search result directs to the section of the page the user is already located
+      if (event.target.classList.contains("search-result-item-link")) {
+        if (window.location.href.includes(event.target.getAttribute("href"))) {
+          callback();
+        }
       }
     };
     document.addEventListener("mousedown", triggerClickOutside);

@@ -24,6 +24,7 @@ const SearchResultItem: FC<SearchResultItemProps> = (props) => {
         href={props.link.href}
         target={props.link.target}
         aria-disabled={props.link.disabled}
+        className="search-result-item-link" // This class is needed for look-up logic within the handleClickOutside functionality of NavBar.tsx
       >
         {props.link.label}
       </a>
