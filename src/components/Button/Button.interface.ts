@@ -6,7 +6,7 @@ export interface ButtonProps {
   disabled?: boolean;
   selected?: boolean;
   type: "button" | "submit" | "reset";
-  variant: "primary" | "secondary" | "inverse";
+  variant: "primary" | "secondary" | "inverse" | "link";
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
 }
