@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import type { Theme } from "@src/types/bloks/storyblok-components";
 
+import { Accordion } from "@src/components/Molecules/Core/Accordion/Accordion";
 import { IconAndTextLink } from "@src/components/Molecules/Core/IconAndTextLink/IconAndTextLink";
 
 import strings from "@src/content/strings.json";
@@ -95,7 +96,7 @@ const ThemeItem: FC<ThemeItemProps> = (props) => {
         <button
           className={clsx(
             "accordion-button",
-            "py-2",
+            "py-3",
             "border-bottom",
             "collapsed",
             styles["accordion-button"],
@@ -207,46 +208,69 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
     });
   };
 
-  return (
-    <div className="w-100">
-      <div className={clsx(styles["container"])}>
-        <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
+  const filterContent = (
+    <>
+      <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
+        {props.file?.filename && (
           <IconAndTextLink
             asset={props.file}
             icon="download"
             label={themeFilterStrings.downloadAll}
           />
-          <IconAndTextLink
-            icon="restart"
-            label={themeFilterStrings.resetFilters}
-            onClick={(e) => {
-              e.preventDefault();
-              resetAllFilters();
-            }}
-          />
-        </div>
-        <div className={clsx("d-flex", "flex-column")}>
-          {props.themes && (
-            <>
-              <h1 className={clsx("heading-xs", "fw-bold", "mb-3")}>
-                {themeFilterStrings.themes}
-              </h1>
-              <div
-                className={clsx("accordion", "accordion-flush")}
-                id={accordionId}
-              >
-                {props.themes.map((theme) => (
-                  <ThemeItem
-                    key={theme._uid}
-                    theme={theme}
-                    control={control}
-                    setValue={setValue}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+        )}
+        <IconAndTextLink
+          icon="restart"
+          label={themeFilterStrings.resetFilters}
+          onClick={(e) => {
+            e.preventDefault();
+            resetAllFilters();
+          }}
+        />
+      </div>
+      <div className={clsx("d-flex", "flex-column")}>
+        {props.themes && (
+          <>
+            <h1 className={clsx("heading-xs", "fw-bold", "mb-3")}>
+              {themeFilterStrings.themes}
+            </h1>
+            <div
+              className={clsx("accordion", "accordion-flush")}
+              id={accordionId}
+            >
+              {props.themes.map((theme) => (
+                <ThemeItem
+                  key={theme._uid}
+                  theme={theme}
+                  control={control}
+                  setValue={setValue}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </>
+  );
+
+  const accordionProps = {
+    id: "something-random",
+    items: [
+      {
+        id: "something-else-random",
+        headerTitle: "Filters",
+        bodyContent: filterContent,
+      },
+    ],
+  };
+
+  return (
+    <div className="w-100">
+      <div className={clsx("d-block", "d-md-none", "mb-4")}>
+        <Accordion {...accordionProps} />
+      </div>
+
+      <div className={clsx("d-md-block", "d-none", styles["container"])}>
+        {filterContent}
       </div>
     </div>
   );
