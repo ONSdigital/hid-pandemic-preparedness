@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useRef, useEffect, useState, type FC } from "react";
+import { useRef, useState, type FC } from "react";
 
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
@@ -12,6 +12,11 @@ import darkTheme from "react-syntax-highlighter/dist/esm/styles/prism/one-dark";
 import { CopyButton } from "@src/components/Molecules/Core/CopyButton/CopyButton";
 import type { CodeProps, ToggleSwitchProps } from "./Code.interface";
 import styles from "./Code.module.scss";
+
+SyntaxHighlighter.registerLanguage("python", python);
+SyntaxHighlighter.registerLanguage("r", r);
+SyntaxHighlighter.registerLanguage("bash", bash);
+SyntaxHighlighter.registerLanguage("yaml", yaml);
 
 const ToggleSwitch: FC<ToggleSwitchProps> = (props) => {
   const sliderWidth = `calc(100% / ${props.languages.length})`;
@@ -64,12 +69,6 @@ export const Code: FC<CodeProps> = (props) => {
   const language = languages[selectedId].language;
   const code = languages[selectedId].code;
 
-  useEffect(() => {
-    SyntaxHighlighter.registerLanguage("python", python);
-    SyntaxHighlighter.registerLanguage("r", r);
-    SyntaxHighlighter.registerLanguage("bash", bash);
-    SyntaxHighlighter.registerLanguage("yaml", yaml);
-  }, []);
   return (
     <div>
       <h3>{props.title}</h3>
