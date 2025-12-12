@@ -16,6 +16,11 @@ export const Button: FC<ButtonProps> = (props) => {
       disabled={props.disabled}
       onClick={handleClick}
       type={props.type}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          handleClick(e as any);
+        }
+      }}
     >
       <div className={styles["btn-label"]}>{props.children}</div>
     </button>
