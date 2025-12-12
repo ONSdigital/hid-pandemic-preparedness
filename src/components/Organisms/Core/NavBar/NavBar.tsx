@@ -161,14 +161,16 @@ function handleClickOutside(
 ) {
   useEffect(() => {
     const triggerClickOutside = (event: MouseEvent | TouchEvent) => {
-      // console.log(event.target.classList)
       if (ref.current && !ref.current.contains(event.target as Node)) {
         callback();
       }
 
+      if (!(event.target instanceof HTMLElement)) return;
+
       // Unfocus Search if the search result directs to the section of the page the user is already located
       if (event.target.classList.contains("search-result-item-link")) {
-        if (window.location.href.includes(event.target.getAttribute("href"))) {
+        const href = event.target.getAttribute("href");
+        if (href != null && window.location.href.includes(href)) {
           callback();
         }
       }
