@@ -70,5 +70,11 @@
   },
   "video": {
     "transcript": "Download transcript"
+  },
+  "pageNotFound": {
+    "pageTitle": "404",
+    "errorCode": "404",
+    "errorMessage": "Page Not Found",
+    "description": "Unfortunately we couldn't find the page you were looking for"
   }
 }

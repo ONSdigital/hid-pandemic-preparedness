@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import strings from "@src/content/strings.json";
+---
+
+<BaseLayout title={strings.pageNotFound.pageTitle}>
+  <div class="container-404">
+    <h2 class="heading-l">{strings.pageNotFound.errorCode}</h2>
+    <h4 class="heading-s">{strings.pageNotFound.errorMessage}</h4>
+    <p class="m-2 text-center">{strings.pageNotFound.description}</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .container-404 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: center;
+  }
+</style>
