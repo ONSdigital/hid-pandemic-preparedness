@@ -209,7 +209,7 @@ export const ThemeFilter: FC<ThemeFilterProps> = (props) => {
   };
 
   const filterContent = (
-    <> 
+    <>
       <div className={clsx("d-flex", "flex-column", "gap-3", "mb-5")}>
         {props.file?.filename && (
           <IconAndTextLink

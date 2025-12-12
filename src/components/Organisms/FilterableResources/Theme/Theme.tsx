@@ -9,7 +9,15 @@ import type { ThemeProps } from "./Theme.interface";
 export const Theme: FC<ThemeProps> = (props) => {
   return (
     <>
-      <div className={clsx("p-4", "p-lg-5", "border", "rounded", styles["theme-bg"])}>
+      <div
+        className={clsx(
+          "p-4",
+          "p-lg-5",
+          "border",
+          "rounded",
+          styles["theme-bg"],
+        )}
+      >
         <h3 className={clsx("heading-m")}>{props.title}</h3>
         <hr className={clsx(styles["hr-m"])} />
         <div className={clsx("d-flex")}>
