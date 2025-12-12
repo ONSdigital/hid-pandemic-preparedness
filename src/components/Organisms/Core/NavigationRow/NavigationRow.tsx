@@ -27,7 +27,7 @@ export const NavigationRow: FC<NavigationRowProps> = (props) => {
   );
 
   return (
-    <div className={clsx("w-100", styles["child-pages-nav-bg"])}>
+    <div className={clsx("w-100", "pt-4", styles["child-pages-nav-bg"])}>
       <div className={clsx("container-lg", "py-4")}>
         {props.subTitle && (
           <div className={clsx("row", "py-4")}>
