@@ -39,7 +39,11 @@ export const ChapterList: FC<ChapterListProps> = (props) => {
           <a
             role="button"
             tabIndex={0}
-            className={clsx("text-decoration-none", styles["link-color"])}
+            className={clsx(
+              "text-decoration-none",
+              "d-inline-block",
+              styles["link-color"],
+            )}
             href={void 0}
             onClick={handleClick(chapter._uid)}
             onKeyDown={(e) => {
