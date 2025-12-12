@@ -50,7 +50,13 @@
 
 // Rich text overrides
 .text-module {
-  .heading-m,
+  .heading-m {
+    margin: 0.75em 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   .heading-s {
     margin-bottom: 0.75em;
   }

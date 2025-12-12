@@ -78,16 +78,15 @@ export const FilterableResources: FC<FilterableResourcesProps> = (props) => {
               <div
                 className={clsx(
                   "p-4",
+                  "p-lg-5",
                   "border",
                   "rounded",
                   styles["explanation-bg"],
                 )}
               >
-                <div className={clsx("d-flex", "py-4")}>
-                  <h3 className={clsx("heading-m")}>{props.resourceName}</h3>
-                </div>
-                <hr />
-                <div className={clsx("d-flex", "py-4")}>
+                <h3 className={clsx("heading-m")}>{props.resourceName}</h3>
+                <hr className={clsx(styles["hr-m"])} />
+                <div className={clsx("d-flex")}>
                   <TextModule richText={props.explanation} />
                 </div>
               </div>
