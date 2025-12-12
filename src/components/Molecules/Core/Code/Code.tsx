@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useRef, useEffect, useState, type FC } from "react";
+import { useRef, useState, type FC } from "react";
 
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
@@ -69,12 +69,6 @@ export const Code: FC<CodeProps> = (props) => {
   const language = languages[selectedId].language;
   const code = languages[selectedId].code;
 
-  // useEffect(() => {
-  //   SyntaxHighlighter.registerLanguage("python", python);
-  //   SyntaxHighlighter.registerLanguage("r", r);
-  //   SyntaxHighlighter.registerLanguage("bash", bash);
-  //   SyntaxHighlighter.registerLanguage("yaml", yaml);
-  // }, []);
   return (
     <div>
       <h3>{props.title}</h3>
