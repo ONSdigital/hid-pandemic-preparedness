@@ -101,3 +101,9 @@
     box-shadow: 0 0 0 3px $color-brand-secondary-500;
   }
 }
+
+.btn-link {
+  &:focus-visible {
+    box-shadow: 0 0 0 3px $color-brand-secondary-500;
+  }
+}
