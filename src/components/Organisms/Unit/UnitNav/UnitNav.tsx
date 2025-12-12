@@ -23,6 +23,10 @@ export const UnitNav: FC<UnitNavProps> = (props) => {
     if (props.onSelect) {
       props.onSelect(id);
       window.scrollTo({ top: 0, behavior: "instant" }); //Move to the top of the screen when chapter is selected
+
+      // Make the body focusable and set focus to it to reset focus when changing chapters
+      document.body.tabIndex = -1;
+      document.body.focus();
     }
   };
 

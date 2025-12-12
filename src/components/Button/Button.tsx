@@ -18,6 +18,7 @@ export const Button: FC<ButtonProps> = (props) => {
       type={props.type}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
           handleClick(e as any);
         }
       }}
