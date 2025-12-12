@@ -3,14 +3,16 @@ import ContentArea from "@src/components/ContentArea.astro";
 
 import { CaseStudies } from "@src/components/Organisms/Home/CaseStudies/CaseStudies";
 import { Code } from "@src/components/Molecules/Core/Code/Code";
-import { Header } from "@src/components/Organisms/Home/Header/Header";
+import { ContentHighlight } from "@/src/components/Molecules/Core/ContentHighlight/ContentHighlight";
 import { Formula } from "./Molecules/Core/Formula/Formula";
 import { FullWidthRichText } from "@src/components/Organisms/Core/FullWidthRichText/FullWidthRichText";
-import { RichText } from "@src/components/Organisms/Core/RichText/RichText";
+import { Header } from "@src/components/Organisms/Home/Header/Header";
+import { IconButton } from "./Molecules/Core/IconButton/IconButton";
 import { Iframe } from "@/src/components/Organisms/Core/Iframe/Iframe";
 import { ImageAndText } from "@src/components/Organisms/Home/ImageAndText/ImageAndText";
 import { Impact } from "@src/components/Organisms/Home/Impact/Impact";
 import { QuickLinks } from "@/src/components/Organisms/Home/QuickLinks/QuickLinks";
+import { RichText } from "@src/components/Organisms/Core/RichText/RichText";
 import { StatisticsAndText } from "@src/components/Organisms/Home/StatisticsAndText/StatisticsAndText";
 import { StrategicPartners } from "@src/components/Organisms/Home/StrategicPartners/StrategicPartners";
 import { Table } from "@src/components/Molecules/Core/Table/Table";
@@ -21,22 +23,25 @@ import { Video } from "@/src/components/Organisms/Core/Video/Video";
 
 // List of components that we have corresponding bloks for in Storyblok
 const COMPONENT_NAMES: string[] = [
+  "ContentArea",
+  "ContentHighlight",
   "CaseStudies",
+  "Formula",
   "FullWidthRichText",
   "Header",
+  "IconButton",
   "Iframe",
   "ImageAndText",
   "Impact",
+  "QuickLinks",
+  "RichText",
   "StatisticsAndText",
   "StrategicPartners",
-  "QuickLinks",
   "Table",
   "Tip",
   "ToolsCarousel",
-  "Video",
   "UnitBlock",
-  "Carousel",
-  "Formula",
+  "Video",
 ];
 
 const { blok } = Astro.props;
@@ -45,7 +50,7 @@ const componentName: string = blok.component;
 // If we are trying to render a blok we don't have a corresponding component for, log a warning
 if (!COMPONENT_NAMES.includes(blok.component)) {
   console.warn(
-    `DynamicComponent warning: Component "${componentName}" not found in COMPONENT_MAP.`,
+    `DynamicComponent warning: Component "${componentName}" not found in COMPONENT_NAMES.`,
   );
 }
 ---
@@ -56,6 +61,8 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
       <ContentArea {...blok} />
     ) : componentName === "Code" ? (
       <Code {...blok} client:visible />
+    ) : componentName === "ContentHighlight" ? (
+      <ContentHighlight {...blok} client:visible />
     ) : componentName === "UnitBlock" ? (
       <UnitBlock {...blok} />
     ) : componentName === "CaseStudies" ? (
@@ -66,6 +73,8 @@ if (!COMPONENT_NAMES.includes(blok.component)) {
       <RichText {...blok} />
     ) : componentName === "Header" ? (
       <Header {...blok} />
+    ) : componentName === "IconButton" ? (
+      <IconButton {...blok} client:visible />
     ) : componentName === "Iframe" ? (
       <Iframe {...blok} client:visible />
     ) : componentName === "ImageAndText" ? (

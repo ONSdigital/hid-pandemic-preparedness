@@ -1,0 +1,16 @@
+@use "../../../../styles/global/tokens" as *;
+
+.content-title {
+  background-color: $color-brand-primary-200;
+  padding: 1rem 2rem;
+}
+
+.content-container {
+  background-color: $color-brand-primary-100;
+  padding: 2rem;
+}
+
+.embedded-content-container {
+  background-color: $color-grey-100;
+  border-color: $color-brand-secondary-200 !important;
+}

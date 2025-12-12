@@ -1,0 +1,25 @@
+{
+  "_uid": "83fd5dc3-2d33-43a7-9941-85040c0d5356",
+  "icon": "RiCodeSSlashLine",
+  "link": {
+    "id": "",
+    "url": "https://github.com/",
+    "linktype": "url",
+    "fieldtype": "multilink",
+    "cached_url": "https://github.com/"
+  },
+  "component": "IconButton",
+  "buttonText": "Github button",
+  "downloadableContent": {
+    "id": null,
+    "alt": null,
+    "name": "",
+    "focus": null,
+    "title": null,
+    "source": null,
+    "filename": "",
+    "copyright": null,
+    "fieldtype": "asset",
+    "meta_data": {}
+  }
+}

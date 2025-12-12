@@ -1,5 +1,6 @@
 import type { FC } from "react";
 
+import { ContentHighlight } from "@src/components/Molecules/Core/ContentHighlight/ContentHighlight";
 import { TextModule } from "@src/components/Molecules/Core/TextModule/TextModule";
 import { Table } from "@/src/components/Molecules/Core/Table/Table";
 import { Iframe } from "@src/components/Organisms/Core/Iframe/Iframe";
@@ -33,6 +34,8 @@ export const Dynamic: FC<DynamicProps> = ({ content }) => {
 
     if (componentName === "RichText") {
       return <TextModule key={blok._uid} richText={blok.content} />;
+    } else if (componentName === "ContentHighlight") {
+      return <ContentHighlight {...blok} />;
     } else if (isComponentName(componentName)) {
       const Component = COMPONENT_MAP[componentName];
       return <Component key={blok._uid} {...blok} />;

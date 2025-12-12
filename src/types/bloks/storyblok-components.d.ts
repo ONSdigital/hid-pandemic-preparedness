@@ -232,6 +232,7 @@ export interface ContentArea {
     | Video
     | Code
     | IconButton
+    | ContentHighlight
   )[];
   component: "ContentArea";
   _uid: string;
@@ -239,7 +240,16 @@ export interface ContentArea {
 }
 
 export interface ContentHighlight {
-  textarea?: (Table | RichText)[];
+  highlightTitle?: string;
+  textarea?: (
+    | RichText
+    | ContentArea
+    | Formula
+    | Table
+    | Tip
+    | Video
+    | Iframe
+  )[];
   component: "ContentHighlight";
   _uid: string;
   [k: string]: unknown;
@@ -414,7 +424,6 @@ export interface IconButton {
     StoryblokMultilink,
     { linktype?: "email" } | { linktype?: "asset" }
   >;
-  isDownloadable?: boolean;
   downloadableContent?: StoryblokAsset;
   component: "IconButton";
   _uid: string;
@@ -980,7 +989,15 @@ export interface UnitChapter {
 
 export interface UnitOverview {
   title?: string;
-  content: (RichText | Table | Iframe | Video | Formula | Tip)[];
+  content: (
+    | RichText
+    | Table
+    | Iframe
+    | Video
+    | Formula
+    | Tip
+    | ContentHighlight
+  )[];
   githubLink?: Exclude<
     StoryblokMultilink,
     { linktype?: "email" } | { linktype?: "asset" }
@@ -993,7 +1010,15 @@ export interface UnitOverview {
 
 export interface UnitSection {
   title: string;
-  content: (Formula | Iframe | RichText | Table | Video | Tip)[];
+  content: (
+    | Formula
+    | Iframe
+    | RichText
+    | Table
+    | Video
+    | Tip
+    | ContentHighlight
+  )[];
   component: "UnitSection";
   _uid: string;
   [k: string]: unknown;
