@@ -32,6 +32,7 @@ There are two supported ways to manage Node locally, depending on your environme
 For Conda-based setup:
 
 ```zsh
+conda install conda-forge::awscli
 conda create -n node22 nodejs=22
 conda activate node22
 node -v
@@ -91,6 +92,18 @@ npm run test
 ## Option 1: Conda setup (preferred method for corporate macbooks 2026)
 
 Use this option if you are working on an environment where Conda is the approved way to manage tooling.
+
+Install awscli via Conda:
+
+```zsh
+conda install conda-forge::awscli
+```
+
+Configure awscli with aws account information (see AWS CLI setup below):
+
+```zsh
+aws configure
+```
 
 Create a Conda environment with Node.js 22:
 
