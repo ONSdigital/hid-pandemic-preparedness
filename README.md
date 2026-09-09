@@ -555,7 +555,7 @@ The script then checks CloudFront distributions and prints the CloudFront domain
 aws cloudfront list-distributions
 ```
 
-At the end of a successful deployment, it prints:
+The script prints the following message unconditionally. Because it does not currently stop when an AWS command fails, check the preceding AWS CLI output to confirm deployment success:
 
 ```text
 Deployment and invalidation complete. Updated site is available at https://<cloudfront-domain>.
