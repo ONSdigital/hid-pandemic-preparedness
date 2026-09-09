@@ -10,6 +10,12 @@ This section documents the current local setup and deployment flow for the `hid-
 
 It reflects the current `package.json` scripts and `scripts/deploy.sh` behaviour.
 
+### Deployment flow at a glance
+
+- Open PR to `main` -> PR checks run (lint/test/build)
+- Merge to `main` -> staging deployment runs automatically
+- Publish a GitHub release -> production deployment pipeline is triggered
+
 ---
 
 ## Prerequisites
@@ -18,7 +24,7 @@ The project requires:
 
 - Node.js
 - npm
-- AWS CLI (install at system level, not per Node version)
+- AWS CLI (install at system level) (Only required when manually running deployment scripts or to check AWS resources)
 - Access to the relevant AWS account and S3 buckets
 
 Create a `.env` file and include env vars to ensure correct settings are loaded to support development. See the [.example-env](.example-env) and the [environment variables](#environment-variables) section below
@@ -29,7 +35,7 @@ There are two supported ways to manage Node locally, depending on your environme
 
 ## Recommended Quick setup
 
-For Conda-based setup:
+### For Conda-based setup:
 
 ```zsh
 conda install conda-forge::awscli
@@ -40,39 +46,26 @@ npm -v
 npm install --include=dev
 aws configure
 aws sts get-caller-identity
+```
+
+### For live Storyblok data (instead of local static content):
+
+1. Update `.env`:
+
+```env
+ASTRO_USE_LOCAL_DATA="false"
+STORYBLOK_ACCESS_TOKEN=<your-token>
+ASTRO_PREVIEW="true"
+```
+
+Set `ASTRO_PREVIEW="false"` when you want to verify published-only content behavior.
+
+### Most used commands
+
+To run dev:
+
+```zsh
 npm run dev
-```
-
-For deployment to development:
-
-```zsh
-conda activate node22
-npm run deploy-app-dev
-```
-
-For deployment to main:
-
-```zsh
-conda activate node22
-npm run deploy-app-main
-```
-
-To run Storybook development server:
-
-```zsh
-npm run storybook
-```
-
-For deployment to storybook dev:
-
-```zsh
-npm run deploy-storybook-dev
-```
-
-For deployment to storybook main:
-
-```zsh
-npm run deploy-storybook-main
 ```
 
 To run ESLint locally:
@@ -85,6 +78,18 @@ To run all the tests using vitest:
 
 ```zsh
 npm run test
+```
+
+To build:
+
+```zsh
+npm run build
+```
+
+To run Storybook development server:
+
+```zsh
+npm run storybook
 ```
 
 ## More detailed setup
@@ -321,7 +326,7 @@ aws s3 ls s3://hid-ppt-app-main
 
 The deployment scripts are defined in `package.json`.
 
-IMPORTANT!! These commands are primarily executed by CI/CD workflows. In normal day-to-day development, deployments are usually triggered by merge/release events rather than run manually from local machines.
+Please note: These commands are primarily executed by CI/CD workflows. In normal day-to-day development, deployments are usually triggered by merge/release events rather than run manually from local machines.
 
 Manual use is typically limited to exceptional cases, such as:
 
@@ -329,7 +334,7 @@ Manual use is typically limited to exceptional cases, such as:
 - troubleshooting CI/CD or environment issues
 - emergency/manual fallback deployments by maintainers with the required AWS access
 
-### Deploy app to development
+### Manual deploy app to development
 
 ```zsh
 npm run deploy-app-dev
@@ -341,7 +346,7 @@ This runs:
 npm run build && bash ./scripts/deploy.sh dist/ hid-ppt-app-dev
 ```
 
-### Deploy app to main
+### Manual deploy app to main
 
 ```zsh
 npm run deploy-app-main
@@ -353,7 +358,7 @@ This runs:
 npm run build && bash ./scripts/deploy.sh dist/ hid-ppt-app-main
 ```
 
-### Deploy app preview (SSR)
+### Manual deploy app preview (SSR)
 
 ```zsh
 npm run deploy-app-preview
@@ -377,7 +382,7 @@ Example:
 ASTRO_OUTPUT=server ASTRO_PREVIEW=true PREVIEW_CDN_BASE_URL=https://d8sn29szhcb2a.cloudfront.net npm run deploy-app-preview
 ```
 
-### Deploy Storybook to development
+### Manual deploy Storybook to development
 
 ```zsh
 npm run deploy-storybook-dev
@@ -389,7 +394,7 @@ This runs:
 npm run build-storybook && bash ./scripts/deploy.sh storybook-static/ hid-ppt-storybook-dev
 ```
 
-### Deploy Storybook to main
+### Manual deploy Storybook to main
 
 ```zsh
 npm run deploy-storybook-main
