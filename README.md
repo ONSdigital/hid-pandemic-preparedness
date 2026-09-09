@@ -321,6 +321,14 @@ aws s3 ls s3://hid-ppt-app-main
 
 The deployment scripts are defined in `package.json`.
 
+IMPORTANT!! These commands are primarily executed by CI/CD workflows. In normal day-to-day development, deployments are usually triggered by merge/release events rather than run manually from local machines.
+
+Manual use is typically limited to exceptional cases, such as:
+
+- validating deployment behavior outside CI
+- troubleshooting CI/CD or environment issues
+- emergency/manual fallback deployments by maintainers with the required AWS access
+
 ### Deploy app to development
 
 ```zsh
@@ -343,6 +351,30 @@ This runs:
 
 ```zsh
 npm run build && bash ./scripts/deploy.sh dist/ hid-ppt-app-main
+```
+
+### Deploy app preview (SSR)
+
+```zsh
+npm run deploy-app-preview
+```
+
+This runs:
+
+```zsh
+npm run build && bash ./scripts/deployPreview.sh
+```
+
+This command is for the preview SSR deployment path. It requires:
+
+- `ASTRO_OUTPUT=server`
+- `ASTRO_PREVIEW=true`
+- `PREVIEW_CDN_BASE_URL=<preview-assets-cdn-base-url>`
+
+Example:
+
+```zsh
+ASTRO_OUTPUT=server ASTRO_PREVIEW=true PREVIEW_CDN_BASE_URL=https://d8sn29szhcb2a.cloudfront.net npm run deploy-app-preview
 ```
 
 ### Deploy Storybook to development
@@ -397,6 +429,11 @@ A static search library, Pagefind, is used in the project to provide a lightweig
 
 This project uses GitHub Actions workflows for Continuous Integration and Continuous Deployment (CI/CD). Workflow statuses can be monitored in the GitHub Actions tab of the project repository. Any failing workflows will highlight issues with code and stop either merges to the main branch or errors or bugs being deployed.
 
+Deployment flow summary:
+
+- pushes/merges to `main` deploy to staging
+- production deployment is triggered by publishing a new GitHub release
+
 ### Pull request and push integration
 
 The [main-pr-push-app.yml workflow](./.github/workflows/main-pr-push-app.yml) is configured to audit dependencies, run linting, run tests and automatically build code changes related to the project application code on every push or pull request targeting the main branch.
@@ -405,7 +442,11 @@ The [main-pr-push-iac.yml workflow](./.github/workflows/main-pr-push-iac.yml) is
 
 ### Push deployment
 
-The [main-push-cd.yml workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy the Astro application and Storybook on every push that targets the main branch. Once deployed successfully, the Astro application and Storybook will be available at an address defined by the AWS Cloudfront distribution.
+The [main-push-cd.yml workflow](./.github/workflows/main-push-cd.yml) is configured to build and deploy the Astro application and Storybook on every push that targets the main branch. This is the staging deployment step. Once deployed successfully, the Astro application and Storybook will be available at an address defined by the AWS Cloudfront distribution.
+
+### Release deployment
+
+The [main-release-cd.yml workflow](./.github/workflows/main-release-cd.yml) is configured to run when a GitHub release is published. This is the production deployment trigger. It runs `deploy-app-preview` for the preview SSR deployment path and triggers the production CodePipeline flow.
 
 ## Styling
 
