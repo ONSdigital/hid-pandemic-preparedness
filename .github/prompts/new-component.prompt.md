@@ -3,7 +3,7 @@ agent: "agent"
 description: "Create a new component using existing project patterns"
 ---
 
-Update an existing component in this repository
+Create a new component in this repository
 
 Process:
 - First inspect existing components

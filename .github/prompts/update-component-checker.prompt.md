@@ -5,13 +5,13 @@ description: "Regenerate the Storyblok types and review a component or the platf
 
 Review and amend the selected component or files or whole app in this repository
 
-Definiition:
+Definition:
 - npm run generate-storyblok-types will update the generated TypeScript definitions, not the renderers.
 - What that command does in this repo is:
     • pull the current Storyblok component definitions from your space
     • regenerate files like storyblok-components.d.ts
     • keep the repo’s schema/types aligned with whatever is configured in Storyblok
-- That is documented in README.md:222 and implemented in generateTypes.sh.
+- That is documented in README.md:222 and implemented in scripts/generateTypes.sh.
 - What it does not do:
     • it does not create or update Astro/React renderer code
     • it does not add support to Dynamic.tsx
@@ -32,4 +32,4 @@ Process:
 
 Return:
 1. types that have changed
-5. Exact files to change, if any
+2. Exact files to change, if any

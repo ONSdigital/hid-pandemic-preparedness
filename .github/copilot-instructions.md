@@ -1,6 +1,6 @@
 # .github/copilot-instructions.md
 
-This repository is an astro + react + typescript platformwith all content driven by storyblok.
+This repository is an Astro + React + TypeScript platform with all content driven by Storyblok.
 
 Rules:
 
@@ -31,7 +31,7 @@ Rules:
 - Front-end Guidance:
   - Accessibility: Ensure that the component is accessible to all users, including those with disabilities, by following best practices for accessibility and testing with assistive technologies.
   - Performance: Optimize the component for performance by minimizing unnecessary re-renders, using efficient algorithms, and avoiding excessive use of resources.
-  - Reusability: Design the component to be reusable across different parts of the application, with
+  - Reusability: Design components to be reusable across different parts of the application, with clear props and minimal coupling.
   - Semantic HTML: Use semantic HTML elements and attributes to improve the accessibility and SEO of the component, and to ensure that it is properly structured and easy to understand for both developers and users.
   - Keyboard Navigation: Ensure that the component can be easily navigated and interacted with using a keyboard, and that it provides appropriate focus states and feedback for users who rely on keyboard navigation.
   - Visible focus states: Ensure that the component provides visible focus states for interactive elements to improve accessibility and usability for all users.
@@ -48,9 +48,9 @@ Rules:
 
 - Storybook:
   - Stories should document real component states, not artificial ones.
-  - Include all best practise states
-  - Include at least one story that exercies keyboard interaction for interactive components
-  - Keep args realistic and aligned with storyblok driven content shapes.
+  - Include all best practice states
+  - Include at least one story that exercises keyboard interaction for interactive components
+  - Keep args realistic and aligned with Storyblok-driven content shapes.
 
   - Testing:
   - Test user visible behaviour and component states, not implementation details.
