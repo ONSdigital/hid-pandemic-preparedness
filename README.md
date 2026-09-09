@@ -18,7 +18,7 @@ The project requires:
 
 - Node.js
 - npm
-- AWS CLI
+- AWS CLI (install at system level, not per Node version)
 - Access to the relevant AWS account and S3 buckets
 
 Create a `.env` file and include env vars to ensure correct settings are loaded to support development. See the [.example-env](.example-env) and the [environment variables](#environment-variables) section below
@@ -32,7 +32,6 @@ There are two supported ways to manage Node locally, depending on your environme
 For Conda-based setup:
 
 ```zsh
-conda install conda-forge::awscli
 conda create -n node22 nodejs=22
 conda activate node22
 node -v
@@ -92,12 +91,6 @@ npm run test
 ## Option 1: Conda setup (preferred method for corporate macbooks 2026)
 
 Use this option if you are working on an environment where Conda is the approved way to manage tooling.
-
-Install awscli via Conda:
-
-```zsh
-conda install conda-forge::awscli
-```
 
 Create a Conda environment with Node.js 22:
 
