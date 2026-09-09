@@ -40,11 +40,11 @@ Rules:
   - If a component is edited, update or add Storybook stories for the main states.
 
 - Storyblok:
-  - Treat storyblok schema and generated types as the source of truth.
+  - Treat Storyblok schema and generated types as the source of truth.
   - Do not invent fields or assume optional fields are always present.
-  - Prefer explicit mapping functions from storyblok bloks to component props.
+  - Prefer explicit mapping functions from Storyblok bloks to component props.
   - Keep relation resolution and slug logic centralised.
-  - when data is shared across entries, prefer storyblok references rather than duplicated local assumptions
+  - When data is shared across entries, prefer Storyblok references rather than duplicated local assumptions
 
 - Storybook:
   - Stories should document real component states, not artificial ones.
