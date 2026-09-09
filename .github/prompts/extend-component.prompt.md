@@ -3,19 +3,32 @@ agent: "agent"
 description: "Extend an existing component safely"
 ---
 
-Update an existing component in this repository
+Update an existing component in this repository.
 
 Process:
-- Inspect the current component API and usages.
-- Preserve existing behaviour unless the task explicitly asks for a breaking change.
-- There may be an edge case where the component has been made to be quite specific to a single use, and in this case it may be better to reframe the existing component to be a more suitable generic agnostic component for both the existing use and the new use, and then create a new component that composes the generic component for the existing use case. This is a judgement call that should be made based on the specific circumstances of the task and the component in question. I have a feeling there might be a few cases of this in the platform as is where we might have to do this.
-- Reuse existing utilities and patterns
-- Explain whether the new feature belongs in:
-  - shared UI
-  - storyblok block wrapper
-  - storyblock mapping layer
-- update stories and tests.
-- call out acessibility or storyblock schema implications if there are any.
+1. Inspect the current component API, usage sites, story files, and tests.
+2. Preserve existing behavior unless the task explicitly requests a breaking change.
+3. If the component is too specific, consider extracting a generic base component and composing it for old/new use cases.
+4. Reuse existing utilities and patterns.
+5. Explain whether the new feature belongs in:
+   - shared UI
+   - Storyblok blok wrapper
+   - Storyblok mapping layer
+6. Update stories and tests for changed behavior.
+7. Call out accessibility or Storyblok schema implications.
+8. Run relevant checks (`npm run lint`, `npm run test`, and `npm run build` when app-impacting).
+
+Constraints:
+- Do not invent Storyblok field names or route shapes.
+- Preserve existing component APIs unless explicitly required to change them.
+- Ask for approval before adding dependencies.
+
+Return:
+1. Files changed and why
+2. Any API or behavior changes and migration notes (if needed)
+3. Reused components/utilities
+4. Storyblok data shape impact
+5. Validation commands run and outcomes
 
 Task:
 ${input:task:Describe the change}
