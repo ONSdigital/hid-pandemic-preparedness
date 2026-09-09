@@ -12,7 +12,7 @@ It reflects the current `package.json` scripts and `scripts/deploy.sh` behaviour
 
 ### Deployment flow at a glance
 
-- Open PR to `main` -> PR checks run (lint/test/build)
+- Open a PR to `main` with app changes -> app checks run (lint/test/build); IaC changes run Terraform validation and formatting checks
 - Merge to `main` -> staging deployment runs automatically
 - Publish a GitHub release -> production deployment pipeline is triggered
 
@@ -24,7 +24,7 @@ The project requires:
 
 - Node.js
 - npm
-- AWS CLI (install at system level) (Only required when manually running deployment scripts or to check AWS resources)
+- AWS CLI (install in the active Conda environment or at system level; required only when manually running deployment scripts or checking AWS resources)
 - Access to the relevant AWS account and S3 buckets
 
 Create a `.env` file and include env vars to ensure correct settings are loaded to support development. See the [.example-env](.example-env) and the [environment variables](#environment-variables) section below
