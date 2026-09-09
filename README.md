@@ -68,7 +68,7 @@ To run dev:
 npm run dev
 ```
 
-To run ESLint locally:
+To run Prettier + ESLint locally:
 
 ```zsh
 npm run lint
