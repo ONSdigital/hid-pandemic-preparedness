@@ -6,6 +6,7 @@ description: "Review component quality, accessibility, reuse, and alignment with
 Review the selected component or files in this repository.
 
 Process:
+
 1. Inspect the selected files and related usages.
 2. Compare against existing component and Storyblok patterns.
 3. Check accessibility, API design, reusability, and behavior regressions.
@@ -13,11 +14,13 @@ Process:
 5. Identify whether code belongs in shared UI, Storyblok wrapper, or mapping layer.
 
 Review focus:
+
 - Findings first, ordered by severity.
 - Emphasize bugs, regressions, and schema/type mismatches.
 - Include evidence with exact file paths and line numbers.
 
 Return:
+
 1. Overall rating (1-10) for accessibility, reusability, and pattern adherence, with brief rationale
 2. Critical issues
 3. High issues

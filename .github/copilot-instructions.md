@@ -5,6 +5,7 @@ This repository is an Astro + React + TypeScript platform with content driven by
 ## Rule Priority
 
 If rules conflict, follow this order:
+
 1. Security and correctness
 2. Existing behavior and public APIs
 3. Storyblok schema and generated types
@@ -46,6 +47,7 @@ If rules conflict, follow this order:
 ## Storyblok Change Handling
 
 When Storyblok schema changes are involved:
+
 1. Regenerate types using `npm run generate-storyblok-types`.
 2. Verify renderers and mapping code are still aligned with updated types.
 3. Explain expected content shape and any editor-facing implications.
@@ -53,6 +55,7 @@ When Storyblok schema changes are involved:
 ## Response Expectations
 
 When proposing or making changes, explain:
+
 1. Which files changed and why
 2. What existing code was reused
 3. What Storyblok data shape is expected
