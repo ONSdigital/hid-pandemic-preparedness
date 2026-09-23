@@ -19,12 +19,12 @@ jobs:
       run:
         working-directory: ./iac
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - name: Get terraform version from .terraform-version
         id: tf_version
         run: |
           echo "tf_version=$(cat .terraform-version)" >> $GITHUB_OUTPUT
-      - uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
         with:
           terraform_version: ${{ steps.tf_version.outputs.tf_version }}
       - run: terraform init -backend=false -no-color
